@@ -1,7 +1,7 @@
 #!/bin/sh
 
 PATH=/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
-VERSION="1.0.6629"
+VERSION="1.0.7167"
 
 # to force usage or non-usage of TLS libs edit /etc/defaults/nvidia-glx
 [ -e /etc/default/nvidia-glx ] && . /etc/default/nvidia-glx

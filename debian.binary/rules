@@ -87,7 +87,7 @@ ifeq ($(VERSION_EXPR2),0)
 else
   NV_PATCH_MINION=0
 endif
-
+NV_PATCH_MINION=0 # disable minion patching for 7167
 
 %.Makefile :
 	# select which makefile to use.

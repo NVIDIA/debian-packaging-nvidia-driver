@@ -1,10 +1,12 @@
-nvidia-kernel (1.0.6629+1-2) unstable; urgency=low
+nvidia-kernel (1.0.6629+1-2) unstable; urgency=high
 
   * Add patches for new (> 2.6.10-rc3-bk13) kernels from
     minion.de. Thanks to Drew Hess <dhess@bothan.net>
     (closes: #280224, #281640, #287226)
+  * updated minion patches from 16 Feb 2005
+  * urgency high to get back in to sarge asap.
 
- -- Randall Donald <rdonald@debian.org>  Tue, 11 Jan 2005 17:12:29 -0800
+ -- Randall Donald <rdonald@debian.org>  Fri, 18 Feb 2005 15:14:23 -0800
 
 nvidia-kernel (1.0.6629+1-1) unstable; urgency=low
 
