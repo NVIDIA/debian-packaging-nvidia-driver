@@ -95,7 +95,7 @@ KSRC=/usr/src/kernel-headers-2.4.21-4-k7 KVERS=2.4.21-4-k7 debian/rules binary_m
    
 7. Install the nvidia-kernel package:
 	    		     
-   dpkg -i ../nvidia-kernel-2.4.21-4-k7_1.0.7167-1+_.Custom_i386.deb
+   dpkg -i ../nvidia-kernel-2.4.21-4-k7_1.0.7174-1+_.Custom_i386.deb
    ( or similar filename )
 
 Now see GENERAL NOTES below method #2
@@ -143,7 +143,8 @@ Notes for method #2:
 
 - The Riva framebuffer is known to conflict with the nvidia X driver. If you
 are using X it would be wise not to compile it in. The vesa framebuffer is
-known to work slow but fine.
+known to work in some cases, and not in others. (people have recently been
+having problems with the vesa driver as well) 
 
 GENERAL NOTES:
 

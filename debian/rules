@@ -22,7 +22,7 @@ url:=$(shell sh debian/upstream_info URL)
 dirname:=$(shell sh debian/upstream_info DIRNAME)
 filename:=$(shell sh debian/upstream_info FILENAME)
 
-AUTOGEN=debian/nvidia-kernel-source.README.Debian debian/control debian/copyright debian/nvidia-glx.links debian/nvidia-glx-dev.links debian/nvidia-glx.override debian/docs debian/nvidia-glx.examples debian/nvidia-glx.postrm debian/nvidia-glx.init
+AUTOGEN=debian/nvidia-kernel-source.README.Debian debian/control debian/copyright debian/nvidia-glx.links debian/nvidia-glx-dev.links debian/nvidia-glx.override debian/docs debian/nvidia-glx.examples debian/nvidia-glx.postrm debian/nvidia-glx.init debian/nvidia-glx-ia32.override debian/nvidia-glx-ia32.links
 
 
 
@@ -159,7 +159,17 @@ install: build-stamp build-kernel-stamp
 	install -m 0644 debian/nvidia-glx.override \
 	        $(CURDIR)/debian/nvidia-glx/usr/share/lintian/overrides/nvidia-glx
 					
-
+	if [ "$(DEB_BUILD_ARCH)" == "amd64" ] ; then \
+	        install $(dirname)/usr/lib32/libGLcore.so.${version} \
+			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
+		install $(dirname)/usr/lib32/libGL.so.${version} \
+		        $(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
+		install $(dirname)/usr/lib32/libnvidia-tls.so.${version} \
+		        $(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
+		install $(dirname)/usr/lib32/tls/libnvidia-tls.so.${version} \
+		        $(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib/tls ; \
+	fi
+	
 	install -m 755 $(dirname)/usr/bin/nvidia-bug-report.sh $(CURDIR)/debian/nvidia-glx/usr/bin/
 	
 	# use separate source package instead
@@ -200,7 +210,9 @@ binary-common:
 #	dh_python
 	dh_makeshlibs
 	dh_installdeb
-	dh_shlibdeps -l$(CURDIR)/debian/nvidia-glx/usr/lib	
+	dh_shlibdeps  -Xia32 -Xtls -l$(CURDIR)/debian/nvidia-glx/usr/lib
+	# quickhack! remove me :-/
+	perl -pi.bak -e 's/,\s+nvidia-glx-ia32//;' $(CURDIR)/debian/nvidia-glx.substvars
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb

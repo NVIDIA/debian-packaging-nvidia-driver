@@ -9,7 +9,7 @@
 export DH_COMPAT=2
 
 
-upstreamversion=1.0-5336
+
 dirname=nv
 
 
@@ -79,14 +79,15 @@ else
 endif  
 
 # If 2.6.10-rc3-bk13 or greater, use minion.de kernel patches
-DESIRED_VERSION=132618
-VERSION_EXPR2 = $(shell test $(KERNEL_VERSION_CODE) -ge $(DESIRED_VERSION) ; echo $$? )
+#DESIRED_VERSION=132618
+#VERSION_EXPR2 = $(shell test $(KERNEL_VERSION_CODE) -ge $(DESIRED_VERSION) ; echo $$? )
 
-ifeq ($(VERSION_EXPR2),0)
-  NV_PATCH_MINION=1
-else
-  NV_PATCH_MINION=0
-endif
+#ifeq ($(VERSION_EXPR2),0)
+#  NV_PATCH_MINION=1
+#else
+#  NV_PATCH_MINION=0
+#endif
+
 NV_PATCH_MINION=0 # disable minion patching for 7167
 
 %.Makefile :
