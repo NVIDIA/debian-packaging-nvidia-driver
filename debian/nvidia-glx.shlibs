@@ -1,0 +1,4 @@
+libGL     1 xlibmesa-gl | libgl1
+libGLcore 1 xlibmesa-gl | libgl1
+libXvMCNVIDIA_dynamic 1 nvidia-glx
+libnvidia-tls 1 nvidia-glx

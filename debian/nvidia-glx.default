@@ -1,0 +1,12 @@
+##############################################
+# For use with the Debian nvidia-glx package
+#
+# To force TLS versioning. This is not need by
+# most users.
+
+
+# Uncomment to force the use of NVIDIA TLS libs
+#USE_TLS=1
+
+# Uncomment to force the use of NVIDIA non-TLS libs
+#USE_TLS=0

@@ -1,0 +1,3 @@
+nvidia-kernel-#KVERS#: mknod-in-maintainer-script postinst:32
+nvidia-kernel-#KVERS#: mknod-in-maintainer-script postinst:41
+nvidia-kernel-#KVERS#: unstripped-binary-or-object ./lib/modules/#KVERS#/kernel/drivers/video/nvidia.o

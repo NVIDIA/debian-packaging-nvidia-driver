@@ -1,0 +1,49 @@
+Source: nvidia-graphics-drivers
+Section: non-free/x11
+Priority: optional
+Maintainer: Randall Donald <rdonald@debian.org>
+Build-Depends: debhelper (>> 4.0.0), sed (>> 3.0)
+Standards-Version: 3.6.1
+
+Package: nvidia-glx
+Architecture: i386 amd64
+Depends: nvidia-kernel-#VERSION#, xserver-common (>= 4.0.3), xlibmesa-glu | libglu | libglu1, ${shlibs:Depends}
+Recommends: nvidia-kernel-source (>= #VERSION#)
+Suggests: nvidia-settings
+Conflicts: nvidia-glx-src
+Replaces: nvidia-glx-src
+Provides: xserver
+Description: NVIDIA binary XFree86 4.x driver
+ These XFree86 4.0 binary drivers provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server and support the TNT,
+ TNT2, TNT Ultra, GeForce, nForce and Quadro chipsets. AGP, TV-out and
+ flat panel displays are also supported.
+ .
+ Please see the nvidia-kernel-source package for building the kernel module
+ required by this package.
+ 
+Package: nvidia-glx-dev
+Architecture: i386 amd64
+Depends: nvidia-glx (>= #VERSION#), xlibmesa-gl-dev | libgl-dev, xlibmesa-glu-dev | libglu-dev
+Description: NVIDIA binary XFree86 4.x driver development files
+ This package contains the NVIDIA binary XFree86 4.x driver
+ development files.
+ .
+ For more information on this source package visit NVIDIA's homepage
+ at http://www.nvidia.com/ .
+
+Package: nvidia-kernel-source
+Architecture: i386 amd64
+Depends: debhelper (>> 4.0.0), make, sed (>> 3.0), dpatch (>= 2.0.0)
+Recommends: nvidia-glx (>= #VERSION#), kernel-package (>= 8.082), devscripts
+Conflicts: nvidia-kernel-src
+Replaces: nvidia-kernel-src
+Description: NVIDIA binary kernel module source
+ This package builds the NVIDIA XFree86 4.x binary kernel module needed
+ by nvidia-glx. The drivers provide optimized hardware acceleration of OpenGL
+ applications via a direct-rendering X Server and support the TNT,
+ TNT2, TNT Ultra, The GeForce series, nForce, and Quadro chipsets. AGP,
+ TV-out, and flat panel displays are also supported.
+ .
+ PLEASE read /usr/share/doc/nvidia-kernel-source/README.Debian for building
+ information.

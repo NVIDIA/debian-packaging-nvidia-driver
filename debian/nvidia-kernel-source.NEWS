@@ -1,0 +1,16 @@
+nvidia-graphics-drivers (1.0.5336-1) unstable; urgency=low
+
+  With this upstream release, no more patching for 2.6.0 kernels 
+  is neccessary. 
+      
+ -- Randall Donald <rdonald@debian.org>  Tue, 27 Jan 2004 00:01:32 -0800
+       
+nvidia-graphics-drivers (1.0.5328-1) unstable; urgency=low
+
+  This release now applies the minion.de patch automatically at build time 
+  on nvidia-kernel-source. It should work for both 2.4 and 2.6 kernels. It
+  also provides a fix for some newer Via chips where an oops would occur 
+  upon X startup. To bypass this patching set the DO_NOT_PATCH_NV environment
+  variable.
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 22 Dec 2003 01:21:58 -0800

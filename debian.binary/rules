@@ -1,0 +1,298 @@
+#!/usr/bin/make -f
+# Sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This is the debhelper compatability version to use.
+export DH_COMPAT=2
+
+
+upstreamversion=1.0-5336
+dirname=nv
+
+
+# if you need to redefine these
+KSRC:=$(KSRC)
+KVERS:=${KVERS}
+
+# 6106 has builtin sysfs support supposedly 
+NV_PATCH_SYSFS ?= 0
+
+
+# redefine the directory for kbuild to fine the makefile.
+KBUILD_PARAMS := "-C $(KSRC) SUBDIRS=$(CURDIR)/$(dirname)"
+
+    
+#### COMPILER DETECTION ####
+
+ifeq ($(origin CC),default)
+ifneq "$(wildcard $(KSRC)/include/linux/compile.h)" ""
+CC = gcc-$(shell grep LINUX_COMPILER $(KSRC)/include/linux/compile.h | sed 's/.*[gcc|GCC].* \([0-9]\.[0-9]\+\).*/\1/')
+else
+CC = gcc
+endif
+endif
+
+ifeq ($(CC),gcc-2.7)
+CC = gcc272
+endif
+
+# determine gcc versions used (kernel, nvidia.o)
+module_cc:=$(shell $(CC) -v 2>&1 | tail -1) 
+version="^Linux version [^(]* (.*@.*) (\(gcc.*\)) .*"
+kernel_cc:=$(shell cat /proc/version | sed "s/"$(version)"/\1/")
+
+module_cc:=$(shell echo "$(module_cc)" | sed 's/.* \([0-9.]*\.[0-9]\).*/\1/')
+kernel_cc:=$(shell echo "$(kernel_cc)" | sed 's/.* \([0-9.]*\.[0-9]\).*/\1/')
+
+baseepoch=$(shell expr $(KDREV) : '\([0-9]*\):.*' 2>/dev/null )
+ifneq ($(baseepoch),)
+      EPOCH=$(baseepoch):
+endif
+REV=$(shell expr $(KDREV) : '[0-9]*:\(.*\)' 2>/dev/null)
+ifeq ($(REV),)
+     REV=$(KDREV)
+endif
+VERSION=$(shell dpkg-parsechangelog | grep ^Version: | cut -d ' ' -f 2)
+ifeq ($(REV),)
+PKG_VERSION=$(EPOCH)$(VERSION)
+else
+PKG_VERSION=$(EPOCH)$(VERSION)+$(REV)
+endif
+
+
+
+CHFILE=$(CURDIR)/../../nvidia-kernel-$(KVERS)_$(PKG_VERSION)_$(ARCH).changes
+
+
+KERNEL_VERSION_CODE = $(shell cat $(KSRC)/include/linux/version.h | grep LINUX_VERSION_CODE  | cut -d " " -f 3)
+DESIRED_VERSION=132608
+# 2 << 16 + 6 << 8 + 0 
+VERSION_EXPR = $(shell test $(KERNEL_VERSION_CODE) -ge $(DESIRED_VERSION) ; echo $$? )
+
+ifeq ($(VERSION_EXPR),0) 
+  PATCHLEVEL=6
+else
+  PATCHLEVEL=4
+endif  
+
+# If 2.6.10-rc3-bk13 or greater, use minion.de kernel patches
+DESIRED_VERSION=132618
+VERSION_EXPR2 = $(shell test $(KERNEL_VERSION_CODE) -ge $(DESIRED_VERSION) ; echo $$? )
+
+ifeq ($(VERSION_EXPR2),0)
+  NV_PATCH_MINION=1
+else
+  NV_PATCH_MINION=0
+endif
+
+
+%.Makefile :
+	# select which makefile to use.
+	rm -f $(CURDIR)/$(dirname)/Makefile || true
+	if [ $(PATCHLEVEL) = 6  ]; then \
+	     cd $(CURDIR)/$(dirname) ; \
+	     ln -s Makefile.kbuild Makefile ; \
+	     cd .. ; \
+	     if [ $(NV_PATCH_MINION) = 1 ] ; then \
+	        dpatch apply 04_minion ; \
+	     fi ; \
+	     if [ $(NV_PATCH_SYSFS) = 1 ]; then \
+	     	dpatch apply 01_sysfs ; \
+		dpatch status 01_sysfs >patch-stamp ; \
+		dpatch apply 02_pcialias ; \
+               	dpatch status 02_pcialias >>patch-stamp ; \
+	     fi ; \
+	fi
+	
+	if [  $(PATCHLEVEL) = 4  ]; then \
+	     cd $(CURDIR)/$(dirname) ; \
+	     ln -s Makefile.nvidia Makefile ; \
+	     cd .. ; \
+	fi
+
+
+
+
+.PHONY: configure configure-stamp
+configure: configure-stamp
+configure-stamp: config.Makefile
+
+	#nothing here anymore
+
+	touch configure-stamp
+
+
+.PHONY: build build-stamp
+build: configure-stamp build-stamp
+build-stamp:
+	if [ -f $(CURDIR)/debian/control.template ]; then \
+		cp  $(CURDIR)/debian/control.template $(CURDIR)/debian/control; \
+	fi
+
+	dh_testdir
+	dh_testroot
+
+	@echo "PATCHLEVEL = $(PATCHLEVEL) " ;
+	@echo "Kernel compiler version : $(kernel_cc)" ; 
+	@echo "Detected compiler version : $(module_cc)" ;
+       
+
+	@if [ "$(kernel_cc)" != "$(module_cc)" ]; then \
+	echo "                                                           "; \
+	echo "You appear to be compiling the NVIDIA kernel module with   "; \
+	echo "a compiler different from the one that was used to compile "; \
+	echo "the running kernel. This may be perfectly alright and you "; \
+	echo "may be building this module for another kernel in which case"; \
+	echo "you may ignore this message."; \
+	echo " " ; \
+	echo "The compiler that will be used to compile this module has been"; \
+	echo "determined from:" ; \
+	echo " 1) the CC environment variable " ; \
+	echo " 2) that specified in "; \
+	echo "    $(KSRC)/include/linux/compile.h" ; \
+	echo " 3) gcc " ; \
+	fi
+	@echo "Using compiler $(CC) version $(module_cc)"; 
+
+	
+
+	touch $(CURDIR)/$(dirname)/gcc-check
+	touch $(CURDIR)/$(dirname)/cc-sanity-check
+
+	## Main Make ##
+	IGNORE_CC_MISMATCH=1 CC="$(CC)" $(ROOT_CMD) $(MAKE) -C $(CURDIR)/$(dirname) -f Makefile SYSSRC=$(KSRC)  $(KPKG_EXTRAV_ARG) KBUILD_PARAMS=$(KBUILD_PARAMS) module;
+
+	touch build-stamp
+
+
+.PHONY: install
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+
+	sed 's/#KVERS#/$(KVERS)/g' debian/control.template > $(CURDIR)/debian/control
+	sed 's/#KVERS#/$(KVERS)/g' debian/dirs.template > $(CURDIR)/debian/dirs
+	sed 's/#KVERS#/$(KVERS)/g' debian/override.template > $(CURDIR)/debian/override
+
+	dh_installdirs
+
+
+	install -m 0644 $(CURDIR)/debian/override $(CURDIR)/debian/nvidia-kernel-$(KVERS)/usr/share/lintian/overrides/nvidia-kernel-$(KVERS)
+	if [ "$(PATCHLEVEL)" = "6" ] ; then \
+	   install -m 0644 $(CURDIR)/$(dirname)/nvidia.ko $(CURDIR)/debian/nvidia-kernel-$(KVERS)/lib/modules/$(KVERS)/nvidia/nvidia.ko ; \
+	else \
+	   install -m 0644 $(CURDIR)/$(dirname)/nvidia.o $(CURDIR)/debian/nvidia-kernel-$(KVERS)/lib/modules/$(KVERS)/nvidia/nvidia.o ;\
+	fi
+
+
+
+
+
+.PHONY: binary_modules
+binary_modules: build install
+	dh_testdir
+	dh_testroot
+#	dh_installdebconf	
+	dh_installdocs
+#	dh_installexamples
+#	dh_installmanpages
+#	dh_undocumented
+#	dh_installmodules
+
+	dh_installinit
+	
+	dh_installchangelogs 
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+# You may want to make some executables suid here.
+#	dh_suidregister
+#	dh_makeshlibs
+	dh_installdeb
+#	dh_shlibdeps
+	dh_gencontrol -- -v$(PKG_VERSION)
+	dh_md5sums
+ifeq "$(origin KPKG_DEST_DIR)" "undefined"	
+ifeq "$(origin KMAINT)" "undefined"	
+	dh_builddeb  --destdir=$(CURDIR)/..
+else	
+	dh_builddeb  --destdir=$(KSRC)/..
+endif
+else
+	dh_builddeb  --destdir=$(KPKG_DEST_DIR)
+endif	
+
+
+.PHONY: clean
+clean: clean.Makefile  unpatch
+	if [ -f $(CURDIR)/debian/control.template ]; then \
+		cp  $(CURDIR)/debian/control.template $(CURDIR)/debian/control; \
+	fi
+
+	dh_testroot
+	rm -f build-stamp configure-stamp
+
+
+	$(MAKE) clean SYSSRC=$(KSRC) -C $(CURDIR)/$(dirname) -f Makefile $(KPKG_EXTRAV_ARG)
+        
+	rm -f $(CURDIR)/$(dirname)/Makefile || true; 	
+	-rm $(CURDIR)/$(dirname)/gcc-check
+	-rm $(CURDIR)/$(dirname)/cc-sanity-check
+	
+	-dh_clean
+
+	-rm $(CURDIR)/debian/control
+	-rm $(CURDIR)/debian/dirs
+	-rm $(CURDIR)/debian/override
+
+
+unpatch: 
+	if [ -e patch-stamp ]; then \
+	   dpatch deapply-all ; \
+	   rm -rf patch-stamp debian/patched ; \
+	fi   
+	   
+
+# The kdist_configure target is called by make-kpkg modules_config. It
+# should configure the module so it is ready for compilation (mostly
+# useful for calling configure)
+.PHONY: kdist_config
+kdist_config:
+	     $(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules configure
+
+.PHONY: kdist_configure
+kdist_configure:
+		$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules configure
+
+# the kdist_image target is called by make-kpkg modules_image. It is
+# responsible for compiling the module and creating the package. It
+# should also clean up after making the module. Please note we use a
+# seperate binary-modules target to make testing the package building
+# easier
+.PHONY: kdist_image
+kdist_image:
+	    echo "ROOT_CMD = $(ROOT_CMD)"
+	    $(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules binary_modules
+	    $(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules clean
+ 
+
+
+# the kdist_clean target is called by make-kpkg modules_clean. It is
+# responsible for cleaning up any changes that have been made by the
+# other kdist_commands (except for the .deb files created).
+.PHONY: kdist_clean
+kdist_clean: 
+	     $(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules clean
+
+kdist: 
+	$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules binary_modules
+	# Build a .changes file.
+	dpkg-genchanges -b -e"$(KMAINT) <$(KEMAIL)>" -u"$(CURDIR)/../.." > $(CHFILE)
+	debsign -e"$(KMAINT) <$(KEMAIL)>" $(CHFILE)
+	$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules clean
+							

@@ -1,0 +1,232 @@
+#!/usr/bin/make -f
+# Sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+#
+# Modified to make a template file for a multi-binary package with separated
+# build-arch and build-indep targets  by Bill Allombert 2001
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+
+base_version:=$(shell sh debian/upstream_info BASE_VERSION)
+release:=$(shell sh debian/upstream_info RELEASE)
+version:=$(shell sh debian/upstream_info VERSION)
+upstreamversion:=$(shell sh debian/upstream_info UPSTREAMVERSION)
+url:=$(shell sh debian/upstream_info URL)
+dirname:=$(shell sh debian/upstream_info DIRNAME)
+filename:=$(shell sh debian/upstream_info FILENAME)
+
+AUTOGEN=debian/nvidia-kernel-source.README.Debian debian/control debian/copyright debian/nvidia-glx.links debian/nvidia-glx-dev.links debian/nvidia-glx.override debian/docs debian/nvidia-glx.examples debian/nvidia-glx.postrm debian/nvidia-glx.init
+
+
+
+
+
+CFLAGS = -Wall -g
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2
+endif
+ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
+	INSTALL_PROGRAM += -s
+endif
+
+version-change: version-clean $(AUTOGEN) clean
+
+configure: configure-stamp
+
+.PHONY: configure-stamp
+configure-stamp: version-clean $(AUTOGEN)
+	dh_testdir
+
+	./${filename} --extract-only
+	
+	sed 's/^nvidia-graphics-drivers/nvidia-kernel/g'  debian/changelog > debian.binary/changelog
+	
+	
+	touch configure-stamp
+
+.PHONY: build
+build: configure-stamp build-stamp
+
+.PHONY: build-stamp
+build-stamp:
+	    touch build-stamp
+
+.PHONY: build-kernel
+build-kernel:
+
+.PHONY: build-kernel-stamp 
+build-kernel-stamp:
+	    dh_testroot
+	    dh_testdir
+
+	    # build kernel module source tarball
+	    mkdir -p $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
+	    mkdir -p $(CURDIR)/debian/temp/modules/nvidia-kernel/nv
+	    cp -r $(CURDIR)/debian.binary/* $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
+	    
+	    for f in `ls $(CURDIR)/debian.binary` ; do \
+		perl -p \
+		-e 's{#BASE_VERSION#}{$(base_version)}g;' \
+		-e 's{#RELEASE#}{$(release)}g;' \
+		-e 's{#VERSION#}{$(version)}g;' \
+		-e 's{#UPSTREAMVERSION#}{$(upstreamversion)}g;' \
+		-e 's{#URL#}{$(url)}g' \
+		< $(CURDIR)/debian.binary/$$f >		$(CURDIR)/debian/temp/modules/nvidia-kernel/debian/$$f ; \
+		chmod 0644 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/$$f ; \
+	    done
+	    chmod 755 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/patches	    
+	    cp $(CURDIR)/$(dirname)/usr/src/nv/* $(CURDIR)/debian/temp/modules/nvidia-kernel/nv || true
+	    chmod 755 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/rules
+	    chown -R root:src $(CURDIR)/debian/temp/modules
+	    tar -zcvf $(CURDIR)/nvidia-kernel-source.tar.gz -C $(CURDIR)/debian/temp modules
+	    rm -rf debian/temp 
+	    touch build-kernel-stamp
+
+.PHONY: clean						
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp build-kernel-stamp configure-stamp
+	dh_clean 
+
+	rm -fr $(dirname)  nvidia-kernel-source.tar.gz
+	
+	
+
+.PHONY: install
+install: build-stamp build-kernel-stamp
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs 
+	
+	install -m 644 $(CURDIR)/nvidia-kernel-source.tar.gz $(CURDIR)/debian/nvidia-kernel-source/usr/src
+	
+	
+	install -m 0644 $(dirname)/usr/X11R6/lib/modules/drivers/nvidia_drv.o \
+		$(CURDIR)/debian/nvidia-glx/usr/X11R6/lib/modules/drivers
+
+
+
+	install $(dirname)/usr/X11R6/lib/libXvMCNVIDIA.a $(CURDIR)/debian/nvidia-glx-dev/usr/X11R6/lib/libXvMCNVIDIA.a;
+	install $(dirname)/usr/X11R6/lib/libXvMCNVIDIA.so.${version} $(CURDIR)/debian/nvidia-glx/usr/X11R6/lib/libXvMCNVIDIA.so.${version};
+
+
+
+	# move gl headers into /usr/share so we can use the mesa headers
+	install -m 0644 $(dirname)/usr/include/GL/gl.h \
+		$(CURDIR)/debian/nvidia-glx-dev/usr/share/doc/nvidia-glx-dev/include/GL
+	install -m 0644 $(dirname)/usr/include/GL/glext.h \
+		$(CURDIR)/debian/nvidia-glx-dev/usr/share/doc/nvidia-glx-dev/include/GL
+
+	install -m 0644 $(dirname)/usr/include/GL/glx.h \
+		$(CURDIR)/debian/nvidia-glx-dev/usr/share/doc/nvidia-glx-dev/include/GL
+	install -m 0644 $(dirname)/usr/include/GL/glxtokens.h \
+		$(CURDIR)/debian/nvidia-glx-dev/usr/share/doc/nvidia-glx-dev/include/GL
+
+	install -m 0644 $(dirname)/usr/lib/libGL.so.${version} \
+	                $(CURDIR)/debian/nvidia-glx/usr/lib
+	install -m 0644 $(dirname)/usr/lib/libGLcore.so.${version} \
+                $(CURDIR)/debian/nvidia-glx/usr/lib
+	sed "s/__GENERATED_BY__/Debian nvidia-graphics-drivers/" $(dirname)/usr/lib/libGL.la | sed "s/__LIBGL_PATH__/\/usr\/lib/" > $(CURDIR)/debian/nvidia-glx-dev/usr/lib/libGL.la
+	# install -m 0644 $(dirname)/usr/lib/libGL.la $(CURDIR)/debian/nvidia-glx/usr/lib/libGL.la
+	
+	# TLS (nvidia-tls new for 6106)
+	install $(dirname)/usr/lib/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/
+
+	install $(dirname)/usr/lib/tls/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia
+	
+	#sed "s/__GENERATED_BY__/Debian nvidia-graphics-drivers/" $(dirname)/usr/lib/tls/libGL.la | sed "s/__LIBGL_PATH__/\/usr\/lib\/tls/" > $(CURDIR)/debian/nvidia-glx-dev/usr/lib/nvidia/libGL.la
+	# install -m 0644 $(dirname)/usr/lib/tls/libGL.la $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia/libGL.la   
+	
+	
+	install $(dirname)/usr/X11R6/lib/modules/extensions/libglx.so.${version} $(CURDIR)/debian/nvidia-glx/usr/X11R6/lib/modules/extensions/
+	
+	install $(dirname)/usr/bin/tls_test $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia
+	install $(dirname)/usr/bin/tls_test_dso.so $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia	
+
+	install -d $(CURDIR)/debian/nvidia-glx/usr/share/lintian/overrides
+	install -m 0644 debian/nvidia-glx.override \
+	        $(CURDIR)/debian/nvidia-glx/usr/share/lintian/overrides/nvidia-glx
+					
+
+	install -m 755 $(dirname)/usr/bin/nvidia-bug-report.sh $(CURDIR)/debian/nvidia-glx/usr/bin/
+	
+	# use separate source package instead
+	#install -m 755 $(dirname)/usr/bin/nvidia-settings $(CURDIR)/debian/nvidia-settings/usr/bin/
+	#install -m 644 $(dirname)/usr/share/doc/nvidia-settings-user-guide.txt $(CURDIR)/debian/nvidia-settings/usr/share/doc/nvidia-settings
+	
+	
+	install $(CURDIR)/script $(CURDIR)/debian/nvidia-glx/usr/share/bug/nvidia-glx
+	
+	dh_install 
+
+
+# Must not depend on anything. This is to be called by
+# binary-arch/binary-multi
+# in another 'make' thread.
+.PHONY: binary-common
+binary-common:
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs 
+	dh_installdocs 
+	dh_installexamples
+#	dh_installmenu
+	dh_installdebconf	
+#	dh_installlogrotate	
+#	dh_installemacsen
+#	dh_installpam
+#	dh_installmime
+	dh_installinit
+#	dh_installcron
+#	dh_installinfo
+	dh_installman
+	dh_link
+	dh_strip
+	dh_compress -X.h -X README.Debian 
+	dh_fixperms
+#	dh_perl
+#	dh_python
+	dh_makeshlibs
+	dh_installdeb
+	dh_shlibdeps -l$(CURDIR)/debian/nvidia-glx/usr/lib	
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+
+%:	%.in debian/upstream_info
+	perl -p \
+	-e 's{#BASE_VERSION#}{$(base_version)}g;' \
+	-e 's{#RELEASE#}{$(release)}g;' \
+	-e 's{#VERSION#}{$(version)}g;' \
+	-e 's{#UPSTREAMVERSION#}{$(upstreamversion)}g;' \
+	-e 's{#DIRNAME#}{$(dirname)}g;' \
+	-e 's{#FILENAME#}{$(filename)}g;' \
+	-e 's{#URL#}{$(url)}g' \
+	< $< > $@
+
+
+# Build architecture dependant packages using the common target.
+.PHONY: binary-arch
+binary-arch: build-stamp build-kernel-stamp install
+	$(MAKE) -f debian/rules binary-common
+
+.PHONY: binary
+binary: binary-arch
+
+.PHONY: version-clean
+version-clean: 
+	       rm -f ${AUTOGEN} || true
+	       

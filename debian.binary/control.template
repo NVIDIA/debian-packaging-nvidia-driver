@@ -1,0 +1,23 @@
+Source: nvidia-kernel
+Section: non-free/x11
+Priority: optional
+Maintainer: Randall Donald <rdonald@debian.org>
+Build-Depends: debhelper (>> 3.0.0), make, libc6-dev
+Standards-Version: 3.6.0
+
+Package: nvidia-kernel-#KVERS#
+Architecture: i386 amd64
+Provides: nvidia-kernel-#VERSION#
+Depends: nvidia-kernel-common (>= #VERSION#)
+Recommends: kernel-image-#KVERS#
+Description: NVIDIA binary kernel module for Linux #KVERS#
+ These XFree86 4.0 binary drivers provide optimized hardware acceleration of 
+ OpenGL applications via a direct-rendering X Server and support the TNT,
+ TNT2, TNT Ultra, GeForce, nForce and Quadro chipsets. AGP and flat panel
+ displays are also supported.
+ .
+ This package contains the NVIDIA binary kernel module needed by
+ nvidia-glx.
+ .
+ For more information on this source package visit NVIDIA's homepage
+ at http://www.nvidia.com/ .

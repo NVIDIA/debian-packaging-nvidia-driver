@@ -1,0 +1,46 @@
+eval `dpkg-architecture`
+
+BASE_VERSION=1.0
+RELEASE=6629
+if [ "$DEB_BUILD_ARCH" == "amd64" ] ; then
+	BASE_URL=ftp://download.nvidia.com/XFree86/Linux-x86_64/${BASE_VERSION}-${RELEASE}
+	DIRNAME=NVIDIA-Linux-x86_64-${BASE_VERSION}-${RELEASE}-pkg0
+elif [ "$DEB_BUILD_ARCH" == "i386" ] ; then
+	BASE_URL=ftp://download.nvidia.com/XFree86/Linux-x86/${BASE_VERSION}-${RELEASE}
+	DIRNAME=NVIDIA-Linux-x86-${BASE_VERSION}-${RELEASE}-pkg0
+else
+	echo "huh? dont know about a version of this driver for your architecture."
+	exit 1
+fi
+FILENAME="$DIRNAME.run"
+
+VERSION=${BASE_VERSION}.${RELEASE}
+UPSTREAMVERSION=${BASE_VERSION}-${RELEASE}
+URL=${BASE_URL}/${FILENAME}
+
+case "$1" in
+    BASE_VERSION)
+        echo "${BASE_VERSION}"
+        ;;
+    RELEASE)
+        echo "$RELEASE"
+        ;;
+    VERSION)
+        echo "$VERSION"
+        ;;
+    URL)
+        echo "$URL"
+        ;;
+    FILENAME)
+	echo "$FILENAME"
+	;;
+    DIRNAME)
+	echo "$DIRNAME"
+	;;
+    UPSTREAMVERSION)
+    	echo "$UPSTREAMVERSION"
+	;;
+	
+esac
+
+exit 0

@@ -1,0 +1,94 @@
+#!/bin/sh
+
+PATH=/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
+VERSION="#VERSION#"
+
+# to force usage or non-usage of TLS libs edit /etc/defaults/nvidia-glx
+[ -e /etc/default/nvidia-glx ] && . /etc/default/nvidia-glx
+
+# test if /usr/lib is writable.
+if [ ! -w /usr/lib  ]; then
+  #we can't change anything so just exit.
+  exit 0
+fi  
+
+
+# if nothing has been specified do some guesswork
+if [ -z "$USE_TLS" ]
+then
+  if [ `uname -r | cut -f 1,2 -d.` = "2.6"  ] && \
+     [ -x /usr/lib/nvidia/tls_test ] && \
+     /usr/lib/nvidia/tls_test /usr/lib/nvidia/tls_test_dso.so
+  then
+    USE_TLS=1
+  else
+    USE_TLS=0
+  fi
+fi
+
+setup_links () {
+  # check if all the symlinks are in place
+  if [ "$(readlink -f /usr/lib/tls/libnvidia-tls.so.1)" != /usr/lib/nvidia/libnvidia-tls.so.$VERSION ]
+  then
+    echo -n "Creating NVIDIA TLS links..."
+    # remove the symlinks
+    rm -f /usr/lib/tls/libGL.so
+    rm -f /usr/lib/tls/libGL.so.*
+    rm -f /usr/lib/tls/libnvidia-tls.so
+    
+    rm -f /usr/lib/tls/libnvidia-tls.so.*
+    rm -f /usr/lib/tls/libGL.la
+
+    #remove old ones
+    rm -f /usr/lib/tls/libGLcore.so.1
+    rm -f /usr/lib/tls/libGLcore.so.*
+    # create the symlinks
+    ln -s /usr/lib/nvidia/libnvidia-tls.so.$VERSION /usr/lib/tls/libnvidia-tls.so.$VERSION
+    # reconfigure dynamic linker run-time bindings
+    ldconfig
+    echo " done."
+  fi
+}
+
+remove_links () {
+  # check if all the symlinks are gone or correct
+  if [  -e /usr/lib/tls/libnvidia-tls.so.$VERSION \
+	-o -e /usr/lib/tls/libnvidia-tls.so \
+	-o -e /usr/lib/tls/libnvidia-tls.so.1 ]
+  then
+    echo -n "Removing NVIDIA TLS links..."
+    # remove the symlinks
+    rm -f /usr/lib/tls/libGL.so
+    rm -f /usr/lib/tls/libGL.so.*
+    rm -f /usr/lib/tls/libGL.la
+    rm -f /usr/lib/tls/libGLcore.so.*    
+    rm -f /usr/lib/tls/libnvidia-tls.so
+    rm -f /usr/lib/tls/libnvidia-tls.so.*
+    # reconfigure dynamic linker run-time bindings
+    ldconfig
+    echo " done."
+  fi
+}
+
+case "$1" in
+  start|restart|reload|force-reload)
+    if [ "$USE_TLS" = "1" ]
+    then
+      setup_links
+    elif [ "$USE_TLS" = "0" ]
+    then
+      remove_links
+    fi
+    ;;
+
+  stop) 
+    :
+    ;;
+
+  *)
+    echo "Usage: /etc/init.d/nvidia-glx {start|stop|restart|reload|force-reload}"
+    exit 1
+    ;;
+esac
+	
+exit 0

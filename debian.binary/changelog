@@ -1,0 +1,335 @@
+nvidia-kernel (1.0.6629+1-2) unstable; urgency=low
+
+  * Add patches for new (> 2.6.10-rc3-bk13) kernels from
+    minion.de. Thanks to Drew Hess <dhess@bothan.net>
+    (closes: #280224, #281640, #287226)
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 11 Jan 2005 17:12:29 -0800
+
+nvidia-kernel (1.0.6629+1-1) unstable; urgency=low
+
+  * change version to allow for new .orig 
+
+ -- Randall Donald <rdonald@debian.org>  Fri, 12 Nov 2004 11:06:00 -0800
+
+nvidia-kernel (1.0.6629-2) unstable; urgency=low
+
+  * Add amd64 support based on work from
+    Markus Benning <me@w3r3wolf.de> and 
+    Harald Dunkel <harald.dunkel@t-online.de>
+    Thanks guys.
+
+ -- Randall Donald <rdonald@debian.org>  Tue,  9 Nov 2004 23:13:49 -0800
+
+nvidia-kernel (1.0.6629-1) unstable; urgency=low
+
+  * New upstream.
+  * Undo 2.6.9 patching.
+
+ -- Randall Donald <rdonald@debian.org>  Sat,  6 Nov 2004 23:21:06 -0800
+
+nvidia-kernel (1.0.6111-2) unstable; urgency=low
+
+  * Provide patches for kernels 2.6.9 and 2.6.10  
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 25 Oct 2004 16:40:05 -0700
+
+nvidia-kernel (1.0.6111-1) unstable; urgency=low
+
+  * New upstream.
+  * add executable check for update-devfsd.
+
+ -- Randall Donald <rdonald@debian.org>  Thu,  5 Aug 2004 11:43:28 -0700
+
+nvidia-kernel (1.0.6106-4) unstable; urgency=low
+
+  * Use init script patch by Arthur de Jong <adejong@debian.org>
+    (closes: #243308, #261165)
+  * Add read-only check to init script. (closes: #262176)
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 31 Jul 2004 14:40:59 -0700
+
+nvidia-kernel (1.0.6106-3) unstable; urgency=low
+
+  * Remove libglx.so.version symlink cleaning now that it is an actual file
+    again. 
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 30 Jun 2004 22:00:09 -0700
+
+nvidia-kernel (1.0.6106-2) unstable; urgency=low
+
+  * Remove package nvidia-settings so I can use the GPL source in a separate
+    source package in contrib.
+  * Fix nvidia-glx-dev depends on nvidia-glx version.
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 30 Jun 2004 17:48:06 -0700
+
+nvidia-kernel (1.0.6106-1) unstable; urgency=low
+
+  * New upstream.
+ 	fixed GL library symbols (closes: #242525)
+  * new nvidia-settings package.
+  * remolded TLS handling for new libnvidia-tls.so
+  * sysfs support now builtin, both dpatches disabled. 
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 30 Jun 2004 11:35:08 -0700
+
+nvidia-kernel (1.0.5336-12) unstable; urgency=low
+
+  * Include newer sysfs patch by Martin Schlemmer <azarah@gentoo.org> which
+    should now create udev nodes. 
+    (closes: #248451) 
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 29 Jun 2004 23:46:22 -0700
+
+nvidia-kernel (1.0.5336-11) unstable; urgency=low
+
+  * Correct nvidia-glx.shlibs. (closes: #249194)
+  * New init script from Arthur de Jong <adejong@debian.org>. 
+  (closes: #243308, #252569)
+
+ -- Randall Donald <rdonald@debian.org>  Tue,  8 Jun 2004 19:04:42 -0700
+
+nvidia-kernel (1.0.5336-10) unstable; urgency=low
+
+  * remove immediate exit in nvida-glx init.d so tls detection doesn't exit.
+    (closes: #247188)
+
+ -- Randall Donald <rdonald@debian.org>  Sat,  8 May 2004 13:44:21 -0700
+
+nvidia-kernel (1.0.5336-9) unstable; urgency=low
+
+  * use corrected 02_pcialias patch from Juergen Kreileder <jk@blackdown.de>
+  
+ -- Randall Donald <rdonald@debian.org>  Fri, 30 Apr 2004 19:38:57 -0700
+
+nvidia-kernel (1.0.5336-8) unstable; urgency=low
+
+  * Allow for presence of 01_sysfs fuzz in 02_pcialias. (closes: #246773)
+  * Document in n-k-s.README.Debian about IGNORE_PCI_CLASS_DISPLAY 
+    (closes: #246775)
+
+ -- Randall Donald <rdonald@debian.org>  Fri, 30 Apr 2004 18:52:47 -0700
+
+nvidia-kernel (1.0.5336-7) unstable; urgency=low
+
+  * also detect uppercase "GCC" in compiler detection. (closes: #243988)
+  * version dpatch at >= 2.0.0. (closes: #242465)
+  * patch for hotplugging. Thanks to Juergen Kreileder <jk@blackdown.de>
+    (closes: #239992)
+  * move libtool files to nvidia-glx-dev. (closes: #229110)
+  * apply patch from Joachim Breitner <nomeata@debian.org> for init script.
+  (closes: #243308)
+  * change shlibs to xlibmesa-gl | libgl1
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 17 Apr 2004 16:40:26 -0700
+
+nvidia-kernel (1.0.5336-6) unstable; urgency=low
+
+  * Introduce a boot init script for TLS detection. With this we can get rid
+    of the debconf prompting. (closes: #234612, #231397, #234323)
+  * Provide patch for sysfs. (closes: #236714, #234150)
+  * depend on dpatch for above patch.
+  * fix typo in clean target for SYSSRC. (closes: #237793)
+  * modify debian.binary/rules for patching and Makefile existance. 
+
+ -- Randall Donald <rdonald@debian.org>  Fri, 19 Mar 2004 14:39:56 -0800
+
+nvidia-kernel (1.0.5336-5) unstable; urgency=low
+
+  * add SYSRC to clean target. (closes: #232313)
+  * Make GL depends more X 4.3 friendly. (closes: #188189)
+  * pass KPKG_EXTRAV_ARG in for proper 2.6 EXTRAVERSIONing
+  * version kernel-package at >=8.082.
+  * add root_cmd. (closes: #162323) 
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 21 Feb 2004 15:04:42 -0800
+
+nvidia-kernel (1.0.5336-4) unstable; urgency=low
+
+  * Add glext.h to nvidia-glx-dev. (closes: #231169) 
+  * Add Makefile to clean target in nvidia-kernel-source rules file.
+
+ -- Randall Donald <rdonald@debian.org>  Wed,  4 Feb 2004 16:03:42 -0800
+
+nvidia-kernel (1.0.5336-3) unstable; urgency=low
+
+  * Depend on libc6-dev for KBUILD building. (closes: #230307) 
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 31 Jan 2004 14:26:02 -0800
+
+nvidia-kernel (1.0.5336-2) unstable; urgency=low
+
+  * Bypass NVIDIA's select_makefile (closes: #230307)
+  * Remove patch from nvidia-kernel-source Depends and add sed.
+  * Remove dangling libglx.so.VERSION symlink.  
+
+ -- Randall Donald <rdonald@debian.org>  Fri, 30 Jan 2004 14:54:32 -0800
+
+nvidia-kernel (1.0.5336-1) unstable; urgency=low
+
+  * New upstream.
+  * generate nvidia-kernel changelog from nvidia-graphics-drivers at build.
+  * change nvidia-kernel-source arch to i386. (closes: #229060)
+  * remove 2.6 patch as it is now provided upstream.
+  * create a makefile selector and change the patchlevel detection to be based
+    on KERNEL_VERSION_CODE.
+  * switch back to Makefile.kbuild for 2.6.x.  
+  * remove no longer needed apm patch. (closes: #228487) 
+  * reflect 2.6 changes in nvidia-kernel-source.README.Debian.
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 27 Jan 2004 00:01:32 -0800
+
+nvidia-kernel (1.0.5328-4) unstable; urgency=low
+
+  * Provide fixed .la files. (closes: #228677) 
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 19 Jan 2004 23:05:20 -0800
+
+nvidia-kernel (1.0.5328-3) unstable; urgency=low
+
+  * Remove bad/broken LibGL.la files for now. (closes: #228499)
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 19 Jan 2004 14:56:14 -0800
+
+nvidia-kernel (1.0.5328-2) unstable; urgency=low
+
+  * Fix typo in nvidia-glx.README.Debian
+
+ -- Randall Donald <rdonald@debian.org>  Fri, 16 Jan 2004 23:53:35 -0800
+
+nvidia-kernel (1.0.5328-1) unstable; urgency=low
+
+  * New upstream. (closes #227066)
+  * Apply 2.6 patch in nvidia-kernel building with env override.
+    Manual patching no longer required!!! (closes: #193379)
+  * Change text of TLS question to a positive tone. (closes: #221963)
+  * Quote $(CC) for a multi word compiler e.g. distcc (closes: #222390)
+  * Change reportbug script to use (lspci --version) instead of which.
+  * Add tls/libGL.so to nvidia-glx (so one can switch with only one step)
+  * Make note about reconfiguring for TLS switching.
+  * fix gcc detection again for kernel compiler. (closes: #227412)
+  * fix typo in nvidia-kernel-source.README.Debian (closes: #226991)
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 22 Dec 2003 01:21:58 -0800
+
+nvidia-kernel (1.0.4496-10) unstable; urgency=low
+
+  * TLS problems related to installation of TLS libs on 2.4 systems. 
+    Solution: provide a debconf note and set a default based on runtime
+    detection of a TLS/2.6 system. Hopefully this will solve most of the 
+    tls bugs.
+  * Add note about nvidia-kernel-source in nvidia-glx description. 
+    (closes: #220038)
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 19 Nov 2003 13:17:50 -0800
+
+nvidia-kernel (1.0.4496-9) unstable; urgency=low
+
+  * Change nvidia-kernel-source.README.Debian.in to reflect 2.6 makefile
+    change. (closes: #219003) 
+  * Note the difference in KSRC for 2.6 headers (closes: #220452)
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 17 Nov 2003 20:47:20 -0800
+
+nvidia-kernel (1.0.4496-8) unstable; urgency=low
+
+  * Correctly install tls libglx. 
+
+ -- Randall Donald <rdonald@debian.org>  Sat,  1 Nov 2003 12:46:04 -0800
+
+nvidia-kernel (1.0.4496-7) unstable; urgency=low
+
+  * add tls files. (closes: #218408, #218417, #218434, #218487)
+
+ -- Randall Donald <rdonald@debian.org>  Fri, 31 Oct 2003 21:01:18 -0800
+
+nvidia-kernel (1.0.4496-6) unstable; urgency=low
+
+  * use Makefile.nvidia instead of Makefile.kbuild so the 2.6 support
+    can use kernel-headers. Manual patching still required.
+    README.Debian changed to instruct this change.
+    (closes: #208535, #203369) 
+  * remove wget build-dep from kernel module (closes: #212742)
+  * install kernel module to /lib/modules/KVERS/nvidia. (closes: #207290)
+  * re-fix GCC detection from compile.h (closes: #205871)  
+  
+ -- Randall Donald <rdonald@debian.org>  Mon,  6 Oct 2003 21:41:13 -0700
+
+nvidia-kernel (1.0.4496-5) unstable; urgency=low
+
+  * Add symlink instruction to nvidia-kernel-source.README.Debian 
+  * Fix patchlevel version detection.  
+  
+ -- Randall Donald <rdonald@debian.org>  Tue, 23 Sep 2003 01:21:29 -0700
+
+nvidia-kernel (1.0.4496-4) unstable; urgency=low
+
+  * Add Provides: nvidia-kernel-src to nvidia-kernel-source (closes: #211713)
+  * Upload new diversions and 2.6 support to unstable packages.
+  * change == to = in kernel rules file.
+  
+ -- Randall Donald <rdonald@debian.org>  Mon, 22 Sep 2003 15:34:32 -0700
+
+nvidia-kernel (1.0.4496-3) experimental; urgency=low
+
+  * Fix nvidia-kernel-source.README.Debian about installing
+    nvidia-kernel-common first.
+  * Fix typo in nvidia-kernel-source.README.Debian regarding
+    modules/nvidia-kernel-1.0.4496 directory. (closes: #205684)
+  * Change diversions to stay within /usr/lib and /usr/X11R6/lib.
+    This allows for installs on systems of /usr split between several
+    partitions. (closes: #205955)
+  * Move nvidia-glx dependancy on nvidia-kernel-source to a recommends.
+  * Fix part of gcc 3.3.1 detection that I missed last time. (closes: #205871)
+  * Update nvidia-kernel-source.README.Debian to reflect 2.4.21-4-k7.
+  * Add preliminary 2.6 support. See README.Debian for details (closes: #203369, #193379)
+  * Include CONFIG_APM_MODULE patch file in nvidia-kernel-source. 
+  * Upload to experimental due to diversion changes and preliminary 2.6
+    support 
+  * Incorporate the NMU by martin f. krafft <madduck@debian.org>  
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 26 Aug 2003 14:42:57 -0700
+
+nvidia-kernel (1.0.4496-2.1) unstable; urgency=low
+
+  * debian.binary/rules used the -a flag to copy the control.template file
+    to debian-binary/control. If the former was a symlink, this would result
+    in the erasure of the template file as the destionation of the copy would
+    also be a symlink to the same file. Removed the -a, now it works just
+    fine.
+      Closes: Bug#206445, Bug#206449
+	      
+ -- martin f. krafft <madduck@debian.org>  Tue, 26 Aug 2003 08:50:46 +0200
+
+nvidia-kernel (1.0.4496-2) unstable; urgency=low
+
+  * Add email from NVIDIA to copyright file. 
+
+ -- Randall Donald <rdonald@debian.org>  Thu, 31 Jul 2003 15:18:25 -0700
+
+nvidia-kernel (1.0.4496-1) unstable; urgency=low
+
+  * New upstream. 
+  * include shlibs file.
+  * Re-split nvidia-glx-dev by request.
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 28 Jul 2003 14:18:45 -0700
+
+nvidia-kernel (1.0.4363-1) unstable; urgency=low
+
+  * Put nvidia drivers into one source package
+  * Move from contrib to non-free
+  * Rename nvidia-kernel-src to nvidia-kernel-source
+  * Include driver files in nvidia-glx and nvidia-kernel-source instead of
+    downloading.
+  * Put nvidia-glx-dev files back into nvidia-glx.
+  * Separate out modules and devfs files into nvidia-kernel-common.
+  * Drop .deb in builder-specified location. Thanks David B Harris
+    <david@eelf.ddts.net> (closes: #192112)
+  * Lose the version number in modules directory. (closes: #199509)
+  * Use automation of versioning based on patches by Marcello Magallon
+    <mmagallo@debian.org>. Thanks. (closes: #192312, #192311) 
+
+ -- Randall Donald <rdonald@debian.org>  Fri,  9 May 2003 14:51:15 -0700
+

@@ -1,0 +1,10 @@
+nvidia-kernel for Debian
+------------------------
+
+Please report any actual driver related bugs (not packaging related) to
+NVIDIA directly.
+
+List of known bugs is in Appendix G:
+http://www.nvidia.com/view.asp?IO=linux_readme_install
+
+ -- Randall Donald <rdonald@debian.org>, Tue,  4 Sep 2001 23:30:00 -0700
