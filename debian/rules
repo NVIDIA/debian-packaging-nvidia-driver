@@ -213,9 +213,9 @@ binary-common:
 	dh_shlibdeps  -Xia32 -Xtls -l$(CURDIR)/debian/nvidia-glx/usr/lib
 	# quickhack! remove me :-/
 	perl -pi.bak -e 's/,\s+nvidia-glx-ia32//;' $(CURDIR)/debian/nvidia-glx.substvars
-	dh_gencontrol
+	dh_gencontrol -s
 	dh_md5sums
-	dh_builddeb
+	dh_builddeb -s
 
 
 %:	%.in debian/upstream_info
