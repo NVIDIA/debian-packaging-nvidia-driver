@@ -22,7 +22,11 @@ url:=$(shell sh debian/upstream_info URL)
 dirname:=$(shell sh debian/upstream_info DIRNAME)
 filename:=$(shell sh debian/upstream_info FILENAME)
 
-AUTOGEN=debian/nvidia-kernel-source.README.Debian debian/control debian/copyright debian/nvidia-glx.links debian/nvidia-glx-dev.links debian/nvidia-glx.override debian/docs debian/nvidia-glx.examples debian/nvidia-glx.postrm debian/nvidia-glx.init debian/nvidia-glx-ia32.override debian/nvidia-glx-ia32.links
+AUTOGEN=debian/nvidia-kernel-source.README.Debian debian/control \
+debian/copyright debian/nvidia-glx.links debian/nvidia-glx-dev.links \
+debian/nvidia-glx.override debian/nvidia-glx.docs debian/nvidia-glx.examples \
+debian/nvidia-glx.postrm debian/nvidia-glx.init \
+debian/nvidia-glx-ia32.override debian/nvidia-glx-ia32.links
 
 
 
@@ -190,7 +194,7 @@ binary-common:
 	dh_testdir
 	dh_testroot
 	dh_installchangelogs 
-	dh_installdocs 
+	dh_installdocs -s 
 	dh_installexamples
 #	dh_installmenu
 	dh_installdebconf	
