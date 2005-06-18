@@ -7,8 +7,8 @@ Standards-Version: 3.6.1
 
 Package: nvidia-glx-ia32
 Architecture: amd64
-Depends: nvidia-kernel-1.0.7174, ia32-libs, ${shlibs:Depends}
-Recommends: nvidia-kernel-source (>= 1.0.7174)
+Depends: nvidia-kernel-1.0.7664, ia32-libs, ${shlibs:Depends}
+Recommends: nvidia-kernel-source (>= 1.0.7664)
 Suggests: nvidia-settings
 Conflicts: nvidia-glx-src
 Replaces: nvidia-glx-src
@@ -24,8 +24,8 @@ Description: NVIDIA binary XFree86 4.x driver
 
 Package: nvidia-glx
 Architecture: i386 amd64
-Depends: nvidia-kernel-1.0.7174, xserver-common (>= 4.0.3), xlibmesa-glu | libglu | libglu1, ${shlibs:Depends}
-Recommends: nvidia-kernel-source (>= 1.0.7174)
+Depends: nvidia-kernel-1.0.7664, xserver-common (>= 4.0.3), xlibmesa-glu | libglu | libglu1, ${shlibs:Depends}
+Recommends: nvidia-kernel-source (>= 1.0.7664)
 Suggests: nvidia-settings
 Conflicts: nvidia-glx-src
 Replaces: nvidia-glx-src
@@ -41,7 +41,7 @@ Description: NVIDIA binary XFree86 4.x driver
  
 Package: nvidia-glx-dev
 Architecture: i386 amd64
-Depends: nvidia-glx (>= 1.0.7174), xlibmesa-gl-dev | libgl-dev, xlibmesa-glu-dev | libglu-dev
+Depends: nvidia-glx (>= 1.0.7664), xlibmesa-gl-dev | libgl-dev, xlibmesa-glu-dev | libglu-dev
 Description: NVIDIA binary XFree86 4.x driver development files
  This package contains the NVIDIA binary XFree86 4.x driver
  development files.
@@ -52,7 +52,7 @@ Description: NVIDIA binary XFree86 4.x driver development files
 Package: nvidia-kernel-source
 Architecture: i386 amd64
 Depends: debhelper (>> 4.0.0), make, sed (>> 3.0), dpatch (>= 2.0.0)
-Recommends: nvidia-glx (>= 1.0.7174), kernel-package (>= 8.082), devscripts
+Recommends: nvidia-glx (>= 1.0.7664), kernel-package (>= 8.082), devscripts
 Conflicts: nvidia-kernel-src
 Replaces: nvidia-kernel-src
 Description: NVIDIA binary kernel module source

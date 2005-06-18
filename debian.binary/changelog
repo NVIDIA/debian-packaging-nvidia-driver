@@ -1,3 +1,19 @@
+nvidia-kernel (1.0.7664-1) experimental; urgency=low
+
+  * New upstream. (Thanks to Harald Dunkel for initial work)
+  * uploaded to experimental due to needing GLIBC_2.3.3
+  and legacy support for some GPU's has been removed. 
+  * Add news item about legacy support.
+  * The "Commander Cool Drew Hess" release.
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 18 Jun 2005 16:46:48 -0700
+
+nvidia-kernel (1.0.7664-0) unstable; urgency=low
+
+  * New upstream.
+
+ -- Harald Dunkel <harald.dunkel@t-online.de>  Sat, 11 Jun 2005 22:42:26 +0200
+
 nvidia-kernel (1.0.7174-3) unstable; urgency=low
 
   * reinclude nvidia docs 

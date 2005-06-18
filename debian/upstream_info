@@ -1,12 +1,12 @@
 eval `dpkg-architecture`
 
 BASE_VERSION=1.0
-RELEASE=7174
+RELEASE=7664
 if [ "$DEB_BUILD_ARCH" == "amd64" ] ; then
 	BASE_URL=ftp://download.nvidia.com/XFree86/Linux-x86_64/${BASE_VERSION}-${RELEASE}
 	DIRNAME=NVIDIA-Linux-x86_64-${BASE_VERSION}-${RELEASE}-pkg2
 	# change this on next version release
-	FILENAME=NVIDIA-Linux-x86_64-${BASE_VERSION}-${RELEASE}-pkg0.run 
+	FILENAME=$DIRNAME.run
 elif [ "$DEB_BUILD_ARCH" == "i386" ] ; then
 	BASE_URL=ftp://download.nvidia.com/XFree86/Linux-x86/${BASE_VERSION}-${RELEASE}
 	DIRNAME=NVIDIA-Linux-x86-${BASE_VERSION}-${RELEASE}-pkg0

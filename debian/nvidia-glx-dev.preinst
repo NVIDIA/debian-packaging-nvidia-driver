@@ -47,11 +47,11 @@ case "$1" in
 	  fi		
 	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/gl.h /usr/include/GL/gl.h > /dev/null
 	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glx.h /usr/include/GL/glx.h > /dev/null
-	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glxtokens.h /usr/include/GL/glxtokens.h > /dev/null
+	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glxext.h /usr/include/GL/glxext.h > /dev/null
 
 	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions-X11R6/gl.h /usr/X11R6/include/GL/gl.h > /dev/null
 	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions-X11R6/glx.h /usr/X11R6/include/GL/glx.h > /dev/null
-	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions-X11R6/glxtokens.h /usr/X11R6/include/GL/glxtokens.h > /dev/null
+	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions-X11R6/glxext.h /usr/X11R6/include/GL/glxext.h > /dev/null
 
 	fi
 
