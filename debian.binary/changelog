@@ -1,10 +1,16 @@
 nvidia-kernel (1.0.7664-1) experimental; urgency=low
 
+  * The "Commander Cool Drew Hess" release.
   * New upstream. (Thanks to Harald Dunkel for initial work)
   * uploaded to experimental due to needing GLIBC_2.3.3
   and legacy support for some GPU's has been removed. 
   * Add news item about legacy support.
-  * The "Commander Cool Drew Hess" release.
+  * LEGACY GPUs: If you have a TNT, TNT2, Vanta, GeForce 256, GeForce DDR,
+  Quadro, GeForce2 Pro, GeForce2 GTS, GeForce2 Ultra, GeForce2 Ti, Quadro2Pro,
+  DO NOT INSTALL THIS RELEASE!!!  NVIDIA will be supporting these cards in a
+  special legacy driver (as yet unreleased and not included in this package).
+  So if you have the one of the above listed GPUs,
+  remain with the 1.0.7174-3 release.
 
  -- Randall Donald <rdonald@debian.org>  Sat, 18 Jun 2005 16:46:48 -0700
 

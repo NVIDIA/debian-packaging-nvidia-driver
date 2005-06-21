@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (1.0.7664-2) experimental; urgency=low
+
+  * downgrade the libc6 change back to the version in unstable. 
+    (closes: #315313) 
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 21 Jun 2005 14:07:42 -0700
+
 nvidia-graphics-drivers (1.0.7664-1) experimental; urgency=low
 
   * The "Commander Cool Drew Hess" release.
