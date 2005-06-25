@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (1.0.7667-1) experimental; urgency=low
+
+  * New upstream (closes: #315446)
+  * Thanks again to Harald Dunkel for patch and amd64 testing.
+
+ -- Randall Donald <rdonald@debian.org>  Fri, 24 Jun 2005 22:51:46 -0700
+
 nvidia-graphics-drivers (1.0.7664-2) experimental; urgency=low
 
   * downgrade the libc6 change back to the version in unstable. 

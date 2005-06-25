@@ -27,7 +27,7 @@ case "$1" in
 	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/X11R6/lib/nvidia/libGLcore.a.xlibmesa /usr/X11R6/lib/modules/extensions/libGLcore.a > /dev/null
 	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/X11R6/lib/nvidia/libglx.a.xlibmesa /usr/X11R6/lib/modules/extensions/libglx.a > /dev/null
 
-	rm -f /usr/X11R6/lib/modules/extensions/libglx.so.1.0.7664 2> /dev/null || true
+	rm -f /usr/X11R6/lib/modules/extensions/libglx.so.1.0.7667 2> /dev/null || true
 	if [ -d /usr/lib/nvidia ]; then
 		rmdir /usr/lib/nvidia/ || true;
 	fi
@@ -51,7 +51,7 @@ case "$1" in
 esac
 
 
-#rm -f /usr/X11R6/lib/modules/extensions/libglx.so.1.0.7664 2> /dev/null || true
+#rm -f /usr/X11R6/lib/modules/extensions/libglx.so.1.0.7667 2> /dev/null || true
 
     
 
