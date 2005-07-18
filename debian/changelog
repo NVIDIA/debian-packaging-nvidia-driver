@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (1.0.7174-4) unstable; urgency=low
+
+  * Remove glu depends. 
+  * other fixes are being applied to a 1.0.7667 version coming soon.
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 18 Jul 2005 14:30:46 -0700
+
 nvidia-graphics-drivers (1.0.7174-3) unstable; urgency=low
 
   * reinclude nvidia docs 
