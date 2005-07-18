@@ -34,9 +34,7 @@ necessary for most users.
 
 What Happens:
 Symlinks are created in /usr/lib/tls from libraries installed in
-/usr/lib/nvidia. Also the libglx.so.VERSION in
-/usr/X11R6/lib/modules/extensions/ is symlinked to a tls-enabled one. 
-
+/usr/lib/nvidia. 
 
 
 For any news on this package check http://people.debian.org/~rdonald and
@@ -66,8 +64,7 @@ Using the nvidia X driver requires some user modification.
 
 Note about OpenGL headers: The header files are not installed to 
 /usr/include/GL but to /usr/share/doc/nvidia-glx-dev/include/GL. 
-This is similar to what NVIDIA
-does in their own packaging, allowing use of and not overwriting 
+This allows use of and not overwriting of the  
 preinstalled headers (e.g. xlibmesa-dev). If you wish to use the NVIDIA
 supplied headers (e.g. you require NVIDIA GL extensions) you must copy them to
 /usr/include/GL yourself or include /usr/share/doc/nvidia-glx-dev/include in

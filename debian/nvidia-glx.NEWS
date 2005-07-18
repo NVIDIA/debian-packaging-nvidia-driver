@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (1.0.7667-2) unstable; urgency=low
+
+ * LEGACY GPUs: If you have a TNT, TNT2, Vanta, GeForce 256, GeForce DDR,
+ Quadro, GeForce2 Pro, GeForce2 GTS, GeForce2 Ultra, GeForce2 Ti, Quadro2 Pro,
+ DO NOT INSTALL THIS RELEASE!!!  Use the nvidia-glx-legacy,
+ nvidia-glx-legacy-dev, nvidia-kernel-source-legacy packages instead.  
+      
+ -- Randall Donald <rdonald@debian.org>  Wed, 13 Jun 2005 00:01:32 -0700
+
 nvidia-graphics-drivers (1.0.7664-1) experimental; urgency=low
 
  * LEGACY GPUs: If you have a TNT, TNT2, Vanta, GeForce 256, GeForce DDR,

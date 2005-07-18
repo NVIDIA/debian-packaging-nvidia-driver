@@ -9,6 +9,12 @@ case "$1" in
     remove)
 	dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
 	dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/X11R6/lib/nvidia/libGL.so.xlibmesa /usr/X11R6/lib/libGL.so > /dev/null
+#        rm /usr/lib/libGL.so || true
+		
+#	ln -s /usr/lib/nvidia/libGL.so.1.2.xlibmesa /usr/lib/libGL.so
+#	ln -s /usr/X11R6/lib/nvidia/libGL.so.1.2.xlibmesa /usr/X11R6/lib/libGL.so
+	
+
 	dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa  /usr/lib/libGL.a > /dev/null
 	dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/X11R6/lib/nvidia/libGL.a.xlibmesa /usr/X11R6/lib/libGL.a > /dev/null
 

@@ -21,6 +21,11 @@ your situation with your kernel.
  METHOD #2: You are running your own self-built kernel built from kernel
     source. 
 
+*** An additional method is to use module-assistant 
+(e.g. module-assistant auto-install nvidia)
+For more information on module-assistant, see it's man page and package
+documentation,
+
 Which method you choose really depends on what kernel headers you wish to
 use, those from a kernel-headers package or those from kernel
 source (from which you built your own kernel). 
@@ -45,12 +50,7 @@ required.
 
 HOTPLUG SUPPORT:
 ------------------------
-As of version 1.0.5336-8 there is hotplug module loading support provided 
-in patches that are applied by default but by default, hotplug is set to 
-ignore PCI/AGP cards for display. To change this set IGNORE_PCI_CLASS_DISPLAY 
-to false in /etc/default/hotplug or run 
-dpkg-reconfigure -plow hotplug
-
+As of version 1.0.5336-8 there is hotplug/udev module loading support provided.
 
 
 METHOD #1 Using a kernel-headers package
@@ -88,7 +88,8 @@ As root (or using fakeroot)
 (You can also combine step 4 and 5 into one line:
 KSRC=/usr/src/kernel-headers-2.4.21-4-k7 KVERS=2.4.21-4-k7 debian/rules binary_modules)
 				 	      		    	   
-6. Install nvidia-kernel-common:
+6. Install nvidia-kernel-common on the machine where the module will be
+deployed:
    
    If not installed already
    apt-get install nvidia-kernel-common
@@ -127,7 +128,8 @@ As root
      cd linux (or your kernel source directory)
      make-kpkg modules_image
 
-4. Install nvidia-kernel-common:
+4. Install nvidia-kernel-common on the machine where the module will be
+installed:
 
    apt-get install nvidia-kernel-common
 

@@ -26,7 +26,8 @@ AUTOGEN=debian/nvidia-kernel-source.README.Debian debian/control \
 debian/copyright debian/nvidia-glx.links debian/nvidia-glx-dev.links \
 debian/nvidia-glx.override debian/nvidia-glx.docs debian/nvidia-glx.examples \
 debian/nvidia-glx.postrm debian/nvidia-glx.init \
-debian/nvidia-glx-ia32.override debian/nvidia-glx-ia32.links
+debian/nvidia-glx-ia32.override debian/nvidia-glx-ia32.links \
+debian/nvidia-kernel-source.docs debian/nvidia-glx-dev.preinst
 
 
 
@@ -129,14 +130,14 @@ install: build-stamp build-kernel-stamp
 
 	# move gl headers into /usr/share so we can use the mesa headers
 	install -m 0644 $(dirname)/usr/include/GL/gl.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/share/doc/nvidia-glx-dev/include/GL
+		$(CURDIR)/debian/nvidia-glx-dev/usr/share/nvidia/include/GL
 	install -m 0644 $(dirname)/usr/include/GL/glext.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/share/doc/nvidia-glx-dev/include/GL
+		$(CURDIR)/debian/nvidia-glx-dev/usr/share/nvidia/include/GL
 
 	install -m 0644 $(dirname)/usr/include/GL/glx.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/share/doc/nvidia-glx-dev/include/GL
+		$(CURDIR)/debian/nvidia-glx-dev/usr/share/nvidia/include/GL
 	install -m 0644 $(dirname)/usr/include/GL/glxext.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/share/doc/nvidia-glx-dev/include/GL
+		$(CURDIR)/debian/nvidia-glx-dev/usr/share/nvidia/include/GL
 
 	install -m 0644 $(dirname)/usr/lib/libGL.so.${version} \
 	                $(CURDIR)/debian/nvidia-glx/usr/lib

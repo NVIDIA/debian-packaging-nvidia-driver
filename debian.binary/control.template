@@ -12,8 +12,8 @@ Depends: nvidia-kernel-common (>= #VERSION#)
 Recommends: kernel-image-#KVERS#
 Description: NVIDIA binary kernel module for Linux #KVERS#
  These XFree86 4.0 binary drivers provide optimized hardware acceleration of 
- OpenGL applications via a direct-rendering X Server and support the TNT,
- TNT2, TNT Ultra, GeForce, nForce and Quadro chipsets. AGP and flat panel
+ OpenGL applications via a direct-rendering X Server and support the 
+ GeForce (>2), nForce and Quadro chipsets. AGP and flat panel
  displays are also supported.
  .
  This package contains the NVIDIA binary kernel module needed by

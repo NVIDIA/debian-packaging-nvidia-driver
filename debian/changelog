@@ -1,3 +1,33 @@
+nvidia-graphics-drivers (1.0.7667-3) experimental; urgency=low
+
+  * back out libGL.so mess until it upgrades properly.
+  * move back to experimental while work is being done on the above.
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 18 Jul 2005 13:08:11 -0700
+
+nvidia-graphics-drivers (1.0.7667-2) unstable; urgency=low
+
+  * fix dangling libGL.so issue. nvidia-glx by itself will now
+    link to the diverted xlibmesa library (closes: #208198, #306533, #272438)
+  * Move nvidia-kernel-source to Suggests in nvidia-glx (closes: #295891)
+  * Modify description to make note of GPUs NOT supported
+  * update module README.Debian to refer to  nvnews.net forum.
+    (closes: #299916)
+  * Update nvidia-kernel-source README.Debian to mention module-assistant
+    and remove mention of patches that are unnecessary and other old
+    references.
+  * change upstream_info to not use bashisms. (closes: #304322)
+  * Update to policy 3.6.2
+  * Move GL headers to /usr/share/nvidia/includes/GL. (closes: #268274)
+  * Remove unnecessary dependancy on libglu
+  * Add NEWS item about using legacy packages.
+  * LEGACY GPUs: If you have a TNT, TNT2, Vanta, GeForce 256, GeForce DDR,
+  Quadro, GeForce2 Pro, GeForce2 GTS, GeForce2 Ultra, GeForce2 Ti, Quadro2Pro,
+  DO NOT INSTALL THIS RELEASE!!! Use the nvidia-glx-legacy and
+  nvidia-kernel-source-legacy packages instead.
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 13 Jul 2005 14:23:26 -0700
+
 nvidia-graphics-drivers (1.0.7667-1) experimental; urgency=low
 
   * New upstream (closes: #315446)
