@@ -1,3 +1,15 @@
+nvidia-graphics-drivers (1.0.7676-1) experimental; urgency=low
+
+  * New Upstream. (includes fix for GeForce FX 7880)
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 29 Aug 2005 15:48:27 -0700
+
+nvidia-graphics-drivers (1.0.7676-0) experimental; urgency=low
+
+  * new upstream
+
+ -- Harald Dunkel <harald.dunkel@t-online.de>  Mon, 15 Aug 2005 21:53:07 +0200
+
 nvidia-graphics-drivers (1.0.7667-3) experimental; urgency=low
 
   * back out libGL.so mess until it upgrades properly.

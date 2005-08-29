@@ -96,7 +96,7 @@ deployed:
    
 7. Install the nvidia-kernel package:
 	    		     
-   dpkg -i ../nvidia-kernel-2.4.21-4-k7_1.0.7667-1+_.Custom_i386.deb
+   dpkg -i ../nvidia-kernel-2.4.21-4-k7_1.0.7676-1+_.Custom_i386.deb
    ( or similar filename )
 
 Now see GENERAL NOTES below method #2

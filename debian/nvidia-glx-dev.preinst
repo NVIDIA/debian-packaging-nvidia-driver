@@ -62,7 +62,7 @@ case "$1" in
 #        rm /usr/lib/libGL.so || true
 #	rm /usr/X11R6/lib/libGL.so || true
 	
-#	ln -s /usr/lib/libGL.so.1.0.7667 /usr/lib/libGL.so || true
+#	ln -s /usr/lib/libGL.so.1.0.7676 /usr/lib/libGL.so || true
 	
 	
 	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null
