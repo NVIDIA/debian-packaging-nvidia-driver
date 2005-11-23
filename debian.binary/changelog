@@ -1,3 +1,15 @@
+nvidia-kernel (1.0.7676-2) experimental; urgency=low
+
+  * add exit 0 to module postrm (closes: #252018)
+  * add more documentation to /etc/default/nvidia-glx (closes: #280237)
+  * reorganize nvidia-glx init script
+  * remove xserver provides (man this was an old addition) (closes: #329320)
+  * fix nvidia-glx-dev missing links (closes: #336778)
+  * now that sarge is stable upgrade DH_COMPAT to 5 (closes: #336734)
+  * Supply diversion for libglx.so to work with newer xorg.
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 23 Nov 2005 01:20:12 +0000
+
 nvidia-kernel (1.0.7676-1) experimental; urgency=low
 
   * New Upstream. (includes fix for GeForce FX 7880)

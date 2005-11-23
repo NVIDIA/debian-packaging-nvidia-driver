@@ -2,7 +2,7 @@ Source: nvidia-graphics-drivers
 Section: non-free/x11
 Priority: optional
 Maintainer: Randall Donald <rdonald@debian.org>
-Build-Depends: debhelper (>> 4.0.0), sed (>> 3.0)
+Build-Depends: debhelper (>> 5.0.0), sed (>> 3.0)
 Standards-Version: 3.6.2
 
 
@@ -12,7 +12,6 @@ Depends: nvidia-kernel-1.0.7676, ia32-libs, ${shlibs:Depends}
 Suggests: nvidia-settings, nvidia-kernel-source (>= 1.0.7676)
 Conflicts: nvidia-glx-src
 Replaces: nvidia-glx-src
-Provides: xserver
 Description: NVIDIA binary XFree86 4.x driver
  These XFree86 4.0 binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server. AGP, TV-out and
@@ -36,7 +35,6 @@ Depends: nvidia-kernel-1.0.7676, xserver-common (>= 4.0.3), ${shlibs:Depends}
 Suggests: nvidia-settings, nvidia-kernel-source (>= 1.0.7676)
 Conflicts: nvidia-glx-src
 Replaces: nvidia-glx-src
-Provides: xserver
 Description: NVIDIA binary XFree86 4.x driver
  These XFree86 4.0 binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server. AGP, TV-out and

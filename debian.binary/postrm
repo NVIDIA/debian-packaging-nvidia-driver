@@ -2,6 +2,7 @@
 
 
 if [ -x /sbin/update-modules ]; then
-	update-modules >/dev/null
+	update-modules >/dev/null || true
 fi
 
+exit 0

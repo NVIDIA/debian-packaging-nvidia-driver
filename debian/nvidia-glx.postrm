@@ -28,6 +28,7 @@ case "$1" in
 	
 	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/X11R6/lib/nvidia/libGLcore.a.xlibmesa /usr/X11R6/lib/modules/extensions/libGLcore.a > /dev/null
 	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/X11R6/lib/nvidia/libglx.a.xlibmesa /usr/X11R6/lib/modules/extensions/libglx.a > /dev/null
+	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/X11R6/lib/nvidia/libglx.so.xlibmesa /usr/X11R6/lib/modules/extensions/libglx.so > /dev/null
 
 	rm -f /usr/X11R6/lib/modules/extensions/libglx.so.1.0.7676 2> /dev/null || true
 	if [ -d /usr/lib/nvidia ]; then
