@@ -176,6 +176,8 @@ install: build-stamp build-kernel-stamp
 	fi
 	
 	install -m 755 $(dirname)/usr/bin/nvidia-bug-report.sh $(CURDIR)/debian/nvidia-glx/usr/bin/
+	# use separate package
+	#install -m 755 $(dirname)/usr/bin/nvidia-xconfig $(CURDIR)/debian/nvidia-glx/usr/bin/
 	
 	# use separate source package instead
 	#install -m 755 $(dirname)/usr/bin/nvidia-settings $(CURDIR)/debian/nvidia-settings/usr/bin/

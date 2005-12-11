@@ -36,9 +36,9 @@ Suggests: nvidia-settings, nvidia-kernel-source (>= #VERSION#)
 Conflicts: nvidia-glx-src
 Replaces: nvidia-glx-src
 Description: NVIDIA binary XFree86 4.x driver
- These XFree86 4.0 binary drivers provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server. AGP, TV-out and
- flat panel displays are also supported.
+ These XFree86 4.0 / Xorg 6.8 binary drivers provide optimized hardware 
+ acceleration of  OpenGL applications via a direct-rendering X Server. 
+ AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
  .
  Cards NOT supported by this driver are
  .
@@ -69,10 +69,10 @@ Recommends: nvidia-glx (>= #VERSION#), kernel-package (>= 8.082), devscripts
 Conflicts: nvidia-kernel-src
 Replaces: nvidia-kernel-src
 Description: NVIDIA binary kernel module source
- This package builds the NVIDIA XFree86 4.x binary kernel module needed
- by nvidia-glx. The drivers provide optimized hardware acceleration of OpenGL
- applications via a direct-rendering X Server AGP,
- TV-out, and flat panel displays are also supported.
+ This package builds the NVIDIA XFree86 4.x / Xorg 6.8 binary kernel module 
+ needed  by nvidia-glx. The drivers provide optimized hardware acceleration 
+ of OpenGL applications via a direct-rendering X Server AGP,
+ PCIe, SLI, TV-out, and flat panel displays are also supported.
  .
  Cards NOT supported by this driver are
  .

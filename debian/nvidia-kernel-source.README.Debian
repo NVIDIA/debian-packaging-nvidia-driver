@@ -16,7 +16,7 @@ There are TWO ways to build the nvidia-kernel package. Which one depends on
 your situation with your kernel.
 
  METHOD #1: You are running a Debian suppiled kernel or built a 
-    kernel-headers package along with your own self-built kernel. 
+    linux-headers package along with your own self-built kernel. 
 
  METHOD #2: You are running your own self-built kernel built from kernel
     source. 
@@ -53,7 +53,7 @@ HOTPLUG SUPPORT:
 As of version 1.0.5336-8 there is hotplug/udev module loading support provided.
 
 
-METHOD #1 Using a kernel-headers package
+METHOD #1 Using a linux-headers or kernel-headers package
 ***********************************************************************
 
 As root (or using fakeroot)
@@ -67,18 +67,20 @@ As root (or using fakeroot)
    
 2. Find out your kernel version:
 	             
-   uname -r   For example: 2.4.21-4-k7
+   uname -r   For example: 2.6.14-2-k7
 				          
-3. Download and install package: kernel-headers-2.4.21-4-k7
+3. Download and install package: linux-headers-2.6.14-2-k7
    It will install in /usr/src/
+   Note that packages prior to 2.6.12 used the kernel- prefix rather than
+   linux-
    
    Make sure your kernel image and headers have matching release numbers to
    avoid possible problems in packages built from different sources. 
    
 4. Set some environment variables (if bash is your shell):
 	           
-    export KSRC=/usr/src/kernel-headers-2.4.21-4-k7
-    export KVERS=2.4.21-4-k7
+    export KSRC=/usr/src/linux-headers-2.6.14-2-k7
+    export KVERS=2.6.14-2-k7
 			 		            
 5. Then build nvidia-kernel package:
 	      	           
@@ -86,7 +88,7 @@ As root (or using fakeroot)
    debian/rules binary_modules
    
 (You can also combine step 4 and 5 into one line:
-KSRC=/usr/src/kernel-headers-2.4.21-4-k7 KVERS=2.4.21-4-k7 debian/rules binary_modules)
+KSRC=/usr/src/linux-headers-2.6.14-k7 KVERS=2.6.14-4-k7 debian/rules binary_modules)
 				 	      		    	   
 6. Install nvidia-kernel-common on the machine where the module will be
 deployed:
@@ -96,7 +98,7 @@ deployed:
    
 7. Install the nvidia-kernel package:
 	    		     
-   dpkg -i ../nvidia-kernel-2.4.21-4-k7_1.0.7676-1+_.Custom_i386.deb
+   dpkg -i ../nvidia-kernel-2.6.14-2-k7_1.0.8174-1+_.Custom_i386.deb
    ( or similar filename )
 
 Now see GENERAL NOTES below method #2

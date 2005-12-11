@@ -46,7 +46,7 @@ NOTES ABOUT GLX DRIVER AND OPENGL:
 
 Using the nvidia X driver requires some user modification. 
 
-	First, modify your /etc/X11/XF86Config-4
+	First, modify your /etc/X11/XF86Config-4 or /etc/X11/xorg.conf
 
 	Minimum requirements:
 	In Section "Module"
