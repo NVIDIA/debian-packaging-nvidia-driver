@@ -1,3 +1,22 @@
+nvidia-kernel (1.0.8178-1) unstable; urgency=low
+
+  * Upload to archive.
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 27 Dec 2005 13:46:44 -0800
+
+nvidia-kernel (1.0.8178-0.1) unstable; urgency=low
+
+  * patch scheme added
+  * applied NVidia's patch NVIDIA_kernel-1.0-8178-U122205
+
+ -- Harald Dunkel <harald.dunkel@t-online.de>  Tue, 27 Dec 2005 15:23:41 +0100
+
+nvidia-kernel (1.0.8178-0) unstable; urgency=low
+
+  * new upstream
+
+ -- Harald Dunkel <harald.dunkel@t-online.de>  Sat, 24 Dec 2005 09:27:56 +0100
+
 nvidia-kernel (1.0.8174-1) unstable; urgency=low
 
   * The "Radiohead" Release ;)

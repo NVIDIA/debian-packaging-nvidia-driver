@@ -1,0 +1,509 @@
+diff -ru usr/src/nv/Makefile.kbuild usr/src/nv.U122205/Makefile.kbuild
+--- usr/src/nv/Makefile.kbuild	2005-12-15 01:57:35.000000000 +0100
++++ usr/src/nv.U122205/Makefile.kbuild	2005-12-22 18:49:02.746376250 +0100
+@@ -186,6 +186,18 @@
+   ifeq ($(shell $(CONFTEST) sysctl_max_map_count), 1)
+     EXTRA_CFLAGS += -DNV_SYSCTL_MAX_MAP_COUNT_PRESENT
+   endif
++
++  ifeq ($(shell $(CONFTEST) pm_message_t), 1)
++    EXTRA_CFLAGS += -DNV_PM_MESSAGE_T_PRESENT
++  endif
++
++  ifeq ($(shell $(CONFTEST) pci_choose_state), 1)
++    EXTRA_CFLAGS += -DNV_PCI_CHOOSE_STATE_PRESENT
++  endif
++
++  ifeq ($(shell $(CONFTEST) vm_insert_page), 1)
++	EXTRA_CFLAGS += -DNV_VM_INSERT_PAGE_PRESENT
++  endif
+ endif
+ 
+ ifeq ($(shell $(CONFTEST) remap_pfn_range), 1)
+diff -ru usr/src/nv/conftest.sh usr/src/nv.U122205/conftest.sh
+--- usr/src/nv/conftest.sh	2005-12-15 01:57:35.000000000 +0100
++++ usr/src/nv.U122205/conftest.sh	2005-12-22 18:49:02.746376250 +0100
+@@ -42,7 +42,7 @@
+         echo "#include <linux/mm.h>
+         int nv_remap_page_range(void) {
+            pgprot_t pgprot = __pgprot(0);
+-           remap_page_range(NULL, 0L, 0L, 0L, pgprot);
++           return remap_page_range(NULL, 0L, 0L, 0L, pgprot);
+         }" > conftest$$.c
+ 
+         $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
+@@ -57,7 +57,7 @@
+         echo "#include <linux/mm.h>
+         int nv_remap_page_range(void) {
+            pgprot_t pgprot = __pgprot(0);
+-           remap_page_range(0L, 0L, 0L, pgprot);
++           return remap_page_range(0L, 0L, 0L, pgprot);
+         }" > conftest$$.c
+ 
+         $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
+@@ -528,7 +528,7 @@
+         echo "#include <linux/mm.h>
+         int nv_remap_pfn_range(void) {
+             pgprot_t pgprot = __pgprot(0);
+-            remap_pfn_range(NULL, 0L, 0L, 0L, pgprot);
++            return remap_pfn_range(NULL, 0L, 0L, 0L, pgprot);
+         }" > conftest$$.c
+ 
+         $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
+@@ -644,4 +644,69 @@
+         fi
+     ;;
+ 
++    pm_message_t)
++        #
++        # Does linux/pm.h declare the pm_message_t type?
++        #
++
++        echo "#include <linux/pm.h>
++        void nv_test_pm_message_t(pm_message_t state) {
++            pm_message_t *p = &state;
++        }" > conftest$$.c
++
++        $CC $CFLAGS -Wno-error -c conftest$$.c > /dev/null 2>&1
++        rm -f conftest$$.c
++
++        if [ -f conftest$$.o ]; then
++            rm -f conftest$$.o
++            echo 1
++        else
++            echo 0
++        fi
++    ;;
++
++    pci_choose_state)
++        #
++        # Determine if pci_choose_state() is present.
++        #
++
++        echo "#include <linux/pci.h>
++        pci_power_t
++        nv_pci_choose_state(struct pci_dev *dev, pm_message_t state) {
++            return pci_choose_state(dev, state);
++        }" > conftest$$.c
++
++        $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++        rm -f conftest$$.c
++
++        if [ -f conftest$$.o ]; then
++            rm -f conftest$$.o
++            echo 1
++        else
++            echo 0
++        fi
++    ;;
++
++    vm_insert_page)
++        #
++        # Determine if vm_insert_page() is present.
++        #
++
++        echo "#include <linux/mm.h>
++        int nv_vm_insert_page(void) {
++            struct page *page;
++            return vm_insert_page(NULL, 0L, page);
++        }" > conftest$$.c
++
++        $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++        rm -f conftest$$.c
++
++        if [ -f conftest$$.o ]; then
++            rm -f conftest$$.o
++            echo 1
++        else
++            echo 0
++        fi
++    ;;
++
+ esac
+diff -ru usr/src/nv/nv-linux.h usr/src/nv.U122205/nv-linux.h
+--- usr/src/nv/nv-linux.h	2005-12-15 01:57:35.000000000 +0100
++++ usr/src/nv.U122205/nv-linux.h	2005-12-22 18:49:02.746376250 +0100
+@@ -642,15 +642,49 @@
+ #define NV_PRINT_AT(at)
+ #endif
+ 
+-// acpi support has been back-ported to the 2.4 kernel, but the 2.4 driver
+-// model is not sufficient for full acpi support. it may work in some cases,
+-// but not enough for us to officially support this configuration.
+-#if defined(CONFIG_ACPI) && defined(KERNEL_2_6)
+-#define NV_PM_SUPPORT_ACPI
++/*
++ * On Linux 2.6, we support both APM and ACPI power management. On Linux
++ * 2.4, we support APM, only. ACPI support has been back-ported to the
++ * Linux 2.4 kernel, but the Linux 2.4 driver model is not sufficient for
++ * full ACPI support: it may work with some systems, but not reliably
++ * enough for us to officially support this configuration.
++ *
++ * We support two Linux kernel power managment interfaces: the original
++ * pm_register()/pm_unregister() on Linux 2.4 and the device driver model
++ * backed PCI driver power management callbacks introduced with Linux
++ * 2.6.
++ *
++ * The code below determines which interface to support on this kernel
++ * version, if any; if built for Linux 2.6, it will also determine if the
++ * kernel comes with ACPI or APM power management support.
++ */
++#if defined(KERNEL_2_6) && (defined(CONFIG_APM) || defined(CONFIG_APM_MODULE) || defined(CONFIG_ACPI))
++#define NV_PM_SUPPORT_DEVICE_DRIVER_MODEL
++#if defined(CONFIG_APM) || defined(CONFIG_APM_MODULE)
++#define NV_PM_SUPPORT_NEW_STYLE_APM
++#endif
+ #endif
+ 
+-#if defined(CONFIG_APM) || defined(CONFIG_APM_MODULE)
+-#define NV_PM_SUPPORT_APM
++/*
++ * On Linux 2.6 kernels >= 2.6.11, the PCI subsystem provides a new 
++ * interface that allows PCI drivers to determine the correct power state
++ * for a given system power state; our suspend/resume callbacks now use
++ * this interface and operate on PCI power state defines.
++ *
++ * Define these new PCI power state #define's here for compatibility with
++ * older Linux 2.6 kernels.
++ */
++#if defined(KERNEL_2_6) && !defined(PCI_D0)
++#define PCI_D0 PM_SUSPEND_ON
++#define PCI_D3hot PM_SUSPEND_MEM
++#endif
++
++#if defined(KERNEL_2_6) && !defined(NV_PM_MESSAGE_T_PRESENT)
++typedef u32 pm_message_t;
++#endif
++
++#if defined(KERNEL_2_4) && (defined(CONFIG_APM) || defined(CONFIG_APM_MODULE))
++#define NV_PM_SUPPORT_OLD_STYLE_APM
+ #endif
+ 
+ #ifndef minor
+@@ -666,9 +700,13 @@
+ #define PCI_CAP_ID_EXP 0x10
+ #endif
+ 
++#if defined(NV_VM_INSERT_PAGE_PRESENT)
++#define NV_VM_INSERT_PAGE(vma, addr, page) \
++    vm_insert_page(vma, addr, page)
++#endif
+ #if defined(NV_REMAP_PFN_RANGE_PRESENT)
+ #define NV_REMAP_PAGE_RANGE(from, offset, x...) \
+-     remap_pfn_range(vma, from, ((offset) >> PAGE_SHIFT), x)
++    remap_pfn_range(vma, from, ((offset) >> PAGE_SHIFT), x)
+ #elif defined(NV_REMAP_PAGE_RANGE_5_PRESENT)
+ #define NV_REMAP_PAGE_RANGE(x...) remap_page_range(vma, x)
+ #elif defined(NV_REMAP_PAGE_RANGE_4_PRESENT)
+diff -ru usr/src/nv/nv-vm.c usr/src/nv.U122205/nv-vm.c
+--- usr/src/nv/nv-vm.c	2005-12-15 01:57:35.000000000 +0100
++++ usr/src/nv.U122205/nv-vm.c	2005-12-22 18:49:02.746376250 +0100
+@@ -105,6 +105,15 @@
+ #endif
+ }
+ 
++static inline BOOL nv_page_locked(nv_pte_t *page_ptr)
++{
++    BOOL locked = FALSE; 
++#if defined(PageReserved)
++    locked = PageReserved(NV_GET_PAGE_STRUCT(page_ptr->phys_addr));
++#endif 
++    return locked;
++}
++
+ #if defined(NV_SG_MAP_BUFFERS)
+ 
+ /* track how much memory has been remapped through the iommu/swiotlb */
+@@ -704,7 +713,7 @@
+         if (!NV_ALLOC_MAPPING_CONTIG(at->flags))
+             nv_sg_unmap_buffer(dev, &page_ptr->sg_list, page_ptr);
+ #endif
+-        if (!NV_ALLOC_MAPPING_CONTIG(at->flags) && !NV_ALLOC_MAPPING_VMALLOC(at->flags))
++        if (!NV_ALLOC_MAPPING_CONTIG(at->flags) && !NV_ALLOC_MAPPING_VMALLOC(at->flags) && !nv_page_locked(page_ptr))
+             NV_FREE_PAGES(page_ptr->virt_addr, 0);
+     }
+     nv_flush_caches();
+diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
+--- usr/src/nv/nv.c	2005-12-15 01:57:35.000000000 +0100
++++ usr/src/nv.U122205/nv.c	2005-12-22 18:49:05.822568500 +0100
+@@ -29,7 +29,7 @@
+ 
+ static nv_linux_state_t nv_linux_devices[NV_MAX_DEVICES];
+ 
+-#if defined(NV_PM_SUPPORT_APM)
++#if defined(NV_PM_SUPPORT_OLD_STYLE_APM)
+ static struct pm_dev *apm_nv_dev[NV_MAX_DEVICES] = { 0 };
+ #endif
+ 
+@@ -244,8 +244,8 @@
+ void          nv_kern_isr_bh(unsigned long);
+ irqreturn_t   nv_kern_isr(int, void *, struct pt_regs *);
+ void          nv_kern_rc_timer(unsigned long);
+-#if defined(NV_PM_SUPPORT_APM)
+-int           nv_kern_apm_event(struct pm_dev *dev, pm_request_t rqst, void *data);
++#if defined(NV_PM_SUPPORT_OLD_STYLE_APM)
++static int    nv_kern_apm_event(struct pm_dev *, pm_request_t, void *);
+ #endif
+ 
+ static int    nv_kern_read_cardinfo(char *, char **, off_t off, int, int *, void *);
+@@ -265,9 +265,10 @@
+ unsigned int  nv_kern_ctl_poll(struct file *, poll_table *);
+ 
+ int nv_kern_probe(struct pci_dev *, const struct pci_device_id *);
+-#if defined(NV_PM_SUPPORT_ACPI)
+-int nv_kern_acpi_standby(struct pci_dev *, u32);
+-int nv_kern_acpi_resume(struct pci_dev *);
++
++#if defined(NV_PM_SUPPORT_DEVICE_DRIVER_MODEL)
++static int    nv_kern_suspend(struct pci_dev *, pm_message_t);
++static int    nv_kern_resume(struct pci_dev *);
+ #endif
+ 
+ /***
+@@ -292,9 +293,9 @@
+     .name     = "nvidia",
+     .id_table = nv_pci_table,
+     .probe    = nv_kern_probe,
+-#if defined(NV_PM_SUPPORT_ACPI)
+-    .suspend  = nv_kern_acpi_standby,
+-    .resume   = nv_kern_acpi_resume,
++#if defined(NV_PM_SUPPORT_DEVICE_DRIVER_MODEL)
++    .suspend  = nv_kern_suspend,
++    .resume   = nv_kern_resume,
+ #endif
+ };
+ 
+@@ -1084,9 +1085,12 @@
+ 
+         // broken kernels may get confused after splitting the page and
+         // restore the page before returning to us. detect that case.
+-        if ( (pte_val(*kpte) == kpte_val) &&
+-             (pte_val(*kpte) & _PAGE_PSE))
++        if (((pte_val(*kpte) & ~_PAGE_NX) == kpte_val) &&
++            (pte_val(*kpte) & _PAGE_PSE))
+         {
++            if ((pte_val(*kpte) & _PAGE_NX) &&
++                    (__nv_supported_pte_mask & _PAGE_NX) == 0)
++                clear_bit(_PAGE_BIT_NX, kpte);
+             spin_unlock(&init_mm.page_table_lock);
+             // don't change the page back, as it's already been reverted
+             put_page(kpte_page);
+@@ -1299,7 +1303,7 @@
+         nv_lock_init_locks(nv_ctl);
+     }
+ 
+-#if defined(NV_PM_SUPPORT_APM)
++#if defined(NV_PM_SUPPORT_OLD_STYLE_APM)
+     for (i = 0; i < num_nv_devices; i++)
+     {
+         apm_nv_dev[i] = pm_register(PM_PCI_DEV, PM_SYS_VGA, nv_kern_apm_event);
+@@ -1418,7 +1422,7 @@
+     if (nv_pte_t_cache != NULL)
+         NV_KMEM_CACHE_DESTROY(nv_pte_t_cache);
+ 
+-#if defined(NV_PM_SUPPORT_APM)
++#if defined(NV_PM_SUPPORT_OLD_STYLE_APM)
+     for (i = 0; i < num_nv_devices; i++)
+         if (apm_nv_dev[i] != NULL) pm_unregister(apm_nv_dev[i]);
+ #endif
+@@ -1473,10 +1477,10 @@
+     inter_module_unregister("nv_linux_devices");
+ #endif
+ 
+-#if defined(NV_PM_SUPPORT_APM)
++#if defined(NV_PM_SUPPORT_OLD_STYLE_APM)
+     for (i = 0; i < num_nv_devices; i++)
+     {
+-        pm_unregister(apm_nv_dev[i]);
++        if (apm_nv_dev[i] != NULL) pm_unregister(apm_nv_dev[i]);
+     }
+ #endif
+ 
+@@ -2118,8 +2122,13 @@
+         for (j = i; j < (i + pages); j++)
+         {
+             nv_verify_page_mappings(at->page_table[j], NV_ALLOC_MAPPING(at->flags));
++#if defined(NV_VM_INSERT_PAGE_PRESENT)
++            if (NV_VM_INSERT_PAGE(vma, start,
++                    NV_GET_PAGE_STRUCT(at->page_table[j]->phys_addr)))
++#else
+             if (NV_REMAP_PAGE_RANGE(start, at->page_table[j]->phys_addr,
+                     PAGE_SIZE, vma->vm_page_prot))
++#endif
+             {
+                 NV_ATOMIC_DEC(at->usage_count);
+                 return -EAGAIN;
+@@ -2429,9 +2438,9 @@
+     mod_timer(&nvl->rc_timer, jiffies + HZ);  /* set another timeout in 1 second */
+ }
+ 
+-#if defined(NV_PM_SUPPORT_APM)
++#if defined(NV_PM_SUPPORT_OLD_STYLE_APM)
+ /* kernel calls us with a power management event */
+-int
++static int
+ nv_kern_apm_event(
+     struct pm_dev *dev,
+     pm_request_t rqst,
+@@ -2466,7 +2475,6 @@
+ 
+     switch (rqst)
+     {
+-#if defined(CONFIG_APM) || defined(CONFIG_APM_MODULE)
+         case PM_RESUME:
+             nv_printf(NV_DBG_INFO, "NVRM: APM: received resume event\n");
+             status = rm_power_management(nv, 0, NV_PM_APM_RESUME);
+@@ -2476,15 +2484,12 @@
+             nv_printf(NV_DBG_INFO, "NVRM: APM: received suspend event\n");
+             status = rm_power_management(nv, 0, NV_PM_APM_SUSPEND);
+             break;
+-#endif
+ 
+-#if defined(KERNEL_2_4)
+         // 2.4 kernels sent a PM_SAVE_STATE request when powering down via
+         // ACPI. just ignore it and return success so the power down works
+         case PM_SAVE_STATE:
+             status = RM_OK;
+             break;
+-#endif
+ 
+         default:
+             nv_printf(NV_DBG_WARNINGS, "NVRM: APM: unsupported event: %d\n", rqst);
+@@ -2496,7 +2501,7 @@
+ 
+     return status;
+ }
+-#endif
++#endif /* defined(NV_PM_SUPPORT_OLD_STYLE_APM) */
+ 
+ /*
+ ** nv_kern_ctl_open
+@@ -3739,6 +3744,7 @@
+     nvl = &nv_linux_devices[num_nv_devices];
+     nv  = NV_STATE_PTR(nvl);
+ 
++    pci_set_drvdata(dev, (void *)nvl);
+     nvl->dev          = dev;
+     nv->vendor_id     = dev->vendor;
+     nv->device_id     = dev->device;
+@@ -3816,11 +3822,10 @@
+ #endif
+ }
+ 
+-#if defined(NV_PM_SUPPORT_ACPI)
++#if defined(NV_PM_SUPPORT_DEVICE_DRIVER_MODEL)
+ 
+-int
+-nv_acpi_event
+-(
++static int
++nv_power_management(
+     struct pci_dev *dev, 
+     u32 state
+ )
+@@ -3828,70 +3833,77 @@
+     nv_state_t *nv;
+     nv_linux_state_t *lnv = NULL;
+     int status = RM_OK;
+-    U032 i;
+ 
+-    nv_printf(NV_DBG_INFO, "NVRM: nv_acpi_event: %d\n", state);
+-
+-    for (i = 0; i < num_nv_devices; i++)
+-    {
+-        if (nv_linux_devices[i].dev == dev)
+-        {
+-            lnv = &nv_linux_devices[i];
+-            break;
+-        }
+-    }
++    nv_printf(NV_DBG_INFO, "NVRM: nv_power_management: %d\n", state);
++    lnv = pci_get_drvdata(dev);
+ 
+     if ((!lnv) || (lnv->dev != dev))
+     {
+-        nv_printf(NV_DBG_WARNINGS, "NVRM: ACPI: invalid device!\n");
++        nv_printf(NV_DBG_WARNINGS, "NVRM: PM: invalid device!\n");
+         return -1;
+     }
+ 
+     nv = NV_STATE_PTR(lnv);
++    nv_verify_pci_config(NV_STATE_PTR(lnv), TRUE);
+ 
+     switch (state)
+     {
+-        case PM_SUSPEND_MEM:
++#if defined(NV_PM_SUPPORT_NEW_STYLE_APM)
++        case PCI_D3hot:
++            nv_printf(NV_DBG_INFO, "NVRM: APM: received suspend event\n");
++            status = rm_power_management(nv, 0, NV_PM_APM_SUSPEND);
++            break;
++
++        case PCI_D0:
++            nv_printf(NV_DBG_INFO, "NVRM: APM: received resume event\n");
++            status = rm_power_management(nv, 0, NV_PM_APM_RESUME);
++            break;
++#else
++        case PCI_D3hot:
+             nv_printf(NV_DBG_INFO, "NVRM: ACPI: received suspend event\n");
+             status = rm_power_management(nv, 0, NV_PM_ACPI_STANDBY);
+             break;
+ 
+-        case PM_SUSPEND_ON:
++        case PCI_D0:
+             nv_printf(NV_DBG_INFO, "NVRM: ACPI: received resume event\n");
+             status = rm_power_management(nv, 0, NV_PM_ACPI_RESUME);
+             break;
+-
++#endif
+         default:
+-            nv_printf(NV_DBG_WARNINGS, "NVRM: ACPI: unsupported event: %d\n", state);
++            nv_printf(NV_DBG_WARNINGS, "NVRM: PM: unsupported event: %d\n", state);
+             return -1;
+     }
+ 
+     if (status != RM_OK)
+-        nv_printf(NV_DBG_ERRORS, "NVRM: ACPI: failed event: %d\n", state);
++        nv_printf(NV_DBG_ERRORS, "NVRM: PM: failed event: %d\n", state);
+ 
+     return status;
+ }
+ 
+-int
+-nv_kern_acpi_standby
+-(
+-    struct pci_dev *dev, 
+-    u32 state
++static int nv_kern_suspend(
++    struct pci_dev *dev,
++    pm_message_t state
+ )
+ {
+-    return nv_acpi_event(dev, state);
++    int power_state = -1;
++
++#if !defined(NV_PM_MESSAGE_T_PRESENT)
++    power_state = state;
++#elif defined(NV_PCI_CHOOSE_STATE_PRESENT)
++    power_state = pci_choose_state(dev, state);
++#endif
++
++    return nv_power_management(dev, power_state);
+ }
+ 
+-int
+-nv_kern_acpi_resume
+-(
++static int nv_kern_resume(
+     struct pci_dev *dev
+ )
+ {
+-    return nv_acpi_event(dev, PM_SUSPEND_ON);
++    return nv_power_management(dev, PCI_D0);
+ }
+ 
+-#endif
++#endif /* defined(NV_PM_SUPPORT_DEVICE_DRIVER_MODEL) */
+ 
+ void* NV_API_CALL nv_get_adapter_state(
+     U016 bus,
