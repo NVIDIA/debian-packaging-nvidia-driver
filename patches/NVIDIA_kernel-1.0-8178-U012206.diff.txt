@@ -1,6 +1,6 @@
-diff -ru usr/src/nv/Makefile.kbuild usr/src/nv.U122205/Makefile.kbuild
+diff -ru usr/src/nv/Makefile.kbuild usr/src/nv.U012206/Makefile.kbuild
 --- usr/src/nv/Makefile.kbuild	2005-12-15 01:57:35.000000000 +0100
-+++ usr/src/nv.U122205/Makefile.kbuild	2005-12-22 18:49:02.746376250 +0100
++++ usr/src/nv.U012206/Makefile.kbuild	2006-01-22 15:32:35.775636750 +0100
 @@ -186,6 +186,18 @@
    ifeq ($(shell $(CONFTEST) sysctl_max_map_count), 1)
      EXTRA_CFLAGS += -DNV_SYSCTL_MAX_MAP_COUNT_PRESENT
@@ -20,37 +20,220 @@ diff -ru usr/src/nv/Makefile.kbuild usr/src/nv.U122205/Makefile.kbuild
  endif
  
  ifeq ($(shell $(CONFTEST) remap_pfn_range), 1)
-diff -ru usr/src/nv/conftest.sh usr/src/nv.U122205/conftest.sh
+diff -ru usr/src/nv/conftest.sh usr/src/nv.U012206/conftest.sh
 --- usr/src/nv/conftest.sh	2005-12-15 01:57:35.000000000 +0100
-+++ usr/src/nv.U122205/conftest.sh	2005-12-22 18:49:02.746376250 +0100
-@@ -42,7 +42,7 @@
++++ usr/src/nv.U012206/conftest.sh	2006-01-22 15:32:06.353798000 +0100
+@@ -22,8 +22,8 @@
+ OUTPUT=$4
+ 
+ CFLAGS="-D__KERNEL__ \
+--nostdinc -isystem $ISYSTEM \
+--Werror -Wimplicit-function-declaration"
++-DKBUILD_BASENAME=\"#conftest$$\" -DKBUILD_MODNAME=\"#conftest$$\" \
++-nostdinc -isystem $ISYSTEM"
+ 
+ if [ "$OUTPUT" != "$SOURCES" ]; then
+     ARCH=`uname -m | sed -e 's/i.86/i386/'`
+@@ -40,9 +40,22 @@
+         #
+ 
          echo "#include <linux/mm.h>
-         int nv_remap_page_range(void) {
+-        int nv_remap_page_range(void) {
++        void conftest_remap_page_range(void) {
++           remap_page_range();
++        }" > conftest$$.c
++
++        $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++        rm -f conftest$$.c
++
++        if [ -f conftest$$.o ]; then
++          rm -f conftest$$.o
++          exit 1
++        fi
++
++        echo "#include <linux/mm.h>
++        int conftest_remap_page_range(void) {
             pgprot_t pgprot = __pgprot(0);
 -           remap_page_range(NULL, 0L, 0L, 0L, pgprot);
 +           return remap_page_range(NULL, 0L, 0L, 0L, pgprot);
          }" > conftest$$.c
  
          $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
-@@ -57,7 +57,7 @@
+@@ -55,9 +68,9 @@
+         fi
+ 
          echo "#include <linux/mm.h>
-         int nv_remap_page_range(void) {
+-        int nv_remap_page_range(void) {
++        int conftest_remap_page_range(void) {
             pgprot_t pgprot = __pgprot(0);
 -           remap_page_range(0L, 0L, 0L, pgprot);
 +           return remap_page_range(0L, 0L, 0L, pgprot);
          }" > conftest$$.c
  
          $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
-@@ -528,7 +528,7 @@
-         echo "#include <linux/mm.h>
-         int nv_remap_pfn_range(void) {
-             pgprot_t pgprot = __pgprot(0);
--            remap_pfn_range(NULL, 0L, 0L, 0L, pgprot);
-+            return remap_pfn_range(NULL, 0L, 0L, 0L, pgprot);
+@@ -330,7 +343,7 @@
+                 return 0;
+             }" > conftest$$.c
+ 
+-            $HOSTCC $CFLAGS -Wno-error -o conftest$$ conftest$$.c > /dev/null 2>&1
++            $HOSTCC $CFLAGS -o conftest$$ conftest$$.c > /dev/null 2>&1
+             rm -f conftest$$.c
+ 
+             if [ -f conftest$$ ]; then
+@@ -483,8 +496,8 @@
+         #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 0)
+           #include <asm/cacheflush.h>
+         #endif
+-        int nv_change_page_attr(struct page *pp, int i, pgprot_t prot) {
+-            return change_page_attr(pp, i, prot);
++        void conftest_change_page_attr() {
++            change_page_attr();
          }" > conftest$$.c
  
          $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
-@@ -644,4 +644,69 @@
+@@ -492,9 +505,9 @@
+ 
+         if [ -f conftest$$.o ]; then
+             rm -f conftest$$.o
+-            echo 1
+-        else
+             echo 0
++        else
++            echo 1
+         fi
+     ;;
+ 
+@@ -504,9 +517,8 @@
+         #
+ 
+         echo "#include <linux/pci.h>
+-        struct pci_dev*
+-        nv_pci_get_class(unsigned int class, struct pci_dev *from) {
+-            return pci_get_class(class, from);
++        void conftest_pci_get_class(void) {
++            pci_get_class();
+         }" > conftest$$.c
+ 
+         $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
+@@ -514,9 +526,9 @@
+ 
+         if [ -f conftest$$.o ]; then
+             rm -f conftest$$.o
+-            echo 1
+-        else
+             echo 0
++        else
++            echo 1
+         fi
+     ;;
+ 
+@@ -526,9 +538,8 @@
+         #
+ 
+         echo "#include <linux/mm.h>
+-        int nv_remap_pfn_range(void) {
+-            pgprot_t pgprot = __pgprot(0);
+-            remap_pfn_range(NULL, 0L, 0L, 0L, pgprot);
++        void conftest_remap_pfn_range(void) {
++            remap_pfn_range();
+         }" > conftest$$.c
+ 
+         $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
+@@ -536,9 +547,9 @@
+ 
+         if [ -f conftest$$.o ]; then
+             rm -f conftest$$.o
+-            echo 1
+-        else
+             echo 0
++        else
++            echo 1
+         fi
+     ;;
+ 
+@@ -548,11 +559,11 @@
+         #
+ 
+         echo "#include <linux/sched.h>
+-        struct rlimit *nv_signal_struct_rlim(void) {
++        struct rlimit *conftest_signal_struct_rlim(void) {
+             return current->signal->rlim;
+         }" > conftest$$.c
+ 
+-        $CC $CFLAGS -Wno-error -c conftest$$.c > /dev/null 2>&1
++        $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
+         rm -f conftest$$.c
+ 
+         if [ -f conftest$$.o ]; then
+@@ -572,7 +583,7 @@
+         echo "#include <linux/types.h>
+         #include <linux/agp_backend.h>
+         typedef struct agp_bridge_data agp_bridge_data;
+-        agp_bridge_data *nv_agp_backend_acquire(struct pci_dev *dev) {
++        agp_bridge_data *conftest_agp_backend_acquire(struct pci_dev *dev) {
+             return agp_backend_acquire(dev);
+         }" > conftest$$.c
+ 
+@@ -594,9 +605,23 @@
+         #
+ 
+         echo "#include <linux/vmalloc.h>
+-        void *nv_vmap(struct page **pg, int cnt) {
++        void conftest_vmap(void) {
++            vmap();
++        }" > conftest$$.c
++
++        $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
++        rm -f conftest$$.c
++
++        if [ -f conftest$$.o ]; then
++            rm -f conftest$$.o
++            exit 1
++        fi
++
++        echo "#include <linux/vmalloc.h>
++        void *conftest_vmap(struct page **pg, int cnt) {
+             return vmap(pg, cnt);
+         }" > conftest$$.c
++
+         $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
+         rm -f conftest$$.c
+ 
+@@ -608,9 +633,10 @@
+ 
+         echo "#include <linux/vmalloc.h>
+         #include <linux/mm.h>
+-        void *nv_vmap(struct page **pg, int cnt) {
++        void *conftest_vmap(struct page **pg, int cnt) {
+             return vmap(pg, cnt, 0, PAGE_KERNEL);
+         }" > conftest$$.c
++
+         $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
+         rm -f conftest$$.c
+ 
+@@ -618,7 +644,11 @@
+             rm -f conftest$$.o
+             echo 4
+         else
+-            exit 1  # there ain't no vmap()
++            #
++            # We couldn't determine the number of arguments expected by the
++            # vmap() function.
++            #
++            exit 1
+         fi
+     ;;
+ 
+@@ -629,7 +659,7 @@
+         #
+ 
+         echo "#include <linux/sched.h>
+-        int nv_test_sysctl_max_map_count(void) {
++        int conftest_sysctl_max_map_count(void) {
+             return sysctl_max_map_count;
+         }" > conftest$$.c
+ 
+@@ -644,4 +674,67 @@
          fi
      ;;
  
@@ -60,11 +243,11 @@ diff -ru usr/src/nv/conftest.sh usr/src/nv.U122205/conftest.sh
 +        #
 +
 +        echo "#include <linux/pm.h>
-+        void nv_test_pm_message_t(pm_message_t state) {
++        void conftest_pm_message_t(pm_message_t state) {
 +            pm_message_t *p = &state;
 +        }" > conftest$$.c
 +
-+        $CC $CFLAGS -Wno-error -c conftest$$.c > /dev/null 2>&1
++        $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
 +        rm -f conftest$$.c
 +
 +        if [ -f conftest$$.o ]; then
@@ -81,9 +264,8 @@ diff -ru usr/src/nv/conftest.sh usr/src/nv.U122205/conftest.sh
 +        #
 +
 +        echo "#include <linux/pci.h>
-+        pci_power_t
-+        nv_pci_choose_state(struct pci_dev *dev, pm_message_t state) {
-+            return pci_choose_state(dev, state);
++        void conftest_pci_choose_state(void) {
++            pci_choose_state();
 +        }" > conftest$$.c
 +
 +        $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
@@ -91,9 +273,9 @@ diff -ru usr/src/nv/conftest.sh usr/src/nv.U122205/conftest.sh
 +
 +        if [ -f conftest$$.o ]; then
 +            rm -f conftest$$.o
-+            echo 1
-+        else
 +            echo 0
++        else
++            echo 1
 +        fi
 +    ;;
 +
@@ -103,9 +285,8 @@ diff -ru usr/src/nv/conftest.sh usr/src/nv.U122205/conftest.sh
 +        #
 +
 +        echo "#include <linux/mm.h>
-+        int nv_vm_insert_page(void) {
-+            struct page *page;
-+            return vm_insert_page(NULL, 0L, page);
++        void conftest_vm_insert_page(void) {
++            vm_insert_page();
 +        }" > conftest$$.c
 +
 +        $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
@@ -113,16 +294,16 @@ diff -ru usr/src/nv/conftest.sh usr/src/nv.U122205/conftest.sh
 +
 +        if [ -f conftest$$.o ]; then
 +            rm -f conftest$$.o
-+            echo 1
-+        else
 +            echo 0
++        else
++            echo 1
 +        fi
 +    ;;
 +
  esac
-diff -ru usr/src/nv/nv-linux.h usr/src/nv.U122205/nv-linux.h
+diff -ru usr/src/nv/nv-linux.h usr/src/nv.U012206/nv-linux.h
 --- usr/src/nv/nv-linux.h	2005-12-15 01:57:35.000000000 +0100
-+++ usr/src/nv.U122205/nv-linux.h	2005-12-22 18:49:02.746376250 +0100
++++ usr/src/nv.U012206/nv-linux.h	2006-01-22 15:32:35.775636750 +0100
 @@ -642,15 +642,49 @@
  #define NV_PRINT_AT(at)
  #endif
@@ -195,9 +376,22 @@ diff -ru usr/src/nv/nv-linux.h usr/src/nv.U122205/nv-linux.h
  #elif defined(NV_REMAP_PAGE_RANGE_5_PRESENT)
  #define NV_REMAP_PAGE_RANGE(x...) remap_page_range(vma, x)
  #elif defined(NV_REMAP_PAGE_RANGE_4_PRESENT)
-diff -ru usr/src/nv/nv-vm.c usr/src/nv.U122205/nv-vm.c
+@@ -840,11 +878,7 @@
+     }
+ #endif
+ 
+-#if !defined(page_to_pfn)
+-#define page_to_pfn(page)  ((page) - mem_map)
+-#endif
+-
+-#if !defined(pfn_to_page)
++#if defined(KERNEL_2_4) && defined(NVCPU_X86) && !defined(pfn_to_page)
+ #define pfn_to_page(pfn) (mem_map + (pfn))
+ #endif
+ 
+diff -ru usr/src/nv/nv-vm.c usr/src/nv.U012206/nv-vm.c
 --- usr/src/nv/nv-vm.c	2005-12-15 01:57:35.000000000 +0100
-+++ usr/src/nv.U122205/nv-vm.c	2005-12-22 18:49:02.746376250 +0100
++++ usr/src/nv.U012206/nv-vm.c	2006-01-22 15:32:35.775636750 +0100
 @@ -105,6 +105,15 @@
  #endif
  }
@@ -223,9 +417,9 @@ diff -ru usr/src/nv/nv-vm.c usr/src/nv.U122205/nv-vm.c
              NV_FREE_PAGES(page_ptr->virt_addr, 0);
      }
      nv_flush_caches();
-diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
+diff -ru usr/src/nv/nv.c usr/src/nv.U012206/nv.c
 --- usr/src/nv/nv.c	2005-12-15 01:57:35.000000000 +0100
-+++ usr/src/nv.U122205/nv.c	2005-12-22 18:49:05.822568500 +0100
++++ usr/src/nv.U012206/nv.c	2006-01-22 15:32:35.775636750 +0100
 @@ -29,7 +29,7 @@
  
  static nv_linux_state_t nv_linux_devices[NV_MAX_DEVICES];
@@ -273,7 +467,17 @@ diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
  #endif
  };
  
-@@ -1084,9 +1085,12 @@
+@@ -852,7 +853,8 @@
+ 
+     if (!test_bit(X86_FEATURE_PAT, (volatile unsigned long *)&boot_cpu_data.x86_capability))
+     {
+-        nv_printf(NV_DBG_ERRORS, "NVRM: cpu does not support PAT, aborting..\n");
++        nv_printf(NV_DBG_ERRORS,
++            "NVRM: CPU does not support the PAT, falling back to MTRRs.\n");
+         return 0;
+     }
+ 
+@@ -1084,9 +1086,12 @@
  
          // broken kernels may get confused after splitting the page and
          // restore the page before returning to us. detect that case.
@@ -288,7 +492,7 @@ diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
              spin_unlock(&init_mm.page_table_lock);
              // don't change the page back, as it's already been reverted
              put_page(kpte_page);
-@@ -1299,7 +1303,7 @@
+@@ -1299,7 +1304,7 @@
          nv_lock_init_locks(nv_ctl);
      }
  
@@ -297,7 +501,20 @@ diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
      for (i = 0; i < num_nv_devices; i++)
      {
          apm_nv_dev[i] = pm_register(PM_PCI_DEV, PM_SYS_VGA, nv_kern_apm_event);
-@@ -1418,7 +1422,7 @@
+@@ -1407,8 +1412,11 @@
+ 
+ #if defined(NV_BUILD_NV_PAT_SUPPORT)
+     if (!nv_disable_pat)
+-    {
+         __nv_enable_pat_support();
++    else
++    {
++        nv_printf(NV_DBG_ERRORS,
++            "NVRM: builtin PAT support disabled, falling back to MTRRs.\n");
+     }
+ #endif
+ 
+@@ -1418,7 +1426,7 @@
      if (nv_pte_t_cache != NULL)
          NV_KMEM_CACHE_DESTROY(nv_pte_t_cache);
  
@@ -306,7 +523,7 @@ diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
      for (i = 0; i < num_nv_devices; i++)
          if (apm_nv_dev[i] != NULL) pm_unregister(apm_nv_dev[i]);
  #endif
-@@ -1473,10 +1477,10 @@
+@@ -1473,10 +1481,10 @@
      inter_module_unregister("nv_linux_devices");
  #endif
  
@@ -319,7 +536,74 @@ diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
      }
  #endif
  
-@@ -2118,8 +2122,13 @@
+@@ -1889,9 +1897,6 @@
+     // allow setting or refusal of specific caching types
+     switch (cache_type)
+     {
+-        case NV_MEMORY_CACHED:
+-        //case NV_MEMORY_WRITEBACK:
+-            break;
+         case NV_MEMORY_UNCACHED_WEAK:
+             *prot = pgprot_noncached_weak(*prot);
+             break;
+@@ -1899,19 +1904,53 @@
+             *prot = pgprot_noncached(*prot);
+             break;
+         case NV_MEMORY_WRITECOMBINED:
+-            if (nv_pat_enabled)
++            if (nv_pat_enabled &&
++                (memory_type != NV_MEMORY_TYPE_REGISTERS))
+             {
+                 *prot = pgprot_writecombined(*prot);
+                 break;
+             }
+-            /* agp allocations should be covered by an mtrr if pat isn't enabled */
++            /*
++             * If PAT support is unavailable and the memory space isn't
++             * NV_MEMORY_TYPE_AGP, we need to return an error code to
++             * the caller, but do not print a warning message.
++             *
++             * In the case of AGP memory, we will have attempted to add
++             * a WC MTRR for the AGP aperture and aborted the AGP
++             * initialization if this failed, so we can safely return
++             * success here.
++             *
++             * For frame buffer memory, callers are expected to use the
++             * UC- memory type if we report WC as unsupported, which
++             * translates to the effective memory type WC if a WC MTRR
++             * exists or else UC.
++             */
+             if (memory_type == NV_MEMORY_TYPE_AGP)
+                 break;
++            return 1;
++        case NV_MEMORY_CACHED:
++        //case NV_MEMORY_WRITEBACK:
++            /*
++             * RAM is cached on Linux by default, we can assume there's
++             * nothing to be done here. This is not the case for the
++             * other memory spaces: as commented on above, we will have
++             * added a WC MTRR for the AGP aperture (or else aborted
++             * AGP initialization), and we will have made an attempt to
++             * add a WC MTRR for the frame buffer.
++             *
++             * If a WC MTRR is present, we can't satisfy the WB mapping
++             * attempt here, since the achievable effective memory
++             * types in that case are WC and UC, if not it's typically
++             * UC (MTRRdefType is UC); we could only satisfy WB mapping
++             * requests with a WB MTRR.
++             */
++            if (memory_type == NV_MEMORY_TYPE_SYSTEM)
++                break;
+         //case NV_MEMORY_WRITETHRU:
+         //case NV_MEMORY_WRITEPROTECT:
+         default:
+             nv_printf(NV_DBG_ERRORS,
+-                "NVRM: memory caching type 0x%x not supported for memory space %d!\n",
++                "NVRM: VM: memory type %d not supported for memory space %d!\n",
+                 cache_type, memory_type);
+             return 1;
+     }
+@@ -2118,8 +2157,13 @@
          for (j = i; j < (i + pages); j++)
          {
              nv_verify_page_mappings(at->page_table[j], NV_ALLOC_MAPPING(at->flags));
@@ -333,7 +617,7 @@ diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
              {
                  NV_ATOMIC_DEC(at->usage_count);
                  return -EAGAIN;
-@@ -2429,9 +2438,9 @@
+@@ -2429,9 +2473,9 @@
      mod_timer(&nvl->rc_timer, jiffies + HZ);  /* set another timeout in 1 second */
  }
  
@@ -345,7 +629,7 @@ diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
  nv_kern_apm_event(
      struct pm_dev *dev,
      pm_request_t rqst,
-@@ -2466,7 +2475,6 @@
+@@ -2466,7 +2510,6 @@
  
      switch (rqst)
      {
@@ -353,7 +637,7 @@ diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
          case PM_RESUME:
              nv_printf(NV_DBG_INFO, "NVRM: APM: received resume event\n");
              status = rm_power_management(nv, 0, NV_PM_APM_RESUME);
-@@ -2476,15 +2484,12 @@
+@@ -2476,15 +2519,12 @@
              nv_printf(NV_DBG_INFO, "NVRM: APM: received suspend event\n");
              status = rm_power_management(nv, 0, NV_PM_APM_SUSPEND);
              break;
@@ -369,7 +653,7 @@ diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
  
          default:
              nv_printf(NV_DBG_WARNINGS, "NVRM: APM: unsupported event: %d\n", rqst);
-@@ -2496,7 +2501,7 @@
+@@ -2496,7 +2536,7 @@
  
      return status;
  }
@@ -378,7 +662,7 @@ diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
  
  /*
  ** nv_kern_ctl_open
-@@ -3739,6 +3744,7 @@
+@@ -3739,6 +3779,7 @@
      nvl = &nv_linux_devices[num_nv_devices];
      nv  = NV_STATE_PTR(nvl);
  
@@ -386,7 +670,7 @@ diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
      nvl->dev          = dev;
      nv->vendor_id     = dev->vendor;
      nv->device_id     = dev->device;
-@@ -3816,11 +3822,10 @@
+@@ -3816,11 +3857,10 @@
  #endif
  }
  
@@ -401,7 +685,7 @@ diff -ru usr/src/nv/nv.c usr/src/nv.U122205/nv.c
      struct pci_dev *dev, 
      u32 state
  )
-@@ -3828,70 +3833,77 @@
+@@ -3828,70 +3868,77 @@
      nv_state_t *nv;
      nv_linux_state_t *lnv = NULL;
      int status = RM_OK;

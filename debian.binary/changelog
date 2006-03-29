@@ -1,3 +1,22 @@
+nvidia-kernel (1.0.8178-3) unstable; urgency=low
+
+  * upload fix for 2.6.16 (closes: #357992, #346355)
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 28 Mar 2006 19:48:59 -0800
+
+nvidia-kernel (1.0.8178-2.1) unstable; urgency=low
+
+  * add new upstream patch NVIDIA_kernel-1.0-8178-U012206.diff.txt,
+    closes #357992
+
+ -- Harald Dunkel <harald.dunkel@t-online.de>  Fri, 24 Mar 2006 06:51:49 +0100
+
+nvidia-kernel (1.0.8178-2) unstable; urgency=low
+
+  * very belated change of kernel-image to linux-image in Recommends. 
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 13 Feb 2006 20:26:15 -0800
+
 nvidia-kernel (1.0.8178-1) unstable; urgency=low
 
   * Upload to archive.
