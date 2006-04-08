@@ -2,14 +2,14 @@ Source: nvidia-graphics-drivers
 Section: non-free/x11
 Priority: optional
 Maintainer: Randall Donald <rdonald@debian.org>
-Build-Depends: debhelper (>> 5.0.0), sed (>> 3.0)
+Build-Depends: debhelper (>> 4.0.0), sed (>> 3.0)
 Standards-Version: 3.6.2
 
 
 Package: nvidia-glx-ia32
 Architecture: amd64
-Depends: nvidia-kernel-1.0.8178, ia32-libs, ${shlibs:Depends}
-Suggests: nvidia-settings, nvidia-kernel-source (>= 1.0.8178)
+Depends: nvidia-kernel-1.0.8756, ia32-libs, ${shlibs:Depends}
+Suggests: nvidia-settings, nvidia-kernel-source (>= 1.0.8756)
 Conflicts: nvidia-glx-src
 Replaces: nvidia-glx-src
 Description: NVIDIA binary XFree86 4.x driver
@@ -31,12 +31,12 @@ Description: NVIDIA binary XFree86 4.x driver
 
 Package: nvidia-glx
 Architecture: i386 amd64
-Depends: nvidia-kernel-1.0.8178, xserver-common (>= 4.0.3), ${shlibs:Depends}
-Suggests: nvidia-settings, nvidia-kernel-source (>= 1.0.8178)
+Depends: nvidia-kernel-1.0.8756, xserver-common (>= 4.0.3), ${shlibs:Depends}
+Suggests: nvidia-settings, nvidia-kernel-source (>= 1.0.8756)
 Conflicts: nvidia-glx-src
 Replaces: nvidia-glx-src
 Description: NVIDIA binary XFree86 4.x driver
- These XFree86 4.0 / Xorg 6.8 binary drivers provide optimized hardware 
+ These XFree86 4.0 / Xorg binary drivers provide optimized hardware 
  acceleration of  OpenGL applications via a direct-rendering X Server. 
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
  .
@@ -54,9 +54,11 @@ Description: NVIDIA binary XFree86 4.x driver
  
 Package: nvidia-glx-dev
 Architecture: i386 amd64
-Depends: nvidia-glx (>= 1.0.8178), xlibmesa-gl-dev | libgl-dev
-Description: NVIDIA binary XFree86 4.x driver development files
- This package contains the NVIDIA binary XFree86 4.x driver
+Depends: nvidia-glx (>= 1.0.8756)
+Conflicts: nvidia-glx (>= 1.0.8757), libgl-dev
+Replaces: libgl-dev
+Description: NVIDIA binary XFree86 4.x / Xorg driver development files
+ This package contains the NVIDIA binary XFree86 4.x and Xorg driver
  development files.
  .
  For more information on this source package visit NVIDIA's homepage
@@ -65,11 +67,11 @@ Description: NVIDIA binary XFree86 4.x driver development files
 Package: nvidia-kernel-source
 Architecture: i386 amd64
 Depends: debhelper (>> 4.0.0), make, sed (>> 3.0), dpatch (>= 2.0.0)
-Recommends: nvidia-glx (>= 1.0.8178), kernel-package (>= 8.082), devscripts
+Recommends: nvidia-glx (>= 1.0.8756), kernel-package (>= 8.082), devscripts
 Conflicts: nvidia-kernel-src
 Replaces: nvidia-kernel-src
 Description: NVIDIA binary kernel module source
- This package builds the NVIDIA XFree86 4.x / Xorg 6.8 binary kernel module 
+ This package builds the NVIDIA XFree86 4.x / Xorg  binary kernel module 
  needed  by nvidia-glx. The drivers provide optimized hardware acceleration 
  of OpenGL applications via a direct-rendering X Server AGP,
  PCIe, SLI, TV-out, and flat panel displays are also supported.

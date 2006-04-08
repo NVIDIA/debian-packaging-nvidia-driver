@@ -1,9 +1,9 @@
-nvidia-glx-ia32: library-not-linked-against-libc ./emul/ia32-linux/usr/lib/libGL.so.1.0.8178
+nvidia-glx-ia32: library-not-linked-against-libc ./emul/ia32-linux/usr/lib/libGL.so.1.0.8756
 
-nvidia-glx-ia32: shared-lib-without-dependency-information ./emul/ia32-linux/usr/lib/libGLcore.so.1.0.8178
+nvidia-glx-ia32: shared-lib-without-dependency-information ./emul/ia32-linux/usr/lib/libGLcore.so.1.0.8756
 
 
-nvidia-glx-ia32: shlib-with-non-pic-code emul/ia32-linux/usr/lib/libGL.so.1.0.8178
-nvidia-glx-ia32: shlib-with-non-pic-code emul/ia32-linux/usr/lib/libGLcore.so.1.0.8178
+nvidia-glx-ia32: shlib-with-non-pic-code emul/ia32-linux/usr/lib/libGL.so.1.0.8756
+nvidia-glx-ia32: shlib-with-non-pic-code emul/ia32-linux/usr/lib/libGLcore.so.1.0.8756
 
-nvidia-glx-ia32: non-dev-pkg-with-shlib-symlink emul/ia32-linux/usr/lib/libGL.so.1.0.8178 emul/ia32-linux/usr/lib/libGL.so
+nvidia-glx-ia32: non-dev-pkg-with-shlib-symlink emul/ia32-linux/usr/lib/libGL.so.1.0.8756 emul/ia32-linux/usr/lib/libGL.so

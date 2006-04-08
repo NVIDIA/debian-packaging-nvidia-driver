@@ -1,3 +1,2 @@
-usr/share/nvidia/includes /usr/share/doc/nvidia-glx-dev/includes
 usr/lib/libGL.so.#VERSION# usr/lib/libGL.so
 usr/share/nvidia/include /usr/share/doc/nvidia-glx-dev/include

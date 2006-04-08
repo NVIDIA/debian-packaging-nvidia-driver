@@ -17,6 +17,7 @@ DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 base_version:=$(shell sh debian/upstream_info BASE_VERSION)
 release:=$(shell sh debian/upstream_info RELEASE)
 version:=$(shell sh debian/upstream_info VERSION)
+nextver:=$(shell sh debian/upstream_info NEXTVER)
 upstreamversion:=$(shell sh debian/upstream_info UPSTREAMVERSION)
 url:=$(shell sh debian/upstream_info URL)
 dirname:=$(shell sh debian/upstream_info DIRNAME)
@@ -137,16 +138,16 @@ install: build-stamp build-kernel-stamp
 
 
 
-	# move gl headers into /usr/share so we can use the mesa headers
+
 	install -m 0644 $(dirname)/usr/include/GL/gl.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/share/nvidia/include/GL
+		$(CURDIR)/debian/nvidia-glx-dev/usr/include/GL
 	install -m 0644 $(dirname)/usr/include/GL/glext.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/share/nvidia/include/GL
+		$(CURDIR)/debian/nvidia-glx-dev/usr/include/GL
 
 	install -m 0644 $(dirname)/usr/include/GL/glx.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/share/nvidia/include/GL
+		$(CURDIR)/debian/nvidia-glx-dev/usr/include/GL
 	install -m 0644 $(dirname)/usr/include/GL/glxext.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/share/nvidia/include/GL
+		$(CURDIR)/debian/nvidia-glx-dev/usr/include/GL
 
 	install -m 0644 $(dirname)/usr/lib/libGL.so.${version} \
 			$(CURDIR)/debian/nvidia-glx/usr/lib
@@ -162,6 +163,8 @@ install: build-stamp build-kernel-stamp
 
 	#sed "s/__GENERATED_BY__/Debian nvidia-graphics-drivers/" $(dirname)/usr/lib/tls/libGL.la | sed "s/__LIBGL_PATH__/\/usr\/lib\/tls/" > $(CURDIR)/debian/nvidia-glx-dev/usr/lib/nvidia/libGL.la
 	# install -m 0644 $(dirname)/usr/lib/tls/libGL.la $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia/libGL.la
+	
+	install -m 0644 $(dirname)/usr/lib/libnvidia-cfg.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia/
 
 
 	install $(dirname)/usr/X11R6/lib/modules/extensions/libglx.so.${version} $(CURDIR)/debian/nvidia-glx/usr/X11R6/lib/modules/extensions/
@@ -239,6 +242,7 @@ binary-common:
 	-e 's{#BASE_VERSION#}{$(base_version)}g;' \
 	-e 's{#RELEASE#}{$(release)}g;' \
 	-e 's{#VERSION#}{$(version)}g;' \
+	-e 's{#NEXTVER#}{$(nextver)}g;' \
 	-e 's{#UPSTREAMVERSION#}{$(upstreamversion)}g;' \
 	-e 's{#DIRNAME#}{$(dirname)}g;' \
 	-e 's{#FILENAME#}{$(filename)}g;' \

@@ -1,7 +1,7 @@
-usr/lib/libGL.so.1.0.8178 usr/lib/libGL.so.1
-usr/lib/libGLcore.so.1.0.8178 usr/lib/libGLcore.so.1
-usr/lib/libnvidia-tls.so.1.0.8178 usr/lib/libnvidia-tls.so.1
-usr/X11R6/lib/modules/extensions/libglx.so.1.0.8178 usr/X11R6/lib/modules/extensions/libglx.so
-usr/X11R6/lib/libXvMCNVIDIA.so.1.0.8178 usr/X11R6/lib/libXvMCNVIDIA.so.1
-usr/X11R6/lib/libXvMCNVIDIA.so.1.0.8178 usr/X11R6/lib/libXvMCNVIDIA_dynamic.so.1
+usr/lib/libGL.so.1.0.8756 usr/lib/libGL.so.1
+usr/lib/libGLcore.so.1.0.8756 usr/lib/libGLcore.so.1
+usr/lib/libnvidia-tls.so.1.0.8756 usr/lib/libnvidia-tls.so.1
+usr/X11R6/lib/modules/extensions/libglx.so.1.0.8756 usr/X11R6/lib/modules/extensions/libglx.so
+usr/X11R6/lib/libXvMCNVIDIA.so.1.0.8756 usr/X11R6/lib/libXvMCNVIDIA.so.1
+usr/X11R6/lib/libXvMCNVIDIA.so.1.0.8756 usr/X11R6/lib/libXvMCNVIDIA_dynamic.so.1
 

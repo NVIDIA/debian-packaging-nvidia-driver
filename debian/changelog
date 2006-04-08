@@ -1,3 +1,15 @@
+nvidia-graphics-drivers (1.0.8756-1) unstable; urgency=low
+
+  * New upstream (closes: #361352)
+  * Please don't file wishlist bugs after only a few hours.
+  * nvdia-glx-dev: put headers under /usr/include and conflict 
+    with other libgl-dev
+  * nvidia-glx-dev: stricter depends on nvidia-glx (closes: #335539)
+  * nvidia-glx: include libnvidia-cfg (closes: #356800)
+  * lower debhelper level back to sarge ver. 4 level (closes: #356775)
+
+ -- Randall Donald <rdonald@debian.org>  Fri,  7 Apr 2006 18:55:06 -0700
+
 nvidia-graphics-drivers (1.0.8178-3) unstable; urgency=low
 
   * upload fix for 2.6.16 (closes: #357992, #346355)
