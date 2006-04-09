@@ -1,3 +1,9 @@
+nvidia-kernel (1.0.8756-2) unstable; urgency=low
+
+  * nvidia-glx-dev: Add the missing Provides: libgl-dev (closes: #361589)  
+
+ -- Randall Donald <rdonald@debian.org>  Sun,  9 Apr 2006 09:54:21 -0700
+
 nvidia-kernel (1.0.8756-1) unstable; urgency=low
 
   * New upstream (closes: #361352)
