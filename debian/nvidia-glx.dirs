@@ -1,8 +1,8 @@
 usr/bin
 usr/lib
 usr/share/lintian/overrides
-usr/X11R6/lib/modules/drivers
-usr/X11R6/lib/modules/extensions
+usr/lib/xorg/modules/drivers
+usr/lib/xorg/modules/extensions
 usr/lib/tls
 usr/lib/nvidia
 usr/share/bug/nvidia-glx

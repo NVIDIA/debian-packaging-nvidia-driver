@@ -129,12 +129,12 @@ install: build-stamp build-kernel-stamp
 
 
 	install -m 0644 $(dirname)/usr/X11R6/lib/modules/drivers/nvidia_drv.o \
-		$(CURDIR)/debian/nvidia-glx/usr/X11R6/lib/modules/drivers
+		$(CURDIR)/debian/nvidia-glx/usr/lib/xorg/modules/drivers
 
 
 
-	install $(dirname)/usr/X11R6/lib/libXvMCNVIDIA.a $(CURDIR)/debian/nvidia-glx-dev/usr/X11R6/lib/libXvMCNVIDIA.a;
-	install $(dirname)/usr/X11R6/lib/libXvMCNVIDIA.so.${version} $(CURDIR)/debian/nvidia-glx/usr/X11R6/lib/libXvMCNVIDIA.so.${version};
+	install $(dirname)/usr/X11R6/lib/libXvMCNVIDIA.a $(CURDIR)/debian/nvidia-glx-dev/usr/lib/libXvMCNVIDIA.a;
+	install $(dirname)/usr/X11R6/lib/libXvMCNVIDIA.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/libXvMCNVIDIA.so.${version};
 
 
 
@@ -167,7 +167,7 @@ install: build-stamp build-kernel-stamp
 	install -m 0644 $(dirname)/usr/lib/libnvidia-cfg.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia/
 
 
-	install $(dirname)/usr/X11R6/lib/modules/extensions/libglx.so.${version} $(CURDIR)/debian/nvidia-glx/usr/X11R6/lib/modules/extensions/
+	install $(dirname)/usr/X11R6/lib/modules/extensions/libglx.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/xorg/modules/extensions/
 
 	install $(dirname)/usr/bin/tls_test $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia
 	install $(dirname)/usr/bin/tls_test_dso.so $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia

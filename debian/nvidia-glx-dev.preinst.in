@@ -19,15 +19,15 @@ case "$1" in
 
 	fi
 	
-	if [ -d /usr/share/nvidia-glx/diversions-X11R6 ] ; then 
-		rm -f /usr/X11R6/lib/libGL.so 
-		rm -f /usr/X11R6/lib/libGL.a
+	if [ -d /usr/share/nvidia-glx/diversions ] ; then 
+		rm -f /usr/lib/libGL.so 
+		rm -f /usr/lib/libGL.a
 	
-		dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions-X11R6/libGL.so /usr/X11R6/lib/libGL.so > /dev/null
-		dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions-X11R6/libGL.a /usr/X11R6/lib/libGL.a > /dev/null
+		dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/libGL.so /usr/lib/libGL.so > /dev/null
+		dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/libGL.a /usr/lib/libGL.a > /dev/null
 				
 
-                rmdir  /usr/share/nvidia-glx/diversions-X11R6/ || true
+                rmdir  /usr/share/nvidia-glx/diversions || true
 		rmdir /usr/share/nvidia-glx || true
 	fi				                
 						
@@ -35,13 +35,10 @@ case "$1" in
 	if [ ! -d /usr/lib/nvidia ]; then
 		mkdir -p /usr/lib/nvidia || true
 	fi
-	if [ ! -d /usr/X11R6/lib/nvidia ]; then
-		mkdir -p /usr/X11R6/lib/nvidia || true
-	fi
 
 # to remove old old old gl header diversions
 
-	if [ -e /usr/share/nvidia-glx/diversions-X11R6/gl.h ]; then
+	if [ -e /usr/share/nvidia-glx/diversions/gl.h ]; then
 	  if [ -e /usr/include/GL/gl.h ]; then 
 	  	rm -f /usr/include/GL/gl.h /usr/include/GL/glx.h /usr/include/GL/glxtokens.h
 	  fi		
@@ -49,32 +46,30 @@ case "$1" in
 	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glx.h /usr/include/GL/glx.h > /dev/null
 	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glxext.h /usr/include/GL/glxext.h > /dev/null
 
-	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions-X11R6/gl.h /usr/X11R6/include/GL/gl.h > /dev/null
-	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions-X11R6/glx.h /usr/X11R6/include/GL/glx.h > /dev/null
-	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions-X11R6/glxext.h /usr/X11R6/include/GL/glxext.h > /dev/null
+	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/gl.h /usr/include/GL/gl.h > /dev/null
+	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glx.h /usr/include/GL/glx.h > /dev/null
+	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glxext.h /usr/include/GL/glxext.h > /dev/null
 
 	fi
 
 
 
 	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
-	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/X11R6/lib/nvidia/libGL.so.xlibmesa /usr/X11R6/lib/libGL.so > /dev/null
-#        rm /usr/lib/libGL.so || true
-#	rm /usr/X11R6/lib/libGL.so || true
+	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
+#	rm /usr/lib/libGL.so || true
 	
 #	ln -s /usr/lib/libGL.so.#VERSION# /usr/lib/libGL.so || true
 	
 	
 	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null
-	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/X11R6/lib/nvidia/libGL.a.xlibmesa /usr/X11R6/lib/libGL.a > /dev/null
 
 #	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/gl.h /usr/include/GL/gl.h > /dev/null
 #	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glx.h /usr/include/GL/glx.h > /dev/null
 #	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glxtokens.h /usr/include/GL/glxtokens.h > /dev/null
 
-#	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions-X11R6/gl.h /usr/X11R6/include/GL/gl.h > /dev/null
-#	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions-X11R6/glx.h /usr/X11R6/include/GL/glx.h > /dev/null
-#	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions-X11R6/glxtokens.h /usr/X11R6/include/GL/glxtokens.h > /dev/null
+#	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/gl.h /usr/include/GL/gl.h > /dev/null
+#	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glx.h /usr/include/GL/glx.h > /dev/null
+#	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glxtokens.h /usr/include/GL/glxtokens.h > /dev/null
 
   ;;
 
