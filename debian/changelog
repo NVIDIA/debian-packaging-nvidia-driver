@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (1.0.8756-4) unstable; urgency=low
+
+  * Include a good nvidia-kernel-source.tar.gz
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 11 Apr 2006 22:48:33 -0700
+
 nvidia-graphics-drivers (1.0.8756-3) unstable; urgency=low
 
   * Adjust for Xorg7.0 support. Thanks to Rasmus Bog Hansen <moffe@zz9.dk>
