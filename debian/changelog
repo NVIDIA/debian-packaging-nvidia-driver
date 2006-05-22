@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (1.0.8762-1) unstable; urgency=low
+
+  * New upstream.
+  * take out dh_strip temporarily while the current strip fails on the
+    nvidia libs. 
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 22 May 2006 15:26:58 -0700
+
 nvidia-graphics-drivers (1.0.8756-4) unstable; urgency=low
 
   * Include a good nvidia-kernel-source.tar.gz
