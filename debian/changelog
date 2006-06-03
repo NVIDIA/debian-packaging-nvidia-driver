@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (1.0.8762-2) unstable; urgency=low
+
+  * Have nvidia-glx-dev conflict with mesa-common-dev
+
+ -- Randall Donald <rdonald@debian.org>  Fri,  2 Jun 2006 20:44:38 -0700
+
 nvidia-graphics-drivers (1.0.8762-1) unstable; urgency=low
 
   * New upstream.

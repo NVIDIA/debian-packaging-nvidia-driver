@@ -57,7 +57,7 @@ Package: nvidia-glx-dev
 Architecture: i386 amd64
 Depends: nvidia-glx (>= 1.0.8762)
 Provides: libgl-dev
-Conflicts: nvidia-glx (>= 1.0.8763), libgl-dev
+Conflicts: nvidia-glx (>= 1.0.8763), libgl-dev, mesa-common
 Replaces: libgl-dev
 Description: NVIDIA binary XFree86 4.x / Xorg driver development files
  This package contains the NVIDIA binary XFree86 4.x and Xorg driver
