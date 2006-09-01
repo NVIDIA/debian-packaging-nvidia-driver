@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (1.0.8774-2) experimental; urgency=low
 
-  * make nvidia-glx provide xserver-xorg-video-1.0 for xord 7.1
+  * make nvidia-glx provide xserver-xorg-video-1.0 for xord 7.1 
+  (closes: #385114) 
 
  -- Randall Donald <rdonald@debian.org>  Mon, 28 Aug 2006 20:54:34 -0700
 
