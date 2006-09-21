@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (1.0.8774-3) unstable; urgency=low
+
+  * make nvidia-glx provide xserver-xorg-video-1.0 for xorg 7.1
+    (closes: #385114)
+  * upload xorg 7.1 version to unstable
+
+ -- Randall Donald <rdonald@debian.org>  Thu, 21 Sep 2006 10:44:17 -0700
+
 nvidia-graphics-drivers (1.0.8774-2) experimental; urgency=low
 
   * make nvidia-glx provide xserver-xorg-video-1.0 for xord 7.1 
