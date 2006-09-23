@@ -1,8 +1,9 @@
 nvidia-graphics-drivers (1.0.9625-1) experimental; urgency=low
 
   * Beta Drivers supporting GLX_EXT_texture_from_pixmap.
+  * install nvidia_drv.so
 
- -- Randall Donald <rdonald@debian.org>  Sat, 23 Sep 2006 11:20:05 -0700
+ -- Randall Donald <rdonald@debian.org>  Sat, 23 Sep 2006 11:29:28 -0700
 
 nvidia-graphics-drivers (1.0.8774-3) unstable; urgency=low
 
