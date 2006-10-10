@@ -1,10 +1,11 @@
 nvidia-graphics-drivers (1.0.8774-4) unstable; urgency=high
 
-  * Have the init script test for the existence of the diverted
-  libGL.so.1.2.xlibmesa	file and then create a /usr/lib/libGL.so.1.2 symlink
-  to it. Slightly evil but doesn't leave any dangling symlinks after the
-  init script is called. No more dangling libGL.so
-  (closes: #208198)
+  * The problem in #208198 no longer exists but another one has arisen due
+  to unwanted linking against NVIDIA's libGL.so.1. Solution: Have nvidia-glx
+  divert libGL.so and have the init script test for the existence of the 
+  diverted libGL.so.xlibmesa file and then create a /usr/lib/libGL.so symlink
+  to libGL.so.1.2.xlibmesa. Slightly evil but doesn't leave any dangling 
+  symlinks after the init script is called.  (closes: #208198)
   * High-urgency upload for RC bugfix.
   * run a version-change to update files in subversion, especially control
   (closes: #391795)

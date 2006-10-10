@@ -20,7 +20,8 @@ set -e
 case "$1" in
     remove|upgrade|deconfigure)
 #       install-info --quiet --remove /usr/info/nvidia-drivers.info.gz
-        ;;
+	rm -f /usr/lib/libGL.so || true
+	;;
     failed-upgrade)
         ;;
     *)
