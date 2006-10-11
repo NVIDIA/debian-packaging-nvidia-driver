@@ -54,11 +54,18 @@ case "$1" in
 	fi
         
 	# make sure these diversions don't exist anymore
-	dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
-	dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null
-	dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/X11R6/lib/libGL.so > /dev/null
-	dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/X11R6/lib/libGL.a > /dev/null	
-
+	if dpkg-divert --list /usr/lib/libGL.so | grep 'nvidia-glx-dev' > /dev/null ; then 
+		dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
+	fi
+	if dpkg-divert --list /usr/lib/libGL.a | grep 'nvidia-glx-dev' > /dev/null ; then 
+		dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null
+	fi
+	if dpkg-divert --list /usr/X11R6/lib/libGL.so | grep 'nvidia-glx-dev' > /dev/null ; then  
+	       dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/X11R6/lib/libGL.so > /dev/null
+	fi
+	if dpkg-divert --list /usr/X11R6/lib/libGL.so | grep 'nvidia-glx-dev' > /dev/null ; then 
+		dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/X11R6/lib/libGL.a > /dev/null	
+	fi
 #	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
 #	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
 #	rm /usr/lib/libGL.so || true
