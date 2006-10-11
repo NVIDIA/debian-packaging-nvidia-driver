@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (1.0.8774-5) unstable; urgency=high
+
+  * make sure nvidia-glx-dev diversions are removed and conflict with older
+  versions of -dev
+  * urgency=high for fixing broken upgrade path.
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 11 Oct 2006 11:21:39 -0700
+
 nvidia-graphics-drivers (1.0.8774-4) unstable; urgency=high
 
   * The problem in #208198 no longer exists but another one has arisen due
