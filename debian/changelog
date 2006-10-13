@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (1.0.8774-6) unstable; urgency=low
+
+  * make init script create libGL.so for nvidia-glx-dev as well
+  as providing the file will get diverted. Also remove the extra
+  nvidia-glx-dev removal diversions not needed anymore. (closes: #392639)
+
+ -- Randall Donald <rdonald@debian.org>  Fri, 13 Oct 2006 10:42:25 -0700
+
 nvidia-graphics-drivers (1.0.8774-5) unstable; urgency=high
 
   * make sure nvidia-glx-dev diversions are removed and conflict with older
