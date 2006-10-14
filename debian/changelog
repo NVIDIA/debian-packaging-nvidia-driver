@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (1.0.8774-7) unstable; urgency=low
+
+  * add diversion of libGL.so to nvidia-glx-ia32 (closes: #393056)
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 14 Oct 2006 13:36:34 -0700
+
 nvidia-graphics-drivers (1.0.8774-6) unstable; urgency=low
 
   * make init script create libGL.so for nvidia-glx-dev as well
