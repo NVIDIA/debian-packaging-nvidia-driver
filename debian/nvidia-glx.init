@@ -1,7 +1,7 @@
 #!/bin/sh
 
 PATH=/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
-VERSION="1.0.8774"
+
 
 # to force usage or non-usage of TLS libs edit /etc/defaults/nvidia-glx
 [ -e /etc/default/nvidia-glx ] && . /etc/default/nvidia-glx
@@ -28,7 +28,7 @@ fi
 
 setup_links () {
   # check if all the symlinks are in place
-  if [ "$(readlink -f /usr/lib/tls/libnvidia-tls.so.1)" != /usr/lib/nvidia/libnvidia-tls.so.$VERSION ]
+  if [ "$(readlink -f /usr/lib/tls/libnvidia-tls.so.1)" != /usr/lib/nvidia/libnvidia-tls.so.1.0.9625 ]
   then
     echo -n "Creating NVIDIA TLS links..."
     # remove the symlinks
@@ -43,7 +43,7 @@ setup_links () {
     rm -f /usr/lib/tls/libGLcore.so.1
     rm -f /usr/lib/tls/libGLcore.so.*
     # create the symlinks
-    ln -s /usr/lib/nvidia/libnvidia-tls.so.$VERSION /usr/lib/tls/libnvidia-tls.so.$VERSION
+    ln -s /usr/lib/nvidia/libnvidia-tls.so.1.0.9625 /usr/lib/tls/libnvidia-tls.so.1.0.9625
     # reconfigure dynamic linker run-time bindings
     ldconfig
     echo " done."
@@ -52,7 +52,7 @@ setup_links () {
 
 remove_links () {
   # check if all the symlinks are gone or correct
-  if [  -e /usr/lib/tls/libnvidia-tls.so.$VERSION \
+  if [  -e /usr/lib/tls/libnvidia-tls.so.1.0.9625 \
 	-o -e /usr/lib/tls/libnvidia-tls.so \
 	-o -e /usr/lib/tls/libnvidia-tls.so.1 ]
   then
