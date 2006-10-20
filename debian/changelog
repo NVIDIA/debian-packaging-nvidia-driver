@@ -1,10 +1,22 @@
+nvidia-graphics-drivers (1.0.9625-2) experimental; urgency=low
+
+  * Include NOSMBUS patch. (closes: #390767)
+  * Include all changes made to the 1.0.8774 branch:
+      add diversion of libGL.so to nvidia-glx-ia32 (closes: #393056)
+      make init script create libGL.so for nvidia-glx-dev
+      make sure nvidia-glx-dev diversions are removed and conflict with older
+      versions of -dev
+      make init script detect libgl1-mesa-dev and create libGL.so link      
+      
+ -- Randall Donald <rdonald@debian.org>  Thu, 19 Oct 2006 20:32:25 -0700
+
 nvidia-graphics-drivers (1.0.9625-1) experimental; urgency=low
 
   * Beta Drivers supporting GLX_EXT_texture_from_pixmap.
   * install nvidia_drv.so
-
+    
  -- Randall Donald <rdonald@debian.org>  Sat, 23 Sep 2006 11:29:28 -0700
-
+     
 nvidia-graphics-drivers (1.0.8774-3) unstable; urgency=low
 
   * make nvidia-glx provide xserver-xorg-video-1.0 for xorg 7.1

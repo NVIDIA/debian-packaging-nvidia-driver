@@ -128,7 +128,7 @@ install: build-stamp build-kernel-stamp
 	install -m 644 $(CURDIR)/nvidia-kernel-source.tar.gz $(CURDIR)/debian/nvidia-kernel-source/usr/src
 
 
-	install -m 0644 $(dirname)/usr/X11R6/lib/modules/drivers/nvidia_drv.so \
+	install -m 0644 $(dirname)/usr/X11R6/lib/modules/drivers/nvidia_drv.o \
 		$(CURDIR)/debian/nvidia-glx/usr/lib/xorg/modules/drivers
 
 

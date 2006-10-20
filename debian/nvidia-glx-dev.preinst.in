@@ -38,6 +38,7 @@ case "$1" in
 
 # to remove old old old gl header diversions
 
+
 	if [ -e /usr/share/nvidia-glx/diversions/gl.h ]; then
 	  if [ -e /usr/include/GL/gl.h ]; then 
 	  	rm -f /usr/include/GL/gl.h /usr/include/GL/glx.h /usr/include/GL/glxtokens.h
@@ -51,17 +52,28 @@ case "$1" in
 	  dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glxext.h /usr/include/GL/glxext.h > /dev/null
 
 	fi
-
-
-
-	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
-	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
+        
+	# make sure these diversions don't exist anymore
+	if dpkg-divert --list /usr/lib/libGL.so | grep 'nvidia-glx-dev' > /dev/null ; then 
+		dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
+	fi
+	if dpkg-divert --list /usr/lib/libGL.a | grep 'nvidia-glx-dev' > /dev/null ; then 
+		dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null
+	fi
+	if dpkg-divert --list /usr/X11R6/lib/libGL.so | grep 'nvidia-glx-dev' > /dev/null ; then  
+	       dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/X11R6/lib/nvidia/libGL.so.xlibmesa /usr/X11R6/lib/libGL.so > /dev/null
+	fi
+	if dpkg-divert --list /usr/X11R6/lib/libGL.so | grep 'nvidia-glx-dev' > /dev/null ; then 
+		dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/X11R6/lib/nvidia/libGL.a.xlibmesa /usr/X11R6/lib/libGL.a > /dev/null	
+	fi
+#	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
+#	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
 #	rm /usr/lib/libGL.so || true
 	
 #	ln -s /usr/lib/libGL.so.#VERSION# /usr/lib/libGL.so || true
 	
 	
-	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null
+#	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null
 
 #	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/gl.h /usr/include/GL/gl.h > /dev/null
 #	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/share/nvidia-glx/diversions/glx.h /usr/include/GL/glx.h > /dev/null
