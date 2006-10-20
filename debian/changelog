@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (1.0.8774-9) unstable; urgency=medium
+nvidia-graphics-drivers (1.0.8776-1) unstable; urgency=medium
 
   * New upstream.
   * Includes upstream hotfix for Rapid7 Advisory R7-0025 Buffer Overflow
