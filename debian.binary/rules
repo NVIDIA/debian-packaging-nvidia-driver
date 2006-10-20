@@ -103,7 +103,7 @@ endif
 	     cd .. ; \
 	fi
 
-        if test -d $(CURDIR)/patches; \
+	if test -d $(CURDIR)/patches; \
         then \
 	        pwd; \
 	        ls -al; \
