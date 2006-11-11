@@ -121,8 +121,12 @@ NV_PATCH_MINION=0 # disable minion patching for 7167
 configure: configure-stamp
 configure-stamp: config.Makefile
 
-	#nothing here anymore
-
+		 
+	
+	if ! $(CC) -v 2> /dev/null  ; then \
+	   echo "Compiler $(CC) does not exist on the system" ; \
+	   exit 1; \
+	fi   
 	touch configure-stamp
 
 
