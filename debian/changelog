@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (1.0.8776-2) unstable; urgency=low
+
+  * Check for compiler existance (closes: #319544)
+  * remove old nvidia-glx-dev.links lines (closes: #398677)
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 18 Nov 2006 21:07:46 -0800
+
 nvidia-graphics-drivers (1.0.8776-1) unstable; urgency=medium
 
   * New upstream.
