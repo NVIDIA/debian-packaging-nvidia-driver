@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (1.0.9629-2) unstable; urgency=low
+
+  * remove libGL.so created by init script. (closes: #400129) 
+
+ -- Randall Donald <rdonald@debian.org>  Sat,  2 Dec 2006 13:28:04 -0800
+
 nvidia-graphics-drivers (1.0.9629-1) unstable; urgency=low
 
   * New Upstream (closes: #397505)

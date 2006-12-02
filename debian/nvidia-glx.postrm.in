@@ -18,6 +18,8 @@ set -e
 
 case "$1" in
     remove|purge)
+        # remove file created by init script
+    	rm /usr/lib/libGL.so || true
 	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libGL.so.1.xlibmesa /usr/lib/libGL.so.1 > /dev/null
 	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libGL.so.1.2.xlibmesa /usr/lib/libGL.so.1.2 > /dev/null
 	
