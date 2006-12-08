@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (1.0.9631-1) experimental; urgency=low
+
+  * New Upstream. 
+  * Uploaded to experimental while 8776 is being settled for etch.
+
+ -- Randall Donald <rdonald@debian.org>  Thu,  7 Dec 2006 19:38:58 -0800
+
 nvidia-graphics-drivers (1.0.9629-2) unstable; urgency=low
 
   * remove libGL.so created by init script. (closes: #400129) 
