@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (1.0.9746-1) experimental; urgency=low
+
+  * new upstream with 8800 support.
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 26 Dec 2006 15:56:06 -0800
+
 nvidia-graphics-drivers (1.0.9631-1) experimental; urgency=low
 
   * New Upstream. 
