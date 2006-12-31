@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (1.0.9746-2) experimental; urgency=low
+
+  * include libnvidia-wfb.so.<version> for 8800 peeps.
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 30 Dec 2006 17:00:50 -0800
+
 nvidia-graphics-drivers (1.0.9746-1) experimental; urgency=low
 
   * new upstream with 8800 support.
