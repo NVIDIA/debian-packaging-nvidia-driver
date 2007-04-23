@@ -3,9 +3,10 @@ nvidia-graphics-drivers (1.0.9755-1) unstable; urgency=low
   * new upstream uploaded to unstable (closes: #415041)
   * change description to refer only to xorg. (closes: #404599, #402223)
   * fix Description regarding supported cards. (closes: #416946)
-  * Add Vcs header 
-
- -- Randall Donald <rdonald@debian.org>  Sat, 21 Apr 2007 16:03:14 -0700
+  * Add Vcs header
+  * Add Xen support (thanks to Marco Nenciarini) (closes: #367326)
+ 
+ -- Randall Donald <rdonald@debian.org>  Sun, 22 Apr 2007 20:26:57 -0700
 
 nvidia-graphics-drivers (1.0.9746-2) experimental; urgency=low
 
