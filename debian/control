@@ -50,9 +50,7 @@ Description: NVIDIA binary XFree86 4.x driver
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list 
  of supported GPUs.
  .
- Please see the nvidia-kernel-source package for building the kernel module
- required by this package.
- 
+  
 Package: nvidia-glx-dev
 Architecture: i386 amd64
 Depends: nvidia-glx (>= 1.0.8776)

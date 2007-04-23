@@ -1,3 +1,104 @@
+nvidia-kernel (1.0.9746-2) experimental; urgency=low
+
+  * include libnvidia-wfb.so.<version> for 8800 peeps.
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 30 Dec 2006 17:00:50 -0800
+
+nvidia-kernel (1.0.9746-1) experimental; urgency=low
+
+  * new upstream with 8800 support.
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 26 Dec 2006 15:56:06 -0800
+
+nvidia-kernel (1.0.9631-1) experimental; urgency=low
+
+  * New Upstream. 
+  * Uploaded to experimental while 8776 is being settled for etch.
+
+ -- Randall Donald <rdonald@debian.org>  Thu,  7 Dec 2006 19:38:58 -0800
+
+nvidia-kernel (1.0.9629-2) unstable; urgency=low
+
+  * remove libGL.so created by init script. (closes: #400129) 
+
+ -- Randall Donald <rdonald@debian.org>  Sat,  2 Dec 2006 13:28:04 -0800
+
+nvidia-kernel (1.0.9629-1) unstable; urgency=low
+
+  * New Upstream (closes: #397505)
+  * Check for compiler existance (closes: #319544)
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 11 Nov 2006 13:35:39 -0800
+
+nvidia-kernel (1.0.8776-1) unstable; urgency=medium
+
+  * New upstream.
+  * Includes upstream hotfix for Rapid7 Advisory R7-0025 Buffer Overflow
+    (closes: #393573)
+  * urgency=medium for RC bug fix  
+
+ -- Randall Donald <rdonald@debian.org>  Thu, 19 Oct 2006 18:26:24 -0700
+
+nvidia-kernel (1.0.8774-7) unstable; urgency=low
+
+  * add diversion of libGL.so to nvidia-glx-ia32 (closes: #393056)
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 14 Oct 2006 13:36:34 -0700
+
+nvidia-kernel (1.0.8774-6) unstable; urgency=low
+
+  * make init script create libGL.so for nvidia-glx-dev as well
+  as providing the file will get diverted. Also remove the extra
+  nvidia-glx-dev removal diversions not needed anymore. (closes: #392639)
+
+ -- Randall Donald <rdonald@debian.org>  Fri, 13 Oct 2006 10:42:25 -0700
+
+nvidia-kernel (1.0.8774-5) unstable; urgency=high
+
+  * make sure nvidia-glx-dev diversions are removed and conflict with older
+  versions of -dev
+  * urgency=high for fixing broken upgrade path.
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 11 Oct 2006 11:21:39 -0700
+
+nvidia-kernel (1.0.8774-4) unstable; urgency=high
+
+  * The problem in #208198 no longer exists but another one has arisen due
+  to unwanted linking against NVIDIA's libGL.so.1. Solution: Have nvidia-glx
+  divert libGL.so and have the init script test for the existence of the 
+  diverted libGL.so.xlibmesa file and then create a /usr/lib/libGL.so symlink
+  to libGL.so.1.2.xlibmesa. Slightly evil but doesn't leave any dangling 
+  symlinks after the init script is called.  (closes: #208198)
+  * High-urgency upload for RC bugfix.
+  * run a version-change to update files in subversion, especially control
+  (closes: #391795)
+  * Clean up X11R6 diversions. (closes: #380433) 
+
+ -- Randall Donald <rdonald@debian.org>  Mon,  9 Oct 2006 16:18:26 -0700
+
+nvidia-kernel (1.0.8774-3) unstable; urgency=low
+
+  * make nvidia-glx provide xserver-xorg-video-1.0 for xorg 7.1
+    (closes: #385114)
+  * upload xorg 7.1 version to unstable
+
+ -- Randall Donald <rdonald@debian.org>  Thu, 21 Sep 2006 10:44:17 -0700
+
+nvidia-kernel (1.0.8774-2) experimental; urgency=low
+
+  * make nvidia-glx provide xserver-xorg-video-1.0 for xord 7.1 
+  (closes: #385114) 
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 28 Aug 2006 20:54:34 -0700
+
+nvidia-kernel (1.0.8774-1) unstable; urgency=low
+
+  * New upstream. (closes: #384608)
+  * uncomment dh_installmodules in module's rules file.
+  * Some important bugs will be fixed with -2
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 28 Aug 2006 20:27:45 -0700
+
 nvidia-kernel (1.0.8762-2) unstable; urgency=low
 
   * Have nvidia-glx-dev conflict with mesa-common-dev
