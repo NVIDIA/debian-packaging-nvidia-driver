@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (100.14.09-1) unstable; urgency=low
+
+  * The "use the released version and not the beta drivers" release.
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 19 Jun 2007 23:43:48 -0700
+
 nvidia-graphics-drivers (100.14.06-1) unstable; urgency=low
 
   * New upstream.
