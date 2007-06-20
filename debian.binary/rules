@@ -168,7 +168,7 @@ build-stamp:
 	touch $(CURDIR)/$(dirname)/cc-sanity-check
 
 	## Main Make ##
-	IGNORE_CC_MISMATCH=1 CC="$(CC)" $(ROOT_CMD) $(MAKE) -C $(CURDIR)/$(dirname) -f Makefile SYSSRC=$(KSRC)  $(KPKG_EXTRAV_ARG) KBUILD_PARAMS=$(KBUILD_PARAMS) module;
+	IGNORE_CC_MISMATCH=1 CC="$(CC)" $(MAKE) -C $(CURDIR)/$(dirname) -f Makefile SYSSRC=$(KSRC)  $(KPKG_EXTRAV_ARG) KBUILD_PARAMS=$(KBUILD_PARAMS) module;
 
 	touch build-stamp
 
