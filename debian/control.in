@@ -50,7 +50,13 @@ Description: NVIDIA binary XFree86 4.x driver
  GeForce FX 5950 Ultra, GeForce FX 5900ZT, Quadro FX 3000, Quadro FX 700
  GeForce FX 5700 Ultra, GeForce FX 5700, GeForce FX 5700LE, GeForce FX 5700VE
  GeForce FX Go5700, Quadro FX Go1000, Quadro FX 1100, GeForce 7600 GT, 
- GeForce 7600 GS, GeForce 7300 GT, GeForce Go 7600, Quadro FX 560, 
+ GeForce 7600 GS, GeForce 7300 GT, GeForce Go 7600, Quadro FX 560,
+ GeForce 7050 PV / NVIDIA nForce 630a, GeForce 7025 / NVIDIA nForce 630a,
+ GeForce 8600 GTS, GeForce 8600 GT, GeForce 8600M GT, GeForce 8600M GS,
+ GeForce 8500 GT, GeForce 8400 GS, GeForce 8400M GT, GeForce 8400M GS,
+ GeForce 8400M G, GeForce 8300 GS, Quadro FX 1600M, Quadro FX 570M,
+ Quadro FX 360M, Quadro NVS 320M, Quadro NVS 140M, Quadro NVS 135M,
+ Quadro NVS 130M
  . 
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list 
  of supported GPUs and PCIIDs
@@ -60,7 +66,7 @@ Description: NVIDIA binary XFree86 4.x driver
 
 Package: nvidia-glx
 Architecture: i386 amd64
-Depends: nvidia-kernel-#VERSION#, x11-common (>= 1:7.0.0), ${shlibs:Depends}
+Depends: nvidia-kernel-#VERSION#, libc6 (>= 2.3), x11-common (>= 1:7.0.0), ${shlibs:Depends}
 Suggests: nvidia-settings, nvidia-kernel-source (>= #VERSION#)
 Conflicts: nvidia-glx-src, nvidia-glx-dev (<< 1.0.8774-5)
 Provides: xserver-xorg-video-1.0
@@ -102,6 +108,12 @@ Description: NVIDIA binary Xorg driver
  GeForce FX 5700 Ultra, GeForce FX 5700, GeForce FX 5700LE, GeForce FX 5700VE
  GeForce FX Go5700, Quadro FX Go1000, Quadro FX 1100, GeForce 7600 GT, 
  GeForce 7600 GS, GeForce 7300 GT, GeForce Go 7600, Quadro FX 560, 
+ GeForce 7050 PV / NVIDIA nForce 630a, GeForce 7025 / NVIDIA nForce 630a,
+ GeForce 8600 GTS, GeForce 8600 GT, GeForce 8600M GT, GeForce 8600M GS,
+ GeForce 8500 GT, GeForce 8400 GS, GeForce 8400M GT, GeForce 8400M GS,
+ GeForce 8400M G, GeForce 8300 GS, Quadro FX 1600M, Quadro FX 570M,
+ Quadro FX 360M, Quadro NVS 320M, Quadro NVS 140M, Quadro NVS 135M,
+ Quadro NVS 130M
  . 
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list 
  of supported GPUs and PCIIDs

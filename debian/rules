@@ -54,7 +54,7 @@ configure-stamp: version-clean $(AUTOGEN)
 	dh_testdir
 
 	./${filename} --extract-only
-	if test -d $(CURDIR)/patches; \
+	if false && test -d $(CURDIR)/patches; \
 	then \
 		pwd; \
 		ls -al; \

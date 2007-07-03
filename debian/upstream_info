@@ -1,8 +1,8 @@
 eval `dpkg-architecture`
 
 #BASE_VERSION=1.0
-RELEASE=100.14.09
-NEXTVER=100.14.10
+RELEASE=100.14.11
+NEXTVER=100.14.12
 
 if [ "$DEB_BUILD_ARCH" = "amd64" ] ; then
 	BASE_URL=ftp://download.nvidia.com/XFree86/Linux-x86_64/${RELEASE}
