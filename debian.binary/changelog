@@ -1,3 +1,12 @@
+nvidia-kernel (100.14.11-1) unstable; urgency=low
+
+  * New upstream. (closes: #430841)
+  * specify lower version for libc6. This will help install on current lenny.
+  * add more GPUs to supported list
+  * Disable Xen patch until it compiles again.
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 02 Jul 2007 17:41:57 -0700
+
 nvidia-kernel (100.14.09-1) unstable; urgency=low
 
   * The "use the released version and not the beta drivers" release.
