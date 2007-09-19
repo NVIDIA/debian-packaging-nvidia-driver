@@ -1,7 +1,7 @@
 Source: nvidia-graphics-drivers
 Section: non-free/x11
 Priority: optional
-Maintainer: Randall Donald <rdonald@debian.org>
+Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 XS-Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers
 XS-Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers
 Build-Depends: debhelper (>> 4.0.0), sed (>> 3.0)
