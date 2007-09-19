@@ -1,7 +1,6 @@
 nvidia-kernel (100.14.11-1) unstable; urgency=low
 
   * New upstream. (closes: #430841)
-  * specify lower version for libc6. This will help install on current lenny.
   * add more GPUs to supported list
   * Disable Xen patch until it compiles again.
 
