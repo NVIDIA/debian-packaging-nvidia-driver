@@ -61,8 +61,6 @@ Description: NVIDIA binary XFree86 4.x driver
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list 
  of supported GPUs and PCIIDs
  .
- Please see the nvidia-kernel-source package for building the kernel module
- required by this package.
 
 Package: nvidia-glx
 Architecture: i386 amd64
@@ -75,6 +73,9 @@ Description: NVIDIA binary Xorg driver
  These binary drivers provide optimized hardware 
  acceleration of  OpenGL applications via a direct-rendering X Server. 
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
+ .
+ Please see the nvidia-kernel-source package for building the kernel module
+ required by this package. This will provide nvidia-kernel-<version>
  .
  The following GPU's are supported:
  GeForce 6800 Ultra, GeForce 6800, GeForce 6800 XE, GeForce 6800 XT
@@ -118,8 +119,6 @@ Description: NVIDIA binary Xorg driver
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list 
  of supported GPUs and PCIIDs
  .
- Please see the nvidia-kernel-source package for building the kernel module
- required by this package. This will provide nvidia-kernel-<version>
  
 Package: nvidia-glx-dev
 Architecture: i386 amd64

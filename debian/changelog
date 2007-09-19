@@ -3,8 +3,9 @@ nvidia-graphics-drivers (100.14.19-1) UNRELEASED; urgency=low
   * new upstream.
   * Xorg 7.3 compatible (closes:   )
   * divert libwfb.so and libGLcore.so (closes: )
+  * change maintainer to packaging team. 
 
- -- Randall Donald <rdonald@debian.org>  Wed, 19 Sep 2007 12:03:12 -0700
+ -- Randall Donald <rdonald@debian.org>  Wed, 19 Sep 2007 12:34:02 -0700
 
 nvidia-graphics-drivers (100.14.11-1) unstable; urgency=low
 
