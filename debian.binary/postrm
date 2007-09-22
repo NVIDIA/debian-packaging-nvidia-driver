@@ -1,8 +1,6 @@
 #!/bin/sh
 
 
-if [ -x /sbin/update-modules ]; then
-	update-modules >/dev/null || true
-fi
+
 
 exit 0
