@@ -1,3 +1,15 @@
+nvidia-kernel (100.14.19-1) unstable; urgency=low
+
+  * new upstream.
+  * Xorg 7.3 compatible (closes: #420177 )
+  * divert libwfb.so and libGLcore.so (closes: #442846, #441400)
+  * change maintainer to packaging team.
+  * change x11-common depends to 1:7.3+2
+  * change provides to xserver-xorg-video-2
+  * remove use of update-modules (closes: #435650)
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 22 Sep 2007 17:16:06 -0700
+
 nvidia-kernel (100.14.11-1) unstable; urgency=low
 
   * New upstream. (closes: #430841)
