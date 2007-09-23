@@ -1,7 +1,7 @@
 Source: nvidia-graphics-drivers
 Section: non-free/x11
 Priority: optional
-Maintainer: Randall Donald <rdonald@debian.org>
+Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 XS-Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers
 XS-Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers
 Build-Depends: debhelper (>> 4.0.0), sed (>> 3.0)
@@ -61,20 +61,21 @@ Description: NVIDIA binary XFree86 4.x driver
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list 
  of supported GPUs and PCIIDs
  .
- Please see the nvidia-kernel-source package for building the kernel module
- required by this package.
 
 Package: nvidia-glx
 Architecture: i386 amd64
-Depends: nvidia-kernel-100.14.19, x11-common (>= 1:7.0.0), ${shlibs:Depends}
+Depends: nvidia-kernel-100.14.19, x11-common (>= 1:7.0.0), xserver-xorg-core (>= 2:1.4), ${shlibs:Depends}
 Suggests: nvidia-settings, nvidia-kernel-source (>= 100.14.19)
 Conflicts: nvidia-glx-src, nvidia-glx-dev (<< 1.0.8774-5)
-Provides: xserver-xorg-video-1.0
+Provides: xserver-xorg-video-2
 Replaces: nvidia-glx-src
 Description: NVIDIA binary Xorg driver
  These binary drivers provide optimized hardware 
  acceleration of  OpenGL applications via a direct-rendering X Server. 
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
+ .
+ Please see the nvidia-kernel-source package for building the kernel module
+ required by this package. This will provide nvidia-kernel-<version>
  .
  The following GPU's are supported:
  GeForce 6800 Ultra, GeForce 6800, GeForce 6800 XE, GeForce 6800 XT
@@ -118,8 +119,6 @@ Description: NVIDIA binary Xorg driver
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list 
  of supported GPUs and PCIIDs
  .
- Please see the nvidia-kernel-source package for building the kernel module
- required by this package. This will provide nvidia-kernel-<version>
  
 Package: nvidia-glx-dev
 Architecture: i386 amd64
