@@ -58,10 +58,10 @@ METHOD #1 Using a linux-headers or kernel-headers package
 
 As root (or using fakeroot)
 1. cd /usr/src 
-   tar xzvf nvidia-kernel-source.tar.gz -C <YOUR BUILD LOCATION>         
+   tar xjvf nvidia-kernel.tar.bz2 -C <YOUR BUILD LOCATION>         
    (It will install in <YOU BUILD LOCATION>/modules) 
    - or -
-   tar xzvf nvidia-kernel-source.tar.gz  (if building in /usr/src) 
+   tar xjvf nvidia-kernel.tar.bz2  (if building in /usr/src) 
    
    The standard build location is /usr/src
    
@@ -111,10 +111,10 @@ kernel-package installed, then do the following:
 
 As root
 1. cd /usr/src
-   tar xzvf nvidia-kernel-source.tar.gz -C <YOUR BUILD LOCATION>         
+   tar xjvf nvidia-kernel.tar.bz2 -C <YOUR BUILD LOCATION>         
    (It will install in <YOU BUILD LOCATION>/modules) 
    - or -
-   tar xzvf nvidia-kernel-source.tar.gz  (if building in /usr/src) 
+   tar xjvf nvidia-kernel.tar.bz2  (if building in /usr/src) 
 
 2. If you are NOT using the default modules location /usr/src/modules
    then you must set an environment variable that points to your modules

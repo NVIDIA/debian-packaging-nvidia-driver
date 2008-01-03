@@ -282,8 +282,8 @@ kdist_configure:
 .PHONY: kdist_image
 kdist_image:
 	    echo "ROOT_CMD = $(ROOT_CMD)"
-	    $(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules binary_modules
-	    $(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules clean
+	    $(MAKE) $(MFLAGS) -f debian/rules binary_modules
+	    $(MAKE) $(MFLAGS) -f debian/rules clean
  
 
 
@@ -292,12 +292,12 @@ kdist_image:
 # other kdist_commands (except for the .deb files created).
 .PHONY: kdist_clean
 kdist_clean: 
-	     $(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules clean
+	     $(MAKE) $(MFLAGS) -f debian/rules clean
 
 kdist: 
-	$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules binary_modules
+	$(MAKE) $(MFLAGS) -f debian/rules binary_modules
 	# Build a .changes file.
 	dpkg-genchanges -b -e"$(KMAINT) <$(KEMAIL)>" -u"$(CURDIR)/../.." > $(CHFILE)
 	debsign -e"$(KMAINT) <$(KEMAIL)>" $(CHFILE)
-	$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules clean
+	$(MAKE) $(MFLAGS) -f debian/rules clean
 							

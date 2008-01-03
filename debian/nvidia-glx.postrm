@@ -30,7 +30,7 @@ case "$1" in
 
 	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
 	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libwfb.so.xserver-xorg-core /usr/lib/xorg/modules/libwfb.so > /dev/null	
-	rm -f /usr/lib/xorg/modules/extensions/libglx.so.100.14.19 2> /dev/null || true
+	rm -f /usr/lib/xorg/modules/extensions/libglx.so.169.07 2> /dev/null || true
 	if [ -d /usr/lib/nvidia ]; then
 		rmdir /usr/lib/nvidia/ || true;
 	fi
@@ -50,7 +50,7 @@ case "$1" in
 esac
 
 
-#rm -f /usr/lib/xorg/modules/extensions/libglx.so.100.14.19 2> /dev/null || true
+#rm -f /usr/lib/xorg/modules/extensions/libglx.so.169.07 2> /dev/null || true
 
     
 

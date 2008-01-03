@@ -1,3 +1,21 @@
+nvidia-graphics-drivers (169.07-1) UNRELEASED; urgency=low
+
+  * New upstream.
+  * Remove ROOT_CMD from debian.binary/rules (closes: 416594)
+  * include both nv-kernel.o and detect which to use at kernel-source
+  build time. (closes: #458295, #437128)
+  * move patches dir out of the way.
+
+ -- Randall Donald <rdonald@debian.org>  Fri, 21 Dec 2007 22:54:29 -0800
+
+nvidia-graphics-drivers (100.14.19-2) UNRELEASED; urgency=low
+
+  * Add linux-modules-nonfree-2.6 integration (closes: #446232)
+    - rename tarball to nvidia-kernel.tar.bz2
+    - add toplevel Makefile
+
+ -- Randall Donald <rdonald@debian.org>  Thu, 01 Nov 2007 10:23:13 -0700
+
 nvidia-graphics-drivers (100.14.19-1) unstable; urgency=low
 
   * new upstream.

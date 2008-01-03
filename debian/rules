@@ -22,6 +22,10 @@ upstreamversion:=$(shell sh debian/upstream_info UPSTREAMVERSION)
 url:=$(shell sh debian/upstream_info URL)
 dirname:=$(shell sh debian/upstream_info DIRNAME)
 filename:=$(shell sh debian/upstream_info FILENAME)
+filename_x86:=$(shell sh debian/upstream_info FILENAME_X86)
+filename_x86_64:=$(shell sh debian/upstream_info FILENAME_X86_64)
+dirname_x86:=$(shell sh debian/upstream_info DIRNAME_X86)
+dirname_x86_64:=$(shell sh debian/upstream_info DIRNAME_X86_64)
 
 AUTOGEN=debian/nvidia-kernel-source.README.Debian debian/control \
 debian/copyright debian/nvidia-glx.links debian/nvidia-glx-dev.links \
@@ -52,8 +56,9 @@ configure: configure-stamp
 .PHONY: configure-stamp
 configure-stamp: version-clean $(AUTOGEN)
 	dh_testdir
-
-	./${filename} --extract-only
+	# extract both so we can fetch the kernel object code for both arches
+	./${filename_x86} --extract-only
+	./${filename_x86_64} --extract-only
 	if false && test -d $(CURDIR)/patches; \
 	then \
 		pwd; \
@@ -101,9 +106,11 @@ build-kernel-stamp:
 	    done
 	    chmod 755 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/patches	    
 	    cp $(CURDIR)/$(dirname)/usr/src/nv/* $(CURDIR)/debian/temp/modules/nvidia-kernel/nv || true
+	    cp $(CURDIR)/$(dirname_x86)/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.x86 || true
+	    cp $(CURDIR)/$(dirname_x86_64)/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.x86_64 || true
 	    chmod 755 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/rules
 	    chown -R root:src $(CURDIR)/debian/temp/modules
-	    tar -zcvf $(CURDIR)/nvidia-kernel-source.tar.gz -C $(CURDIR)/debian/temp modules
+	    tar -jcvf $(CURDIR)/nvidia-kernel.tar.bz2 -C $(CURDIR)/debian/temp modules
 	    rm -rf debian/temp 
 	    touch build-kernel-stamp
 
@@ -114,7 +121,7 @@ clean:
 	rm -f build-stamp build-kernel-stamp configure-stamp
 	dh_clean 
 
-	rm -fr $(dirname)  nvidia-kernel-source.tar.gz
+	rm -fr $(dirname_x86) $(dirname_x86_64)  nvidia-kernel.tar.bz2
 
 
 
@@ -125,7 +132,7 @@ install: build-stamp build-kernel-stamp
 	dh_clean -k 
 	dh_installdirs 
 
-	install -m 644 $(CURDIR)/nvidia-kernel-source.tar.gz $(CURDIR)/debian/nvidia-kernel-source/usr/src
+	install -m 644 $(CURDIR)/nvidia-kernel.tar.bz2 $(CURDIR)/debian/nvidia-kernel-source/usr/src
 
 
 	install -m 0644 $(dirname)/usr/X11R6/lib/modules/drivers/nvidia_drv.so \
