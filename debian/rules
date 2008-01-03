@@ -104,7 +104,7 @@ build-kernel-stamp:
 		< $(CURDIR)/debian.binary/$$f >		$(CURDIR)/debian/temp/modules/nvidia-kernel/debian/$$f ; \
 		chmod 0644 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/$$f ; \
 	    done
-	    chmod 755 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/patches	    
+#	    chmod 755 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/patches	    
 	    cp $(CURDIR)/$(dirname)/usr/src/nv/* $(CURDIR)/debian/temp/modules/nvidia-kernel/nv || true
 	    cp $(CURDIR)/$(dirname_x86)/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.x86 || true
 	    cp $(CURDIR)/$(dirname_x86_64)/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.x86_64 || true
