@@ -44,6 +44,7 @@ module_cc:=$(shell $(CC) -v 2>&1 | tail -1)
 version="^Linux version [^(]* (.*@.*) (\(gcc.*\)) .*"
 kernel_cc:=$(shell cat /proc/version | sed "s/"$(version)"/\1/")
 
+kernel_arch:=$(shell uname -m)
 module_cc:=$(shell echo "$(module_cc)" | sed 's/.* \([0-9.]*\.[0-9]\).*/\1/')
 kernel_cc:=$(shell echo "$(kernel_cc)" | sed 's/.* \([0-9.]*\.[0-9]\).*/\1/')
 
@@ -140,6 +141,9 @@ build-stamp:
 	dh_testdir
 	dh_testroot
 
+	if [ "$(kernel_arch)" = "x86_64" ]; then \
+		cp $(CURDIR)/nv-kernel.o.x86_64 $(CURDIR)/nv/nv-kernel.o ; \
+	fi   
 	@echo "PATCHLEVEL = $(PATCHLEVEL) " ;
 	@echo "Kernel compiler version : $(kernel_cc)" ; 
 	@echo "Detected compiler version : $(module_cc)" ;
