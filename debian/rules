@@ -92,8 +92,8 @@ build-kernel-stamp:
 	    # build kernel module source tarball
 	    mkdir -p $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
 	    mkdir -p $(CURDIR)/debian/temp/modules/nvidia-kernel/nv
-	    cp -r $(CURDIR)/debian.binary/* $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
-	    
+	    cp -a $(CURDIR)/debian.binary/* $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
+	       
 	    for f in `ls $(CURDIR)/debian.binary` ; do \
 		perl -p \
 		-e 's{#BASE_VERSION#}{$(base_version)}g;' \
@@ -109,6 +109,7 @@ build-kernel-stamp:
 	    cp $(CURDIR)/$(dirname_x86_64)/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.x86_64 || true
 	    chmod 755 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/rules
 	    chown -R root:src $(CURDIR)/debian/temp/modules
+	    chmod 755 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/patches.old
 	    tar -jcvf $(CURDIR)/nvidia-kernel.tar.bz2 -C $(CURDIR)/debian/temp modules
 	    rm -rf debian/temp 
 	    touch build-kernel-stamp
