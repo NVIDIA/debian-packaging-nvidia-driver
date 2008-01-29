@@ -1,14 +1,14 @@
-nvidia-glx: library-not-linked-against-libc ./usr/lib/libGL.so.169.07
+nvidia-glx: library-not-linked-against-libc ./usr/lib/libGL.so.169.09
 
-nvidia-glx: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.169.07
+nvidia-glx: shared-lib-without-dependency-information ./usr/lib/libGLcore.so.169.09
 
-nvidia-glx: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.169.07
+nvidia-glx: library-not-linked-against-libc ./usr/lib/xorg/modules/extensions/libglx.so.169.09
 
-nvidia-glx: shlib-with-non-pic-code usr/lib/libGL.so.169.07
-nvidia-glx: shlib-with-non-pic-code usr/lib/libGLcore.so.169.07
-nvidia-glx: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.169.07
-nvidia-glx: shlib-with-non-pic-code usr/lib/xorg/libXvMCNVIDIA.so.169.07
-nvidia-glx: shlib-with-non-pic-code usr/lib/xorg/libXvMCNVIDIA.so.169.07
+nvidia-glx: shlib-with-non-pic-code usr/lib/libGL.so.169.09
+nvidia-glx: shlib-with-non-pic-code usr/lib/libGLcore.so.169.09
+nvidia-glx: shlib-with-non-pic-code usr/lib/xorg/modules/extensions/libglx.so.169.09
+nvidia-glx: shlib-with-non-pic-code usr/lib/xorg/libXvMCNVIDIA.so.169.09
+nvidia-glx: shlib-with-non-pic-code usr/lib/xorg/libXvMCNVIDIA.so.169.09
 
-nvidia-glx: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.169.07 usr/lib/libGL.so
-nvidia-glx: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.169.07 usr/lib/xorg/modules/extensions/libglx.so
+nvidia-glx: non-dev-pkg-with-shlib-symlink usr/lib/libGL.so.169.09 usr/lib/libGL.so
+nvidia-glx: non-dev-pkg-with-shlib-symlink usr/lib/xorg/modules/extensions/libglx.so.169.09 usr/lib/xorg/modules/extensions/libglx.so

@@ -1,3 +1,10 @@
+nvidia-kernel (169.07-2) unstable; urgency=low
+
+  * Fix permissions on patches.old (closes: #459848, #460173)
+  * fix root_cmd (closes: #459833)
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 12 Jan 2008 17:10:40 -0800
+
 nvidia-kernel (169.07-1) unstable; urgency=low
 
   * New upstream.
