@@ -1,3 +1,9 @@
+nvidia-kernel (169.09-1) unstable; urgency=low
+
+  * New upstream. (with fan fix!)
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 02 Feb 2008 15:21:28 -0800
+
 nvidia-kernel (169.07-2) unstable; urgency=low
 
   * Fix permissions on patches.old (closes: #459848, #460173)
