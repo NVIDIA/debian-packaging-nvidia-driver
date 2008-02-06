@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (169.09-2) UNRELEASED; urgency=low
+
+  * fix shlib dep
+  * add kernel module Makefile infrastructure for linux-modules-nonfree-2.6. (closes: #446232)
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 06 Feb 2008 10:41:06 -0800
+
 nvidia-graphics-drivers (169.09-1) unstable; urgency=low
 
   * New upstream. (with fan fix!)

@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 XS-Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers
 XS-Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers
-Build-Depends: debhelper (>> 4.0.0), sed (>> 3.0)
+Build-Depends: debhelper (>> 4.0.0), sed (>> 3.0), libxext6
 Standards-Version: 3.6.2
 
 
