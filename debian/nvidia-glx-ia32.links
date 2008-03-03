@@ -1,4 +1,4 @@
-emul/ia32-linux/usr/lib/libGL.so.169.09 emul/ia32-linux/usr/lib/libGL.so.1
-emul/ia32-linux/usr/lib/libGL.so.169.09 emul/ia32-linux/usr/lib/libGL.so
-emul/ia32-linux/usr/lib/libGLcore.so.169.09 emul/ia32-linux/usr/lib/libGLcore.so
-emul/ia32-linux/usr/lib/libnvidia-tls.so.169.09 emul/ia32-linux/usr/lib/libnvidia-tls.so.1
+emul/ia32-linux/usr/lib/libGL.so.169.12 emul/ia32-linux/usr/lib/libGL.so.1
+emul/ia32-linux/usr/lib/libGL.so.169.12 emul/ia32-linux/usr/lib/libGL.so
+emul/ia32-linux/usr/lib/libGLcore.so.169.12 emul/ia32-linux/usr/lib/libGLcore.so
+emul/ia32-linux/usr/lib/libnvidia-tls.so.169.12 emul/ia32-linux/usr/lib/libnvidia-tls.so.1
