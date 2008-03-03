@@ -64,7 +64,7 @@ Description: NVIDIA binary XFree86 4.x driver
 
 Package: nvidia-glx
 Architecture: i386 amd64
-Depends: nvidia-kernel-#VERSION#, x11-common (>= 1:7.0.0), xserver-xorg-core (>= 2:1.4), ${shlibs:Depends}
+Depends: nvidia-kernel-#VERSION#, x11-common (>= 1:7.0.0), ${shlibs:Depends}
 Suggests: nvidia-settings, nvidia-kernel-source (>= #VERSION#)
 Conflicts: nvidia-glx-src, nvidia-glx-dev (<< 1.0.8774-5)
 Provides: xserver-xorg-video-2

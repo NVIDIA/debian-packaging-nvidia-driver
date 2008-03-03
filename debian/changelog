@@ -3,6 +3,7 @@ nvidia-graphics-drivers (169.12-1) UNRELEASED; urgency=low
   * fix shlib dep
   * add kernel module Makefile infrastructure for linux-modules-nonfree-2.6. (closes: #446232)
   * New upstream.
+  * remove xserver-xorg-core dependency. 
 
  -- Randall Donald <rdonald@debian.org>  Wed, 06 Feb 2008 10:41:06 -0800
 
