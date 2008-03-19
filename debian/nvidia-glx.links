@@ -5,3 +5,4 @@ usr/lib/xorg/modules/extensions/libglx.so.169.12 usr/lib/xorg/modules/extensions
 usr/lib/libXvMCNVIDIA.so.169.12 usr/lib/libXvMCNVIDIA.so.1
 usr/lib/libXvMCNVIDIA.so.169.12 usr/lib/libXvMCNVIDIA_dynamic.so.1
 usr/lib/xorg/modules/libnvidia-wfb.so.169.12 usr/lib/xorg/modules/libwfb.so
+usr/lib/libcuda.so.169.12			usr/lib/libcuda.so

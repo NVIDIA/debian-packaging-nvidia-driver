@@ -4,6 +4,7 @@ nvidia-graphics-drivers (169.12-1) UNRELEASED; urgency=low
   * add kernel module Makefile infrastructure for linux-modules-nonfree-2.6. (closes: #446232)
   * New upstream.
   * remove xserver-xorg-core dependency. 
+  * add cuda files (closes: #463776)
 
  -- Randall Donald <rdonald@debian.org>  Wed, 06 Feb 2008 10:41:06 -0800
 
