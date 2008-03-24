@@ -6,6 +6,7 @@ nvidia-graphics-drivers (169.12-1) UNRELEASED; urgency=low
   * remove xserver-xorg-core dependency. 
   * add cuda files (closes: #463776)
   * add bzip2 to build-depends. (closes: #466139)
+  * add uploaders field that went missing: (closes: #454999, #472448)
 
  -- Randall Donald <rdonald@debian.org>  Wed, 06 Feb 2008 10:41:06 -0800
 
