@@ -1,3 +1,14 @@
+nvidia-kernel (169.12-1) unstable; urgency=low
+
+  * fix shlib dep
+  * New upstream.
+  * remove xserver-xorg-core dependency. 
+  * add cuda files (closes: #463776)
+  * add bzip2 to build-depends. (closes: #466139)
+  * add uploaders field that went missing: (closes: #454999, #472448)
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 05 Apr 2008 17:59:56 -0700
+
 nvidia-kernel (169.09-1) unstable; urgency=low
 
   * New upstream. (with fan fix!)

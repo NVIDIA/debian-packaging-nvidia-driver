@@ -1,15 +1,12 @@
 #!/usr/bin/make -f
 
-dirname=nv
-
-
 # if you need to redefine these
 KSRC:=$(KSRC)
 KVERS:=${KVERS}
 
 
 # redefine the directory for kbuild to fine the makefile.
-KBUILD_PARAMS := "-C $(KSRC) SUBDIRS=$(CURDIR)/$(dirname)"
+KBUILD_PARAMS := "-C $(KSRC) SUBDIRS=$(CURDIR)"
 
     
 #### COMPILER DETECTION ####
@@ -78,17 +75,13 @@ endif
 
 %.Makefile :
 	# select which makefile to use.
-	rm -f $(CURDIR)/$(dirname)/Makefile || true
+	rm -f $(CURDIR)/Makefile || true
 	if [ $(PATCHLEVEL) = 6  ]; then \
-	     cd $(CURDIR)/$(dirname) ; \
 	     ln -s Makefile.kbuild Makefile ; \
-	     cd .. ; \
 	fi
 	
 	if [  $(PATCHLEVEL) = 4  ]; then \
-	     cd $(CURDIR)/$(dirname) ; \
 	     ln -s Makefile.nvidia Makefile ; \
-	     cd .. ; \
 	fi
 
 
@@ -108,7 +101,7 @@ configure-stamp: config.Makefile
 		cp  $(CURDIR)/debian/control.template $(CURDIR)/debian/control; \
 	fi
 	if [ "$(kernel_arch)" = "x86_64" ]; then \
-		cp $(CURDIR)/nv-kernel.o.x86_64 $(CURDIR)/nv/nv-kernel.o ; \
+		cp $(CURDIR)/nv-kernel.o.x86_64 $(CURDIR)/nv-kernel.o ; \
 	fi   
 	touch configure-stamp
 
