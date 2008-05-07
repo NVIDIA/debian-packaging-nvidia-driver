@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (169.12-2) UNRELEASED; urgency=low
+
+  * Add linux-modules-nonfree-2.6 intergration (closes: #446232, #437129)
+  * create storage directories for old patches and don't include in binary
+    packages.
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 06 May 2008 22:10:08 -0700
+
 nvidia-graphics-drivers (169.12-1) unstable; urgency=low
 
   * fix shlib dep
