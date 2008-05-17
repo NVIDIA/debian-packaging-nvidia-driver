@@ -94,7 +94,7 @@ case "$1" in
 	dpkg-divert --add --rename --package nvidia-glx --divert /usr/lib/nvidia/libglx.so.xlibmesa /usr/lib/xorg/modules/extensions/libglx.so > /dev/null	
 
 	dpkg-divert --add --rename --package nvidia-glx --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
-	dpkg-divert --add --rename --package nvidia-glx --divert /usr/lib/nvidia/libwfb.so.xserver-xorg-core /usr/lib/xorg/modules/libwfb.so > /dev/null
+#	dpkg-divert --add --rename --package nvidia-glx --divert /usr/lib/nvidia/libwfb.so.xserver-xorg-core /usr/lib/xorg/modules/libwfb.so > /dev/null
 	;;
 
     abort-upgrade)

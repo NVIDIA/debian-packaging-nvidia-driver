@@ -184,7 +184,7 @@ install: build-stamp build-kernel-stamp
 
 
 	install $(dirname)/usr/X11R6/lib/modules/extensions/libglx.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/xorg/modules/extensions/
-	install $(dirname)/usr/X11R6/lib/modules/libnvidia-wfb.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/xorg/modules/
+#	install $(dirname)/usr/X11R6/lib/modules/libnvidia-wfb.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/xorg/modules/
 
 	install $(dirname)/usr/bin/tls_test $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia
 	install $(dirname)/usr/bin/tls_test_dso.so $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia
