@@ -1,0 +1,202 @@
+diff -ruN usr/src/nv/conftest.sh usr/src/nv/conftest.sh
+--- usr/src/nv/conftest.sh      2008-05-21 16:06:03.000000000 -0400
++++ usr/src/nv/conftest.sh      2008-05-21 16:11:54.000000000 -0400
+@@ -1163,62 +1163,7 @@
+     ;;
+ 
+     xen_sanity_check)
+-        #
+-        # Check if the target kernel is a Xen kernel. If so, then exit, since
+-        # the driver doesn't currently work with Xen.
+-        #
+-        RET=1
+-        VERBOSE=$6
+-        FILE="linux/autoconf.h"
+-
+-        if [ -n "$IGNORE_XEN_PRESENCE" ]; then
+-            exit 0
+-        fi
+-
+-        if [ -f $HEADERS/$FILE -o -f $OUTPUT/include/$FILE ]; then
+-            #
+-            # We are looking at a configured source tree; verify
+-            # that it's not a Xen kernel.
+-            #
+-            echo "#include <linux/autoconf.h>
+-            #ifdef CONFIG_XEN
+-            #error CONFIG_XEN defined!!
+-            #endif
+-            " > conftest$$.c
+-
+-            $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
+-            rm -f conftest$$.c
+-
+-            if [ -f conftest$$.o ]; then
+-                rm -f conftest$$.o
+-                RET=0
+-            fi
+-        else
+-            CONFIG=$HEADERS/../.config
+-            if [ -f $CONFIG ]; then
+-                if [ -z "$(grep "^CONFIG_XEN=y" $CONFIG)" ]; then
+-                    RET=0
+-                fi
+-            fi
+-        fi
+-
+-        if [ "$RET" != "0" ]; then
+-            echo "The kernel you are installing for is a Xen kernel!";
+-            echo "";
+-            echo "The NVIDIA driver does not currently work on Xen kernels. If ";
+-            echo "you are using a stock distribution kernel, please install ";
+-            echo "a variant of this kernel without Xen support; if this is a ";
+-            echo "custom kernel, please install a standard Linux kernel.  Then ";
+-            echo "try installing the NVIDIA kernel module again.";
+-            echo "";
+-            if [ "$VERBOSE" = "full_output" ]; then
+-                echo "*** Failed Xen sanity check. Bailing out! ***";
+-                echo "";
+-            fi
+-            exit 1
+-        else
+-            exit 0
+-        fi
++        exit 0
+     ;;
+ 
+     compile_tests)
+diff -ruN usr/src/nv/nv-linux.h usr/src/nv/nv-linux.h
+--- usr/src/nv/nv-linux.h       2008-05-21 16:06:03.000000000 -0400
++++ usr/src/nv/nv-linux.h       2008-05-21 16:10:14.000000000 -0400
+@@ -108,11 +108,6 @@
+ #include <linux/completion.h>
+ #include <linux/highmem.h>
+ 
+-#ifdef CONFIG_XEN
+-#include <asm/maddr.h>
+-#include <xen/interface/memory.h>
+-#endif
+-
+ #ifdef CONFIG_PROC_FS
+ #include <linux/proc_fs.h>
+ #endif
+@@ -144,7 +139,7 @@
+ #include <linux/agpgart.h>
+ #endif
+ 
+-#if (defined(NVCPU_X86) || defined(NVCPU_X86_64)) && !defined(CONFIG_XEN)
++#if (defined(NVCPU_X86) || defined(NVCPU_X86_64))
+ #define NV_BUILD_NV_PAT_SUPPORT 1
+ #endif
+ 
+@@ -713,11 +708,7 @@
+ #define NV_TASK_STRUCT_RLIM(current)  ((current)->rlim)
+ #endif
+ 
+-#ifdef CONFIG_XEN
+-#define NV_GET_DMA_ADDRESS(phys_addr) phys_to_machine(phys_addr)
+-#else
+ #define NV_GET_DMA_ADDRESS(phys_addr) (phys_addr)
+-#endif
+ 
+ #define NV_GET_PAGE_STRUCT(phys_page) virt_to_page(__va(phys_page))
+ #define NV_VMA_PGOFF(vma)             ((vma)->vm_pgoff)
+@@ -861,13 +852,8 @@
+ #else
+ #error "NV_REMAP_PAGE_RANGE() undefined!"
+ #endif
+-#if !defined(CONFIG_XEN)
+ #define NV_IO_REMAP_PAGE_RANGE(from, offset, x...) \
+     NV_REMAP_PAGE_RANGE(from, offset, x)
+-#else
+-#define NV_IO_REMAP_PAGE_RANGE(from, offset, x...) \
+-    io_remap_pfn_range(vma, from, ((offset) >> PAGE_SHIFT), x)
+-#endif
+ 
+ #define NV_PGD_OFFSET(address, kernel, mm)              \
+    ({                                                   \
+diff -ruN usr/src/nv/nv.c usr/src/nv/nv.c
+--- usr/src/nv/nv.c     2008-05-21 16:06:03.000000000 -0400
++++ usr/src/nv/nv.c     2008-05-21 16:10:16.000000000 -0400
+@@ -2020,20 +2020,6 @@
+         nvl->tasklet.data = (unsigned long) nv;
+         tasklet_enable(&nvl->tasklet);
+ 
+-#if defined(CONFIG_XEN)
+-        if ((nvl->dev->dma_mask <= 0xffffffff) &&
+-            (HYPERVISOR_memory_op(XENMEM_maximum_ram_page, NULL) > 0xfffff))
+-        {
+-            NV_SHUTDOWN_ADAPTER(sp, nv, nvl);
+-            nv_printf(NV_DBG_ERRORS,
+-                "NVRM: GPUs incapable of addressing more than 4GB of memory\n"
+-                "NVRM: are not supported when using Xen kernels on systems with\n"
+-                "NVRM: system memory mapped above the 4GB boundary.\n");
+-            rc = -EIO;
+-            goto failed;
+-        }
+-#endif
+-
+         nv->flags |= NV_FLAG_OPEN;
+     }
+ 
+@@ -3904,7 +3890,6 @@
+     U032         config
+ )
+ {
+-#if !defined(CONFIG_XEN)
+     RM_STATUS status = RM_ERROR;
+     static int old_error = 0;
+     nv_stack_t *sp = NULL;
+@@ -4042,10 +4027,6 @@
+         old_error = 0; /* report new errors */
+ 
+     return status;
+-#else
+-    nv_printf(NV_DBG_ERRORS, "NVRM: AGP is not supported on Xen kernels.\n");
+-    return RM_ERR_NOT_SUPPORTED;
+-#endif
+ }
+ 
+ RM_STATUS NV_API_CALL nv_agp_teardown(
+diff -ruN usr/src/nv/os-interface.c usr/src/nv/os-interface.c
+--- usr/src/nv/os-interface.c   2008-05-21 16:06:03.000000000 -0400
++++ usr/src/nv/os-interface.c   2008-05-21 16:13:02.000000000 -0400
+@@ -598,7 +598,6 @@
+     if (jiffies) 
+     {
+         // if we have at least 1 full jiffy to wait, give up the cpu
+-#if !defined(CONFIG_XEN)
+         // but first, make sure we haven't raised the irql level on
+         // this cpu (most likely holding a lock). I'm seeing cases
+         // where we give up the cpu with raised irql, and never get
+@@ -609,10 +608,8 @@
+         // the local CPU.
+         if (!NV_IRQL_IS_RAISED())
+         {
+-#endif
+             /* give up the cpu */
+             current->state = TASK_INTERRUPTIBLE;
+-#if !defined(CONFIG_XEN)
+         }
+         else
+         {
+@@ -622,7 +619,6 @@
+             os_dbg_breakpoint();
+             return RM_ERROR;
+         }
+-#endif
+         do
+         {
+             schedule_timeout(jiffies);
+@@ -1376,12 +1372,10 @@
+      * If you prefer to manually grant the necessary capability and 
+      * adjust the resource limit, disable the lines below.
+      */
+-#if !defined(CONFIG_XEN)
+     struct rlimit *rlim = NV_TASK_STRUCT_RLIM(current);
+     rlim[RLIMIT_MEMLOCK].rlim_cur = RLIM_INFINITY;
+     cap_raise(current->cap_effective, CAP_IPC_LOCK);
+     return RM_OK;
+-#endif
+     return RM_ERR_NOT_SUPPORTED;
+ }

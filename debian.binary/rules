@@ -144,7 +144,9 @@ unpatch:
 	if [ -e patch-stamp ]; then \
 	   dpatch deapply-all ; \
 	   rm -rf patch-stamp debian/patched ; \
-	fi   
+	fi
+	patch -R debian/patches/xen.patch
+	
 	   
 
 # The kdist_configure target is called by make-kpkg modules_config. It

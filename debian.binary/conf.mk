@@ -102,7 +102,8 @@ configure-stamp: config.Makefile
 	fi
 	if [ "$(kernel_arch)" = "x86_64" ]; then \
 		cp $(CURDIR)/nv-kernel.o.x86_64 $(CURDIR)/nv-kernel.o ; \
-	fi   
+	fi
+	#patch for XEN
 	touch configure-stamp
 
 
