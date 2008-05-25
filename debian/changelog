@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (169.12-2) unstable; urgency=low
 
-  * Add linux-modules-nonfree-2.6 intergration (closes: #446232, #437129)
+  * Add initial linux-modules-nonfree-2.6 intergration, 2.6.24 only
   * create storage directories for old patches and don't include in binary
     packages.
   * Remove wfb diversion and don't install nvidia's copy.
