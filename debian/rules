@@ -59,7 +59,7 @@ configure-stamp: version-clean $(AUTOGEN)
 	# extract both so we can fetch the kernel object code for both arches
 	./${filename_x86} --extract-only
 	./${filename_x86_64} --extract-only
-	if false && test -d $(CURDIR)/patches; \
+	if test -d $(CURDIR)/patches; \
 	then \
 		pwd; \
 		ls -al; \

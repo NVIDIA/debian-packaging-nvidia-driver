@@ -4,5 +4,4 @@ usr/lib/libnvidia-tls.so.#VERSION# usr/lib/libnvidia-tls.so.1
 usr/lib/xorg/modules/extensions/libglx.so.#VERSION# usr/lib/xorg/modules/extensions/libglx.so
 usr/lib/libXvMCNVIDIA.so.#VERSION# usr/lib/libXvMCNVIDIA.so.1
 usr/lib/libXvMCNVIDIA.so.#VERSION# usr/lib/libXvMCNVIDIA_dynamic.so.1
-usr/lib/xorg/modules/libnvidia-wfb.so.#VERSION# usr/lib/xorg/modules/libwfb.so
 usr/lib/libcuda.so.#VERSION#			usr/lib/libcuda.so

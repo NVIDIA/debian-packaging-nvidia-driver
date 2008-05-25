@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (169.12-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (169.12-2) unstable; urgency=low
 
   * Add linux-modules-nonfree-2.6 intergration (closes: #446232, #437129)
   * create storage directories for old patches and don't include in binary
@@ -7,7 +7,7 @@ nvidia-graphics-drivers (169.12-2) UNRELEASED; urgency=low
   * Patch for 2.6.25 support
   * Patch to compile on xen enabled kernels (closes: #476504, #481485)
 
- -- Randall Donald <rdonald@debian.org>  Tue, 06 May 2008 22:10:08 -0700
+ -- Randall Donald <rdonald@debian.org>  Sat, 24 May 2008 19:57:18 -0700
 
 nvidia-graphics-drivers (169.12-1) unstable; urgency=low
 
