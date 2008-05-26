@@ -1,3 +1,14 @@
+nvidia-kernel (169.12-2) unstable; urgency=low
+
+  * Add initial linux-modules-nonfree-2.6 intergration, 2.6.24 only
+  * create storage directories for old patches and don't include in binary
+    packages.
+  * Remove wfb diversion and don't install nvidia's copy.
+  * Patch for 2.6.25 support
+  * Patch to compile on xen enabled kernels (closes: #476504, #481485)
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 24 May 2008 19:57:18 -0700
+
 nvidia-kernel (169.12-1) unstable; urgency=low
 
   * fix shlib dep
