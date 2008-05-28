@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (169.12-4) unstable; urgency=low
+
+  * Fix permissions on kernel patches directory (closes: #483074) 
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 27 May 2008 20:24:29 -0700
+
 nvidia-graphics-drivers (169.12-3) unstable; urgency=low
 
   * Make sure wfb diversion is removed. (closes: #482995)
