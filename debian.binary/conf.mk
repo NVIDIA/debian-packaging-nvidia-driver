@@ -103,8 +103,7 @@ configure-stamp: config.Makefile
 	if [ "$(kernel_arch)" = "x86_64" ]; then \
 		cp $(CURDIR)/nv-kernel.o.x86_64 $(CURDIR)/nv-kernel.o ; \
 	fi
-	#patch for XEN
-	patch -p3 < $(CURDIR)/debian/patches/xen.patch
+
 	
 	touch configure-stamp
 

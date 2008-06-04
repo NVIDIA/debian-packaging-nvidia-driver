@@ -145,7 +145,7 @@ unpatch:
 	   dpatch deapply-all ; \
 	   rm -rf patch-stamp debian/patched ; \
 	fi
-	patch -R -p3 < $(CURDIR)/debian/patches/xen.patch
+
 	
 	   
 
