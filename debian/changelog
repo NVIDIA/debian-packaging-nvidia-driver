@@ -1,10 +1,10 @@
-nvidia-graphics-drivers (173.14.05-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (173.14.05-1) unstable; urgency=low
 
   * New upstream. (closes: #483619)
   * move xen patch to source build patches.
   * remove 2.6.25 patch, now is upstream.
 
- -- Randall Donald <rdonald@debian.org>  Tue, 03 Jun 2008 20:28:25 -0700
+ -- Randall Donald <rdonald@debian.org>  Tue, 03 Jun 2008 21:14:40 -0700
 
 nvidia-graphics-drivers (169.12-4) unstable; urgency=low
 
