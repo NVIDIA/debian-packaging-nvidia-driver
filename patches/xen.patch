@@ -1,69 +1,93 @@
-diff -ruN usr/src/nv/conftest.sh usr.xen/src/nv/conftest.sh
---- usr/src/nv/conftest.sh	2008-05-19 00:32:05.000000000 -0700
-+++ usr.xen/src/nv/conftest.sh	2008-06-03 20:54:18.166467363 -0700
-@@ -1249,7 +1249,7 @@
-         # the driver doesn't currently work with Xen.
-         #
-         VERBOSE=$6
+diff -ruN usr/src/nv/conftest.sh usr/src/nv/conftest.sh
+--- usr/src/nv/conftest.sh	2008-05-30 10:06:36.000000000 -0400
++++ usr/src/nv/conftest.sh	2008-05-30 10:32:30.000000000 -0400
+@@ -20,38 +20,7 @@
+ SOURCES=$3
+ HEADERS=$SOURCES/include
+ OUTPUT=$4
+-XEN_PRESENT=1
 -
-+        exit 0 ### Debian Packaging Team
-         if [ -n "$IGNORE_XEN_PRESENCE" ]; then
-             exit 0
-         fi
-diff -ruN usr/src/nv/nv-linux.h usr.xen/src/nv/nv-linux.h
---- usr/src/nv/nv-linux.h	2008-05-19 00:32:05.000000000 -0700
-+++ usr.xen/src/nv/nv-linux.h	2008-06-03 20:58:02.679467442 -0700
-@@ -108,11 +108,6 @@
- #include <linux/completion.h>
- #include <linux/highmem.h>
- 
--#ifdef CONFIG_XEN
--#include <asm/maddr.h>
--#include <xen/interface/memory.h>
--#endif
+-test_xen() {
+-    FILE="linux/autoconf.h"
 -
- #ifdef CONFIG_PROC_FS
- #include <linux/proc_fs.h>
- #endif
-@@ -144,7 +139,7 @@
- #include <linux/agpgart.h>
- #endif
+-    if [ -f $HEADERS/$FILE -o -f $OUTPUT/include/$FILE ]; then
+-        #
+-        # We are looking at a configured source tree; verify
+-        # that it's not a Xen kernel.
+-        #
+-        echo "#include <linux/autoconf.h>
+-        #ifdef CONFIG_XEN
+-        #error CONFIG_XEN defined!
+-        #endif
+-        " > conftest$$.c
+-
+-        $CC $CFLAGS -c conftest$$.c > /dev/null 2>&1
+-        rm -f conftest$$.c
+-
+-        if [ -f conftest$$.o ]; then
+-            rm -f conftest$$.o
+-            XEN_PRESENT=0
+-        fi
+-    else
+-        CONFIG=$HEADERS/../.config
+-        if [ -f $CONFIG ]; then
+-            if [ -z "$(grep "^CONFIG_XEN=y" $CONFIG)" ]; then
+-                XEN_PRESENT="0"
+-            fi
+-        fi
+-    fi
+-}
++XEN_PRESENT=0
  
--#if (defined(NVCPU_X86) || defined(NVCPU_X86_64)) && !defined(CONFIG_XEN)
-+#if (defined(NVCPU_X86) || defined(NVCPU_X86_64)) 
- #define NV_BUILD_NV_PAT_SUPPORT 1
- #endif
+ build_cflags() {
+     BASE_CFLAGS="-D__KERNEL__ \
+@@ -64,8 +33,6 @@
  
-@@ -717,11 +712,7 @@
- #define NV_TASK_STRUCT_RLIM(current)  ((current)->rlim)
- #endif
+     CFLAGS="$CFLAGS $OUTPUT_CFLAGS -I$HEADERS"
  
--#ifdef CONFIG_XEN
--#define NV_GET_DMA_ADDRESS(phys_addr) phys_to_machine(phys_addr)
--#else
- #define NV_GET_DMA_ADDRESS(phys_addr) (phys_addr)
--#endif
+-    test_xen
+-
+     if [ "$OUTPUT" != "$SOURCES" ]; then
+         ARCH=`uname -m | sed -e 's/i.86/i386/'`
+         MACH_CFLAGS="-I$HEADERS/asm-$ARCH/mach-default"
+@@ -1244,33 +1211,7 @@
+     ;;
  
- #define NV_GET_PAGE_STRUCT(phys_page) virt_to_page(__va(phys_page))
- #define NV_VMA_PGOFF(vma)             ((vma)->vm_pgoff)
-@@ -874,13 +865,9 @@
- #else
- #error "NV_REMAP_PAGE_RANGE() undefined!"
- #endif
--#if !defined(CONFIG_XEN)
-+
- #define NV_IO_REMAP_PAGE_RANGE(from, offset, x...) \
-     NV_REMAP_PAGE_RANGE(from, offset, x)
--#else
--#define NV_IO_REMAP_PAGE_RANGE(from, offset, x...) \
--    io_remap_pfn_range(vma, from, ((offset) >> PAGE_SHIFT), x)
--#endif
+     xen_sanity_check)
+-        #
+-        # Check if the target kernel is a Xen kernel. If so, then exit, since
+-        # the driver doesn't currently work with Xen.
+-        #
+-        VERBOSE=$6
+-
+-        if [ -n "$IGNORE_XEN_PRESENCE" ]; then
+-            exit 0
+-        fi
+-
+-        if [ "$XEN_PRESENT" != "0" ]; then
+-            echo "The kernel you are installing for is a Xen kernel!";
+-            echo "";
+-            echo "The NVIDIA driver does not currently work on Xen kernels. If ";
+-            echo "you are using a stock distribution kernel, please install ";
+-            echo "a variant of this kernel without Xen support; if this is a ";
+-            echo "custom kernel, please install a standard Linux kernel.  Then ";
+-            echo "try installing the NVIDIA kernel module again.";
+-            echo "";
+-            if [ "$VERBOSE" = "full_output" ]; then
+-                echo "*** Failed Xen sanity check. Bailing out! ***";
+-                echo "";
+-            fi
+-            exit 1
+-        else
+-            exit 0
+-        fi
++        exit 0
+     ;;
  
- #define NV_PGD_OFFSET(address, kernel, mm)              \
-    ({                                                   \
-diff -ruN usr/src/nv/nv.c usr.xen/src/nv/nv.c
---- usr/src/nv/nv.c	2008-05-19 00:32:05.000000000 -0700
-+++ usr.xen/src/nv/nv.c	2008-06-03 21:01:10.290467271 -0700
+     compile_tests)
+diff -ruN usr/src/nv/nv.c usr/src/nv/nv.c
+--- usr/src/nv/nv.c	2008-05-30 10:06:36.000000000 -0400
++++ usr/src/nv/nv.c	2008-05-30 10:28:33.000000000 -0400
 @@ -2020,17 +2020,6 @@
              goto failed;
          }
@@ -122,9 +146,71 @@ diff -ruN usr/src/nv/nv.c usr.xen/src/nv/nv.c
  }
  
  RM_STATUS NV_API_CALL nv_agp_teardown(
-diff -ruN usr/src/nv/os-interface.c usr.xen/src/nv/os-interface.c
---- usr/src/nv/os-interface.c	2008-05-19 00:32:05.000000000 -0700
-+++ usr.xen/src/nv/os-interface.c	2008-06-03 21:03:03.798469374 -0700
+diff -ruN usr/src/nv/nv-linux.h usr/src/nv/nv-linux.h
+--- usr/src/nv/nv-linux.h	2008-05-30 10:06:36.000000000 -0400
++++ usr/src/nv/nv-linux.h	2008-05-30 10:07:58.000000000 -0400
+@@ -108,11 +108,6 @@
+ #include <linux/completion.h>
+ #include <linux/highmem.h>
+ 
+-#ifdef CONFIG_XEN
+-#include <asm/maddr.h>
+-#include <xen/interface/memory.h>
+-#endif
+-
+ #ifdef CONFIG_PROC_FS
+ #include <linux/proc_fs.h>
+ #endif
+@@ -144,7 +139,7 @@
+ #include <linux/agpgart.h>
+ #endif
+ 
+-#if (defined(NVCPU_X86) || defined(NVCPU_X86_64)) && !defined(CONFIG_XEN)
++#if (defined(NVCPU_X86) || defined(NVCPU_X86_64))
+ #define NV_BUILD_NV_PAT_SUPPORT 1
+ #endif
+ 
+@@ -717,11 +712,7 @@
+ #define NV_TASK_STRUCT_RLIM(current)  ((current)->rlim)
+ #endif
+ 
+-#ifdef CONFIG_XEN
+-#define NV_GET_DMA_ADDRESS(phys_addr) phys_to_machine(phys_addr)
+-#else
+ #define NV_GET_DMA_ADDRESS(phys_addr) (phys_addr)
+-#endif
+ 
+ #define NV_GET_PAGE_STRUCT(phys_page) virt_to_page(__va(phys_page))
+ #define NV_VMA_PGOFF(vma)             ((vma)->vm_pgoff)
+@@ -874,13 +865,8 @@
+ #else
+ #error "NV_REMAP_PAGE_RANGE() undefined!"
+ #endif
+-#if !defined(CONFIG_XEN)
+ #define NV_IO_REMAP_PAGE_RANGE(from, offset, x...) \
+     NV_REMAP_PAGE_RANGE(from, offset, x)
+-#else
+-#define NV_IO_REMAP_PAGE_RANGE(from, offset, x...) \
+-    io_remap_pfn_range(vma, from, ((offset) >> PAGE_SHIFT), x)
+-#endif
+ 
+ #define NV_PGD_OFFSET(address, kernel, mm)              \
+    ({                                                   \
+diff -ruN usr/src/nv/nv-vm.c usr/src/nv/nv-vm.c
+--- usr/src/nv/nv-vm.c	2008-05-30 10:06:36.000000000 -0400
++++ usr/src/nv/nv-vm.c	2008-05-30 10:35:13.000000000 -0400
+@@ -312,7 +312,7 @@
+ #endif
+ 
+ #if (defined(KERNEL_2_4) || defined(NV_CPA_DF_LIST_BUG) || \
+-  (LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 20))) && !defined(CONFIG_XEN)
++  (LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 20)))
+ #define NV_CPA_NEEDS_FLUSHING 1
+ #endif
+ 
+diff -ruN usr/src/nv/os-interface.c usr/src/nv/os-interface.c
+--- usr/src/nv/os-interface.c	2008-05-30 10:06:36.000000000 -0400
++++ usr/src/nv/os-interface.c	2008-05-30 10:33:26.000000000 -0400
 @@ -609,7 +609,6 @@
      if (jiffies) 
      {
@@ -133,19 +219,18 @@ diff -ruN usr/src/nv/os-interface.c usr.xen/src/nv/os-interface.c
          // but first, make sure we haven't raised the irql level on
          // this cpu (most likely holding a lock). I'm seeing cases
          // where we give up the cpu with raised irql, and never get
-@@ -620,10 +619,9 @@
+@@ -620,10 +619,8 @@
          // the local CPU.
          if (!NV_IRQL_IS_RAISED())
          {
 -#endif
-+
              /* give up the cpu */
              current->state = TASK_INTERRUPTIBLE;
 -#if !defined(CONFIG_XEN)
          }
          else
          {
-@@ -633,7 +631,6 @@
+@@ -633,7 +630,6 @@
              os_dbg_breakpoint();
              return RM_ERROR;
          }
@@ -153,7 +238,7 @@ diff -ruN usr/src/nv/os-interface.c usr.xen/src/nv/os-interface.c
          do
          {
              schedule_timeout(jiffies);
-@@ -1377,7 +1374,7 @@
+@@ -1377,7 +1373,7 @@
       * If you prefer to manually grant the necessary capability and 
       * adjust the resource limit, disable the lines below.
       */

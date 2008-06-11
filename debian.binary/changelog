@@ -1,3 +1,11 @@
+nvidia-kernel (173.14.05-1) unstable; urgency=low
+
+  * New upstream. (closes: #483619)
+  * move xen patch to source build patches.
+  * remove 2.6.25 patch, now is upstream.
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 03 Jun 2008 21:14:40 -0700
+
 nvidia-kernel (169.12-4) unstable; urgency=low
 
   * Fix permissions on kernel patches directory (closes: #483074) 
