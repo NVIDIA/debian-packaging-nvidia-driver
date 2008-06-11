@@ -1,6 +1,23 @@
 #!/bin/sh
 
+### BEGIN INIT INFO
+# Provides:          nvidia-glx
+# Required-Start:    $remote_fs
+# Required-Stop:     $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      
+# Short-Description: adjust nVidia TLS libraries
+# Description:       adjust nVidia TLS libraries
+### END INIT INFO
+
+
+
 PATH=/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
+# Load the VERBOSE setting and other rcS variables
+. /lib/init/vars.sh
+
+# Define LSB log_* functions.
+. /lib/lsb/init-functions
 
 
 # to force usage or non-usage of TLS libs edit /etc/defaults/nvidia-glx

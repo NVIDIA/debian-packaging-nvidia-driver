@@ -1,8 +1,15 @@
 nvidia-graphics-drivers (173.14.05-1) unstable; urgency=low
 
+  [ Randall Donald ]
   * New upstream. (closes: #483619)
   * move xen patch to source build patches.
   * remove 2.6.25 patch, now is upstream.
+  
+  [ Lennart Sorensen ]
+  * new Xen patch for 173.04.05.
+
+  [ Randall Donald ]
+  * add Lsb headers (closes: #479242) 
 
  -- Randall Donald <rdonald@debian.org>  Tue, 03 Jun 2008 21:14:40 -0700
 
