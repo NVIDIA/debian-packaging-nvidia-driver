@@ -1,6 +1,23 @@
 #!/bin/sh
 
+### BEGIN INIT INFO
+# Provides:          nvidia-glx
+# Required-Start:    $remote_fs
+# Required-Stop:     $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      
+# Short-Description: adjust nVidia TLS libraries
+# Description:       adjust nVidia TLS libraries
+### END INIT INFO
+
+
+
 PATH=/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
+# Load the VERBOSE setting and other rcS variables
+. /lib/init/vars.sh
+
+# Define LSB log_* functions.
+. /lib/lsb/init-functions
 
 
 # to force usage or non-usage of TLS libs edit /etc/defaults/nvidia-glx
@@ -28,7 +45,7 @@ fi
 
 setup_links () {
   # check if all the symlinks are in place
-  if [ "$(readlink -f /usr/lib/tls/libnvidia-tls.so.1)" != /usr/lib/nvidia/libnvidia-tls.so.173.14.05 ]
+  if [ "$(readlink -f /usr/lib/tls/libnvidia-tls.so.1)" != /usr/lib/nvidia/libnvidia-tls.so.173.14.09 ]
   then
     echo -n "Creating NVIDIA TLS links..."
     # remove the symlinks
@@ -43,7 +60,7 @@ setup_links () {
     rm -f /usr/lib/tls/libGLcore.so.1
     rm -f /usr/lib/tls/libGLcore.so.*
     # create the symlinks
-    ln -s /usr/lib/nvidia/libnvidia-tls.so.173.14.05 /usr/lib/tls/libnvidia-tls.so.173.14.05
+    ln -s /usr/lib/nvidia/libnvidia-tls.so.173.14.09 /usr/lib/tls/libnvidia-tls.so.173.14.09
     # reconfigure dynamic linker run-time bindings
     ldconfig
     echo " done."
@@ -52,7 +69,7 @@ setup_links () {
 
 remove_links () {
   # check if all the symlinks are gone or correct
-  if [  -e /usr/lib/tls/libnvidia-tls.so.173.14.05 \
+  if [  -e /usr/lib/tls/libnvidia-tls.so.173.14.09 \
 	-o -e /usr/lib/tls/libnvidia-tls.so \
 	-o -e /usr/lib/tls/libnvidia-tls.so.1 ]
   then
@@ -84,7 +101,7 @@ case "$1" in
     	ln -s /usr/lib/nvidia/libGL.so.1.2.xlibmesa /usr/lib/libGL.so
     fi
     if [ -d /usr/share/doc/nvidia-glx-dev ] ; then
-        ln -s /usr/lib/libGL.so.173.14.05 /usr/lib/libGL.so
+        ln -s /usr/lib/libGL.so.173.14.09 /usr/lib/libGL.so
     fi
     ;;
 

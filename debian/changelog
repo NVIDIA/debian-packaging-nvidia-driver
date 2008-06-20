@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (173.14.09-1) unstable; urgency=low
+
+  * New upstream.
+
+ -- Randall Donald <rdonald@debian.org>  Thu, 19 Jun 2008 17:42:28 -0700
+
 nvidia-graphics-drivers (173.14.05-1) unstable; urgency=low
 
   [ Randall Donald ]

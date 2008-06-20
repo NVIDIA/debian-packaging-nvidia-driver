@@ -161,13 +161,13 @@ diff -ruN usr/src/nv/nv-linux.h usr/src/nv/nv-linux.h
  #ifdef CONFIG_PROC_FS
  #include <linux/proc_fs.h>
  #endif
-@@ -144,7 +139,7 @@
+@@ -152,7 +147,7 @@
  #include <linux/agpgart.h>
  #endif
  
 -#if (defined(NVCPU_X86) || defined(NVCPU_X86_64)) && !defined(CONFIG_XEN)
 +#if (defined(NVCPU_X86) || defined(NVCPU_X86_64))
- #define NV_BUILD_NV_PAT_SUPPORT 1
+ #define NV_ENABLE_PAT_SUPPORT
  #endif
  
 @@ -717,11 +712,7 @@
