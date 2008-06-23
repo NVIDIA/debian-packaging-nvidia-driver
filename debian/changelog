@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (173.14.09-2) unstable; urgency=low
+
+  * comment out chmod on missing patch directory. (closes: #487624) 
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 23 Jun 2008 10:31:33 -0700
+
 nvidia-graphics-drivers (173.14.09-1) unstable; urgency=low
 
   * New upstream.
