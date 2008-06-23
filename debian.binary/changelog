@@ -1,3 +1,9 @@
+nvidia-kernel (173.14.09-2) unstable; urgency=low
+
+  * comment out chmod on missing patch directory. (closes: #487624, #487350)
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 23 Jun 2008 10:31:33 -0700
+
 nvidia-kernel (173.14.09-1) unstable; urgency=low
 
   * New upstream.
