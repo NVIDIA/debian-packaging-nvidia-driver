@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (173.14.09-3) unstable; urgency=low
+
+  * Only ship TLS libs (closes: #441975)
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 23 Jul 2008 09:41:44 -0700
+
 nvidia-graphics-drivers (173.14.09-2) unstable; urgency=low
 
   * comment out chmod on missing patch directory. (closes: #487624, #487350)

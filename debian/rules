@@ -173,9 +173,12 @@ install: build-stamp build-kernel-stamp
 	# install -m 0644 $(dirname)/usr/lib/libGL.la $(CURDIR)/debian/nvidia-glx/usr/lib/libGL.la
 
 	# TLS (nvidia-tls new for 6106)
+	#install $(dirname)/usr/lib/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/
 	install $(dirname)/usr/lib/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/
 
-	install $(dirname)/usr/lib/tls/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia
+	#install $(dirname)/usr/lib/tls/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia
+	install $(dirname)/usr/lib/tls/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/tls/
+		
 
 	#sed "s/__GENERATED_BY__/Debian nvidia-graphics-drivers/" $(dirname)/usr/lib/tls/libGL.la | sed "s/__LIBGL_PATH__/\/usr\/lib\/tls/" > $(CURDIR)/debian/nvidia-glx-dev/usr/lib/nvidia/libGL.la
 	# install -m 0644 $(dirname)/usr/lib/tls/libGL.la $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia/libGL.la

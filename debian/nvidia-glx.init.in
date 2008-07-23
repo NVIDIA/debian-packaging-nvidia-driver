@@ -20,8 +20,15 @@ PATH=/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
 . /lib/lsb/init-functions
 
 
+
+
+
 # to force usage or non-usage of TLS libs edit /etc/defaults/nvidia-glx
 [ -e /etc/default/nvidia-glx ] && . /etc/default/nvidia-glx
+
+
+
+
 
 # test if /usr/lib is writable.
 if [ ! -w /usr/lib  ]; then
@@ -89,13 +96,6 @@ remove_links () {
 
 case "$1" in
   start|restart|reload|force-reload)
-    if [ "$USE_TLS" = "1" ]
-    then
-      setup_links
-    elif [ "$USE_TLS" = "0" ]
-    then
-      remove_links
-    fi
     rm -f  /usr/lib/libGL.so || true 
     if [ -L /usr/lib/nvidia/libGL.so.xlibmesa ] && [ -d /usr/share/doc/libgl1-mesa-dev ] ; then
     	ln -s /usr/lib/nvidia/libGL.so.1.2.xlibmesa /usr/lib/libGL.so
