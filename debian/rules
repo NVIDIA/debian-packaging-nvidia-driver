@@ -174,7 +174,7 @@ install: build-stamp build-kernel-stamp
 
 	# TLS (nvidia-tls new for 6106)
 	#install $(dirname)/usr/lib/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/
-	install $(dirname)/usr/lib/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/
+	install $(dirname)/usr/lib/tls/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/
 
 	#install $(dirname)/usr/lib/tls/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia
 	install $(dirname)/usr/lib/tls/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/tls/
