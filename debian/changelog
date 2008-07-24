@@ -1,6 +1,6 @@
-nvidia-graphics-drivers (173.14.09-3) unstable; urgency=low
+nvidia-graphics-drivers (173.14.09-3) unstable; urgency=high
 
-  * Only ship TLS libs (closes: #441975)
+  * Only ship TLS libs. RC bug fix (closes: #441975)
 
  -- Randall Donald <rdonald@debian.org>  Wed, 23 Jul 2008 09:41:44 -0700
 
