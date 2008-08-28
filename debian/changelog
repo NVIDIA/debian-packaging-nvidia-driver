@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (173.14.09-4) UNRELEASED; urgency=medium
+
+  * Fix bashism for nvidia-glx-ia32 (closes: #495478)
+
+ -- Randall Donald <rdonald@debian.org>  Thu, 28 Aug 2008 10:40:07 -0700
+
 nvidia-graphics-drivers (173.14.09-3) unstable; urgency=high
 
   * Only ship TLS libs. RC bug fix (closes: #441975)

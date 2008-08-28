@@ -196,7 +196,7 @@ install: build-stamp build-kernel-stamp
 	install -m 0644 debian/nvidia-glx.override \
 		$(CURDIR)/debian/nvidia-glx/usr/share/lintian/overrides/nvidia-glx
 
-	if [ "$(DEB_BUILD_ARCH)" == "amd64" ] ; then \
+	if [ "$(DEB_BUILD_ARCH)" = "amd64" ] ; then \
 		install $(dirname)/usr/lib32/libGLcore.so.${version} \
 			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
 		install $(dirname)/usr/lib32/libGL.so.${version} \
