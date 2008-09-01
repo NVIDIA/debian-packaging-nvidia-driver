@@ -106,15 +106,7 @@ binary_modules: build install
 #	dh_shlibdeps
 	dh_gencontrol -- -v$(PKG_VERSION)
 	dh_md5sums
-ifeq "$(origin KPKG_DEST_DIR)" "undefined"	
-ifeq "$(origin KMAINT)" "undefined"	
-	dh_builddeb  --destdir=$(CURDIR)/..
-else	
-	dh_builddeb  --destdir=$(KSRC)/..
-endif
-else
 	dh_builddeb  --destdir=$(KPKG_DEST_DIR)
-endif	
 
 
 .PHONY: clean
@@ -183,7 +175,7 @@ kdist_clean:
 kdist: 
 	$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules binary_modules
 	# Build a .changes file.
-	dpkg-genchanges -b -e"$(KMAINT) <$(KEMAIL)>" -u"$(CURDIR)/../.." > $(CHFILE)
+	dpkg-genchanges -b -e"$(KMAINT) <$(KEMAIL)>" -u"$(KPKG_DEST_DIR)" > $(CHFILE)
 	debsign -e"$(KMAINT) <$(KEMAIL)>" $(CHFILE)
 	$(MAKE) $(MFLAGS) -f debian/rules clean
 							

@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (173.14.09-5) unstable; urgency=high
+
+  * RC bug:  write *.deb and *.changes file into the same subdirectory 
+  (closes: #493470)
+  * ARCH is undefined, define and use DEB_HOST_ARCH instead
+  (Thanks to Harald Dunkel <harald.dunkel@t-online.de>)
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 01 Sep 2008 10:58:05 -0700
+
 nvidia-graphics-drivers (173.14.09-4) unstable; urgency=medium
 
   * Fix bashism for nvidia-glx-ia32 (closes: #495478)

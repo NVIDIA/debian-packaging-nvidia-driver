@@ -48,8 +48,16 @@ PKG_VERSION=$(EPOCH)$(VERSION)+$(REV)
 endif
 
 
+DEB_HOST_ARCH := $(shell dpkg-architecture -qDEB_HOST_ARCH)
 
-CHFILE=$(CURDIR)/../../nvidia-kernel-$(KVERS)_$(PKG_VERSION)_$(ARCH).changes
+ifeq "$(origin KPKG_DEST_DIR)" "undefined"	
+ifeq "$(origin KMAINT)" "undefined"
+KPKG_DEST_DIR = $(CURDIR)/..
+else	
+KPKG_DEST_DIR = $(KSRC)/..
+endif
+endif
+CHFILE=$(KPKG_DEST_DIR)/nvidia-kernel-$(KVERS)_$(PKG_VERSION)_$(DEB_HOST_ARCH).changes
 
 
 KERNEL_VERSION_CODE = $(shell cat $(KSRC)/include/linux/version.h | grep LINUX_VERSION_CODE  | cut -d " " -f 3)
