@@ -64,9 +64,9 @@ configure-stamp: version-clean $(AUTOGEN)
 		pwd; \
 		ls -al; \
 		cd $(dirname)/usr/src/nv; \
-		for i in $(CURDIR)/patches/*; \
-			do patch -p3 <$$i; \
-		done; \
+#		for i in $(CURDIR)/patches/*; \
+#			do patch -p3 <$$i; \
+#		done; \
 	fi
 
 	sed 's/^nvidia-graphics-drivers/nvidia-kernel/g'  debian/changelog > debian.binary/changelog
