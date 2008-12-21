@@ -1,10 +1,10 @@
-nvidia-graphics-drivers (177.82-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (177.82-1) experimental; urgency=low
 
   * New upstream.
   * non-SSE re-enabled (closes: #462429)
   * replace supported cards list with summary. 
 
- -- Randall Donald <rdonald@debian.org>  Sun, 21 Dec 2008 14:44:24 -0800
+ -- Randall Donald <rdonald@debian.org>  Sun, 21 Dec 2008 15:18:21 -0800
 
 nvidia-graphics-drivers (177.80-2) experimental; urgency=low
 
