@@ -20,45 +20,9 @@ Description: NVIDIA binary XFree86 4.x driver
  OpenGL applications via a direct-rendering X Server. AGP, TV-out and
  flat panel displays are also supported.
  .
- The following GPU's are supported:
- GeForce 6800 Ultra, GeForce 6800, GeForce 6800 XE, GeForce 6800 XT
- GeForce 6800 GT, GeForce 6800 GS, Quadro FX 4000, GeForce 7800 GTX
- GeForce 7800 GT, GeForce 7800 GS, GeForce Go 7800, GeForce Go 7800 GTX
- Quadro FX 4500, GeForce 6800, GeForce 6800 LE, GeForce Go 6800, 
- GeForce Go 6800 Ultra, Quadro FX Go1400, Quadro FX 3450/4000 SDI
- Quadro FX 1400, GeForce 6600 GT, GeForce 6600, GeForce 6200
- GeForce 6600 LE, Quadro FX 3400/4400, GeForce PCX 5750, GeForce PCX 5900
- GeForce PCX 5300/Quadro FX 330, Quadro NVS 280 PCI-E/Quadro FX 330
- Quadro FX 1300, GeForce PCX 4300, GeForce 6600 VE, GeForce Go 6600
- GeForce 6610 XL, GeForce Go 6600 TE/6200 TE, GeForce 6700 XL, 
- GeForce Go 6600 GT, Quadro NVS 440, Quadro FX 550, Quadro FX 540,
- GeForce 6500, GeForce 6200 TurboCache(TM), GeForce 6200 LE, GeForce Go 6200
- Quadro NVS 285, GeForce Go 6400, GeForce 8800 GTX, GeForce 8800 GTS
- Quadro FX 5600, Quadro FX 4600, GeForce 7300 LE, GeForce 7300 SE
- Quadro NVS 110M/GeForce Go 7300, GeForce Go 7400, Quadro NVS 110M
- Quadro NVS 120M, Quadro FX 350M, Quadro FX 350, GeForce 7300 GS
- GeForce 6150, GeForce 6150 LE, GeForce 6100, GeForce Go 6100, 
- GeForce 7900 GTX, GeForce 7900 GT/GTO, GeForce 7900 GS, GeForce 7950 GX2
- GeForce Go 7900 GS, GeForce Go 7900 GTX, Quadro FX 2500M, Quadro FX 1500M
- Quadro FX 5500, Quadro FX 3500, Quadro FX 1500, Quadro FX 4500 X2, 
- GeForce 7600 GS, GeForce FX 5800 Ultra, GeForce FX 5800, Quadro FX 2000
- Quadro FX 1000, GeForce FX 5600 Ultra, GeForce FX 5600, GeForce FX 5600XT
- GeForce FX Go5600, GeForce FX Go5650, Quadro FX Go700, GeForce FX 5200
- GeForce FX 5200 Ultra, GeForce FX 5200, GeForce FX 5200LE, GeForce FX Go5200
- GeForce FX Go5250, GeForce FX 5500, GeForce FX 5100, GeForce FX Go5200 32M/64M
- Quadro NVS 55/280 PCI, Quadro FX 500/FX 600, GeForce FX Go53xx, 
- GeForce FX Go5100, GeForce FX 5900 Ultra, GeForce FX 5900, GeForce FX 5900XT
- GeForce FX 5950 Ultra, GeForce FX 5900ZT, Quadro FX 3000, Quadro FX 700
- GeForce FX 5700 Ultra, GeForce FX 5700, GeForce FX 5700LE, GeForce FX 5700VE
- GeForce FX Go5700, Quadro FX Go1000, Quadro FX 1100, GeForce 7600 GT, 
- GeForce 7600 GS, GeForce 7300 GT, GeForce Go 7600, Quadro FX 560,
- GeForce 7050 PV / NVIDIA nForce 630a, GeForce 7025 / NVIDIA nForce 630a,
- GeForce 8600 GTS, GeForce 8600 GT, GeForce 8600M GT, GeForce 8600M GS,
- GeForce 8500 GT, GeForce 8400 GS, GeForce 8400M GT, GeForce 8400M GS,
- GeForce 8400M G, GeForce 8300 GS, Quadro FX 1600M, Quadro FX 570M,
- Quadro FX 360M, Quadro NVS 320M, Quadro NVS 140M, Quadro NVS 135M,
- Quadro NVS 130M
- . 
+ This version only supports GeForce 6xxx and higher of the Geforce GPUs
+ plus complimentary Quadros and nforce.
+ .
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list 
  of supported GPUs and PCIIDs
  .

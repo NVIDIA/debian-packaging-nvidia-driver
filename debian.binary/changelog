@@ -1,3 +1,10 @@
+nvidia-kernel (177.80-2) experimental; urgency=low
+
+  * Temporarily remove the Provides on xserver-xorg-video-2 for those using
+  experimental Xorg. (closes: #504585)
+
+ -- Randall Donald <rdonald@debian.org>  Wed, 12 Nov 2008 11:25:41 -0800
+
 nvidia-kernel (177.80-1) experimental; urgency=low
 
   * New upstream.  
