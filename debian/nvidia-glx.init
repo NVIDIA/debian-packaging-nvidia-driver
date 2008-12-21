@@ -52,7 +52,7 @@ fi
 
 setup_links () {
   # check if all the symlinks are in place
-  if [ "$(readlink -f /usr/lib/tls/libnvidia-tls.so.1)" != /usr/lib/nvidia/libnvidia-tls.so.177.80 ]
+  if [ "$(readlink -f /usr/lib/tls/libnvidia-tls.so.1)" != /usr/lib/nvidia/libnvidia-tls.so.177.82 ]
   then
     echo -n "Creating NVIDIA TLS links..."
     # remove the symlinks
@@ -67,7 +67,7 @@ setup_links () {
     rm -f /usr/lib/tls/libGLcore.so.1
     rm -f /usr/lib/tls/libGLcore.so.*
     # create the symlinks
-    ln -s /usr/lib/nvidia/libnvidia-tls.so.177.80 /usr/lib/tls/libnvidia-tls.so.177.80
+    ln -s /usr/lib/nvidia/libnvidia-tls.so.177.82 /usr/lib/tls/libnvidia-tls.so.177.82
     # reconfigure dynamic linker run-time bindings
     ldconfig
     echo " done."
@@ -76,7 +76,7 @@ setup_links () {
 
 remove_links () {
   # check if all the symlinks are gone or correct
-  if [  -e /usr/lib/tls/libnvidia-tls.so.177.80 \
+  if [  -e /usr/lib/tls/libnvidia-tls.so.177.82 \
 	-o -e /usr/lib/tls/libnvidia-tls.so \
 	-o -e /usr/lib/tls/libnvidia-tls.so.1 ]
   then
@@ -101,7 +101,7 @@ case "$1" in
     	ln -s /usr/lib/nvidia/libGL.so.1.2.xlibmesa /usr/lib/libGL.so
     fi
     if [ -d /usr/share/doc/nvidia-glx-dev ] ; then
-        ln -s /usr/lib/libGL.so.177.80 /usr/lib/libGL.so
+        ln -s /usr/lib/libGL.so.177.82 /usr/lib/libGL.so
     fi
     ;;
 

@@ -70,7 +70,7 @@ case "$1" in
 #	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
 #	rm /usr/lib/libGL.so || true
 	
-#	ln -s /usr/lib/libGL.so.177.80 /usr/lib/libGL.so || true
+#	ln -s /usr/lib/libGL.so.177.82 /usr/lib/libGL.so || true
 	
 	
 #	dpkg-divert --add --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null
