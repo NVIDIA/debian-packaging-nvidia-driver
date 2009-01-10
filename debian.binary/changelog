@@ -1,3 +1,9 @@
+nvidia-kernel (180.22-1) experimental; urgency=low
+
+  * New upstream. (closes: #501668)
+
+ -- Randall Donald <rdonald@debian.org>  Fri, 09 Jan 2009 21:27:48 -0800
+
 nvidia-kernel (177.82-1) experimental; urgency=low
 
   * New upstream.
