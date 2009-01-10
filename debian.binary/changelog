@@ -1,3 +1,11 @@
+nvidia-kernel (177.82-1) experimental; urgency=low
+
+  * New upstream.
+  * non-SSE re-enabled (closes: #462429)
+  * replace supported cards list with summary. 
+
+ -- Randall Donald <rdonald@debian.org>  Sun, 21 Dec 2008 15:18:21 -0800
+
 nvidia-kernel (177.80-2) experimental; urgency=low
 
   * Temporarily remove the Provides on xserver-xorg-video-2 for those using
