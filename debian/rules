@@ -158,6 +158,11 @@ install: build-stamp build-kernel-stamp
 	install -m 0644 $(dirname)/usr/include/cuda/cudaGL.h \
 		$(CURDIR)/debian/nvidia-glx-dev/usr/include/cuda
 
+	install -m 0644 $(dirname)/usr/include/vdpau/vdpau.h \
+		$(CURDIR)/debian/nvidia-glx-dev/usr/include/vdpau
+	install -m 0644 $(dirname)/usr/include/vdpau/vdpau_x11.h \
+		$(CURDIR)/debian/nvidia-glx-dev/usr/include/vdpau
+
 	install -m 0644 $(dirname)/usr/include/GL/glx.h \
 		$(CURDIR)/debian/nvidia-glx-dev/usr/include/GL
 	install -m 0644 $(dirname)/usr/include/GL/glxext.h \
@@ -169,6 +174,15 @@ install: build-stamp build-kernel-stamp
 		$(CURDIR)/debian/nvidia-glx/usr/lib
 	install -m 0644 $(dirname)/usr/lib/libcuda.so.${version} \
 			$(CURDIR)/debian/nvidia-glx/usr/lib
+	install -m 0644 $(dirname)/usr/lib/libvdpau_nvidia.so.${version} \
+			$(CURDIR)/debian/nvidia-glx/usr/lib
+	install -m 0644 $(dirname)/usr/lib/libvdpau.so.${version} \
+			$(CURDIR)/debian/nvidia-glx/usr/lib
+	install -m 0644 $(dirname)/usr/lib/libvdpau_trace.so.${version} \
+			$(CURDIR)/debian/nvidia-glx/usr/lib
+			
+
+
 	sed "s/__GENERATED_BY__/Debian nvidia-graphics-drivers/" $(dirname)/usr/lib/libGL.la | sed "s/__LIBGL_PATH__/\/usr\/lib/" > $(CURDIR)/debian/nvidia-glx-dev/usr/lib/libGL.la
 	# install -m 0644 $(dirname)/usr/lib/libGL.la $(CURDIR)/debian/nvidia-glx/usr/lib/libGL.la
 
@@ -202,6 +216,12 @@ install: build-stamp build-kernel-stamp
 		install $(dirname)/usr/lib32/libGL.so.${version} \
 			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
 		install $(dirname)/usr/lib32/libcuda.so.${version} \
+			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
+		install $(dirname)/usr/lib32/libvdpau.so.${version} \
+			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
+		install $(dirname)/usr/lib32/libvdpau_nvidia.so.${version} \
+			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
+		install $(dirname)/usr/lib32/libvdpau_trace.so.${version} \
 			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
 		install $(dirname)/usr/lib32/libnvidia-tls.so.${version} \
 			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \

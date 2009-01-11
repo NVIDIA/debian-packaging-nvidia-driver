@@ -1,3 +1,4 @@
 usr/include/GL
 usr/include/cuda
+usr/include/vdpau
 usr/lib/nvidia
