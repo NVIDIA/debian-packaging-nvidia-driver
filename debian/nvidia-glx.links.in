@@ -5,3 +5,6 @@ usr/lib/xorg/modules/extensions/libglx.so.#VERSION# usr/lib/xorg/modules/extensi
 usr/lib/libXvMCNVIDIA.so.#VERSION# usr/lib/libXvMCNVIDIA.so.1
 usr/lib/libXvMCNVIDIA.so.#VERSION# usr/lib/libXvMCNVIDIA_dynamic.so.1
 usr/lib/libcuda.so.#VERSION#			usr/lib/libcuda.so
+usr/lib/libcuda.so.#VERSION#			usr/lib/libcuda.so.1
+usr/lib/libvdpau.so.#VERSION#   usr/lib/libvdpau.so.1
+usr/lib/libvdpau.so.#VERSION#   usr/lib/libvdpau.so

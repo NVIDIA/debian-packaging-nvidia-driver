@@ -1,3 +1,17 @@
+nvidia-graphics-drivers (180.29-1) unstable; urgency=low
+
+  [ Harald Dunkel ]
+  * new upstream 
+  * add shlibs information for libvdpau
+  * add 32bit libraries for vdpau
+  * remove debian/temp during cleanup
+	  
+  [ Randall Donald ]
+  * Add vdpau.so links (closes: #513765) 
+  * Yay Lenny released. Now upload to unstable (closes: #514788)
+
+ -- Randall Donald <rdonald@debian.org>  Thu, 19 Jan 2009 12:09:26 -0800
+ 
 nvidia-graphics-drivers (180.22-2) experimental; urgency=low
 
   * Add VDPAU stuff (closes: #511524) 

@@ -124,7 +124,7 @@ clean:
 	dh_clean 
 
 	rm -fr $(dirname_x86) $(dirname_x86_64)  nvidia-kernel.tar.bz2
-
+	rm -fr debian/temp
 
 
 .PHONY: install

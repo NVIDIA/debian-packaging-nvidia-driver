@@ -3,3 +3,4 @@ emul/ia32-linux/usr/lib/libGL.so.#VERSION# emul/ia32-linux/usr/lib/libGL.so
 emul/ia32-linux/usr/lib/libGLcore.so.#VERSION# emul/ia32-linux/usr/lib/libGLcore.so
 emul/ia32-linux/usr/lib/libnvidia-tls.so.#VERSION# emul/ia32-linux/usr/lib/libnvidia-tls.so.1
 emul/ia32-linux/usr/lib/libcuda.so.#VERSION#  emul/ia32-linux/usr/lib/libcuda.so
+emul/ia32-linux/usr/lib/libvdpau.so.#VERSION# emul/ia32-linux/usr/lib/libvdpau.so
