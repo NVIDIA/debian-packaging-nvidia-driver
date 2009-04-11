@@ -3,6 +3,8 @@ nvidia-graphics-drivers (180.44-1) unstable; urgency=low
   [ Randall Donald ]
   * The "Len is a super guy" release
   * New upstream (closes: #523583, #523566)
+  * set kernel debhelper compat at 7
+  * change nvidia-glx card support subscription.
   
   [ Lennart Sorensen ]
   * Patch for Debian 2.6.29
