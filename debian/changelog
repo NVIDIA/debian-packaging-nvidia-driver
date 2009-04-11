@@ -1,3 +1,14 @@
+nvidia-graphics-drivers (180.44-1) unstable; urgency=low
+  
+  [ Randall Donald ]
+  * The "Len is a super guy" release
+  * New upstream (closes: #523583, #523566)
+  
+  [ Lennart Sorensen ]
+  * Patch for Debian 2.6.29
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 11 Apr 2009 10:51:06 -0700
+
 nvidia-graphics-drivers (180.29-1) unstable; urgency=low
 
   [ Harald Dunkel ]
