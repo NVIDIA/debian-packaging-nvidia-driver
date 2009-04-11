@@ -80,7 +80,7 @@ unpatch:
 	   rm -rf patch-stamp debian/patched ; \
 	fi
 
-	
+binary_modules: binary-modules	
 	   
 
 # The kdist_configure target is called by make-kpkg modules_config. It
