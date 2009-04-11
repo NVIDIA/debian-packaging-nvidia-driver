@@ -1,116 +1,59 @@
 #!/usr/bin/make -f
-# Sample debian/rules that uses debhelper.
-# GNU copyright 1997 to 1999 by Joey Hess.
 
-# Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
 
-# This is the debhelper compatability version to use.
-export DH_COMPAT=4
-
-ifeq ($(shell id -u),0)
-     ROOT_CMD=
+CFLAGS = -Wall -g
+ifneq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2
 endif
-	
-include $(CURDIR)/debian/conf.mk
+ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+	NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+	MAKEFLAGS += -j$(NUMJOBS)
+endif
+
+DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 
 
+# Prefix of the target package name
+PACKAGE		= nvidia-kernel
 
-.PHONY: build build-stamp
-build: configure-stamp build-stamp
-build-stamp:
+-include /usr/share/modass/include/generic.make
+-include /usr/share/modass/include/common-rules.make
 
-	dh_testdir
-	dh_testroot
-
-
-	@echo "PATCHLEVEL = $(PATCHLEVEL) " ;
-	@echo "Kernel compiler version : $(kernel_cc)" ; 
-	@echo "Detected compiler version : $(module_cc)" ;
-       
-
-	@if [ "$(kernel_cc)" != "$(module_cc)" ]; then \
-	echo "                                                           "; \
-	echo "You appear to be compiling the NVIDIA kernel module with   "; \
-	echo "a compiler different from the one that was used to compile "; \
-	echo "the running kernel. This may be perfectly alright and you "; \
-	echo "may be building this module for another kernel in which case"; \
-	echo "you may ignore this message."; \
-	echo " " ; \
-	echo "The compiler that will be used to compile this module has been"; \
-	echo "determined from:" ; \
-	echo " 1) the CC environment variable " ; \
-	echo " 2) that specified in "; \
-	echo "    $(KSRC)/include/linux/compile.h" ; \
-	echo " 3) gcc " ; \
-	fi
-	@echo "Using compiler $(CC) version $(module_cc)"; 
-
-	
-
-	touch $(CURDIR)/$(dirname)/gcc-check
-	touch $(CURDIR)/$(dirname)/cc-sanity-check
-
-	## Main Make ##
-	IGNORE_CC_MISMATCH=1 CC="$(CC)" $(MAKE) -C $(CURDIR)/$(dirname) -f Makefile SYSSRC=$(KSRC)  $(KPKG_EXTRAV_ARG) KBUILD_PARAMS=$(KBUILD_PARAMS) module;
-
-	touch build-stamp
-
-
-.PHONY: install
-install: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k
-
+configure:
 	sed 's/#KVERS#/$(KVERS)/g' debian/control.template > $(CURDIR)/debian/control
 	sed 's/#KVERS#/$(KVERS)/g' debian/dirs.template > $(CURDIR)/debian/dirs
 	sed 's/#KVERS#/$(KVERS)/g' debian/override.template > $(CURDIR)/debian/override
 
-	dh_installdirs
-
-
-	install -m 0644 $(CURDIR)/debian/override $(CURDIR)/debian/nvidia-kernel-$(KVERS)/usr/share/lintian/overrides/nvidia-kernel-$(KVERS)
-	if [ "$(PATCHLEVEL)" = "6" ] ; then \
-	   install -m 0644 $(CURDIR)/$(dirname)/nvidia.ko $(CURDIR)/debian/nvidia-kernel-$(KVERS)/lib/modules/$(KVERS)/nvidia/nvidia.ko ; \
-	else \
-	   install -m 0644 $(CURDIR)/$(dirname)/nvidia.o $(CURDIR)/debian/nvidia-kernel-$(KVERS)/lib/modules/$(KVERS)/nvidia/nvidia.o ;\
-	fi
-
-
-
-
-
-.PHONY: binary_modules
-binary_modules: build install
-	dh_testdir
+binary-modules: configure
 	dh_testroot
-#	dh_installdebconf	
-	dh_installdocs
-#	dh_installexamples
-#	dh_installmanpages
-#	dh_undocumented
-	dh_installmodules
 
-	dh_installinit
-	
-	dh_installchangelogs 
-	dh_link
+	dh_prep
+
+	# Build the modules
+	$(MAKE) -C . LINUXDIR=$(KSRC) KVERREL=$(KVERS)
+
+	# Install the modules
+	dh_installdirs
+	install -m 0644 $(CURDIR)/debian/override $(CURDIR)/debian/nvidia-kernel-$(KVERS)/usr/share/lintian/overrides/nvidia-kernel-$(KVERS)
+	install -m 0644 $(CURDIR)/nvidia.ko $(CURDIR)/debian/nvidia-kernel-$(KVERS)/lib/modules/$(KVERS)/nvidia/nvidia.ko ; \
+
+	dh_installdocs
+	dh_installmodules
+	dh_installchangelogs
+	dh_installmodules
 	dh_strip
 	dh_compress
 	dh_fixperms
-# You may want to make some executables suid here.
-#	dh_suidregister
-#	dh_makeshlibs
 	dh_installdeb
-#	dh_shlibdeps
-	dh_gencontrol -- -v$(PKG_VERSION)
+	dh_gencontrol -- -v$(VERSION)
 	dh_md5sums
 	dh_builddeb  --destdir=$(KPKG_DEST_DIR)
+	dh_prep
 
-
-.PHONY: clean
-clean: clean.Makefile  unpatch
+clean:   unpatch
 	if [ -f $(CURDIR)/debian/control.template ]; then \
 		cp  $(CURDIR)/debian/control.template $(CURDIR)/debian/control; \
 	fi
@@ -121,7 +64,6 @@ clean: clean.Makefile  unpatch
 
 	$(MAKE) clean SYSSRC=$(KSRC) -C $(CURDIR)/$(dirname) -f Makefile $(KPKG_EXTRAV_ARG)
         
-	rm -f $(CURDIR)/$(dirname)/Makefile || true; 	
 	-rm $(CURDIR)/$(dirname)/gcc-check
 	-rm $(CURDIR)/$(dirname)/cc-sanity-check
 	
@@ -144,38 +86,14 @@ unpatch:
 # The kdist_configure target is called by make-kpkg modules_config. It
 # should configure the module so it is ready for compilation (mostly
 # useful for calling configure)
-.PHONY: kdist_config
-kdist_config:
-	     $(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules configure
-
-.PHONY: kdist_configure
-kdist_configure:
-		$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules configure
-
-# the kdist_image target is called by make-kpkg modules_image. It is
-# responsible for compiling the module and creating the package. It
-# should also clean up after making the module. Please note we use a
-# seperate binary-modules target to make testing the package building
-# easier
-.PHONY: kdist_image
-kdist_image:
-	    echo "ROOT_CMD = $(ROOT_CMD)"
-	    $(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules binary_modules
-	    $(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules clean
- 
-
+kdist_config kdist_configure:
+	    $(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules configure
 
 # the kdist_clean target is called by make-kpkg modules_clean. It is
 # responsible for cleaning up any changes that have been made by the
 # other kdist_commands (except for the .deb files created).
-.PHONY: kdist_clean
 kdist_clean: 
-	     $(MAKE) $(MFLAGS) -f debian/rules clean
+	$(MAKE) -C . LINUXDIR=$(KSRC) KVERREL=$(KVERS) clean
+	dh_clean
 
-kdist: 
-	$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules binary_modules
-	# Build a .changes file.
-	dpkg-genchanges -b -e"$(KMAINT) <$(KEMAIL)>" -u"$(KPKG_DEST_DIR)" > $(CHFILE)
-	debsign -e"$(KMAINT) <$(KEMAIL)>" $(CHFILE)
-	$(MAKE) $(MFLAGS) -f debian/rules clean
-							
+.PHONY: clean binary-modules
