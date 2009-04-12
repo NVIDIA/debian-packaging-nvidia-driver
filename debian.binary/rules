@@ -94,6 +94,6 @@ kdist_config kdist_configure:
 # other kdist_commands (except for the .deb files created).
 kdist_clean: 
 	$(MAKE) -C . LINUXDIR=$(KSRC) KVERREL=$(KVERS) clean
-	dh_clean
+	-dh_clean
 
 .PHONY: clean binary-modules
