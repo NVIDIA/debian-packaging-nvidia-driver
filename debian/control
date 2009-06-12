@@ -11,8 +11,8 @@ Standards-Version: 3.6.2
 
 Package: nvidia-glx-ia32
 Architecture: amd64
-Depends: nvidia-kernel-180.44, ia32-libs, ${shlibs:Depends}
-Suggests: nvidia-settings, nvidia-kernel-source (>= 180.44)
+Depends: nvidia-kernel-185.18.14, ia32-libs, ${shlibs:Depends}
+Suggests: nvidia-settings, nvidia-kernel-source (>= 185.18.14)
 Conflicts: nvidia-glx-src
 Replaces: nvidia-glx-src
 Description: NVIDIA binary driver 32bit libs
@@ -29,8 +29,8 @@ Description: NVIDIA binary driver 32bit libs
 
 Package: nvidia-glx
 Architecture: i386 amd64
-Depends: nvidia-kernel-180.44, x11-common (>= 1:7.0.0), ${shlibs:Depends}
-Suggests: nvidia-settings, nvidia-kernel-source (>= 180.44)
+Depends: nvidia-kernel-185.18.14, x11-common (>= 1:7.0.0), ${shlibs:Depends}
+Suggests: nvidia-settings, nvidia-kernel-source (>= 185.18.14)
 Conflicts: nvidia-glx-src, nvidia-glx-dev (<< 1.0.8774-5)
 Replaces: nvidia-glx-src
 Description: NVIDIA binary Xorg driver
@@ -50,9 +50,9 @@ Description: NVIDIA binary Xorg driver
  
 Package: nvidia-glx-dev
 Architecture: i386 amd64
-Depends: nvidia-glx (>= 180.44)
+Depends: nvidia-glx (>= 185.18.14)
 Provides: libgl-dev
-Conflicts: nvidia-glx (>= 180.45), libgl-dev, mesa-common-dev
+Conflicts: nvidia-glx (>= 185.18.15), libgl-dev, mesa-common-dev
 Replaces: libgl-dev
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
@@ -61,10 +61,41 @@ Description: NVIDIA binary Xorg driver development files
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
 
+Package: nvidia-libvdpau-ia32
+Architecture: amd64
+Depends: ia32-libs, ${shlibs:Depends}
+Suggests: nvidia-settings, nvidia-kernel-source (>= 185.18.14)
+Replaces: nvidia-glx-ia32 (< 180.51)
+Conflicts: nvidia-glx-ia32 (< 180.51)
+Description: NVIDIA vdpau 32bit libraries
+ These libraries provide the Video Decode and Presentation API for Unix
+ (32 bit). They provide accelerated video playback (incl. H.264) for the 
+ supported graphics cards. See /usr/share/doc/nvidia-libvdpau/README.txt.gz 
+ for more information.
+
+Package: nvidia-libvdpau
+Architecture: i386 amd64
+Depends: x11-common (>= 1:7.0.0), ${shlibs:Depends}
+Replaces: nvidia-glx (< 180.51)
+Conflicts: nvidia-glx (< 180.51)
+Description: NVIDIA vdpau libraries
+ These libraries provide the Video Decode and Presentation API for Unix.
+ They provide accelerated video playback (incl. H.264) for the supported 
+ graphics cards. See /usr/share/doc/nvidia-libvdpau/README.txt.gz for 
+ more information.
+ 
+Package: nvidia-libvdpau-dev
+Architecture: i386 amd64
+Depends: nvidia-libvdpau (>= 185.18.14)
+Replaces: nvidia-glx-dev (< 180.51)
+Conflicts: nvidia-glx-dev (< 180.51), nvidia-libvdpau (>= 185.18.15)
+Description: NVIDIA vdpau development files
+ This package contains the NVIDIA vdpau development files.
+
 Package: nvidia-kernel-source
 Architecture: i386 amd64
 Depends: debhelper (>> 4.0.0), make, sed (>> 3.0), dpatch (>= 2.0.0)
-Recommends: nvidia-glx (>= 180.44), kernel-package (>= 8.082), devscripts
+Recommends: nvidia-glx (>= 185.18.14), kernel-package (>= 8.082), devscripts
 Conflicts: nvidia-kernel-src
 Replaces: nvidia-kernel-src
 Description: NVIDIA binary kernel module source

@@ -1,7 +1,8 @@
 nvidia-graphics-drivers (185.18.14-1) unstable; urgency=low
 
   [ Randall Donald ]
-  * New upstream: (closes: #532568)
+  * New upstream: (closes: #532568, #532568, #532774)
+  * still only builds via module-assistant
   
   [ Harald Dunkel ]
   * create empty patches.h
