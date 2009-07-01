@@ -11,6 +11,7 @@ Standards-Version: 3.6.2
 
 Package: nvidia-glx-ia32
 Architecture: amd64
+Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends: nvidia-kernel-185.18.14, ia32-libs, ${shlibs:Depends}
 Suggests: nvidia-settings, nvidia-kernel-source (>= 185.18.14)
 Conflicts: nvidia-glx-src
@@ -63,6 +64,7 @@ Description: NVIDIA binary Xorg driver development files
 
 Package: nvidia-libvdpau-ia32
 Architecture: amd64
+Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends: ia32-libs, ${shlibs:Depends}
 Suggests: nvidia-settings, nvidia-kernel-source (>= 185.18.14)
 Replaces: nvidia-glx-ia32 (< 180.51)

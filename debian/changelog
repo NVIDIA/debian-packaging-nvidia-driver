@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (185.18.14-2) UNRELEASED; urgency=low
+
+  * /emul/ia32-linux/usr/lib to /usr/lib32 transition (closes: 534873)
+  * cleanup /emul/ia32-linux/usr/lib/tls/libnvidia-tls.so.1
+  * Thanks to Andreas Beckmann <debian@abeckmann.de> for ias32 work
+  
+ -- Randall Donald <rdonald@debian.org>  Wed, 01 Jul 2009 15:04:38 -0700
+
 nvidia-graphics-drivers (185.18.14-1) unstable; urgency=low
 
   [ Randall Donald ]

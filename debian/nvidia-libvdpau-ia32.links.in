@@ -1,1 +1,1 @@
-emul/ia32-linux/usr/lib/libvdpau.so.#VERSION# emul/ia32-linux/usr/lib/libvdpau.so
+usr/lib32/libvdpau.so.#VERSION#		usr/lib32/libvdpau.so

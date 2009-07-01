@@ -228,21 +228,21 @@ install: build-stamp build-kernel-stamp
 
 	if [ "$(DEB_BUILD_ARCH)" = "amd64" ] ; then \
 		install $(dirname)/usr/lib32/libGLcore.so.${version} \
-			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
+			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/libGL.so.${version} \
-			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
+			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/libcuda.so.${version} \
-			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
+			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/libvdpau.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau-ia32/emul/ia32-linux/usr/lib ; \
+			$(CURDIR)/debian/nvidia-libvdpau-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/libvdpau_nvidia.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau-ia32/emul/ia32-linux/usr/lib ; \
+			$(CURDIR)/debian/nvidia-libvdpau-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/libvdpau_trace.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau-ia32/emul/ia32-linux/usr/lib ; \
+			$(CURDIR)/debian/nvidia-libvdpau-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/libnvidia-tls.so.${version} \
-			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib ; \
+			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/tls/libnvidia-tls.so.${version} \
-			$(CURDIR)/debian/nvidia-glx-ia32/emul/ia32-linux/usr/lib/tls ; \
+			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32/tls ; \
 	fi
 
 	install -m 755 $(dirname)/usr/bin/nvidia-bug-report.sh $(CURDIR)/debian/nvidia-glx/usr/bin/
