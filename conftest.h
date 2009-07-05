@@ -160,7 +160,7 @@
 /* Only kernels sometime before 2.4.0 don't have this function, and who */
 /* cares anymore */
 #define NV_SMP_CALL_FUNCTION_PRESENT
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,29)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,27)
  #define NV_SMP_CALL_FUNCTION_ARGUMENT_COUNT 3
 #else
  #define NV_SMP_CALL_FUNCTION_ARGUMENT_COUNT 4

@@ -3,16 +3,18 @@ Section: non-free/x11
 Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Uploaders: Randall Donald <rdonald@debian.org>
-XS-Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers
-XS-Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers
-Build-Depends: debhelper (>> 4.0.0), sed (>> 3.0), libxext6, bzip2
+Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers
+Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers
+Build-Depends: debhelper (>= 6.0.7~), sed (>> 3.0), libxext6, bzip2,
+ libc6-dev-i386 [amd64], lib32gcc1 [amd64], lib32z1 [amd64],
+ ia32-libs (<< 15) [amd64] | ia32-libxext6 [amd64],
 Standards-Version: 3.6.2
-
+Homepage: http://www.nvidia.com
 
 Package: nvidia-glx-ia32
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: nvidia-kernel-#VERSION#, ia32-libs, ${shlibs:Depends}
+Depends: nvidia-kernel-#VERSION#, ${shlibs:Depends}, ${misc:Depends}
 Suggests: nvidia-settings, nvidia-kernel-source (>= #VERSION#)
 Conflicts: nvidia-glx-src
 Replaces: nvidia-glx-src
@@ -30,7 +32,7 @@ Description: NVIDIA binary driver 32bit libs
 
 Package: nvidia-glx
 Architecture: i386 amd64
-Depends: nvidia-kernel-#VERSION#, x11-common (>= 1:7.0.0), ${shlibs:Depends}
+Depends: nvidia-kernel-#VERSION#, x11-common (>= 1:7.0.0), ${shlibs:Depends}, ${misc:Depends}
 Suggests: nvidia-settings, nvidia-kernel-source (>= #VERSION#)
 Conflicts: nvidia-glx-src, nvidia-glx-dev (<< 1.0.8774-5)
 Replaces: nvidia-glx-src
@@ -48,10 +50,10 @@ Description: NVIDIA binary Xorg driver
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list 
  of supported GPUs and PCIIDs
  .
- 
+
 Package: nvidia-glx-dev
 Architecture: i386 amd64
-Depends: nvidia-glx (>= #VERSION#)
+Depends: nvidia-glx (>= #VERSION#), ${misc:Depends}
 Provides: libgl-dev
 Conflicts: nvidia-glx (>= #NEXTVER#), libgl-dev, mesa-common-dev
 Replaces: libgl-dev
@@ -62,42 +64,53 @@ Description: NVIDIA binary Xorg driver development files
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
 
-Package: nvidia-libvdpau-ia32
+Package: nvidia-libvdpau1-ia32
+Section: non-free/libs
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: ia32-libs, ${shlibs:Depends}
-Suggests: nvidia-settings, nvidia-kernel-source (>= #VERSION#)
-Replaces: nvidia-glx-ia32 (< 180.51)
-Conflicts: nvidia-glx-ia32 (< 180.51)
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: nvidia-kernel-#VERSION#
+Suggests: nvidia-kernel-source (>= #VERSION#)
+Replaces: nvidia-glx-ia32 (< 180.51), nvidia-libvdpau-ia32
+Conflicts: nvidia-glx-ia32 (< 180.51), nvidia-libvdpau-ia32
 Description: NVIDIA vdpau 32bit libraries
  These libraries provide the Video Decode and Presentation API for Unix
  (32 bit). They provide accelerated video playback (incl. H.264) for the 
  supported graphics cards. See /usr/share/doc/nvidia-libvdpau/README.txt.gz 
  for more information.
 
-Package: nvidia-libvdpau
+Package: nvidia-libvdpau1
+Section: non-free/libs
 Architecture: i386 amd64
-Depends: x11-common (>= 1:7.0.0), ${shlibs:Depends}
-Replaces: nvidia-glx (< 180.51)
-Conflicts: nvidia-glx (< 180.51)
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: nvidia-kernel-#VERSION#
+Suggests: nvidia-kernel-source (>= #VERSION#)
+Replaces: nvidia-glx (< 180.51), nvidia-libvdpau
+Conflicts: nvidia-glx (< 180.51), nvidia-libvdpau
 Description: NVIDIA vdpau libraries
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported 
  graphics cards. See /usr/share/doc/nvidia-libvdpau/README.txt.gz for 
  more information.
- 
+
 Package: nvidia-libvdpau-dev
+Section: non-free/libdevel
 Architecture: i386 amd64
-Depends: nvidia-libvdpau (>= #VERSION#)
+Depends: nvidia-libvdpau1 (>= #VERSION#), ${misc:Depends}
 Replaces: nvidia-glx-dev (< 180.51)
-Conflicts: nvidia-glx-dev (< 180.51), nvidia-libvdpau (>= #NEXTVER#)
+Conflicts: nvidia-glx-dev (< 180.51), nvidia-libvdpau1 (>= #NEXTVER#)
+Provides: nvidia-libvdpau1-dev
 Description: NVIDIA vdpau development files
- This package contains the NVIDIA vdpau development files.
+ The NVIDIA Video Decode and Presentation API for Unix (VDPAU) provides a
+ complete solution for decoding, post-processing, compositing, and displaying
+ compressed or uncompressed video streams.
+ .
+ This package contains the VDPAU development files.
 
 Package: nvidia-kernel-source
 Architecture: i386 amd64
-Depends: debhelper (>> 4.0.0), make, sed (>> 3.0), dpatch (>= 2.0.0)
-Recommends: nvidia-glx (>= #VERSION#), kernel-package (>= 8.082), devscripts
+Depends: debhelper (>> 4.0.0), make, sed (>> 3.0), dpatch (>= 2.0.0), ${misc:Depends}
+Recommends: nvidia-glx (>= #VERSION#), kernel-package (>= 8.082), module-assistant, devscripts
 Conflicts: nvidia-kernel-src
 Replaces: nvidia-kernel-src
 Description: NVIDIA binary kernel module source
@@ -109,3 +122,64 @@ Description: NVIDIA binary kernel module source
  PLEASE read /usr/share/doc/nvidia-kernel-source/README.Debian for building
  information.
  .
+
+Package: libcuda1
+Section: non-free/libs
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: nvidia-kernel-#VERSION#
+Suggests: nvidia-kernel-source (>= #VERSION#)
+Replaces: nvidia-glx (<< 185.18.14-2), nvidia-glx-dev (<< 185.18.14-2)
+Description: NVIDIA CUDA runtime library
+ The Compute Unified Device Architecture (CUDA) enables NVIDIA
+ graphics processing units (GPUs) to be used for massively parallel
+ general purpose computation.
+ .
+ This package contains the driver specific runtime library.
+ .
+ Supported NVIDIA devices include GPUs starting from GeForce 8 and Quadro FX
+ series, as well as the Tesla computing processors.
+ .
+ Please see the nvidia-kernel-source package for building the kernel module
+ required by this package. This will provide nvidia-kernel-<version>
+ .
+
+Package: libcuda1-ia32
+Section: non-free/libs
+Architecture: amd64
+Pre-Depends: libc6-i386 (>= 2.9-18)
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: nvidia-kernel-#VERSION#
+Suggests: nvidia-kernel-source (>= #VERSION#)
+Replaces: nvidia-glx-ia32 (<< 185.18.14-2)
+Description: NVIDIA CUDA runtime library (32-bit)
+ The Compute Unified Device Architecture (CUDA) enables NVIDIA
+ graphics processing units (GPUs) to be used for massively parallel
+ general purpose computation.
+ .
+ This package contains the driver specific runtime library (32-bit).
+ .
+ Supported NVIDIA devices include GPUs starting from GeForce 8 and Quadro FX
+ series, as well as the Tesla computing processors.
+ .
+ Please see the nvidia-kernel-source package for building the kernel module
+ required by this package. This will provide nvidia-kernel-<version>
+ .
+
+Package: libcuda1-dev
+Section: non-free/libdevel
+Architecture: i386 amd64
+Depends: libcuda1 (>= #VERSION#), ${misc:Depends}
+Provides: libcuda-dev
+Replaces: nvidia-glx-dev (<< 185.18.14-2)
+Description: NVIDIA CUDA development files
+ The Compute Unified Device Architecture (CUDA) enables NVIDIA
+ graphics processing units (GPUs) to be used for massively parallel
+ general purpose computation.
+ .
+ This package contains the driver specific NVIDIA CUDA
+ development files.
+ .
+ For more information on this source package visit NVIDIA's CUDA Zone
+ at http://www.nvidia.com/object/cuda_home.html .
+

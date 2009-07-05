@@ -27,15 +27,24 @@ filename_x86_64:=$(shell sh debian/upstream_info FILENAME_X86_64)
 dirname_x86:=$(shell sh debian/upstream_info DIRNAME_X86)
 dirname_x86_64:=$(shell sh debian/upstream_info DIRNAME_X86_64)
 
-AUTOGEN=debian/nvidia-kernel-source.README.Debian debian/control \
-debian/copyright debian/nvidia-glx.links debian/nvidia-glx-dev.links \
-debian/nvidia-libvdpau.links debian/nvidia-libvdpau-ia32.links \
-debian/nvidia-glx.override debian/nvidia-glx.docs debian/nvidia-glx.examples \
-debian/nvidia-libvdpau.docs \
+AUTOGEN=debian/nvidia-kernel-source.README.Debian \
+debian/copyright debian/nvidia-glx.links \
+debian/nvidia-libvdpau1.links debian/nvidia-libvdpau1-ia32.links \
+debian/nvidia-glx.lintian-overrides.amd64 debian/nvidia-glx.lintian-overrides.i386 \
+debian/nvidia-glx.docs debian/nvidia-glx.examples \
+debian/nvidia-libvdpau1.docs \
 debian/nvidia-glx.postrm debian/nvidia-glx.init \
-debian/nvidia-glx-ia32.override debian/nvidia-glx-ia32.links \
-debian/nvidia-kernel-source.docs debian/nvidia-glx-dev.preinst
-
+debian/nvidia-glx-ia32.lintian-overrides debian/nvidia-glx-ia32.links \
+debian/nvidia-kernel-source.docs debian/nvidia-glx-dev.preinst \
+debian/libcuda1.install debian/libcuda1-ia32.install debian/libcuda1-dev.install \
+debian/libcuda1.links debian/libcuda1-ia32.links \
+debian/libcuda1.lintian-overrides.amd64 debian/libcuda1.lintian-overrides.i386 \
+debian/libcuda1-ia32.lintian-overrides \
+debian/libcuda1-ia32.symbols \
+debian/nvidia-libvdpau1.lintian-overrides.amd64 debian/nvidia-libvdpau1.lintian-overrides.i386 \
+debian/nvidia-libvdpau1-ia32.lintian-overrides \
+debian/nvidia-libvdpau1-ia32.symbols \
+debian.binary/changelog
 
 
 
@@ -51,12 +60,12 @@ ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
 	INSTALL_PROGRAM += -s
 endif
 
-version-change: version-clean $(AUTOGEN) clean
+version-change: version-clean debian/control $(AUTOGEN) clean
 
 configure: configure-stamp
 
 .PHONY: configure-stamp
-configure-stamp: version-clean $(AUTOGEN)
+configure-stamp: version-clean debian/control $(AUTOGEN)
 	dh_testdir
 	# extract both so we can fetch the kernel object code for both arches
 	./${filename_x86} --extract-only
@@ -71,10 +80,8 @@ configure-stamp: version-clean $(AUTOGEN)
 #		done; \
 	fi
 
-	sed 's/^nvidia-graphics-drivers/nvidia-kernel/g'  debian/changelog > debian.binary/changelog
-
-
 	touch configure-stamp
+
 
 .PHONY: build
 build: configure-stamp build-stamp
@@ -87,7 +94,7 @@ build-stamp:
 build-kernel:
 
 .PHONY: build-kernel-stamp 
-build-kernel-stamp:
+build-kernel-stamp: debian.binary/changelog
 	    dh_testroot
 	    dh_testdir
 
@@ -114,8 +121,9 @@ build-kernel-stamp:
 		rm $(CURDIR)/debian/temp/modules/nvidia-kernel/makefile
 
 		# We want both 32 and 64 bit versions of nv-kernel.o
-	    cp $(CURDIR)/$(dirname_x86_64)/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.x86_64
-		mv $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.i386
+	cp $(CURDIR)/$(dirname_x86)/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.i386
+	cp $(CURDIR)/$(dirname_x86_64)/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.x86_64
+	rm -f $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o
 
 		# and then make Makefile.kbuild actually use our names
 		sed -i -e 's/nv-kernel.o$$/nv-kernel.o$$(NVARCH)/' $(CURDIR)/debian/temp/modules/nvidia-kernel/Makefile.kbuild
@@ -133,7 +141,7 @@ build-kernel-stamp:
 	    touch build-kernel-stamp
 
 .PHONY: clean					
-clean:
+clean: version-clean
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp build-kernel-stamp configure-stamp
@@ -141,6 +149,8 @@ clean:
 
 	rm -fr $(dirname_x86) $(dirname_x86_64)  nvidia-kernel.tar.bz2
 	rm -fr debian/temp
+
+	$(MAKE) -f debian/rules debian/control
 
 
 .PHONY: install
@@ -169,11 +179,6 @@ install: build-stamp build-kernel-stamp
 	install -m 0644 $(dirname)/usr/include/GL/glext.h \
 		$(CURDIR)/debian/nvidia-glx-dev/usr/include/GL
 
-	install -m 0644 $(dirname)/usr/include/cuda/cuda.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/include/cuda
-	install -m 0644 $(dirname)/usr/include/cuda/cudaGL.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/include/cuda
-
 	install -m 0644 $(dirname)/usr/include/vdpau/vdpau.h \
 		$(CURDIR)/debian/nvidia-libvdpau-dev/usr/include/vdpau
 	install -m 0644 $(dirname)/usr/include/vdpau/vdpau_x11.h \
@@ -188,14 +193,12 @@ install: build-stamp build-kernel-stamp
 			$(CURDIR)/debian/nvidia-glx/usr/lib
 	install -m 0644 $(dirname)/usr/lib/libGLcore.so.${version} \
 		$(CURDIR)/debian/nvidia-glx/usr/lib
-	install -m 0644 $(dirname)/usr/lib/libcuda.so.${version} \
-			$(CURDIR)/debian/nvidia-glx/usr/lib
 	install -m 0644 $(dirname)/usr/lib/libvdpau_nvidia.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau/usr/lib
+			$(CURDIR)/debian/nvidia-libvdpau1/usr/lib
 	install -m 0644 $(dirname)/usr/lib/libvdpau.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau/usr/lib
+			$(CURDIR)/debian/nvidia-libvdpau1/usr/lib
 	install -m 0644 $(dirname)/usr/lib/libvdpau_trace.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau/usr/lib
+			$(CURDIR)/debian/nvidia-libvdpau1/usr/lib
 			
 
 
@@ -222,23 +225,17 @@ install: build-stamp build-kernel-stamp
 	install $(dirname)/usr/bin/tls_test $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia
 	install $(dirname)/usr/bin/tls_test_dso.so $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia
 
-	install -d $(CURDIR)/debian/nvidia-glx/usr/share/lintian/overrides
-	install -m 0644 debian/nvidia-glx.override \
-		$(CURDIR)/debian/nvidia-glx/usr/share/lintian/overrides/nvidia-glx
-
 	if [ "$(DEB_BUILD_ARCH)" = "amd64" ] ; then \
 		install $(dirname)/usr/lib32/libGLcore.so.${version} \
 			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/libGL.so.${version} \
 			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
-		install $(dirname)/usr/lib32/libcuda.so.${version} \
-			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/libvdpau.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau-ia32/usr/lib32 ; \
+			$(CURDIR)/debian/nvidia-libvdpau1-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/libvdpau_nvidia.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau-ia32/usr/lib32 ; \
+			$(CURDIR)/debian/nvidia-libvdpau1-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/libvdpau_trace.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau-ia32/usr/lib32 ; \
+			$(CURDIR)/debian/nvidia-libvdpau1-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/libnvidia-tls.so.${version} \
 			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/tls/libnvidia-tls.so.${version} \
@@ -256,7 +253,8 @@ install: build-stamp build-kernel-stamp
 
 	install $(CURDIR)/script $(CURDIR)/debian/nvidia-glx/usr/share/bug/nvidia-glx
 
-	dh_install 
+	dh_install -s
+	dh_lintian
 
 
 # Must not depend on anything. This is to be called by
@@ -285,16 +283,15 @@ binary-common:
 	dh_fixperms
 #	dh_perl
 #	dh_python
-	dh_makeshlibs
+	dh_makeshlibs -s
 	dh_installdeb
-	dh_shlibdeps  -Xia32 -Xtls -l$(CURDIR)/debian/nvidia-glx/usr/lib:$(CURDIR)/debian/nvidia-libvdpau/usr/lib
-	# quickhack! remove me :-/
-	perl -pi.bak -e 's/,\s+nvidia-glx-ia32//;' $(CURDIR)/debian/nvidia-glx.substvars
+	dh_shlibdeps
 	dh_gencontrol -s
 	dh_md5sums
 	dh_builddeb -s
 
 
+# Generating control files
 %:	%.in debian/upstream_info
 	perl -p \
 	-e 's{#BASE_VERSION#}{$(base_version)}g;' \
@@ -307,6 +304,21 @@ binary-common:
 	-e 's{#URL#}{$(url)}g' \
 	< $< > $@
 
+debian.binary/changelog: debian/changelog
+	sed 's/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@
+
+debian/nvidia-libvdpau1-ia32.symbols: debian/nvidia-libvdpau1.symbols.i386
+	sed 's/nvidia-libvdpau1/nvidia-libvdpau1-ia32/g' $< > $@
+
+debian/nvidia-libvdpau1-ia32.lintian-overrides: debian/nvidia-libvdpau1.lintian-overrides.i386
+	sed 's/^nvidia-libvdpau1:/nvidia-libvdpau1-ia32:/; s%usr/lib/%usr/lib32/%g' $< > $@
+
+debian/libcuda1-ia32.symbols: debian/libcuda1.symbols
+	sed 's/libcuda1/libcuda1-ia32/g' $< > $@
+
+debian/libcuda1-ia32.lintian-overrides: debian/libcuda1.lintian-overrides.i386
+	sed 's/^libcuda1:/libcuda1-ia32:/; s%usr/lib/%usr/lib32/%g' $< > $@
+
 
 # Build architecture dependant packages using the common target.
 .PHONY: binary-arch
@@ -318,5 +330,7 @@ binary: binary-arch
 
 .PHONY: version-clean
 version-clean: 
-	       rm -f ${AUTOGEN} || true
-	       
+	rm -f ${AUTOGEN} || true
+
+.PHONY: autogen
+autogen: debian/control ${AUTOGEN}

@@ -56,19 +56,10 @@ Using the nvidia X driver requires some user modification.
 	In Section "Device"
 	   Change Driver "nv" to Driver "nvidia"
 	
-	See /usr/share/doc/nvidia-glx/README.gz and
+	See /usr/share/doc/nvidia-glx/README.txt.gz and
 	/usr/share/doc/nvidia-glx/examples/XF86Config.sample.gz
 	for descriptions of all supported options. 
-	Appendix F:  CONFIGURING AGP is an important section.
-	
-
-Note about OpenGL headers: The header files are not installed to 
-/usr/include/GL but to /usr/share/doc/nvidia-glx-dev/include/GL. 
-This allows use of and not overwriting of the  
-preinstalled headers (e.g. xlibmesa-dev). If you wish to use the NVIDIA
-supplied headers (e.g. you require NVIDIA GL extensions) you must copy them to
-/usr/include/GL yourself or include /usr/share/doc/nvidia-glx-dev/include in
-your includes path when compiling.
+	Chapter 12: Configuring AGP is an important section.
 
 
 Also note all users using GLX must be in group video. (i.e. adduser <user>

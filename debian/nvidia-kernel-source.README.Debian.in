@@ -15,7 +15,7 @@ KERNEL MODULE INSTRUCTIONS:
 There are TWO ways to build the nvidia-kernel package. Which one depends on
 your situation with your kernel.
 
- METHOD #1: You are running a Debian suppiled kernel or built a 
+ METHOD #1: You are running a Debian supplied kernel or built a 
     linux-headers package along with your own self-built kernel. 
 
  METHOD #2: You are running your own self-built kernel built from kernel

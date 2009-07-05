@@ -32,6 +32,12 @@ binary-modules: configure
 
 	dh_prep
 
+ifneq (,$(wildcard makefile))
+	@echo "ERROR: unclean build directory from older version found, please clean first:"
+	@echo "    module-assistant clean nvidia"
+	@exit 1
+endif
+
 	# Build the modules
 	$(MAKE) -C . LINUXDIR=$(KSRC) KVERREL=$(KVERS)
 

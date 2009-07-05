@@ -1,10 +1,43 @@
-nvidia-graphics-drivers (185.18.14-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (185.18.14-2) unstable; urgency=low
 
-  * /emul/ia32-linux/usr/lib to /usr/lib32 transition (closes: 534873)
-  * cleanup /emul/ia32-linux/usr/lib/tls/libnvidia-tls.so.1
-  * Thanks to Andreas Beckmann <debian@abeckmann.de> for ias32 work
-  
- -- Randall Donald <rdonald@debian.org>  Wed, 01 Jul 2009 15:04:38 -0700
+  * do not ship generated files in the source package
+  * nvidia-kernel-source: recommend module-assistant
+  * shlibs cleanup (closes: #533515)
+    - update Build-Depends to include all needed libraries
+    - updates for ia32-libs changes, now separate ia32-lib* packages
+    - let the shlibs system generate all dependencies
+    - debian/nvidia-glx.shlibs: switch to libgl1-mesa-glx | libgl1 (closes:
+      #526463)
+    - debian/nvidia-glx-ia32.shlibs: new file
+  * debian/nvidia-glx-dev.links.in: remove comment (generates unwanted and
+    invalid symlink)
+  * switch to dh_lintian
+  * update lintian overrides for nvidia-glx*
+  * nvidia-libvdpau* cleanup (closes: #519792)
+  * debian/nvidia-libvdpau.shlibs: removed, identical to generated shlibs
+  * rename nvidia-libvdpau* to nvidia-libvdpau1* (closes: #534536)
+  * cleanup leftover files from nvidia-libvdpau-ia32
+  * add overrides and symbol files for nvidia-libvdpau1*
+  * libcuda1, libcuda1-ia32, libcuda-dev: split from their respective
+    nvidia-glx-* packages (closes: #497077)
+  * add overrides and symbol files for libcuda1*
+  * restore support for 2.6.2[78] (closes: #523727)
+  * really put 32 and 64 bit versions of nv-kernel.o in the source package
+    (closes: #533279)
+  * nvidia-kernel-source: abort module compilation with helpful error message
+    if build directory was not cleaned after old package build (closes:
+    #533217, #523947)
+  * debian/nvidia-glx.README.Debian:
+    - update references (closes: #533195)
+    - drop outdated section about header installation (closes: #411894)
+  * debian/nvidia-glx-dev.links.in: removed, contained only a dangling symlink
+  * debian/nvidia-kernel-source.README.Debian.in: fix typo (closes: #434376)
+  * lintian cleanup
+    - nvidia-glx.NEWS, nvidia-kernel-source.NEWS: reindent
+    - debian/watch: add dummy file, website is not parsable
+    - debian/control.in: cosmetics 
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 04 Jul 2009 11:20:56 +0200
 
 nvidia-graphics-drivers (185.18.14-1) unstable; urgency=low
 
