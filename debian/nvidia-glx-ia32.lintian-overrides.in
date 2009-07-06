@@ -1,0 +1,22 @@
+# the diversions are placed there
+nvidia-glx-ia32: package-contains-empty-directory usr/lib32/nvidia/
+
+nvidia-glx-ia32: shared-lib-without-dependency-information ./usr/lib32/libnvidia-tls.so.#VERSION#
+nvidia-glx-ia32: shared-lib-without-dependency-information ./usr/lib32/tls/libnvidia-tls.so.#VERSION#
+
+nvidia-glx-ia32: shlib-with-non-pic-code usr/lib32/libGL.so.#VERSION#
+nvidia-glx-ia32: shlib-with-non-pic-code usr/lib32/libGLcore.so.#VERSION#
+nvidia-glx-ia32: shlib-with-non-pic-code usr/lib32/libnvidia-tls.so.#VERSION#
+nvidia-glx-ia32: shlib-with-non-pic-code usr/lib32/tls/libnvidia-tls.so.#VERSION#
+
+nvidia-glx-ia32: shlib-without-PT_GNU_STACK-section usr/lib32/libGL.so.#VERSION#
+nvidia-glx-ia32: shlib-without-PT_GNU_STACK-section usr/lib32/libGLcore.so.#VERSION#
+nvidia-glx-ia32: shlib-without-PT_GNU_STACK-section usr/lib32/libnvidia-tls.so.#VERSION#
+nvidia-glx-ia32: shlib-without-PT_GNU_STACK-section usr/lib32/tls/libnvidia-tls.so.#VERSION#
+
+nvidia-glx-ia32: binary-has-unneeded-section ./usr/lib32/libGL.so.#VERSION# .comment
+nvidia-glx-ia32: binary-has-unneeded-section ./usr/lib32/libGLcore.so.#VERSION# .note
+nvidia-glx-ia32: binary-has-unneeded-section ./usr/lib32/libGLcore.so.#VERSION# .comment
+nvidia-glx-ia32: binary-has-unneeded-section ./usr/lib32/libnvidia-tls.so.#VERSION# .comment
+nvidia-glx-ia32: binary-has-unneeded-section ./usr/lib32/tls/libnvidia-tls.so.#VERSION# .comment
+

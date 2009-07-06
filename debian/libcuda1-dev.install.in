@@ -1,0 +1,2 @@
+#DIRNAME#/usr/include/cuda/cuda.h		/usr/include/cuda
+#DIRNAME#/usr/include/cuda/cudaGL.h		/usr/include/cuda

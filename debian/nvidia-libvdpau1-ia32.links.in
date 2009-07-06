@@ -1,0 +1,4 @@
+usr/lib32/libvdpau.so.#VERSION#		usr/lib32/libvdpau.so.1
+usr/lib32/libvdpau.so.1			usr/lib32/libvdpau.so
+usr/lib32/libvdpau_nvidia.so.#VERSION#	usr/lib32/libvdpau_nvidia.so
+usr/lib32/libvdpau_trace.so.#VERSION#	usr/lib32/libvdpau_trace.so
