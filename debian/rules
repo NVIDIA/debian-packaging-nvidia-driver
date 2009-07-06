@@ -27,7 +27,7 @@ filename_x86_64:=$(shell sh debian/upstream_info FILENAME_X86_64)
 dirname_x86:=$(shell sh debian/upstream_info DIRNAME_X86)
 dirname_x86_64:=$(shell sh debian/upstream_info DIRNAME_X86_64)
 
-AUTOGEN=debian/nvidia-kernel-source.README.Debian \
+AUTOCLEAN=debian/nvidia-kernel-source.README.Debian \
 debian/copyright debian/nvidia-glx.links \
 debian/nvidia-libvdpau1.links debian/nvidia-libvdpau1-ia32.links \
 debian/nvidia-glx.lintian-overrides.amd64 debian/nvidia-glx.lintian-overrides.i386 \
@@ -44,7 +44,9 @@ debian/libcuda1-ia32.symbols \
 debian/nvidia-libvdpau1.lintian-overrides.amd64 debian/nvidia-libvdpau1.lintian-overrides.i386 \
 debian/nvidia-libvdpau1-ia32.lintian-overrides \
 debian/nvidia-libvdpau1-ia32.symbols \
-debian.binary/changelog
+
+AUTOGEN=$(AUTOCLEAN) debian/copyright
+
 
 
 
@@ -330,7 +332,7 @@ binary: binary-arch
 
 .PHONY: version-clean
 version-clean: 
-	rm -f ${AUTOGEN} || true
+	rm -f ${AUTOCLEAN} || true
 
 .PHONY: autogen
 autogen: debian/control ${AUTOGEN}
