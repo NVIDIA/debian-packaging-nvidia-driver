@@ -97,9 +97,9 @@ Package: nvidia-libvdpau-dev
 Section: non-free/libdevel
 Architecture: i386 amd64
 Depends: nvidia-libvdpau1 (>= #VERSION#), ${misc:Depends}
-Replaces: nvidia-glx-dev (< 180.51)
 Conflicts: nvidia-glx-dev (< 180.51), nvidia-libvdpau1 (>= #NEXTVER#)
 Provides: nvidia-libvdpau1-dev
+Replaces: nvidia-libvdpau, nvidia-glx-dev (< 180.51)
 Description: NVIDIA vdpau development files
  The NVIDIA Video Decode and Presentation API for Unix (VDPAU) provides a
  complete solution for decoding, post-processing, compositing, and displaying
