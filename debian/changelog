@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (185.18.14-2) unstable; urgency=low
 
+  [ Andreas Beckmann ]
   * do not ship generated files in the source package
   * nvidia-kernel-source: recommend module-assistant
   * shlibs cleanup (closes: #533515)
@@ -37,7 +38,7 @@ nvidia-graphics-drivers (185.18.14-2) unstable; urgency=low
     - debian/watch: add dummy file, website is not parsable
     - debian/control.in: cosmetics 
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 04 Jul 2009 11:20:56 +0200
+ -- Randall Donald <rdonald@debian.org>  Mon, 06 Jul 2009 12:28:32 -0700
 
 nvidia-graphics-drivers (185.18.14-1) unstable; urgency=low
 
