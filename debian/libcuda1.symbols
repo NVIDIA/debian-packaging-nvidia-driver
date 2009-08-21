@@ -46,6 +46,7 @@ libcuda.so.1 libcuda1 #MINVER#
  cuMemFree@Base 169.07
  cuMemFreeHost@Base 169.07
  cuMemGetAddressRange@Base 169.07
+ cuMemGetAttribute@Base 185.18.31
  cuMemGetInfo@Base 169.07
  cuMemHostAlloc@Base 185.18.04
  cuMemHostGetDevicePointer@Base 185.18.04

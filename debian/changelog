@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (185.18.31-1) unstable; urgency=low
+
+  [ Andreas Beckmann ]
+  * New upstream: 185.18.31
+  * use the re-introduced monolithic ia32-libs on amd64 (closes: #536545)
+
+ -- Randall Donald <rdonald@debian.org>  Fri, 21 Aug 2009 12:28:32 -0700 
+
 nvidia-graphics-drivers (185.18.14-2) unstable; urgency=low
 
   [ Andreas Beckmann ]

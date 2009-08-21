@@ -7,7 +7,7 @@ Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers
 Build-Depends: debhelper (>= 6.0.7~), sed (>> 3.0), libxext6, bzip2,
  libc6-dev-i386 [amd64], lib32gcc1 [amd64], lib32z1 [amd64],
- ia32-libs (<< 15) [amd64] | ia32-libxext6 [amd64],
+ ia32-libs (<< 3) [amd64] | ia32-libs (>= 20090804) [amd64] | ia32-libxext6 [amd64],
 Standards-Version: 3.6.2
 Homepage: http://www.nvidia.com
 
