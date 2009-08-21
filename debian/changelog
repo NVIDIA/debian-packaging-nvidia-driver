@@ -1,9 +1,3 @@
-nvidia-graphics-drivers (185.18.31-3) unstable; urgency=low
-
-  * relly build with ia32-libs. thwapp!! 
-
- -- Randall Donald <rdonald@debian.org>  Fri, 21 Aug 2009 15:22:29 -0700
-
 nvidia-graphics-drivers (185.18.31-2) unstable; urgency=low
 
   * actually build using ia32-libs. thwapp!! 
