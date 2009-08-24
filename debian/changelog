@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (185.18.36-1) unstable; urgency=low
+
+  * New Upstream (closes: #542889, #543155)
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 24 Aug 2009 15:54:18 -0700
+
 nvidia-graphics-drivers (185.18.31-2) unstable; urgency=low
 
   * actually build using ia32-libs. thwapp!! 
