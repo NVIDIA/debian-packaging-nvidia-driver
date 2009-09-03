@@ -23,7 +23,7 @@
 
 /* Implement conftest.sh function change_page_attr */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,4,20) && \
-		LINUX_VERSION_CODE < KERNEL_VERSION(2,6,25)
+               LINUX_VERSION_CODE < KERNEL_VERSION(2,6,25)
  #ifndef NV_SET_PAGES_UC_PRESENT
   #define NV_CHANGE_PAGE_ATTR_PRESENT
  #endif
@@ -76,9 +76,11 @@
 #if LINUX_VERSION_CODE < KERNEL_VERSION(2,5,0)
  #define NV_I2C_ADAPTER_HAS_INC_USE
  #define NV_I2C_ADAPTER_HAS_DEC_USE
+ #define NV_I2C_ADAPTER_HAS_CLIENT_REGISTER
 #else
  #undef NV_I2C_ADAPTER_HAS_INC_USE
  #undef NV_I2C_ADAPTER_HAS_DEC_USE
+ #undef NV_I2C_ADAPTER_HAS_CLIENT_REGISTER
 #endif
 
 /* Implement conftest.sh function sysctl_max_map_count */
@@ -126,7 +128,7 @@
 
 /* Implement conftest.sh function acpi_device_ops */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,10) && \
-		LINUX_VERSION_CODE < KERNEL_VERSION(2,6,21)
+               LINUX_VERSION_CODE < KERNEL_VERSION(2,6,21)
  #define NV_ACPI_DEVICE_OPS_HAS_MATCH
 #else
  #undef NV_ACPI_DEVICE_OPS_HAS_MATCH
@@ -196,6 +198,20 @@
  #define NV_IOREMAP_WC_PRESENT
 #else
  #undef NV_IOREMAP_WC_PRESENT
+#endif
+
+/* Implement conftest.sh function proc_dir_entry */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,30)
+ #define NV_PROC_DIR_ENTRY_HAS_OWNER
+#else
+ #undef NV_PROC_DIR_ENTRY_HAS_OWNER
+#endif
+
+/* Implement conftest.sh function agp_memory */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,31)
+ #define NV_AGP_MEMORY_HAS_PAGES
+#else
+ #undef NV_AGP_MEMORY_HAS_PAGES
 #endif
 
 /* Check for linux/semaphore.h */
