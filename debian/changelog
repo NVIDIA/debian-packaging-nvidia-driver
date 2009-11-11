@@ -2,6 +2,8 @@ nvidia-graphics-drivers (190.42-1) UNRELEASED; urgency=low
 
   * New Upstream (closes: #555739,#555297,#555298)
   * change section of kernel module to non-free/kernel 
+  * move libnvidia-cfg.so to /usr/lib (closes: #505863)
+  * alter watch file (closes: #550095)
 
  -- Randall Donald <rdonald@debian.org>  Wed, 11 Nov 2009 13:13:28 -0800
 

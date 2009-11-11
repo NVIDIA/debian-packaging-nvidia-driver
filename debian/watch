@@ -1,6 +1,3 @@
+#ftp://download.nvidia.com/XFree86/Linux-x86_64/190.36/NVIDIA-Linux-x86_64-190.36-pkg2.run
 version=3
-
-# The download page is based on javascript modifications that seem unparsable by uscan.
-version=3
-
-# The download page is based on javascript modifications that seem unparsable by uscan.
+ftp://download.nvidia.com/XFree86/Linux-x86_64/([\d\.\-]+)/NVIDIA-Linux-x86_64-([\d\.\-]+)-pkg([\d]+)\.run
