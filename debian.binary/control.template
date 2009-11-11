@@ -1,5 +1,5 @@
 Source: nvidia-kernel
-Section: non-free/x11
+Section: non-free/kernel
 Priority: optional
 Maintainer: Randall Donald <rdonald@debian.org>
 Build-Depends: debhelper (>> 3.0.0), make, libc6-dev
