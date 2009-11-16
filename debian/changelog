@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (190.42-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (190.42-1) unstable; urgency=low
 
   * New Upstream (closes: #555739,#555297,#555298)
   * change section of kernel module to non-free/kernel 
