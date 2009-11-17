@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (190.42-2) unstable; urgency=low
+
+  * Fix nextver (closes: #556594, #556571) 
+
+ -- Randall Donald <rdonald@debian.org>  Tue, 17 Nov 2009 09:59:19 -0800
+
 nvidia-graphics-drivers (190.42-1) unstable; urgency=low
 
   * New Upstream (closes: #555739,#555297,#555298)
