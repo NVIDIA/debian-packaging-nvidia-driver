@@ -1,7 +1,5 @@
 nvidia-libvdpau1: binary-has-unneeded-section ./usr/lib/libvdpau.so.#VERSION# .comment
-nvidia-libvdpau1: binary-has-unneeded-section ./usr/lib/libvdpau_nvidia.so.#VERSION# .comment
 nvidia-libvdpau1: binary-has-unneeded-section ./usr/lib/libvdpau_trace.so.#VERSION# .comment
 
 # libvdpau.so.1 does dlopen("libvdpau_*.so")
-nvidia-libvdpau1: non-dev-pkg-with-shlib-symlink usr/lib/libvdpau_nvidia.so.#VERSION# usr/lib/libvdpau_nvidia.so
 nvidia-libvdpau1: non-dev-pkg-with-shlib-symlink usr/lib/libvdpau_trace.so.#VERSION# usr/lib/libvdpau_trace.so
