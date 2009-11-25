@@ -1,8 +1,9 @@
 nvidia-graphics-drivers (190.42-3) unstable; urgency=low
 
+  [ Andres Mejia ]
   * Provide a package for just the NVIDIA VDPAU driver.
 
- -- Andres Mejia <mcitadel@gmail.com>  Fri, 20 Nov 2009 18:46:02 -0500
+ -- Randall Donald <rdonald@debian.org>  Wed, 25 Nov 2009 10:52:55 -0800
 
 nvidia-graphics-drivers (190.42-2) unstable; urgency=low
 
