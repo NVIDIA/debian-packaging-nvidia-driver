@@ -88,7 +88,7 @@ Depends: nvidia-libvdpau1-driver (>= 190.42),
 Recommends: nvidia-kernel-190.42
 Suggests: nvidia-kernel-source (>= 190.42)
 Replaces: nvidia-glx (< 180.51), nvidia-libvdpau
-Conflicts: nvidia-glx (< 180.51), nvidia-libvdpau, libvdpau1,
+Conflicts: nvidia-glx (< 180.51), nvidia-libvdpau
 Description: NVIDIA vdpau libraries
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported 
@@ -127,8 +127,7 @@ Package: nvidia-libvdpau-dev
 Section: non-free/libdevel
 Architecture: i386 amd64
 Depends: nvidia-libvdpau1 (>= 190.42), ${misc:Depends}
-Conflicts: nvidia-glx-dev (< 180.51), nvidia-libvdpau1 (>= 190.43),
- libvdpau-dev,
+Conflicts: nvidia-glx-dev (< 180.51), nvidia-libvdpau1 (>= 190.43)
 Provides: nvidia-libvdpau1-dev
 Replaces: nvidia-libvdpau, nvidia-glx-dev (< 180.51)
 Description: NVIDIA vdpau development files
