@@ -102,7 +102,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-190.42
 Suggests: nvidia-kernel-source (>= 190.42)
 Replaces: nvidia-glx (< 180.51), nvidia-libvdpau
-Conflicts: nvidia-glx (< 180.51), nvidia-libvdpau
+Conflicts: nvidia-glx (< 180.51), nvidia-libvdpau,
+ nvidia-libvdpau1 (<< 190.42-3)
 Description: NVIDIA vdpau driver
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
@@ -116,7 +117,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-190.42
 Suggests: nvidia-kernel-source (>= 190.42)
 Replaces: nvidia-glx (< 180.51), nvidia-libvdpau
-Conflicts: nvidia-glx (< 180.51), nvidia-libvdpau
+Conflicts: nvidia-glx (< 180.51), nvidia-libvdpau,
+ nvidia-libvdpau1 (<< 190.42-3)
 Description: NVIDIA vdpau 32-bit driver
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
