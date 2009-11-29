@@ -1,7 +1,0 @@
-nvidia-libvdpau1-driver: shlib-without-PT_GNU_STACK-section usr/lib/libvdpau_nvidia.so.#VERSION#
-nvidia-libvdpau1-driver: shlib-with-non-pic-code usr/lib/libvdpau_nvidia.so.#VERSION#
-nvidia-libvdpau1-driver: binary-has-unneeded-section ./usr/lib/libvdpau_nvidia.so.#VERSION# .comment
-nvidia-libvdpau1-driver: binary-has-unneeded-section ./usr/lib/libvdpau_nvidia.so.#VERSION# .note
-
-# libvdpau.so.1 does dlopen("libvdpau_*.so")
-nvidia-libvdpau1-driver: non-dev-pkg-with-shlib-symlink usr/lib/libvdpau_nvidia.so.#VERSION# usr/lib/libvdpau_nvidia.so

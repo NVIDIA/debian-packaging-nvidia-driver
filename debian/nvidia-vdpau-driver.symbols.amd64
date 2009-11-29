@@ -1,0 +1,2 @@
+libvdpau_nvidia.so nvidia-vdpau-driver #MINVER#
+ vdp_imp_device_create_x11@Base 180.06

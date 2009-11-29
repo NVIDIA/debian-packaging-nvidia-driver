@@ -1,4 +1,4 @@
-libvdpau_nvidia.so nvidia-libvdpau1-driver #MINVER#
+libvdpau_nvidia.so nvidia-vdpau-driver #MINVER#
  mknod@Base 180.06
  stat@Base 180.06
  vdp_imp_device_create_x11@Base 180.06

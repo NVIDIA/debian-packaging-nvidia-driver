@@ -1,8 +1,13 @@
 nvidia-graphics-drivers (190.42-4) unstable; urgency=low
 
   * Fix issue with upgrading from 190.42-2. (Closes: #558369)
+  * Add Provides entry of vdpau-driver for vdpau driver packages.
+  * Rename nvidia-libvdpau1-driver to nvidia-vdpau-driver.
+  * Rename nvidia-libvdpau1-driver-ia32 to nvidia-vdpau-driver-ia32.
+  * Add proper Replaces and Conflicts entries for package renames.
+  * Update Depends entries for nvidia-libvdpau1* packages.
 
- -- Andres Mejia <mcitadel@gmail.com>  Sat, 28 Nov 2009 20:08:12 -0500
+ -- Andres Mejia <mcitadel@gmail.com>  Sun, 29 Nov 2009 15:52:27 -0500
 
 nvidia-graphics-drivers (190.42-3) unstable; urgency=low
 

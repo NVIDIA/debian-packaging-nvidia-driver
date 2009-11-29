@@ -1,0 +1,8 @@
+nvidia-vdpau-driver: binary-has-unneeded-section ./usr/lib/libvdpau_nvidia.so.#VERSION# .comment
+
+# libvdpau.so.1 does dlopen("libvdpau_*.so")
+nvidia-vdpau-driver: non-dev-pkg-with-shlib-symlink usr/lib/libvdpau_nvidia.so.#VERSION# usr/lib/libvdpau_nvidia.so
+
+# libvdpau_nvidia.so* will reside in usr/lib/vdpau in the future
+nvidia-vdpau-driver: shlib-without-versioned-soname usr/lib/libvdpau_nvidia.so.190.42 libvdpau_nvidia.so
+nvidia-vdpau-driver: package-name-doesnt-match-sonames libvdpau-nvidia
