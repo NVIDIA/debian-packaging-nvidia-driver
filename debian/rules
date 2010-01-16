@@ -201,12 +201,12 @@ install: build-stamp build-kernel-stamp
 			$(CURDIR)/debian/nvidia-glx/usr/lib
 	install -m 0644 $(dirname)/usr/lib/libGLcore.so.${version} \
 		$(CURDIR)/debian/nvidia-glx/usr/lib
-	install -m 0644 $(dirname)/usr/lib/libvdpau_nvidia.so.${version} \
-			$(CURDIR)/debian/nvidia-vdpau-driver/usr/lib
+	install -m 0644 $(dirname)/usr/lib/vdpau/libvdpau_nvidia.so.${version} \
+			$(CURDIR)/debian/nvidia-vdpau-driver/usr/lib/vdpau
 	install -m 0644 $(dirname)/usr/lib/libvdpau.so.${version} \
 			$(CURDIR)/debian/nvidia-libvdpau1/usr/lib
-	install -m 0644 $(dirname)/usr/lib/libvdpau_trace.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau1/usr/lib
+	install -m 0644 $(dirname)/usr/lib/vdpau/libvdpau_trace.so.${version} \
+			$(CURDIR)/debian/nvidia-libvdpau1/usr/lib/vdpau
 			
 
 
