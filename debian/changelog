@@ -6,7 +6,7 @@ nvidia-graphics-drivers (190.53-1) unstable; urgency=low
   * fix lib32 path for libvdpau_nvidia and libvdpau_trace
 
   [Randall Donald]
-  * New upstream. (closes: #563022)
+  * New upstream. (closes: #563022, #565965)
   * Add new vdpau directory structure
 
  -- Randall Donald <rdonald@debian.org>  Sat, 16 Jan 2010 10:59:16 -0800
