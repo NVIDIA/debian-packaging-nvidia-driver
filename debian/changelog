@@ -1,5 +1,11 @@
 nvidia-graphics-drivers (190.53-1) unstable; urgency=low
 
+  [Harald Dunkel]
+  * fix nvidia-libvdpau1.dirs
+  * fix find-and-replace loop to ignore debian.binary/patches directory
+  * fix lib32 path for libvdpau_nvidia and libvdpau_trace
+
+  [Randall Donald]
   * New upstream. (closes: #563022)
   * Add new vdpau directory structure
 

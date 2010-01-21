@@ -112,8 +112,8 @@ build-kernel-stamp: debian.binary/changelog
 		# Prepare debian files for module package
 	    cp -a $(CURDIR)/debian.binary/* $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
 	    for f in `ls $(CURDIR)/debian.binary` ; do \
-		perl -p \
-		-e 's{#BASE_VERSION#}{$(base_version)}g;' \
+	       test ! -f $(CURDIR)/debian.binary/$$f || perl -p \
+	        -e 's{#BASE_VERSION#}{$(base_version)}g;' \
 		-e 's{#RELEASE#}{$(release)}g;' \
 		-e 's{#VERSION#}{$(version)}g;' \
 		-e 's{#UPSTREAMVERSION#}{$(upstreamversion)}g;' \
@@ -240,10 +240,10 @@ install: build-stamp build-kernel-stamp
 			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/libvdpau.so.${version} \
 			$(CURDIR)/debian/nvidia-vdpau-driver-ia32/usr/lib32 ; \
-		install $(dirname)/usr/lib32/libvdpau_nvidia.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau1-ia32/usr/lib32 ; \
-		install $(dirname)/usr/lib32/libvdpau_trace.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau1-ia32/usr/lib32 ; \
+		install $(dirname)/usr/lib32/vdpau/libvdpau_nvidia.so.${version} \
+			$(CURDIR)/debian/nvidia-libvdpau1-ia32/usr/lib32/vdpau ; \
+		install $(dirname)/usr/lib32/vdpau/libvdpau_trace.so.${version} \
+			$(CURDIR)/debian/nvidia-libvdpau1-ia32/usr/lib32/vdpau ; \
 		install $(dirname)/usr/lib32/libnvidia-tls.so.${version} \
 			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
 		install $(dirname)/usr/lib32/tls/libnvidia-tls.so.${version} \
