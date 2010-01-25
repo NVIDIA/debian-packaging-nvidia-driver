@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (190.53-2) UNRELEASED; urgency=low
+
+  * Fix libvdpau_nvidia.so symlink (closes: #566518)
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 25 Jan 2010 14:05:40 -0800
+
 nvidia-graphics-drivers (190.53-1) unstable; urgency=low
 
   [Harald Dunkel]
