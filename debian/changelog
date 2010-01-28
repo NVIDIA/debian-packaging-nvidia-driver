@@ -7,6 +7,7 @@ nvidia-graphics-drivers (190.53-2) UNRELEASED; urgency=low
   * Fix dependencies for nvidia-libvdpau1 and nvidia-libvdpau1-ia32.
   * Ensure NVIDIA driver packages are in source tree before attempting to build.
   * Fix deprecated use of '<' to '<<' in package relationships.
+  * Start using the most recent debhelper compat version.
 
  -- Randall Donald <rdonald@debian.org>  Thu, 28 Jan 2010 12:14:18 -0500
 
