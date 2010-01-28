@@ -68,7 +68,7 @@ Package: nvidia-libvdpau1-ia32
 Section: non-free/libs
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: nvidia-libvdpau1-driver-ia32 (>= 190.53),
+Depends: nvidia-vdpau-driver-ia32 (>= 190.53),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-190.53
 Suggests: nvidia-kernel-source (>= 190.53)
@@ -83,7 +83,7 @@ Description: NVIDIA vdpau 32bit libraries
 Package: nvidia-libvdpau1
 Section: non-free/libs
 Architecture: i386 amd64
-Depends: nvidia-libvdpau1-driver (>= 190.53),
+Depends: nvidia-vdpau-driver (>= 190.53),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-190.53
 Suggests: nvidia-kernel-source (>= 190.53)
