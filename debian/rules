@@ -165,7 +165,7 @@ clean: version-clean
 install: build-stamp build-kernel-stamp
 	dh_testdir
 	dh_testroot
-	dh_clean -k 
+	dh_prep 
 	dh_installdirs 
 
 	install -m 644 $(CURDIR)/nvidia-kernel.tar.bz2 $(CURDIR)/debian/nvidia-kernel-source/usr/src
