@@ -73,7 +73,7 @@ version-change: version-clean debian/control $(AUTOGEN) clean
 configure: configure-stamp
 
 .PHONY: configure-stamp
-configure-stamp: version-clean debian/control $(AUTOGEN)
+configure-stamp: version-clean debian/control $(AUTOGEN) ${filename_x86} ${filename_x86_64}
 	dh_testdir
 	# extract both so we can fetch the kernel object code for both arches
 	./${filename_x86} --extract-only
