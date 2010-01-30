@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (190.53-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (190.53-2) unstable; urgency=low
 
   [ Randall Donald ]
   * Fix libvdpau_nvidia.so symlink (closes: #566518)
@@ -11,7 +11,7 @@ nvidia-graphics-drivers (190.53-2) UNRELEASED; urgency=low
   * Bump Standards-Version to 3.8.3.
   * Use dh_prep instead of dh_clean -k.
 
- -- Randall Donald <rdonald@debian.org>  Thu, 28 Jan 2010 12:14:18 -0500
+ -- Randall Donald <rdonald@debian.org>  Fri, 29 Jan 2010 17:44:12 -0800
 
 nvidia-graphics-drivers (190.53-1) unstable; urgency=low
 
