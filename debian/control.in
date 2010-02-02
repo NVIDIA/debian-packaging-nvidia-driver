@@ -53,9 +53,9 @@ Description: NVIDIA binary Xorg driver
 
 Package: nvidia-glx-dev
 Architecture: i386 amd64
-Depends: nvidia-glx (>= #VERSION#), ${misc:Depends}
+Depends: nvidia-glx (= ${binary:Version}), ${misc:Depends}
 Provides: libgl-dev
-Conflicts: nvidia-glx (>= #NEXTVER#), libgl-dev, mesa-common-dev
+Conflicts: libgl-dev, mesa-common-dev
 Replaces: libgl-dev
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
@@ -130,8 +130,8 @@ Description: NVIDIA vdpau 32-bit driver
 Package: nvidia-libvdpau-dev
 Section: non-free/libdevel
 Architecture: i386 amd64
-Depends: nvidia-libvdpau1 (>= #VERSION#), ${misc:Depends}
-Conflicts: nvidia-glx-dev (<< 180.51), nvidia-libvdpau1 (>= #NEXTVER#)
+Depends: nvidia-libvdpau1 (= ${binary:Version}), ${misc:Depends}
+Conflicts: nvidia-glx-dev (<< 180.51)
 Provides: nvidia-libvdpau1-dev
 Replaces: nvidia-libvdpau, nvidia-glx-dev (<< 180.51)
 Description: NVIDIA vdpau development files
@@ -204,7 +204,7 @@ Description: NVIDIA CUDA runtime library (32-bit)
 Package: libcuda1-dev
 Section: non-free/libdevel
 Architecture: i386 amd64
-Depends: libcuda1 (>= #VERSION#), ${misc:Depends}
+Depends: libcuda1 (= ${binary:Version}), ${misc:Depends}
 Provides: libcuda-dev
 Replaces: nvidia-glx-dev (<< 185.18.14-2)
 Description: NVIDIA CUDA development files
