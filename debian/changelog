@@ -3,6 +3,9 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
   [ Andres Mejia ]
   * Fix weak library dependency of dev packages.
   * Bump Standards-Version to 3.8.4.
+  * Include Copyright line in copyright file. Copyright line was taken from
+    cuda.h header file.
+  * Place updated NVIDIA license in copyright file.
 
  -- Randall Donald <rdonald@debian.org>  Mon, 01 Feb 2010 19:36:17 -0500
 
