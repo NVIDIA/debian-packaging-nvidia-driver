@@ -286,7 +286,7 @@ binary-common:
 #	dh_installinfo
 	dh_installman
 	dh_link
-#	dh_strip
+	dh_strip
 	dh_compress -X.h -X README.Debian 
 	dh_fixperms
 #	dh_perl
