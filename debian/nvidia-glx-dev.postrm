@@ -10,7 +10,7 @@ case "$1" in
 #	dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
 #	dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
         rm /usr/lib/libGL.so || true
-	/etc/init.d/nvidia-glx start || true		
+	invoke-rc.d nvidia-glx start || true		
 #	ln -s /usr/lib/nvidia/libGL.so.1.2.xlibmesa /usr/lib/libGL.so
 	
 
