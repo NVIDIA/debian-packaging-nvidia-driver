@@ -7,7 +7,7 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
     cuda.h header file.
   * Place updated NVIDIA license in copyright file.
   * Fix file permissions in installed files.
-  * Fix installation of libnvidia_driver.so.* for nvidia-vdpau-driver-ia32
+  * Fix installation of libvdpau_nvidia.so.* for nvidia-vdpau-driver-ia32
     package.
   * Add myself to Uploaders field in answer to bug #568952.
 
