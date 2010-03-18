@@ -168,15 +168,15 @@ install: build-stamp build-kernel-stamp
 	dh_prep 
 	dh_installdirs 
 
-	install -m 644 $(CURDIR)/nvidia-kernel.tar.bz2 $(CURDIR)/debian/nvidia-kernel-source/usr/src
+	install -m 0644 $(CURDIR)/nvidia-kernel.tar.bz2 $(CURDIR)/debian/nvidia-kernel-source/usr/src
 
 
-	install -m 0644 $(dirname)/usr/X11R6/lib/modules/drivers/nvidia_drv.so \
+	install $(dirname)/usr/X11R6/lib/modules/drivers/nvidia_drv.so \
 		$(CURDIR)/debian/nvidia-glx/usr/lib/xorg/modules/drivers
 
 
 
-	install $(dirname)/usr/X11R6/lib/libXvMCNVIDIA.a $(CURDIR)/debian/nvidia-glx-dev/usr/lib/libXvMCNVIDIA.a;
+	install -m 0644 $(dirname)/usr/X11R6/lib/libXvMCNVIDIA.a $(CURDIR)/debian/nvidia-glx-dev/usr/lib/libXvMCNVIDIA.a;
 	install $(dirname)/usr/X11R6/lib/libXvMCNVIDIA.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/libXvMCNVIDIA.so.${version};
 
 
@@ -197,15 +197,15 @@ install: build-stamp build-kernel-stamp
 	install -m 0644 $(dirname)/usr/include/GL/glxext.h \
 		$(CURDIR)/debian/nvidia-glx-dev/usr/include/GL
 
-	install -m 0644 $(dirname)/usr/lib/libGL.so.${version} \
+	install $(dirname)/usr/lib/libGL.so.${version} \
 			$(CURDIR)/debian/nvidia-glx/usr/lib
-	install -m 0644 $(dirname)/usr/lib/libGLcore.so.${version} \
+	install $(dirname)/usr/lib/libGLcore.so.${version} \
 		$(CURDIR)/debian/nvidia-glx/usr/lib
-	install -m 0644 $(dirname)/usr/lib/vdpau/libvdpau_nvidia.so.${version} \
+	install $(dirname)/usr/lib/vdpau/libvdpau_nvidia.so.${version} \
 			$(CURDIR)/debian/nvidia-vdpau-driver/usr/lib/vdpau
-	install -m 0644 $(dirname)/usr/lib/libvdpau.so.${version} \
+	install $(dirname)/usr/lib/libvdpau.so.${version} \
 			$(CURDIR)/debian/nvidia-libvdpau1/usr/lib
-	install -m 0644 $(dirname)/usr/lib/vdpau/libvdpau_trace.so.${version} \
+	install $(dirname)/usr/lib/vdpau/libvdpau_trace.so.${version} \
 			$(CURDIR)/debian/nvidia-libvdpau1/usr/lib/vdpau
 			
 
@@ -224,7 +224,7 @@ install: build-stamp build-kernel-stamp
 	#sed "s/__GENERATED_BY__/Debian nvidia-graphics-drivers/" $(dirname)/usr/lib/tls/libGL.la | sed "s/__LIBGL_PATH__/\/usr\/lib\/tls/" > $(CURDIR)/debian/nvidia-glx-dev/usr/lib/nvidia/libGL.la
 	# install -m 0644 $(dirname)/usr/lib/tls/libGL.la $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia/libGL.la
 	
-	install -m 0644 $(dirname)/usr/lib/libnvidia-cfg.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/
+	install $(dirname)/usr/lib/libnvidia-cfg.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/
 
 
 	install $(dirname)/usr/X11R6/lib/modules/extensions/libglx.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/xorg/modules/extensions/
@@ -234,23 +234,23 @@ install: build-stamp build-kernel-stamp
 	install $(dirname)/usr/bin/tls_test_dso.so $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia
 
 	if [ "$(DEB_BUILD_ARCH)" = "amd64" ] ; then \
-		install $(dirname)/usr/lib32/libGLcore.so.${version} \
+		install -D $(dirname)/usr/lib32/libGLcore.so.${version} \
 			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
-		install $(dirname)/usr/lib32/libGL.so.${version} \
+		install -D $(dirname)/usr/lib32/libGL.so.${version} \
 			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
-		install $(dirname)/usr/lib32/libvdpau.so.${version} \
-			$(CURDIR)/debian/nvidia-vdpau-driver-ia32/usr/lib32 ; \
-		install $(dirname)/usr/lib32/vdpau/libvdpau_nvidia.so.${version} \
+		install -D $(dirname)/usr/lib32/libvdpau.so.${version} \
+			$(CURDIR)/debian/nvidia-libvdpau1-ia32/usr/lib32 ; \
+		install -D $(dirname)/usr/lib32/vdpau/libvdpau_nvidia.so.${version} \
+			$(CURDIR)/debian/nvidia-vdpau-driver-ia32/usr/lib32/vdpau ; \
+		install -D $(dirname)/usr/lib32/vdpau/libvdpau_trace.so.${version} \
 			$(CURDIR)/debian/nvidia-libvdpau1-ia32/usr/lib32/vdpau ; \
-		install $(dirname)/usr/lib32/vdpau/libvdpau_trace.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau1-ia32/usr/lib32/vdpau ; \
-		install $(dirname)/usr/lib32/libnvidia-tls.so.${version} \
+		install -D $(dirname)/usr/lib32/libnvidia-tls.so.${version} \
 			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
-		install $(dirname)/usr/lib32/tls/libnvidia-tls.so.${version} \
+		install -D $(dirname)/usr/lib32/tls/libnvidia-tls.so.${version} \
 			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32/tls ; \
 	fi
 
-	install -m 755 $(dirname)/usr/bin/nvidia-bug-report.sh $(CURDIR)/debian/nvidia-glx/usr/bin/
+	install $(dirname)/usr/bin/nvidia-bug-report.sh $(CURDIR)/debian/nvidia-glx/usr/bin/
 	# use separate package
 	#install -m 755 $(dirname)/usr/bin/nvidia-xconfig $(CURDIR)/debian/nvidia-glx/usr/bin/
 
