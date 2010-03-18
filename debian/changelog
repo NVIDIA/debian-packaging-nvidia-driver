@@ -6,8 +6,12 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
   * Include Copyright line in copyright file. Copyright line was taken from
     cuda.h header file.
   * Place updated NVIDIA license in copyright file.
+  * Fix file permissions in installed files.
+  * Fix installation of libnvidia_driver.so.* for nvidia-vdpau-driver-ia32
+    package.
+  * Add myself to Uploaders field in answer to bug #568952.
 
- -- Randall Donald <rdonald@debian.org>  Mon, 01 Feb 2010 19:36:17 -0500
+ -- Andres Mejia <mcitadel@gmail.com>  Thu, 18 Mar 2010 18:44:40 -0400
 
 nvidia-graphics-drivers (190.53-2) unstable; urgency=low
 
