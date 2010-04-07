@@ -112,7 +112,8 @@ build-kernel-stamp: debian.binary/changelog
 		# Prepare debian files for module package
 	    cp -a $(CURDIR)/debian.binary/* $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
 	    for f in `ls $(CURDIR)/debian.binary` ; do \
-	       test ! -f $(CURDIR)/debian.binary/$$f || perl -p \
+	       if [ -f $(CURDIR)/debian.binary/$$f ]; then \
+		perl -p \
 	        -e 's{#BASE_VERSION#}{$(base_version)}g;' \
 		-e 's{#RELEASE#}{$(release)}g;' \
 		-e 's{#VERSION#}{$(version)}g;' \
@@ -120,6 +121,7 @@ build-kernel-stamp: debian.binary/changelog
 		-e 's{#URL#}{$(url)}g' \
 		< $(CURDIR)/debian.binary/$$f >		$(CURDIR)/debian/temp/modules/nvidia-kernel/debian/$$f ; \
 		chmod 0644 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/$$f ; \
+	      fi \
 	    done
 
 #	    chmod 775 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/patches

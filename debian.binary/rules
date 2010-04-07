@@ -23,13 +23,13 @@ PACKAGE		= nvidia-kernel
 -include /usr/share/modass/include/common-rules.make
 
 configure:
-	dh_quilt_patch
 	sed 's/#KVERS#/$(KVERS)/g' debian/control.template > $(CURDIR)/debian/control
 	sed 's/#KVERS#/$(KVERS)/g' debian/dirs.template > $(CURDIR)/debian/dirs
 	sed 's/#KVERS#/$(KVERS)/g' debian/override.template > $(CURDIR)/debian/override
 
 binary-modules: configure
 	dh_testroot
+	dh_quilt_patch
 
 	dh_prep
 
