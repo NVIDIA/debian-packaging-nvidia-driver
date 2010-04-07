@@ -27,7 +27,10 @@ filename_x86_64:=$(shell sh debian/upstream_info FILENAME_X86_64)
 dirname_x86:=$(shell sh debian/upstream_info DIRNAME_X86)
 dirname_x86_64:=$(shell sh debian/upstream_info DIRNAME_X86_64)
 
-AUTOCLEAN=debian/nvidia-kernel-source.README.Debian \
+AUTOGEN		 = $(AUTOKEEP) $(AUTOCLEAN)
+AUTOKEEP	 = debian/control debian/copyright
+AUTOCLEAN	 = \
+debian/nvidia-kernel-source.README.Debian \
 debian/nvidia-glx.links \
 debian/nvidia-glx.lintian-overrides.amd64 debian/nvidia-glx.lintian-overrides.i386 \
 debian/nvidia-glx.docs debian/nvidia-glx.examples \
@@ -51,12 +54,7 @@ debian/nvidia-vdpau-driver.lintian-overrides.amd64 \
 debian/nvidia-vdpau-driver.lintian-overrides.i386 \
 debian/nvidia-vdpau-driver-ia32.docs \
 debian/nvidia-vdpau-driver-ia32.lintian-overrides \
-
-
-AUTOGEN=$(AUTOCLEAN) debian/copyright
-
-
-
+debian.binary/changelog
 
 
 CFLAGS = -Wall -g
@@ -70,12 +68,12 @@ ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
 	INSTALL_PROGRAM += -s
 endif
 
-version-change: version-clean debian/control $(AUTOGEN) clean
+version-change: version-clean $(AUTOGEN) clean
 
 configure: configure-stamp
 
 .PHONY: configure-stamp
-configure-stamp: version-clean debian/control $(AUTOGEN) ${filename_x86} ${filename_x86_64}
+configure-stamp: version-clean $(AUTOGEN) ${filename_x86} ${filename_x86_64}
 	dh_testdir
 	# extract both so we can fetch the kernel object code for both arches
 	./${filename_x86} --extract-only
@@ -160,7 +158,7 @@ clean: version-clean
 	rm -fr $(dirname_x86) $(dirname_x86_64)  nvidia-kernel.tar.bz2
 	rm -fr debian/temp
 
-	$(MAKE) -f debian/rules debian/control
+	$(MAKE) -f debian/rules $(AUTOKEEP)
 
 
 .PHONY: install
@@ -346,4 +344,4 @@ version-clean:
 	rm -f ${AUTOCLEAN} || true
 
 .PHONY: autogen
-autogen: debian/control ${AUTOGEN}
+autogen: ${AUTOGEN}
