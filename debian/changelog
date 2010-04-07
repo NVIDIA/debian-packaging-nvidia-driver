@@ -40,6 +40,7 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
     versions and build the package for upload.
   * Add an explanation for the non-free placement of this package to
     debian/copyright as requested by Policy 12.5.
+  * Add myself to Uploaders.
 
   [ Andreas Beckmann ]
   * Add Enhances: lib[32]vdpau1 to nvidia-vdpau-driver[-ia32].
