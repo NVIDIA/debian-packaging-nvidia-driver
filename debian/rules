@@ -306,8 +306,7 @@ binary-common:
 	dh_makeshlibs -s
 	dh_installdeb
 	dh_shlibdeps
-	echo 'nvidia:Version=$(version)' >> debian/substvars
-	dh_gencontrol -s
+	dh_gencontrol -V'nvidia:Version=$(version)' -s
 	dh_md5sums
 	dh_builddeb -s
 
