@@ -27,6 +27,12 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
     comments in the postrm.  Thanks, Sven Joachim.  (Closes: #575272)
   * Stop stripping the binaries.  The NVIDIA license does not allow us to
     modify the binaries in any way.
+  * Stop generating debian/control and risking that the rules to do so may
+    fire during a normal package build.  The only variable being
+    substituted into the generated debian/control was the NVIDIA version,
+    and that only in binary package stanzas.  Instead, generate an
+    ${nvidia:Version} substvar with that value and use that substvar in
+    debian/control.
 
   [ Andreas Beckmann ]
   * Add Enhances: lib[32]vdpau1 to nvidia-vdpau-driver[-ia32].

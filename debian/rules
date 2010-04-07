@@ -28,7 +28,7 @@ dirname_x86:=$(shell sh debian/upstream_info DIRNAME_X86)
 dirname_x86_64:=$(shell sh debian/upstream_info DIRNAME_X86_64)
 
 AUTOGEN		 = $(AUTOKEEP) $(AUTOCLEAN)
-AUTOKEEP	 = debian/control debian/copyright
+AUTOKEEP	 = debian/copyright
 AUTOCLEAN	 = \
 debian/nvidia-kernel-source.README.Debian \
 debian/nvidia-glx.links \
@@ -306,6 +306,7 @@ binary-common:
 	dh_makeshlibs -s
 	dh_installdeb
 	dh_shlibdeps
+	echo 'nvidia:Version=$(version)' >> debian/substvars
 	dh_gencontrol -s
 	dh_md5sums
 	dh_builddeb -s

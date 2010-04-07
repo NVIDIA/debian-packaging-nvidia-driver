@@ -15,8 +15,8 @@ Homepage: http://www.nvidia.com
 Package: nvidia-glx-ia32
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: nvidia-kernel-190.53, ${shlibs:Depends}, ${misc:Depends}
-Suggests: nvidia-settings, nvidia-kernel-source (>= 190.53)
+Depends: nvidia-kernel-${nvidia:Version}, ${shlibs:Depends}, ${misc:Depends}
+Suggests: nvidia-settings, nvidia-kernel-source (>= ${nvidia:Version})
 Conflicts: nvidia-glx-src
 Replaces: nvidia-glx-src
 Description: NVIDIA binary driver 32bit libs
@@ -32,8 +32,8 @@ Description: NVIDIA binary driver 32bit libs
 
 Package: nvidia-glx
 Architecture: i386 amd64
-Depends: nvidia-kernel-190.53, x11-common (>= 1:7.0.0), ${shlibs:Depends}, ${misc:Depends}
-Suggests: nvidia-settings, nvidia-kernel-source (>= 190.53)
+Depends: nvidia-kernel-${nvidia:Version}, x11-common (>= 1:7.0.0), ${shlibs:Depends}, ${misc:Depends}
+Suggests: nvidia-settings, nvidia-kernel-source (>= ${nvidia:Version})
 Conflicts: nvidia-glx-src, nvidia-glx-dev (<< 1.0.8774-5)
 Replaces: nvidia-glx-src
 Description: NVIDIA binary Xorg driver
@@ -67,10 +67,10 @@ Package: nvidia-libvdpau1-ia32
 Section: non-free/libs
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: nvidia-vdpau-driver-ia32 (>= 190.53),
+Depends: nvidia-vdpau-driver-ia32 (>= ${nvidia:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-190.53
-Suggests: nvidia-kernel-source (>= 190.53)
+Recommends: nvidia-kernel-${nvidia:Version}
+Suggests: nvidia-kernel-source (>= ${nvidia:Version})
 Replaces: nvidia-glx-ia32 (<< 180.51), nvidia-libvdpau-ia32
 Conflicts: nvidia-glx-ia32 (<< 180.51), nvidia-libvdpau-ia32
 Description: NVIDIA vdpau 32bit libraries
@@ -86,10 +86,10 @@ Description: NVIDIA vdpau 32bit libraries
 Package: nvidia-libvdpau1
 Section: non-free/libs
 Architecture: i386 amd64
-Depends: nvidia-vdpau-driver (>= 190.53),
+Depends: nvidia-vdpau-driver (>= ${nvidia:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-190.53
-Suggests: nvidia-kernel-source (>= 190.53)
+Recommends: nvidia-kernel-${nvidia:Version}
+Suggests: nvidia-kernel-source (>= ${nvidia:Version})
 Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau
 Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau
 Description: NVIDIA vdpau libraries
@@ -107,9 +107,9 @@ Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends},
  libvdpau1 | nvidia-libvdpau1
-Recommends: nvidia-kernel-190.53
+Recommends: nvidia-kernel-${nvidia:Version}
 Enhances: libvdpau1
-Suggests: nvidia-kernel-source (>= 190.53)
+Suggests: nvidia-kernel-source (>= ${nvidia:Version})
 Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver
 Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau,
  nvidia-libvdpau1 (<< 190.42-3), nvidia-libvdpau1-driver
@@ -130,9 +130,9 @@ Section: non-free/libs
 Architecture: amd64
 Depends: ${shlibs:Depends}, ${misc:Depends},
  lib32vdpau1 | nvidia-libvdpau1-ia32
-Recommends: nvidia-kernel-190.53
+Recommends: nvidia-kernel-${nvidia:Version}
 Enhances: lib32vdpau1
-Suggests: nvidia-kernel-source (>= 190.53)
+Suggests: nvidia-kernel-source (>= ${nvidia:Version})
 Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver-ia32
 Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau,
  nvidia-libvdpau1 (<< 190.42-3), nvidia-libvdpau1-driver-ia32
@@ -165,7 +165,7 @@ Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64
 Depends: debhelper (>> 4.0.0), make, sed (>> 3.0), quilt (>= 0.46-7~), ${misc:Depends}
-Recommends: nvidia-glx (>= 190.53), kernel-package (>= 8.082), module-assistant, devscripts
+Recommends: nvidia-glx (>= ${nvidia:Version}), kernel-package (>= 8.082), module-assistant, devscripts
 Conflicts: nvidia-kernel-src
 Replaces: nvidia-kernel-src
 Description: NVIDIA binary kernel module source
@@ -181,8 +181,8 @@ Package: libcuda1
 Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-190.53
-Suggests: nvidia-kernel-source (>= 190.53)
+Recommends: nvidia-kernel-${nvidia:Version}
+Suggests: nvidia-kernel-source (>= ${nvidia:Version})
 Replaces: nvidia-glx (<< 185.18.14-2), nvidia-glx-dev (<< 185.18.14-2)
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library
@@ -203,8 +203,8 @@ Section: non-free/libs
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-190.53
-Suggests: nvidia-kernel-source (>= 190.53)
+Recommends: nvidia-kernel-${nvidia:Version}
+Suggests: nvidia-kernel-source (>= ${nvidia:Version})
 Replaces: nvidia-glx-ia32 (<< 185.18.14-2)
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library (32-bit)
