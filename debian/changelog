@@ -33,6 +33,9 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
     and that only in binary package stanzas.  Instead, generate an
     ${nvidia:Version} substvar with that value and use that substvar in
     debian/control.
+  * Force source format 1.0.  The interaction of the packaging and the
+    upstream source is way too complicated to figure out how to move to
+    3.0 (quilt) at this point.
 
   [ Andreas Beckmann ]
   * Add Enhances: lib[32]vdpau1 to nvidia-vdpau-driver[-ia32].
