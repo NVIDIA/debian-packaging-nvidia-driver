@@ -49,6 +49,8 @@ debian/nvidia-vdpau-driver-ia32.links \
 debian/nvidia-vdpau-driver.links \
 debian/nvidia-vdpau-driver.lintian-overrides.amd64 \
 debian/nvidia-vdpau-driver.lintian-overrides.i386 \
+debian/nvidia-vdpau-driver-ia32.docs \
+debian/nvidia-vdpau-driver-ia32.lintian-overrides \
 
 
 AUTOGEN=$(AUTOCLEAN) debian/copyright
@@ -320,6 +322,9 @@ debian/nvidia-libvdpau1-ia32.symbols: debian/nvidia-libvdpau1.symbols.i386
 
 debian/nvidia-libvdpau1-ia32.lintian-overrides: debian/nvidia-libvdpau1.lintian-overrides.i386
 	sed 's/^nvidia-libvdpau1:/nvidia-libvdpau1-ia32:/; s%usr/lib/%usr/lib32/%g' $< > $@
+
+debian/nvidia-vdpau-driver-ia32.lintian-overrides: debian/nvidia-vdpau-driver.lintian-overrides.i386
+	sed 's/^nvidia-vdpau-driver:/nvidia-vdpau-driver-ia32:/; s%usr/lib/%usr/lib32/%g' $< > $@
 
 debian/libcuda1-ia32.symbols: debian/libcuda1.symbols
 	sed 's/libcuda1/libcuda1-ia32/g' $< > $@

@@ -26,6 +26,20 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
   * Document the nvidia-glx postrm cases and rationale in more detail in
     comments in the postrm.  Thanks, Sven Joachim.  (Closes: #575272)
 
+  [ Andreas Beckmann ]
+  * Add Enhances: lib[32]vdpau1 to nvidia-vdpau-driver[-ia32].
+  * Add Breaks: libvdpau1 (<< 0.4) to nvidia-vdpau-driver (new directory
+    layout does not work with old wrapper)
+  * Add Depends: lib[32]vdpau1 | nvidia-libvdpau1[-ia32]
+    to nvidia-vdpau-driver[-ia32].
+  * vdpau symlink cleanup: for the "plugins" only the
+    /usr/lib[32]/vdpau/libvdpau_XYZ.so.1 -> libvdpau_XYZ.so.VERSION
+    links are needed, nothing in /usr/lib[32]/ and no libvdpau_XYZ.so
+  * Update symbols files and lintian overrides for moved vdpau libraries.
+  * nvidia-vdpau-driver: drop postinst/postrm scripts.
+  * nvidia-vdpau-driver-ia32: add README.txt.
+  * debian/control.in: update documentation references.
+
  -- Andres Mejia <mcitadel@gmail.com>  Thu, 18 Mar 2010 18:44:40 -0400
 
 nvidia-graphics-drivers (190.53-2) unstable; urgency=low

@@ -2,11 +2,3 @@ libvdpau.so.1 nvidia-libvdpau1 #MINVER#
  NV_VDPAU_WRAPPER_ID@Base 180.06
  pNV_VDPAU_WRAPPER_ID@Base 180.06
  vdp_device_create_x11@Base 180.06
-libvdpau_trace.so nvidia-libvdpau1 #MINVER#
- NV_VDPAU_TRACE_ID@Base 180.06
- _Z40_vdp_cap_init_planes_adapt_surface_videojPjS_S_@Base 180.06
- _Z41_vdp_cap_init_planes_adapt_surface_bitmapjPjS_S_@Base 180.06
- _Z41_vdp_cap_init_planes_adapt_surface_outputjPjS_S_@Base 180.06
- pNV_VDPAU_TRACE_ID@Base 180.06
- vdp_trace_device_create_x11@Base 180.06
- vdp_trace_set_backend_handle@Base 180.06

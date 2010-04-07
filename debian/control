@@ -29,7 +29,6 @@ Description: NVIDIA binary driver 32bit libs
  .
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list 
  of supported GPUs and PCIIDs
- .
 
 Package: nvidia-glx
 Architecture: i386 amd64
@@ -50,7 +49,6 @@ Description: NVIDIA binary Xorg driver
  . 
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list 
  of supported GPUs and PCIIDs
- .
 
 Package: nvidia-glx-dev
 Architecture: i386 amd64
@@ -78,7 +76,11 @@ Conflicts: nvidia-glx-ia32 (<< 180.51), nvidia-libvdpau-ia32
 Description: NVIDIA vdpau 32bit libraries
  These libraries provide the Video Decode and Presentation API for Unix
  (32 bit). They provide accelerated video playback (incl. H.264) for the 
- supported graphics cards. See /usr/share/doc/nvidia-libvdpau/README.txt.gz 
+ supported graphics cards.
+ .
+ This package contains the VDPAU wrapper and trace libraries (32-bit).
+ .
+ See /usr/share/doc/nvidia-vdpau-driver-ia32/README.txt.gz 
  for more information.
 
 Package: nvidia-libvdpau1
@@ -93,30 +95,43 @@ Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau
 Description: NVIDIA vdpau libraries
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported 
- graphics cards. See /usr/share/doc/nvidia-libvdpau/README.txt.gz for 
- more information.
+ graphics cards.
+ .
+ This package contains the VDPAU wrapper and trace libraries.
+ .
+ See /usr/share/doc/nvidia-vdpau-driver/README.txt.gz
+ for more information.
 
 Package: nvidia-vdpau-driver
 Section: non-free/libs
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ libvdpau1 | nvidia-libvdpau1
 Recommends: nvidia-kernel-190.53
+Enhances: libvdpau1
 Suggests: nvidia-kernel-source (>= 190.53)
 Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver
 Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau,
  nvidia-libvdpau1 (<< 190.42-3), nvidia-libvdpau1-driver
+Breaks: libvdpau1 (<< 0.4)
 Provides: vdpau-driver
 Description: NVIDIA vdpau driver
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
- graphics cards. See /usr/share/doc/nvidia-libvdpau/README.txt.gz for
- more information.
+ graphics cards.
+ .
+ This package contains the NVIDIA VDPAU driver.
+ .
+ See /usr/share/doc/nvidia-vdpau-driver/README.txt.gz
+ for more information.
 
 Package: nvidia-vdpau-driver-ia32
 Section: non-free/libs
 Architecture: amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ lib32vdpau1 | nvidia-libvdpau1-ia32
 Recommends: nvidia-kernel-190.53
+Enhances: lib32vdpau1
 Suggests: nvidia-kernel-source (>= 190.53)
 Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver-ia32
 Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau,
@@ -125,8 +140,12 @@ Provides: vdpau-driver
 Description: NVIDIA vdpau 32-bit driver
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
- graphics cards. See /usr/share/doc/nvidia-libvdpau/README.txt.gz for
- more information.
+ graphics cards.
+ .
+ This package contains the NVIDIA VDPAU driver (32-bit).
+ .
+ See /usr/share/doc/nvidia-vdpau-driver-ia32/README.txt.gz
+ for more information.
 
 Package: nvidia-libvdpau-dev
 Section: non-free/libdevel
@@ -157,7 +176,6 @@ Description: NVIDIA binary kernel module source
  .
  PLEASE read /usr/share/doc/nvidia-kernel-source/README.Debian for building
  information.
- .
 
 Package: libcuda1
 Section: non-free/libs
@@ -166,6 +184,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-190.53
 Suggests: nvidia-kernel-source (>= 190.53)
 Replaces: nvidia-glx (<< 185.18.14-2), nvidia-glx-dev (<< 185.18.14-2)
+Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -178,7 +197,6 @@ Description: NVIDIA CUDA runtime library
  .
  Please see the nvidia-kernel-source package for building the kernel module
  required by this package. This will provide nvidia-kernel-<version>
- .
 
 Package: libcuda1-ia32
 Section: non-free/libs
@@ -188,6 +206,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-190.53
 Suggests: nvidia-kernel-source (>= 190.53)
 Replaces: nvidia-glx-ia32 (<< 185.18.14-2)
+Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library (32-bit)
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -200,7 +219,6 @@ Description: NVIDIA CUDA runtime library (32-bit)
  .
  Please see the nvidia-kernel-source package for building the kernel module
  required by this package. This will provide nvidia-kernel-<version>
- .
 
 Package: libcuda1-dev
 Section: non-free/libdevel
@@ -208,6 +226,7 @@ Architecture: i386 amd64
 Depends: libcuda1 (= ${binary:Version}), ${misc:Depends}
 Provides: libcuda-dev
 Replaces: nvidia-glx-dev (<< 185.18.14-2)
+Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA development files
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -217,5 +236,5 @@ Description: NVIDIA CUDA development files
  development files.
  .
  For more information on this source package visit NVIDIA's CUDA Zone
- at http://www.nvidia.com/object/cuda_home.html .
+ at http://www.nvidia.com/CUDA .
 

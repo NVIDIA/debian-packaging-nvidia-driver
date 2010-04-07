@@ -1,3 +1,3 @@
 usr/lib32/libvdpau.so.#VERSION#		usr/lib32/libvdpau.so.1
 usr/lib32/libvdpau.so.1			usr/lib32/libvdpau.so
-usr/lib32/vdpau/libvdpau_trace.so.#VERSION#	usr/lib32/libvdpau_trace.so
+usr/lib32/vdpau/libvdpau_trace.so.#VERSION#	usr/lib32/vdpau/libvdpau_trace.so.1
