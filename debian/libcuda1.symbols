@@ -20,6 +20,7 @@ libcuda.so.1 libcuda1 #MINVER#
  cuDeviceGetName@Base 169.07
  cuDeviceGetProperties@Base 169.07
  cuDeviceTotalMem@Base 169.07
+ cuDriverGetExportTable@Base 190.16
  cuDriverGetVersion@Base 185.18.04
  cuEventCreate@Base 169.07
  cuEventDestroy@Base 169.07
@@ -33,8 +34,11 @@ libcuda.so.1 libcuda1 #MINVER#
  cuGLCtxCreate@Base 177.67
  cuGLInit@Base 169.07
  cuGLMapBufferObject@Base 169.07
+ cuGLMapBufferObjectAsync@Base 190.16
  cuGLRegisterBufferObject@Base 169.07
+ cuGLSetBufferObjectMapFlags@Base 190.16
  cuGLUnmapBufferObject@Base 169.07
+ cuGLUnmapBufferObjectAsync@Base 190.16
  cuGLUnregisterBufferObject@Base 169.07
  cuInit@Base 169.07
  cuLaunch@Base 169.07
@@ -50,6 +54,7 @@ libcuda.so.1 libcuda1 #MINVER#
  cuMemGetInfo@Base 169.07
  cuMemHostAlloc@Base 185.18.04
  cuMemHostGetDevicePointer@Base 185.18.04
+ cuMemHostGetFlags@Base 190.16
  cuMemcpy2D@Base 169.07
  cuMemcpy2DAsync@Base 169.07
  cuMemcpy2DUnaligned@Base 169.07

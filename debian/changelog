@@ -39,6 +39,16 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
   * nvidia-vdpau-driver: drop postinst/postrm scripts.
   * nvidia-vdpau-driver-ia32: add README.txt.
   * debian/control.in: update documentation references.
+  * libcuda1: update symbols files for new symbols (190.xx).
+  * Drop ia32-libs alternative dependencies.
+  * Install upstream changelog as changelog.gz (closes: #459721)
+  * debian/watch: check x86 and x86_64, uscan can download multiple files
+  * nvidia-glx.shlibs: add libnvidia-cfg.so
+  * nvidia-glx: update lintian overrides for moved libnvidia-cfg.so
+  * nvidia-glx: add lintian overrides for spelling errors
+  * debian.binary/control.template: make module package depend on the
+    corresponding linux-image (closes: #463403)
+  * debian/*.NEWS: remove asterisks to make lintian happy
 
  -- Andres Mejia <mcitadel@gmail.com>  Thu, 18 Mar 2010 18:44:40 -0400
 

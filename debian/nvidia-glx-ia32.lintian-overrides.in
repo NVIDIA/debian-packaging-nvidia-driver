@@ -20,3 +20,7 @@ nvidia-glx-ia32: binary-has-unneeded-section ./usr/lib32/libGLcore.so.#VERSION# 
 nvidia-glx-ia32: binary-has-unneeded-section ./usr/lib32/libnvidia-tls.so.#VERSION# .comment
 nvidia-glx-ia32: binary-has-unneeded-section ./usr/lib32/tls/libnvidia-tls.so.#VERSION# .comment
 
+nvidia-glx-ia32: spelling-error-in-binary ./usr/lib32/libGLcore.so.#VERSION# ment meant
+nvidia-glx-ia32: spelling-error-in-binary ./usr/lib32/libGLcore.so.#VERSION# incompatable incompatible
+nvidia-glx-ia32: spelling-error-in-binary ./usr/lib32/libGLcore.so.#VERSION# Unkown Unknown
+

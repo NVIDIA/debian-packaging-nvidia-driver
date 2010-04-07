@@ -274,7 +274,7 @@ install: build-stamp build-kernel-stamp
 binary-common:
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs 
+	dh_installchangelogs $(CURDIR)/$(dirname)/usr/share/doc/NVIDIA_Changelog
 	dh_installdocs -s 
 	dh_installexamples
 #	dh_installmenu
