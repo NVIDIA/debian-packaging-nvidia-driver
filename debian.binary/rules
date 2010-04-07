@@ -93,7 +93,7 @@ binary_modules: binary-modules
 # should configure the module so it is ready for compilation (mostly
 # useful for calling configure)
 kdist_config kdist_configure:
-	    $(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules configure
+	$(MAKE) $(MFLAGS) -f debian/rules configure
 
 # the kdist_clean target is called by make-kpkg modules_clean. It is
 # responsible for cleaning up any changes that have been made by the
