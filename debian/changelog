@@ -16,6 +16,15 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
     already runs that target under $(ROOT_CMD), so this provokes errors
     from fakeroot about nesting invocations.  Nothing this target does
     requires fakeroot.  Thanks, Bastian Kleineidam.  (Closes:  #416594)
+  * nvidia-glx-dev should depend on libx11-dev since GL/glx.h includes
+    headers from it.  Thanks, Baruch Even.  (Closes: #433178)
+  * Do not remove /usr/lib/libGL.so on purge of nvidia-glx.  At that
+    point, we've removed our diversion, so this is someone else's file and
+    we shouldn't be deleting it.
+  * Remove our diversions on aborted installations of nvidia-glx, since we
+    may have gotten far enough to create them.
+  * Document the nvidia-glx postrm cases and rationale in more detail in
+    comments in the postrm.  Thanks, Sven Joachim.  (Closes: #575272)
 
  -- Andres Mejia <mcitadel@gmail.com>  Thu, 18 Mar 2010 18:44:40 -0400
 
