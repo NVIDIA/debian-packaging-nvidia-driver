@@ -36,6 +36,8 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
   * Force source format 1.0.  The interaction of the packaging and the
     upstream source is way too complicated to figure out how to move to
     3.0 (quilt) at this point.
+  * Add a preliminary README.source explaining how to import new upstream
+    versions and build the package for upload.
 
   [ Andreas Beckmann ]
   * Add Enhances: lib[32]vdpau1 to nvidia-vdpau-driver[-ia32].

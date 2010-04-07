@@ -1,0 +1,44 @@
+Importing a New Upstream Release
+
+    The *.orig.tar.gz file for nvidia-graphics-drivers contains just a
+    directory named nvidia-graphics-drivers-<version>.orig containing the
+    upstream pkg0.run file for i386 and the pkg2.run file for amd64.
+    Everything else comes from the Subversion repository for the package.
+
+    Use the following steps to update to a new upstream release:
+
+    * Download the pkg0.run file for i386 and the pkg2.run file for amd64
+      from upstream.  The pkg2.run file has the ia32 libraries in it.
+
+    * mkdir nvidia-graphics-drivers-190.53.orig and place package files in
+      that directory.  Make them executable.  Then, create the orig
+      tarball with:
+
+          tar czvf nvidia-graphics-drivers_190.53.orig.tar.gz
+
+    * Edit debian/upstream_info in the Debian package and change RELEASE
+      and NEXTVER to the appropriate values.
+
+    * Edit conftest.h if necessary for kernel compatibility and test.
+
+Building and Uploading
+
+    At present, the package is not automatically built by the buildds.
+    Only i386 and amd64 are supported as Debian architectures.  A
+    maintainer uploading new packages needs to do the builds on both
+    architectures.
+
+    The easiest way to do this is to pick the architecture on which one
+    can easily build and test (either i386 or amd64) and ensure the
+    package is working there.  Then, do a final package build for upload.
+    This will, among other things, create a source package.  Copy that
+    source package to a system of the other architecture, unpack it with
+    dpkg-source -x, and then do a binary-only build with debuild -B (or
+    the equivalent with pbuilder or sbuild).  Note that you don't need an
+    NVIDIA card on the system where you're doing the build, but of course
+    ideally you want to test on all architectures before upload.  Most
+    problems (at least of the kind that can be fixed in Debian) come from
+    building the kernel modules, which you can do without having an NVIDIA
+    card.
+
+ -- Russ Allbery <rra@debian.org>, Tue,  6 Apr 2010 23:36:07 -0700
