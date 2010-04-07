@@ -25,6 +25,8 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
     may have gotten far enough to create them.
   * Document the nvidia-glx postrm cases and rationale in more detail in
     comments in the postrm.  Thanks, Sven Joachim.  (Closes: #575272)
+  * Stop stripping the binaries.  The NVIDIA license does not allow us to
+    modify the binaries in any way.
 
   [ Andreas Beckmann ]
   * Add Enhances: lib[32]vdpau1 to nvidia-vdpau-driver[-ia32].

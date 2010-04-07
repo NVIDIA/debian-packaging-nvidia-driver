@@ -268,8 +268,19 @@ install: build-stamp build-kernel-stamp
 
 
 # Must not depend on anything. This is to be called by
-# binary-arch/binary-multi
-# in another 'make' thread.
+# binary-arch/binary-multi in another 'make' thread.
+#
+# Do not run dh_strip here.  The NVIDIA license says:
+#
+#     2.1.2 Linux/FreeBSD Exception.  Notwithstanding the foregoing terms of
+#     Section 2.1.1, SOFTWARE designed exclusively for use on the Linux or
+#     FreeBSD operating systems, or other operating systems derived from the
+#     source code to these operating systems, may be copied and
+#     redistributed, provided that the binary files thereof are not modified
+#     in any way (except for unzipping of compressed files).
+#
+# Stripping the binary modules would constitute modifying the binary files
+# in a way other than unzipping of compressed files.
 .PHONY: binary-common
 binary-common:
 	dh_testdir
@@ -288,7 +299,6 @@ binary-common:
 #	dh_installinfo
 	dh_installman
 	dh_link
-	dh_strip
 	dh_compress -X.h -X README.Debian 
 	dh_fixperms
 #	dh_perl
