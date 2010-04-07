@@ -49,6 +49,9 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
   * debian.binary/control.template: make module package depend on the
     corresponding linux-image (closes: #463403)
   * debian/*.NEWS: remove asterisks to make lintian happy
+  * nvidia-kernel-source: switch patch system from dpatch to quilt
+  * debian.binary/patches/fix-2.6.33-build.patch: new patch to fix module
+    build with kernel 2.6.33 (closes: #573251)
 
  -- Andres Mejia <mcitadel@gmail.com>  Thu, 18 Mar 2010 18:44:40 -0400
 

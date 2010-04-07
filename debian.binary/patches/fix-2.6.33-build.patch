@@ -1,0 +1,19 @@
+Description: fix compilation problems with kernel 2.6.33
+Origin: http://bugs.gentoo.org/show_bug.cgi?id=301318
+Acked-by: Andreas Beckmann <debian@abeckmann.de>
+
+Index: b/nvacpi.c
+===================================================================
+--- a/nvacpi.c	2010-03-28 19:52:35.519537444 +0000
++++ b/nvacpi.c	2010-03-28 19:54:36.055536902 +0000
+@@ -14,6 +14,10 @@
+ #include "os-interface.h"
+ #include "nv-linux.h"
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,33)
++#define acpi_walk_namespace(a,b,c,d,e,f) acpi_walk_namespace(a,b,c,d,NULL,e,f)
++#endif
++
+ #if defined(NV_LINUX_ACPI_EVENTS_SUPPORTED)
+ 
+ static int         nv_acpi_add             (struct acpi_device *);

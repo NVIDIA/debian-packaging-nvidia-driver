@@ -23,6 +23,7 @@ PACKAGE		= nvidia-kernel
 -include /usr/share/modass/include/common-rules.make
 
 configure:
+	dh_quilt_patch
 	sed 's/#KVERS#/$(KVERS)/g' debian/control.template > $(CURDIR)/debian/control
 	sed 's/#KVERS#/$(KVERS)/g' debian/dirs.template > $(CURDIR)/debian/dirs
 	sed 's/#KVERS#/$(KVERS)/g' debian/override.template > $(CURDIR)/debian/override
@@ -59,7 +60,8 @@ endif
 	dh_builddeb  --destdir=$(KPKG_DEST_DIR)
 	dh_prep
 
-clean:   unpatch
+clean:
+	dh_testdir
 	if [ -f $(CURDIR)/debian/control.template ]; then \
 		cp  $(CURDIR)/debian/control.template $(CURDIR)/debian/control; \
 	fi
@@ -67,24 +69,18 @@ clean:   unpatch
 	dh_testroot
 	rm -f build-stamp configure-stamp
 
-
 	$(MAKE) clean SYSSRC=$(KSRC) -C $(CURDIR)/$(dirname) -f Makefile $(KPKG_EXTRAV_ARG)
         
 	-rm $(CURDIR)/$(dirname)/gcc-check
 	-rm $(CURDIR)/$(dirname)/cc-sanity-check
-	
-	-dh_clean
+
+	dh_quilt_unpatch
+	dh_clean
 
 	-rm $(CURDIR)/debian/control
 	-rm $(CURDIR)/debian/dirs
 	-rm $(CURDIR)/debian/override
 
-
-unpatch: 
-	if [ -e patch-stamp ]; then \
-	   dpatch deapply-all ; \
-	   rm -rf patch-stamp debian/patched ; \
-	fi
 
 binary_modules: binary-modules	
 	   
@@ -99,7 +95,9 @@ kdist_config kdist_configure:
 # responsible for cleaning up any changes that have been made by the
 # other kdist_commands (except for the .deb files created).
 kdist_clean: 
+	dh_testdir
 	$(MAKE) -C . LINUXDIR=$(KSRC) KVERREL=$(KVERS) clean
-	-dh_clean
+	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
+	dh_clean
 
 .PHONY: clean binary-modules

@@ -164,7 +164,7 @@ Description: NVIDIA vdpau development files
 Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64
-Depends: debhelper (>> 4.0.0), make, sed (>> 3.0), dpatch (>= 2.0.0), ${misc:Depends}
+Depends: debhelper (>> 4.0.0), make, sed (>> 3.0), quilt (>= 0.46-7~), ${misc:Depends}
 Recommends: nvidia-glx (>= 190.53), kernel-package (>= 8.082), module-assistant, devscripts
 Conflicts: nvidia-kernel-src
 Replaces: nvidia-kernel-src
