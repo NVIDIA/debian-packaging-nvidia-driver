@@ -53,6 +53,8 @@ nvidia-graphics-drivers (190.53-3) UNRELEASED; urgency=low
   * debian.binary/patches/fix-2.6.33-build.patch: new patch to fix module
     build with kernel 2.6.33 (closes: #573251)
   * improve handling of generated files (closes: #533518)
+  * Add more bug numbers to old changelog entries.
+  * Add missing changelog entry about ia32 transition to 185.18.14-2.
 
  -- Andres Mejia <mcitadel@gmail.com>  Thu, 18 Mar 2010 18:44:40 -0400
 
@@ -62,7 +64,8 @@ nvidia-graphics-drivers (190.53-2) unstable; urgency=low
   * Fix libvdpau_nvidia.so symlink (closes: #566518)
 
   [ Andres Mejia ]
-  * Fix dependencies for nvidia-libvdpau1 and nvidia-libvdpau1-ia32.
+  * Fix dependencies for nvidia-libvdpau1 and nvidia-libvdpau1-ia32. (closes:
+    #566691)
   * Ensure NVIDIA driver packages are in source tree before attempting to build.
   * Fix deprecated use of '<' to '<<' in package relationships.
   * Start using the most recent debhelper compat version.
@@ -80,18 +83,18 @@ nvidia-graphics-drivers (190.53-1) unstable; urgency=low
 
   [Randall Donald]
   * New upstream. (closes: #563022, #565965)
-  * Add new vdpau directory structure
+  * Add new vdpau directory structure (closes: #547248)
 
  -- Randall Donald <rdonald@debian.org>  Sat, 16 Jan 2010 10:59:16 -0800
 
-nvidia-graphics-drivers (190.42-4) unstable; urgency=low
+nvidia-graphics-drivers (190.42-4) UNRELEASED; urgency=low
 
   * Fix issue with upgrading from 190.42-2. (Closes: #558369)
   * Add Provides entry of vdpau-driver for vdpau driver packages.
   * Rename nvidia-libvdpau1-driver to nvidia-vdpau-driver.
   * Rename nvidia-libvdpau1-driver-ia32 to nvidia-vdpau-driver-ia32.
   * Add proper Replaces and Conflicts entries for package renames.
-  * Update Depends entries for nvidia-libvdpau1* packages.
+  * Update Depends entries for nvidia-libvdpau1* packages. (Closes: #558482)
 
  -- Andres Mejia <mcitadel@gmail.com>  Sun, 29 Nov 2009 15:52:27 -0500
 
@@ -146,6 +149,8 @@ nvidia-graphics-drivers (185.18.31-1) unstable; urgency=low
 nvidia-graphics-drivers (185.18.14-2) unstable; urgency=low
 
   [ Andreas Beckmann ]
+  * /emul/ia32-linux/usr/lib to /usr/lib32 transition (closes: #534873)
+  * cleanup /emul/ia32-linux/usr/lib/tls/libnvidia-tls.so.1
   * do not ship generated files in the source package
   * nvidia-kernel-source: recommend module-assistant
   * shlibs cleanup (closes: #533515)
