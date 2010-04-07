@@ -54,7 +54,7 @@ Description: NVIDIA binary Xorg driver
 
 Package: nvidia-glx-dev
 Architecture: i386 amd64
-Depends: nvidia-glx (= ${binary:Version}), ${misc:Depends}
+Depends: nvidia-glx (= ${binary:Version}), libx11-dev, ${misc:Depends}
 Provides: libgl-dev
 Conflicts: libgl-dev, mesa-common-dev
 Replaces: libgl-dev
