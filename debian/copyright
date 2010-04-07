@@ -2,13 +2,18 @@ This package was debianized by Randall Donald <rdonald@debian.org> on
 Mon, 31 Mar 2003 23:40:05 -0800.
 
 It was downloaded from
-ftp://download.nvidia.com/XFree86/Linux-x86_64/190.53/NVIDIA-Linux-x86_64-190.53-pkg2.run
+ftp://download.nvidia.com/XFree86/Linux-x86/190.53/NVIDIA-Linux-x86-190.53-pkg0.run
 
 Upstream Author: NVIDIA <linux-bugs@nvidia.com>
 
+This package is not part of the Debian distribution.  It is provided in
+the non-free archive area as a convenience to Debian users.  It cannot be
+distributed as part of the Debian distribution because the NVIDIA Software
+License is not a free software licenes.  It does not allow any
+modifications of the included binaries, and the binaries are not
+distributed with source code.
 
-Copyright:
-Copyright 1993-2009 NVIDIA Corporation.  All rights reserved.
+Copyright: 1993-2009 NVIDIA Corporation.  All rights reserved.
 
 First a note from the README file
 
@@ -34,9 +39,10 @@ On 30 Jul 2003, Randall Donald wrote:
 > ( "As indicated in the NVIDIA Software License, Linux distributions 
 >   are welcome to repackage and redistribute the NVIDIA Linux driver in 
 >   whatever package format they wish." )
-> I wish to include packages containing the Linux driver files in the Debian archive. 
-> I'd like to know if it is legally permitted to distribute binary kernel modules 
-> compiled from the NVIDIA kernel module source and Debian kernel headers. 
+> I wish to include packages containing the Linux driver files in the
+> Debian archive.  I'd like to know if it is legally permitted to
+> distribute binary kernel modules compiled from the NVIDIA kernel module
+> source and Debian kernel headers.
 
 This is fine; thanks for asking.
 
@@ -44,8 +50,9 @@ This is fine; thanks for asking.
 > ( No Separation of Components.  The SOFTWARE is licensed as a
 >   single product.  Its component parts may not be separated for use
 >   on more than one computer, nor otherwise used separately from the
->   other parts.) applies to splitting the glx driver and kernel module source into
->  multiple binary packages.
+>   other parts.)
+> applies to splitting the glx driver and kernel module source into 
+> multiple binary packages.
 
 This is also fine.  I believe this section of the license was
 intended to prevent users from doing things like using our Windows
@@ -195,4 +202,3 @@ country, or use the SOFTWARE in any manner, prohibited by the
 United States Bureau of Export Administration or any export laws,
 restrictions or regulations.  This LICENSE may only be modified in
 writing signed by an authorized officer of NVIDIA.
-
