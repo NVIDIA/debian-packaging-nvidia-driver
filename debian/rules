@@ -306,7 +306,7 @@ binary-common:
 	dh_makeshlibs -s
 	dh_installdeb
 	dh_shlibdeps
-	dh_gencontrol -V'nvidia:Version=$(version)' -s
+	dh_gencontrol -s -- -V'nvidia:Version=$(version)'
 	dh_md5sums
 	dh_builddeb -s
 
