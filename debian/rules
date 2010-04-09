@@ -299,7 +299,7 @@ binary-common:
 #	dh_installinfo
 	dh_installman
 	dh_link
-	dh_compress -X.h -X README.Debian 
+	dh_compress -s -X.h -X README.Debian 
 	dh_fixperms
 #	dh_perl
 #	dh_python
