@@ -1,5 +1,8 @@
 nvidia-graphics-drivers (190.53-4) UNRELEASED; urgency=low
 
+  * Add Conflicts and Replaces for the fix in 190.53-3 to the
+    nvidia-*vdpau*-ia32 packages.  (190.53-2 installed files in
+    the opposite package as was intended.)  (Closes: #577059)
   * Remove postinst for generated module packages.  This script used to
     set up the NVIDIA device files in /dev, but this is now handled by
     nvidia-kernel-common.

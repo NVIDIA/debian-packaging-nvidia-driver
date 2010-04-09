@@ -71,8 +71,10 @@ Depends: nvidia-vdpau-driver-ia32 (>= ${nvidia:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-${nvidia:Version}
 Suggests: nvidia-kernel-source (>= ${nvidia:Version})
-Replaces: nvidia-glx-ia32 (<< 180.51), nvidia-libvdpau-ia32
-Conflicts: nvidia-glx-ia32 (<< 180.51), nvidia-libvdpau-ia32
+Replaces: nvidia-glx-ia32 (<< 180.51), nvidia-libvdpau-ia32,
+ nvidia-vdpau-driver-ia32 (<< 190.53-3)
+Conflicts: nvidia-glx-ia32 (<< 180.51), nvidia-libvdpau-ia32,
+ nvidia-vdpau-driver-ia32 (<< 190.53-3)
 Description: NVIDIA vdpau 32bit libraries
  These libraries provide the Video Decode and Presentation API for Unix
  (32 bit). They provide accelerated video playback (incl. H.264) for the 
@@ -133,9 +135,11 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
 Recommends: nvidia-kernel-${nvidia:Version}
 Enhances: lib32vdpau1
 Suggests: nvidia-kernel-source (>= ${nvidia:Version})
-Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver-ia32
+Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau,
+ nvidia-libvdpau1-driver-ia32, nvidia-libvdpau1-ia32 (<< 190.53-3)
 Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau,
- nvidia-libvdpau1 (<< 190.42-3), nvidia-libvdpau1-driver-ia32
+ nvidia-libvdpau1 (<< 190.42-3), nvidia-libvdpau1-driver-ia32,
+ nvidia-libvdpau1-ia32 (<< 190.53-3)
 Provides: vdpau-driver
 Description: NVIDIA vdpau 32-bit driver
  These libraries provide the Video Decode and Presentation API for Unix.
