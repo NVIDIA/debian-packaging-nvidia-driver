@@ -19,8 +19,8 @@ DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 # Prefix of the target package name
 PACKAGE		= nvidia-kernel
 
--include /usr/share/modass/include/generic.make
--include /usr/share/modass/include/common-rules.make
+include /usr/share/modass/include/generic.make
+include /usr/share/modass/include/common-rules.make
 
 configure:
 	sed 's/#KVERS#/$(KVERS)/g' debian/control.template > $(CURDIR)/debian/control
