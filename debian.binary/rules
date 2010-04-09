@@ -25,7 +25,6 @@ PACKAGE		= nvidia-kernel
 configure:
 	sed 's/#KVERS#/$(KVERS)/g' debian/control.template > $(CURDIR)/debian/control
 	sed 's/#KVERS#/$(KVERS)/g' debian/dirs.template > $(CURDIR)/debian/dirs
-	sed 's/#KVERS#/$(KVERS)/g' debian/override.template > $(CURDIR)/debian/override
 
 binary-modules: configure
 	dh_testroot
@@ -44,7 +43,6 @@ endif
 
 	# Install the modules
 	dh_installdirs
-	install -m 0644 $(CURDIR)/debian/override $(CURDIR)/debian/nvidia-kernel-$(KVERS)/usr/share/lintian/overrides/nvidia-kernel-$(KVERS)
 	install -m 0644 $(CURDIR)/nvidia.ko $(CURDIR)/debian/nvidia-kernel-$(KVERS)/lib/modules/$(KVERS)/nvidia/nvidia.ko ; \
 
 	dh_installdocs
@@ -79,7 +77,6 @@ clean:
 
 	-rm $(CURDIR)/debian/control
 	-rm $(CURDIR)/debian/dirs
-	-rm $(CURDIR)/debian/override
 
 
 binary_modules: binary-modules	

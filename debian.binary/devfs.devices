@@ -1,7 +1,0 @@
-# devices file
-# format: name [bc] major minor uid gid mode
-nvidia0		c	195	0	root	video	0660
-nvidia1		c	195	1	root	video	0660
-nvidia2		c	195	2	root	video	0660
-nvidia3		c	195	3	root	video	0660
-nvidiactl	c	195	255	root	video	0660
