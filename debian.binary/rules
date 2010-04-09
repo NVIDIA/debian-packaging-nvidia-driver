@@ -94,7 +94,7 @@ kdist_config kdist_configure:
 # the kdist_clean target is called by make-kpkg modules_clean. It is
 # responsible for cleaning up any changes that have been made by the
 # other kdist_commands (except for the .deb files created).
-kdist_clean: 
+kdist_clean: configure
 	dh_testdir
 	$(MAKE) -C . LINUXDIR=$(KSRC) KVERREL=$(KVERS) clean
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
