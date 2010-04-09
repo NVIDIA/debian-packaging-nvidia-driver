@@ -19,6 +19,8 @@ nvidia-graphics-drivers (190.53-4) UNRELEASED; urgency=low
     This allows us to use static Lintian override files and stop
     substituting version numbers into them in debian/rules, simplifying
     the build process.
+  * Add some additional Lintian overrides for nvidia-glx for the weirdness
+    we need to partly replace the free libGL libraries.
 
  -- Russ Allbery <rra@debian.org>  Fri, 09 Apr 2010 01:11:41 -0700
 

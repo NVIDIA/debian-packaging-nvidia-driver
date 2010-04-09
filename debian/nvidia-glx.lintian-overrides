@@ -5,3 +5,11 @@ nvidia-glx: shlib-with-executable-stack
 nvidia-glx: shlib-with-non-pic-code
 nvidia-glx: shlib-without-PT_GNU_STACK-section
 nvidia-glx: spelling-error-in-binary
+
+# We divert a bunch of files not provided by this package to ensure that
+# programs don't pick up the wrong libGL by mistake.
+nvidia-glx: diversion-for-unknown-file
+
+# Packages built against the NVIDIA libGL should declare dependencies on
+# the free version for Debian's purposes.
+nvidia-glx: shlibs-declares-dependency-on-other-package libgl1-mesa-glx | libgl1
