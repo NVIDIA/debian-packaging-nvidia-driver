@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (190.53-4) UNRELEASED; urgency=low
+nvidia-graphics-drivers (190.53-4) unstable; urgency=low
 
   * Add Conflicts and Replaces for the fix in 190.53-3 to the
     nvidia-*vdpau*-ia32 packages.  (190.53-2 installed files in
@@ -22,7 +22,7 @@ nvidia-graphics-drivers (190.53-4) UNRELEASED; urgency=low
   * Add some additional Lintian overrides for nvidia-glx for the weirdness
     we need to partly replace the free libGL libraries.
 
- -- Russ Allbery <rra@debian.org>  Fri, 09 Apr 2010 01:11:41 -0700
+ -- Russ Allbery <rra@debian.org>  Fri, 09 Apr 2010 16:49:40 -0700
 
 nvidia-graphics-drivers (190.53-3) unstable; urgency=high
 
