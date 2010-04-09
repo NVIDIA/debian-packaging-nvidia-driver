@@ -5,7 +5,7 @@ nvidia-graphics-drivers (190.53-4) UNRELEASED; urgency=low
     nvidia-kernel-common.
   * Remove empty postrm from generated module packages.
   * Tell update-rc.d to only start the nvidia-glx script and not create
-    stop links, matching the LSB script header.
+    stop links, matching the LSB script header.  (Closes: #577055)
   * Make nvidia-kernel-source depend on module-assistant.  At least for
     right now, it uses the make fragments provided by module-assistant to
     implement required rules for the module building interface.
