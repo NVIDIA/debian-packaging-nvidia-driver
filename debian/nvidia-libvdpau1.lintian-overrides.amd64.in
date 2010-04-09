@@ -1,2 +1,0 @@
-nvidia-libvdpau1: binary-has-unneeded-section ./usr/lib/libvdpau.so.#VERSION# .comment
-nvidia-libvdpau1: binary-has-unneeded-section ./usr/lib/vdpau/libvdpau_trace.so.#VERSION# .comment

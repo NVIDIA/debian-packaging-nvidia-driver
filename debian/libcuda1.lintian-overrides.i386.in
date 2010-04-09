@@ -1,6 +1,0 @@
-libcuda1: shlib-with-non-pic-code usr/lib/libcuda.so.#VERSION#
-libcuda1: shlib-without-PT_GNU_STACK-section usr/lib/libcuda.so.#VERSION#
-libcuda1: unstripped-binary-or-object ./usr/lib/libcuda.so.#VERSION#
-
-# libcudart.so.2 does dlopen("libcuda.so")
-libcuda1: non-dev-pkg-with-shlib-symlink usr/lib/libcuda.so.#VERSION# usr/lib/libcuda.so

@@ -1,1 +1,0 @@
-nvidia-vdpau-driver: binary-has-unneeded-section ./usr/lib/vdpau/libvdpau_nvidia.so.#VERSION# .comment

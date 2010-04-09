@@ -12,6 +12,13 @@ nvidia-graphics-drivers (190.53-4) UNRELEASED; urgency=low
   * Make nvidia-kernel-source depend on module-assistant.  At least for
     right now, it uses the make fragments provided by module-assistant to
     implement required rules for the module building interface.
+  * Make all Lintian overrides for binary problems that the license
+    doesn't allow us to fix (unstripped shared libraries, executable
+    stack, non-PIC code, etc.) general rather than referring to specific
+    files.  We won't be able to fix these in any files they turn up in.
+    This allows us to use static Lintian override files and stop
+    substituting version numbers into them in debian/rules, simplifying
+    the build process.
 
  -- Russ Allbery <rra@debian.org>  Fri, 09 Apr 2010 01:11:41 -0700
 

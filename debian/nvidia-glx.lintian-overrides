@@ -1,0 +1,7 @@
+# The NVIDIA license does not allow any form of modification.
+nvidia-glx: binary-has-unneeded-section
+nvidia-glx: shared-lib-without-dependency-information
+nvidia-glx: shlib-with-executable-stack
+nvidia-glx: shlib-with-non-pic-code
+nvidia-glx: shlib-without-PT_GNU_STACK-section
+nvidia-glx: spelling-error-in-binary
