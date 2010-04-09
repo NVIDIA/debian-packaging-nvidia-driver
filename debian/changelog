@@ -4,6 +4,8 @@ nvidia-graphics-drivers (190.53-4) UNRELEASED; urgency=low
     set up the NVIDIA device files in /dev, but this is now handled by
     nvidia-kernel-common.
   * Remove empty postrm from generated module packages.
+  * Tell update-rc.d to only start the nvidia-glx script and not create
+    stop links, matching the LSB script header.
 
  -- Russ Allbery <rra@debian.org>  Fri, 09 Apr 2010 01:11:41 -0700
 
