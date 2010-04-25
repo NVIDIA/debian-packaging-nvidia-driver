@@ -9,34 +9,6 @@ Welcome to the Debian NVIDIA packages. This document has notes on the
 X Server and GL libraries of the NVIDIA driver offering.
 
 
-A Note about Thread Local Storage (TLS):
-----------------------------------------
-Under 2.6.x kernels a new TLS method is used and different libraries are
-required. NVIDIA provides these libraries and at boot time (via
-/etc/init.d/nvidia-glx)  a test is performed on your system to see if 
-your require these extra libraries. Having the TLS libraries installed 
-(in /usr/lib/tls and libglx.so) running under a 2.4.x kernel will cause 
-problems when running GL applications. Likewise, not having these libraries 
-installed under 2.6.x might prevent X from starting at all. 
-
-Simple Explanation: 
-To switch back and forth between the two systems simply run:
-
-      /etc/init.d/nvidia-glx start
-      
-      This is run automatically at boot time. 
-
-To force a certain setting (e.g. you may have a 2.4 kernel patched for
-NPTL) place  USE_TLS=1 in /etc/defaults/nvidia-glx for using the nvidia tls
-libraries. USE_TLS=0 for not using tls libraries.  This isn't normally
-necessary for most users. 
-
-
-What Happens:
-Symlinks are created in /usr/lib/tls from libraries installed in
-/usr/lib/nvidia. 
-
-
 For any news on this package check http://people.debian.org/~rdonald and
 http://bugs.debian.org/nvidia-glx
 
