@@ -8,21 +8,15 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-# This has to be exported to make some magic below work.
-export DH_OPTIONS
+DEB_BUILD_ARCH		?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
-DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
-DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
-DEB_BUILD_ARCH      ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
-
-version:=$(shell sh debian/upstream_info VERSION)
+version			:= $(shell sh debian/upstream_info VERSION)
 url_x86			:= $(shell sh debian/upstream_info URL_X86)
 url_x86_64		:= $(shell sh debian/upstream_info URL_X86_64)
-dirname			 = NVIDIA-Linux
-filename_x86:=$(shell sh debian/upstream_info FILENAME_X86)
-filename_x86_64:=$(shell sh debian/upstream_info FILENAME_X86_64)
-dirname_x86:=$(shell sh debian/upstream_info DIRNAME_X86)
-dirname_x86_64:=$(shell sh debian/upstream_info DIRNAME_X86_64)
+filename_x86		:= $(shell sh debian/upstream_info FILENAME_X86)
+filename_x86_64		:= $(shell sh debian/upstream_info FILENAME_X86_64)
+dirname_x86		:= $(shell sh debian/upstream_info DIRNAME_X86)
+dirname_x86_64		:= $(shell sh debian/upstream_info DIRNAME_X86_64)
 
 AUTOGEN		 = $(AUTOKEEP) $(AUTOCLEAN)
 AUTOKEEP	 = debian/copyright
@@ -120,7 +114,7 @@ clean:
 	dh_clean 
 
 	rm -f NVIDIA-Linux NVIDIA-Linux-i386 NVIDIA-Linux-amd64
-	rm -fr $(dirname_x86) $(dirname_x86_64)  nvidia-kernel.tar.bz2
+	rm -fr $(dirname_x86) $(dirname_x86_64) nvidia-kernel.tar.bz2
 	rm -fr debian/temp
 
 	rm -f $(AUTOCLEAN)
@@ -156,7 +150,7 @@ install: build
 binary-common:
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs $(CURDIR)/$(dirname)/usr/share/doc/NVIDIA_Changelog
+	dh_installchangelogs NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog
 	dh_installdocs -s 
 	dh_installexamples
 #	dh_installmenu
