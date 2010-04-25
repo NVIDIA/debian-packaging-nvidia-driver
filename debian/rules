@@ -1,9 +1,4 @@
 #!/usr/bin/make -f
-# Sample debian/rules that uses debhelper.
-# GNU copyright 1997 to 1999 by Joey Hess.
-#
-# Modified to make a template file for a multi-binary package with separated
-# build-arch and build-indep targets  by Bill Allombert 2001
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
@@ -48,8 +43,10 @@ debian.binary/control.template \
 debian.binary/changelog
 
 
-.PHONY: configure
-configure: $(AUTOGEN) unpack-stamp
+.PHONY: autogen configure
+autogen: $(AUTOGEN)
+configure: autogen unpack-stamp
+
 
 unpack-stamp: ${filename_x86} ${filename_x86_64}
 	dh_testdir
@@ -62,9 +59,6 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 	ls -al
 	touch $@
 
-
-.PHONY: build
-build: configure module-source-stamp
 
 # build kernel module source tarball
 module-source-stamp: configure
@@ -106,35 +100,35 @@ module-source-stamp: configure
 	touch $@
 
 
-.PHONY: clean					
-clean:
-	dh_testdir
-	dh_testroot
-	rm -f unpack-stamp module-source-stamp
-	dh_clean 
+.PHONY: binary binary-arch binary-indep build clean install
+binary binary-arch binary-indep build clean install:
+	dh $@
 
+override_dh_auto_clean:
 	rm -f NVIDIA-Linux NVIDIA-Linux-i386 NVIDIA-Linux-amd64
 	rm -fr $(dirname_x86) $(dirname_x86_64) nvidia-kernel.tar.bz2
 	rm -fr debian/temp
 
+override_dh_clean:
+	dh_clean
 	rm -f $(AUTOCLEAN)
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
+override_dh_auto_configure: configure
+override_dh_auto_build: module-source-stamp
 
-.PHONY: install
-install: build
-	dh_testdir
-	dh_testroot
-	dh_prep 
-	dh_installdirs 
-	dh_install -s
-	dh_lintian
-	dh_bugfiles
+override_dh_installchangelogs:
+	dh_installchangelogs NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog
 
+override_dh_installinit:
+	dh_installinit -- start 20 2 3 4 5 .
 
-# Must not depend on anything. This is to be called by
-# binary-arch/binary-multi in another 'make' thread.
-#
+override_dh_compress:
+	dh_compress -X.h -X README.Debian
+
+override_dh_gencontrol:
+	dh_gencontrol -- -V'nvidia:Version=$(version)'
+
 # Do not run dh_strip here.  The NVIDIA license says:
 #
 #     2.1.2 Linux/FreeBSD Exception.  Notwithstanding the foregoing terms of
@@ -146,34 +140,8 @@ install: build
 #
 # Stripping the binary modules would constitute modifying the binary files
 # in a way other than unzipping of compressed files.
-.PHONY: binary-common
-binary-common:
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog
-	dh_installdocs -s 
-	dh_installexamples
-#	dh_installmenu
-	dh_installdebconf
-#	dh_installlogrotate
-#	dh_installemacsen
-#	dh_installpam
-#	dh_installmime
-	dh_installinit -- start 20 2 3 4 5 .
-#	dh_installcron
-#	dh_installinfo
-	dh_installman
-	dh_link
-	dh_compress -s -X.h -X README.Debian 
-	dh_fixperms
-#	dh_perl
-#	dh_python
-	dh_makeshlibs -s
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol -s -- -V'nvidia:Version=$(version)'
-	dh_md5sums
-	dh_builddeb -s
+override_dh_strip:
+	# running dh_strip is not permitted by the NVIDIA license
 
 
 # Generating control files
@@ -193,14 +161,3 @@ debian/nvidia-libvdpau1-ia32.symbols: debian/nvidia-libvdpau1.symbols.i386
 debian/libcuda1-ia32.symbols: debian/libcuda1.symbols
 	sed 's/libcuda1/libcuda1-ia32/g' $< > $@
 
-
-# Build architecture dependant packages using the common target.
-.PHONY: binary-arch
-binary-arch: install
-	$(MAKE) -f debian/rules binary-common
-
-.PHONY: binary
-binary: binary-arch
-
-.PHONY: autogen
-autogen: ${AUTOGEN}
