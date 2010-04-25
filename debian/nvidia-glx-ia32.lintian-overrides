@@ -1,9 +1,20 @@
-# The diversions are placed here.
-nvidia-glx-ia32: package-contains-empty-directory usr/lib32/nvidia/
-
 # The NVIDIA license does not allow any form of modification.
 nvidia-glx-ia32: binary-has-unneeded-section
 nvidia-glx-ia32: shared-lib-without-dependency-information
 nvidia-glx-ia32: shlib-with-non-pic-code
 nvidia-glx-ia32: shlib-without-PT_GNU_STACK-section
 nvidia-glx-ia32: spelling-error-in-binary
+
+# We divert a bunch of files not provided by this package to ensure that
+# programs don't pick up the wrong libGL by mistake.
+nvidia-glx-ia32: diversion-for-unknown-file
+
+# The diversions are placed here.
+nvidia-glx-ia32: package-contains-empty-directory usr/lib32/nvidia/
+
+# Packages built against the NVIDIA libGL should declare dependencies on
+# the free version for Debian's purposes.
+nvidia-glx-ia32: shlibs-declares-dependency-on-other-package ia32-libs*
+
+# A single symbolic link does not justify the creation of a new package.
+nvidia-glx-ia32: non-dev-pkg-with-shlib-symlink
