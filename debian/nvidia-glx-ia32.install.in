@@ -1,0 +1,4 @@
+NVIDIA-Linux/usr/lib32/libGL.so.#VERSION#			usr/lib32/
+NVIDIA-Linux/usr/lib32/libGLcore.so.#VERSION#			usr/lib32/
+NVIDIA-Linux/usr/lib32/libnvidia-tls.so.#VERSION#		usr/lib32/
+NVIDIA-Linux/usr/lib32/tls/libnvidia-tls.so.#VERSION#		usr/lib32/tls/

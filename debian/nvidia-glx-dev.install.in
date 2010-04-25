@@ -1,0 +1,5 @@
+NVIDIA-Linux/usr/include/GL/gl.h		usr/include/GL/
+NVIDIA-Linux/usr/include/GL/glext.h		usr/include/GL/
+NVIDIA-Linux/usr/include/GL/glx.h		usr/include/GL/
+NVIDIA-Linux/usr/include/GL/glxext.h		usr/include/GL/
+NVIDIA-Linux/usr/X11R6/lib/libXvMCNVIDIA.a	usr/lib/
