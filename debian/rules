@@ -13,34 +13,14 @@ filename_x86_64		:= $(shell sh debian/upstream_info FILENAME_X86_64)
 dirname_x86		:= $(shell sh debian/upstream_info DIRNAME_X86)
 dirname_x86_64		:= $(shell sh debian/upstream_info DIRNAME_X86_64)
 
-AUTOGEN		 = $(AUTOKEEP) $(AUTOCLEAN)
+TEMPLATES	:= $(wildcard debian/*.in)
+AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
+AUTOGEN		+= debian/libcuda1-ia32.symbols
+AUTOGEN		+= debian/nvidia-libvdpau1-ia32.symbols
+AUTOGEN		+= debian.binary/control.template
+AUTOGEN		+= debian.binary/changelog
 AUTOKEEP	 = debian/copyright
-AUTOCLEAN	 = \
-debian/nvidia-glx.install \
-debian/nvidia-glx.links \
-debian/nvidia-glx.init \
-debian/nvidia-glx.postrm \
-debian/nvidia-glx-ia32.install \
-debian/nvidia-glx-ia32.links \
-debian/nvidia-glx-dev.install \
-debian/nvidia-kernel-source.README.Debian \
-debian/libcuda1.install \
-debian/libcuda1.links \
-debian/libcuda1-ia32.install \
-debian/libcuda1-ia32.links \
-debian/libcuda1-ia32.symbols \
-debian/nvidia-libvdpau-dev.install \
-debian/nvidia-libvdpau1.install \
-debian/nvidia-libvdpau1.links \
-debian/nvidia-libvdpau1-ia32.install \
-debian/nvidia-libvdpau1-ia32.links \
-debian/nvidia-libvdpau1-ia32.symbols \
-debian/nvidia-vdpau-driver.install \
-debian/nvidia-vdpau-driver.links \
-debian/nvidia-vdpau-driver-ia32.install \
-debian/nvidia-vdpau-driver-ia32.links \
-debian.binary/control.template \
-debian.binary/changelog
+AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
 
 .PHONY: autogen configure
