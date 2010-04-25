@@ -115,6 +115,7 @@ build-kernel-stamp: debian.binary/changelog
 		chmod 0644 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/$$f ; \
 	      fi \
 	    done
+	cp -a debian/copyright $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
 
 #	    chmod 775 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/patches
 	    cp $(CURDIR)/$(dirname)/usr/src/nv/* $(CURDIR)/debian/temp/modules/nvidia-kernel/
