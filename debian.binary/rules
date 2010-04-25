@@ -23,8 +23,8 @@ include /usr/share/modass/include/generic.make
 include /usr/share/modass/include/common-rules.make
 
 configure:
-	sed 's/#KVERS#/$(KVERS)/g' debian/control.template > $(CURDIR)/debian/control
-	sed 's/#KVERS#/$(KVERS)/g' debian/dirs.template > $(CURDIR)/debian/dirs
+	sed 's/#KVERS#/$(KVERS)/g' debian/control.template > debian/control
+	sed 's/#KVERS#/$(KVERS)/g' debian/install.template > debian/install
 
 binary-modules: configure
 	dh_testroot
@@ -43,11 +43,9 @@ endif
 
 	# Install the modules
 	dh_installdirs
-	install -m 0644 $(CURDIR)/nvidia.ko $(CURDIR)/debian/nvidia-kernel-$(KVERS)/lib/modules/$(KVERS)/nvidia/nvidia.ko ; \
-
-	dh_installdocs
-	dh_installmodules
-	dh_installchangelogs
+	dh_install
+	dh_installdocs $(wildcard debian/changelog.nvidia-kernel-source*)
+	dh_installchangelogs NVIDIA_Changelog
 	dh_installmodules
 	dh_strip
 	dh_compress
@@ -59,24 +57,18 @@ endif
 	dh_prep
 
 clean:
+	test -f debian/control || cp debian/control.template debian/control
 	dh_testdir
-	if [ -f $(CURDIR)/debian/control.template ]; then \
-		cp  $(CURDIR)/debian/control.template $(CURDIR)/debian/control; \
-	fi
-
 	dh_testroot
 	rm -f build-stamp configure-stamp
 
-	$(MAKE) clean SYSSRC=$(KSRC) -C $(CURDIR)/$(dirname) -f Makefile $(KPKG_EXTRAV_ARG)
+	$(MAKE) -C . -f Makefile SYSSRC=$(KSRC) $(KPKG_EXTRAV_ARG) clean
         
-	-rm $(CURDIR)/$(dirname)/gcc-check
-	-rm $(CURDIR)/$(dirname)/cc-sanity-check
-
 	dh_quilt_unpatch
 	dh_clean
 
-	-rm $(CURDIR)/debian/control
-	-rm $(CURDIR)/debian/dirs
+	rm -f debian/install
+	rm -f debian/control
 
 
 binary_modules: binary-modules	
@@ -91,7 +83,8 @@ kdist_config kdist_configure:
 # the kdist_clean target is called by make-kpkg modules_clean. It is
 # responsible for cleaning up any changes that have been made by the
 # other kdist_commands (except for the .deb files created).
-kdist_clean: configure
+kdist_clean:
+	test -f debian/control || cp debian/control.template debian/control
 	dh_testdir
 	$(MAKE) -C . LINUXDIR=$(KSRC) KVERREL=$(KVERS) clean
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af

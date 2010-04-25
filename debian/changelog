@@ -1,15 +1,24 @@
 nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
 
-  * Replace control.template for the module build with the version from
-    nvidia-graphics-modules-i386 190.53+1.
-    - Tighten dependency on nvidia-kernel-common.
-    - Set maintainer to the maintenance team, move Randall to uploaders,
-      and add myself.
-    - Update to debhelper 7.
-    - Update standards version to 3.8.4.
-    - Add Homepage.
-    - Improve long description.
+  [ Russ Allbery ]
+  * Tighten dependency on nvidia-kernel-common in the control file for
+    generated kernel module packages.
 
+  [ Andreas Beckmann ]
+  * do not ship empty directory in module package
+  * debian.binary/rules, debian.binary/install.template: use dh_install to
+    install the module
+  * debian.binary/rules: fix clean target if debian/control is missing and
+    cleanup ancient code
+  * update debian.binary/control.template using the copy from
+    nvidia-graphics-modules-i386
+  * include a copy of the NVIDIA changelog in the module packages built from
+    nvidia-kernel-source
+  * install the changelog from the nvidia-kernel-source package, too, if
+    building via nvidia-graphics-modules-*
+  * nvidia-kernel-source: bump debhelper dependency to 7 to match module
+    packaging templates
+  
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 
 nvidia-graphics-drivers (190.53-4) unstable; urgency=high

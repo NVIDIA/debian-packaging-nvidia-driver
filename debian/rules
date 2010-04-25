@@ -118,6 +118,7 @@ build-kernel-stamp: debian.binary/changelog
 
 #	    chmod 775 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/patches
 	    cp $(CURDIR)/$(dirname)/usr/src/nv/* $(CURDIR)/debian/temp/modules/nvidia-kernel/
+	cp -a $(CURDIR)/$(dirname)/usr/share/doc/NVIDIA_Changelog $(CURDIR)/debian/temp/modules/nvidia-kernel/
 
 		# We don't want these makefiles that don't work with kbuild
 		rm $(CURDIR)/debian/temp/modules/nvidia-kernel/makefile
