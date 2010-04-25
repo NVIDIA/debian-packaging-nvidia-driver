@@ -41,6 +41,7 @@ debian/libcuda1-ia32.symbols \
 debian/nvidia-libvdpau1-ia32.symbols \
 debian/nvidia-vdpau-driver-ia32.links \
 debian/nvidia-vdpau-driver.links \
+debian.binary/control.template \
 debian.binary/changelog
 
 
@@ -83,7 +84,7 @@ build-stamp:
 build-kernel:
 
 .PHONY: build-kernel-stamp 
-build-kernel-stamp: debian.binary/changelog
+build-kernel-stamp: $(AUTOGEN)
 	    dh_testroot
 	    dh_testdir
 
@@ -92,14 +93,7 @@ build-kernel-stamp: debian.binary/changelog
 	    
 		# Prepare debian files for module package
 	    cp -a $(CURDIR)/debian.binary/* $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
-	    for f in `ls $(CURDIR)/debian.binary` ; do \
-	       if [ -f $(CURDIR)/debian.binary/$$f ]; then \
-		perl -p \
-		-e 's{#VERSION#}{$(version)}g;' \
-		< $(CURDIR)/debian.binary/$$f >		$(CURDIR)/debian/temp/modules/nvidia-kernel/debian/$$f ; \
-		chmod 0644 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/$$f ; \
-	      fi \
-	    done
+	rm -f debian/temp/modules/nvidia-kernel/debian/*.in
 	cp -a debian/copyright $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
 
 	    cp $(CURDIR)/$(dirname)/usr/src/nv/* $(CURDIR)/debian/temp/modules/nvidia-kernel/
@@ -121,7 +115,8 @@ build-kernel-stamp: debian.binary/changelog
 	    cp $(CURDIR)/patches.h $(CURDIR)/debian/temp/modules/nvidia-kernel/
 
 		# Fix permissions
-	    chmod 755 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/rules
+	chmod -R a-sx,u=rwX,go=rX debian/temp/modules
+	chmod a+x $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/rules
 	    chown -R root:src $(CURDIR)/debian/temp/modules
 	    
 	    tar -jcvf $(CURDIR)/nvidia-kernel.tar.bz2 -C $(CURDIR)/debian/temp modules

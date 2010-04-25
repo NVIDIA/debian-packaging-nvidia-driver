@@ -48,6 +48,9 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
   * conftest.h: implement conftest.sh function acpi_walk_namespace (new in
     195.xx), acpi_walk_namespace is available since 2.4.0 (checked with lxr)
   * conftest.h: reorder and make INIT_WORK implementation more complete
+  * debian.binary/control.template: rename to *.in
+  * debian/rules: use same variable substitutions as for debian/*.in to create
+    debian.binary/control.template
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 
