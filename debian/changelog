@@ -78,6 +78,8 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
   * debian/*.dirs: remove or minimize
   * debian/rules: reindent and simplify
   * debian/rules: switch to dh with a few overrides
+  * debian.binary/patches/select-nv-kernel.o.ARCH.patch: add new patch instead
+    of editing files with sed when creating the tarball
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 

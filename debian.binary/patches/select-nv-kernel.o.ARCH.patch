@@ -1,0 +1,22 @@
+Author: Andreas Beckmann <debian@abeckmann.de>
+Description: Select the correct nv-kernel.o for the target architecture
+ The Debian nvidia-kernel-source package supports building both i386 and
+ amd64 kernels from one source by including both binary objects. This patch
+ makes the build system select the correct one depending on the kernel
+ architecture the module is built for.
+ This was previously done by a 'sed' command when building the module source
+ tarball.
+
+Index: b/Makefile.kbuild
+===================================================================
+--- a/Makefile.kbuild	2010-04-24 01:54:44.284537241 +0200
++++ b/Makefile.kbuild	2010-04-24 02:31:36.799037816 +0200
+@@ -44,7 +44,7 @@
+ # understands that we want a module.
+ #
+ 
+-CORE_OBJS := nv-kernel.o
++CORE_OBJS := nv-kernel.o$(NVARCH)
+ RESMAN_GLUE_OBJS := nv.o nv_gvi.o nv-vm.o os-agp.o os-interface.o os-registry.o nv-i2c.o nvacpi.o
+ 
+ $(MODULE_NAME)-objs := $(CORE_OBJS) $(RESMAN_GLUE_OBJS)

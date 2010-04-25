@@ -1,1 +1,2 @@
+select-nv-kernel.o.ARCH.patch
 fix-2.6.33-build.patch
