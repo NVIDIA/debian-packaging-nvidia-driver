@@ -33,7 +33,6 @@ debian/nvidia-libvdpau1.links \
 debian/nvidia-glx.postrm debian/nvidia-glx.init \
 debian/nvidia-glx-ia32.links \
 debian/nvidia-libvdpau1-ia32.links \
-debian/nvidia-glx-dev.preinst \
 debian/libcuda1.install \
 debian/libcuda1-ia32.install \
 debian/libcuda1.links debian/libcuda1-ia32.links \

@@ -23,6 +23,14 @@ case "$1" in
 		if [ -e /etc/init.d/nvidia-glx ] ; then
 			invoke-rc.d nvidia-glx start
 		fi
+
+        # <target: squeeze>
+        if dpkg --compare-versions "$2" lt-nl 190.53-5 ; then
+            # remove obsolete diversions
+            dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null
+        fi
+        # </target: squeeze>
+
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

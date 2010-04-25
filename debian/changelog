@@ -64,6 +64,15 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
     - remove diversion transition and cleanup code introduced before etch
       release
     - remove libwfb.so diversion cleanup code introduced before lenny release
+  * nvidia-glx: stop diverting /usr/lib/xorg/modules/extensions/libGLcore.so,
+    was removed in Xorg 1.6, add Breaks: xserver-xorg-core (<< 2:1.6) instead
+  * nvidia-glx: stop diverting files not seen in etch or later:
+    - /usr/lib/xorg/modules/extensions/libGLcore.a
+    - /usr/lib/xorg/modules/extensions/libglx.a
+  * nvidia-glx: clean up diversion of /usr/lib/libGL.a (was not being created
+    in etch or later), the file is provided by libgl1-mesa-swx11-dev which
+    conflicts with nvidia-glx
+  * remove empty maintainer script nvidia-glx-dev.preinst.in
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 

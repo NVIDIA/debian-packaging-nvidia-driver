@@ -18,20 +18,12 @@ set -e
 # for details, see http://www.debian.org/doc/debian-policy/ or
 # the debian-policy package
 
-# released versions: etch: 1.0.8776-4, lenny: 173.14.09-5
 
 case "$1" in
     purge|remove)
 
         rm /usr/lib/libGL.so || true
 	invoke-rc.d nvidia-glx start || true		
-
-	# this diversion is no longer being created since r93 = 1.0.8774-5
-	dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa  /usr/lib/libGL.a > /dev/null
-
-	if [ -d /usr/lib/nvidia/ ]; then
-		rmdir /usr/lib/nvidia || true;
-	fi
 
     ;;
 

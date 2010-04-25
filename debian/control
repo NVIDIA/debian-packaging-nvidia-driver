@@ -32,6 +32,7 @@ Package: nvidia-glx
 Architecture: i386 amd64
 Depends: nvidia-kernel-${nvidia:Version}, x11-common (>= 1:7.0.0), ${shlibs:Depends}, ${misc:Depends}
 Suggests: nvidia-settings, nvidia-kernel-source (>= ${nvidia:Version})
+Breaks: xserver-xorg-core (<< 2:1.6)
 Description: NVIDIA binary Xorg driver
  These binary drivers provide optimized hardware 
  acceleration of  OpenGL applications via a direct-rendering X Server. 
