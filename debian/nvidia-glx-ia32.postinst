@@ -21,6 +21,7 @@ set -e
 case "$1" in
     configure)
 
+	# <target: squeeze>
 	# remove diversion created before the
 	# /emul/ia32-linux/usr/lib => /usr/lib32 transition
 	dpkg-divert --remove --rename --package nvidia-glx-ia32 --divert \
@@ -35,6 +36,7 @@ case "$1" in
 
 	test -d /emul/ia32-linux/usr/lib/nvidia && \
 		rmdir /emul/ia32-linux/usr/lib/nvidia || true;
+	# </target: squeeze>
 
     ;;
 

@@ -176,7 +176,6 @@ install: build
 
 
 	install $(dirname)/usr/X11R6/lib/modules/extensions/libglx.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/xorg/modules/extensions/
-#	install $(dirname)/usr/X11R6/lib/modules/libnvidia-wfb.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/xorg/modules/
 
 	if [ "$(DEB_BUILD_ARCH)" = "amd64" ] ; then \
 		install -D $(dirname)/usr/lib32/libGLcore.so.${version} \

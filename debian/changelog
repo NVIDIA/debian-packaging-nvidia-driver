@@ -56,6 +56,14 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
   * debian/rules: rename target configure-stamp to unpack-stamp and fix
     dependencies
   * debian/rules: remove unused stamp files, targets and variables
+  * maintainer scripts:
+    - synchronize with dh_make templates
+    - document the target release squeeze for some cleanup operations as a
+      hint to remove them after squeeze release
+    - remove code deactivated before etch release
+    - remove diversion transition and cleanup code introduced before etch
+      release
+    - remove libwfb.so diversion cleanup code introduced before lenny release
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 
