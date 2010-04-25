@@ -27,19 +27,29 @@ dirname_x86_64:=$(shell sh debian/upstream_info DIRNAME_X86_64)
 AUTOGEN		 = $(AUTOKEEP) $(AUTOCLEAN)
 AUTOKEEP	 = debian/copyright
 AUTOCLEAN	 = \
-debian/nvidia-kernel-source.README.Debian \
+debian/nvidia-glx.install \
 debian/nvidia-glx.links \
-debian/nvidia-libvdpau1.links \
-debian/nvidia-glx.postrm debian/nvidia-glx.init \
+debian/nvidia-glx.init \
+debian/nvidia-glx.postrm \
+debian/nvidia-glx-ia32.install \
 debian/nvidia-glx-ia32.links \
-debian/nvidia-libvdpau1-ia32.links \
+debian/nvidia-glx-dev.install \
+debian/nvidia-kernel-source.README.Debian \
 debian/libcuda1.install \
+debian/libcuda1.links \
 debian/libcuda1-ia32.install \
-debian/libcuda1.links debian/libcuda1-ia32.links \
+debian/libcuda1-ia32.links \
 debian/libcuda1-ia32.symbols \
+debian/nvidia-libvdpau-dev.install \
+debian/nvidia-libvdpau1.install \
+debian/nvidia-libvdpau1.links \
+debian/nvidia-libvdpau1-ia32.install \
+debian/nvidia-libvdpau1-ia32.links \
 debian/nvidia-libvdpau1-ia32.symbols \
-debian/nvidia-vdpau-driver-ia32.links \
+debian/nvidia-vdpau-driver.install \
 debian/nvidia-vdpau-driver.links \
+debian/nvidia-vdpau-driver-ia32.install \
+debian/nvidia-vdpau-driver-ia32.links \
 debian.binary/control.template \
 debian.binary/changelog
 
@@ -123,78 +133,6 @@ install: build
 	dh_testroot
 	dh_prep 
 	dh_installdirs 
-
-	install -m 0644 $(CURDIR)/nvidia-kernel.tar.bz2 $(CURDIR)/debian/nvidia-kernel-source/usr/src
-
-
-	install $(dirname)/usr/X11R6/lib/modules/drivers/nvidia_drv.so \
-		$(CURDIR)/debian/nvidia-glx/usr/lib/xorg/modules/drivers
-
-
-
-	install -m 0644 $(dirname)/usr/X11R6/lib/libXvMCNVIDIA.a $(CURDIR)/debian/nvidia-glx-dev/usr/lib/libXvMCNVIDIA.a;
-	install $(dirname)/usr/X11R6/lib/libXvMCNVIDIA.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/libXvMCNVIDIA.so.${version};
-
-
-
-
-	install -m 0644 $(dirname)/usr/include/GL/gl.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/include/GL
-	install -m 0644 $(dirname)/usr/include/GL/glext.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/include/GL
-
-	install -m 0644 $(dirname)/usr/include/vdpau/vdpau.h \
-		$(CURDIR)/debian/nvidia-libvdpau-dev/usr/include/vdpau
-	install -m 0644 $(dirname)/usr/include/vdpau/vdpau_x11.h \
-		$(CURDIR)/debian/nvidia-libvdpau-dev/usr/include/vdpau
-
-	install -m 0644 $(dirname)/usr/include/GL/glx.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/include/GL
-	install -m 0644 $(dirname)/usr/include/GL/glxext.h \
-		$(CURDIR)/debian/nvidia-glx-dev/usr/include/GL
-
-	install $(dirname)/usr/lib/libGL.so.${version} \
-			$(CURDIR)/debian/nvidia-glx/usr/lib
-	install $(dirname)/usr/lib/libGLcore.so.${version} \
-		$(CURDIR)/debian/nvidia-glx/usr/lib
-	install $(dirname)/usr/lib/vdpau/libvdpau_nvidia.so.${version} \
-			$(CURDIR)/debian/nvidia-vdpau-driver/usr/lib/vdpau
-	install $(dirname)/usr/lib/libvdpau.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau1/usr/lib
-	install $(dirname)/usr/lib/vdpau/libvdpau_trace.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau1/usr/lib/vdpau
-
-	# TLS (nvidia-tls new for 6106)
-	#install $(dirname)/usr/lib/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/
-	install $(dirname)/usr/lib/tls/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/
-
-	#install $(dirname)/usr/lib/tls/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/nvidia
-	install $(dirname)/usr/lib/tls/libnvidia-tls.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/tls/
-
-	install $(dirname)/usr/lib/libnvidia-cfg.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/
-
-
-	install $(dirname)/usr/X11R6/lib/modules/extensions/libglx.so.${version} $(CURDIR)/debian/nvidia-glx/usr/lib/xorg/modules/extensions/
-
-	if [ "$(DEB_BUILD_ARCH)" = "amd64" ] ; then \
-		install -D $(dirname)/usr/lib32/libGLcore.so.${version} \
-			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
-		install -D $(dirname)/usr/lib32/libGL.so.${version} \
-			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
-		install -D $(dirname)/usr/lib32/libvdpau.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau1-ia32/usr/lib32 ; \
-		install -D $(dirname)/usr/lib32/vdpau/libvdpau_nvidia.so.${version} \
-			$(CURDIR)/debian/nvidia-vdpau-driver-ia32/usr/lib32/vdpau ; \
-		install -D $(dirname)/usr/lib32/vdpau/libvdpau_trace.so.${version} \
-			$(CURDIR)/debian/nvidia-libvdpau1-ia32/usr/lib32/vdpau ; \
-		install -D $(dirname)/usr/lib32/libnvidia-tls.so.${version} \
-			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32 ; \
-		install -D $(dirname)/usr/lib32/tls/libnvidia-tls.so.${version} \
-			$(CURDIR)/debian/nvidia-glx-ia32/usr/lib32/tls ; \
-	fi
-
-	install $(dirname)/usr/bin/nvidia-bug-report.sh $(CURDIR)/debian/nvidia-glx/usr/bin/
-
 	dh_install -s
 	dh_lintian
 	dh_bugfiles

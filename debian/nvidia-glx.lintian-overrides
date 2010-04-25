@@ -10,6 +10,9 @@ nvidia-glx: spelling-error-in-binary
 # programs don't pick up the wrong libGL by mistake.
 nvidia-glx: diversion-for-unknown-file
 
+# The diversions are placed there.
+nvidia-glx: package-contains-empty-directory usr/lib/nvidia/
+
 # Packages built against the NVIDIA libGL should declare dependencies on
 # the free version for Debian's purposes.
 nvidia-glx: shlibs-declares-dependency-on-other-package libgl1-mesa-glx | libgl1

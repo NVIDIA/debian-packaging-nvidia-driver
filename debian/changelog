@@ -73,6 +73,9 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
     in etch or later), the file is provided by libgl1-mesa-swx11-dev which
     conflicts with nvidia-glx
   * remove empty maintainer script nvidia-glx-dev.preinst.in
+  * debian/rules, debian/*.install.in: use dh_install instead of manual
+    installation
+  * debian/*.dirs: remove or minimize
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 
