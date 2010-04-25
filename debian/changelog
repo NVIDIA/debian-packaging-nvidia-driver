@@ -19,7 +19,10 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
   * nvidia-kernel-source: bump debhelper dependency to 7 to match module
     packaging templates
   * merge debian.binary/copyright with debian/copyright.in
-  
+  * debian/control:
+    - drop versioned Depends/Build-Depends satisfied in lenny
+    - drop Conflicts/Replaces for packages existing before lenny only
+
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 
 nvidia-graphics-drivers (190.53-4) unstable; urgency=high
