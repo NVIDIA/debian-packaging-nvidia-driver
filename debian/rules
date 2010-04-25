@@ -45,23 +45,10 @@ debian.binary/control.template \
 debian.binary/changelog
 
 
-CFLAGS = -Wall -g
+.PHONY: configure
+configure: $(AUTOGEN) unpack-stamp
 
-ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	CFLAGS += -O0
-else
-	CFLAGS += -O2
-endif
-ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
-	INSTALL_PROGRAM += -s
-endif
-
-version-change: version-clean $(AUTOGEN) clean
-
-configure: configure-stamp
-
-.PHONY: configure-stamp
-configure-stamp: version-clean $(AUTOGEN) ${filename_x86} ${filename_x86_64}
+unpack-stamp: ${filename_x86} ${filename_x86_64}
 	dh_testdir
 	# extract both so we can fetch the kernel object code for both arches
 	sh ${filename_x86} --extract-only
@@ -70,21 +57,14 @@ configure-stamp: version-clean $(AUTOGEN) ${filename_x86} ${filename_x86_64}
 	ln -s ${dirname_x86_64} NVIDIA-Linux-amd64
 	ln -s NVIDIA-Linux-$(DEB_BUILD_ARCH) NVIDIA-Linux
 	ls -al
-	touch configure-stamp
+	touch $@
 
 
 .PHONY: build
-build: configure-stamp build-stamp module-source-stamp
-
-.PHONY: build-stamp
-build-stamp:
-	    touch build-stamp
-
-.PHONY: build-kernel
-build-kernel:
+build: configure module-source-stamp
 
 # build kernel module source tarball
-module-source-stamp: $(AUTOGEN)
+module-source-stamp: configure
 	dh_testdir
 
 	rm -rf debian/temp
@@ -124,21 +104,22 @@ module-source-stamp: $(AUTOGEN)
 
 
 .PHONY: clean					
-clean: version-clean
+clean:
 	dh_testdir
 	dh_testroot
-	rm -f build-stamp module-source-stamp configure-stamp
+	rm -f unpack-stamp module-source-stamp
 	dh_clean 
 
 	rm -f NVIDIA-Linux NVIDIA-Linux-i386 NVIDIA-Linux-amd64
 	rm -fr $(dirname_x86) $(dirname_x86_64)  nvidia-kernel.tar.bz2
 	rm -fr debian/temp
 
+	rm -f $(AUTOCLEAN)
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
 
 .PHONY: install
-install: build-stamp
+install: build
 	dh_testdir
 	dh_testroot
 	dh_prep 
@@ -285,15 +266,11 @@ debian/libcuda1-ia32.symbols: debian/libcuda1.symbols
 
 # Build architecture dependant packages using the common target.
 .PHONY: binary-arch
-binary-arch: build-stamp module-source-stamp install
+binary-arch: install
 	$(MAKE) -f debian/rules binary-common
 
 .PHONY: binary
 binary: binary-arch
-
-.PHONY: version-clean
-version-clean: 
-	rm -f ${AUTOCLEAN} || true
 
 .PHONY: autogen
 autogen: ${AUTOGEN}
