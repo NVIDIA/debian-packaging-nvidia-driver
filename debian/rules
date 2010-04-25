@@ -13,6 +13,7 @@ export DH_OPTIONS
 
 DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+DEB_BUILD_ARCH      ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
 base_version:=$(shell sh debian/upstream_info BASE_VERSION)
 release:=$(shell sh debian/upstream_info RELEASE)
@@ -32,20 +33,18 @@ AUTOKEEP	 = debian/copyright
 AUTOCLEAN	 = \
 debian/nvidia-kernel-source.README.Debian \
 debian/nvidia-glx.links \
-debian/nvidia-glx.docs debian/nvidia-glx.examples \
-debian/nvidia-libvdpau1.links debian/nvidia-libvdpau1.docs \
+debian/nvidia-libvdpau1.links \
 debian/nvidia-glx.postrm debian/nvidia-glx.init \
 debian/nvidia-glx-ia32.links \
 debian/nvidia-libvdpau1-ia32.links \
-debian/nvidia-kernel-source.docs debian/nvidia-glx-dev.preinst \
-debian/libcuda1.install debian/libcuda1-ia32.install debian/libcuda1-dev.install \
+debian/nvidia-glx-dev.preinst \
+debian/libcuda1.install \
+debian/libcuda1-ia32.install \
 debian/libcuda1.links debian/libcuda1-ia32.links \
 debian/libcuda1-ia32.symbols \
 debian/nvidia-libvdpau1-ia32.symbols \
-debian/nvidia-vdpau-driver.docs \
 debian/nvidia-vdpau-driver-ia32.links \
 debian/nvidia-vdpau-driver.links \
-debian/nvidia-vdpau-driver-ia32.docs \
 debian.binary/changelog
 
 
@@ -68,12 +67,15 @@ configure: configure-stamp
 configure-stamp: version-clean $(AUTOGEN) ${filename_x86} ${filename_x86_64}
 	dh_testdir
 	# extract both so we can fetch the kernel object code for both arches
-	./${filename_x86} --extract-only
-	./${filename_x86_64} --extract-only
+	sh ${filename_x86} --extract-only
+	sh ${filename_x86_64} --extract-only
+	ln -s ${dirname_x86} NVIDIA-Linux-i386
+	ln -s ${dirname_x86_64} NVIDIA-Linux-amd64
+	ln -s NVIDIA-Linux-$(DEB_BUILD_ARCH) NVIDIA-Linux
+	ls -al
 	if test -d $(CURDIR)/patches; \
 	then \
 		pwd; \
-		ls -al; \
 		cd $(dirname)/usr/src/nv; \
 #		for i in $(CURDIR)/patches/*; \
 #			do patch -p3 <$$i; \
@@ -125,8 +127,8 @@ build-kernel-stamp: debian.binary/changelog
 		rm $(CURDIR)/debian/temp/modules/nvidia-kernel/makefile
 
 		# We want both 32 and 64 bit versions of nv-kernel.o
-	cp $(CURDIR)/$(dirname_x86)/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.i386
-	cp $(CURDIR)/$(dirname_x86_64)/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.x86_64
+	cp -a $(CURDIR)/NVIDIA-Linux-i386/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.i386
+	cp -a $(CURDIR)/NVIDIA-Linux-amd64/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.x86_64
 	rm -f $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o
 
 		# and then make Makefile.kbuild actually use our names
@@ -151,6 +153,7 @@ clean: version-clean
 	rm -f build-stamp build-kernel-stamp configure-stamp
 	dh_clean 
 
+	rm -f NVIDIA-Linux NVIDIA-Linux-i386 NVIDIA-Linux-amd64
 	rm -fr $(dirname_x86) $(dirname_x86_64)  nvidia-kernel.tar.bz2
 	rm -fr debian/temp
 
@@ -308,7 +311,6 @@ binary-common:
 	-e 's{#VERSION#}{$(version)}g;' \
 	-e 's{#NEXTVER#}{$(nextver)}g;' \
 	-e 's{#UPSTREAMVERSION#}{$(upstreamversion)}g;' \
-	-e 's{#DIRNAME#}{$(dirname)}g;' \
 	-e 's{#FILENAME#}{$(filename)}g;' \
 	-e 's{#URL#}{$(url)}g' \
 	< $< > $@

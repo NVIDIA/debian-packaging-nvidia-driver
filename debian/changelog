@@ -33,6 +33,12 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
     version and hardware information
   * debian/control: bump debhelper B-D to (>= 7.2.3~) for dh_bugfiles
   * debian/rules: use dh_bugfiles to install bug script
+  * Create symlinks NVIDIA-Linux{-i386,-amd64,} pointing to the extracted
+    upstream archives to reduce #DIRNAME# and $(dirname_*) usage. (Using
+    wildcards is not a good idea since beta releases use a different naming
+    scheme.)
+  * debian/*.in: replace #DIRNAME# with NVIDIA-Linux and rename *.in to * if
+    this was the only substitution
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 

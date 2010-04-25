@@ -1,1 +1,1 @@
-#DIRNAME#/usr/lib/libcuda.so.#VERSION#	usr/lib
+NVIDIA-Linux/usr/lib/libcuda.so.#VERSION#	usr/lib
