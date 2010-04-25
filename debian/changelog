@@ -51,6 +51,8 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
   * debian.binary/control.template: rename to *.in
   * debian/rules: use same variable substitutions as for debian/*.in to create
     debian.binary/control.template
+  * debian/rules: rename target build-kernel-stamp to module-source-stamp,
+    reindent, simplify and unify; do not require root for building the tarball
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 

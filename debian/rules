@@ -74,7 +74,7 @@ configure-stamp: version-clean $(AUTOGEN) ${filename_x86} ${filename_x86_64}
 
 
 .PHONY: build
-build: configure-stamp build-stamp
+build: configure-stamp build-stamp module-source-stamp
 
 .PHONY: build-stamp
 build-stamp:
@@ -83,51 +83,51 @@ build-stamp:
 .PHONY: build-kernel
 build-kernel:
 
-.PHONY: build-kernel-stamp 
-build-kernel-stamp: $(AUTOGEN)
-	    dh_testroot
-	    dh_testdir
+# build kernel module source tarball
+module-source-stamp: $(AUTOGEN)
+	dh_testdir
 
-	    # build kernel module source tarball
-	    mkdir -p $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
-	    
-		# Prepare debian files for module package
-	    cp -a $(CURDIR)/debian.binary/* $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
-	rm -f debian/temp/modules/nvidia-kernel/debian/*.in
-	cp -a debian/copyright $(CURDIR)/debian/temp/modules/nvidia-kernel/debian
+	rm -rf debian/temp
+	mkdir -p debian/temp/modules/nvidia-kernel/debian
 
-	    cp $(CURDIR)/$(dirname)/usr/src/nv/* $(CURDIR)/debian/temp/modules/nvidia-kernel/
-	cp -a $(CURDIR)/$(dirname)/usr/share/doc/NVIDIA_Changelog $(CURDIR)/debian/temp/modules/nvidia-kernel/
+	# Module source code
+	cp -a NVIDIA-Linux/usr/src/nv/* debian/temp/modules/nvidia-kernel/
+	cp -a NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog debian/temp/modules/nvidia-kernel/
 
-		# We don't want these makefiles that don't work with kbuild
-		rm $(CURDIR)/debian/temp/modules/nvidia-kernel/makefile
+	# We don't want this makefile that doesn't work with kbuild
+	rm debian/temp/modules/nvidia-kernel/makefile
 
-		# We want both 32 and 64 bit versions of nv-kernel.o
-	cp -a $(CURDIR)/NVIDIA-Linux-i386/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.i386
-	cp -a $(CURDIR)/NVIDIA-Linux-amd64/usr/src/nv/nv-kernel.o $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o.x86_64
-	rm -f $(CURDIR)/debian/temp/modules/nvidia-kernel/nv-kernel.o
+	# We want both 32 and 64 bit versions of nv-kernel.o
+	cp -a NVIDIA-Linux-i386/usr/src/nv/nv-kernel.o debian/temp/modules/nvidia-kernel/nv-kernel.o.i386
+	cp -a NVIDIA-Linux-amd64/usr/src/nv/nv-kernel.o debian/temp/modules/nvidia-kernel/nv-kernel.o.x86_64
+	rm -f debian/temp/modules/nvidia-kernel/nv-kernel.o
 
-		# and then make Makefile.kbuild actually use our names
-		sed -i -e 's/nv-kernel.o$$/nv-kernel.o$$(NVARCH)/' $(CURDIR)/debian/temp/modules/nvidia-kernel/Makefile.kbuild
+	# and then make Makefile.kbuild actually use our names
+	sed -i -e 's/nv-kernel.o$$/nv-kernel.o$$(NVARCH)/' debian/temp/modules/nvidia-kernel/Makefile.kbuild
 
-		# We have new conftest files that work purely with kbuild and doesn't require root
-	    cp $(CURDIR)/Makefile $(CURDIR)/conftest.* $(CURDIR)/debian/temp/modules/nvidia-kernel/
-	    cp $(CURDIR)/patches.h $(CURDIR)/debian/temp/modules/nvidia-kernel/
+	# We have new conftest files that work purely with kbuild and don't require root
+	cp -a Makefile conftest.* patches.h debian/temp/modules/nvidia-kernel/
 
-		# Fix permissions
+	# Prepare debian files for module package
+	cp -a debian.binary/* debian/temp/modules/nvidia-kernel/debian/
+	cp -a debian/copyright debian/temp/modules/nvidia-kernel/debian/
+
+	# Fix permissions
 	chmod -R a-sx,u=rwX,go=rX debian/temp/modules
-	chmod a+x $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/rules
-	    chown -R root:src $(CURDIR)/debian/temp/modules
-	    
-	    tar -jcvf $(CURDIR)/nvidia-kernel.tar.bz2 -C $(CURDIR)/debian/temp modules
-	    rm -rf debian/temp 
-	    touch build-kernel-stamp
+	chmod a+x debian/temp/modules/nvidia-kernel/debian/rules
+
+	tar cfvj nvidia-kernel.tar.bz2 -C debian/temp --owner=root --group=src \
+		--exclude '*.in' --exclude '.svn' modules
+	tar tfvj nvidia-kernel.tar.bz2
+	rm -rf debian/temp
+	touch $@
+
 
 .PHONY: clean					
 clean: version-clean
 	dh_testdir
 	dh_testroot
-	rm -f build-stamp build-kernel-stamp configure-stamp
+	rm -f build-stamp module-source-stamp configure-stamp
 	dh_clean 
 
 	rm -f NVIDIA-Linux NVIDIA-Linux-i386 NVIDIA-Linux-amd64
@@ -138,7 +138,7 @@ clean: version-clean
 
 
 .PHONY: install
-install: build-stamp build-kernel-stamp
+install: build-stamp
 	dh_testdir
 	dh_testroot
 	dh_prep 
@@ -285,7 +285,7 @@ debian/libcuda1-ia32.symbols: debian/libcuda1.symbols
 
 # Build architecture dependant packages using the common target.
 .PHONY: binary-arch
-binary-arch: build-stamp build-kernel-stamp install
+binary-arch: build-stamp module-source-stamp install
 	$(MAKE) -f debian/rules binary-common
 
 .PHONY: binary
