@@ -15,14 +15,10 @@ DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 DEB_BUILD_ARCH      ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
-base_version:=$(shell sh debian/upstream_info BASE_VERSION)
-release:=$(shell sh debian/upstream_info RELEASE)
 version:=$(shell sh debian/upstream_info VERSION)
-nextver:=$(shell sh debian/upstream_info NEXTVER)
-upstreamversion:=$(shell sh debian/upstream_info UPSTREAMVERSION)
-url:=$(shell sh debian/upstream_info URL)
-dirname:=$(shell sh debian/upstream_info DIRNAME)
-filename:=$(shell sh debian/upstream_info FILENAME)
+url_x86			:= $(shell sh debian/upstream_info URL_X86)
+url_x86_64		:= $(shell sh debian/upstream_info URL_X86_64)
+dirname			 = NVIDIA-Linux
 filename_x86:=$(shell sh debian/upstream_info FILENAME_X86)
 filename_x86_64:=$(shell sh debian/upstream_info FILENAME_X86_64)
 dirname_x86:=$(shell sh debian/upstream_info DIRNAME_X86)
@@ -99,11 +95,7 @@ build-kernel-stamp: debian.binary/changelog
 	    for f in `ls $(CURDIR)/debian.binary` ; do \
 	       if [ -f $(CURDIR)/debian.binary/$$f ]; then \
 		perl -p \
-	        -e 's{#BASE_VERSION#}{$(base_version)}g;' \
-		-e 's{#RELEASE#}{$(release)}g;' \
 		-e 's{#VERSION#}{$(version)}g;' \
-		-e 's{#UPSTREAMVERSION#}{$(upstreamversion)}g;' \
-		-e 's{#URL#}{$(url)}g' \
 		< $(CURDIR)/debian.binary/$$f >		$(CURDIR)/debian/temp/modules/nvidia-kernel/debian/$$f ; \
 		chmod 0644 $(CURDIR)/debian/temp/modules/nvidia-kernel/debian/$$f ; \
 	      fi \
@@ -281,13 +273,9 @@ binary-common:
 # Generating control files
 %:	%.in debian/upstream_info
 	perl -p \
-	-e 's{#BASE_VERSION#}{$(base_version)}g;' \
-	-e 's{#RELEASE#}{$(release)}g;' \
 	-e 's{#VERSION#}{$(version)}g;' \
-	-e 's{#NEXTVER#}{$(nextver)}g;' \
-	-e 's{#UPSTREAMVERSION#}{$(upstreamversion)}g;' \
-	-e 's{#FILENAME#}{$(filename)}g;' \
-	-e 's{#URL#}{$(url)}g' \
+	-e 's{#URL_X86#}{$(url_x86)}g;' \
+	-e 's{#URL_X86_64#}{$(url_x86_64)}g;' \
 	< $< > $@
 
 debian.binary/changelog: debian/changelog

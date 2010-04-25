@@ -1,50 +1,26 @@
-eval `dpkg-architecture`
+#!/bin/sh
 
-#BASE_VERSION=1.0
 RELEASE=190.53
-NEXTVER=190.54
 
-if [ "$DEB_BUILD_ARCH" = "amd64" ] ; then
-	BASE_URL=ftp://download.nvidia.com/XFree86/Linux-x86_64/${RELEASE}
-	DIRNAME=NVIDIA-Linux-x86_64-${RELEASE}-pkg2
-	# change this on next version release
-	FILENAME=$DIRNAME.run
-elif [ "$DEB_BUILD_ARCH" = "i386" ] ; then
-	BASE_URL=ftp://download.nvidia.com/XFree86/Linux-x86/${RELEASE}
-	DIRNAME=NVIDIA-Linux-x86-${RELEASE}-pkg0
-	FILENAME="$DIRNAME.run"	
-else
-	echo "huh? dont know about a version of this driver for your architecture."
-	exit 1
-fi
-FILENAME_X86=NVIDIA-Linux-x86-${RELEASE}-pkg0.run
-FILENAME_X86_64=NVIDIA-Linux-x86_64-${RELEASE}-pkg2.run
+############################################################################
+
 DIRNAME_X86=NVIDIA-Linux-x86-${RELEASE}-pkg0
 DIRNAME_X86_64=NVIDIA-Linux-x86_64-${RELEASE}-pkg2
-
-VERSION=${RELEASE}
-UPSTREAMVERSION=${RELEASE}
-URL=${BASE_URL}/${FILENAME}
+FILENAME_X86=${DIRNAME_X86}.run
+FILENAME_X86_64=${DIRNAME_X86_64}.run
+BASE_URL_X86=ftp://download.nvidia.com/XFree86/Linux-x86/${RELEASE}
+BASE_URL_X86_64=ftp://download.nvidia.com/XFree86/Linux-x86_64/${RELEASE}
 
 case "$1" in
-    BASE_VERSION)
-        echo "${BASE_VERSION}"
-        ;;
-    RELEASE)
+    VERSION)
         echo "$RELEASE"
         ;;
-    VERSION)
-        echo "$VERSION"
+    URL_X86)
+        echo "$BASE_URL_X86/$FILENAME_X86"
         ;;
-    NEXTVER)
-        echo "$NEXTVER"
+    URL_X86_64)
+        echo "$BASE_URL_X86_64/$FILENAME_X86_64"
         ;;
-    URL)
-        echo "$URL"
-        ;;
-    FILENAME)
-	echo "$FILENAME"
-	;;
     FILENAME_X86_64)
 	echo "$FILENAME_X86_64"
 	;;
@@ -57,13 +33,6 @@ case "$1" in
     DIRNAME_X86)
 	echo "$DIRNAME_X86"
 	;;
-    DIRNAME)
-	echo "$DIRNAME"
-	;;
-    UPSTREAMVERSION)
-    	echo "$UPSTREAMVERSION"
-	;;
-	
 esac
 
 exit 0

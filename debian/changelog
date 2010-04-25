@@ -41,6 +41,10 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
     this was the only substitution
   * patches/*, patches.save/*, patches.dpatch.save/*: remove, long obsolete
   * debian/rules: remove obsolete code
+  * debian/upstream_info, debian/rules: simplify
+    - add URL_X86 and URL_X86_64, include both URLs in debian/copyright
+    - drop unused variables BASE_VERSION, FILENAME, DIRNAME, URL, RELEASE,
+      UPSTREAMVERSION, NEXTVER
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 
