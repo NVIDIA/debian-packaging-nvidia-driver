@@ -251,11 +251,9 @@ install: build-stamp build-kernel-stamp
 	#install -m 755 $(dirname)/usr/bin/nvidia-settings $(CURDIR)/debian/nvidia-settings/usr/bin/
 	#install -m 644 $(dirname)/usr/share/doc/nvidia-settings-user-guide.txt $(CURDIR)/debian/nvidia-settings/usr/share/doc/nvidia-settings
 
-
-	install $(CURDIR)/script $(CURDIR)/debian/nvidia-glx/usr/share/bug/nvidia-glx
-
 	dh_install -s
 	dh_lintian
+	dh_bugfiles
 
 
 # Must not depend on anything. This is to be called by

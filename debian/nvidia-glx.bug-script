@@ -1,0 +1,26 @@
+#!/bin/sh
+
+PATH=/sbin:$PATH
+
+cat << EOF >&3
+uname -a:
+`uname -a`
+
+/proc/version:
+`cat /proc/version`
+
+EOF
+
+test ! -e /proc/driver/nvidia/version || cat << EOF >&3
+/proc/driver/nvidia/version: 
+`cat /proc/driver/nvidia/version`
+
+EOF
+
+if (lspci --version) > /dev/null 2>&1; then
+  	echo "lspci 'VGA compatible controller [0300]':" >&3
+	for device in `lspci -mn | awk '{ if ($2 == "\"0300\"") { print $1 } }'`; do
+		LC_ALL=C lspci -vvnn -s $device >&3
+	done
+fi
+
