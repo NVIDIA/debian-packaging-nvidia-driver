@@ -180,7 +180,7 @@
  #undef NV_ON_EACH_CPU_PRESENT
 #endif
 
-/* Implement conftest.sh function acpi_evaluate_interger */
+/* Implement conftest.sh function acpi_evaluate_integer */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,4,19)
  #define NV_ACPI_EVALUATE_INTEGER_PRESENT
  #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,28)
@@ -191,6 +191,16 @@
 #else
  #undef NV_ON_EACH_CPU_PRESENT
  typedef unsigned long nv_acpi_integer_t;
+#endif
+
+/* Implement conftest.sh function acpi_walk_namespace */
+/* Only kernels sometime before 2.4.0 don't have this function, and who */
+/* cares anymore */
+#define NV_ACPI_WALK_NAMESPACE_PRESENT
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,33)
+ #define NV_ACPI_WALK_NAMESPACE_ARGUMENT_COUNT 7
+#else
+ #define NV_ACPI_WALK_NAMESPACE_ARGUMENT_COUNT 6
 #endif
 
 /* Implement conftest.sh function ioremap_wc */
@@ -205,6 +215,18 @@
  #define NV_PROC_DIR_ENTRY_HAS_OWNER
 #else
  #undef NV_PROC_DIR_ENTRY_HAS_OWNER
+#endif
+
+/* Implement conftest.sh function INIT_WORK */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,5,41)
+ #define NV_INIT_WORK_PRESENT
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,20)
+  #define NV_INIT_WORK_ARGUMENT_COUNT 2
+ #else
+  #define NV_INIT_WORK_ARGUMENT_COUNT 3
+ #endif
+#else
+ #undef NV_INIT_WORK_PRESENT
 #endif
 
 /* Implement conftest.sh function agp_memory */
@@ -226,12 +248,4 @@
  #define NV_LINUX_CRED_H_PRESENT
 #else
  #undef NV_LINUX_CRED_H_PRESENT
-#endif
-
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,20)
- #define NV_INIT_WORK_PRESENT
- #define NV_INIT_WORK_ARGUMENT_COUNT 2
-#else
- #define NV_INIT_WORK_PRESENT
- #define NV_INIT_WORK_ARGUMENT_COUNT 3
 #endif
