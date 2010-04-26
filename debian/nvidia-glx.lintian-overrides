@@ -16,3 +16,6 @@ nvidia-glx: package-contains-empty-directory usr/lib/nvidia/
 # Packages built against the NVIDIA libGL should declare dependencies on
 # the free version for Debian's purposes.
 nvidia-glx: shlibs-declares-dependency-on-other-package libgl1-mesa-glx | libgl1
+
+# Referenced by upstream documentation.
+nvidia-glx: script-with-language-extension usr/bin/nvidia-bug-report.sh
