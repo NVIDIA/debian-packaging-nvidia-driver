@@ -1,9 +1,5 @@
 nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
 
-  [ Russ Allbery ]
-  * Tighten dependency on nvidia-kernel-common in the control file for
-    generated kernel module packages.
-
   [ Andreas Beckmann ]
   * do not ship empty directory in module package
   * debian.binary/rules, debian.binary/install.template: use dh_install to
