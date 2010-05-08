@@ -15,6 +15,10 @@ nvidia-graphics-drivers (195.36.24-1) UNRELEASED; urgency=low
   * nvidia-kernel-<version> now only recommends linux-image-<version>
     instead of depending on it, allowing the package to be used with
     hand-built kernels not installed as regular packages.
+  * Build the tarball for nvidia-kernel-source directly in the staging
+    directory rather than using dh_install to install it elsewhere and do
+    that as a dh_auto_install override.  This simplifies creation of the
+    nvidia-kernel-dkms package.
 
   [ Andreas Beckmann ]
   * do not ship empty directory in module package

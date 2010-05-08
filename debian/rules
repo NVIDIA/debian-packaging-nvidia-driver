@@ -23,6 +23,7 @@ AUTOGEN		+= debian/module/debian/changelog
 AUTOKEEP	 = debian/copyright
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
+module_source	 = debian/nvidia-kernel-source/usr/src/modules/nvidia-kernel
 
 .PHONY: autogen configure
 autogen: $(AUTOGEN)
@@ -45,49 +46,6 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 module-source-stamp: configure
 	dh_testdir
 
-	rm -rf debian/temp
-	mkdir -p debian/temp/modules/nvidia-kernel/debian
-
-	# Module source code
-	cp -a NVIDIA-Linux/usr/src/nv/* debian/temp/modules/nvidia-kernel/
-	cp -a NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog debian/temp/modules/nvidia-kernel/
-
-	# We don't want these makefiles that don't work with kbuild
-	rm debian/temp/modules/nvidia-kernel/makefile
-	rm debian/temp/modules/nvidia-kernel/Makefile.nvidia
-
-	# We want both 32 and 64 bit versions of nv-kernel.o
-	# Do not use a name matching *.o to prevent accidental deletion by some clean target
-	cp -a NVIDIA-Linux-i386/usr/src/nv/nv-kernel.o debian/temp/modules/nvidia-kernel/nv-kernel.o.i386
-	cp -a NVIDIA-Linux-amd64/usr/src/nv/nv-kernel.o debian/temp/modules/nvidia-kernel/nv-kernel.o.x86_64
-	rm -f debian/temp/modules/nvidia-kernel/nv-kernel.o
-
-	# Install a debian/ tree and new conftest files that work purely with kbuild
-	# and don't require root into the module package
-	cp -a debian/module/* debian/temp/modules/nvidia-kernel/
-	cp -a debian/copyright debian/temp/modules/nvidia-kernel/debian/
-	cp -a debian/bug-script debian/temp/modules/nvidia-kernel/debian/
-
-	# Fix permissions
-	chmod -R a-sx,u=rwX,go=rX debian/temp/modules
-	chmod a+x debian/temp/modules/nvidia-kernel/debian/rules
-
-	tar cfvj nvidia-kernel.tar.bz2 -C debian/temp --owner=root --group=src \
-		--exclude '*.in' --exclude '.svn' modules
-	tar tfvj nvidia-kernel.tar.bz2
-
-	# Use the nvidia-kernel-source source to create the DKMS tree.
-	mkdir -p debian/nvidia-kernel-dkms/usr/src
-	mv debian/temp/modules/nvidia-kernel \
-	    debian/nvidia-kernel-dkms/usr/src/nvidia-$(version)
-	cd debian/nvidia-kernel-dkms/usr/src/nvidia-$(version) \
-	    && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a \
-	    && rm -rf .pc debian
-	dh_dkms -V $(version)
-	rm -rf debian/temp
-	touch $@
-
-
 .PHONY: binary binary-arch binary-indep build clean install
 binary binary-arch binary-indep build clean install:
 	dh $@
@@ -104,6 +62,52 @@ override_dh_clean:
 
 override_dh_auto_configure: configure
 override_dh_auto_build: module-source-stamp
+
+override_dh_auto_install:
+	dh_auto_install
+
+	# Module source code.
+	mkdir -p $(module_source)/debian
+	cp -a NVIDIA-Linux/usr/src/nv/* $(module_source)/
+	cp -a NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog $(module_source)/
+
+	# We don't want these makefiles that don't work with kbuild.
+	rm $(module_source)/makefile
+	rm $(module_source)/Makefile.nvidia
+
+	# We want both 32 and 64 bit versions of nv-kernel.o.  Do not use a
+	# name matching *.o to prevent accidental deletion by some clean
+	# target
+	cp -a NVIDIA-Linux-i386/usr/src/nv/nv-kernel.o \
+	    $(module_source)/nv-kernel.o.i386
+	cp -a NVIDIA-Linux-amd64/usr/src/nv/nv-kernel.o \
+	    $(module_source)/nv-kernel.o.x86_64
+	rm -f $(module_source)/nv-kernel.o
+
+	# Install a debian/ tree and new conftest files that work purely
+	# with kbuild and don't require root into the module package.
+	cp -a debian/module/* $(module_source)/
+	cp -a debian/copyright $(module_source)/debian/
+	cp -a debian/bug-script $(module_source)/debian/
+
+	# Fix permissions.
+	chmod -R a-sx,u=rwX,go=rX debian/nvidia-kernel-source/usr/src
+	chmod a+x $(module_source)/debian/rules
+
+	# Build the tarball.
+	tar cfj debian/nvidia-kernel-source/usr/src/nvidia-kernel.tar.bz2 \
+	    --owner=root --group=src -C debian/nvidia-kernel-source/usr/src \
+	    --exclude '*.in' --exclude '.svn' modules
+	tar tfvj debian/nvidia-kernel-source/usr/src/nvidia-kernel.tar.bz2
+
+	# Use the nvidia-kernel-source source to create the DKMS tree.
+	mkdir -p debian/nvidia-kernel-dkms/usr/src
+	mv $(module_source) debian/nvidia-kernel-dkms/usr/src/nvidia-$(version)
+	cd debian/nvidia-kernel-dkms/usr/src/nvidia-$(version) \
+	    && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a \
+	    && rm -rf .pc debian
+	dh_dkms -V $(version)
+	rmdir debian/nvidia-kernel-source/usr/src/modules
 
 override_dh_installchangelogs:
 	dh_installchangelogs NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog
