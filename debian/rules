@@ -145,7 +145,8 @@ debian/libcuda1-ia32.symbols: debian/libcuda1.symbols
 get-orig-source:
 	rm -rf get-orig-source || true
 	mkdir get-orig-source
-	uscan --no-symlink --download-current-version --destdir get-orig-source
+	uscan --no-symlink --download-current-version --pasv \
+	    --destdir get-orig-source
 	@set -e -x ; \
 		cd get-orig-source ; \
 		newversion=$$(ls *-x86-*.run | sed -e 's/.*-\([0-9.]*\)-.*/\1/') ; \
