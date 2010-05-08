@@ -99,6 +99,8 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
     - reorder packages for better logical grouping
   * install the bug-script in all packages as well as in the binary modules
     packages built from nvidia-kernel-source
+  * replace shell script debian/upstream_info with makefile fragment
+    debian/rules.defs
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 

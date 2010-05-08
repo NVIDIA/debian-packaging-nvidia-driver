@@ -17,8 +17,8 @@ Importing a New Upstream Release
 
           tar czvf nvidia-graphics-drivers_190.53.orig.tar.gz
 
-    * Edit debian/upstream_info in the Debian package and change RELEASE
-      to the appropriate value.
+    * Edit debian/rules.defs in the Debian package and change
+      NVIDIA_RELEASE to the appropriate value.
 
     * Edit debian/module/conftest.h if necessary for kernel compatibility
       and test.

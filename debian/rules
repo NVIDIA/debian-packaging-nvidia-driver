@@ -5,13 +5,14 @@
 
 DEB_BUILD_ARCH		?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
-version			:= $(shell sh debian/upstream_info VERSION)
-url_x86			:= $(shell sh debian/upstream_info URL_X86)
-url_x86_64		:= $(shell sh debian/upstream_info URL_X86_64)
-filename_x86		:= $(shell sh debian/upstream_info FILENAME_X86)
-filename_x86_64		:= $(shell sh debian/upstream_info FILENAME_X86_64)
-dirname_x86		:= $(shell sh debian/upstream_info DIRNAME_X86)
-dirname_x86_64		:= $(shell sh debian/upstream_info DIRNAME_X86_64)
+include debian/rules.defs
+version			 = $(NVIDIA_RELEASE)
+url_x86			 = $(NVIDIA_URL_X86)
+url_x86_64		 = $(NVIDIA_URL_X86_64)
+filename_x86		 = $(NVIDIA_FILENAME_X86)
+filename_x86_64		 = $(NVIDIA_FILENAME_X86_64)
+dirname_x86		 = $(NVIDIA_DIRNAME_X86)
+dirname_x86_64		 = $(NVIDIA_DIRNAME_X86_64)
 
 TEMPLATES	:= $(wildcard debian/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
@@ -123,7 +124,7 @@ override_dh_strip:
 
 
 # Generating control files
-%:	%.in debian/upstream_info
+%:	%.in debian/rules.defs
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
 	-e 's{#URL_X86#}{$(url_x86)}g;' \
