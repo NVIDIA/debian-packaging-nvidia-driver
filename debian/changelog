@@ -78,6 +78,7 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
     of editing files with sed when creating the tarball
   * update lintian overrides
   * debian/rules: generate most parts of the AUTOGEN list automatically
+  * debian/changelog, debian/*.README*: whitespace cleanup
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 
@@ -323,7 +324,7 @@ nvidia-graphics-drivers (185.18.14-1) unstable; urgency=low
   [ Randall Donald ]
   * New upstream: (closes: #532568, #532568, #532774)
   * still only builds via module-assistant
-  
+
   [ Harald Dunkel ]
   * create empty patches.h
   * new nvidia-libvdpau, nvidia-libvdpau-ia32, nvidia-libvdpau-dev: (closes: #519792)
@@ -338,13 +339,13 @@ nvidia-graphics-drivers (180.44-2) unstable; urgency=low
  -- Randall Donald <rdonald@debian.org>  Sun, 12 Apr 2009 15:11:36 -0700
 
 nvidia-graphics-drivers (180.44-1) unstable; urgency=low
-  
+
   [ Randall Donald ]
   * The "Len is a super guy" release
   * New upstream (closes: #523583, #523566)
   * set kernel debhelper compat at 7
   * change nvidia-glx card support subscription.
-  
+
   [ Lennart Sorensen ]
   * Patch for Debian 2.6.29
 
@@ -357,13 +358,13 @@ nvidia-graphics-drivers (180.29-1) unstable; urgency=low
   * add shlibs information for libvdpau
   * add 32bit libraries for vdpau
   * remove debian/temp during cleanup
-	  
+
   [ Randall Donald ]
   * Add vdpau.so links (closes: #513765) 
   * Yay Lenny released. Now upload to unstable (closes: #514788)
 
  -- Randall Donald <rdonald@debian.org>  Thu, 19 Jan 2009 12:09:26 -0800
- 
+
 nvidia-graphics-drivers (180.22-2) experimental; urgency=low
 
   * Add VDPAU stuff (closes: #511524) 
@@ -436,7 +437,7 @@ nvidia-graphics-drivers (173.14.05-1) unstable; urgency=low
   * New upstream. (closes: #483619)
   * move xen patch to source build patches.
   * remove 2.6.25 patch, now is upstream.
-  
+
   [ Lennart Sorensen ]
   * new Xen patch for 173.04.05.
 
@@ -500,7 +501,7 @@ nvidia-graphics-drivers (169.07-1) unstable; urgency=low
   build time. (closes: #458295, #437128)
   * move patches dir out of the way.
   * rename tarball to nvidia-kernel.tar.bz2 for upcoming module packaging.
-    
+
  -- Randall Donald <rdonald@debian.org>  Mon, 07 Jan 2008 12:15:15 -0800
 
 nvidia-graphics-drivers (100.14.19-1) unstable; urgency=low
@@ -543,7 +544,7 @@ nvidia-graphics-drivers (1.0.9755-1) unstable; urgency=low
   * fix Description regarding supported cards. (closes: #416946)
   * Add Vcs header
   * Add Xen support (thanks to Marco Nenciarini) (closes: #367326)
- 
+
  -- Randall Donald <rdonald@debian.org>  Sun, 22 Apr 2007 20:26:57 -0700
 
 nvidia-graphics-drivers (1.0.9746-2) experimental; urgency=low
@@ -583,7 +584,7 @@ nvidia-graphics-drivers (1.0.8776-1) unstable; urgency=medium
   * New upstream.
   * Includes upstream hotfix for Rapid7 Advisory R7-0025 Buffer Overflow
     (closes: #393573)
-  * urgency=medium for RC bug fix  
+  * urgency=medium for RC bug fix
 
  -- Randall Donald <rdonald@debian.org>  Thu, 19 Oct 2006 18:26:24 -0700
 
@@ -675,7 +676,7 @@ nvidia-graphics-drivers (1.0.8756-3) unstable; urgency=low
 
 nvidia-graphics-drivers (1.0.8756-2) unstable; urgency=low
 
-  * nvidia-glx-dev: Add the missing Provides: libgl-dev (closes: #361589)  
+  * nvidia-glx-dev: Add the missing Provides: libgl-dev (closes: #361589)
 
  -- Randall Donald <rdonald@debian.org>  Sun,  9 Apr 2006 09:54:21 -0700
 
@@ -741,7 +742,7 @@ nvidia-graphics-drivers (1.0.8174-1) unstable; urgency=low
   * update NEWS files again.
   * add Xorg 6.8 to the descriptions to cut down on confusion.
   * add reference to linux- kernel packages in README.Debian
-  * nvidia-xconfig will be in a separate package.  
+  * nvidia-xconfig will be in a separate package.
 
  -- Randall Donald <rdonald@debian.org>  Sat, 10 Dec 2005 18:33:37 -0800
 
@@ -902,7 +903,7 @@ nvidia-graphics-drivers (1.0.6629-1) unstable; urgency=low
 
 nvidia-graphics-drivers (1.0.6111-2) unstable; urgency=low
 
-  * Provide patches for kernels 2.6.9 and 2.6.10  
+  * Provide patches for kernels 2.6.9 and 2.6.10
 
  -- Randall Donald <rdonald@debian.org>  Mon, 25 Oct 2004 16:40:05 -0700
 
@@ -939,7 +940,7 @@ nvidia-graphics-drivers (1.0.6106-2) unstable; urgency=low
 nvidia-graphics-drivers (1.0.6106-1) unstable; urgency=low
 
   * New upstream.
- 	fixed GL library symbols (closes: #242525)
+    - fixed GL library symbols (closes: #242525)
   * new nvidia-settings package.
   * remolded TLS handling for new libnvidia-tls.so
   * sysfs support now builtin, both dpatches disabled. 
@@ -972,7 +973,7 @@ nvidia-graphics-drivers (1.0.5336-10) unstable; urgency=low
 nvidia-graphics-drivers (1.0.5336-9) unstable; urgency=low
 
   * use corrected 02_pcialias patch from Juergen Kreileder <jk@blackdown.de>
-  
+
  -- Randall Donald <rdonald@debian.org>  Fri, 30 Apr 2004 19:38:57 -0700
 
 nvidia-graphics-drivers (1.0.5336-8) unstable; urgency=low
@@ -1034,7 +1035,7 @@ nvidia-graphics-drivers (1.0.5336-2) unstable; urgency=low
 
   * Bypass NVIDIA's select_makefile (closes: #230307)
   * Remove patch from nvidia-kernel-source Depends and add sed.
-  * Remove dangling libglx.so.VERSION symlink.  
+  * Remove dangling libglx.so.VERSION symlink.
 
  -- Randall Donald <rdonald@debian.org>  Fri, 30 Jan 2004 14:54:32 -0800
 
@@ -1046,7 +1047,7 @@ nvidia-graphics-drivers (1.0.5336-1) unstable; urgency=low
   * remove 2.6 patch as it is now provided upstream.
   * create a makefile selector and change the patchlevel detection to be based
     on KERNEL_VERSION_CODE.
-  * switch back to Makefile.kbuild for 2.6.x.  
+  * switch back to Makefile.kbuild for 2.6.x.
   * remove no longer needed apm patch. (closes: #228487) 
   * reflect 2.6 changes in nvidia-kernel-source.README.Debian.
 
@@ -1124,15 +1125,15 @@ nvidia-graphics-drivers (1.0.4496-6) unstable; urgency=low
     (closes: #208535, #203369) 
   * remove wget build-dep from kernel module (closes: #212742)
   * install kernel module to /lib/modules/KVERS/nvidia. (closes: #207290)
-  * re-fix GCC detection from compile.h (closes: #205871)  
-  
+  * re-fix GCC detection from compile.h (closes: #205871)
+
  -- Randall Donald <rdonald@debian.org>  Mon,  6 Oct 2003 21:41:13 -0700
 
 nvidia-graphics-drivers (1.0.4496-5) unstable; urgency=low
 
   * Add symlink instruction to nvidia-kernel-source.README.Debian 
-  * Fix patchlevel version detection.  
-  
+  * Fix patchlevel version detection.
+
  -- Randall Donald <rdonald@debian.org>  Tue, 23 Sep 2003 01:21:29 -0700
 
 nvidia-graphics-drivers (1.0.4496-4) unstable; urgency=low
@@ -1140,7 +1141,7 @@ nvidia-graphics-drivers (1.0.4496-4) unstable; urgency=low
   * Add Provides: nvidia-kernel-src to nvidia-kernel-source (closes: #211713)
   * Upload new diversions and 2.6 support to unstable packages.
   * change == to = in kernel rules file.
-  
+
  -- Randall Donald <rdonald@debian.org>  Mon, 22 Sep 2003 15:34:32 -0700
 
 nvidia-graphics-drivers (1.0.4496-3) experimental; urgency=low
@@ -1159,7 +1160,7 @@ nvidia-graphics-drivers (1.0.4496-3) experimental; urgency=low
   * Include CONFIG_APM_MODULE patch file in nvidia-kernel-source. 
   * Upload to experimental due to diversion changes and preliminary 2.6
     support 
-  * Incorporate the NMU by martin f. krafft <madduck@debian.org>  
+  * Incorporate the NMU by martin f. krafft <madduck@debian.org>
 
  -- Randall Donald <rdonald@debian.org>  Tue, 26 Aug 2003 14:42:57 -0700
 
@@ -1171,7 +1172,7 @@ nvidia-graphics-drivers (1.0.4496-2.1) unstable; urgency=low
     also be a symlink to the same file. Removed the -a, now it works just
     fine.
       Closes: Bug#206445, Bug#206449
-	      
+
  -- martin f. krafft <madduck@debian.org>  Tue, 26 Aug 2003 08:50:46 +0200
 
 nvidia-graphics-drivers (1.0.4496-2) unstable; urgency=low
