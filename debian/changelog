@@ -1,4 +1,7 @@
-nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
+nvidia-graphics-drivers (195.36.24-1) UNRELEASED; urgency=low
+
+  [ Russ Allbery ]
+  * New upstream release.  (Closes: #571674, #575457, #575550, #578589)
 
   [ Andreas Beckmann ]
   * do not ship empty directory in module package
