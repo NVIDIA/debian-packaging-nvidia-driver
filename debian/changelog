@@ -5,6 +5,13 @@ nvidia-graphics-drivers (195.36.24-1) UNRELEASED; urgency=low
   * Add an nvidia-kernel-dkms package which builds the kernel module using
     DKMS and hence automatically does the right thing with kernel upgrades
     (provided the module builds).  (Closes: #334848, #528758)
+  * Overhaul the build system in nvidia-kernel-source to not require
+    module-assistant, be more robust in its derivation of the kernel
+    version, and embed the kernel package version in the module package
+    version.  Recommend nvidia-kernel-common since it's a dependency of
+    the generated module package.  Remove the unnecessary recommendation
+    of devscripts.  (Closes: #254859, #279182, #303521, #368669, #473378)
+    (Closes: #523879, #534535)
 
   [ Andreas Beckmann ]
   * do not ship empty directory in module package

@@ -98,18 +98,26 @@ Description: NVIDIA binary kernel module DKMS source
 Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64
-Depends: debhelper (>= 7.2.3~), make, quilt (>= 0.46-7~),
- module-assistant, ${misc:Depends}
-Recommends: nvidia-glx (>= ${nvidia:Version}), kernel-package, devscripts
+Depends: ${misc:Depends}, debhelper (>= 7.2.3~), make, quilt (>= 0.46-7~)
+Recommends: module-assistant | kernel-package,
+ nvidia-glx (>= ${nvidia:Version}), nvidia-kernel-common
 Description: NVIDIA binary kernel module source
- This package builds the NVIDIA Xorg binary kernel module
- needed by nvidia-glx.
- The binary drivers provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
- AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
+ This package provides the source for the NVIDIA Xorg binary kernel module
+ needed by nvidia-glx in a form suitable for use by module-assistant or
+ kernel-package.
  .
- PLEASE read /usr/share/doc/nvidia-kernel-source/README.Debian.gz for building
- information.
+ The NVIDIA binary drivers provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server for graphics cards
+ using NVIDIA chip sets.  AGP, PCIe, SLI, TV-out and flat panel displays
+ are also supported.
+ .
+ This version only supports GeForce 6xxx and higher of the Geforce GPUs
+ plus complimentary Quadros and nforce.  Look at the legacy packages for
+ older cards.
+ .
+ PLEASE read /usr/share/doc/nvidia-kernel-source/README.Debian.gz for
+ building information.  If you want the kernel module to be automatically
+ installed via DKMS, install nvidia-kernel-dkms instead.
 
 Package: nvidia-libvdpau1
 Section: non-free/libs

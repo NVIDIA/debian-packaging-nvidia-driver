@@ -1,47 +1,57 @@
 #!/usr/bin/make -f
 
-
 CFLAGS = -Wall -g
 ifneq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
-	CFLAGS += -O0
+    CFLAGS += -O0
 else
-	CFLAGS += -O2
+    CFLAGS += -O2
 endif
 ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
-	NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
-	MAKEFLAGS += -j$(NUMJOBS)
+    NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+    MAKEFLAGS += -j$(NUMJOBS)
 endif
 
-DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
-DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+# Find kernel build information.
+ifndef KSRC
+    KSRC = /usr/src/linux
+endif
+ifndef KPKG_DEST_DIR
+    KPKG_DEST_DIR = ..
+endif
+KVERS := $(shell perl debian/kernel-version $(KSRC))
+export KSRC 
+export KVERS
+export KPKG_DEST_DIR
 
-
-# Prefix of the target package name
-PACKAGE		= nvidia-kernel
-
-include /usr/share/modass/include/generic.make
-include /usr/share/modass/include/common-rules.make
-
-configure:
-	sed 's/#KVERS#/$(KVERS)/g' debian/control.template > debian/control
-	sed 's/#KVERS#/$(KVERS)/g' debian/install.template > debian/install
-
-binary-modules: configure
-	dh_testroot
-	dh_quilt_patch
-
-	dh_prep
-
+configure: configure-stamp
+configure-stamp:
+	@if [ x"$(KVERS)" = x ] ; then \
+	    echo 'No version in $(KSRC)/include/linux/version.h' >&2; \
+	    exit 1; \
+	fi
 ifneq (,$(wildcard makefile))
-	@echo "ERROR: unclean build directory from older version found, please clean first:"
-	@echo "    module-assistant clean nvidia"
+	@echo "ERROR: unclean build directory from older version found"
+	@echo "   Please run: module-assistant clean nvidia"
 	@exit 1
 endif
+	sh debian/prep-modules $(KSRC)
+	sed 's/#KVERS#/$(KVERS)/g' debian/install.template > debian/install
+	touch $@
 
-	# Build the modules
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep:
+build-stamp: configure-stamp
+	dh_prep
+	dh_quilt_patch
 	$(MAKE) -C . LINUXDIR=$(KSRC) KVERREL=$(KVERS)
+	touch $@
 
-	# Install the modules
+binary: binary-arch binary-indep
+binary-indep:
+binary-arch: build-stamp
+	dh_testdir
+	dh_testroot
 	dh_installdirs
 	dh_install
 	dh_installdocs $(wildcard debian/changelog.nvidia-kernel-source*)
@@ -52,43 +62,47 @@ endif
 	dh_compress
 	dh_fixperms
 	dh_installdeb
-	dh_gencontrol -- -v$(VERSION)
+	dh_gencontrol -- -v`cat debian/VERSION`
 	dh_md5sums
-	dh_builddeb  --destdir=$(KPKG_DEST_DIR)
-	dh_prep
+	dh_builddeb --destdir=$(KPKG_DEST_DIR)
 
 clean:
 	test -f debian/control || cp debian/control.template debian/control
 	dh_testdir
 	dh_testroot
-	rm -f build-stamp configure-stamp
-
 	$(MAKE) -C . -f Makefile SYSSRC=$(KSRC) $(KPKG_EXTRAV_ARG) clean
-        
-	dh_quilt_unpatch
-	dh_clean
-
-	rm -f debian/install
-	rm -f debian/control
-
-
-binary_modules: binary-modules	
-	   
+	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
+	dh_clean configure-stamp build-stamp debian/control debian/install
 
 # The kdist_configure target is called by make-kpkg modules_config. It
-# should configure the module so it is ready for compilation (mostly
-# useful for calling configure)
-kdist_config kdist_configure:
-	$(MAKE) $(MFLAGS) -f debian/rules configure
+# should configure the module so it is ready for compilation (mostly useful
+# for calling configure).
+kdist_configure: configure-stamp
 
-# the kdist_clean target is called by make-kpkg modules_clean. It is
-# responsible for cleaning up any changes that have been made by the
-# other kdist_commands (except for the .deb files created).
+# The kdist_image target is called by make-kpkg modules_image.  It is
+# responsible for building the module, but doesn't generate a *.changes
+# file.
+kdist_image: build-stamp
+	$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules binary-arch
+	$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules clean
+
+# The kdist target is called by make-kpkg modules.  It is responsible for
+# building the module and a *.changes file.  Normally it should also sign
+# the *.changes file, but we don't do that to avoid a dependency on
+# devscripts.
+kdist: build-stamp
+	$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules binary-arch
+	KMAINT="$(KMAINT)" KEMAIL="$(KEMAIL)" sh -v debian/genchanges
+	$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules clean
+
+# The kdist_clean target is called by make-kpkg modules_clean.  It is
+# responsible for cleaning up any changes that have been made by the other
+# kdist_commands (except for the .deb files created).
 kdist_clean:
-	test -f debian/control || cp debian/control.template debian/control
-	dh_testdir
-	$(MAKE) -C . LINUXDIR=$(KSRC) KVERREL=$(KVERS) clean
-	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
-	dh_clean
+	$(ROOT_CMD) $(MAKE) $(MFLAGS) -f debian/rules clean
 
-.PHONY: clean binary-modules
+# Legacy targets supported for backward compatibility.
+binary-modules binary_modules: binary-arch
+
+.PHONY: binary binary-arch binary-indep build build-arch build-indep clean
+.PHONY: configure kdist kdist_clean kdist_configure kdist_image
