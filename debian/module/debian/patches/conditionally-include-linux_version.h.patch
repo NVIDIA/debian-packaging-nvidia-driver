@@ -7,15 +7,15 @@ Description: Conditionally include linux/version.h
 
 Index: b/nv-linux.h
 ===================================================================
---- a/nv-linux.h	2009-12-10 01:41:16.000000000 +0100
+--- a/nv-linux.h	2010-04-23 05:40:40.000000000 +0200
 +++ b/nv-linux.h	2010-04-27 10:21:53.475537265 +0200
-@@ -17,7 +17,9 @@
- #ifndef AUTOCONF_INCLUDED
- #include <linux/autoconf.h>
+@@ -23,7 +23,9 @@
  #endif
+ #endif
+ 
 +#ifndef LINUX_VERSION_CODE
  #include <linux/version.h>
 +#endif
  #include <linux/utsname.h>
  
- 
+ #if LINUX_VERSION_CODE < KERNEL_VERSION(2, 4, 7)

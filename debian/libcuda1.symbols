@@ -1,5 +1,9 @@
 libcuda.so.1 libcuda1 #MINVER#
 #MISSING: 185.18.04# _nvGpuDebugExportAPI@Base 177.67
+ clGetExtensionFunctionAddress@Base 195.17
+#MISSING: 195.22# clIcdDispatchGetPlatformIDsKHR@Base 195.17
+ clGetPlatformInfo@Base 195.30
+#MISSING: 195.30# clIcdGetPlatformIDsKHR@Base 195.22
  cuArray3DCreate@Base 177.67
  cuArray3DGetDescriptor@Base 177.67
  cuArrayCreate@Base 169.07
@@ -20,7 +24,7 @@ libcuda.so.1 libcuda1 #MINVER#
  cuDeviceGetName@Base 169.07
  cuDeviceGetProperties@Base 169.07
  cuDeviceTotalMem@Base 169.07
- cuDriverGetExportTable@Base 190.16
+#MISSING: 195.30# cuDriverGetExportTable@Base 190.16
  cuDriverGetVersion@Base 185.18.04
  cuEventCreate@Base 169.07
  cuEventDestroy@Base 169.07
@@ -30,6 +34,7 @@ libcuda.so.1 libcuda1 #MINVER#
  cuEventSynchronize@Base 169.07
  cuFuncGetAttribute@Base 185.18.04
  cuFuncSetBlockShape@Base 169.07
+ cuFuncSetCacheConfig@Base 195.30
  cuFuncSetSharedSize@Base 169.07
  cuGLCtxCreate@Base 177.67
  cuGLInit@Base 169.07
@@ -40,6 +45,15 @@ libcuda.so.1 libcuda1 #MINVER#
  cuGLUnmapBufferObject@Base 169.07
  cuGLUnmapBufferObjectAsync@Base 190.16
  cuGLUnregisterBufferObject@Base 169.07
+ cuGetExportTable@Base 195.30
+ cuGraphicsGLRegisterBuffer@Base 195.17
+ cuGraphicsGLRegisterImage@Base 195.17
+ cuGraphicsMapResources@Base 195.17
+ cuGraphicsResourceGetMappedPointer@Base 195.17
+ cuGraphicsResourceSetMapFlags@Base 195.17
+ cuGraphicsSubResourceGetMappedArray@Base 195.17
+ cuGraphicsUnmapResources@Base 195.17
+ cuGraphicsUnregisterResource@Base 195.17
  cuInit@Base 169.07
  cuLaunch@Base 169.07
  cuLaunchGrid@Base 169.07
@@ -66,6 +80,7 @@ libcuda.so.1 libcuda1 #MINVER#
  cuMemcpyAtoHAsync@Base 169.07
  cuMemcpyDtoA@Base 169.07
  cuMemcpyDtoD@Base 169.07
+ cuMemcpyDtoDAsync@Base 195.17
  cuMemcpyDtoH@Base 169.07
  cuMemcpyDtoHAsync@Base 169.07
  cuMemcpyHtoA@Base 169.07
@@ -80,6 +95,7 @@ libcuda.so.1 libcuda1 #MINVER#
  cuMemsetD8@Base 169.07
  cuModuleGetFunction@Base 169.07
  cuModuleGetGlobal@Base 169.07
+#MISSING: 195.36.15# cuModuleGetSurfRef@Base 195.17
  cuModuleGetTexRef@Base 169.07
  cuModuleLoad@Base 169.07
  cuModuleLoadData@Base 169.07
@@ -87,6 +103,7 @@ libcuda.so.1 libcuda1 #MINVER#
  cuModuleLoadFatBinary@Base 169.07
  cuModuleUnload@Base 169.07
  cuParamSetSize@Base 169.07
+#MISSING: 195.36.15# cuParamSetSurfRef@Base 195.17
  cuParamSetTexRef@Base 169.07
  cuParamSetf@Base 169.07
  cuParamSeti@Base 169.07
@@ -95,6 +112,14 @@ libcuda.so.1 libcuda1 #MINVER#
  cuStreamDestroy@Base 169.07
  cuStreamQuery@Base 169.07
  cuStreamSynchronize@Base 169.07
+#MISSING: 195.36.15# cuSurfRefCreate@Base 195.17
+#MISSING: 195.36.15# cuSurfRefDestroy@Base 195.17
+#MISSING: 195.36.15# cuSurfRefGetAddress@Base 195.17
+#MISSING: 195.36.15# cuSurfRefGetArray@Base 195.17
+#MISSING: 195.36.15# cuSurfRefGetFormat@Base 195.17
+#MISSING: 195.36.15# cuSurfRefSetAddress@Base 195.17
+#MISSING: 195.36.15# cuSurfRefSetArray@Base 195.17
+#MISSING: 195.36.15# cuSurfRefSetFormat@Base 195.17
  cuTexRefCreate@Base 169.07
  cuTexRefDestroy@Base 169.07
  cuTexRefGetAddress@Base 169.07
@@ -111,6 +136,8 @@ libcuda.so.1 libcuda1 #MINVER#
  cuTexRefSetFilterMode@Base 169.07
  cuTexRefSetFlags@Base 169.07
  cuTexRefSetFormat@Base 169.07
- cudbgExportAPI@Base 185.18.04
+#MISSING: 195.36.15# cudbgExportAPI@Base 185.18.04
+ cudbgGetAPI@Base 195.17
+ cudbgGetAPIVersion@Base 195.17
  gpudbgDebuggerAttached@Base 177.67
- gpudbgReportDeviceFunctionLaunch@Base 177.67
+#MISSING: 195.17# gpudbgReportDeviceFunctionLaunch@Base 177.67

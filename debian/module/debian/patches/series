@@ -1,3 +1,2 @@
 select-nv-kernel.o.ARCH.patch
 conditionally-include-linux_version.h.patch
-fix-2.6.33-build.patch
