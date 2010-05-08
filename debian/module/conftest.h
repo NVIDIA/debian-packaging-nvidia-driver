@@ -1,3 +1,7 @@
+#ifndef LINUX_VERSION_CODE
+#include <linux/version.h>
+#endif
+
 /* Implement conftest.sh function remap_page_range */
 #if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,11)
  #if LINUX_VERSION_CODE < KERNEL_VERSION(2,5,0)

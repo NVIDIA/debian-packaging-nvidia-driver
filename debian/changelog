@@ -86,6 +86,10 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
   * debian/module/debian/: set source format 1.0, the module source "package"
     is shipped as .tar.bz2 and unpacked with tar, therefore no newer features
     can be used
+  * conftest.h: ensure the macros from linux/version.h are available
+  * debian/module/debian/patches/conditionally-include-linux_version.h.patch:
+    new patch, ensure linux/version.h is included only once (that header does
+    not have include guards)
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 
