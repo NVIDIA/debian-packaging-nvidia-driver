@@ -23,7 +23,7 @@ Importing a New Upstream Release
       Alternatively do it manually:
       - Download the pkg0.run file for i386 and the pkg2.run file for
         amd64 from upstream.
-      - mkdir nvidia-graphics-drivers-<version> and place package files
+      - mkdir nvidia-graphics-drivers-<version>.orig and place package files
         in that directory.  Make them executable.  Then, create the orig
         tarball with:
             tar czvf nvidia-graphics-drivers_<version>.orig.tar.gz
