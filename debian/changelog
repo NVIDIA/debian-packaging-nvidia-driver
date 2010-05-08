@@ -12,6 +12,9 @@ nvidia-graphics-drivers (195.36.24-1) UNRELEASED; urgency=low
     the generated module package.  Remove the unnecessary recommendation
     of devscripts.  (Closes: #254859, #279182, #303521, #368669, #473378)
     (Closes: #523879, #534535)
+  * nvidia-kernel-<version> now only recommends linux-image-<version>
+    instead of depending on it, allowing the package to be used with
+    hand-built kernels not installed as regular packages.
 
   [ Andreas Beckmann ]
   * do not ship empty directory in module package
