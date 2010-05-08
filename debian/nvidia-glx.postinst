@@ -45,13 +45,13 @@ case "$1" in
     configure)
 
 	# <target: squeeze>
-        if dpkg --compare-versions "$2" lt-nl 190.53-5 ; then
+        if dpkg --compare-versions "$2" lt-nl 195.36.24-1 ; then
             rm_conffile /etc/default/nvidia-glx
         fi 
 	# </target: squeeze>
 
         # <target: squeeze>
-        if dpkg --compare-versions "$2" lt-nl 190.53-5 ; then
+        if dpkg --compare-versions "$2" lt-nl 195.36.24-1 ; then
             # remove obsolete diversions
             dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libGLcore.so.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.so > /dev/null	
             dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libGLcore.a.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.a > /dev/null
