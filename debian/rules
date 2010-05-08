@@ -105,7 +105,8 @@ override_dh_auto_install:
 	mv $(module_source) debian/nvidia-kernel-dkms/usr/src/nvidia-$(version)
 	cd debian/nvidia-kernel-dkms/usr/src/nvidia-$(version) \
 	    && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a \
-	    && rm -rf .pc debian
+	    && rm -rf .pc debian \
+	    && chmod a+x conftest.sh
 	dh_dkms -V $(version)
 	rmdir debian/nvidia-kernel-source/usr/src/modules
 
