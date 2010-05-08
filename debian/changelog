@@ -19,6 +19,8 @@ nvidia-graphics-drivers (195.36.24-1) UNRELEASED; urgency=low
     directory rather than using dh_install to install it elsewhere and do
     that as a dh_auto_install override.  This simplifies creation of the
     nvidia-kernel-dkms package.
+  * All packages that suggested nvidia-kernel-source now suggest
+    nvidia-kernel-dkms as an alternative.
 
   [ Andreas Beckmann ]
   * do not ship empty directory in module package
