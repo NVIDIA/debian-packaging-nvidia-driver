@@ -1,5 +1,6 @@
 # The NVIDIA license does not allow any form of modification.
 nvidia-glx-ia32: binary-has-unneeded-section
+nvidia-glx-ia32: embedded-libpng
 nvidia-glx-ia32: shared-lib-without-dependency-information
 nvidia-glx-ia32: shlib-with-non-pic-code
 nvidia-glx-ia32: shlib-without-PT_GNU_STACK-section
