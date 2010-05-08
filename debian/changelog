@@ -124,8 +124,9 @@ nvidia-graphics-drivers (195.36.24-1) UNRELEASED; urgency=low
   * debian/rules, debian/README.source: add new target get-orig-source and
     simplify instructions for tarball creation:
     uscan --report && dch -v <version> && debian/rules get-orig-source
+  * fix-2.6.33-build.patch: remove, fixed by upstream in 195.36.24
   * libcuda1.symbols: update for symbol changes in 195.xx
-  
+
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 
 nvidia-graphics-drivers (190.53-4) unstable; urgency=high

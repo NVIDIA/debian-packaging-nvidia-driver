@@ -32,7 +32,7 @@ Description: NVIDIA binary Xorg driver
  nvidia-kernel-${nvidia:Version}.
  .
  This version only supports GeForce 6xxx and higher of the Geforce GPUs
- plus complimentary Quadros and nforce. Look at the legacy packages
+ plus complimentary Quadros and nforce.  Look at the legacy packages
  for older cards.
  .
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list
@@ -53,7 +53,7 @@ Description: NVIDIA binary driver 32bit libs
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
  .
  This version only supports GeForce 6xxx and higher of the Geforce GPUs
- plus complimentary Quadros and nforce. Look at the legacy packages
+ plus complimentary Quadros and nforce.  Look at the legacy packages
  for older cards.
  .
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list

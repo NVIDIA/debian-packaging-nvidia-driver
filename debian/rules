@@ -93,6 +93,7 @@ override_dh_auto_install:
 	# Fix permissions.
 	chmod -R a-sx,u=rwX,go=rX debian/nvidia-kernel-source/usr/src
 	chmod a+x $(module_source)/debian/rules
+	chmod a+x $(module_source)/conftest.sh
 
 	# Build the tarball.
 	tar cfj debian/nvidia-kernel-source/usr/src/nvidia-kernel.tar.bz2 \
@@ -105,8 +106,7 @@ override_dh_auto_install:
 	mv $(module_source) debian/nvidia-kernel-dkms/usr/src/nvidia-$(version)
 	cd debian/nvidia-kernel-dkms/usr/src/nvidia-$(version) \
 	    && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a \
-	    && rm -rf .pc debian \
-	    && chmod a+x conftest.sh
+	    && rm -rf .pc debian
 	dh_dkms -V $(version)
 	rmdir debian/nvidia-kernel-source/usr/src/modules
 
