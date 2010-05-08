@@ -101,6 +101,9 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
     packages built from nvidia-kernel-source
   * replace shell script debian/upstream_info with makefile fragment
     debian/rules.defs
+  * debian/rules, debian/README.source: add new target get-orig-source and
+    simplify instructions for tarball creation:
+    uscan --report && dch -v <version> && debian/rules get-orig-source
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 

@@ -1,27 +1,41 @@
 Importing a New Upstream Release
 
     The *.orig.tar.gz file for nvidia-graphics-drivers contains just a
-    directory named nvidia-graphics-drivers-<version>.orig containing the
+    directory named nvidia-graphics-drivers-<version> containing the
     upstream pkg0.run file for i386 and the pkg2.run file for amd64.
+    (Only the .pkg2.run file includes the ia32 libraries.)
     Everything else comes from the Subversion repository for the package.
 
     Use the following steps to update to a new upstream release:
 
-    * Download the pkg0.run file for i386 and the pkg2.run file for amd64
-      from upstream.  The pkg2.run file has the ia32 libraries in it.
-      uscan can be used to download the two files.
+    * Check for a new version
 
-    * mkdir nvidia-graphics-drivers-190.53.orig and place package files in
-      that directory.  Make them executable.  Then, create the orig
-      tarball with:
+          uscan --report
 
-          tar czvf nvidia-graphics-drivers_190.53.orig.tar.gz
+    * Create a changelog entry for the new version
+
+          debchange --newversion <version>
+
+    * Download the driver archives and create a new .orig.tar.gz
+
+          debian/rules get-orig-source
+
+      Alternatively do it manually:
+      - Download the pkg0.run file for i386 and the pkg2.run file for
+        amd64 from upstream.
+      - mkdir nvidia-graphics-drivers-<version> and place package files
+        in that directory.  Make them executable.  Then, create the orig
+        tarball with:
+            tar czvf nvidia-graphics-drivers_<version>.orig.tar.gz
 
     * Edit debian/rules.defs in the Debian package and change
       NVIDIA_RELEASE to the appropriate value.
 
     * Edit debian/module/conftest.h if necessary for kernel compatibility
       and test.
+
+    * Add the new *.orig.tar.gz to the tarballs directory in the svn
+      repository: svn://svn.debian.org/svn/pkg-nvidia/tarballs
 
 Building and Uploading
 

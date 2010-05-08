@@ -140,3 +140,18 @@ debian/nvidia-libvdpau1-ia32.symbols: debian/nvidia-libvdpau1.symbols.i386
 debian/libcuda1-ia32.symbols: debian/libcuda1.symbols
 	sed 's/libcuda1/libcuda1-ia32/g' $< > $@
 
+
+.PHONY: get-orig-source
+get-orig-source:
+	rm -rf get-orig-source || true
+	mkdir get-orig-source
+	uscan --no-symlink --download-current-version --destdir get-orig-source
+	@set -e -x ; \
+		cd get-orig-source ; \
+		newversion=$$(ls *-x86-*.run | sed -e 's/.*-\([0-9.]*\)-.*/\1/') ; \
+		mkdir nvidia-graphics-drivers-$$newversion ; \
+		mv *.run nvidia-graphics-drivers-$$newversion/ ; \
+		chmod 0755 nvidia-graphics-drivers-$$newversion/* ; \
+		tar cfvz ../../nvidia-graphics-drivers_$$newversion.orig.tar.gz --owner=root --group=src nvidia-graphics-drivers-$$newversion
+	rm -rf get-orig-source || true
+
