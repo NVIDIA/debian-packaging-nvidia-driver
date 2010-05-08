@@ -1,8 +1,9 @@
 This package was debianized by Randall Donald <rdonald@debian.org> on
-Mon, 31 Mar 2003 23:40:05 -0800.
+Sat, 11 Aug 2001 14:27:28 -0700.
 
 It was downloaded from
-ftp://download.nvidia.com/XFree86/Linux-x86/190.53/NVIDIA-Linux-x86-190.53-pkg0.run
+ftp://download.nvidia.com/XFree86/Linux-x86/195.36.24/NVIDIA-Linux-x86-195.36.24-pkg0.run
+ftp://download.nvidia.com/XFree86/Linux-x86_64/195.36.24/NVIDIA-Linux-x86_64-195.36.24-pkg2.run
 
 Upstream Author: NVIDIA <linux-bugs@nvidia.com>
 
@@ -14,6 +15,12 @@ software license.  No modifications of the included binaries are
 permitted, and the binaries are not distributed with source code.
 
 Copyright: 1993-2009 NVIDIA Corporation.  All rights reserved.
+
+Packaging Scripts Copyright (c) 2003 Randall Donald <rdonald@debian.org>
+Based on packages by Christopher Cheney 
+These scripts are covered under the GNU GPL, the text of the license
+is available here /usr/share/common-licenses/GPL .
+
 
 First a note from the README file
 
