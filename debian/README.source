@@ -20,7 +20,8 @@ Importing a New Upstream Release
     * Edit debian/upstream_info in the Debian package and change RELEASE
       to the appropriate value.
 
-    * Edit conftest.h if necessary for kernel compatibility and test.
+    * Edit debian/module/conftest.h if necessary for kernel compatibility
+      and test.
 
 Building and Uploading
 

@@ -17,8 +17,8 @@ TEMPLATES	:= $(wildcard debian/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/libcuda1-ia32.symbols
 AUTOGEN		+= debian/nvidia-libvdpau1-ia32.symbols
-AUTOGEN		+= debian.binary/control.template
-AUTOGEN		+= debian.binary/changelog
+AUTOGEN		+= debian/module/debian/control.template
+AUTOGEN		+= debian/module/debian/changelog
 AUTOKEEP	 = debian/copyright
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
@@ -61,11 +61,9 @@ module-source-stamp: configure
 	cp -a NVIDIA-Linux-amd64/usr/src/nv/nv-kernel.o debian/temp/modules/nvidia-kernel/nv-kernel.o.x86_64
 	rm -f debian/temp/modules/nvidia-kernel/nv-kernel.o
 
-	# We have new conftest files that work purely with kbuild and don't require root
-	cp -a Makefile conftest.* patches.h debian/temp/modules/nvidia-kernel/
-
-	# Prepare debian files for module package
-	cp -a debian.binary/* debian/temp/modules/nvidia-kernel/debian/
+	# Install a debian/ tree and new conftest files that work purely with kbuild
+	# and don't require root into the module package
+	cp -a debian/module/* debian/temp/modules/nvidia-kernel/
 	cp -a debian/copyright debian/temp/modules/nvidia-kernel/debian/
 
 	# Fix permissions
@@ -131,7 +129,7 @@ override_dh_strip:
 	-e 's{#URL_X86_64#}{$(url_x86_64)}g;' \
 	< $< > $@
 
-debian.binary/changelog: debian/changelog
+debian/module/debian/changelog: debian/changelog
 	sed 's/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@
 
 debian/nvidia-libvdpau1-ia32.symbols: debian/nvidia-libvdpau1.symbols.i386

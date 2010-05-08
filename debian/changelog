@@ -79,6 +79,13 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
   * update lintian overrides
   * debian/rules: generate most parts of the AUTOGEN list automatically
   * debian/changelog, debian/*.README*: whitespace cleanup
+  * move files: debian.binary/ ==> debian/module/debian/,
+    Makefile, conftest.*, patches.h ==> debian/module/
+  * debian/rules: adjust for debian/module/
+  * switch to source format 3.0 (quilt)
+  * debian/module/debian/: set source format 1.0, the module source "package"
+    is shipped as .tar.bz2 and unpacked with tar, therefore no newer features
+    can be used
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 
