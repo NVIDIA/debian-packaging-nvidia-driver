@@ -13,27 +13,6 @@ Build-Depends: debhelper (>= 7.2.3~), libxext6, bzip2,
 Standards-Version: 3.8.4
 Homepage: http://www.nvidia.com
 
-Package: nvidia-glx-ia32
-Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: nvidia-kernel-${nvidia:Version}, ${shlibs:Depends}, ${misc:Depends}
-Suggests: nvidia-settings, nvidia-kernel-source (>= ${nvidia:Version})
-Conflicts:
- nvidia-glx-legacy-71xx-ia32,
- nvidia-glx-legacy-96xx-ia32,
- nvidia-glx-legacy-173xx-ia32,
-Description: NVIDIA binary driver 32bit libs
- These binary drivers provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
- AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
- .
- This version only supports GeForce 6xxx and higher of the Geforce GPUs
- plus complimentary Quadros and nforce. Look at the legacy packages
- for older cards.
- .
- See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list
- of supported GPUs and PCIIDs.
-
 Package: nvidia-glx
 Architecture: i386 amd64
 Depends: nvidia-kernel-${nvidia:Version}, ${shlibs:Depends}, ${misc:Depends}
@@ -59,6 +38,27 @@ Description: NVIDIA binary Xorg driver
  See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list
  of supported GPUs and PCIIDs.
 
+Package: nvidia-glx-ia32
+Architecture: amd64
+Pre-Depends: libc6-i386 (>= 2.9-18)
+Depends: nvidia-kernel-${nvidia:Version}, ${shlibs:Depends}, ${misc:Depends}
+Suggests: nvidia-settings, nvidia-kernel-source (>= ${nvidia:Version})
+Conflicts:
+ nvidia-glx-legacy-71xx-ia32,
+ nvidia-glx-legacy-96xx-ia32,
+ nvidia-glx-legacy-173xx-ia32,
+Description: NVIDIA binary driver 32bit libs
+ These binary drivers provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server.
+ AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
+ .
+ This version only supports GeForce 6xxx and higher of the Geforce GPUs
+ plus complimentary Quadros and nforce. Look at the legacy packages
+ for older cards.
+ .
+ See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list
+ of supported GPUs and PCIIDs.
+
 Package: nvidia-glx-dev
 Architecture: i386 amd64
 Depends: nvidia-glx (= ${binary:Version}), libx11-dev, ${misc:Depends}
@@ -74,6 +74,41 @@ Description: NVIDIA binary Xorg driver development files
  .
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
+
+Package: nvidia-kernel-source
+Section: non-free/kernel
+Architecture: i386 amd64
+Depends: debhelper (>= 7), make, quilt (>= 0.46-7~),
+ module-assistant, ${misc:Depends}
+Recommends: nvidia-glx (>= ${nvidia:Version}), kernel-package, devscripts
+Description: NVIDIA binary kernel module source
+ This package builds the NVIDIA Xorg binary kernel module
+ needed by nvidia-glx.
+ The binary drivers provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server.
+ AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
+ .
+ PLEASE read /usr/share/doc/nvidia-kernel-source/README.Debian.gz for building
+ information.
+
+Package: nvidia-libvdpau1
+Section: non-free/libs
+Architecture: i386 amd64
+Depends: nvidia-vdpau-driver (>= ${nvidia:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends: nvidia-kernel-${nvidia:Version}
+Suggests: nvidia-kernel-source (>= ${nvidia:Version})
+Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau
+Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau
+Description: NVIDIA vdpau libraries
+ These libraries provide the Video Decode and Presentation API for Unix.
+ They provide accelerated video playback (incl. H.264) for the supported
+ graphics cards.
+ .
+ This package contains the VDPAU wrapper and trace libraries.
+ .
+ See /usr/share/doc/nvidia-vdpau-driver/README.txt.gz
+ for more information.
 
 Package: nvidia-libvdpau1-ia32
 Section: non-free/libs
@@ -97,24 +132,19 @@ Description: NVIDIA vdpau 32-bit libraries
  See /usr/share/doc/nvidia-vdpau-driver-ia32/README.txt.gz
  for more information.
 
-Package: nvidia-libvdpau1
-Section: non-free/libs
+Package: nvidia-libvdpau-dev
+Section: non-free/libdevel
 Architecture: i386 amd64
-Depends: nvidia-vdpau-driver (>= ${nvidia:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}
-Suggests: nvidia-kernel-source (>= ${nvidia:Version})
-Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau
-Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau
-Description: NVIDIA vdpau libraries
- These libraries provide the Video Decode and Presentation API for Unix.
- They provide accelerated video playback (incl. H.264) for the supported
- graphics cards.
+Depends: nvidia-libvdpau1 (= ${binary:Version}), ${misc:Depends}
+Conflicts: nvidia-glx-dev (<< 180.51)
+Provides: nvidia-libvdpau1-dev
+Replaces: nvidia-libvdpau, nvidia-glx-dev (<< 180.51)
+Description: NVIDIA vdpau development files
+ The NVIDIA Video Decode and Presentation API for Unix (VDPAU) provides a
+ complete solution for decoding, post-processing, compositing, and displaying
+ compressed or uncompressed video streams.
  .
- This package contains the VDPAU wrapper and trace libraries.
- .
- See /usr/share/doc/nvidia-vdpau-driver/README.txt.gz
- for more information.
+ This package contains the VDPAU development files.
 
 Package: nvidia-vdpau-driver
 Section: non-free/libs
@@ -162,36 +192,6 @@ Description: NVIDIA vdpau 32-bit driver
  .
  See /usr/share/doc/nvidia-vdpau-driver-ia32/README.txt.gz
  for more information.
-
-Package: nvidia-libvdpau-dev
-Section: non-free/libdevel
-Architecture: i386 amd64
-Depends: nvidia-libvdpau1 (= ${binary:Version}), ${misc:Depends}
-Conflicts: nvidia-glx-dev (<< 180.51)
-Provides: nvidia-libvdpau1-dev
-Replaces: nvidia-libvdpau, nvidia-glx-dev (<< 180.51)
-Description: NVIDIA vdpau development files
- The NVIDIA Video Decode and Presentation API for Unix (VDPAU) provides a
- complete solution for decoding, post-processing, compositing, and displaying
- compressed or uncompressed video streams.
- .
- This package contains the VDPAU development files.
-
-Package: nvidia-kernel-source
-Section: non-free/kernel
-Architecture: i386 amd64
-Depends: debhelper (>= 7), make, quilt (>= 0.46-7~),
- module-assistant, ${misc:Depends}
-Recommends: nvidia-glx (>= ${nvidia:Version}), kernel-package, devscripts
-Description: NVIDIA binary kernel module source
- This package builds the NVIDIA Xorg binary kernel module
- needed by nvidia-glx.
- The binary drivers provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
- AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
- .
- PLEASE read /usr/share/doc/nvidia-kernel-source/README.Debian.gz for building
- information.
 
 Package: libcuda1
 Section: non-free/libs

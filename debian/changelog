@@ -96,6 +96,7 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
     - remove dependency on x11-common, probably remained from the X11R6 time
     - reformat, syncronize, use more substvars
     - add Conflicts with nvidia-glx-legacy-* packages
+    - reorder packages for better logical grouping
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 
