@@ -128,6 +128,8 @@ nvidia-graphics-drivers (195.36.24-1) UNRELEASED; urgency=low
     uscan --report && dch -v <version> && debian/rules get-orig-source
   * fix-2.6.33-build.patch: remove, fixed by upstream in 195.36.24
   * libcuda1.symbols: update for symbol changes in 195.xx
+  * debian/rules.defs, debian/rules: add variable/placeholder LEGACY
+    and new subst vars nvidia:Legacy and nvidia:LegacyDesc
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 

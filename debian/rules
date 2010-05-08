@@ -7,6 +7,7 @@ DEB_BUILD_ARCH		?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
 include debian/rules.defs
 version			 = $(NVIDIA_RELEASE)
+legacy			 = $(NVIDIA_LEGACY)
 url_x86			 = $(NVIDIA_URL_X86)
 url_x86_64		 = $(NVIDIA_URL_X86_64)
 filename_x86		 = $(NVIDIA_FILENAME_X86)
@@ -120,7 +121,8 @@ override_dh_bugfiles:
 	dh_bugfiles -A
 
 override_dh_gencontrol:
-	dh_gencontrol -- -V'nvidia:Version=$(version)'
+	dh_gencontrol -- -V'nvidia:Version=$(version)' -V'nvidia:Legacy=$(legacy)' \
+		-V'nvidia:LegacyDesc=$(if $(legacy), ($(subst -legacy-,,$(legacy)) legacy version))'
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
@@ -141,6 +143,7 @@ override_dh_strip:
 %:	%.in debian/rules.defs
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
+	-e 's{#LEGACY#}{$(legacy)}g;' \
 	-e 's{#URL_X86#}{$(url_x86)}g;' \
 	-e 's{#URL_X86_64#}{$(url_x86_64)}g;' \
 	< $< > $@
