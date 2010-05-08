@@ -110,7 +110,7 @@ nvidia-graphics-drivers (195.36.24-1) UNRELEASED; urgency=low
   * remove Randall Donald from Uploaders per his request
   * debian/control:
     - remove dependency on x11-common, probably remained from the X11R6 time
-    - reformat, syncronize, use more substvars
+    - reformat, synchronize, use more substvars
     - add Conflicts with nvidia-glx-legacy-* packages
     - reorder packages for better logical grouping
   * install the bug-script in all packages as well as in the binary modules
