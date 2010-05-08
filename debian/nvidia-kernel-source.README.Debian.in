@@ -164,8 +164,7 @@ An old nvidia.o might be already loaded (run 'lsmod' to check) so
 do 'rmmod nvidia.o' to remove the module from memory.
 
 
-For any news on this package check http://people.debian.org/~rdonald and
-http://bugs.debian.org/nvidia-kernel-source
+For any news on this package check http://bugs.debian.org/nvidia-kernel-source
 
 
  -- Randall Donald <rdonald@debian.org>, Fri, 30 Apr 2004 19:02:04 -0700

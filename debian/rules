@@ -100,9 +100,6 @@ override_dh_installchangelogs:
 override_dh_installinit:
 	dh_installinit -- start 20 2 3 4 5 .
 
-override_dh_compress:
-	dh_compress -X.h -X README.Debian
-
 override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)'
 

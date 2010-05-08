@@ -9,8 +9,7 @@ Welcome to the Debian NVIDIA packages. This document has notes on the
 X Server and GL libraries of the NVIDIA driver offering.
 
 
-For any news on this package check http://people.debian.org/~rdonald and
-http://bugs.debian.org/nvidia-glx
+For any news on this package check http://bugs.debian.org/nvidia-glx
 
 
 NOTES ABOUT GLX DRIVER AND OPENGL:
