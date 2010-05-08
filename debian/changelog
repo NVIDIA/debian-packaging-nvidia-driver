@@ -39,7 +39,7 @@ nvidia-graphics-drivers (195.36.24-1) UNRELEASED; urgency=low
     - drop versioned Depends/Build-Depends satisfied in lenny
     - drop Conflicts/Replaces for packages existing before lenny only
   * TLS cleanup: Debian only ships TLS enabled 2.6 kernels, so remove all
-    dynamic TLS checking and symlink updating code
+    dynamic TLS checking and symlink updating code (closes: #394085)
     - nvidia-glx.README.Debian: don't talk about TLS any longer
     - debian/nvidia-glx.init: remove (inactive) tls symlink adjusting code
     - debian/nvidia-glx.default: remove, no longer needed
