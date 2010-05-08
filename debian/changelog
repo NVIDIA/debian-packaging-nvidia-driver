@@ -2,6 +2,9 @@ nvidia-graphics-drivers (195.36.24-1) UNRELEASED; urgency=low
 
   [ Russ Allbery ]
   * New upstream release.  (Closes: #571674, #575457, #575550, #578589)
+  * Add an nvidia-kernel-dkms package which builds the kernel module using
+    DKMS and hence automatically does the right thing with kernel upgrades
+    (provided the module builds).  (Closes: #334848, #528758)
 
   [ Andreas Beckmann ]
   * do not ship empty directory in module package

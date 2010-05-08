@@ -7,7 +7,7 @@ Uploaders:
  Russ Allbery <rra@debian.org>,
 Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers
-Build-Depends: debhelper (>= 7.2.3~), libxext6, bzip2,
+Build-Depends: debhelper (>= 7.2.3~), libxext6, bzip2, dkms (>= 2.1.1.1),
  libc6-dev-i386 [amd64], lib32gcc1 [amd64], lib32z1 [amd64],
  ia32-libs (>= 20090804) [amd64]
 Standards-Version: 3.8.4
@@ -27,9 +27,9 @@ Description: NVIDIA binary Xorg driver
  OpenGL applications via a direct-rendering X Server.
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
  .
- Please see the nvidia-kernel-source package
- for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}.
+ Please see the nvidia-kernel-source or nvidia-kernel-dkms packages for
+ building the kernel module required by this package.  This will provide
+ nvidia-kernel-${nvidia:Version}.
  .
  This version only supports GeForce 6xxx and higher of the Geforce GPUs
  plus complimentary Quadros and nforce. Look at the legacy packages
@@ -74,6 +74,26 @@ Description: NVIDIA binary Xorg driver development files
  .
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
+
+Package: nvidia-kernel-dkms
+Section: non-free/kernel
+Architecture: i386 amd64
+Depends: ${misc:Depends}, dkms
+Recommends: nvidia-glx (>= ${nvidia:Version})
+Provides: nvidia-kernel-${nvidia:Version}
+Description: NVIDIA binary kernel module DKMS source
+ This package builds the NVIDIA Xorg binary kernel module needed by
+ nvidia-glx, using DKMS.  The kernel module will be built for your running
+ kernel and automatically rebuilt for any new kernels that are installed.
+ .
+ The NVIDIA binary drivers provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server for graphics cards
+ using NVIDIA chip sets.  AGP, PCIe, SLI, TV-out and flat panel displays
+ are also supported.
+ .
+ This version only supports GeForce 6xxx and higher of the Geforce GPUs
+ plus complimentary Quadros and nforce.  Look at the legacy packages for
+ older cards.
 
 Package: nvidia-kernel-source
 Section: non-free/kernel

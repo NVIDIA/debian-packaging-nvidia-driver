@@ -75,6 +75,15 @@ module-source-stamp: configure
 	tar cfvj nvidia-kernel.tar.bz2 -C debian/temp --owner=root --group=src \
 		--exclude '*.in' --exclude '.svn' modules
 	tar tfvj nvidia-kernel.tar.bz2
+
+	# Use the nvidia-kernel-source source to create the DKMS tree.
+	mkdir -p debian/nvidia-kernel-dkms/usr/src
+	mv debian/temp/modules/nvidia-kernel \
+	    debian/nvidia-kernel-dkms/usr/src/nvidia-$(version)
+	cd debian/nvidia-kernel-dkms/usr/src/nvidia-$(version) \
+	    && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a \
+	    && rm -rf .pc debian
+	dh_dkms -V $(version)
 	rm -rf debian/temp
 	touch $@
 
