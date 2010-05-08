@@ -5,13 +5,13 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
   * debian.binary/rules, debian.binary/install.template: use dh_install to
     install the module
   * debian.binary/rules: fix clean target if debian/control is missing and
-    cleanup ancient code
+    cleanup ancient code (closes: #241994, #295909, #460509)
   * update debian.binary/control.template using the copy from
     nvidia-graphics-modules-i386
   * include a copy of the NVIDIA changelog in the module packages built from
     nvidia-kernel-source
   * install the changelog from the nvidia-kernel-source package, too, if
-    building via nvidia-graphics-modules-*
+    building via nvidia-graphics-modules
   * nvidia-kernel-source: bump debhelper dependency to 7 to match module
     packaging templates
   * merge debian.binary/copyright with debian/copyright.in
@@ -203,7 +203,8 @@ nvidia-graphics-drivers (190.53-3) unstable; urgency=high
   * debian.binary/control.template: make module package depend on the
     corresponding linux-image (closes: #463403)
   * debian/*.NEWS: remove asterisks to make lintian happy
-  * nvidia-kernel-source: switch patch system from dpatch to quilt
+  * nvidia-kernel-source: switch patch system from dpatch to quilt (closes:
+    #479541)
   * debian.binary/patches/fix-2.6.33-build.patch: new patch to fix module
     build with kernel 2.6.33 (closes: #573251)
   * improve handling of generated files (closes: #533518)
