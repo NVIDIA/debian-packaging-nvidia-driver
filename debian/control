@@ -78,7 +78,7 @@ Description: NVIDIA binary Xorg driver development files
 Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64
-Depends: debhelper (>= 7), make, quilt (>= 0.46-7~),
+Depends: debhelper (>= 7.2.3~), make, quilt (>= 0.46-7~),
  module-assistant, ${misc:Depends}
 Recommends: nvidia-glx (>= ${nvidia:Version}), kernel-package, devscripts
 Description: NVIDIA binary kernel module source

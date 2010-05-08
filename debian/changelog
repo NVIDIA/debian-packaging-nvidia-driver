@@ -97,6 +97,8 @@ nvidia-graphics-drivers (190.53-5) UNRELEASED; urgency=low
     - reformat, syncronize, use more substvars
     - add Conflicts with nvidia-glx-legacy-* packages
     - reorder packages for better logical grouping
+  * install the bug-script in all packages as well as in the binary modules
+    packages built from nvidia-kernel-source
 
  -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
 

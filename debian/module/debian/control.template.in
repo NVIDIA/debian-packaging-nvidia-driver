@@ -3,7 +3,7 @@ Section: non-free/kernel
 Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Uploaders: Russ Allbery <rra@debian.org>
-Build-Depends: debhelper (>= 7)
+Build-Depends: debhelper (>= 7.2.3~), quilt (>= 0.46-7~), module-assistant
 Standards-Version: 3.8.4
 Homepage: http://www.nvidia.com/
 
