@@ -17,7 +17,7 @@ NOTES ABOUT GLX DRIVER AND OPENGL:
 
 Using the nvidia X driver requires some user modification. 
 
-	First, modify your /etc/X11/XF86Config-4 or /etc/X11/xorg.conf
+	First, modify your /etc/X11/xorg.conf
 
 	Minimum requirements:
 	In Section "Module"
@@ -33,8 +33,9 @@ Using the nvidia X driver requires some user modification.
 	Chapter 12: Configuring AGP is an important section.
 
 
-Also note all users using GLX must be in group video. (i.e. adduser <user>
-video)
+Also note all users using GLX must be in group video:
+
+        adduser <user> video
 
 
 

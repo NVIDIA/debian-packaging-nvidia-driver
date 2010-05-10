@@ -5,33 +5,52 @@ nvidia-graphics-drivers for Debian
 INTRODUCTION:
 -----------------------------------------------------------------------
 
-Welcome to Debian NVIDIA packages. This document contains notes on  the 
+Welcome to Debian NVIDIA packages. This document contains notes on the 
 kernel module interface for the NVIDIA driver offering.
 
 
 KERNEL MODULE INSTRUCTIONS:
 -----------------------------------------------------------------------
 
-There are TWO ways to build the nvidia-kernel package. Which one depends on
-your situation with your kernel.
+ METHOD #1: automatically, via dkms - Dynamic Kernel Module Support
 
- METHOD #1: You are running a Debian supplied kernel or built a 
+  * Easiest and recommended method.
+  * DKMS will take care of building a new module whenever the driver
+    or your kernel is updated.
+  * Install the package nvidia-kernel-dkms instead of
+    nvidia-kernel-source.
+  * STOP reading this file.
+
+ METHOD #2: manually, using module-assistant
+
+  * Requires a Debian supplied kernel or a kernel where you built a
+    corresponding linux-headers-KVERS package.
+  * Run this command every time your kernel or the driver was updated:
+        
+        module-assistant auto-install nvidia
+
+  * For more information on module-assistant, see its man page and package
+    documentation.
+  * STOP reading this file.
+
+There are TWO more ways to build the nvidia-kernel package manually / via
+make-kpkg.
+Which one depends on your situation with your kernel.
+
+ METHOD #3: You are running a Debian supplied kernel or built a 
     linux-headers package along with your own self-built kernel. 
 
- METHOD #2: You are running your own self-built kernel built from kernel
+ METHOD #4: You are running your own self-built kernel built from kernel
     source. 
 
 *** An additional method is to use module-assistant 
-(e.g. module-assistant auto-install nvidia)
-For more information on module-assistant, see it's man page and package
-documentation,
 
 Which method you choose really depends on what kernel headers you wish to
 use, those from a kernel-headers package or those from kernel
 source (from which you built your own kernel). 
 
 As mentioned above, if you are running a Debian supplied kernel you will
-probably want to choose METHOD #1. If you compile your own kernels, METHOD #2.
+probably want to choose METHOD #3. If you compile your own kernels, METHOD #4.
 
 
 
@@ -42,24 +61,14 @@ to build it under your home directory as some people prefer and writing to
 /usr violates the FHS. 
 
 
-SUPPORT FOR 2.6 KERNELS:
-------------------------
-As of 1.0.5336-1, NVIDIA includes support for a 2.6 kernel. No extra steps are
-required.
 
-
-HOTPLUG SUPPORT:
-------------------------
-As of version 1.0.5336-8 there is hotplug/udev module loading support provided.
-
-
-METHOD #1 Using a linux-headers or kernel-headers package
+METHOD #3 Using a linux-headers or kernel-headers package
 ***********************************************************************
 
 As root (or using fakeroot)
 1. cd /usr/src 
    tar xjvf nvidia-kernel.tar.bz2 -C <YOUR BUILD LOCATION>
-   (It will install in <YOU BUILD LOCATION>/modules) 
+   (It will install in <YOUR BUILD LOCATION>/modules) 
    - or -
    tar xjvf nvidia-kernel.tar.bz2  (if building in /usr/src) 
 
@@ -71,8 +80,6 @@ As root (or using fakeroot)
 
 3. Download and install package: linux-headers-2.6.14-2-k7
    It will install in /usr/src/
-   Note that packages prior to 2.6.12 used the kernel- prefix rather than
-   linux-
 
    Make sure your kernel image and headers have matching release numbers to
    avoid possible problems in packages built from different sources. 
@@ -101,9 +108,9 @@ deployed:
    dpkg -i ../nvidia-kernel-2.6.14-2-k7_#VERSION#-1+_.Custom_i386.deb
    ( or similar filename )
 
-Now see GENERAL NOTES below method #2
+Now see GENERAL NOTES below method #4
 
-METHOD #2: Using your own kernel source headers
+METHOD #4: Using your own kernel source headers
 ***********************************************************************
 
 To build the nvidia-kernel deb you need to first make sure you have
@@ -112,7 +119,7 @@ kernel-package installed, then do the following:
 As root
 1. cd /usr/src
    tar xjvf nvidia-kernel.tar.bz2 -C <YOUR BUILD LOCATION>
-   (It will install in <YOU BUILD LOCATION>/modules) 
+   (It will install in <YOUR BUILD LOCATION>/modules) 
    - or -
    tar xjvf nvidia-kernel.tar.bz2  (if building in /usr/src) 
 
@@ -160,8 +167,8 @@ video. You can do this with:
 Also note for AGP issues and further information please see the NVIDIA
 README file (README.gz) in the nvidia-glx package 
 
-An old nvidia.o might be already loaded (run 'lsmod' to check) so 
-do 'rmmod nvidia.o' to remove the module from memory.
+An old nvidia.ko might be already loaded (run 'lsmod' to check) so 
+do 'rmmod nvidia' to remove the module from memory.
 
 
 For any news on this package check http://bugs.debian.org/nvidia-kernel-source

@@ -82,9 +82,13 @@ Description: NVIDIA binary Xorg driver development files
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
-Depends: ${misc:Depends}, dkms
+Depends: ${misc:Depends}, dkms, nvidia-kernel-common
 Recommends: nvidia-glx (>= ${nvidia:Version})
 Provides: nvidia-kernel-${nvidia:Version}
+Conflicts:
+ nvidia-kernel-legacy-71xx-dkms,
+ nvidia-kernel-legacy-96xx-dkms,
+ nvidia-kernel-legacy-173xx-dkms,
 Description: NVIDIA binary kernel module DKMS source
  This package builds the NVIDIA Xorg binary kernel module needed by
  nvidia-glx, using DKMS.  The kernel module will be built for your running
