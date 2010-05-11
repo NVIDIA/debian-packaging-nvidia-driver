@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (195.36.24-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (195.36.24-1) unstable; urgency=low
 
   [ Russ Allbery ]
   * New upstream release.  (Closes: #571674, #575457, #575550, #578589)
@@ -133,7 +133,7 @@ nvidia-graphics-drivers (195.36.24-1) UNRELEASED; urgency=low
   * debian/rules.defs, debian/rules: add variable/placeholder LEGACY
     and new subst vars nvidia:Legacy and nvidia:LegacyDesc
 
- -- Russ Allbery <rra@debian.org>  Sat, 24 Apr 2010 20:35:20 -0700
+ -- Russ Allbery <rra@debian.org>  Mon, 10 May 2010 17:40:26 -0700
 
 nvidia-graphics-drivers (190.53-4) unstable; urgency=high
 
