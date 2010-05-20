@@ -1,4 +1,0 @@
-libvdpau.so.1 nvidia-libvdpau1 #MINVER#
- NV_VDPAU_WRAPPER_ID@Base 180.06
- pNV_VDPAU_WRAPPER_ID@Base 180.06
- vdp_device_create_x11@Base 180.06

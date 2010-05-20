@@ -1,3 +1,0 @@
-# The NVIDIA license does not allow any form of modification.
-nvidia-libvdpau1: binary-has-unneeded-section
-nvidia-libvdpau1: shlib-without-PT_GNU_STACK-section

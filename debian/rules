@@ -18,7 +18,6 @@ dirname_x86_64		 = $(NVIDIA_DIRNAME_X86_64)
 TEMPLATES	:= $(wildcard debian/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/libcuda1-ia32.symbols
-AUTOGEN		+= debian/nvidia-libvdpau1-ia32.symbols
 AUTOGEN		+= debian/module/debian/control.template
 AUTOGEN		+= debian/module/debian/changelog
 AUTOKEEP	 = debian/copyright
@@ -148,9 +147,6 @@ override_dh_strip:
 
 debian/module/debian/changelog: debian/changelog
 	sed 's/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@
-
-debian/nvidia-libvdpau1-ia32.symbols: debian/nvidia-libvdpau1.symbols.i386
-	sed 's/nvidia-libvdpau1/nvidia-libvdpau1-ia32/g' $< > $@
 
 debian/libcuda1-ia32.symbols: debian/libcuda1.symbols
 	sed 's/libcuda1/libcuda1-ia32/g' $< > $@

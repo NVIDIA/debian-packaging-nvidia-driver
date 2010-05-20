@@ -129,69 +129,48 @@ Description: NVIDIA binary kernel module source
  installed via DKMS, install nvidia-kernel-dkms instead.
 
 Package: nvidia-libvdpau1
-Section: non-free/libs
+Section: non-free/oldlibs
 Architecture: i386 amd64
-Depends: nvidia-vdpau-driver (>= ${nvidia:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}
-Suggests:
- nvidia-kernel-source (>= ${nvidia:Version})
- | nvidia-kernel-dkms (>= ${nvidia:Version})
-Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau
-Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau
-Description: NVIDIA vdpau libraries
+Depends: nvidia-vdpau-driver (>= ${nvidia:Version}), libvdpau1,
+ ${misc:Depends}
+Description: NVIDIA vdpau libraries (transitional package)
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
  graphics cards.
  .
- This package contains the VDPAU wrapper and trace libraries.
- .
- See /usr/share/doc/nvidia-vdpau-driver/README.txt.gz
- for more information.
+ This is a transitional dummy package depending on the free version of the
+ VDPAU wrapper and trace libraries.
 
 Package: nvidia-libvdpau1-ia32
-Section: non-free/libs
+Section: non-free/oldlibs
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: nvidia-vdpau-driver-ia32 (>= ${nvidia:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}
-Suggests:
- nvidia-kernel-source (>= ${nvidia:Version})
- | nvidia-kernel-dkms (>= ${nvidia:Version})
-Replaces: nvidia-glx-ia32 (<< 180.51), nvidia-libvdpau-ia32,
- nvidia-vdpau-driver-ia32 (<< 190.53-3)
-Conflicts: nvidia-glx-ia32 (<< 180.51), nvidia-libvdpau-ia32,
- nvidia-vdpau-driver-ia32 (<< 190.53-3)
-Description: NVIDIA vdpau 32-bit libraries
+Depends: nvidia-vdpau-driver-ia32 (>= ${nvidia:Version}), lib32vdpau1,
+ ${misc:Depends}
+Description: NVIDIA vdpau 32-bit libraries (transitional package)
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
  graphics cards.
  .
- This package contains the VDPAU wrapper and trace libraries (32-bit).
- .
- See /usr/share/doc/nvidia-vdpau-driver-ia32/README.txt.gz
- for more information.
+ This is a transitional dummy package depending on the free version of the
+ VDPAU wrapper and trace libraries (32-bit).
 
 Package: nvidia-libvdpau-dev
-Section: non-free/libdevel
+Section: non-free/oldlibs
 Architecture: i386 amd64
-Depends: nvidia-libvdpau1 (= ${binary:Version}), ${misc:Depends}
-Conflicts: nvidia-glx-dev (<< 180.51)
-Provides: nvidia-libvdpau1-dev
-Replaces: nvidia-libvdpau, nvidia-glx-dev (<< 180.51)
-Description: NVIDIA vdpau development files
+Depends: libvdpau-dev, ${misc:Depends}
+Description: NVIDIA vdpau development files (transitional package)
  The NVIDIA Video Decode and Presentation API for Unix (VDPAU) provides a
  complete solution for decoding, post-processing, compositing, and displaying
  compressed or uncompressed video streams.
  .
- This package contains the VDPAU development files.
+ This is a transitional dummy package depending on the free version of the
+ VDPAU development files.
 
 Package: nvidia-vdpau-driver
 Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends},
- libvdpau1 | nvidia-libvdpau1
+ libvdpau1
 Recommends: nvidia-kernel-${nvidia:Version}
 Enhances: libvdpau1
 Suggests:
@@ -216,7 +195,7 @@ Package: nvidia-vdpau-driver-ia32
 Section: non-free/libs
 Architecture: amd64
 Depends: ${shlibs:Depends}, ${misc:Depends},
- lib32vdpau1 | nvidia-libvdpau1-ia32
+ lib32vdpau1
 Recommends: nvidia-kernel-${nvidia:Version}
 Enhances: lib32vdpau1
 Suggests:
