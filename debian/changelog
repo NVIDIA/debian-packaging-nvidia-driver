@@ -8,6 +8,9 @@ nvidia-graphics-drivers (195.36.24-2) UNRELEASED; urgency=low
     no need to have a non-free variant of the wrapper library that uses a
     different search path and would require additional compatibility symlinks
     (closes: #581570, #561108, #570390, #578881, #581827, 581828)
+  * nvidia-kernel-{dkms,source}: temporarily add conflicts with binutild-gold
+    from experimental, currently modules linked with gold cause kernel oops
+    while loading (see: #581336)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 20 May 2010 09:52:43 +0200
 
