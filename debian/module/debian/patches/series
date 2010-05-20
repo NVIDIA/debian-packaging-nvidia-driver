@@ -1,2 +1,3 @@
+NVIDIA_kernel-195.36.24-682377.diff
 select-nv-kernel.o.ARCH.patch
 conditionally-include-linux_version.h.patch
