@@ -2,12 +2,12 @@ nvidia-graphics-drivers (195.36.24-2) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
   * add upstream patch NVIDIA_kernel-195.36.24-682377.diff to fix support for
-    more than one GPU with kernel 2.6.32 (closes: 566874)
+    more than one GPU with kernel 2.6.32 (closes: #566874)
   * nvidia-glx: add Recommends: nvidia-vdpau-driver
   * make nvidia-libvdpau* transitional packages that pull libvdpau* instead,
     no need to have a non-free variant of the wrapper library that uses a
     different search path and would require additional compatibility symlinks
-    (closes: #581570, #561108, #570390, #578881, #581827, 581828)
+    (closes: #581570, #561108, #570390, #578881, #581827, #581828)
   * nvidia-kernel-{dkms,source}: temporarily add conflicts with binutild-gold
     from experimental, currently modules linked with gold cause kernel oops
     while loading (see: #581336)
