@@ -26,6 +26,8 @@ nvidia-graphics-drivers (195.36.24-2) UNRELEASED; urgency=low
   * debian/nvidia-{glx,kernel}*.in: add #LEGACY# where appropriate
   * debian/rules: automatically rename control files when building legacy
     packages
+  * debian/rules: add new substitution placeholders #!i386#, #!amd64# that are
+    substituted with '#' on the respective architecture and '' elsewhere
 
   [ Jordi Pujol ]
   * simplify installation by using debian/tmp as intermediate directory
