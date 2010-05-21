@@ -2,9 +2,9 @@
 nvidia-glx#LEGACY#: binary-has-unneeded-section
 nvidia-glx#LEGACY#: embedded-libpng
 nvidia-glx#LEGACY#: shared-lib-without-dependency-information
-nvidia-glx#LEGACY#: shlib-with-executable-stack
-nvidia-glx#LEGACY#: shlib-with-non-pic-code
-nvidia-glx#LEGACY#: shlib-without-PT_GNU_STACK-section
+#!i386#nvidia-glx#LEGACY#: shlib-with-executable-stack
+#!amd64#nvidia-glx#LEGACY#: shlib-with-non-pic-code
+#!amd64#nvidia-glx#LEGACY#: shlib-without-PT_GNU_STACK-section
 nvidia-glx#LEGACY#: spelling-error-in-binary
 
 # We divert a bunch of files not provided by this package to ensure that
