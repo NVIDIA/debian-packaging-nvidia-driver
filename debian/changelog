@@ -12,6 +12,8 @@ nvidia-graphics-drivers (195.36.24-2) UNRELEASED; urgency=low
     from experimental, currently modules linked with gold cause kernel oops
     while loading (see: #581336)
   * add bug-control script to collect more information about related packages
+  * nvidia-vdpau-driver: cleanup /usr/lib/libvdpau_nvidia.so left over by some
+    old versions of the nvidia-libvdpau* packages
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 20 May 2010 09:52:43 +0200
 
