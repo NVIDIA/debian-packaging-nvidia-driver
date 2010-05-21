@@ -287,3 +287,32 @@ Description: NVIDIA CUDA development files
  For more information on this source package visit NVIDIA's CUDA Zone
  at http://www.nvidia.com/CUDA .
 
+Package: libnvidia-compiler1
+Section: non-free/libs
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ libcuda1 (= ${binary:Version}),
+Description: NVIDIA runtime compiler library
+ The Compute Unified Device Architecture (CUDA) enables NVIDIA
+ graphics processing units (GPUs) to be used for massively parallel
+ general purpose computation.
+ .
+ This package contains the runtime compiler library.
+ .
+ It's currently unclear when libcuda.so needs this library.
+
+Package: libnvidia-compiler1-ia32
+Section: non-free/libs
+Architecture: amd64
+Pre-Depends: libc6-i386 (>= 2.9-18)
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ libcuda1-ia32 (= ${binary:Version}),
+Description: NVIDIA runtime compiler library (32-bit)
+ The Compute Unified Device Architecture (CUDA) enables NVIDIA
+ graphics processing units (GPUs) to be used for massively parallel
+ general purpose computation.
+ .
+ This package contains the runtime compiler library (32-bit).
+ .
+ It's currently unclear when libcuda.so needs this library.
+

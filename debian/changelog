@@ -17,6 +17,8 @@ nvidia-graphics-drivers (195.36.24-2) UNRELEASED; urgency=low
   * nvidia-glx: cleanup /etc/default/nvidia-glx.dpkg-new that might be left
     over from previous upgrades
   * run dh_install --list-missing
+  * package libnvidia-compiler.so.*: new packages libnvidia-compiler1,
+    libnvidia-compiler1-ia32
 
   [ Jordi Pujol ]
   * simplify installation by using debian/tmp as intermediate directory
