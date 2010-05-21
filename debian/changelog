@@ -22,6 +22,7 @@ nvidia-graphics-drivers (195.36.24-2) UNRELEASED; urgency=low
   * add packages for NVIDIA OpenCL support via installable client driver
     (ICD): nvidia-opencl-common, nvidia-opencl-icd, nvidia-opencl-icd-ia32,
     nvidia-libopencl1, nvidia-libopencl1-ia32, nvidia-libopencl1-dev
+  * module source tarball generation: add legacy support
 
   [ Jordi Pujol ]
   * simplify installation by using debian/tmp as intermediate directory

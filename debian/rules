@@ -24,9 +24,9 @@ AUTOGEN		+= debian/module/debian/changelog
 AUTOKEEP	 = debian/copyright
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
-module_source	 = debian/nvidia-kernel-source/usr/src/modules/nvidia-kernel
+module_source	 = debian/nvidia-kernel$(legacy)-source/usr/src/modules/nvidia-kernel$(legacy)
 module_tbz	 = $(subst /modules/,/,$(module_source)).tar.bz2
-dkms_source	 = debian/nvidia-kernel-dkms/usr/src/nvidia-$(version)
+dkms_source	 = debian/nvidia-kernel$(legacy)-dkms/usr/src/nvidia-$(version)
 
 .PHONY: autogen configure
 autogen: $(AUTOGEN)
@@ -154,7 +154,7 @@ override_dh_strip:
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog
-	sed 's/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@
+	sed 's/^nvidia-graphics-drivers/nvidia-kernel$(legacy)/g' $< > $@
 
 debian/libcuda1-ia32.symbols: debian/libcuda1.symbols
 	sed 's/libcuda1/libcuda1-ia32/g' $< > $@
