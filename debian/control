@@ -316,3 +316,91 @@ Description: NVIDIA runtime compiler library (32-bit)
  .
  It's currently unclear when libcuda.so needs this library.
 
+Package: nvidia-opencl-common
+Section: non-free/libs
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends},
+Recommends: nvidia-opencl-icd | nvidia-opencl-icd-ia32
+Description: NVIDIA OpenCL driver
+ OpenCL (Open Computing Language) is a multivendor open standard for
+ general-purpose parallel programming of heterogeneous systems that include
+ CPUs, GPUs and other processors.
+ .
+ This package provides the common files for the NVIDIA installable client
+ driver (ICD) for OpenCL.
+
+Package: nvidia-opencl-icd
+Section: non-free/libs
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ nvidia-opencl-common,
+ libopencl1,
+ libcuda1 (>= 195)
+Enhances: libopencl1
+Provides: opencl-icd
+Description: NVIDIA OpenCL ICD
+ OpenCL (Open Computing Language) is a multivendor open standard for
+ general-purpose parallel programming of heterogeneous systems that include
+ CPUs, GPUs and other processors.
+ .
+ This package provides the NVIDIA installable client driver (ICD) for OpenCL.
+
+Package: nvidia-opencl-icd-ia32
+Section: non-free/libs
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ nvidia-opencl-common,
+ lib32opencl1,
+ libcuda1-ia32 (>= 195)
+Enhances: lib32opencl1
+Provides: opencl-icd
+Description: NVIDIA OpenCL ICD (32-bit)
+ OpenCL (Open Computing Language) is a multivendor open standard for
+ general-purpose parallel programming of heterogeneous systems that include
+ CPUs, GPUs and other processors.
+ .
+ This package provides the 32-bit NVIDIA installable client driver (ICD) for
+ OpenCL.
+
+Package: nvidia-libopencl1
+Section: non-free/libs
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends},
+Provides: libopencl1
+Recommends: opencl-icd | nvidia-opencl-icd
+Description: NVIDIA OpenCL library
+ OpenCL (Open Computing Language) is a multivendor open standard for
+ general-purpose parallel programming of heterogeneous systems that include
+ CPUs, GPUs and other processors.
+ .
+ This package contains the installable client driver loader (ICD Loader)
+ library provided by NVIDIA.
+
+Package: nvidia-libopencl1-ia32
+Section: non-free/libs
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends},
+Provides: lib32opencl1
+Recommends: opencl-icd | nvidia-opencl-icd-ia32
+Description: NVIDIA OpenCL 32-bit library
+ OpenCL (Open Computing Language) is a multivendor open standard for
+ general-purpose parallel programming of heterogeneous systems that include
+ CPUs, GPUs and other processors.
+ .
+ This package contains the installable client driver loader (ICD Loader)
+ 32-bit library provided by NVIDIA.
+
+Package: nvidia-libopencl1-dev
+Section: non-free/libdevel
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ nvidia-libopencl1
+Provides: libopencl1-dev
+Description: NVIDIA OpenCL development files
+ OpenCL (Open Computing Language) is a multivendor open standard for
+ general-purpose parallel programming of heterogeneous systems that include
+ CPUs, GPUs and other processors.
+ .
+ This package contains the development files for the installable client driver
+ loader (ICD Loader) library provided by NVIDIA.
+

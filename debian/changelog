@@ -19,6 +19,9 @@ nvidia-graphics-drivers (195.36.24-2) UNRELEASED; urgency=low
   * run dh_install --list-missing
   * package libnvidia-compiler.so.*: new packages libnvidia-compiler1,
     libnvidia-compiler1-ia32
+  * add packages for NVIDIA OpenCL support via installable client driver
+    (ICD): nvidia-opencl-common, nvidia-opencl-icd, nvidia-opencl-icd-ia32,
+    nvidia-libopencl1, nvidia-libopencl1-ia32, nvidia-libopencl1-dev
 
   [ Jordi Pujol ]
   * simplify installation by using debian/tmp as intermediate directory

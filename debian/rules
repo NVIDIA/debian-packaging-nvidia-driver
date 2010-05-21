@@ -18,6 +18,7 @@ dirname_x86_64		 = $(NVIDIA_DIRNAME_X86_64)
 TEMPLATES	:= $(wildcard debian/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/libcuda1-ia32.symbols
+AUTOGEN		+= debian/nvidia-libopencl1-ia32.symbols
 AUTOGEN		+= debian/module/debian/control.template
 AUTOGEN		+= debian/module/debian/changelog
 AUTOKEEP	 = debian/copyright
@@ -157,6 +158,9 @@ debian/module/debian/changelog: debian/changelog
 
 debian/libcuda1-ia32.symbols: debian/libcuda1.symbols
 	sed 's/libcuda1/libcuda1-ia32/g' $< > $@
+
+debian/nvidia-libopencl1-ia32.symbols: debian/nvidia-libopencl1.symbols
+	sed 's/libopencl1/libopencl1-ia32/g' $< > $@
 
 
 .PHONY: get-orig-source
