@@ -1,22 +1,22 @@
 # The NVIDIA license does not allow any form of modification.
-nvidia-glx: binary-has-unneeded-section
-nvidia-glx: embedded-libpng
-nvidia-glx: shared-lib-without-dependency-information
-nvidia-glx: shlib-with-executable-stack
-nvidia-glx: shlib-with-non-pic-code
-nvidia-glx: shlib-without-PT_GNU_STACK-section
-nvidia-glx: spelling-error-in-binary
+nvidia-glx#LEGACY#: binary-has-unneeded-section
+nvidia-glx#LEGACY#: embedded-libpng
+nvidia-glx#LEGACY#: shared-lib-without-dependency-information
+nvidia-glx#LEGACY#: shlib-with-executable-stack
+nvidia-glx#LEGACY#: shlib-with-non-pic-code
+nvidia-glx#LEGACY#: shlib-without-PT_GNU_STACK-section
+nvidia-glx#LEGACY#: spelling-error-in-binary
 
 # We divert a bunch of files not provided by this package to ensure that
 # programs don't pick up the wrong libGL by mistake.
-nvidia-glx: diversion-for-unknown-file
+nvidia-glx#LEGACY#: diversion-for-unknown-file
 
 # The diversions are placed here.
-nvidia-glx: package-contains-empty-directory usr/lib/nvidia/
+nvidia-glx#LEGACY#: package-contains-empty-directory usr/lib/nvidia/
 
 # Packages built against the NVIDIA libGL should declare dependencies on
 # the free version for Debian's purposes.
-nvidia-glx: shlibs-declares-dependency-on-other-package libgl1-mesa-glx | libgl1
+nvidia-glx#LEGACY#: shlibs-declares-dependency-on-other-package libgl1-mesa-glx | libgl1
 
 # Referenced by upstream documentation.
-nvidia-glx: script-with-language-extension usr/bin/nvidia-bug-report.sh
+nvidia-glx#LEGACY#: script-with-language-extension usr/bin/nvidia-bug-report.sh

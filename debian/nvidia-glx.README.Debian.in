@@ -1,4 +1,4 @@
-nvidia-graphics-drivers for Debian
+nvidia-graphics-drivers#LEGACY# for Debian
 ----------------------------------
 
 
@@ -9,7 +9,8 @@ Welcome to the Debian NVIDIA packages. This document has notes on the
 X Server and GL libraries of the NVIDIA driver offering.
 
 
-For any news on this package check http://bugs.debian.org/nvidia-glx
+For any news on this package check
+http://bugs.debian.org/nvidia-glx#LEGACY#
 
 
 NOTES ABOUT GLX DRIVER AND OPENGL:
@@ -27,8 +28,8 @@ Using the nvidia X driver requires some user modification.
 	In Section "Device"
 	   Change Driver "nv" to Driver "nvidia"
 	
-	See /usr/share/doc/nvidia-glx/README.txt.gz and
-	/usr/share/doc/nvidia-glx/examples/XF86Config.sample.gz
+	See /usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz and
+	/usr/share/doc/nvidia-glx#LEGACY#/examples/XF86Config.sample.gz
 	for descriptions of all supported options. 
 	Chapter 12: Configuring AGP is an important section.
 

@@ -23,6 +23,7 @@ nvidia-graphics-drivers (195.36.24-2) UNRELEASED; urgency=low
     (ICD): nvidia-opencl-common, nvidia-opencl-icd, nvidia-opencl-icd-ia32,
     nvidia-libopencl1, nvidia-libopencl1-ia32, nvidia-libopencl1-dev
   * module source tarball generation: add legacy support
+  * debian/nvidia-{glx,kernel}*.in: add #LEGACY# where appropriate
 
   [ Jordi Pujol ]
   * simplify installation by using debian/tmp as intermediate directory
