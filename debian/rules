@@ -39,7 +39,6 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 	sh ${filename_x86_64} --extract-only
 	ln -s ${dirname_x86} NVIDIA-Linux-i386
 	ln -s ${dirname_x86_64} NVIDIA-Linux-amd64
-	ln -s NVIDIA-Linux-$(DEB_BUILD_ARCH) NVIDIA-Linux
 	ls -al
 	touch $@
 
@@ -49,7 +48,7 @@ binary binary-arch binary-indep build clean install:
 	dh $@
 
 override_dh_auto_clean:
-	rm -f NVIDIA-Linux NVIDIA-Linux-i386 NVIDIA-Linux-amd64
+	rm -f NVIDIA-Linux-i386 NVIDIA-Linux-amd64
 	rm -fr $(dirname_x86) $(dirname_x86_64)
 	rm -fr debian/temp
 
@@ -64,9 +63,13 @@ override_dh_auto_configure: configure
 #  - module-assistant and make-kpkg
 #  - dkms
 override_dh_auto_install:
+	# "Install" into debian/tmp.
+	cp -al NVIDIA-Linux-$(DEB_BUILD_ARCH)/ debian/tmp
+
+	# Build the nvidia-kernel-source tree.
 	mkdir -p $(module_source)
-	cp -a NVIDIA-Linux/usr/src/nv/* $(module_source)/
-	cp -a NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog $(module_source)/
+	mv debian/tmp/usr/src/nv/* $(module_source)/
+	cp -a debian/tmp/usr/share/doc/NVIDIA_Changelog $(module_source)/
 
 	# We don't want these makefiles that don't work with kbuild.
 	rm $(module_source)/makefile
@@ -109,8 +112,11 @@ override_dh_auto_install:
 	ls -la $(dkms_source)
 	dh_dkms -V $(version)
 
+override_dh_install:
+	dh_install --list-missing
+
 override_dh_installchangelogs:
-	dh_installchangelogs NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog
+	dh_installchangelogs debian/tmp/usr/share/doc/NVIDIA_Changelog
 
 override_dh_installinit:
 	dh_installinit -- start 20 2 3 4 5 .

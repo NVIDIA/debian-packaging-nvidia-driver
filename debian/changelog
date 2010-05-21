@@ -16,6 +16,7 @@ nvidia-graphics-drivers (195.36.24-2) UNRELEASED; urgency=low
     old versions of the nvidia-libvdpau* packages
   * nvidia-glx: cleanup /etc/default/nvidia-glx.dpkg-new that might be left
     over from previous upgrades
+  * run dh_install --list-missing
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 20 May 2010 09:52:43 +0200
 
