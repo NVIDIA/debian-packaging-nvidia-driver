@@ -48,6 +48,11 @@ case "$1" in
         if dpkg --compare-versions "$2" lt-nl 195.36.24-1 ; then
             rm_conffile /etc/default/nvidia-glx
         fi 
+        if dpkg --compare-versions "$2" lt-nl 195.36.24-2 ; then
+	    if [ -f /etc/default/nvidia-glx.dpkg-new ]; then
+		rm -f /etc/default/nvidia-glx.dpkg-new
+	    fi
+	fi
 	# </target: squeeze>
 
         # <target: squeeze>

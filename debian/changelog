@@ -14,6 +14,8 @@ nvidia-graphics-drivers (195.36.24-2) UNRELEASED; urgency=low
   * add bug-control script to collect more information about related packages
   * nvidia-vdpau-driver: cleanup /usr/lib/libvdpau_nvidia.so left over by some
     old versions of the nvidia-libvdpau* packages
+  * nvidia-glx: cleanup /etc/default/nvidia-glx.dpkg-new that might be left
+    over from previous upgrades
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 20 May 2010 09:52:43 +0200
 
