@@ -1,1 +1,1 @@
-NVIDIA-Linux/usr/lib/libcuda.so.#VERSION#	usr/lib
+usr/lib/libcuda.so.#VERSION#

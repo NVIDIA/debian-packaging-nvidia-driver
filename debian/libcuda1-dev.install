@@ -1,2 +1,2 @@
-NVIDIA-Linux/usr/include/cuda/cuda.h		/usr/include/cuda
-NVIDIA-Linux/usr/include/cuda/cudaGL.h		/usr/include/cuda
+usr/include/cuda/cuda.h
+usr/include/cuda/cudaGL.h
