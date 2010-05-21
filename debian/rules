@@ -15,12 +15,19 @@ filename_x86_64		 = $(NVIDIA_FILENAME_X86_64)
 dirname_x86		 = $(NVIDIA_DIRNAME_X86)
 dirname_x86_64		 = $(NVIDIA_DIRNAME_X86_64)
 
+ALL_CONTROL	:= $(wildcard debian/nvidia-glx* debian/nvidia-kernel*)
+LEGACY_CONTROL	:= $(wildcard debian/nvidia-glx$(legacy)* debian/nvidia-kernel$(legacy)*)
+RENAME_CONTROL	 = $(filter-out $(LEGACY_CONTROL),$(ALL_CONTROL))
+RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
+			$(patsubst debian/nvidia-kernel%,debian/nvidia-kernel$(legacy)%,\
+				$(RENAME_CONTROL)))
 TEMPLATES	:= $(wildcard debian/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/libcuda1-ia32.symbols
 AUTOGEN		+= debian/nvidia-libopencl1-ia32.symbols
 AUTOGEN		+= debian/module/debian/control.template
 AUTOGEN		+= debian/module/debian/changelog
+AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOKEEP	 = debian/copyright
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
@@ -161,6 +168,15 @@ debian/libcuda1-ia32.symbols: debian/libcuda1.symbols
 
 debian/nvidia-libopencl1-ia32.symbols: debian/nvidia-libopencl1.symbols
 	sed 's/libopencl1/libopencl1-ia32/g' $< > $@
+
+# Renaming control files for legacy packaging
+ifneq (,$(legacy))
+nvidia-glx$(legacy)%: nvidia-glx%
+	cp -a $< $@
+
+nvidia-kernel$(legacy)%: nvidia-kernel%
+	cp -a $< $@
+endif
 
 
 .PHONY: get-orig-source
