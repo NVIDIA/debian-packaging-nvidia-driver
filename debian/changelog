@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (195.36.24-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (195.36.24-2) unstable; urgency=low
 
   [ Andreas Beckmann ]
   * add upstream patch NVIDIA_kernel-195.36.24-682377.diff to fix support for
@@ -38,7 +38,7 @@ nvidia-graphics-drivers (195.36.24-2) UNRELEASED; urgency=low
     the kernel header package installed for DKMS modules to automatically
     be built.  (Closes: #581963)
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 20 May 2010 09:52:43 +0200
+ -- Russ Allbery <rra@debian.org>  Sat, 22 May 2010 19:29:59 -0700
 
 nvidia-graphics-drivers (195.36.24-1) unstable; urgency=low
 
