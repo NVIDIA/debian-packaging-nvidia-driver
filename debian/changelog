@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
+
+  * Tighten the dependency on debhelper since we rely on current debhelper
+    behavior with handling architecture-specific packages.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
+
 nvidia-graphics-drivers (195.36.24-2) unstable; urgency=low
 
   [ Andreas Beckmann ]
