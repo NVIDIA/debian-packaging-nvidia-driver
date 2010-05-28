@@ -6,6 +6,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
   * ship missing symlink /usr/lib/tls/libnvidia-tls.so.1
+  * bug-control: report package-status: linux-headers-2.6
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 
