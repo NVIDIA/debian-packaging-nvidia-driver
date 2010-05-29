@@ -16,7 +16,8 @@ KERNEL MODULE INSTRUCTIONS:
 
   * Easiest and recommended method.
   * DKMS will take care of building a new module whenever the driver
-    or your kernel is updated.
+    or your kernel headers are updated.
+  * Install the linux-headers-* package matching your kernel.
   * Install the package nvidia-kernel#LEGACY#-dkms instead of
     nvidia-kernel#LEGACY#-source.
   * STOP reading this file.
@@ -31,6 +32,9 @@ KERNEL MODULE INSTRUCTIONS:
 
   * For more information on module-assistant, see its man page and package
     documentation.
+  * Additional debug information can be printed by running
+        export KBUILD_VERBOSE=1
+    before starting the build.
   * STOP reading this file.
 
 There are TWO more ways to build the nvidia-kernel package manually / via
@@ -42,8 +46,6 @@ Which one depends on your situation with your kernel.
 
  METHOD #4: You are running your own self-built kernel built from kernel
     source. 
-
-*** An additional method is to use module-assistant 
 
 Which method you choose really depends on what kernel headers you wish to
 use, those from a kernel-headers package or those from kernel
@@ -62,7 +64,7 @@ to build it under your home directory as some people prefer and writing to
 
 
 
-METHOD #3 Using a linux-headers or kernel-headers package
+METHOD #3 Using a linux-headers package
 ***********************************************************************
 
 As root (or using fakeroot)
