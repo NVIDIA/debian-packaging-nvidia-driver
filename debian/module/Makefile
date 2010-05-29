@@ -49,11 +49,11 @@ ifdef RUNNING_REL
 
 BOOTVERSION_PREFIX = /boot/vmlinuz.
 
-V := $(shell if [ -f $(BOOTVERSION_PREFIX)version.h ]; then \
+VV := $(shell if [ -f $(BOOTVERSION_PREFIX)version.h ]; then \
 	grep UTS_RELEASE $(BOOTVERSION_PREFIX)version.h | \
 	cut -d' ' -f3; fi)
 
-ifeq ($(V),"$(RUNNING_REL)")
+ifeq ($(VV),"$(RUNNING_REL)")
 HEADERFROMBOOT := 1
 GETCONFIG := MAKEFILES=$(shell /bin/pwd)/.config
 HAVECONFIG := y
