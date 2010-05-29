@@ -3,7 +3,7 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-DEB_BUILD_ARCH		?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
+DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 
 include debian/rules.defs
 version			 = $(NVIDIA_RELEASE)
@@ -72,7 +72,7 @@ override_dh_auto_configure: configure
 #  - dkms
 override_dh_auto_install:
 	# "Install" into debian/tmp.
-	cp -al NVIDIA-Linux-$(DEB_BUILD_ARCH)/ debian/tmp
+	cp -al NVIDIA-Linux-$(DEB_HOST_ARCH)/ debian/tmp
 
 	# Build the nvidia-kernel-source tree.
 	mkdir -p $(module_source)
@@ -158,8 +158,8 @@ override_dh_strip:
 	-e 's{#LEGACY#}{$(legacy)}g;' \
 	-e 's{#URL_X86#}{$(url_x86)}g;' \
 	-e 's{#URL_X86_64#}{$(url_x86_64)}g;' \
-	-e 's{#!i386#}{$(if $(filter i386,$(DEB_BUILD_ARCH)),#)}g;' \
-	-e 's{#!amd64#}{$(if $(filter amd64,$(DEB_BUILD_ARCH)),#)}g;' \
+	-e 's{#!i386#}{$(if $(filter i386,$(DEB_HOST_ARCH)),#)}g;' \
+	-e 's{#!amd64#}{$(if $(filter amd64,$(DEB_HOST_ARCH)),#)}g;' \
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog

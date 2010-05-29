@@ -10,6 +10,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * debian/module/debian/rules: fix the clean: target to find the kernel
     config
   * nvidia-kernel-source.README.Debian: clarify and add m-a debug hint
+  * debian/rules: use DEB_HOST_ARCH instead of DEB_BUILD_ARCH
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 
