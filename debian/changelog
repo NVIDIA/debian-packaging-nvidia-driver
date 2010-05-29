@@ -12,6 +12,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * nvidia-kernel-source.README.Debian: clarify and add m-a debug hint
   * debian/rules: use DEB_HOST_ARCH instead of DEB_BUILD_ARCH
   * bump nvidia-kernel-common versioned dependency to 20100522
+  * debian/changelog: update packaging copyright, use gpl2+
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 

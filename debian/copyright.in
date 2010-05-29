@@ -14,12 +14,17 @@ distribution because the NVIDIA Software License covering it is not a free
 software license.  No modifications of the included binaries are
 permitted, and the binaries are not distributed with source code.
 
-Copyright: 1993-2009 NVIDIA Corporation.  All rights reserved.
+Copyright: 1993-2010 NVIDIA Corporation.  All rights reserved.
 
-Packaging Scripts Copyright (c) 2003 Randall Donald <rdonald@debian.org>
-Based on packages by Christopher Cheney 
-These scripts are covered under the GNU GPL, the text of the license
-is available here /usr/share/common-licenses/GPL .
+Files: debian/*
+Copyright: 2001-2010 Randall Donald <rdonald@debian.org>
+           2009-2010 Andreas Beckmann <debian@abeckmann.de>
+           2010 Russ Allbery <rra@debian.org>
+           Based on packages by Christopher Cheney.
+License: GPL-2+
+ The Debian packaging is released under the GNU GPL version 2 or later.
+ The text of the license is available in /usr/share/common-licenses/GPL-2
+ on Debian systems.
 
 
 First a note from the README file
