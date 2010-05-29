@@ -91,6 +91,7 @@ Conflicts:
  nvidia-kernel-legacy-96xx-dkms,
  nvidia-kernel-legacy-173xx-dkms,
  binutils-gold (>> 2.20.51),
+ ccache (<< 3.0~),
 Description: NVIDIA binary kernel module DKMS source
  This package builds the NVIDIA Xorg binary kernel module needed by
  nvidia-glx, using DKMS.  Provided that you have the kernel header
@@ -115,6 +116,7 @@ Recommends: module-assistant | kernel-package,
  nvidia-glx (>= ${nvidia:Version}), nvidia-kernel-common
 Conflicts:
  binutils-gold (>> 2.20.51),
+ ccache (<< 3.0~),
 Description: NVIDIA binary kernel module source
  This package provides the source for the NVIDIA Xorg binary kernel module
  needed by nvidia-glx in a form suitable for use by module-assistant or
