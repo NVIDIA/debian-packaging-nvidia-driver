@@ -83,7 +83,7 @@ Description: NVIDIA binary Xorg driver development files
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
-Depends: ${misc:Depends}, dkms, nvidia-kernel-common
+Depends: ${misc:Depends}, dkms, nvidia-kernel-common (>= 20100522)
 Recommends: nvidia-glx (>= ${nvidia:Version})
 Provides: nvidia-kernel-${nvidia:Version}
 Conflicts:
