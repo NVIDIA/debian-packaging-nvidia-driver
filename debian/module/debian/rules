@@ -44,7 +44,7 @@ build-indep:
 build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
-	$(MAKE) -C . LINUXDIR=$(KSRC) KVERREL=$(KVERS)
+	$(MAKE) LINUXDIR=$(KSRC)
 	touch $@
 
 binary: binary-arch binary-indep
@@ -70,7 +70,7 @@ clean:
 	test -f debian/control || cp debian/control.template debian/control
 	dh_testdir
 	dh_testroot
-	$(MAKE) -C . -f Makefile SYSSRC=$(KSRC) $(KPKG_EXTRAV_ARG) clean
+	$(MAKE) LINUXDIR=$(KSRC) $(KPKG_EXTRAV_ARG) clean
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
 	dh_clean configure-stamp build-stamp debian/control debian/install
 
