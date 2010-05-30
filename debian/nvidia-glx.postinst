@@ -18,36 +18,15 @@ set -e
 # the debian-policy package
 
 
-rm_conffile() {
-  mv_conffile "$1" "$1.dpkg-bak"
-}
-
-mv_conffile() {
-  local package='nvidia-glx'
-  local name="$1"
-  local newname="$2"
-
-  [ -e "$name" ] || return 0
-
-  local md5="$(md5sum $name | sed -e 's/ .*//')"
-  oldmd5="$(dpkg-query -W -f='${Conffiles}' $package | \
-    sed -n -e "\' $name ' { s/ obsolete$//; s/.* //; p }")"
-
-  if [ "$md5" = "$oldmd5" ]; then
-    rm -f "$name"
-  else
-    mv "$name" "$newname"
-  fi
-}
+# <target: squeeze>
+dpkg-maintscript-helper rm_conffile /etc/default/nvidia-glx 195.36.24-1~ -- "$@"
+# </target: squeeze>
 
 
 case "$1" in
     configure)
 
 	# <target: squeeze>
-        if dpkg --compare-versions "$2" lt-nl 195.36.24-1 ; then
-            rm_conffile /etc/default/nvidia-glx
-        fi 
         if dpkg --compare-versions "$2" lt-nl 195.36.24-2 ; then
 	    if [ -f /etc/default/nvidia-glx.dpkg-new ]; then
 		rm -f /etc/default/nvidia-glx.dpkg-new

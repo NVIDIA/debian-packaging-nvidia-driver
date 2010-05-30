@@ -18,6 +18,12 @@ set -e
 # for details, see http://www.debian.org/doc/debian-policy/ or
 # the debian-policy package
 
+
+# <target: squeeze>
+dpkg-maintscript-helper rm_conffile /etc/default/nvidia-glx 195.36.24-1~ -- "$@"
+# </target: squeeze>
+
+
 # Rationale:
 #
 # Remove our diversions at the remove stage, since even if we have

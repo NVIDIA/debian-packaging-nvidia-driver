@@ -15,6 +15,7 @@ Homepage: http://www.nvidia.com
 
 Package: nvidia-glx
 Architecture: i386 amd64
+Pre-Depends: dpkg (>= 1.15.7.2)
 Depends: nvidia-kernel-${nvidia:Version}, ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-vdpau-driver (>= ${nvidia:Version})
 Suggests: nvidia-settings,
