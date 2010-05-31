@@ -8,6 +8,7 @@ DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 include debian/rules.defs
 version			 = $(NVIDIA_RELEASE)
 legacy			 = $(NVIDIA_LEGACY)
+watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(legacy),$(patsubst -legacy-%xx,%,$(legacy))\.[\d\.\-]+),[\d\.\-]+)
 url_x86			 = $(NVIDIA_URL_X86)
 url_x86_64		 = $(NVIDIA_URL_X86_64)
 filename_x86		 = $(NVIDIA_FILENAME_X86)
@@ -28,7 +29,7 @@ AUTOGEN		+= debian/nvidia-libopencl1-ia32.symbols
 AUTOGEN		+= debian/module/debian/control.template
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
-AUTOKEEP	 = debian/copyright
+AUTOKEEP	 = debian/copyright debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
 module_source	 = debian/nvidia-kernel$(legacy)-source/usr/src/modules/nvidia-kernel$(legacy)
@@ -160,6 +161,7 @@ override_dh_strip:
 	-e 's{#URL_X86_64#}{$(url_x86_64)}g;' \
 	-e 's{#!i386#}{$(if $(filter i386,$(DEB_HOST_ARCH)),#)}g;' \
 	-e 's{#!amd64#}{$(if $(filter amd64,$(DEB_HOST_ARCH)),#)}g;' \
+	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog
