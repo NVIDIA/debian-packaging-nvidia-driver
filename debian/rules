@@ -7,8 +7,8 @@ DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 
 include debian/rules.defs
 version			 = $(NVIDIA_RELEASE)
-legacy			 = $(NVIDIA_LEGACY)
-watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(legacy),$(patsubst -legacy-%xx,%,$(legacy))\.[\d\.\-]+),[\d\.\-]+)
+legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
+watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(NVIDIA_LEGACY),$(NVIDIA_LEGACY)\.[\d\.\-]+),[\d\.\-]+)
 url_x86			 = $(NVIDIA_URL_X86)
 url_x86_64		 = $(NVIDIA_URL_X86_64)
 filename_x86		 = $(NVIDIA_FILENAME_X86)
@@ -135,7 +135,7 @@ override_dh_bugfiles:
 
 override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' -V'nvidia:Legacy=$(legacy)' \
-		-V'nvidia:LegacyDesc=$(if $(legacy), ($(subst -legacy-,,$(legacy)) legacy version))'
+		-V'nvidia:LegacyDesc=$(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))'
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
