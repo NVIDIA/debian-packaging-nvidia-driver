@@ -21,6 +21,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * nvidia-glx: work around dpkg-divert bug #581544: useless errors on not
     writable destination if source does not exist
   * update watch file magic, add legacy support, upcoming upstream renames
+  * update get-orig-source: target for upcoming upstream renames
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 

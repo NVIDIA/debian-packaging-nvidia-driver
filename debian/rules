@@ -189,9 +189,10 @@ get-orig-source:
 	mkdir get-orig-source
 	uscan --no-symlink --download-current-version --pasv \
 	    --destdir get-orig-source
+	test `ls get-orig-source/* | wc -l` = 2  # we need exactly 2 downloaded files
 	@set -e -x ; \
 	    cd get-orig-source ; \
-	    newversion=$$(ls *-x86-*.run | sed -e 's/.*-\([0-9.]*\)-.*/\1/') ; \
+	    newversion=$$(ls *-x86-*.run | sed -e 's/.*-\([0-9.]*\)\(-.*\)\?\.run/\1/') ; \
 	    mkdir nvidia-graphics-drivers-$${newversion}.orig ; \
 	    mv *.run nvidia-graphics-drivers-$${newversion}.orig/ ; \
 	    chmod 0755 nvidia-graphics-drivers-$${newversion}.orig/* ; \
