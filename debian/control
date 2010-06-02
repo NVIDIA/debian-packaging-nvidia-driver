@@ -337,7 +337,7 @@ Description: NVIDIA runtime compiler library (32-bit)
 Package: nvidia-opencl-common
 Section: non-free/libs
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends},
+Depends: ${misc:Depends},
 Recommends: nvidia-opencl-icd | nvidia-opencl-icd-ia32
 Description: NVIDIA OpenCL driver
  OpenCL (Open Computing Language) is a multivendor open standard for
@@ -350,7 +350,7 @@ Description: NVIDIA OpenCL driver
 Package: nvidia-opencl-icd
 Section: non-free/libs
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends},
+Depends: ${misc:Depends},
  nvidia-opencl-common,
  libopencl1,
  libcuda1 (>= 195)
@@ -366,7 +366,7 @@ Description: NVIDIA OpenCL ICD
 Package: nvidia-opencl-icd-ia32
 Section: non-free/libs
 Architecture: amd64
-Depends: ${shlibs:Depends}, ${misc:Depends},
+Depends: ${misc:Depends},
  nvidia-opencl-common,
  lib32opencl1,
  libcuda1-ia32 (>= 195)
@@ -411,8 +411,8 @@ Description: NVIDIA OpenCL 32-bit library
 Package: nvidia-libopencl1-dev
 Section: non-free/libdevel
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends},
- nvidia-libopencl1
+Depends: ${misc:Depends},
+ nvidia-libopencl1 (= ${binary:Version}),
 Provides: libopencl1-dev
 Description: NVIDIA OpenCL development files
  OpenCL (Open Computing Language) is a multivendor open standard for
