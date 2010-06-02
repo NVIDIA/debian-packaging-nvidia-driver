@@ -20,3 +20,8 @@ nvidia-glx#LEGACY#: shlibs-declares-dependency-on-other-package libgl1-mesa-glx 
 
 # Referenced by upstream documentation.
 nvidia-glx#LEGACY#: script-with-language-extension usr/bin/nvidia-bug-report.sh
+
+# We diverted the original /usr/lib/libGL.so symlink.
+# In order to retain its functionality (i.e. pointing the MESA libGL.so.1)
+# we ship a link pointing to the diverted library.
+nvidia-glx#LEGACY#: non-dev-pkg-with-shlib-symlink
