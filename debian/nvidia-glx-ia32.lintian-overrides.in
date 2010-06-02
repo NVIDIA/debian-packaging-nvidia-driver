@@ -9,9 +9,6 @@ nvidia-glx#LEGACY#-ia32: spelling-error-in-binary
 # programs don't pick up the wrong libGL by mistake.
 nvidia-glx#LEGACY#-ia32: diversion-for-unknown-file
 
-# The diversions are placed here.
-nvidia-glx#LEGACY#-ia32: package-contains-empty-directory usr/lib32/nvidia/
-
 # Packages built against the NVIDIA libGL should declare dependencies on
 # the free version for Debian's purposes.
 nvidia-glx#LEGACY#-ia32: shlibs-declares-dependency-on-other-package ia32-libs*

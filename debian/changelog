@@ -29,7 +29,11 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * stop creating/removing /usr/lib/libGL.so in the maintainer scripts and the
     init script (closes: #422002, #546210)
   * nvidia-glx{,-ia32}: ship (possibly dangling) /usr/lib{,32}/libGL.so
-    symlink pointing to the diverted libGL.so.1.2 from libgl1-mesa-glx
+    symlink pointing to the diverted libGL.so.1.2 from libgl1-mesa-glx for
+    linking with the MESA OpenGL implementation by default via ... -lGL ...
+  * nvidia-glx-{dev,ia32}: ship /usr/lib{,32}/nvidia/libGL.so, allowing
+    explicit linking with the NVIDIA OpenGL implementation via
+    ... -L/usr/lib/nvidia -lGL ...
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 
