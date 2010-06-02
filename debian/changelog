@@ -34,6 +34,11 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * nvidia-glx-{dev,ia32}: ship /usr/lib{,32}/nvidia/libGL.so, allowing
     explicit linking with the NVIDIA OpenGL implementation via
     ... -L/usr/lib/nvidia -lGL ...
+  * nvidia-glx-dev: install headers into /usr/include/nvidia/GL and depend on
+    libgl1-mesa-dev | libgl-dev instead of conflicting with it
+    (closes: #278256, #370542, #552388)
+  * compiling OpenGL applications will use the MESA implementation by default,
+    to explicitly compile with the NVIDIA headers use -I/usr/include/nvidia
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 
