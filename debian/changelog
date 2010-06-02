@@ -40,6 +40,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * compiling OpenGL applications will use the MESA implementation by default,
     to explicitly compile with the NVIDIA headers use -I/usr/include/nvidia
   * remove the now function-less /etc/init.d/nvidia-glx script
+  * nvidia-glx.prerm, nvidia-glx-dev.postrm: drop empty maintainer scripts
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 
