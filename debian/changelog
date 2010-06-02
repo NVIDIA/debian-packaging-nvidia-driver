@@ -23,6 +23,8 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * update watch file magic, add legacy support, upcoming upstream renames
   * update get-orig-source: target for upcoming upstream renames
   * debian/control: reformat and synchronize descriptions
+  * add NEWS entry about X display manager startup timeouts and give hints
+    where to increase the default timeouts
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 
