@@ -25,6 +25,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * debian/control: reformat and synchronize descriptions
   * add NEWS entry about X display manager startup timeouts and give hints
     where to increase the default timeouts
+  * add/update old NEWS entries about the legacy drivers
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 
