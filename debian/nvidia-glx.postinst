@@ -20,11 +20,18 @@ set -e
 
 # <target: squeeze>
 dpkg-maintscript-helper rm_conffile /etc/default/nvidia-glx 195.36.24-1~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/init.d/nvidia-glx 195.36.24-2 -- "$@"
 # </target: squeeze>
 
 
 case "$1" in
     configure)
+
+	# <target: squeeze>
+	if dpkg --compare-versions "$2" lt-nl 195.36.24-3 ; then
+	    update-rc.d nvidia-glx remove || true
+	fi
+	# </target: squeeze>
 
 	# <target: squeeze>
         if dpkg --compare-versions "$2" lt-nl 195.36.24-2 ; then

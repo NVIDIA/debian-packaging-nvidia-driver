@@ -127,9 +127,6 @@ override_dh_install:
 override_dh_installchangelogs:
 	dh_installchangelogs debian/tmp/usr/share/doc/NVIDIA_Changelog
 
-override_dh_installinit:
-	dh_installinit -- start 20 2 3 4 5 .
-
 override_dh_bugfiles:
 	dh_bugfiles -A
 
