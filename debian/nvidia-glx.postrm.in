@@ -47,10 +47,6 @@ dpkg-maintscript-helper rm_conffile /etc/default/nvidia-glx 195.36.24-1~ -- "$@"
 
 case "$1" in
     remove|abort-install)
-        if [ remove = "$1" ] ; then
-            # remove file created by init script
-    	    rm /usr/lib/libGL.so || true
-        fi
 
 	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libGL.so.1.xlibmesa /usr/lib/libGL.so.1 > /dev/null
 	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libGL.so.1.2.xlibmesa /usr/lib/libGL.so.1.2 > /dev/null

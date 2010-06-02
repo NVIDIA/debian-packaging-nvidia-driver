@@ -20,9 +20,6 @@ set -e
 
 case "$1" in
     configure)
-		if [ -e /etc/init.d/nvidia-glx ] ; then
-			invoke-rc.d nvidia-glx start
-		fi
 
         # <target: squeeze>
         if dpkg --compare-versions "$2" lt-nl 195.36.24-1 ; then

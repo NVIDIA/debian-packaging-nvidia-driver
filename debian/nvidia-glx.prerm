@@ -19,8 +19,6 @@ set -e
 
 case "$1" in
     remove|upgrade|deconfigure)
-	rm -f /usr/lib/libGL.so || true
-	/etc/init.d/nvidia-glx start || true
     ;;
 
     failed-upgrade)

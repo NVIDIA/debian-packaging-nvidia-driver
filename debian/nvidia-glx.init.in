@@ -29,13 +29,6 @@ fi
 
 case "$1" in
   start|restart|reload|force-reload)
-    rm -f  /usr/lib/libGL.so || true 
-    if [ -L /usr/lib/nvidia/libGL.so.xlibmesa ] && [ -d /usr/share/doc/libgl1-mesa-dev ] ; then
-    	ln -s /usr/lib/nvidia/libGL.so.1.2.xlibmesa /usr/lib/libGL.so
-    fi
-    if [ -d /usr/share/doc/nvidia-glx#LEGACY#-dev ] ; then
-        ln -s /usr/lib/libGL.so.#VERSION# /usr/lib/libGL.so
-    fi
     ;;
 
   stop) 

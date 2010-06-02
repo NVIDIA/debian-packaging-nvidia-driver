@@ -26,6 +26,8 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * add NEWS entry about X display manager startup timeouts and give hints
     where to increase the default timeouts
   * add/update old NEWS entries about the legacy drivers
+  * stop creating/removing /usr/lib/libGL.so in the maintainer scripts and the
+    init script (closes: #422002, #546210)
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 

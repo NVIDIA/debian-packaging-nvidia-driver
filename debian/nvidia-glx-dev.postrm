@@ -22,8 +22,6 @@ set -e
 case "$1" in
     purge|remove)
 
-        rm /usr/lib/libGL.so || true
-	invoke-rc.d nvidia-glx start || true		
 
     ;;
 
