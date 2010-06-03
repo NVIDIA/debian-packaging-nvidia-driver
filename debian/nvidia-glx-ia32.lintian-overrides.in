@@ -9,10 +9,6 @@ nvidia-glx#LEGACY#-ia32: spelling-error-in-binary
 # programs don't pick up the wrong libGL by mistake.
 nvidia-glx#LEGACY#-ia32: diversion-for-unknown-file
 
-# Packages built against the NVIDIA libGL should declare dependencies on
-# the free version for Debian's purposes.
-nvidia-glx#LEGACY#-ia32: shlibs-declares-dependency-on-other-package ia32-libs*
-
 # We diverted the original /usr/lib32/libGL.so symlink.
 # In order to retain its functionality (i.e. pointing the MESA libGL.so.1)
 # we ship a link pointing to the diverted library.

@@ -1,5 +1,0 @@
-libGL			1 libgl1-mesa-glx | libgl1
-libGLcore		1 nvidia-glx#LEGACY#
-libXvMCNVIDIA_dynamic	1 nvidia-glx#LEGACY#
-libnvidia-tls		1 nvidia-glx#LEGACY#
-libnvidia-cfg		1 nvidia-glx#LEGACY#
