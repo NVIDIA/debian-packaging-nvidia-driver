@@ -69,14 +69,20 @@ Description: NVIDIA binary driver 32bit libs
 Package: nvidia-glx-dev
 Architecture: i386 amd64
 Depends: ${misc:Depends}, nvidia-glx (= ${binary:Version}),
- libx11-dev, libgl1-mesa-dev | libgl-dev
+ libx11-dev,
+Recommends: libgl1-mesa-dev | libgl-dev
 Conflicts:
  nvidia-glx-legacy-71xx,
  nvidia-glx-legacy-96xx,
  nvidia-glx-legacy-173xx,
 Description: NVIDIA binary Xorg driver development files
- This package contains the NVIDIA binary Xorg driver
- development files.
+ This package contains the development files for the NVIDIA OpenGL
+ implementation. This package is only needed for applications that use some
+ extensions available in the NVIDIA driver only. Include and library search
+ paths have to be adjusted to explicitly select this implementation.
+ .
+ For building portable OpenGL applications, please install libgl1-mesa-dev
+ instead.
  .
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
