@@ -41,6 +41,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
     to explicitly compile with the NVIDIA headers use -I/usr/include/nvidia
   * remove the now function-less /etc/init.d/nvidia-glx script
   * nvidia-glx.prerm, nvidia-glx-dev.postrm: drop empty maintainer scripts
+  * nvidia-glx{,-ia32}: add symbols control files
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 
