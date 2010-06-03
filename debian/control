@@ -26,6 +26,7 @@ Conflicts:
  nvidia-glx-legacy-71xx,
  nvidia-glx-legacy-96xx,
  nvidia-glx-legacy-173xx,
+ fglrx-glx,
 Description: NVIDIA binary Xorg driver
  These binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
