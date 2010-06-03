@@ -40,7 +40,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * nvidia-glx-dev: install headers into /usr/include/nvidia/GL and recommend
     libgl1-mesa-dev | libgl-dev instead of conflicting with it; rewrite long
     description and advise to install libgl1-mesa-dev for building portable
-    OpenGL applications (closes: #278256, #370542, #552388)
+    OpenGL applications (closes: #278256, #370542, #445363, #552388)
   * compiling OpenGL applications will use the MESA implementation by default,
     to explicitly compile with the NVIDIA headers use -I/usr/include/nvidia
   * remove the now function-less /etc/init.d/nvidia-glx script
