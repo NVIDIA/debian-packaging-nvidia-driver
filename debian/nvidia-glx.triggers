@@ -1,0 +1,2 @@
+interest /usr/lib/libGL.so
+interest /usr/lib/nvidia/libGL.so.xlibmesa

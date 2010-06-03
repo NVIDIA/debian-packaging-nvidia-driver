@@ -5,6 +5,23 @@
 
 set -e
 
+# A trigger that handles creating/removing /usr/lib/libGL.so
+if [ "$1" = "triggered" ]; then
+	LINK_origin=/usr/lib/libGL.so
+	LINK_diverted=/usr/lib/nvidia/libGL.so.xlibmesa
+	LINK_create=nvidia/libGL.so.1.2.xlibmesa
+
+	if [ -L "$LINK_origin" ] && [ ! -L "$LINK_diverted" ]; then
+		# libgl-mesa-dev was removed, drop libGL.so
+		echo "$DPKG_MAINTSCRIPT_PACKAGE: Removing $LINK_origin"
+		rm -f "$LINK_origin"
+	elif [ ! -L "$LINK_origin" ] && [ -L "$LINK_diverted" ]; then
+		# libgl-mesa-dev was installed, create libGL.so
+		echo "$DPKG_MAINTSCRIPT_PACKAGE: Creating $LINK_origin"
+		ln -s "$LINK_create" "$LINK_origin"
+	fi
+fi
+
 # summary of how this script can be called:
 #        * <postinst> `configure' <most-recently-configured-version>
 #        * <old-postinst> `abort-upgrade' <new version>
@@ -50,9 +67,20 @@ case "$1" in
         fi
         # </target: squeeze>
 
+        # <target: squeeze>
+	# remove libGL.so created before the trigger was introduced
+	# will be recreated by the trigger
+	if dpkg --compare-versions "$2" lt-nl 195.36.24-3 ; then
+		rm -f /usr/lib/libGL.so
+	fi
+        # </target: squeeze>
+
+	# activate our trigger
+	dpkg-trigger /usr/lib/libGL.so
+
     ;;
 
-    abort-upgrade|abort-remove|abort-deconfigure)
+    abort-upgrade|abort-remove|abort-deconfigure|triggered)
     ;;
 
     *)

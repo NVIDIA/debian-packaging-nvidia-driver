@@ -29,14 +29,13 @@ dpkg-maintscript-helper rm_conffile /etc/init.d/nvidia-glx 195.36.24-2 -- "$@"
 #
 # Remove our diversions at the remove stage, since even if we have
 # configuration files left, we want to put back everything we moved.  Do not
-# try to do this again on purge since remove will have already been called,
-# and since the rm of /usr/lib/libGL.so will remove someone else's version at
-# that point.
+# try to do this again on purge since remove will have already been called.
 #
 # In the abort-install case, we may have gotten far enough to create our
-# diversions in our preinst, so back out of them.  Don't remove
-# /usr/lib/libGL.so, since that may still be owned by another package and
-# since we don't create that in preinst.
+# diversions in our preinst, so back out of them.
+#
+# Remove /usr/lib/libGL.so only if we still own a diversion of it, since the
+# link may have been created by our trigger in postinst or later.
 #
 # Leave all of our diversions alone during upgrades or aborted upgrades, since
 # we're staying installed in all cases and the diversions are still correct.
@@ -48,6 +47,12 @@ dpkg-maintscript-helper rm_conffile /etc/init.d/nvidia-glx 195.36.24-2 -- "$@"
 
 case "$1" in
     remove|abort-install)
+
+	if [ -L /usr/lib/libGL.so ] && \
+           [ "`dpkg-divert --listpackage /usr/lib/libGL.so`" = "nvidia-glx" ]; then
+		echo "Removing /usr/lib/libGL.so created by nvidia-glx."
+		rm -f /usr/lib/libGL.so
+	fi
 
 	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libGL.so.1.xlibmesa /usr/lib/libGL.so.1 > /dev/null
 	dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libGL.so.1.2.xlibmesa /usr/lib/libGL.so.1.2 > /dev/null
