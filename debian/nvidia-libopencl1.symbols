@@ -1,4 +1,4 @@
-libOpenCL.so.1 nvidia-libopencl1 #MINVER#
+libOpenCL.so.1 #PACKAGE# #MINVER#
  clBuildProgram@Base 195.17
  clCreateBuffer@Base 195.17
  clCreateCommandQueue@Base 195.17

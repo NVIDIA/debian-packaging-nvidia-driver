@@ -1,4 +1,4 @@
-libcuda.so.1 libcuda1 #MINVER#
+libcuda.so.1 #PACKAGE# #MINVER#
  clGetExtensionFunctionAddress@Base 195
  clGetPlatformInfo@Base 195.30
  cuArray3DCreate@Base 177
