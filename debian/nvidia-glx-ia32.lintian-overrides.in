@@ -9,7 +9,7 @@ nvidia-glx#LEGACY#-ia32: spelling-error-in-binary
 # programs don't pick up the wrong libGL by mistake.
 nvidia-glx#LEGACY#-ia32: diversion-for-unknown-file
 
-# We diverted the original /usr/lib32/libGL.so symlink.
+# We divert the original /usr/lib32/libGL.so symlink.
 # In order to retain its functionality (i.e. pointing the MESA libGL.so.1)
 # we ship a link pointing to the diverted library.
 nvidia-glx#LEGACY#-ia32: non-dev-pkg-with-shlib-symlink
