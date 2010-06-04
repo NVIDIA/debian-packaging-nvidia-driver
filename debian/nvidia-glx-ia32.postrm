@@ -2,8 +2,24 @@
 set -e
 
 
+# Rationale:
+#
+# Remove our diversions at the remove stage, since even if we have
+# configuration files left, we want to put back everything we moved.  Do not
+# try to do this again on purge since remove will have already been called.
+#
+# In the abort-install case, we may have gotten far enough to create our
+# diversions in our preinst, so back out of them.
+#
+# Leave all of our diversions alone during upgrades or aborted upgrades, since
+# we're staying installed in all cases and the diversions are still correct.
+#
+# It's not clear what to do on disappear, but for now leave everything alone
+# and assume that our overwriting package will have logic to take over the
+# diversions and doesn't want us messing with them.
+
 case "$1" in
-    purge|remove)
+    remove|abort-install)
 
 	# restore libGL.so* from ia32-libs, diverted to /usr/lib32/nvidia
 	dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
@@ -16,7 +32,7 @@ case "$1" in
 		/usr/lib32/nvidia/libGL.so.1.2.ia32-libs \
 		/usr/lib32/libGL.so.1.2 > /dev/null
 
-	test -d /usr/lib32/nvidia && \
+	test ! -d /usr/lib32/nvidia || \
 		rmdir /usr/lib32/nvidia || true;
 
     ;;

@@ -5,10 +5,11 @@ set -e
 case "$1" in
     install|upgrade)
 
-	# divert libGL.so* from ia32-libs to /usr/lib32/nvidia
+	# the destination directory for the diversions
 	test -d /usr/lib32/nvidia || \
 		mkdir -p /usr/lib32/nvidia || true
 
+	# divert libGL.so* from ia32-libs to /usr/lib32/nvidia
 	dpkg-divert --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib32/nvidia/libGL.so.ia32-libs \
 		/usr/lib32/libGL.so > /dev/null

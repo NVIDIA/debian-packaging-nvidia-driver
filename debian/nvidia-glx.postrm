@@ -37,21 +37,28 @@ case "$1" in
 		rm -f /usr/lib/libGL.so
 	fi
 
-	dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libGL.so.1.xlibmesa /usr/lib/libGL.so.1 > /dev/null
-	dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libGL.so.1.2.xlibmesa /usr/lib/libGL.so.1.2 > /dev/null
+	dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+		/usr/lib/nvidia/libGL.so.1.xlibmesa \
+		/usr/lib/libGL.so.1 > /dev/null
+	dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+		/usr/lib/nvidia/libGL.so.1.2.xlibmesa \
+		/usr/lib/libGL.so.1.2 > /dev/null
 
 	# work around dpkg-divert bug #581544: useless errors on not writable destination if source does not exist
 	if [ -d /usr/lib/nvidia ] && [ ! -d /usr/lib/xorg/modules/extensions ]; then
 	    mkdir -p /usr/lib/xorg/modules/extensions
 	fi
 	
-	dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libglx.so.xlibmesa /usr/lib/xorg/modules/extensions/libglx.so > /dev/null
+	dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+		/usr/lib/nvidia/libglx.so.xlibmesa \
+		/usr/lib/xorg/modules/extensions/libglx.so > /dev/null
 
-	dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libGL.so.xlibmesa /usr/lib/libGL.so > /dev/null
+	dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+		/usr/lib/nvidia/libGL.so.xlibmesa \
+		/usr/lib/libGL.so > /dev/null
 
-	if [ -d /usr/lib/nvidia ]; then
-		rmdir /usr/lib/nvidia/ || true;
-	fi
+	test ! -d /usr/lib/nvidia || \
+		rmdir /usr/lib/nvidia || true;
 
 	# work around dpkg-divert bug #581544: useless errors on not writable destination if source does not exist
 	rmdir /usr/lib/xorg/modules/extensions /usr/lib/xorg/modules /usr/lib/xorg 2>/dev/null || true
