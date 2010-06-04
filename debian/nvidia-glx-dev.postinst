@@ -8,7 +8,7 @@ case "$1" in
         # <target: squeeze>
         if dpkg --compare-versions "$2" lt-nl 195.36.24-1 ; then
             # remove obsolete diversions
-            dpkg-divert --remove --rename --package nvidia-glx-dev --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null
+            dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libGL.a.xlibmesa /usr/lib/libGL.a > /dev/null
         fi
         # </target: squeeze>
 

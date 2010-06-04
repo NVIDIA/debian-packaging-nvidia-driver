@@ -46,9 +46,9 @@ case "$1" in
         # <target: squeeze>
         if dpkg --compare-versions "$2" lt-nl 195.36.24-1 ; then
             # remove obsolete diversions
-            dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libGLcore.so.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.so > /dev/null	
-            dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libGLcore.a.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.a > /dev/null
-            dpkg-divert --remove --rename --package nvidia-glx --divert /usr/lib/nvidia/libglx.a.xlibmesa /usr/lib/xorg/modules/extensions/libglx.a > /dev/null
+            dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libGLcore.so.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.so > /dev/null	
+            dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libGLcore.a.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.a > /dev/null
+            dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libglx.a.xlibmesa /usr/lib/xorg/modules/extensions/libglx.a > /dev/null
         fi
         # </target: squeeze>
 
