@@ -16,7 +16,8 @@ Homepage: http://www.nvidia.com
 Package: nvidia-glx
 Architecture: i386 amd64
 Pre-Depends: dpkg (>= 1.15.7.2)
-Depends: nvidia-kernel-${nvidia:Version}, ${shlibs:Depends}, ${misc:Depends}
+Depends: nvidia-kernel-${nvidia:Version},
+ ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-vdpau-driver (>= ${nvidia:Version})
 Suggests: nvidia-settings,
  nvidia-kernel-dkms (>= ${nvidia:Version})
@@ -47,7 +48,9 @@ Description: NVIDIA binary Xorg driver
 Package: nvidia-glx-ia32
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: nvidia-kernel-${nvidia:Version}, ${shlibs:Depends}, ${misc:Depends}
+Depends: nvidia-kernel-${nvidia:Version},
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends: nvidia-vdpau-driver-ia32 (>= ${nvidia:Version})
 Suggests: nvidia-settings,
  nvidia-kernel-dkms (>= ${nvidia:Version})
  | nvidia-kernel-source (>= ${nvidia:Version})
@@ -184,16 +187,16 @@ Description: NVIDIA vdpau development files (transitional package)
 Package: nvidia-vdpau-driver
 Section: non-free/libs
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends},
- libvdpau1
+Depends: libvdpau1,
+ ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-${nvidia:Version}
 Enhances: libvdpau1
 Suggests:
  nvidia-kernel-dkms (>= ${nvidia:Version})
  | nvidia-kernel-source (>= ${nvidia:Version})
 Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver
-Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau,
- nvidia-libvdpau1 (<< 190.42-3), nvidia-libvdpau1-driver
+Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver,
+ nvidia-libvdpau1 (<< 190.42-3),
 Breaks: libvdpau1 (<< 0.4)
 Provides: vdpau-driver
 Description: NVIDIA vdpau driver
@@ -214,8 +217,8 @@ Description: NVIDIA vdpau driver
 Package: nvidia-vdpau-driver-ia32
 Section: non-free/libs
 Architecture: amd64
-Depends: ${shlibs:Depends}, ${misc:Depends},
- lib32vdpau1
+Depends: lib32vdpau1,
+ ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-${nvidia:Version}
 Enhances: lib32vdpau1
 Suggests:
@@ -224,8 +227,8 @@ Suggests:
 Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau,
  nvidia-libvdpau1-driver-ia32, nvidia-libvdpau1-ia32 (<< 190.53-3)
 Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau,
- nvidia-libvdpau1 (<< 190.42-3), nvidia-libvdpau1-driver-ia32,
- nvidia-libvdpau1-ia32 (<< 190.53-3)
+ nvidia-libvdpau1 (<< 190.42-3),
+ nvidia-libvdpau1-driver-ia32, nvidia-libvdpau1-ia32 (<< 190.53-3)
 Provides: vdpau-driver
 Description: NVIDIA vdpau 32-bit driver
  These libraries provide the Video Decode and Presentation API for Unix.
@@ -314,8 +317,8 @@ Description: NVIDIA CUDA development files
 Package: libnvidia-compiler1
 Section: non-free/libs
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends},
- libcuda1 (= ${binary:Version}),
+Depends: libcuda1 (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA runtime compiler library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -329,8 +332,8 @@ Package: libnvidia-compiler1-ia32
 Section: non-free/libs
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: ${shlibs:Depends}, ${misc:Depends},
- libcuda1-ia32 (= ${binary:Version}),
+Depends: libcuda1-ia32 (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA runtime compiler library (32-bit)
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
