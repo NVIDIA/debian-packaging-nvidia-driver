@@ -41,7 +41,7 @@ may want to enable TwinView, too, by adding this section:
 There are many more settings that can be tuned in xorg.conf.  For file
 format description and general options please see the xorg.conf(5) manpage.
 See /usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz and
-/usr/share/doc/nvidia-glx#LEGACY#/examples/XF86Config.sample.gz
+/usr/share/doc/nvidia-glx#LEGACY#/examples/xorg.conf.sample.gz
 for descriptions of all supported NVIDIA driver specific options.
 
 

@@ -84,6 +84,14 @@ override_dh_auto_install:
 	# "Install" into debian/tmp.
 	cp -al NVIDIA-Linux-$(DEB_HOST_ARCH)/ debian/tmp
 
+	# Create xorg.conf.sample
+	sed \
+	    -e 's/XF86Config(4\/5)/xorg.conf(5)/g' \
+	    -e 's/XF86Config/xorg.conf/g' \
+	    -e 's/XFree86/Xorg/g' \
+	    < debian/tmp/usr/share/doc/XF86Config.sample \
+	    > debian/tmp/usr/share/doc/xorg.conf.sample
+
 	# Build the nvidia-kernel-source tree.
 	mkdir -p $(module_source)
 	mv debian/tmp/usr/src/nv/* $(module_source)/
