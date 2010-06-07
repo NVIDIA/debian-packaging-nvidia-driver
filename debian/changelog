@@ -50,6 +50,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
     way
   * nvidia-glx: add Conflicts: fglrx-glx
   * overhaul maintainer scripts
+  * nvidia-glx: add /usr/share/xserver-xorg/pci/nvidia.ids (closes: #483821)
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 

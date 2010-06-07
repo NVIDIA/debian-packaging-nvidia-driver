@@ -34,9 +34,9 @@ module_source	 = debian/nvidia-kernel$(legacy)-source/usr/src/modules/nvidia-ker
 module_tbz	 = $(subst /modules/,/,$(module_source)).tar.bz2
 dkms_source	 = debian/nvidia-kernel$(legacy)-dkms/usr/src/nvidia-$(version)
 
-.PHONY: autogen configure
+.PHONY: autogen prepare
 autogen: $(AUTOGEN)
-configure: autogen unpack-stamp
+prepare: autogen unpack-stamp nvidia.ids
 
 
 unpack-stamp: ${filename_x86} ${filename_x86_64}
@@ -49,6 +49,16 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 	ls -al
 	touch $@
 
+nvidia.ids: unpack-stamp
+	sed -e '/^A1/,/^Below/{/ 0x/s/.* 0x\([0-9a-fA-F]\{4\}\).*/10DE\1/p};d' \
+		NVIDIA-Linux-$(DEB_HOST_ARCH)/usr/share/doc/README.txt \
+		> $@
+	if ! cmp -s debian/nvidia.ids nvidia.ids ; then \
+		diff -u debian/nvidia.ids nvidia.ids || true ; \
+		echo "*** Supported PCI IDs have changed. See diff above. Aborting. ***"; \
+		exit 1 ; \
+	fi
+
 
 .PHONY: binary binary-arch binary-indep build clean install
 binary binary-arch binary-indep build clean install:
@@ -58,13 +68,14 @@ override_dh_auto_clean:
 	rm -f NVIDIA-Linux-i386 NVIDIA-Linux-amd64
 	rm -fr $(dirname_x86) $(dirname_x86_64)
 	rm -fr debian/temp
+	rm -f nvidia.ids
 
 override_dh_clean:
 	dh_clean
 	rm -f $(AUTOCLEAN)
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
-override_dh_auto_configure: configure
+override_dh_auto_configure: prepare
 
 # Build two kernel module source tarballs for use with
 #  - module-assistant and make-kpkg

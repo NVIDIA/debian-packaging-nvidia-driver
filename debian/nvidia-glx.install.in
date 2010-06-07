@@ -7,3 +7,4 @@ usr/lib/tls/libnvidia-tls.so.#VERSION#
 usr/X11R6/lib/libXvMCNVIDIA.so.#VERSION#		usr/lib/
 usr/X11R6/lib/modules/drivers/nvidia_drv.so		usr/lib/xorg/modules/drivers/
 usr/X11R6/lib/modules/extensions/libglx.so.#VERSION#	usr/lib/xorg/modules/extensions/
+debian/nvidia.ids					usr/share/xserver-xorg/pci/
