@@ -8,7 +8,6 @@ INTRODUCTION:
 Welcome to the Debian NVIDIA packages. This document has notes on the
 X Server and GL libraries of the NVIDIA driver offering.
 
-
 For any news on this package check
 http://bugs.debian.org/nvidia-glx#LEGACY#
 
@@ -18,26 +17,31 @@ NOTES ABOUT GLX DRIVER AND OPENGL:
 
 Using the nvidia X driver requires some user modification. 
 
-	First, modify your /etc/X11/xorg.conf
+The current X Server 1.7 can autodetect many things, so you probably don't
+have a /etc/X11/xorg.conf at all after a fresh installation of Debian sarge
+or a newer release.
 
-	Minimum requirements:
-	In Section "Module"
-	   add Load "glx"
-	   remove Load "dri"
-       	   remove Load "GLcore"
-	In Section "Device"
-	   Change Driver "nv" to Driver "nvidia"
-	
-	See /usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz and
-	/usr/share/doc/nvidia-glx#LEGACY#/examples/XF86Config.sample.gz
-	for descriptions of all supported options. 
-	Chapter 12: Configuring AGP is an important section.
+The NVIDIA driver is not autodetected by Xorg, so you will have to create a
+minimal /etc/X11/xorg.conf (or modify an existing one):
 
+	Section "Device"
+	    Identifier     "My GPU"
+	    Driver         "nvidia"
+	EndSection
 
-Also note all users using GLX must be in group video:
+That is sufficient to load the NVIDIA driver while all other configuration
+is automatically done by the X Server. If you have multiple displays, you may
+want to enable TwinView, too, by adding this section:
 
-        adduser <user> video
+	Section "Screen"
+	    Identifier     "My Screens"
+	    Option         "TwinView" "1"
+	EndSection
 
+There are many more settings that can be tuned in xorg.conf. For file format
+description and general options please see the xorg.conf(5) manpage.
+See /usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz and
+/usr/share/doc/nvidia-glx#LEGACY#/examples/XF86Config.sample.gz
+for descriptions of all supported NVIDIA driver specific options. 
 
-
- -- Randall Donald <rdonald@debian.org>, Mon, 31 Mar 2003 23:40:05 -0800
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 07 Jun 2010 11:19:12 +0200
