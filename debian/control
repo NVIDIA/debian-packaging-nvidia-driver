@@ -16,49 +16,49 @@ Homepage: http://www.nvidia.com
 Package: nvidia-glx
 Architecture: i386 amd64
 Pre-Depends: dpkg (>= 1.15.7.2)
-Depends: nvidia-kernel-${nvidia:Version},
+Depends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-vdpau-driver (>= ${nvidia:Version})
 Suggests: nvidia-settings,
- nvidia-kernel-dkms (>= ${nvidia:Version})
- | nvidia-kernel-source (>= ${nvidia:Version})
+ nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
+ | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Breaks: xserver-xorg-core (<< 2:1.6)
 Conflicts:
  nvidia-glx-legacy-71xx,
  nvidia-glx-legacy-96xx,
  nvidia-glx-legacy-173xx,
  fglrx-glx,
-Description: NVIDIA binary Xorg driver
+Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  These binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
  .
- Please see the nvidia-kernel-dkms or
- nvidia-kernel-source packages
+ Please see the nvidia-kernel${nvidia:Legacy}-dkms or
+ nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}.
+ This will provide nvidia-kernel${nvidia:Legacy}-${nvidia:Version}.
  .
  This version only supports GeForce 6xxx and higher of the Geforce GPUs
  plus complimentary Quadros and nforce.  Look at the legacy packages
  for older cards.
  .
- See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list
+ See /usr/share/doc/nvidia-glx${nvidia:Legacy}/README.txt.gz for a complete list
  of supported GPUs and PCIIDs.
 
 Package: nvidia-glx-ia32
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: nvidia-kernel-${nvidia:Version},
+Depends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-vdpau-driver-ia32 (>= ${nvidia:Version})
 Suggests: nvidia-settings,
- nvidia-kernel-dkms (>= ${nvidia:Version})
- | nvidia-kernel-source (>= ${nvidia:Version})
+ nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
+ | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Conflicts:
  nvidia-glx-legacy-71xx-ia32,
  nvidia-glx-legacy-96xx-ia32,
  nvidia-glx-legacy-173xx-ia32,
-Description: NVIDIA binary driver 32bit libs
+Description: NVIDIA binary driver 32bit libs${nvidia:LegacyDesc}
  These binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
@@ -67,19 +67,19 @@ Description: NVIDIA binary driver 32bit libs
  plus complimentary Quadros and nforce.  Look at the legacy packages
  for older cards.
  .
- See /usr/share/doc/nvidia-glx/README.txt.gz for a complete list
+ See /usr/share/doc/nvidia-glx${nvidia:Legacy}/README.txt.gz for a complete list
  of supported GPUs and PCIIDs.
 
 Package: nvidia-glx-dev
 Architecture: i386 amd64
-Depends: ${misc:Depends}, nvidia-glx (= ${binary:Version}),
+Depends: ${misc:Depends}, nvidia-glx${nvidia:Legacy} (= ${binary:Version}),
  libx11-dev,
 Recommends: libgl1-mesa-dev | libgl-dev
 Conflicts:
  nvidia-glx-legacy-71xx,
  nvidia-glx-legacy-96xx,
  nvidia-glx-legacy-173xx,
-Description: NVIDIA binary Xorg driver development files
+Description: NVIDIA binary Xorg driver development files${nvidia:LegacyDesc}
  This package contains the development files for the NVIDIA OpenGL
  implementation. This package is only needed for applications that use some
  extensions available in the NVIDIA driver only. Include and library search
@@ -95,17 +95,17 @@ Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
 Depends: ${misc:Depends}, dkms, nvidia-kernel-common (>= 20100522)
-Recommends: nvidia-glx (>= ${nvidia:Version})
-Provides: nvidia-kernel-${nvidia:Version}
+Recommends: nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version})
+Provides: nvidia-kernel${nvidia:Legacy}-${nvidia:Version}
 Conflicts:
  nvidia-kernel-legacy-71xx-dkms,
  nvidia-kernel-legacy-96xx-dkms,
  nvidia-kernel-legacy-173xx-dkms,
  binutils-gold (>> 2.20.51),
  ccache (<< 3.0~),
-Description: NVIDIA binary kernel module DKMS source
+Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  This package builds the NVIDIA Xorg binary kernel module needed by
- nvidia-glx, using DKMS.
+ nvidia-glx${nvidia:Legacy}, using DKMS.
  Provided that you have the kernel header packages installed, the kernel
  module will be built for your running kernel and automatically rebuilt for
  any new kernel headers that are installed.
@@ -124,13 +124,13 @@ Section: non-free/kernel
 Architecture: i386 amd64
 Depends: ${misc:Depends}, debhelper (>= 7.2.3~), make, quilt (>= 0.46-7~)
 Recommends: module-assistant | kernel-package,
- nvidia-glx (>= ${nvidia:Version}), nvidia-kernel-common
+ nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}), nvidia-kernel-common
 Conflicts:
  binutils-gold (>> 2.20.51),
  ccache (<< 3.0~),
-Description: NVIDIA binary kernel module source
+Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  This package provides the source for the NVIDIA Xorg binary kernel module
- needed by nvidia-glx in a form suitable
+ needed by nvidia-glx${nvidia:Legacy} in a form suitable
  for use by module-assistant or kernel-package.
  .
  The NVIDIA binary drivers provide optimized hardware acceleration of
@@ -142,9 +142,9 @@ Description: NVIDIA binary kernel module source
  plus complimentary Quadros and nforce.  Look at the legacy packages for
  older cards.
  .
- PLEASE read /usr/share/doc/nvidia-kernel-source/README.Debian.gz
+ PLEASE read /usr/share/doc/nvidia-kernel${nvidia:Legacy}-source/README.Debian.gz
  for building information.  If you want the kernel module to be automatically
- installed via DKMS, install nvidia-kernel-dkms instead.
+ installed via DKMS, install nvidia-kernel${nvidia:Legacy}-dkms instead.
 
 Package: nvidia-libvdpau1
 Section: non-free/oldlibs
@@ -189,11 +189,11 @@ Section: non-free/libs
 Architecture: i386 amd64
 Depends: libvdpau1,
  ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}
+Recommends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version}
 Enhances: libvdpau1
 Suggests:
- nvidia-kernel-dkms (>= ${nvidia:Version})
- | nvidia-kernel-source (>= ${nvidia:Version})
+ nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
+ | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver
 Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver,
  nvidia-libvdpau1 (<< 190.42-3),
@@ -209,21 +209,21 @@ Description: NVIDIA vdpau driver
  See /usr/share/doc/nvidia-vdpau-driver/README.txt.gz
  for more information.
  .
- Please see the nvidia-kernel-dkms or
- nvidia-kernel-source packages
+ Please see the nvidia-kernel${nvidia:Legacy}-dkms or
+ nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}.
+ This will provide nvidia-kernel${nvidia:Legacy}-${nvidia:Version}.
 
 Package: nvidia-vdpau-driver-ia32
 Section: non-free/libs
 Architecture: amd64
 Depends: lib32vdpau1,
  ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}
+Recommends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version}
 Enhances: lib32vdpau1
 Suggests:
- nvidia-kernel-dkms (>= ${nvidia:Version})
- | nvidia-kernel-source (>= ${nvidia:Version})
+ nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
+ | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau,
  nvidia-libvdpau1-driver-ia32, nvidia-libvdpau1-ia32 (<< 190.53-3)
 Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau,
@@ -240,19 +240,19 @@ Description: NVIDIA vdpau 32-bit driver
  See /usr/share/doc/nvidia-vdpau-driver-ia32/README.txt.gz
  for more information.
  .
- Please see the nvidia-kernel-dkms or
- nvidia-kernel-source packages
+ Please see the nvidia-kernel${nvidia:Legacy}-dkms or
+ nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}.
+ This will provide nvidia-kernel${nvidia:Legacy}-${nvidia:Version}.
 
 Package: libcuda1
 Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}
+Recommends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version}
 Suggests:
- nvidia-kernel-dkms (>= ${nvidia:Version})
- | nvidia-kernel-source (>= ${nvidia:Version})
+ nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
+ | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Replaces: nvidia-glx (<< 185.18.14-2), nvidia-glx-dev (<< 185.18.14-2)
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library
@@ -265,20 +265,20 @@ Description: NVIDIA CUDA runtime library
  Supported NVIDIA devices include GPUs starting from GeForce 8 and Quadro FX
  series, as well as the Tesla computing processors.
  .
- Please see the nvidia-kernel-dkms or
- nvidia-kernel-source packages
+ Please see the nvidia-kernel${nvidia:Legacy}-dkms or
+ nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}.
+ This will provide nvidia-kernel${nvidia:Legacy}-${nvidia:Version}.
 
 Package: libcuda1-ia32
 Section: non-free/libs
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}
+Recommends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version}
 Suggests:
- nvidia-kernel-dkms (>= ${nvidia:Version})
- | nvidia-kernel-source (>= ${nvidia:Version})
+ nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
+ | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Replaces: nvidia-glx-ia32 (<< 185.18.14-2)
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library (32-bit)
@@ -291,10 +291,10 @@ Description: NVIDIA CUDA runtime library (32-bit)
  Supported NVIDIA devices include GPUs starting from GeForce 8 and Quadro FX
  series, as well as the Tesla computing processors.
  .
- Please see the nvidia-kernel-dkms or
- nvidia-kernel-source packages
+ Please see the nvidia-kernel${nvidia:Legacy}-dkms or
+ nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}.
+ This will provide nvidia-kernel${nvidia:Legacy}-${nvidia:Version}.
 
 Package: libcuda1-dev
 Section: non-free/libdevel

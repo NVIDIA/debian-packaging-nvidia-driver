@@ -55,6 +55,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
     (closes: #516379, #576295)
   * nvidia-glx.README.Debian: add a note about XvMC (closes: #390932)
   * rename XF86Config.sample to xorg.conf.sample (closes: #392243)
+  * debian/control: use new nvidia:Legacy and nvidia:LegacyDesc substvars
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 
