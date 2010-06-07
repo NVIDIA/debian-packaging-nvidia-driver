@@ -15,7 +15,7 @@ http://bugs.debian.org/nvidia-glx#LEGACY#
 NOTES ABOUT GLX DRIVER AND OPENGL:
 -----------------------------------------------------------------------
 
-Using the nvidia X driver requires some user modification. 
+Using the nvidia X driver requires some user modification.
 
 The current X Server 1.7 can autodetect many things, so you probably don't
 have a /etc/X11/xorg.conf at all after a fresh installation of Debian sarge
@@ -30,18 +30,30 @@ minimal /etc/X11/xorg.conf (or modify an existing one):
 	EndSection
 
 That is sufficient to load the NVIDIA driver while all other configuration
-is automatically done by the X Server. If you have multiple displays, you may
-want to enable TwinView, too, by adding this section:
+is automatically done by the X Server.  If you have multiple displays, you
+may want to enable TwinView, too, by adding this section:
 
 	Section "Screen"
 	    Identifier     "My Screens"
 	    Option         "TwinView" "1"
 	EndSection
 
-There are many more settings that can be tuned in xorg.conf. For file format
-description and general options please see the xorg.conf(5) manpage.
+There are many more settings that can be tuned in xorg.conf.  For file
+format description and general options please see the xorg.conf(5) manpage.
 See /usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz and
 /usr/share/doc/nvidia-glx#LEGACY#/examples/XF86Config.sample.gz
-for descriptions of all supported NVIDIA driver specific options. 
+for descriptions of all supported NVIDIA driver specific options.
+
+
+NOTES ABOUT XvMC:
+-----------------------------------------------------------------------
+
+To enable accelerated XVideo Motion Compensation (XvMC) which is supported
+on GeForce 6 series and GeForce 7 series GPUs, you need to modify
+/etc/X11/XvMCConfig to contain a reference to the NVIDIA library
+    libXvMCNVIDIA_dynamic.so.1
+instead.  For more information about XvMC support see Appendix G in 
+/usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz
+
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 07 Jun 2010 11:19:12 +0200

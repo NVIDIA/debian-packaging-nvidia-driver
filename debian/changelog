@@ -53,6 +53,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * nvidia-glx: add /usr/share/xserver-xorg/pci/nvidia.ids (closes: #483821)
   * nvidia-glx.README.Debian: update instructions on configuring xorg.conf
     (closes: #516379, #576295)
+  * nvidia-glx.README.Debian: add a note about XvMC (closes: #390932)
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 
