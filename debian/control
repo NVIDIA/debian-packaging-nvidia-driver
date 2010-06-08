@@ -325,8 +325,6 @@ Description: NVIDIA runtime compiler library
  general purpose computation.
  .
  This package contains the runtime compiler library.
- .
- It's currently unclear when libcuda.so needs this library.
 
 Package: libnvidia-compiler1-ia32
 Section: non-free/libs
@@ -340,8 +338,6 @@ Description: NVIDIA runtime compiler library (32-bit)
  general purpose computation.
  .
  This package contains the runtime compiler library (32-bit).
- .
- It's currently unclear when libcuda.so needs this library.
 
 Package: nvidia-opencl-common
 Section: non-free/libs
@@ -363,6 +359,7 @@ Depends: ${misc:Depends},
  nvidia-opencl-common,
  libopencl1,
  libcuda1 (>= 195)
+Recommends: libnvidia-compiler1
 Enhances: libopencl1
 Provides: opencl-icd
 Description: NVIDIA OpenCL ICD
@@ -379,6 +376,7 @@ Depends: ${misc:Depends},
  nvidia-opencl-common,
  lib32opencl1,
  libcuda1-ia32 (>= 195)
+Recommends: libnvidia-compiler1-ia32
 Enhances: lib32opencl1
 Provides: opencl-icd
 Description: NVIDIA OpenCL ICD (32-bit)
