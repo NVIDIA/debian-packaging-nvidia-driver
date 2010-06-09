@@ -179,7 +179,7 @@ override_dh_strip:
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog
-	sed 's/^nvidia-graphics-drivers/nvidia-kernel$(legacy)/g' $< > $@
+	sed '1s/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@
 
 # Renaming control files for legacy packaging
 ifneq (,$(legacy))
