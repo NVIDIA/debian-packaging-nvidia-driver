@@ -24,7 +24,7 @@ TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
-AUTOKEEP	 = debian/copyright debian/watch
+AUTOKEEP	 = debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
 module_source	 = debian/nvidia-kernel$(legacy)-source/usr/src/modules/nvidia-kernel$(legacy)

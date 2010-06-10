@@ -61,6 +61,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * nvidia-opencl-icd{,-ia32}: recommend libnvidia-compiler1{,-ia32}
   * use generic download URLs pointing to the directories, not the files
     itself, remove placeholder substitution for URL_X86, URL_X86_64
+  * no longer generate debian/copyright
 
  -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
 
