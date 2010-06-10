@@ -22,9 +22,8 @@ RENAME_CONTROL	 = $(filter-out $(LEGACY_CONTROL),$(ALL_CONTROL))
 RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
 			$(patsubst debian/nvidia-kernel%,debian/nvidia-kernel$(legacy)%,\
 				$(RENAME_CONTROL)))
-TEMPLATES	:= $(wildcard debian/*.in)
+TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
-AUTOGEN		+= debian/module/debian/control.template
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOKEEP	 = debian/copyright debian/watch
