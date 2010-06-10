@@ -164,7 +164,7 @@ override_dh_strip:
 
 
 # Generating control files
-%:	%.in debian/rules.defs
+%::	%.in debian/rules.defs
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
