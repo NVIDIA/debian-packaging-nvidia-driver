@@ -26,6 +26,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * add NEWS entry about X display manager startup timeouts and give hints
     where to increase the default timeouts
   * add/update old NEWS entries about the legacy drivers
+  * install the same NEWS in nvidia-glx and nvidia-kernel-source
   * stop creating/removing /usr/lib/libGL.so in the maintainer scripts and the
     init script (closes: #422002, #546210)
   * link with the MESA OpenGL implementation by default when compiling with
