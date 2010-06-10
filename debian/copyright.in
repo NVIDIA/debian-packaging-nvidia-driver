@@ -2,8 +2,8 @@ This package was debianized by Randall Donald <rdonald@debian.org> on
 Sat, 11 Aug 2001 14:27:28 -0700.
 
 It was downloaded from
-#URL_X86#
-#URL_X86_64#
+ftp://download.nvidia.com/XFree86/Linux-x86/
+ftp://download.nvidia.com/XFree86/Linux-x86_64/
 
 Upstream Author: NVIDIA <linux-bugs@nvidia.com>
 
