@@ -24,6 +24,7 @@ Suggests: nvidia-settings,
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Breaks: xserver-xorg-core (<< 2:1.6)
 Conflicts:
+ nvidia-glx-legacy,
  nvidia-glx-legacy-71xx,
  nvidia-glx-legacy-96xx,
  nvidia-glx-legacy-173xx,
@@ -55,6 +56,7 @@ Suggests: nvidia-settings,
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Conflicts:
+ nvidia-glx-legacy-ia32,
  nvidia-glx-legacy-71xx-ia32,
  nvidia-glx-legacy-96xx-ia32,
  nvidia-glx-legacy-173xx-ia32,
@@ -76,6 +78,7 @@ Depends: ${misc:Depends}, nvidia-glx${nvidia:Legacy} (= ${binary:Version}),
  libx11-dev,
 Recommends: libgl1-mesa-dev | libgl-dev
 Conflicts:
+ nvidia-glx-legacy,
  nvidia-glx-legacy-71xx,
  nvidia-glx-legacy-96xx,
  nvidia-glx-legacy-173xx,
