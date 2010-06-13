@@ -160,7 +160,6 @@ override_dh_gencontrol:
 # Stripping the binary modules would constitute modifying the binary files
 # in a way other than unzipping of compressed files.
 override_dh_strip:
-	# running dh_strip is not permitted by the NVIDIA license
 
 
 # Generating control files
