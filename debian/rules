@@ -144,6 +144,9 @@ override_dh_installchangelogs:
 override_dh_bugfiles:
 	dh_bugfiles -A
 
+override_dh_makeshlibs:
+	dh_makeshlibs -Xusr/lib/vdpau
+
 override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' -V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))'
