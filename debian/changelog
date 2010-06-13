@@ -3,6 +3,8 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   [ Russ Allbery ]
   * Tighten the dependency on debhelper since we rely on current debhelper
     behavior with handling architecture-specific packages.
+  * nvidia-glx now provides xserver-xorg-video-6 so that a user can remove
+    the other video drivers if they chose.
 
   [ Andreas Beckmann ]
   * ship missing symlink /usr/lib/tls/libnvidia-tls.so.1
