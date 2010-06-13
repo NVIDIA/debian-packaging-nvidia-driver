@@ -8,6 +8,8 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * Tell dh_makeshlibs that the loadable vdpau driver in /usr/lib/vdpau
     isn't a traditional shared library so that it doesn't unnecessarily
     add the ldconfig calls to the maintainer scripts.
+  * Add Lintian override for the mismatch between the nvidia-glx package
+    name and the SONAMEs of the libraries it includes.
 
   [ Andreas Beckmann ]
   * ship missing symlink /usr/lib/tls/libnvidia-tls.so.1
