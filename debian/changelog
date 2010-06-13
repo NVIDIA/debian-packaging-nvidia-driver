@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (195.36.24-3) unstable; urgency=low
 
   [ Russ Allbery ]
   * Tighten the dependency on debhelper since we rely on current debhelper
@@ -72,7 +72,7 @@ nvidia-graphics-drivers (195.36.24-3) UNRELEASED; urgency=low
   * no longer generate debian/copyright and convert it to DEP-5 format
   * add Conflicts: nvidia-glx-legacy that was never really taken care of
 
- -- Russ Allbery <rra@debian.org>  Wed, 26 May 2010 07:19:43 -0700
+ -- Russ Allbery <rra@debian.org>  Sat, 12 Jun 2010 19:46:42 -0700
 
 nvidia-graphics-drivers (195.36.24-2) unstable; urgency=low
 
