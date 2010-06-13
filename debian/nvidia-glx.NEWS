@@ -2,10 +2,10 @@ nvidia-graphics-drivers (195.36.24-3) unstable; urgency=low
 
   Recently several users experienced problems starting their X display
   managers when using the NVIDIA driver.  Observations are flashing NVIDIA
-  logos (there are usually several attempts to start the display manager) and
-  log entries talking about "timeout".  This may be caused by the driver
-  needing more time to initialize the hardware than allowed by the default
-  timeout settings.  Increasing the timeouts can solve this problem:
+  logos (there are usually several attempts to start the display manager)
+  and log entries talking about "timeout".  This may be caused by the
+  hardware needing more time to initialize than is allowed by the default
+  timeout settings.  Increasing the timeouts can work around this problem:
 
   For 'kdm' edit /etc/kde4/kdm/kdmrc and set  (see #583312)
     [X-*-Core]
@@ -15,7 +15,10 @@ nvidia-graphics-drivers (195.36.24-3) unstable; urgency=low
     [daemon]
     GdmXserverTimeout=30
 
-  For 'gdm3' the default timeout setting seems to be sufficient.
+  For 'gdm3' the default timeout setting seems to be sufficient.  This
+  appears to be an issue with the hardware and the initialization sequence
+  rather than with the drivers, since it also affects the free nouveau
+  drivers.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 02 Jun 2010 09:06:26 +0200
 
