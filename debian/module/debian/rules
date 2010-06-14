@@ -1,5 +1,9 @@
 #!/usr/bin/make -f
 
+# Disable ccache, which causes strange build failures with the module.
+# See Bug#582748.
+export CCACHE_DISABLE := 1
+
 CFLAGS = -Wall -g
 ifneq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
     CFLAGS += -O0
