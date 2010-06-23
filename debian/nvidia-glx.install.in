@@ -8,3 +8,4 @@ usr/X11R6/lib/libXvMCNVIDIA.so.#VERSION#		usr/lib/
 usr/X11R6/lib/modules/drivers/nvidia_drv.so		usr/lib/xorg/modules/drivers/
 usr/X11R6/lib/modules/extensions/libglx.so.#VERSION#	usr/lib/xorg/modules/extensions/
 debian/nvidia.ids					usr/share/xserver-xorg/pci/
+debian/99-nvidia-glx.conf				usr/share/X11/xorg.conf.d/
