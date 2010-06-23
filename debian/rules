@@ -145,7 +145,7 @@ override_dh_bugfiles:
 	dh_bugfiles -A
 
 override_dh_makeshlibs:
-	dh_makeshlibs -Xusr/lib/vdpau
+	dh_makeshlibs -Xusr/lib/vdpau -Xusr/lib32/vdpau
 
 override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' -V'nvidia:Legacy=$(legacy)' \
