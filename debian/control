@@ -69,7 +69,7 @@ Conflicts:
  nvidia-glx-legacy-71xx-ia32,
  nvidia-glx-legacy-96xx-ia32,
  nvidia-glx-legacy-173xx-ia32,
-Description: NVIDIA binary driver 32bit libs${nvidia:LegacyDesc}
+Description: NVIDIA binary driver 32-bit libs${nvidia:LegacyDesc}
  These binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
@@ -108,9 +108,35 @@ Conflicts:
  fglrx-glx,
 Replaces: nvidia-glx${nvidia:Legacy} (<< 195.36.31)
 Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
- These binary drivers provide optimized hardware acceleration of
+ These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
- AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
+ .
+ This version only supports GeForce 6xxx and higher of the Geforce GPUs
+ plus complimentary Quadros and nforce.  Look at the legacy packages
+ for older cards.
+ .
+ See /usr/share/doc/nvidia-libgl1${nvidia:Legacy}/README.txt.gz for a complete list
+ of supported GPUs and PCIIDs.
+
+Package: nvidia-libgl1-ia32
+Architecture: amd64
+Pre-Depends: libc6-i386 (>= 2.9-18)
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends:
+ nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
+Suggests:
+ nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
+ | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+Provides:
+ nvidia-libgl1-ia32,
+Conflicts:
+ nvidia-libgl1-ia32,
+ fglrx-glx-ia32,
+Replaces: nvidia-glx${nvidia:Legacy}-ia32 (<< 195.36.31)
+Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
+ These binary 32-bit libraries provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server.
  .
  This version only supports GeForce 6xxx and higher of the Geforce GPUs
  plus complimentary Quadros and nforce.  Look at the legacy packages
