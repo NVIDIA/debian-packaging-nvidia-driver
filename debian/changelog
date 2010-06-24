@@ -8,6 +8,7 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     Xorg in single-GPU setups.  (Closes: #586502)
   * Split the nvidia-glx package, move the runtime libraries to nvidia-libgl1.
     (Closes: #369316)
+  * Rename package nvidia-glx-dev to nvidia-libgl1-dev (add dummy).
   * Let nvidia-libgl1 provide libgl1.  (Closes: #389971)
   * Introduce virtual package nvidia-glx, add Provides/Conflicts: nvidia-glx
     to nvidia-glx, so that the legacy packages can do the same and we can stop
