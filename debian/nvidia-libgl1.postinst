@@ -20,45 +20,8 @@ if [ "$1" = "triggered" ]; then
 fi
 
 
-# <target: squeeze>
-dpkg-maintscript-helper rm_conffile /etc/default/nvidia-glx 195.36.24-1~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/init.d/nvidia-glx 195.36.24-3~ -- "$@"
-# </target: squeeze>
-
-
 case "$1" in
     configure)
-
-	# <target: squeeze>
-	if dpkg --compare-versions "$2" lt-nl 195.36.24-3 ; then
-	    update-rc.d nvidia-glx remove || true
-	fi
-	# </target: squeeze>
-
-	# <target: squeeze>
-        if dpkg --compare-versions "$2" lt-nl 195.36.24-2 ; then
-	    if [ -f /etc/default/nvidia-glx.dpkg-new ]; then
-		rm -f /etc/default/nvidia-glx.dpkg-new
-	    fi
-	fi
-	# </target: squeeze>
-
-        # <target: squeeze>
-        if dpkg --compare-versions "$2" lt-nl 195.36.24-1 ; then
-            # remove obsolete diversions
-            dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libGLcore.so.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.so > /dev/null	
-            dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libGLcore.a.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.a > /dev/null
-            dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libglx.a.xlibmesa /usr/lib/xorg/modules/extensions/libglx.a > /dev/null
-        fi
-        # </target: squeeze>
-
-        # <target: squeeze>
-	# remove libGL.so created before the trigger was introduced
-	# will be recreated by the trigger
-	if dpkg --compare-versions "$2" lt-nl 195.36.24-3 ; then
-		rm -f /usr/lib/libGL.so
-	fi
-        # </target: squeeze>
 
 	# activate our trigger
 	dpkg-trigger /usr/lib/libGL.so

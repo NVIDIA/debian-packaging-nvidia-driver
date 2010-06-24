@@ -4,12 +4,6 @@ set -e
 
 #DIVERT_QUIET="--quiet"
 
-# <target: squeeze>
-dpkg-maintscript-helper rm_conffile /etc/default/nvidia-glx 195.36.24-1~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/init.d/nvidia-glx 195.36.24-3~ -- "$@"
-# </target: squeeze>
-
-
 case "$1" in
     install|upgrade)
 
@@ -24,11 +18,6 @@ case "$1" in
 	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib/nvidia/libGL.so.1.2.xlibmesa \
 		/usr/lib/libGL.so.1.2
-
-	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/libglx.so.xlibmesa \
-		/usr/lib/xorg/modules/extensions/libglx.so
-
 	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib/nvidia/libGL.so.xlibmesa \
 		/usr/lib/libGL.so

@@ -4,12 +4,6 @@ set -e
 
 #DIVERT_QUIET="--quiet"
 
-# <target: squeeze>
-dpkg-maintscript-helper rm_conffile /etc/default/nvidia-glx 195.36.24-1~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/init.d/nvidia-glx 195.36.24-3~ -- "$@"
-# </target: squeeze>
-
-
 # Rationale:
 #
 # Remove our diversions at the remove stage, since even if we have
@@ -45,25 +39,12 @@ case "$1" in
 	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib/nvidia/libGL.so.1.2.xlibmesa \
 		/usr/lib/libGL.so.1.2
-
-	# work around dpkg-divert bug #581544: useless errors on not writable destination if source does not exist
-	if [ -d /usr/lib/nvidia ] && [ ! -d /usr/lib/xorg/modules/extensions ]; then
-	    mkdir -p /usr/lib/xorg/modules/extensions
-	fi
-	
-	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/libglx.so.xlibmesa \
-		/usr/lib/xorg/modules/extensions/libglx.so
-
 	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib/nvidia/libGL.so.xlibmesa \
 		/usr/lib/libGL.so
 
 	test ! -d /usr/lib/nvidia || \
 		rmdir /usr/lib/nvidia || true;
-
-	# work around dpkg-divert bug #581544: useless errors on not writable destination if source does not exist
-	rmdir /usr/lib/xorg/modules/extensions /usr/lib/xorg/modules /usr/lib/xorg 2>/dev/null || true
 
     ;;
 esac

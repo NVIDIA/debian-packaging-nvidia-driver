@@ -6,6 +6,8 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
   * Update nvidia.ids.
   * Add /usr/share/X11/xorg.conf.d/99-nvidia-glx.conf for autoconfiguration of
     Xorg in single-GPU setups.  (Closes: #586502)
+  * Split the nvidia-glx package, move the runtime libraries to nvidia-libgl1.
+    (Closes: #369316)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 23 Jun 2010 08:33:44 +0200
 

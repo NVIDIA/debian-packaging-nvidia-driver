@@ -14,12 +14,13 @@ filename_x86_64		 = $(NVIDIA_FILENAME_X86_64)
 dirname_x86		 = $(NVIDIA_DIRNAME_X86)
 dirname_x86_64		 = $(NVIDIA_DIRNAME_X86_64)
 
-ALL_CONTROL	:= $(wildcard debian/nvidia-glx* debian/nvidia-kernel*)
-LEGACY_CONTROL	:= $(wildcard debian/nvidia-glx$(legacy)* debian/nvidia-kernel$(legacy)*)
+ALL_CONTROL	:= $(wildcard debian/nvidia-glx* debian/nvidia-libgl1* debian/nvidia-kernel*)
+LEGACY_CONTROL	:= $(wildcard debian/nvidia-glx$(legacy)* debian/nvidia-libgl1$(legacy)* debian/nvidia-kernel$(legacy)*)
 RENAME_CONTROL	 = $(filter-out $(LEGACY_CONTROL),$(ALL_CONTROL))
 RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
+			$(patsubst debian/nvidia-libgl1%,debian/nvidia-libgl1$(legacy)%,\
 			$(patsubst debian/nvidia-kernel%,debian/nvidia-kernel$(legacy)%,\
-				$(RENAME_CONTROL)))
+				$(RENAME_CONTROL))))
 TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/module/debian/changelog
@@ -181,6 +182,9 @@ debian/module/debian/changelog: debian/changelog
 # Renaming control files for legacy packaging
 ifneq (,$(legacy))
 nvidia-glx$(legacy)%: nvidia-glx%
+	cp -a $< $@
+
+nvidia-libgl1$(legacy)%: nvidia-libgl1%
 	cp -a $< $@
 
 nvidia-kernel$(legacy)%: nvidia-kernel%

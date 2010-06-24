@@ -19,19 +19,8 @@ case "$1" in
 
 	# make new diversions
 	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/libGL.so.1.xlibmesa \
-		/usr/lib/libGL.so.1
-	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/libGL.so.1.2.xlibmesa \
-		/usr/lib/libGL.so.1.2
-
-	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib/nvidia/libglx.so.xlibmesa \
 		/usr/lib/xorg/modules/extensions/libglx.so
-
-	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/libGL.so.xlibmesa \
-		/usr/lib/libGL.so
 
     ;;
 esac

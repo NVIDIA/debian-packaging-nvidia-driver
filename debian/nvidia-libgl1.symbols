@@ -1,4 +1,4 @@
-#include "nvidia-glx.symbols.common"
+#include "nvidia-libgl1.symbols.common"
 libXvMCNVIDIA_dynamic.so.1 #PACKAGE# #MINVER#
  XvMCBlendSubpicture2@Base 1.0.4349
  XvMCBlendSubpicture@Base 1.0.4349

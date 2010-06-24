@@ -16,7 +16,8 @@ Homepage: http://www.nvidia.com
 Package: nvidia-glx
 Architecture: i386 amd64
 Pre-Depends: dpkg (>= 1.15.7.2)
-Depends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
+Depends: nvidia-libgl1${nvidia:Legacy},
+ nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-vdpau-driver (>= ${nvidia:Version})
 Suggests: nvidia-settings,
@@ -94,6 +95,32 @@ Description: NVIDIA binary Xorg driver development files${nvidia:LegacyDesc}
  .
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
+
+Package: nvidia-libgl1
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
+Suggests:
+ nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
+ | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+Conflicts:
+ nvidia-glx-legacy,
+ nvidia-glx-legacy-71xx,
+ nvidia-glx-legacy-96xx,
+ nvidia-glx-legacy-173xx,
+ fglrx-glx,
+Replaces: nvidia-glx (<< 195.36.31)
+Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
+ These binary drivers provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server.
+ AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
+ .
+ This version only supports GeForce 6xxx and higher of the Geforce GPUs
+ plus complimentary Quadros and nforce.  Look at the legacy packages
+ for older cards.
+ .
+ See /usr/share/doc/nvidia-libgl1${nvidia:Legacy}/README.txt.gz for a complete list
+ of supported GPUs and PCIIDs.
 
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
