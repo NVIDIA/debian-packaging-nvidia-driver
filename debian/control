@@ -103,6 +103,7 @@ Recommends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+Provides: libgl1
 Conflicts:
  nvidia-glx-legacy,
  nvidia-glx-legacy-71xx,

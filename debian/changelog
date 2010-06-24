@@ -8,6 +8,7 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     Xorg in single-GPU setups.  (Closes: #586502)
   * Split the nvidia-glx package, move the runtime libraries to nvidia-libgl1.
     (Closes: #369316)
+  * Let nvidia-libgl1 provide libgl1.  (Closes: #389971)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 23 Jun 2010 08:33:44 +0200
 
