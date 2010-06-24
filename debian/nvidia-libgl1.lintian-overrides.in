@@ -1,0 +1,24 @@
+# The NVIDIA license does not allow any form of modification.
+nvidia-glx#LEGACY#: binary-has-unneeded-section
+nvidia-glx#LEGACY#: embedded-libpng
+nvidia-glx#LEGACY#: shared-lib-without-dependency-information
+#!i386#nvidia-glx#LEGACY#: shlib-with-executable-stack
+#!amd64#nvidia-glx#LEGACY#: shlib-with-non-pic-code
+#!amd64#nvidia-glx#LEGACY#: shlib-without-PT_GNU_STACK-section
+nvidia-glx#LEGACY#: spelling-error-in-binary
+
+# We divert a bunch of files not provided by this package to ensure that
+# programs don't pick up the wrong libGL by mistake.
+nvidia-glx#LEGACY#: diversion-for-unknown-file usr/lib/libGL.so preinst:*
+nvidia-glx#LEGACY#: diversion-for-unknown-file usr/lib/libGL.so.1.2 preinst:*
+
+# The diversions are placed here.
+nvidia-glx#LEGACY#: package-contains-empty-directory usr/lib/nvidia/
+
+# Referenced by upstream documentation.
+nvidia-glx#LEGACY#: script-with-language-extension usr/bin/nvidia-bug-report.sh
+
+# This package is a strange special case since it overrides standard
+# libraries and diverts them, so the package name won't ever be able to
+# match the library names it provides.
+nvidia-glx#LEGACY#: package-name-doesnt-match-sonames
