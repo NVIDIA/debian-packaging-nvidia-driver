@@ -9,6 +9,10 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
   * Split the nvidia-glx package, move the runtime libraries to nvidia-libgl1.
     (Closes: #369316)
   * Let nvidia-libgl1 provide libgl1.  (Closes: #389971)
+  * Introduce virtual package nvidia-glx, add Provides/Conflicts: nvidia-glx
+    to nvidia-glx, so that the legacy packages can do the same and we can stop
+    listing each variant we have in Conflicts and Recommends lists.
+    Same for nvidia-libgl1 and nvidia-glx-ia32.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 23 Jun 2010 08:33:44 +0200
 

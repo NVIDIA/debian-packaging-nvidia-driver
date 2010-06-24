@@ -16,7 +16,8 @@ Homepage: http://www.nvidia.com
 Package: nvidia-glx
 Architecture: i386 amd64
 Pre-Depends: dpkg (>= 1.15.7.2)
-Depends: nvidia-libgl1${nvidia:Legacy},
+Depends:
+ nvidia-libgl1${nvidia:Legacy} (= ${binary:Version}),
  nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-vdpau-driver (>= ${nvidia:Version})
@@ -24,8 +25,11 @@ Suggests: nvidia-settings,
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Breaks: xserver-xorg-core (<< 2:1.6)
-Provides: xserver-xorg-video-6
+Provides:
+ xserver-xorg-video-6,
+ nvidia-glx,
 Conflicts:
+ nvidia-glx,
  nvidia-glx-legacy,
  nvidia-glx-legacy-71xx,
  nvidia-glx-legacy-96xx,
@@ -57,7 +61,10 @@ Recommends: nvidia-vdpau-driver-ia32 (>= ${nvidia:Version})
 Suggests: nvidia-settings,
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+Provides:
+ nvidia-glx-ia32,
 Conflicts:
+ nvidia-glx-ia32,
  nvidia-glx-legacy-ia32,
  nvidia-glx-legacy-71xx-ia32,
  nvidia-glx-legacy-96xx-ia32,
@@ -98,19 +105,20 @@ Description: NVIDIA binary Xorg driver development files${nvidia:LegacyDesc}
 
 Package: nvidia-libgl1
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends:
+ nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Provides: libgl1
+Provides:
+ libgl1,
+ nvidia-libgl1,
 Conflicts:
- nvidia-glx-legacy,
- nvidia-glx-legacy-71xx,
- nvidia-glx-legacy-96xx,
- nvidia-glx-legacy-173xx,
+ nvidia-libgl1,
  fglrx-glx,
-Replaces: nvidia-glx (<< 195.36.31)
+Replaces: nvidia-glx${nvidia:Legacy} (<< 195.36.31)
 Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  These binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
