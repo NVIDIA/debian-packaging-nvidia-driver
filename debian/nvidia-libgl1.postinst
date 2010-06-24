@@ -20,14 +20,10 @@ if [ "$1" = "triggered" ]; then
 fi
 
 
-case "$1" in
-    configure)
-
+if [ "$1" = "configure" ]; then
 	# activate our trigger
 	dpkg-trigger /usr/lib/libGL.so
-
-    ;;
-esac
+fi
 
 
 #DEBHELPER#
