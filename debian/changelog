@@ -4,6 +4,10 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
   * New upstream release.
     - Drop patch NVIDIA_kernel-195.36.24-682377.diff, now included.
   * Update nvidia.ids.
+  * Fix the dpkg-shlibdeps generation of packages built while nvidia-glx is
+    installed: add back a special shlibs entry for libGL.so.1 and remove
+    libGL.so.1 from the symbols file to ensure to generate a dependency on
+    libgl1-mesa-glx | libgl1 only.  (Closes: #587091)
   * Add /usr/share/X11/xorg.conf.d/99-nvidia-glx.conf for autoconfiguration of
     Xorg in single-GPU setups.  (Closes: #586502)
   * Split the nvidia-glx{,-ia32} packages, move the runtime libraries to

@@ -13,3 +13,10 @@ nvidia-libgl1#LEGACY#-ia32: diversion-for-unknown-file usr/lib32/libGL.so.1.2 pr
 # In order to retain its functionality (i.e. pointing the MESA libGL.so.1)
 # we ship a link pointing to the diverted library.
 nvidia-libgl1#LEGACY#-ia32: non-dev-pkg-with-shlib-symlink
+
+# Packages built against the NVIDIA libGL should declare dependencies on
+# the free version for Debian's purposes.  Therefore we use a special
+# combination of shlibs files (for libGL.so.1) and symbols files (for all
+# other libraries).
+nvidia-libgl1#LEGACY#-ia32: shlibs-declares-dependency-on-other-package ia32-libs (>= 20090804)
+nvidia-libgl1#LEGACY#-ia32: shlib-missing-in-symbols-control-file libGL 1 for usr/lib32/libGL.so.#VERSION#
