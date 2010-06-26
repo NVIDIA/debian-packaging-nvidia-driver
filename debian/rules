@@ -211,7 +211,7 @@ get-orig-source:
 	    mkdir nvidia-graphics-drivers-$${newversion}.orig ; \
 	    mv *.run nvidia-graphics-drivers-$${newversion}.orig/ ; \
 	    chmod 0755 nvidia-graphics-drivers-$${newversion}.orig/* ; \
-	    tar cfvz ../nvidia-graphics-drivers_$$newversion.orig.tar.gz \
+	    tar cfvz ../nvidia-graphics-drivers$(legacy)_$$newversion.orig.tar.gz \
 		--owner=root --group=src \
 		nvidia-graphics-drivers-$${newversion}.orig
 	rm -rf get-orig-source
