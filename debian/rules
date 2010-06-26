@@ -146,7 +146,7 @@ override_dh_bugfiles:
 	dh_bugfiles -A
 
 override_dh_makeshlibs:
-	dh_makeshlibs -Xusr/lib/vdpau -Xusr/lib32/vdpau
+	dh_makeshlibs -Xvdpau/libvdpau_nvidia.so
 	# Redirect shlibs for libGL.so.1 to libgl1-mesa-glx | libgl1.
 	sed -i -e '/^libGL 1 /s/.*/libGL 1 libgl1-mesa-glx | libgl1/' debian/nvidia-libgl1$(legacy)/DEBIAN/shlibs
 	sed -i -e '/^libGL 1 /s/.*/libGL 1 ia32-libs (>= 20090804)/' debian/nvidia-libgl1$(legacy)-ia32/DEBIAN/shlibs
