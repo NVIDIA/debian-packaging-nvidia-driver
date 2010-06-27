@@ -1,5 +1,13 @@
 nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
 
+  * TODO BEFORE UPLOAD:
+    - Can we just drop the libGL.so handling?
+    - Should we rename the nvidia-libgl1* packages again?
+    - Can we enable autobuilding of this non-free package?
+  * NOTE: Even if 256.xx is out, I'd like to get a release of 195.36.31 first
+    because I need this as a base for updating the legacy packages and 256.xx
+    changes the layout of the upstream tarball significantly.  Andreas
+
   [ Andreas Beckmann ]
   * New upstream release.
     - Drop patch NVIDIA_kernel-195.36.24-682377.diff, now included.
