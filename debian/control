@@ -10,7 +10,7 @@ Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-driv
 Build-Depends: debhelper (>= 7.4.16~), bzip2, dkms (>= 2.1.1.1), libxext6,
  quilt, ia32-libs (>= 20090804) [amd64], lib32gcc1 [amd64], lib32z1 [amd64],
  libc6-dev-i386 [amd64]
-Standards-Version: 3.8.4
+Standards-Version: 3.9.0
 Homepage: http://www.nvidia.com
 
 Package: nvidia-glx
@@ -163,7 +163,8 @@ Provides:
  libgl1-nvidia-dev,
 Conflicts:
  libgl1-nvidia-dev,
-Replaces: nvidia-glx${nvidia:Legacy}-dev
+ nvidia-glx${nvidia:Legacy}-dev (<< 195.36.31),
+Replaces: nvidia-glx${nvidia:Legacy}-dev (<< 195.36.31)
 Description: NVIDIA OpenGL development files${nvidia:LegacyDesc}
  This package contains the development files for the NVIDIA OpenGL
  implementation. This package is only needed for applications that use some

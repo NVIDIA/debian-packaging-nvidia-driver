@@ -16,6 +16,8 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     corresponding real packages, so that the legacy packages can do the same
     and we can stop listing each variant we have in Conflicts and Recommends
     lists.
+  * Update to Standards-Version: 3.9.0.  Not switching to Breaks+Replaces.
+    Not touching old versioned Conflicts.  No other changes needed.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 23 Jun 2010 08:33:44 +0200
 
