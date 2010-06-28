@@ -1,27 +1,27 @@
 # The NVIDIA license does not allow any form of modification.
-nvidia-libgl1#LEGACY#: binary-has-unneeded-section
-nvidia-libgl1#LEGACY#: shared-lib-without-dependency-information
-#!i386#nvidia-libgl1#LEGACY#: shlib-with-executable-stack
-#!amd64#nvidia-libgl1#LEGACY#: shlib-with-non-pic-code
-#!amd64#nvidia-libgl1#LEGACY#: shlib-without-PT_GNU_STACK-section
-nvidia-libgl1#LEGACY#: spelling-error-in-binary
+libgl1-nvidia#LEGACY#-glx: binary-has-unneeded-section
+libgl1-nvidia#LEGACY#-glx: shared-lib-without-dependency-information
+#!i386#libgl1-nvidia#LEGACY#-glx: shlib-with-executable-stack
+#!amd64#libgl1-nvidia#LEGACY#-glx: shlib-with-non-pic-code
+#!amd64#libgl1-nvidia#LEGACY#-glx: shlib-without-PT_GNU_STACK-section
+libgl1-nvidia#LEGACY#-glx: spelling-error-in-binary
 
 # We divert a bunch of files not provided by this package to ensure that
 # programs don't pick up the wrong libGL by mistake.
-nvidia-libgl1#LEGACY#: diversion-for-unknown-file usr/lib/libGL.so preinst:*
-nvidia-libgl1#LEGACY#: diversion-for-unknown-file usr/lib/libGL.so.1.2 preinst:*
+libgl1-nvidia#LEGACY#-glx: diversion-for-unknown-file usr/lib/libGL.so preinst:*
+libgl1-nvidia#LEGACY#-glx: diversion-for-unknown-file usr/lib/libGL.so.1.2 preinst:*
 
 # The diversions are placed here.
-nvidia-libgl1#LEGACY#: package-contains-empty-directory usr/lib/nvidia/
+libgl1-nvidia#LEGACY#-glx: package-contains-empty-directory usr/lib/nvidia/
 
 # Packages built against the NVIDIA libGL should declare dependencies on
 # the free version for Debian's purposes.  Therefore we use a special
 # combination of shlibs files (for libGL.so.1) and symbols files (for all
 # other libraries).
-nvidia-libgl1#LEGACY#: shlibs-declares-dependency-on-other-package libgl1-mesa-glx | libgl1
-nvidia-libgl1#LEGACY#: shlib-missing-in-symbols-control-file libGL 1 for usr/lib/libGL.so.#VERSION#
+libgl1-nvidia#LEGACY#-glx: shlibs-declares-dependency-on-other-package libgl1-mesa-glx | libgl1
+libgl1-nvidia#LEGACY#-glx: shlib-missing-in-symbols-control-file libGL 1 for usr/lib/libGL.so.#VERSION#
 
 # This package is a strange special case since it overrides standard
 # libraries and diverts them, so the package name won't ever be able to
 # match the library names it provides.
-nvidia-libgl1#LEGACY#: package-name-doesnt-match-sonames
+libgl1-nvidia#LEGACY#-glx: package-name-doesnt-match-sonames

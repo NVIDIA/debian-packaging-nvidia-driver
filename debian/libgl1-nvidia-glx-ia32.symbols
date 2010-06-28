@@ -1,1 +1,1 @@
-#include "nvidia-libgl1.symbols.common"
+#include "libgl1-nvidia-glx.symbols.common"

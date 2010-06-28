@@ -1,22 +1,22 @@
 # The NVIDIA license does not allow any form of modification.
-nvidia-libgl1#LEGACY#-ia32: binary-has-unneeded-section
-nvidia-libgl1#LEGACY#-ia32: shared-lib-without-dependency-information
-nvidia-libgl1#LEGACY#-ia32: shlib-with-non-pic-code
-nvidia-libgl1#LEGACY#-ia32: shlib-without-PT_GNU_STACK-section
-nvidia-libgl1#LEGACY#-ia32: spelling-error-in-binary
+libgl1-nvidia#LEGACY#-glx-ia32: binary-has-unneeded-section
+libgl1-nvidia#LEGACY#-glx-ia32: shared-lib-without-dependency-information
+libgl1-nvidia#LEGACY#-glx-ia32: shlib-with-non-pic-code
+libgl1-nvidia#LEGACY#-glx-ia32: shlib-without-PT_GNU_STACK-section
+libgl1-nvidia#LEGACY#-glx-ia32: spelling-error-in-binary
 
 # We divert a bunch of files not provided by this package to ensure that
 # programs don't pick up the wrong libGL by mistake.
-nvidia-libgl1#LEGACY#-ia32: diversion-for-unknown-file usr/lib32/libGL.so.1.2 preinst:*
+libgl1-nvidia#LEGACY#-glx-ia32: diversion-for-unknown-file usr/lib32/libGL.so.1.2 preinst:*
 
 # We divert the original /usr/lib32/libGL.so symlink.
 # In order to retain its functionality (i.e. pointing the MESA libGL.so.1)
 # we ship a link pointing to the diverted library.
-nvidia-libgl1#LEGACY#-ia32: non-dev-pkg-with-shlib-symlink
+libgl1-nvidia#LEGACY#-glx-ia32: non-dev-pkg-with-shlib-symlink
 
 # Packages built against the NVIDIA libGL should declare dependencies on
 # the free version for Debian's purposes.  Therefore we use a special
 # combination of shlibs files (for libGL.so.1) and symbols files (for all
 # other libraries).
-nvidia-libgl1#LEGACY#-ia32: shlibs-declares-dependency-on-other-package ia32-libs (>= 20090804)
-nvidia-libgl1#LEGACY#-ia32: shlib-missing-in-symbols-control-file libGL 1 for usr/lib32/libGL.so.#VERSION#
+libgl1-nvidia#LEGACY#-glx-ia32: shlibs-declares-dependency-on-other-package ia32-libs (>= 20090804)
+libgl1-nvidia#LEGACY#-glx-ia32: shlib-missing-in-symbols-control-file libGL 1 for usr/lib32/libGL.so.#VERSION#

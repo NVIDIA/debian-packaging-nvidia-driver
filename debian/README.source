@@ -57,6 +57,9 @@ Building and Uploading
     building the kernel modules, which you can do without having an NVIDIA
     card.
 
+    For uploads that have to go through the NEW queue because of added or
+    renamed binary packages, an upload of amd64 first is recommended.
+
  -- Russ Allbery <rra@debian.org>, Tue,  6 Apr 2010 23:36:07 -0700
 
 
@@ -69,7 +72,11 @@ Forking a new legacy package
 
     * in debian/changelog and debian/control (Source: and Package: lines)
       change the package name by inserting '-legacy-42xx' into the package
-      name after nvidia-glx, nvidia-kernel, nvidia-graphics-drivers
+      name after
+        - nvidia-glx
+        - libgl1-nvidia
+        - nvidia-kernel
+        - nvidia-graphics-drivers
 
     * remove all packages that should no longer be built from debian/control
 
