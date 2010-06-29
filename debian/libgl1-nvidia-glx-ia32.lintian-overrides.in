@@ -20,3 +20,7 @@ libgl1-nvidia#LEGACY#-glx-ia32: non-dev-pkg-with-shlib-symlink
 # other libraries).
 libgl1-nvidia#LEGACY#-glx-ia32: shlibs-declares-dependency-on-other-package ia32-libs (>= 20090804)
 libgl1-nvidia#LEGACY#-glx-ia32: shlib-missing-in-symbols-control-file libGL 1 for usr/lib32/libGL.so.#VERSION#
+
+# Due to complex maintainer script operations (migration of diversions) a
+# simple Breaks+Recommends is not sufficient to ensure clean up-/downgrades.
+libgl1-nvidia#LEGACY#-glx-ia32: conflicts-with-version nvidia-glx#LEGACY#-ia32 *

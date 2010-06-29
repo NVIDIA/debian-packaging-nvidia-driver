@@ -1,0 +1,3 @@
+# Due to complex maintainer script operations (migration of diversions) a
+# simple Breaks+Recommends is not sufficient to ensure clean up-/downgrades.
+libgl1-nvidia#LEGACY#-dev: conflicts-with-version nvidia-glx#LEGACY#-dev *

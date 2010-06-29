@@ -25,3 +25,7 @@ libgl1-nvidia#LEGACY#-glx: shlib-missing-in-symbols-control-file libGL 1 for usr
 # libraries and diverts them, so the package name won't ever be able to
 # match the library names it provides.
 libgl1-nvidia#LEGACY#-glx: package-name-doesnt-match-sonames
+
+# Due to complex maintainer script operations (migration of diversions) a
+# simple Breaks+Recommends is not sufficient to ensure clean up-/downgrades.
+libgl1-nvidia-glx: conflicts-with-version nvidia-glx#LEGACY# *
