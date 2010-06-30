@@ -55,7 +55,7 @@ Package: nvidia-glx-dev
 Architecture: i386 amd64
 Depends: nvidia-glx (>= 190.42), ${misc:Depends}
 Provides: libgl-dev
-Conflicts: nvidia-glx (>= 190.42), libgl-dev, mesa-common-dev
+Conflicts: nvidia-glx (>= 190.43), libgl-dev, mesa-common-dev
 Replaces: libgl-dev
 Description: NVIDIA binary Xorg driver development files
  This package contains the NVIDIA binary Xorg driver
@@ -97,7 +97,7 @@ Package: nvidia-libvdpau-dev
 Section: non-free/libdevel
 Architecture: i386 amd64
 Depends: nvidia-libvdpau1 (>= 190.42), ${misc:Depends}
-Conflicts: nvidia-glx-dev (< 180.51), nvidia-libvdpau1 (>= 190.42)
+Conflicts: nvidia-glx-dev (< 180.51), nvidia-libvdpau1 (>= 190.43)
 Provides: nvidia-libvdpau1-dev
 Replaces: nvidia-libvdpau, nvidia-glx-dev (< 180.51)
 Description: NVIDIA vdpau development files
@@ -108,6 +108,7 @@ Description: NVIDIA vdpau development files
  This package contains the VDPAU development files.
 
 Package: nvidia-kernel-source
+Section: non-free/kernel
 Architecture: i386 amd64
 Depends: debhelper (>> 4.0.0), make, sed (>> 3.0), dpatch (>= 2.0.0), ${misc:Depends}
 Recommends: nvidia-glx (>= 190.42), kernel-package (>= 8.082), module-assistant, devscripts
