@@ -6,11 +6,6 @@ libgl1-nvidia#LEGACY#-glx: shared-lib-without-dependency-information
 #!amd64#libgl1-nvidia#LEGACY#-glx: shlib-without-PT_GNU_STACK-section
 libgl1-nvidia#LEGACY#-glx: spelling-error-in-binary
 
-# We divert a bunch of files not provided by this package to ensure that
-# programs don't pick up the wrong libGL by mistake.
-libgl1-nvidia#LEGACY#-glx: diversion-for-unknown-file usr/lib/libGL.so preinst:*
-libgl1-nvidia#LEGACY#-glx: diversion-for-unknown-file usr/lib/libGL.so.1.2 preinst:*
-
 # The diversions are placed here.
 libgl1-nvidia#LEGACY#-glx: package-contains-empty-directory usr/lib/nvidia/
 
