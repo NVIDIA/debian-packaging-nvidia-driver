@@ -49,8 +49,8 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  plus complimentary Quadros and nforce.  Look at the legacy packages
  for older cards.
  .
- See /usr/share/doc/nvidia-glx${nvidia:Legacy}/README.txt.gz for a complete list
- of supported GPUs and PCIIDs.
+ See /usr/share/doc/nvidia-glx${nvidia:Legacy}/README.txt.gz
+ for a complete list of supported GPUs and PCIIDs.
 
 Package: nvidia-glx-ia32
 Architecture: amd64
@@ -80,8 +80,8 @@ Description: NVIDIA binary driver 32-bit libs${nvidia:LegacyDesc}
  plus complimentary Quadros and nforce.  Look at the legacy packages
  for older cards.
  .
- See /usr/share/doc/nvidia-glx${nvidia:Legacy}/README.txt.gz for a complete list
- of supported GPUs and PCIIDs.
+ See /usr/share/doc/nvidia-glx${nvidia:Legacy}/README.txt.gz
+ for a complete list of supported GPUs and PCIIDs.
 
 Package: nvidia-glx-dev
 Section: non-free/oldlibs
@@ -119,8 +119,8 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  plus complimentary Quadros and nforce.  Look at the legacy packages
  for older cards.
  .
- See /usr/share/doc/libgl1-nvidia${nvidia:Legacy}-glx/README.txt.gz for a complete list
- of supported GPUs and PCIIDs.
+ See /usr/share/doc/libgl1-nvidia${nvidia:Legacy}-glx/README.txt.gz
+ for a complete list of supported GPUs and PCIIDs.
 
 Package: libgl1-nvidia-glx-ia32
 Section: non-free/libs
@@ -148,8 +148,8 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
  plus complimentary Quadros and nforce.  Look at the legacy packages
  for older cards.
  .
- See /usr/share/doc/libgl1-nvidia${nvidia:Legacy}-glx/README.txt.gz for a complete list
- of supported GPUs and PCIIDs.
+ See /usr/share/doc/libgl1-nvidia${nvidia:Legacy}-glx/README.txt.gz
+ for a complete list of supported GPUs and PCIIDs.
 
 Package: libgl1-nvidia-dev
 Section: non-free/libdevel
