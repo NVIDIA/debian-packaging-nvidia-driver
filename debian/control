@@ -397,11 +397,13 @@ Description: NVIDIA CUDA development files
  For more information on this source package visit NVIDIA's CUDA Zone
  at http://www.nvidia.com/CUDA .
 
-Package: libnvidia-compiler1
+Package: libnvidia-compiler
 Section: non-free/libs
 Architecture: i386 amd64
 Depends: libcuda1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libnvidia-compiler1
+Replaces: libnvidia-compiler1
 Description: NVIDIA runtime compiler library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -409,12 +411,14 @@ Description: NVIDIA runtime compiler library
  .
  This package contains the runtime compiler library.
 
-Package: libnvidia-compiler1-ia32
+Package: libnvidia-compiler-ia32
 Section: non-free/libs
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends: libcuda1-ia32 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libnvidia-compiler1-ia32
+Replaces: libnvidia-compiler1-ia32
 Description: NVIDIA runtime compiler library (32-bit)
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -442,7 +446,7 @@ Depends: ${misc:Depends},
  nvidia-opencl-common,
  libopencl1,
  libcuda1 (>= 195)
-Recommends: libnvidia-compiler1
+Recommends: libnvidia-compiler
 Enhances: libopencl1
 Provides: opencl-icd
 Description: NVIDIA OpenCL ICD
@@ -459,7 +463,7 @@ Depends: ${misc:Depends},
  nvidia-opencl-common,
  lib32opencl1,
  libcuda1-ia32 (>= 195)
-Recommends: libnvidia-compiler1-ia32
+Recommends: libnvidia-compiler-ia32
 Enhances: lib32opencl1
 Provides: opencl-icd
 Description: NVIDIA OpenCL ICD (32-bit)
