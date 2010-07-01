@@ -96,7 +96,6 @@ override_dh_auto_install:
 	# Build the nvidia-kernel-source tree.
 	mkdir -p $(module_source)
 	mv debian/tmp/usr/src/nv/* $(module_source)/
-	cp -a debian/tmp/usr/share/doc/NVIDIA_Changelog $(module_source)/
 
 	# We don't want these makefiles that don't work with kbuild.
 	rm $(module_source)/makefile
