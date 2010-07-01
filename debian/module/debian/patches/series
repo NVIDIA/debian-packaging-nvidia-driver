@@ -1,2 +1,2 @@
-select-nv-kernel.o.ARCH.patch
+use-nv-kernel.o.ARCH.patch
 conditionally-include-linux_version.h.patch
