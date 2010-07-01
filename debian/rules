@@ -48,12 +48,15 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 	touch $@
 
 nvidia.ids: unpack-stamp
-	sed -e '/^A1/,/^Below/{/ 0x/s/.* 0x\([0-9a-fA-F]\{4\}\).*/10DE\1/p};d' \
-		NVIDIA-Linux-$(DEB_HOST_ARCH)/usr/share/doc/README.txt \
+	sed -e '0,/A. Supported\|APPENDIX A: SUPPORTED/d' \
+	    -e '0,/Appendix A. Supported\|APPENDIX A: SUPPORTED/d' \
+	    -e '0,/^Below\|APPENDIX B/{/ 0x/s/.* 0x\([0-9a-fA-F]\{4\}\).*/10DE\1/p};d' \
+		$(firstword $(wildcard NVIDIA-Linux-$(DEB_HOST_ARCH)/usr/share/doc/README*) /dev/null) \
 		| tr a-f A-F | sort -u > $@
+	@set -e -x ; \
 	if ! cmp -s debian/nvidia.ids nvidia.ids ; then \
 		diff -u debian/nvidia.ids nvidia.ids || true ; \
-		echo "*** Supported PCI IDs have changed. See diff above. Aborting. ***"; \
+		: "*** Supported PCI IDs have changed. See diff above. Aborting. ***"; \
 		exit 1 ; \
 	fi
 
