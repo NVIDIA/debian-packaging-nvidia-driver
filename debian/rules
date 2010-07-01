@@ -81,11 +81,15 @@ override_dh_auto_configure: prepare
 # Build two kernel module source tarballs for use with
 #  - module-assistant and make-kpkg
 #  - dkms
-override_dh_auto_install:
+.PHONY: install-into-tmp build-kernel-source-tree build-kernel-dkms-tree kernel-source-tree
+override_dh_auto_install: install-into-tmp build-kernel-source-tree build-kernel-dkms-tree
+
+install-into-tmp:
 	# "Install" into debian/tmp.
 	cp -al NVIDIA-Linux-$(DEB_HOST_ARCH)/ debian/tmp
 
 	# Create xorg.conf.sample
+	test ! -f debian/tmp/usr/share/doc/XF86Config.sample || \
 	sed \
 	    -e 's/XF86Config(4\/5)/xorg.conf(5)/g' \
 	    -e 's/XF86Config/xorg.conf/g' \
@@ -93,6 +97,7 @@ override_dh_auto_install:
 	    < debian/tmp/usr/share/doc/XF86Config.sample \
 	    > debian/tmp/usr/share/doc/xorg.conf.sample
 
+build-kernel-source-tree: install-into-tmp
 	# Build the nvidia-kernel-source tree.
 	mkdir -p $(module_source)
 	mv debian/tmp/usr/src/nv/* $(module_source)/
@@ -128,6 +133,7 @@ override_dh_auto_install:
 	    --exclude '*.in' --exclude '.svn' modules
 	tar tfvj $(module_tbz)
 
+build-kernel-dkms-tree: build-kernel-source-tree
 	# Use the nvidia-kernel-source source to create the DKMS tree.
 	mkdir -p $(dir $(dkms_source))
 	mv $(module_source) $(dkms_source)
@@ -137,6 +143,13 @@ override_dh_auto_install:
 	    && rm -rf .pc debian
 	ls -la $(dkms_source)
 	dh_dkms -V $(version)
+
+# This target is not used by the package build process.  You can use it if
+# you want to work with the patches that get applied to the module source.
+kernel-source-tree: prepare build-kernel-source-tree
+	$(RM) -r $@
+	cp -a $(module_source) $@
+	cd $@ && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2
 
 override_dh_install:
 	dh_install --list-missing
