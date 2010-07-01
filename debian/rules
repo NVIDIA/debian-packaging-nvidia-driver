@@ -45,6 +45,8 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 	ln -s ${dirname_x86} NVIDIA-Linux-i386
 	ln -s ${dirname_x86_64} NVIDIA-Linux-amd64
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
+	test -f NVIDIA-Linux/usr/share/doc/README.txt || \
+		mv NVIDIA-Linux/usr/share/doc/README NVIDIA-Linux/usr/share/doc/README.txt
 	ls -al
 	touch $@
 
