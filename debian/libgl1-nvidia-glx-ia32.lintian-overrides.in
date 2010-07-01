@@ -20,3 +20,6 @@ libgl1-nvidia#LEGACY#-glx-ia32: shlib-missing-in-symbols-control-file libGL 1 fo
 # Due to complex maintainer script operations (migration of diversions) a
 # simple Breaks+Recommends is not sufficient to ensure clean up-/downgrades.
 libgl1-nvidia#LEGACY#-glx-ia32: conflicts-with-version nvidia-glx#LEGACY#-ia32 *
+
+# We provide ourselves as a virtual package.
+libgl1-nvidia-glx-ia32: package-relation-with-self provides: libgl1-nvidia-glx-ia32

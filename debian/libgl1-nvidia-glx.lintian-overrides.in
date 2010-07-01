@@ -24,3 +24,6 @@ libgl1-nvidia#LEGACY#-glx: package-name-doesnt-match-sonames
 # Due to complex maintainer script operations (migration of diversions) a
 # simple Breaks+Recommends is not sufficient to ensure clean up-/downgrades.
 libgl1-nvidia#LEGACY#-glx: conflicts-with-version nvidia-glx#LEGACY# *
+
+# We provide ourselves as a virtual package.
+libgl1-nvidia-glx: package-relation-with-self provides: libgl1-nvidia-glx

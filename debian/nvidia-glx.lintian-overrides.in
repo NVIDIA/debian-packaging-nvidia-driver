@@ -10,3 +10,6 @@ nvidia-glx#LEGACY#: package-contains-empty-directory usr/lib/nvidia/
 
 # Referenced by upstream documentation.
 nvidia-glx#LEGACY#: script-with-language-extension usr/bin/nvidia-bug-report.sh
+
+# We provide ourselves as a virtual package.
+nvidia-glx: package-relation-with-self provides: nvidia-glx
