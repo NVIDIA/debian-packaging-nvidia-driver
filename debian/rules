@@ -133,7 +133,7 @@ override_dh_auto_install:
 	mv $(module_source) $(dkms_source)
 	rmdir $(dir $(module_source))
 	cd $(dkms_source) \
-	    && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a \
+	    && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2 \
 	    && rm -rf .pc debian
 	ls -la $(dkms_source)
 	dh_dkms -V $(version)
