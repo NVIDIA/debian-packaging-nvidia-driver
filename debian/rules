@@ -44,6 +44,7 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 	sh ${filename_x86_64} --extract-only
 	ln -s ${dirname_x86} NVIDIA-Linux-i386
 	ln -s ${dirname_x86_64} NVIDIA-Linux-amd64
+	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
 	ls -al
 	touch $@
 
@@ -51,7 +52,7 @@ nvidia.ids: unpack-stamp
 	sed -e '0,/A. Supported\|APPENDIX A: SUPPORTED/d' \
 	    -e '0,/Appendix A. Supported\|APPENDIX A: SUPPORTED/d' \
 	    -e '0,/^Below\|APPENDIX B/{/ 0x/s/.* 0x\([0-9a-fA-F]\{4\}\).*/10DE\1/p};d' \
-		$(firstword $(wildcard NVIDIA-Linux-$(DEB_HOST_ARCH)/usr/share/doc/README*) /dev/null) \
+		NVIDIA-Linux/usr/share/doc/README.txt \
 		| tr a-f A-F | sort -u > $@
 	@set -e -x ; \
 	if ! cmp -s debian/nvidia.ids nvidia.ids ; then \
@@ -66,9 +67,10 @@ binary binary-arch binary-indep build clean install:
 	dh $@
 
 override_dh_auto_clean:
-	rm -f NVIDIA-Linux-i386 NVIDIA-Linux-amd64
+	rm -f NVIDIA-Linux-i386 NVIDIA-Linux-amd64 NVIDIA-Linux
 	rm -fr $(dirname_x86) $(dirname_x86_64)
 	rm -fr debian/temp
+	rm -fr kernel-source-tree
 	rm -f nvidia.ids
 
 override_dh_clean:
@@ -86,7 +88,7 @@ override_dh_auto_install: install-into-tmp build-kernel-source-tree build-kernel
 
 install-into-tmp:
 	# "Install" into debian/tmp.
-	cp -al NVIDIA-Linux-$(DEB_HOST_ARCH)/ debian/tmp
+	cp -al NVIDIA-Linux/ debian/tmp
 
 	# Create xorg.conf.sample
 	test ! -f debian/tmp/usr/share/doc/XF86Config.sample || \
@@ -147,7 +149,7 @@ build-kernel-dkms-tree: build-kernel-source-tree
 # This target is not used by the package build process.  You can use it if
 # you want to work with the patches that get applied to the module source.
 kernel-source-tree: prepare build-kernel-source-tree
-	$(RM) -r $@
+	rm -rf $@
 	cp -a $(module_source) $@
 	cd $@ && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2
 
