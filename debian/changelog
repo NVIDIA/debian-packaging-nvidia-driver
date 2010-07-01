@@ -27,6 +27,7 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     To avoid renaming the package for every new upstream release the SOVERSION
     will be dropped from the package name.
   * Update lintian-overrides and minor cleanup of the packaging scripts.
+  * Clean up more carefully after the module build.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 23 Jun 2010 08:33:44 +0200
 

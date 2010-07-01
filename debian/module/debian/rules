@@ -76,7 +76,7 @@ clean:
 	dh_testroot
 	$(MAKE) LINUXDIR=$(KSRC) $(KPKG_EXTRAV_ARG) clean
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
-	dh_clean debian/control debian/install debian/VERSION
+	dh_clean debian/control debian/install
 
 # The kdist_configure target is called by make-kpkg modules_config. It
 # should configure the module so it is ready for compilation (mostly useful
