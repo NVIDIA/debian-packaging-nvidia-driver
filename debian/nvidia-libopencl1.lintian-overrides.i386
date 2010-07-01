@@ -1,3 +1,0 @@
-# The NVIDIA license does not allow any form of modification.
-nvidia-libopencl1: shlib-with-non-pic-code
-nvidia-libopencl1: shlib-without-PT_GNU_STACK-section
