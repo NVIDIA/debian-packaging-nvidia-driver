@@ -171,11 +171,13 @@ override_dh_bugfiles:
 override_dh_makeshlibs:
 	dh_makeshlibs -Xvdpau/libvdpau_nvidia.so
 	# Redirect shlibs for libGL.so.1 to libgl1-mesa-glx | libgl1.
-	sed -i -e '/^libGL 1 /s/.*/libGL 1 libgl1-mesa-glx | libgl1/' debian/libgl1-nvidia$(legacy)-glx/DEBIAN/shlibs
+	test ! -d debian/libgl1-nvidia$(legacy)-glx || \
+		sed -i -e '/^libGL 1 /s/.*/libGL 1 libgl1-mesa-glx | libgl1/' debian/libgl1-nvidia$(legacy)-glx/DEBIAN/shlibs
 	test ! -d debian/libgl1-nvidia$(legacy)-glx-ia32 || \
 		sed -i -e '/^libGL 1 /s/.*/libGL 1 ia32-libs (>= 20090804)/' debian/libgl1-nvidia$(legacy)-glx-ia32/DEBIAN/shlibs
 	# Remove libGL.so from symbols files in order not to override our special shlibs files.
-	sed -i -e '/^libGL\.so/,/^lib/{/^libGL\.so\|^ /d}' debian/libgl1-nvidia$(legacy)-glx/DEBIAN/symbols
+	test ! -d debian/libgl1-nvidia$(legacy)-glx || \
+		sed -i -e '/^libGL\.so/,/^lib/{/^libGL\.so\|^ /d}' debian/libgl1-nvidia$(legacy)-glx/DEBIAN/symbols
 	test ! -d debian/libgl1-nvidia$(legacy)-glx-ia32 || \
 		sed -i -e '/^libGL\.so/,/^lib/{/^libGL\.so\|^ /d}' debian/libgl1-nvidia$(legacy)-glx-ia32/DEBIAN/symbols
 
