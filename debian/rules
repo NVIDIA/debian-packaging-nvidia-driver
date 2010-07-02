@@ -212,6 +212,11 @@ override_dh_strip:
 debian/module/debian/changelog: debian/changelog
 	sed '1s/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@
 
+# only invoked manually
+%.txt: %.list
+	sed -e 's/ /#/g; s/#*$$/,/; $$ s/,$$//' $< | ( tr '\n' ' '; echo ) \
+		| fold -s -w 78 | sed -e 's/#/ /g; s/^/ /; s/ *$$//' > $@
+
 # Renaming control files for legacy packaging
 ifneq (,$(legacy))
 nvidia-glx$(legacy)%: nvidia-glx%
