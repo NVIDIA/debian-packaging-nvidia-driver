@@ -3,8 +3,8 @@ set -e
 
 
 # <target: squeeze>
-dpkg-maintscript-helper rm_conffile /etc/default/nvidia-glx 195.36.24-1~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/init.d/nvidia-glx 195.36.24-3~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/default/$DPKG_MAINTSCRIPT_PACKAGE 195.36.24-1~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/init.d/$DPKG_MAINTSCRIPT_PACKAGE 195.36.24-3~ -- "$@"
 # </target: squeeze>
 
 
@@ -13,14 +13,14 @@ case "$1" in
 
 	# <target: squeeze>
 	if dpkg --compare-versions "$2" lt-nl 195.36.24-3 ; then
-	    update-rc.d nvidia-glx remove || true
+	    update-rc.d $DPKG_MAINTSCRIPT_PACKAGE remove || true
 	fi
 	# </target: squeeze>
 
 	# <target: squeeze>
         if dpkg --compare-versions "$2" lt-nl 195.36.24-2 ; then
-	    if [ -f /etc/default/nvidia-glx.dpkg-new ]; then
-		rm -f /etc/default/nvidia-glx.dpkg-new
+	    if [ -f /etc/default/$DPKG_MAINTSCRIPT_PACKAGE.dpkg-new ]; then
+		rm -f /etc/default/$DPKG_MAINTSCRIPT_PACKAGE.dpkg-new
 	    fi
 	fi
 	# </target: squeeze>
