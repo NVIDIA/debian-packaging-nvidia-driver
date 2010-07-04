@@ -4,6 +4,11 @@ set -e
 
 #DIVERT_QUIET="--quiet"
 
+exists()
+{
+	test -e "$1" || test -L "$1"
+}
+
 # <target: squeeze>
 dpkg-maintscript-helper rm_conffile /etc/default/$DPKG_MAINTSCRIPT_PACKAGE 195.36.24-1~ -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/init.d/$DPKG_MAINTSCRIPT_PACKAGE 195.36.24-3~ -- "$@"
@@ -14,12 +19,46 @@ case "$1" in
     install|upgrade)
 
 	# the destination directory for the diversions
-	test -d /usr/lib/nvidia || \
-		mkdir -p /usr/lib/nvidia || true
+	test -d /usr/lib/nvidia/diversions || \
+		mkdir -p /usr/lib/nvidia/diversions || true
+
+	# <target: squeeze>
+	# update the diversion
+        if dpkg --compare-versions "$2" lt-nl 195.36.31
+	then
+		file_orig="/usr/lib/xorg/modules/extensions/libglx.so"
+		file_old_divert="/usr/lib/nvidia/libglx.so.xlibmesa"
+		file_new_divert="/usr/lib/nvidia/diversions/libglx.so"
+		old_diverter="`dpkg-divert --listpackage $file_orig`"
+
+		if [ -n "$old_diverter" ]
+		then
+			# avoid dpkg-divert --add --rename in upgrade scenarios,
+			# it might rename *our* existing file -- see dpkg bug #588077
+
+			dpkg-divert --remove --package $old_diverter --divert \
+				"$file_old_divert" \
+				"$file_orig"
+			if exists "$file_old_divert"
+			then
+				echo "Moving $file_old_divert to $file_new_divert"
+				mv "$file_old_divert" "$file_new_divert"
+			fi
+			dpkg-divert --add --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+				"$file_new_divert" \
+				"$file_orig"
+		fi
+		if exists "$file_old_divert"
+		then
+			echo "ERROR: $file_old_divert does still exist. Aborting."
+			exit 1
+		fi
+	fi
+	# </target: squeeze>
 
 	# make new diversions
 	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/libglx.so.xlibmesa \
+		/usr/lib/nvidia/diversions/libglx.so \
 		/usr/lib/xorg/modules/extensions/libglx.so
 
     ;;
