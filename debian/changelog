@@ -12,10 +12,10 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     libgl1-nvidia-glx{,-ia32}.  (Closes: #369316)
   * Rename package nvidia-glx-dev to libgl1-nvidia-dev (add dummy package).
   * Introduce virtual packages nvidia-glx{,-ia32}, libgl1-nvidia-glx{,-ia32},
-    libgl1-nvidia-dev.  Add a matching Provides/Conflicts: the the
-    corresponding real packages, so that the legacy packages can do the same
-    and we can stop listing each variant we have in Conflicts and Recommends
-    lists.
+    libgl1-nvidia-dev, nvidia-kernel-dkms.  Add a matching Provides/Conflicts:
+    to the corresponding real packages, so that the legacy packages can do the
+    same and we can stop listing each variant we have in Conflicts and
+    Recommends lists.
   * Add Conflicts: fglrx-driver, fglrx-glx, fglrx-glx-ia32.
   * nvidia-glx: install HTML variant of the README, too.
   * Update to Standards-Version: 3.9.0.  Not switching to Breaks+Replaces.

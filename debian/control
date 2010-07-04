@@ -30,8 +30,8 @@ Suggests: nvidia-settings,
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Breaks: xserver-xorg-core (<< 2:1.6)
 Provides:
- xserver-xorg-video-6,
  nvidia-glx,
+ xserver-xorg-video-6,
 Conflicts:
  nvidia-glx,
  nvidia-glx-legacy,
@@ -198,11 +198,11 @@ Section: non-free/kernel
 Architecture: i386 amd64
 Depends: ${misc:Depends}, dkms, nvidia-kernel-common (>= 20100522)
 Recommends: nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version})
-Provides: nvidia-kernel${nvidia:Legacy}-${nvidia:Version}
+Provides:
+ nvidia-kernel-dkms,
+ nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
 Conflicts:
- nvidia-kernel-legacy-71xx-dkms,
- nvidia-kernel-legacy-96xx-dkms,
- nvidia-kernel-legacy-173xx-dkms,
+ nvidia-kernel-dkms,
  binutils-gold (>> 2.20.51)
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  This package builds the NVIDIA Xorg binary kernel module needed by
