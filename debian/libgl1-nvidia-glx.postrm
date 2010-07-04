@@ -34,17 +34,16 @@ case "$1" in
 	fi
 
 	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/libGL.so.1.xlibmesa \
-		/usr/lib/libGL.so.1
-	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/libGL.so.1.2.xlibmesa \
+		/usr/lib/nvidia/diversions/libGL.so.1.2 \
 		/usr/lib/libGL.so.1.2
 	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/libGL.so.xlibmesa \
+		/usr/lib/nvidia/diversions/libGL.so.1 \
+		/usr/lib/libGL.so.1
+	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+		/usr/lib/nvidia/diversions/libGL.so \
 		/usr/lib/libGL.so
 
-	test ! -d /usr/lib/nvidia || \
-		rmdir /usr/lib/nvidia || true;
+	rmdir /usr/lib/nvidia/diversions /usr/lib/nvidia 2>/dev/null || true
 
     ;;
 esac

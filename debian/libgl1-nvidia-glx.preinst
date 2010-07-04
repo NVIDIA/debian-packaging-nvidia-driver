@@ -4,41 +4,64 @@ set -e
 
 #DIVERT_QUIET="--quiet"
 
+exists()
+{
+	test -e "$1" || test -L "$1"
+}
+
 case "$1" in
     install|upgrade)
 
 	# the destination directory for the diversions
-	test -d /usr/lib/nvidia || \
-		mkdir -p /usr/lib/nvidia || true
+	test -d /usr/lib/nvidia/diversions || \
+		mkdir -p /usr/lib/nvidia/diversions || true
 
 	# <target: squeeze>
-	# migrate diversions from nvidia-glx
-	for file in libGL.so libGL.so.1 libGL.so.1.2
+	# take over diversions from nvidia-glx{,-legacy-*xx}
+	for file in libGL.so.1.2 libGL.so.1 libGL.so
 	do
-		old_diverter="`dpkg-divert --listpackage /usr/lib/$file`"
+		file_orig="/usr/lib/$file"
+		file_old_divert="/usr/lib/nvidia/$file.xlibmesa"
+		file_new_divert="/usr/lib/nvidia/diversions/$file"
+		old_diverter="`dpkg-divert --listpackage $file_orig`"
+
 		if [ -n "$old_diverter" ] \
 			&& [ "$old_diverter" != "$DPKG_MAINTSCRIPT_PACKAGE" ]
 		then
-			dpkg-divert --remove --package $old_diverter --divert \
-				/usr/lib/nvidia/$file.xlibmesa \
-				/usr/lib/$file
-			dpkg-divert --add --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-				/usr/lib/nvidia/$file.xlibmesa \
-				/usr/lib/$file
+			if ! exists "$file_orig" || ! exists "$file_old_divert"
+			then
+				dpkg-divert --remove --rename --package $old_diverter --divert \
+					"$file_old_divert" \
+					"$file_orig"
+			else
+				dpkg-divert --remove --package $old_diverter --divert \
+					"$file_old_divert" \
+					"$file_orig"
+				echo "Moving $file_old_divert to $file_new_divert"
+				mv "$file_old_divert" "$file_new_divert"
+				dpkg-divert --add --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+					"$file_new_divert" \
+					"$file_orig"
+			fi
+		fi
+		if exists "$file_old_divert"
+		then
+			echo "ERROR: $file_old_divert does still exist. Aborting."
+			exit 1
 		fi
 	done
 	# </target: squeeze>
 
 	# make new diversions
 	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/libGL.so.1.xlibmesa \
+		/usr/lib/nvidia/diversions/libGL.so \
+		/usr/lib/libGL.so
+	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+		/usr/lib/nvidia/diversions/libGL.so.1 \
 		/usr/lib/libGL.so.1
 	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/libGL.so.1.2.xlibmesa \
+		/usr/lib/nvidia/diversions/libGL.so.1.2 \
 		/usr/lib/libGL.so.1.2
-	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/libGL.so.xlibmesa \
-		/usr/lib/libGL.so
 
     ;;
 esac

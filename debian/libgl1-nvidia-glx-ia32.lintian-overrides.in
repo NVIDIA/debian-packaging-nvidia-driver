@@ -5,6 +5,9 @@ libgl1-nvidia#LEGACY#-glx-ia32: shlib-with-non-pic-code
 libgl1-nvidia#LEGACY#-glx-ia32: shlib-without-PT_GNU_STACK-section
 libgl1-nvidia#LEGACY#-glx-ia32: spelling-error-in-binary
 
+# The diversions are placed here.
+libgl1-nvidia#LEGACY#-glx-ia32: package-contains-empty-directory usr/lib32/nvidia/diversions/
+
 # We divert the original /usr/lib32/libGL.so symlink.
 # In order to retain its functionality (i.e. pointing the MESA libGL.so.1)
 # we ship a link pointing to the diverted library.

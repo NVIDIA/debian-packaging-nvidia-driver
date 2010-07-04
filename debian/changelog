@@ -28,6 +28,7 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     will be dropped from the package name.
   * Update lintian-overrides and minor cleanup of the packaging scripts.
   * Clean up more carefully after the module build.
+  * Move diversions to /usr/lib{,32}/nvidia/diversions.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 23 Jun 2010 08:33:44 +0200
 

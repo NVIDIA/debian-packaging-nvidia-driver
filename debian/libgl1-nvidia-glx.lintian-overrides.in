@@ -7,7 +7,7 @@ libgl1-nvidia#LEGACY#-glx: shared-lib-without-dependency-information
 libgl1-nvidia#LEGACY#-glx: spelling-error-in-binary
 
 # The diversions are placed here.
-libgl1-nvidia#LEGACY#-glx: package-contains-empty-directory usr/lib/nvidia/
+libgl1-nvidia#LEGACY#-glx: package-contains-empty-directory usr/lib/nvidia/diversions/
 
 # Packages built against the NVIDIA libGL should declare dependencies on
 # the free version for Debian's purposes.  Therefore we use a special

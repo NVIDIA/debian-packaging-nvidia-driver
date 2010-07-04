@@ -5,8 +5,8 @@ set -e
 # A trigger that handles creating/removing /usr/lib/libGL.so
 if [ "$1" = "triggered" ]; then
 	LINK_origin=/usr/lib/libGL.so
-	LINK_diverted=/usr/lib/nvidia/libGL.so.xlibmesa
-	LINK_create=nvidia/libGL.so.1.2.xlibmesa
+	LINK_diverted=/usr/lib/nvidia/diversions/libGL.so
+	LINK_create=nvidia/diversions/libGL.so
 
 	if [ -L "$LINK_origin" ] && [ ! -L "$LINK_diverted" ]; then
 		# libgl-mesa-dev was removed, drop libGL.so

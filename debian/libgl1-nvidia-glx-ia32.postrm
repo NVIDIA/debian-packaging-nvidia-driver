@@ -25,17 +25,16 @@ case "$1" in
 
 	# restore libGL.so* from ia32-libs, diverted to /usr/lib32/nvidia
 	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib32/nvidia/libGL.so.ia32-libs \
-		/usr/lib32/libGL.so
+		/usr/lib32/nvidia/diversions/libGL.so.1.2 \
+		/usr/lib32/libGL.so.1.2
 	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib32/nvidia/libGL.so.1.ia32-libs \
+		/usr/lib32/nvidia/diversions/libGL.so.1 \
 		/usr/lib32/libGL.so.1
 	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib32/nvidia/libGL.so.1.2.ia32-libs \
-		/usr/lib32/libGL.so.1.2
+		/usr/lib32/nvidia/diversions/libGL.so \
+		/usr/lib32/libGL.so
 
-	test ! -d /usr/lib32/nvidia || \
-		rmdir /usr/lib32/nvidia || true;
+	rmdir /usr/lib32/nvidia/diversions /usr/lib32/nvidia 2>/dev/null || true
 
     ;;
 esac
