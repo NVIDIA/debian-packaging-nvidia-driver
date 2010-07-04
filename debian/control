@@ -114,6 +114,10 @@ Conflicts:
  libgl1-nvidia-glx,
  fglrx-glx,
  nvidia-glx${nvidia:Legacy} (<< 195.36.31),
+ nvidia-glx-legacy,
+ nvidia-glx-legacy-71xx,
+ nvidia-glx-legacy-96xx,
+ nvidia-glx-legacy-173xx,
 Replaces: nvidia-glx${nvidia:Legacy} (<< 195.36.31)
 Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
@@ -143,6 +147,10 @@ Conflicts:
  libgl1-nvidia-glx-ia32,
  fglrx-glx-ia32,
  nvidia-glx${nvidia:Legacy}-ia32 (<< 195.36.31),
+ nvidia-glx-legacy-ia32,
+ nvidia-glx-legacy-71xx-ia32,
+ nvidia-glx-legacy-96xx-ia32,
+ nvidia-glx-legacy-173xx-ia32,
 Replaces: nvidia-glx${nvidia:Legacy}-ia32 (<< 195.36.31)
 Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
  These binary 32-bit libraries provide optimized hardware acceleration of
@@ -168,6 +176,10 @@ Provides:
 Conflicts:
  libgl1-nvidia-dev,
  nvidia-glx${nvidia:Legacy}-dev (<< 195.36.31),
+ nvidia-glx-legacy-dev,
+ nvidia-glx-legacy-71xx-dev,
+ nvidia-glx-legacy-96xx-dev,
+ nvidia-glx-legacy-173xx-dev,
 Replaces: nvidia-glx${nvidia:Legacy}-dev (<< 195.36.31)
 Description: NVIDIA OpenGL development files${nvidia:LegacyDesc}
  This package contains the development files for the NVIDIA OpenGL
