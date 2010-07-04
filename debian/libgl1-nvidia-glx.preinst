@@ -4,13 +4,14 @@ set -e
 
 #DIVERT_QUIET="--quiet"
 
+# <target: squeeze>
 exists()
 {
 	test -e "$1" || test -L "$1"
 }
 
-case "$1" in
-    install|upgrade)
+if [ "$1" = "install" ]
+then
 
 	# the destination directory for the diversions
 	test -d /usr/lib/nvidia/diversions || \
@@ -61,6 +62,17 @@ case "$1" in
 		fi
 	done
 	# </target: squeeze>
+
+fi
+# </target: squeeze>
+
+
+case "$1" in
+    install|upgrade)
+
+	# the destination directory for the diversions
+	test -d /usr/lib/nvidia/diversions || \
+		mkdir -p /usr/lib/nvidia/diversions || true
 
 	# make new diversions
 	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
