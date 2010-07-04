@@ -20,9 +20,12 @@ then
 	# <target: squeeze>
 	# remove libGL.so created by obsolete nvidia-glx* init script
 	# otherwise we dpkg-divert --rename an unowned file
-	if [ -L /usr/lib/libGL.so ] && [ ! -d /usr/share/doc/libgl1-mesa-dev ]
+	if [ -L /usr/lib/libGL.so ] && \
+		( [ ! -f /usr/lib/libGL.so ] \
+		|| [ "`readlink /usr/lib/libGL.so`" != "libGL.so.1" ] \
+		|| [ ! -e /usr/lib/libGL.so.1.2 ] )
 	then
-		echo "Removing inappropriate /usr/lib/libGL.so"
+		echo "Removing /usr/lib/libGL.so from unknown origin"
 		rm -f /usr/lib/libGL.so
 	fi
 	# </target: squeeze>
