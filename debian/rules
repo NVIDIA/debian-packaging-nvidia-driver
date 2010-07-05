@@ -9,6 +9,7 @@ include debian/rules.defs
 version			 = $(NVIDIA_RELEASE)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
+perfkit			 =
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(NVIDIA_LEGACY),$(NVIDIA_LEGACY)\.[\d\.\-]+),[\d\.\-]+)
 filename_x86		 = $(NVIDIA_FILENAME_X86)
 filename_x86_64		 = $(NVIDIA_FILENAME_X86_64)
@@ -183,7 +184,7 @@ override_dh_makeshlibs:
 
 override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' -V'nvidia:Legacy=$(legacy)' \
-		-V'nvidia:LegacyDesc=$(legacy_description)'
+		-V'nvidia:LegacyDesc=$(legacy_description)' -V'nvidia:Perfkit=$(perfkit)'
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
