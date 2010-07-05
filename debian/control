@@ -22,7 +22,7 @@ Architecture: i386 amd64
 Pre-Depends: dpkg (>= 1.15.7.2)
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
- nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
+ nvidia-kernel-${nvidia:Version},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-vdpau-driver (>= ${nvidia:Version})
 Suggests: nvidia-settings,
@@ -47,7 +47,7 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  Please see the nvidia-kernel${nvidia:Legacy}-dkms or
  nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel${nvidia:Legacy}-${nvidia:Version}.
+ This will provide nvidia-kernel-${nvidia:Version}.
  .
  This version only supports GeForce 6xxx and higher of the Geforce GPUs
  plus complimentary Quadros and nforce.  Look at the legacy packages
@@ -61,7 +61,7 @@ Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (= ${binary:Version}),
- nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
+ nvidia-kernel-${nvidia:Version},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-vdpau-driver-ia32 (>= ${nvidia:Version})
 Suggests: nvidia-settings,
@@ -104,7 +104,7 @@ Architecture: i386 amd64
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
+ nvidia-kernel-${nvidia:Version},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
@@ -137,7 +137,7 @@ Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
+ nvidia-kernel-${nvidia:Version},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
@@ -200,7 +200,7 @@ Depends: ${misc:Depends}, dkms, nvidia-kernel-common (>= 20100522)
 Recommends: nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version})
 Provides:
  nvidia-kernel-dkms,
- nvidia-kernel${nvidia:Legacy}-${nvidia:Version},
+ nvidia-kernel-${nvidia:Version},
 Conflicts:
  nvidia-kernel-dkms,
  binutils-gold (>> 2.20.51)
@@ -288,7 +288,7 @@ Section: non-free/libs
 Architecture: i386 amd64
 Depends: libvdpau1,
  ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version}
+Recommends: nvidia-kernel-${nvidia:Version}
 Enhances: libvdpau1
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
@@ -311,14 +311,14 @@ Description: NVIDIA vdpau driver
  Please see the nvidia-kernel${nvidia:Legacy}-dkms or
  nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel${nvidia:Legacy}-${nvidia:Version}.
+ This will provide nvidia-kernel-${nvidia:Version}.
 
 Package: nvidia-vdpau-driver-ia32
 Section: non-free/libs
 Architecture: amd64
 Depends: lib32vdpau1,
  ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version}
+Recommends: nvidia-kernel-${nvidia:Version}
 Enhances: lib32vdpau1
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
@@ -342,13 +342,13 @@ Description: NVIDIA vdpau 32-bit driver
  Please see the nvidia-kernel${nvidia:Legacy}-dkms or
  nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel${nvidia:Legacy}-${nvidia:Version}.
+ This will provide nvidia-kernel-${nvidia:Version}.
 
 Package: libcuda1
 Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version}
+Recommends: nvidia-kernel-${nvidia:Version}
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
@@ -367,14 +367,14 @@ Description: NVIDIA CUDA runtime library
  Please see the nvidia-kernel${nvidia:Legacy}-dkms or
  nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel${nvidia:Legacy}-${nvidia:Version}.
+ This will provide nvidia-kernel-${nvidia:Version}.
 
 Package: libcuda1-ia32
 Section: non-free/libs
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel${nvidia:Legacy}-${nvidia:Version}
+Recommends: nvidia-kernel-${nvidia:Version}
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
@@ -393,7 +393,7 @@ Description: NVIDIA CUDA runtime library (32-bit)
  Please see the nvidia-kernel${nvidia:Legacy}-dkms or
  nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel${nvidia:Legacy}-${nvidia:Version}.
+ This will provide nvidia-kernel-${nvidia:Version}.
 
 Package: libcuda1-dev
 Section: non-free/libdevel
