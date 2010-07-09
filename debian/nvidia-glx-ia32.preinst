@@ -13,6 +13,8 @@ case "$1" in
 		rm /emul/ia32-linux/usr/lib/tls/libnvidia-tls.so.1 || true
 	test ! -L /emul/ia32-linux/usr/lib/libGLcore.so.1 || \
 		rm /emul/ia32-linux/usr/lib/libGLcore.so.1 || true
+	test ! -L /emul/ia32-linux/usr/lib/libcuda.so.1 || \
+		rm /emul/ia32-linux/usr/lib/libcuda.so.1 || true
 	# </target: squeeze>
 
     ;;
