@@ -32,6 +32,9 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
   * Remove possible LEGACY part from virtual package name
     nvidia-kernel-NVIDIAVERSION (provided by the kernel module).
   * Add a new substvar for marking the special driver from the NVIDIA Perfkit.
+  * Add helper script debian/extract-pci-ids.sh to extract the PCI IDs of
+    supported devices from nv-kernel.o.  Based on the nvidia_supported script
+    found in Ubuntu's nvidia-current package.  Refresh nv-kernel.ids.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 23 Jun 2010 08:33:44 +0200
 
