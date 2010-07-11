@@ -25,9 +25,9 @@ nvidia-graphics-drivers (195.36.24-3) unstable; urgency=low
 nvidia-graphics-drivers (177.80-1) unstable; urgency=low
 
   LEGACY GPUs: If you have a GeForce FX (any model), GeForce PCX (any model),
-  GeForce 6800, GeForce 6800 GT, GeForce 6800 LE, GeForce 6800 XT,
   Quadro FX 330/500/600/700/Go700/1000/Go1000/1100/1300/2000/3000,
-  Quadro NVS 55/280 PCI, Quadro NVS 280 PCI-E/Quadro FX 330,
+  Quadro NVS 280 PCI, Quadro NVS 280 PCI-E, i.e., any GPU based on the 
+  NV30/NV31/NV34/NV35/NV36/NV37/NV38 chips or a variant thereof,
   DO NOT INSTALL THIS RELEASE!!!  Use the nvidia-glx-legacy-173xx,
   nvidia-glx-legacy-173xx-dev, nvidia-kernel-legacy-173xx-source packages
   instead.
@@ -37,8 +37,9 @@ nvidia-graphics-drivers (177.80-1) unstable; urgency=low
 nvidia-graphics-drivers (1.0.9746-1) unstable; urgency=low
 
   LEGACY GPUs: If you have a GeForce2 (any model), GeForce3 (any model),
-  GeForce4 (any model), GeForce PCX 4300, Quadro DCC, Quadro2 (any model),
-  Quadro4 (any model), Quadro NVS, Quadro NVS with AGP8X, Quadro NVS 50 PCI,
+  GeForce4 (any model), Quadro DCC, Quadro2 (any model), Quadro4 (any model),
+  Quadro NVS, Quadro NVS 50 PCI, Quadro NVS 280 SD AGP 8x, i.e., any GPU
+  based on the NV11/NV17/NV18/NV20/NV25/NV28 chips or a variant thereof,
   DO NOT INSTALL THIS RELEASE!!!  Use the nvidia-glx-legacy-96xx,
   nvidia-glx-legacy-96xx-dev, nvidia-kernel-legacy-96xx-source packages
   instead.
@@ -48,8 +49,9 @@ nvidia-graphics-drivers (1.0.9746-1) unstable; urgency=low
 nvidia-graphics-drivers (1.0.7667-2) unstable; urgency=low
 
   LEGACY GPUs: If you have a TNT (any model), TNT2 (any model), Vanta,
-  GeForce 256, GeForce 6200SE TurboCache(TM), GeForce DDR, GeForce2 GTS,
-  GeForce2 Pro, GeForce2 Ti, GeForce2 Ultra, Quadro, Quadro2 Pro,
+  GeForce 256, GeForce 256 DDR, GeForce2 GTS, GeForce2 Pro, GeForce2 Ti,
+  GeForce2 Ultra, Quadro, Quadro2 Pro, i.e., any GPU based on the
+  NV4/NV5/NV6/NV10/NV15 chips or a variant thereof,
   DO NOT INSTALL THIS RELEASE!!!  Use the nvidia-glx-legacy-71xx,
   nvidia-glx-legacy-71xx-dev, nvidia-kernel-legacy-71xx-source packages
   instead.
