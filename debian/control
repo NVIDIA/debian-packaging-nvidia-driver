@@ -228,11 +228,14 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  using NVIDIA chip sets.  AGP, PCIe, SLI, TV-out and flat panel displays
  are also supported.
  .
- ${nvidia:Models}
- .
  PLEASE read /usr/share/doc/nvidia-kernel${nvidia:Legacy}-source/README.Debian.gz
  for building information.  If you want the kernel module to be automatically
  installed via DKMS, install nvidia-kernel${nvidia:Legacy}-dkms instead.
+ .
+ ${nvidia:Models}
+ .
+ See /usr/share/doc/nvidia-kernel${nvidia:Legacy}-source/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
 
 Package: nvidia-libvdpau1
 Section: non-free/oldlibs
