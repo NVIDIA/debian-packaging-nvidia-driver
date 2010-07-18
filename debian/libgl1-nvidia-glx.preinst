@@ -68,8 +68,8 @@ fi
 # </target: squeeze>
 
 
-case "$1" in
-    install|upgrade)
+if [ "$1" = "install" ] || [ "$1" = "upgrade" ]
+then
 
 	# the destination directory for the diversions
 	test -d /usr/lib/nvidia/diversions || \
@@ -86,8 +86,7 @@ case "$1" in
 		/usr/lib/nvidia/diversions/libGL.so.1.2 \
 		/usr/lib/libGL.so.1.2
 
-    ;;
-esac
+fi
 
 
 # <target: squeeze>

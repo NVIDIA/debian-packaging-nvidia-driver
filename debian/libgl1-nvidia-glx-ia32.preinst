@@ -57,8 +57,12 @@ fi
 # </target: squeeze>
 
 
-case "$1" in
-    install|upgrade)
+if [ "$1" = "install" ] || [ "$1" = "upgrade" ]
+then
+
+	# the destination directory for the diversions
+	test -d /usr/lib32/nvidia/diversions || \
+		mkdir -p /usr/lib32/nvidia/diversions || true
 
 	# make new diversions
 	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
@@ -71,8 +75,7 @@ case "$1" in
 		/usr/lib32/nvidia/diversions/libGL.so.1.2 \
 		/usr/lib32/libGL.so.1.2
 
-    ;;
-esac
+fi
 
 
 #DEBHELPER#
