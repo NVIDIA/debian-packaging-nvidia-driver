@@ -10,6 +10,11 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     libgl1-mesa-glx | libgl1 only.  (Closes: #587091)
   * Split the nvidia-glx{,-ia32} packages, move the runtime libraries to
     libgl1-nvidia-glx{,-ia32}.  (Closes: #369316)
+  * Add preinst check to libgl1-nvidia-glx{,-ia32} to prevent upgrades when
+    old versions of nvidia-glx{,-ia32} are still installed because the
+    diversion migration will fail.  This only happens when the packages are
+    manually passed in the wrong order to dpkg -i.  apt-get and aptitude
+    correctly reorder the packages according to Conflicts/Replaces/Depends.
   * Rename package nvidia-glx-dev to libgl1-nvidia-dev (add dummy package).
   * Introduce virtual packages nvidia-glx{,-ia32}, libgl1-nvidia-glx{,-ia32},
     libgl1-nvidia-dev, nvidia-kernel-dkms.  Add a matching Provides/Conflicts:

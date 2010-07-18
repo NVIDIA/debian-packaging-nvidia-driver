@@ -5,6 +5,27 @@ set -e
 #DIVERT_QUIET="--quiet"
 
 # <target: squeeze>
+# $1 = package name, $2 = first not conflicting version
+check_package_conflict()
+{
+	is_installed=$(dpkg-query -l "$1" 2>/dev/null | grep "$1" | cut -c2 || true)
+	if [ "$is_installed" = "" ] || [ "$is_installed" = "n" ] || [ "$is_installed" = "c" ]
+	then
+		# package is unknown, not installed or has only config files remaining - no problem
+		return
+	fi
+	installed_version=$(dpkg-query -s "$1" | grep ^Version: | cut -d' ' -f2 || true)
+	if dpkg --compare-versions "$installed_version" lt-nl "$2"
+	then
+		echo "ERROR: An old version ($installed_version) of $1 (<< $2)"
+		echo "       is still installed (state=$is_installed)."
+		echo "       Please correct the package upgrade ordering."
+		echo "Aborting installation of $DPKG_MAINTSCRIPT_PACKAGE."
+		exit 1
+	fi
+	return
+}
+
 exists()
 {
 	test -e "$1" || test -L "$1"
@@ -12,6 +33,9 @@ exists()
 
 if [ "$1" = "install" ]
 then
+
+	# Upgrading the packages in the wrong order causes big problems w.r.t. taking over the diversions.
+	check_package_conflict "$(echo $DPKG_MAINTSCRIPT_PACKAGE | sed -r 's/libgl1-nvidia(.*)-glx/nvidia-glx\1/')" 195.36.31
 
 	# the destination directory for the diversions
 	test -d /usr/lib/nvidia/diversions || \
