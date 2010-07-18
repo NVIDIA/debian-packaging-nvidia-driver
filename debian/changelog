@@ -25,7 +25,7 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     same upstream version) only.  It has currently no SONAME and starting with
     256.xx upstream will add a SONAME including the current upstream version.
     To avoid renaming the package for every new upstream release the SOVERSION
-    will be dropped from the package name.
+    will be dropped from the package name.  Add transitional packages.
   * Update lintian-overrides and minor cleanup of the packaging scripts.
   * Clean up more carefully after the module build.
   * Move diversions to /usr/lib{,32}/nvidia/diversions.
