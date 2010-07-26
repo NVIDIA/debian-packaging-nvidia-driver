@@ -10,7 +10,7 @@
 
 set -e
 
-PREFIX=`grep Package: debian/control.module | cut -d' ' -f 2 | cut -d\# -f 1`
+PREFIX=`grep Package: debian/control.template | cut -d' ' -f 2 | cut -d\# -f 1`
 VERSION="${KVERS}${INT_SUBARCH}"
 MODVERS=`cat debian/VERSION | sed s/:/\+/`
 ARCH=`dpkg --print-architecture`

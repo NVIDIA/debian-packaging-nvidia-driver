@@ -41,6 +41,10 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     supported devices from nv-kernel.o.  Based on the nvidia_supported script
     found in Ubuntu's nvidia-current package.  Refresh nv-kernel.ids.
 
+  [ Russ Allbery ]
+  * Fix determination of the package name in nvidia-kernel-source when
+    generating *.changes files.  (Closes: #589949)
+
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 23 Jun 2010 08:33:44 +0200
 
 nvidia-graphics-drivers (195.36.24-4) unstable; urgency=low
