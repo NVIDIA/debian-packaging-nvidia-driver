@@ -8,6 +8,8 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     installed: add back a special shlibs entry for libGL.so.1 and remove
     libGL.so.1 from the symbols file to ensure to generate a dependency on
     libgl1-mesa-glx | libgl1 only.  (Closes: #587091)
+  * Install libGL.so* in /usr/lib{,32}/nvidia/ and use alternatives to handle
+    /usr/lib{,32}/libGL.so.1 and /usr/lib{,32}/libGL.so.
   * Split the nvidia-glx{,-ia32} packages, move the runtime libraries to
     libgl1-nvidia-glx{,-ia32}.  (Closes: #369316)
   * Rename package nvidia-glx-dev to libgl1-nvidia-dev (add dummy package).

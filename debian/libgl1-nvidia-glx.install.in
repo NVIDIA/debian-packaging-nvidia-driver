@@ -1,4 +1,4 @@
-usr/lib/libGL.so.#VERSION#
+usr/lib/libGL.so.#VERSION#				usr/lib/nvidia/
 usr/lib/libGLcore.so.#VERSION#
 usr/lib/libnvidia-cfg.so.#VERSION#
 usr/lib/libnvidia-tls.so.#VERSION#
