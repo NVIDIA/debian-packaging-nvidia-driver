@@ -18,7 +18,7 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     Recommends lists.
   * Add Conflicts: fglrx-driver, fglrx-glx, fglrx-glx-ia32.
   * nvidia-glx: install HTML variant of the README, too.
-  * Update to Standards-Version: 3.9.0.  Not switching to Breaks+Replaces.
+  * Update to Standards-Version: 3.9.1.  Not switching to Breaks+Replaces.
     Not touching old versioned Conflicts.  No other changes needed.
   * Rename the libnvidia-compiler1 packages to libnvidia-compiler.  The
     library is actually a (fairly huge) plugin used by libcuda1 (with the
@@ -40,7 +40,7 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
   * Fix determination of the package name in nvidia-kernel-source when
     generating *.changes files.  (Closes: #589949)
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 23 Jun 2010 08:33:44 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 10 Aug 2010 13:30:47 +0200
 
 nvidia-graphics-drivers (195.36.24-4) unstable; urgency=low
 
