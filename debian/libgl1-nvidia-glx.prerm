@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+
+if [ "$1" = "remove" ] || [ "$1" = "deconfigure" ]; then
+
+	update-alternatives --remove libGL.so.1 /usr/lib/nvidia/diversions/libGL.so.1
+	update-alternatives --remove libGL.so.1 /usr/lib/nvidia/libGL.so.1
+
+fi
+
+
+#DEBHELPER#
+
+exit 0

@@ -4,6 +4,13 @@ set -e
 
 # A trigger that handles creating/removing /usr/lib/libGL.so
 if [ "$1" = "triggered" ]; then
+
+	if [ -L /usr/lib/nvidia/diversions/libGL.so.1 ]; then
+		update-alternatives --install /usr/lib/libGL.so.1 libGL.so.1 /usr/lib/nvidia/diversions/libGL.so.1 5
+	else
+		update-alternatives --remove libGL.so.1 /usr/lib/nvidia/diversions/libGL.so.1
+	fi
+
 	LINK_origin=/usr/lib/libGL.so
 	LINK_diverted=/usr/lib/nvidia/diversions/libGL.so
 	LINK_create=nvidia/diversions/libGL.so
@@ -21,8 +28,13 @@ fi
 
 
 if [ "$1" = "configure" ]; then
+
+	update-alternatives --install /usr/lib/libGL.so.1 libGL.so.1 /usr/lib/nvidia/libGL.so.1 42
+
 	# activate our trigger
+	dpkg-trigger /usr/lib/libGL.so.1
 	dpkg-trigger /usr/lib/libGL.so
+
 fi
 
 
