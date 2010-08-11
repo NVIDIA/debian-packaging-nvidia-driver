@@ -75,7 +75,7 @@ if [ "$1" = "configure" ]; then
 	update-alternatives --install /usr/lib32/libGL.so.1 ia32-libGL.so.1 /usr/lib32/nvidia/libGL.so.1 42
 	update-alternatives --install /usr/lib32/libGL.so.1 ia32-libGL.so.1 /usr/lib32/nvidia/diversions/libGL.so.1 5
 
-	update-alternatives --install /usr/lib32/libGL.so ia32-libGL.so /usr/lib32/nvidia/diversions/libGL.so.1 9995
+	update-alternatives --install /usr/lib32/libGL.so ia32-libGL.so /usr/lib32/nvidia/diversions/libGL.so 9995
 	# disabled in order to prevent compile time linking vs. libGL.so.1 from NVIDIA
 	#update-alternatives --install /usr/lib32/libGL.so ia32-libGL.so /usr/lib32/nvidia/libGL.so 42
 
