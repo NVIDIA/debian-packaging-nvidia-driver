@@ -37,6 +37,8 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
   * Add helper script debian/extract-pci-ids.sh to extract the PCI IDs of
     supported devices from nv-kernel.o.  Based on the nvidia_supported script
     found in Ubuntu's nvidia-current package.  Refresh nv-kernel.ids.
+  * Add new package nvidia-smi for the NVIDIA System Management Interface (a
+    TESLA control utility).  (Closes: #592482)
 
   [ Russ Allbery ]
   * Fix determination of the package name in nvidia-kernel-source when

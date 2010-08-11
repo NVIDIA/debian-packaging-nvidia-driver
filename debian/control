@@ -336,11 +336,24 @@ Description: NVIDIA vdpau 32-bit driver
  for building the kernel module required by this package.
  This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
 
+Package: nvidia-smi
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}
+Suggests:
+ nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
+ | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+Description: NVIDIA System Management Interface
+ The NVIDIA System Management Interface "nvidia-smi" program provides
+ system state and diagnostic information for the NVIDIA Tesla Visual
+ Computing Systems.
+
 Package: libcuda1
 Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}
+Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ nvidia-smi
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
