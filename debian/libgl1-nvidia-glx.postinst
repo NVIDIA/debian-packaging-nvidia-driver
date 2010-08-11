@@ -22,6 +22,122 @@ if [ "$1" = "triggered" ]; then
 fi
 
 
+#DIVERT_QUIET="--quiet"
+
+# <target: squeeze>
+exists()
+{
+	test -e "$1" || test -L "$1"
+}
+
+if [ "$1" = "configure" ]
+then
+
+	# <target: squeeze>
+	# remove libGL.so created by obsolete nvidia-glx* init script
+	# otherwise we dpkg-divert --rename an unowned file
+	if [ -L /usr/lib/libGL.so ] && \
+		[ "$(readlink /usr/lib/libGL.so)" != "/etc/alternatives/libGL.so" ] && \
+		[ "$(readlink /usr/lib/libGL.so)" != "libGL.so.1" ]
+	then
+		echo "Removing /usr/lib/libGL.so symlink from unknown origin."
+		rm -f /usr/lib/libGL.so
+	fi
+	# </target: squeeze>
+
+	# <target: squeeze>
+	# take over diversions from nvidia-glx{,-legacy-*xx}
+	for file in libGL.so.1.2 libGL.so.1 libGL.so
+	do
+		file_orig="/usr/lib/$file"
+		file_old_divert="/usr/lib/nvidia/$file.xlibmesa"
+		file_new_divert="/usr/lib/nvidia/diversions/$file"
+		old_diverter="`dpkg-divert --listpackage $file_orig`"
+
+		if [ -n "$old_diverter" ] \
+			&& [ "$old_diverter" != "$DPKG_MAINTSCRIPT_PACKAGE" ]
+		then
+			if ! exists "$file_orig" || ! exists "$file_old_divert"
+			then
+				dpkg-divert --remove --rename --package $old_diverter --divert \
+					"$file_old_divert" \
+					"$file_orig"
+			else
+				dpkg-divert --remove --package $old_diverter --divert \
+					"$file_old_divert" \
+					"$file_orig"
+				echo "Moving $file_old_divert to $file_new_divert"
+				mv "$file_old_divert" "$file_new_divert"
+				dpkg-divert --add --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+					"$file_new_divert" \
+					"$file_orig"
+			fi
+		fi
+		if exists "$file_old_divert"
+		then
+			echo "ERROR: $file_old_divert does still exist. Aborting."
+			exit 1
+		fi
+	done
+	# </target: squeeze>
+
+fi
+# </target: squeeze>
+
+
+if [ "$1" = "configure" ]
+then
+
+	# make new diversions
+	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+		/usr/lib/nvidia/diversions/libGL.so \
+		/usr/lib/libGL.so
+	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+		/usr/lib/nvidia/diversions/libGL.so.1 \
+		/usr/lib/libGL.so.1
+	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+		/usr/lib/nvidia/diversions/libGL.so.1.2 \
+		/usr/lib/libGL.so.1.2
+
+fi
+
+
+# <target: squeeze>
+if [ "$1" = "configure" ]
+then
+
+	# <target: squeeze>
+	# do some validation of the diverted libGL.so
+
+	# check ownership of the original libGL.so
+	libGLso="$(dpkg-query -S /usr/lib/libGL.so 2>/dev/null | grep -v '^diversion by' || true)"
+
+	if [ -L /usr/lib/nvidia/diversions/libGL.so ] && \
+		[ -z "$libGLso" ]
+	then
+		echo "Removing diverted libGL.so symlink owned by no package."
+		rm /usr/lib/nvidia/diversions/libGL.so
+	fi
+
+	if [ -L /usr/lib/nvidia/diversions/libGL.so ] && \
+		[ "`readlink /usr/lib/nvidia/diversions/libGL.so`" != "libGL.so.1" ]
+	then
+		echo "Removing diverted libGL.so symlink with unexpected target."
+		rm /usr/lib/nvidia/diversions/libGL.so
+	fi
+
+	if [ ! -L /usr/lib/nvidia/diversions/libGL.so ] && \
+		[ -n "$libGLso" ]
+	then
+		echo "Restoring diverted libGL.so symlink."
+		ln -s libGL.so.1 /usr/lib/nvidia/diversions/libGL.so
+	fi
+	# </target: squeeze>
+
+fi
+# </target: squeeze>
+
+
 if [ "$1" = "configure" ]; then
 
 	update-alternatives --install /usr/lib/libGL.so.1 libGL.so.1 /usr/lib/nvidia/libGL.so.1 42

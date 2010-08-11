@@ -12,6 +12,8 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     /usr/lib{,32}/libGL.so.1 and /usr/lib{,32}/libGL.so.
   * Split the nvidia-glx{,-ia32} packages, move the runtime libraries to
     libgl1-nvidia-glx{,-ia32}.  (Closes: #369316)
+    Since we use alternatives to replace the diverted files we can migrate
+    the diversions in postinst instead of preinst to simplify updates.
   * Rename package nvidia-glx-dev to libgl1-nvidia-dev (add dummy package).
   * Introduce virtual packages nvidia-glx{,-ia32}, libgl1-nvidia-glx{,-ia32},
     libgl1-nvidia-dev, nvidia-kernel-dkms.  Add a matching Provides/Conflicts:
