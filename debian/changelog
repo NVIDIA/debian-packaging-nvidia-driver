@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (195.36.31-1) unstable; urgency=low
 
   [ Andreas Beckmann ]
   * New upstream release.
@@ -49,7 +49,7 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
     from under us, so ensure that it exists in the postinst of
     libgl1-nvidia-glx before creating diversions.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Tue, 10 Aug 2010 13:30:47 +0200
+ -- Russ Allbery <rra@debian.org>  Sun, 15 Aug 2010 16:43:53 -0700
 
 nvidia-graphics-drivers (195.36.24-4) unstable; urgency=low
 
