@@ -45,6 +45,9 @@ nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
   [ Russ Allbery ]
   * Fix determination of the package name in nvidia-kernel-source when
     generating *.changes files.  (Closes: #589949)
+  * The old nvidia-glx postrm would remove /usr/lib/nvidia/diversions out
+    from under us, so ensure that it exists in the postinst of
+    libgl1-nvidia-glx before creating diversions.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 10 Aug 2010 13:30:47 +0200
 
