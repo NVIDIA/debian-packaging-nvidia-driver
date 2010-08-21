@@ -88,10 +88,13 @@ fi
 
 if [ "$1" = "configure" ]
 then
+
+	# <target: squeeze>
 	# The old nvidia-glx postrm would delete /usr/lib/nvidia/diversions
 	# out from under us, so create it if it doesn't exist.
 	test -d /usr/lib/nvidia/diversions || \
 		mkdir -p /usr/lib/nvidia/diversions
+	# </target: squeeze>
 
 	# make new diversions
 	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \

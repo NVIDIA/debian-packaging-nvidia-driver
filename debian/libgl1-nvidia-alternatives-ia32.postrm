@@ -10,9 +10,6 @@ set -e
 # configuration files left, we want to put back everything we moved.  Do not
 # try to do this again on purge since remove will have already been called.
 #
-# In the abort-install case, we may have gotten far enough to create our
-# diversions in our preinst, so back out of them.
-#
 # Leave all of our diversions alone during upgrades or aborted upgrades, since
 # we're staying installed in all cases and the diversions are still correct.
 #
@@ -21,9 +18,9 @@ set -e
 # diversions and doesn't want us messing with them.
 
 case "$1" in
-    remove|abort-install)
+    remove)
 
-	# restore libGL.so* from ia32-libs, diverted to /usr/lib32/nvidia
+	# restore libGL.so* from ia32-libs, diverted to /usr/lib32/nvidia/diversions
 	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib32/nvidia/diversions/libGL.so.1.2 \
 		/usr/lib32/libGL.so.1.2

@@ -10,12 +10,6 @@ set -e
 # configuration files left, we want to put back everything we moved.  Do not
 # try to do this again on purge since remove will have already been called.
 #
-# In the abort-install case, we may have gotten far enough to create our
-# diversions in our preinst, so back out of them.
-#
-# Remove /usr/lib/libGL.so only if we still own a diversion of it, since the
-# link may have been created by our trigger in postinst or later.
-#
 # Leave all of our diversions alone during upgrades or aborted upgrades, since
 # we're staying installed in all cases and the diversions are still correct.
 #
@@ -23,10 +17,10 @@ set -e
 # and assume that our overwriting package will have logic to take over the
 # diversions and doesn't want us messing with them.
 
-
 case "$1" in
-    remove|abort-install)
+    remove)
 
+	# restore libGL.so* from libgl1-mesa-{glx,dev}, diverted to /usr/lib/nvidia/diversions
 	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib/nvidia/diversions/libGL.so.1.2 \
 		/usr/lib/libGL.so.1.2
