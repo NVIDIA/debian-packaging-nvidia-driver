@@ -6,15 +6,11 @@ libgl1-nvidia#LEGACY#-glx: shared-lib-without-dependency-information
 #!amd64#libgl1-nvidia#LEGACY#-glx: shlib-without-PT_GNU_STACK-section
 libgl1-nvidia#LEGACY#-glx: spelling-error-in-binary
 
-# The diversions are placed here.
-libgl1-nvidia#LEGACY#-glx: package-contains-empty-directory usr/lib/nvidia/diversions/
-
 # Packages built against the NVIDIA libGL should declare dependencies on
 # the free version for Debian's purposes.  Therefore we use a special
 # combination of shlibs files (for libGL.so.1) and symbols files (for all
 # other libraries).
 libgl1-nvidia#LEGACY#-glx: shlibs-declares-dependency-on-other-package libgl1-mesa-glx | libgl1
-libgl1-nvidia#LEGACY#-glx: shlib-missing-in-symbols-control-file libGL 1 for usr/lib/libGL.so.#VERSION#
 
 # This package is a strange special case since it overrides standard
 # libraries and diverts them, so the package name won't ever be able to

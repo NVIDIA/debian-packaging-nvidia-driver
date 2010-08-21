@@ -5,20 +5,11 @@ libgl1-nvidia#LEGACY#-glx-ia32: shlib-with-non-pic-code
 libgl1-nvidia#LEGACY#-glx-ia32: shlib-without-PT_GNU_STACK-section
 libgl1-nvidia#LEGACY#-glx-ia32: spelling-error-in-binary
 
-# The diversions are placed here.
-libgl1-nvidia#LEGACY#-glx-ia32: package-contains-empty-directory usr/lib32/nvidia/diversions/
-
-# We divert the original /usr/lib32/libGL.so symlink.
-# In order to retain its functionality (i.e. pointing the MESA libGL.so.1)
-# we ship a link pointing to the diverted library.
-libgl1-nvidia#LEGACY#-glx-ia32: non-dev-pkg-with-shlib-symlink
-
 # Packages built against the NVIDIA libGL should declare dependencies on
 # the free version for Debian's purposes.  Therefore we use a special
 # combination of shlibs files (for libGL.so.1) and symbols files (for all
 # other libraries).
 libgl1-nvidia#LEGACY#-glx-ia32: shlibs-declares-dependency-on-other-package ia32-libs (>= 20090804)
-libgl1-nvidia#LEGACY#-glx-ia32: shlib-missing-in-symbols-control-file libGL 1 for usr/lib32/libGL.so.#VERSION#
 
 # Due to complex maintainer script operations (migration of diversions) a
 # simple Breaks+Recommends is not sufficient to ensure clean up-/downgrades.
