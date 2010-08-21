@@ -564,7 +564,7 @@ Breaks:
  nvidia-glx-legacy-71xx (<< 71.86.13-2),
  nvidia-glx-legacy-96xx (<< 96.43.17),
  nvidia-glx-legacy-173xx (<< 173.14.25-3),
-Description: simplify replacing the MESA libGL.so* with GPU vendor implementations
+Description: simplifies replacing MESA libGL with GPU vendor libraries
  Diverts the free libGL.so implementation (MESA) and introduces
  alternatives to simplify plugging in accelerated implementations from GPU
  vendors.  Handles both libGL.so.1 and libGL.so.
@@ -578,7 +578,7 @@ Breaks:
  nvidia-glx-legacy-71xx-ia32 (<< 71.86.13-2),
  nvidia-glx-legacy-96xx-ia32 (<< 96.43.17),
  nvidia-glx-legacy-173xx-ia32 (<< 173.14.25-3),
-Description: simplify replacing the MESA libGL.so* with GPU vendor implementations (32-bit)
+Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
  Diverts the free libGL.so (32-bit) implementation (MESA) and introduces
  alternatives to simplify plugging in accelerated implementations from GPU
  vendors.  Handles both libGL.so.1 and libGL.so.
