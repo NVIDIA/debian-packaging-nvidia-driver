@@ -1,4 +1,13 @@
-nvidia-graphics-drivers (195.36.31-1) unstable; urgency=low
+nvidia-graphics-drivers (195.36.31-2) UNRELEASED; urgency=low
+
+  [ Andreas Beckmann ]
+  * Move trigger and maintainer scripts handling the diversions/alternatives
+    of the libGL.so* from MESA to separate packages that can be used by the
+    legacy packages, too: libgl1-nvidia-alternatives{,-ia32}.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 20 Aug 2010 23:15:21 -0500
+
+nvidia-graphics-drivers (195.36.31-1) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
   * New upstream release.

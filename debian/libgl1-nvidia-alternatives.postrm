@@ -27,12 +27,6 @@ set -e
 case "$1" in
     remove|abort-install)
 
-	if [ -L /usr/lib/libGL.so ] && \
-           [ "`dpkg-divert --listpackage /usr/lib/libGL.so`" = "$DPKG_MAINTSCRIPT_PACKAGE" ]; then
-		echo "$DPKG_MAINTSCRIPT_PACKAGE: Removing /usr/lib/libGL.so created by trigger."
-		rm -f /usr/lib/libGL.so
-	fi
-
 	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib/nvidia/diversions/libGL.so.1.2 \
 		/usr/lib/libGL.so.1.2

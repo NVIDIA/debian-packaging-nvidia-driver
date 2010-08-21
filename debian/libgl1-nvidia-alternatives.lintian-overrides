@@ -1,0 +1,2 @@
+# The diversions are placed here.
+libgl1-nvidia-alternatives: package-contains-empty-directory usr/lib/nvidia/diversions/
