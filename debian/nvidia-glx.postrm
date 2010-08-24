@@ -33,19 +33,11 @@ dpkg-maintscript-helper rm_conffile /etc/init.d/$DPKG_MAINTSCRIPT_PACKAGE 195.36
 case "$1" in
     remove|abort-install)
 
-	# work around dpkg-divert bug #581544: useless errors on not writable destination if source does not exist
-	if [ -d /usr/lib/nvidia ] && [ ! -d /usr/lib/xorg/modules/extensions ]; then
-	    mkdir -p /usr/lib/xorg/modules/extensions
-	fi
-
 	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib/nvidia/diversions/libglx.so \
 		/usr/lib/xorg/modules/extensions/libglx.so
 
 	rmdir /usr/lib/nvidia/diversions /usr/lib/nvidia 2>/dev/null || true
-
-	# work around dpkg-divert bug #581544: useless errors on not writable destination if source does not exist
-	rmdir /usr/lib/xorg/modules/extensions /usr/lib/xorg/modules /usr/lib/xorg 2>/dev/null || true
 
     ;;
 esac
