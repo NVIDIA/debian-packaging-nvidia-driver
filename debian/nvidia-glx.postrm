@@ -2,45 +2,10 @@
 set -e
 
 
-#DIVERT_QUIET="--quiet"
-
 # <target: squeeze>
 dpkg-maintscript-helper rm_conffile /etc/default/$DPKG_MAINTSCRIPT_PACKAGE 195.36.24-1~ -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/init.d/$DPKG_MAINTSCRIPT_PACKAGE 195.36.24-3~ -- "$@"
 # </target: squeeze>
-
-
-# Rationale:
-#
-# Remove our diversions at the remove stage, since even if we have
-# configuration files left, we want to put back everything we moved.  Do not
-# try to do this again on purge since remove will have already been called.
-#
-# In the abort-install case, we may have gotten far enough to create our
-# diversions in our preinst, so back out of them.
-#
-# Remove /usr/lib/libGL.so only if we still own a diversion of it, since the
-# link may have been created by our trigger in postinst or later.
-#
-# Leave all of our diversions alone during upgrades or aborted upgrades, since
-# we're staying installed in all cases and the diversions are still correct.
-#
-# It's not clear what to do on disappear, but for now leave everything alone
-# and assume that our overwriting package will have logic to take over the
-# diversions and doesn't want us messing with them.
-
-
-case "$1" in
-    remove|abort-install)
-
-	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
-		/usr/lib/nvidia/diversions/libglx.so \
-		/usr/lib/xorg/modules/extensions/libglx.so
-
-	rmdir /usr/lib/nvidia/diversions /usr/lib/nvidia 2>/dev/null || true
-
-    ;;
-esac
 
 
 #DEBHELPER#

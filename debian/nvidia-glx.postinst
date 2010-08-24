@@ -45,6 +45,8 @@ case "$1" in
 	dpkg-trigger /usr/lib/libGL.so
         # </target: squeeze>
 
+	update-alternatives --install /usr/lib/xorg/modules/extensions/libglx.so libglx.so /usr/lib/nvidia/libglx.so 42
+
     ;;
 esac
 

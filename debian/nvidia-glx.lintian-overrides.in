@@ -5,8 +5,8 @@ nvidia-glx#LEGACY#: embedded-libpng
 #!amd64#nvidia-glx#LEGACY#: shlib-with-non-pic-code
 #!amd64#nvidia-glx#LEGACY#: shlib-without-PT_GNU_STACK-section
 
-# The diversions are placed here.
-nvidia-glx#LEGACY#: package-contains-empty-directory usr/lib/nvidia/diversions/
+# The alternatives are placed here.
+nvidia-glx#LEGACY#: package-contains-empty-directory usr/lib/xorg/modules/extensions/
 
 # Referenced by upstream documentation.
 nvidia-glx#LEGACY#: script-with-language-extension usr/bin/nvidia-bug-report.sh

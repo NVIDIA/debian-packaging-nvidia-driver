@@ -22,6 +22,7 @@ Architecture: i386 amd64
 Pre-Depends: dpkg (>= 1.15.7.2)
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
+ libglx-nvidia-alternatives,
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-vdpau-driver (>= ${nvidia:Version})
@@ -582,4 +583,17 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
  Diverts the free libGL.so (32-bit) implementation (MESA) and introduces
  alternatives to simplify plugging in accelerated implementations from GPU
  vendors.  Handles both libGL.so.1 and libGL.so.
+
+Package: libglx-nvidia-alternatives
+Section: non-free/libs
+Architecture: i386 amd64
+Depends: ${misc:Depends}
+Breaks:
+ nvidia-glx (<< 195.36.31-3),
+ nvidia-glx-legacy-71xx (<< 71.86.13-2),
+ nvidia-glx-legacy-96xx (<< 96.43.17),
+ nvidia-glx-legacy-173xx (<< 173.14.25-3),
+Description: simplifies replacing Xorg module libglx.so with GPU vendor library
+ Diverts the free Xorg module libglx.so (Xorg) and introduces alternatives
+ to simplify plugging in accelerated implementations from GPU vendors.
 
