@@ -5,6 +5,7 @@ nvidia-graphics-drivers (195.36.31-3) unstable; urgency=low
   * Change handling of Xorg module libglx.so to use alternatives, too.  Move
     the diversion of libglx.so to new package libglx-nvidia-alternatives and
     use a trigger there to create the alternatives.
+  * Divert the debug symbols of libglx.so from Xorg, too.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 24 Aug 2010 19:27:52 +0200
 

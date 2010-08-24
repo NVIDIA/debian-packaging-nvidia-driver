@@ -6,7 +6,8 @@ set -e
 if [ "$1" = "triggered" ]; then
 
 	if [ -e /usr/lib/nvidia/diversions/libglx.so ]; then
-		update-alternatives --install /usr/lib/xorg/modules/extensions/libglx.so libglx.so /usr/lib/nvidia/diversions/libglx.so 5
+		update-alternatives --install /usr/lib/xorg/modules/extensions/libglx.so libglx.so /usr/lib/nvidia/diversions/libglx.so 5 \
+			--slave /usr/lib/debug/usr/lib/xorg/modules/extensions/libglx.so libglx.so.dbg /usr/lib/nvidia/diversions/libglx.so.dbg
 	else
 		update-alternatives --remove libglx.so /usr/lib/nvidia/diversions/libglx.so
 	fi
@@ -84,6 +85,9 @@ then
 	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib/nvidia/diversions/libglx.so \
 		/usr/lib/xorg/modules/extensions/libglx.so
+	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+		/usr/lib/nvidia/diversions/libglx.so.dbg \
+		/usr/lib/debug/usr/lib/xorg/modules/extensions/libglx.so
 
 	# activate our trigger
 	dpkg-trigger /usr/lib/xorg/modules/extensions/libglx.so

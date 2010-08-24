@@ -23,6 +23,9 @@ case "$1" in
     remove)
 
 	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
+		/usr/lib/nvidia/diversions/libglx.so.dbg \
+		/usr/lib/debug/usr/lib/xorg/modules/extensions/libglx.so
+	dpkg-divert $DIVERT_QUIET --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib/nvidia/diversions/libglx.so \
 		/usr/lib/xorg/modules/extensions/libglx.so
 

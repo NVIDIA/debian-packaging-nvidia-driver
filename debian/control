@@ -596,4 +596,5 @@ Breaks:
 Description: simplifies replacing Xorg module libglx.so with GPU vendor library
  Diverts the free Xorg module libglx.so (Xorg) and introduces alternatives
  to simplify plugging in accelerated implementations from GPU vendors.
+ Handles both libglx.so and its debug symbols.
 
