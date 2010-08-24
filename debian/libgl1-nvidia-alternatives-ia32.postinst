@@ -95,11 +95,6 @@ then
 		/usr/lib32/nvidia/diversions/libGL.so.1.2 \
 		/usr/lib32/libGL.so.1.2
 
-fi
-
-
-if [ "$1" = "configure" ]; then
-
 	# activate our trigger
 	dpkg-trigger /usr/lib32/libGL.so.1
 	dpkg-trigger /usr/lib32/libGL.so

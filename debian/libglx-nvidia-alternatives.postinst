@@ -31,12 +31,10 @@ then
 
 	# <target: squeeze>
 	# take over diversion from nvidia-glx*
-        if true
-	then
-		file_orig="/usr/lib/xorg/modules/extensions/libglx.so"
-		file_old_divert="/usr/lib/nvidia/libglx.so.xlibmesa"
-		file_new_divert="/usr/lib/nvidia/diversions/libglx.so"
-		old_diverter="`dpkg-divert --listpackage $file_orig`"
+	file_orig="/usr/lib/xorg/modules/extensions/libglx.so"
+	file_old_divert="/usr/lib/nvidia/libglx.so.xlibmesa"
+	file_new_divert="/usr/lib/nvidia/diversions/libglx.so"
+	old_diverter="`dpkg-divert --listpackage $file_orig`"
 
 	if [ -n "$old_diverter" ] \
 		&& [ "$old_diverter" != "$DPKG_MAINTSCRIPT_PACKAGE" ]
@@ -61,11 +59,11 @@ then
 				"$file_orig"
 		fi
 	fi
-		if exists "$file_old_divert"
-		then
-			echo "ERROR: $file_old_divert does still exist. Aborting."
-			exit 1
-		fi
+
+	if exists "$file_old_divert"
+	then
+		echo "ERROR: $file_old_divert does still exist. Aborting."
+		exit 1
 	fi
 	# </target: squeeze>
 
@@ -86,10 +84,6 @@ then
 	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib/nvidia/diversions/libglx.so \
 		/usr/lib/xorg/modules/extensions/libglx.so
-
-fi
-
-if [ "$1" = "configure" ]; then
 
 	# activate our trigger
 	dpkg-trigger /usr/lib/xorg/modules/extensions/libglx.so
