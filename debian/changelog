@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (195.36.31-3) unstable; urgency=low
+nvidia-graphics-drivers (195.36.31-3) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
   * Remove workaround for dpkg-divert bug #581544, fixed in dpkg 1.15.8.
@@ -6,6 +6,7 @@ nvidia-graphics-drivers (195.36.31-3) unstable; urgency=low
     the diversion of libglx.so to new package libglx-nvidia-alternatives and
     use a trigger there to create the alternatives.
   * Divert the debug symbols of libglx.so from Xorg, too.
+  * All diversions are now configurable via alternatives.  (Closes: #401582)
   * Update main and module source packages to debhelper 8.
     - dh_makeshlibs automatically picks up libraries in /usr/lib/nvidia etc.
 
