@@ -9,6 +9,8 @@ nvidia-graphics-drivers (195.36.31-3) UNRELEASED; urgency=low
   * All diversions are now configurable via alternatives.  (Closes: #401582)
   * Update main and module source packages to debhelper 8.
     - dh_makeshlibs automatically picks up libraries in /usr/lib/nvidia etc.
+  * nvidia-kernel-{dkms,source}: add Conflicts: with badly sorting obsolete
+    packages linux-{image,headers}-2.6.32-trunk-*.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 24 Aug 2010 19:27:52 +0200
 
