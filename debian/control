@@ -8,7 +8,7 @@ Uploaders:
 Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
- debhelper (>= 7.4.16~),
+ debhelper (>= 8),
  bzip2,
  dkms (>= 2.1.1.1),
  libxext6,
@@ -217,7 +217,7 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
 Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64
-Depends: ${misc:Depends}, debhelper (>= 7.2.3~), make, quilt (>= 0.46-7~)
+Depends: ${misc:Depends}, debhelper (>= 8), make, quilt (>= 0.46-7~)
 Recommends: module-assistant | kernel-package,
  nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}), nvidia-kernel-common
 Conflicts: binutils-gold (>> 2.20.51)

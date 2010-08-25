@@ -169,15 +169,7 @@ override_dh_bugfiles:
 	dh_bugfiles -A
 
 override_dh_makeshlibs:
-	test ! -d debian/libgl1-nvidia$(legacy)-glx/usr/lib/nvidia || \
-		ln -s nvidia/libGL.so.1 debian/libgl1-nvidia$(legacy)-glx/usr/lib/
-	test ! -d debian/libgl1-nvidia$(legacy)-glx-ia32/usr/lib32/nvidia || \
-		ln -s nvidia/libGL.so.1 debian/libgl1-nvidia$(legacy)-glx-ia32/usr/lib32/
-	dh_makeshlibs -Xvdpau/libvdpau_nvidia.so
-	test ! -d debian/libgl1-nvidia$(legacy)-glx || \
-		rm -f debian/libgl1-nvidia$(legacy)-glx/usr/lib/libGL.so.1
-	test ! -d debian/libgl1-nvidia$(legacy)-glx-ia32 || \
-		rm -f debian/libgl1-nvidia$(legacy)-glx-ia32/usr/lib32/libGL.so.1
+	dh_makeshlibs -Xvdpau/libvdpau_nvidia.so -Xtls/libnvidia-tls.so
 	# Redirect shlibs for libGL.so.1 to libgl1-mesa-glx | libgl1.
 	test ! -d debian/libgl1-nvidia$(legacy)-glx || \
 		sed -i -e '/^libGL 1 /s/.*/libGL 1 libgl1-mesa-glx | libgl1/' debian/libgl1-nvidia$(legacy)-glx/DEBIAN/shlibs
