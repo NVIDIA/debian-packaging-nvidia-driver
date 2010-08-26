@@ -1,0 +1,49 @@
+The following alternatives are available and may be customized locally to
+disable/enable the libraries from NVIDIA:
+
+
+libglx.so
+=========
+
+NVIDIA provides its own libglx.so module for X.org which is shipped in the
+nvidia-glx (or a corresponding nvidia-glx-legacy*) package.
+The original module from X.org is diverted away (still available as an
+alternative with low priority) and replaced by a configurable alternative
+using the non-free module with higher priority so it is enabled by default.
+
+Manual disabling (and later reenabling) can be done with the command
+
+    update-alternatives --config libglx.so
+
+
+libgGL.so.1
+===========
+
+NVIDIA provides accelerated OpenGL libraries libGL.so* which are shipped 
+in the libgl1-nvidia-glx (or a corresponding libgl1-nvidia-legacy*-glx)
+package.
+The free MESA libGL.so.1 is available as an alternative with low priority
+(if libgl1-mesa-glx is installed) while the non-free accelerated NVIDIA
+libGL.so.1 is installed as a reconfigurable alternative with higher priority
+so it is enabled by default.
+
+Manual disabling (and later reenabling) can be done with the command
+
+    update-alternatives --config libGL.so.1
+
+The same setup is used for libgl1-nvidia-glx-ia32.  The reconfigurable
+alternative is called ia32-libGL.so.1
+
+
+libGL.so
+========
+
+No alternative for libGL.so is set up by the libgl1-nvidia-dev (or a
+corresponding libgl1-nvidia-legacy*-dev) package.
+It is generally preferred to link with the MESA libraries during compilation,
+so one does not accidently pick up private symbols from NVIDIA.  Anyway,
+building OpenGL applications should be done with libgl1-mesa-dev installed.
+
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 26 Aug 2010 11:21:31 +0200
+

@@ -4,9 +4,11 @@ nvidia-graphics-drivers (195.36.31-3) UNRELEASED; urgency=low
   * Remove workaround for dpkg-divert bug #581544, fixed in dpkg 1.15.8.
   * Change handling of Xorg module libglx.so to use alternatives, too.  Move
     the diversion of libglx.so to new package libglx-nvidia-alternatives and
-    use a trigger there to create the alternatives.
+    use a trigger there to create the alternatives.  (Closes: #594299)
   * Divert the debug symbols of libglx.so from Xorg, too.
   * All diversions are now configurable via alternatives.  (Closes: #401582)
+  * README.alternatives: document the diversions and alternatives.
+    (Closes: #594297)
   * Update main and module source packages to debhelper 8.
     - dh_makeshlibs automatically picks up libraries in /usr/lib/nvidia etc.
   * nvidia-kernel-{dkms,source}: add Conflicts: with badly sorting obsolete
