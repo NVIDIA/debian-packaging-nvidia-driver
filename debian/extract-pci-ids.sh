@@ -1,6 +1,7 @@
 #!/bin/sh
-# Based on the nvidia_supported script from Ubuntu's nvidia-current package.
-#set -e
+# Based on the nvidia_supported script from the nvidia-current package in
+# Ubuntu maverick.
+set -e
 
 
 [ -n "$1" ] || {
@@ -9,37 +10,67 @@
 }
 
 device_ids() {
-  local filename="$1"
+  local object="$1"
 
-  local list_prev="$(mktemp)"
-  local list_cur="$(mktemp)"
+  local ret=1
 
-  # Find the symbols of the .rodata section...
-  objdump --section=.rodata --syms "$filename" |
-  sed -nr 's/^([0-9a-f]+)\s+l\s+O\s+\S+\s+([0-9a-f]+)\s+\S+.*/\1 \2/p' |
-  while read start length; do
+  local symbols="$(mktemp)"
+  local readme_list="$(mktemp)"
+  local object_list="$(mktemp)"
+  local diff="$(mktemp)"
+
+  # The README.txt contains a partial list only
+  sed -e '0,/A. Supported\|APPENDIX A: SUPPORTED/d' \
+    -e '0,/Appendix A. Supported\|APPENDIX A: SUPPORTED/d' \
+    -e '0,/^Below\|APPENDIX B/{/ 0x/s/.*  0x\([0-9a-fA-F]\{4\}\).*/\1/p};d' \
+    NVIDIA-Linux/usr/share/doc/README.txt \
+    | tr A-F a-f | sort | uniq >"$readme_list"
+
+  local readme_length="$(grep -Ec . "$readme_list")"
+
+  objdump --section=.rodata --syms "$object" |
+  sed -nr '/SYMBOL TABLE/,/^$/ {
+    s/^([0-9a-f]+)\s+l\s+O\s+\S+\s+([0-9a-f]+)\s+\S+.*/\2 \1/p
+  }' >"$symbols"
+
+  while read length start; do
+    [ "$((0x$length))" -gt 0 ] || continue
+
     objdump --section=.rodata --full-contents \
       --start-address="0x$start" \
-      --stop-address="$((0x$start+0x$length))" "$filename" |
-    sed -nr 's/^ [0-9a-f]+ ([0-9a-f]{2})([0-9a-f]{2})0000.*/\2\1/p' |
-    sort | uniq | grep -vx "0000" >"$list_cur"
+      --stop-address="$((0x$start+0x$length))" "$object" |
+    sed -nr 's/^ [0-9a-f]+ ([0-9a-f]{2})([0-9a-f]{2}).*/\2\1/p' |
+    sort | uniq | (grep -vx 0000 || :) >"$object_list"
 
-    # The consistent thing between different releases has been that there are
-    # two subsequent symbols with the same PCI ID list near the beginning. Find
-    # them.
-    if [ -s "$list_prev" -a -s "$list_cur" ] &&
-       cmp -s "$list_prev" "$list_cur"; then
-      cat "$list_cur"
+    local object_length="$(grep -Ec . "$object_list")"
+
+    diff -u "$readme_list" "$object_list" | tail -n +3 >"$diff"
+    local num_deletions="$(grep -Ec '^-' "$diff")"
+    local num_additions="$(grep -Ec '^\+' "$diff")"
+
+    # Some thresholds for now.
+    if [ "$num_deletions" -eq 0 ] &&
+       [ "$num_additions" -le "$(($readme_length*3/2))" ]; then
+      >&2 printf 'DEBUG: readme:%d object:%d deletions:%d additions:%d\n' \
+        "$readme_length" "$object_length" "$num_deletions" "$num_additions"
+      ret=0
       break
     fi
+  done <"$symbols"
 
-    cp "$list_cur" "$list_prev"
-  done
+  if [ "$ret" -eq 0 ]; then
+    while read id; do
+      echo 10de$id
+    done <"$object_list"
+  else
+    >&2 printf '%s\n' 'Failed to find the list.'
+  fi
 
-  rm -f "$list_prev" "$list_cur"
+  rm -f "$symbols" "$readme_list" "$object_list" "$diff"
+
+  return "$ret"
 }
 
-for id in $(device_ids "$1"); do
-  echo 10de$id
-done
+device_ids "$@"
 
+# vim:set et sw=2 sts=2:

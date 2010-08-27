@@ -14,6 +14,8 @@ nvidia-graphics-drivers (195.36.31-3) UNRELEASED; urgency=low
     - dh_makeshlibs automatically picks up libraries in /usr/lib/nvidia etc.
   * nvidia-kernel-{dkms,source}: add Conflicts: with badly sorting obsolete
     packages linux-{image,headers}-2.6.32-trunk-*.
+  * extract-pci-ids.sh: sync with nvidia_supported script from Ubuntu maverick
+    to add 256.xx nv-kernel.o parsing support.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 24 Aug 2010 19:27:52 +0200
 
