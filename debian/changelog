@@ -16,6 +16,9 @@ nvidia-graphics-drivers (195.36.31-3) UNRELEASED; urgency=low
     packages linux-{image,headers}-2.6.32-trunk-*.
   * extract-pci-ids.sh: sync with nvidia_supported script from Ubuntu maverick
     to add 256.xx nv-kernel.o parsing support.
+  * debian/{rules, restore-upstream-directory-structure}: prepare 256.xx
+    support by restoring the upstream structure used by legacy-71xx up to
+    195.xx.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 24 Aug 2010 19:27:52 +0200
 
