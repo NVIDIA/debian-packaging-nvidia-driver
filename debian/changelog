@@ -2,7 +2,7 @@ nvidia-graphics-drivers (195.36.31-3) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
   * Remove workaround for dpkg-divert bug #581544, fixed in dpkg 1.15.8.
-  * Validate the diverted libGL.so.1 symlink.  (Closes: #594416)
+  * Validate the diverted libGL.so.1 symlink.  (Closes: #594416, #594737)
   * Change handling of Xorg module libglx.so to use alternatives, too.  Move
     the diversion of libglx.so to new package libglx-nvidia-alternatives and
     use a trigger there to create the alternatives.  (Closes: #594299)
