@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (195.36.31-3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (195.36.31-3) unstable; urgency=low
 
   [ Andreas Beckmann ]
   * Remove workaround for dpkg-divert bug #581544, fixed in dpkg 1.15.8.
@@ -20,7 +20,7 @@ nvidia-graphics-drivers (195.36.31-3) UNRELEASED; urgency=low
     support by restoring the upstream structure used by legacy-71xx up to
     195.xx.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Tue, 24 Aug 2010 19:27:52 +0200
+ -- Russ Allbery <rra@debian.org>  Wed, 01 Sep 2010 16:14:32 -0700
 
 nvidia-graphics-drivers (195.36.31-2) unstable; urgency=low
 
