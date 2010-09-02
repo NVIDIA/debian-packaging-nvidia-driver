@@ -12,6 +12,7 @@ Build-Depends:
  bzip2,
  dkms (>= 2.1.1.1),
  libxext6,
+ libxvmc1,
  quilt,
  ia32-libs (>= 20090804) [amd64],
 Standards-Version: 3.9.1
