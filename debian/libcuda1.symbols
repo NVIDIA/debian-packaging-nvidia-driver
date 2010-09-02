@@ -11,8 +11,10 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuCtxDestroy@Base 177
  cuCtxDetach@Base 169
  cuCtxGetDevice@Base 177
+ cuCtxGetLimit@Base 256
  cuCtxPopCurrent@Base 177
  cuCtxPushCurrent@Base 177
+ cuCtxSetLimit@Base 256
  cuCtxSynchronize@Base 169
  cuDeviceComputeCapability@Base 169
  cuDeviceGet@Base 169
@@ -50,6 +52,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGraphicsSubResourceGetMappedArray@Base 195
  cuGraphicsUnmapResources@Base 195
  cuGraphicsUnregisterResource@Base 195
+ cuGraphicsVDPAURegisterOutputSurface@Base 256
+ cuGraphicsVDPAURegisterVideoSurface@Base 256
  cuInit@Base 169
  cuLaunch@Base 169
  cuLaunchGrid@Base 169
@@ -60,7 +64,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemFree@Base 169
  cuMemFreeHost@Base 169
  cuMemGetAddressRange@Base 169
- cuMemGetAttribute@Base 185.18.31
+ cuMemGetAttribute@Base 190
  cuMemGetInfo@Base 169
  cuMemHostAlloc@Base 185
  cuMemHostGetDevicePointer@Base 185
@@ -91,6 +95,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemsetD8@Base 169
  cuModuleGetFunction@Base 169
  cuModuleGetGlobal@Base 169
+ cuModuleGetSurfRef@Base 256
  cuModuleGetTexRef@Base 169
  cuModuleLoad@Base 169
  cuModuleLoadData@Base 169
@@ -98,6 +103,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuModuleLoadFatBinary@Base 169
  cuModuleUnload@Base 169
  cuParamSetSize@Base 169
+ cuParamSetSurfRef@Base 256
  cuParamSetTexRef@Base 169
  cuParamSetf@Base 169
  cuParamSeti@Base 169
@@ -106,6 +112,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuStreamDestroy@Base 169
  cuStreamQuery@Base 169
  cuStreamSynchronize@Base 169
+ cuSurfRefGetArray@Base 256
+ cuSurfRefSetArray@Base 256
  cuTexRefCreate@Base 169
  cuTexRefDestroy@Base 169
  cuTexRefGetAddress@Base 169
@@ -121,6 +129,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuTexRefSetFilterMode@Base 169
  cuTexRefSetFlags@Base 169
  cuTexRefSetFormat@Base 169
+ cuVDPAUCtxCreate@Base 256
+ cuVDPAUGetDevice@Base 256
  cudbgGetAPI@Base 195
  cudbgGetAPIVersion@Base 195
  gpudbgDebuggerAttached@Base 177

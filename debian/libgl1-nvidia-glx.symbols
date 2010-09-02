@@ -28,8 +28,6 @@ libXvMCNVIDIA_dynamic.so.1 #PACKAGE# #MINVER#
  XvMCSetSubpicturePalette@Base 1.0.4349
  XvMCSyncSubpicture@Base 1.0.4349
  XvMCSyncSurface@Base 1.0.4349
- (arch=i386)mknod@Base 0
- (arch=i386)stat@Base 0
 libnvidia-cfg.so.1 #PACKAGE# #MINVER#
  nvCfgCloseAllPciDevices@Base 180.35
  nvCfgCloseDevice@Base 1.0.8174

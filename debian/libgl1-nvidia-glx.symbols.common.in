@@ -21,6 +21,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glBeginOcclusionQueryNV@Base 1.0.4349
  glBeginQuery@Base 1.0.6106
  glBeginQueryARB@Base 1.0.5328
+ glBeginQueryIndexed@Base 256
  glBeginTransformFeedback@Base 180
  glBeginTransformFeedbackNV@Base 1.0.9746
  glBeginVideoCaptureNV@Base 190.32
@@ -36,6 +37,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glBindBufferRangeNV@Base 1.0.9746
  glBindFragDataLocation@Base 180
  glBindFragDataLocationEXT@Base 1.0.9746
+ glBindFragDataLocationIndexed@Base 256
  glBindFramebuffer@Base 180
  glBindFramebufferEXT@Base 1.0.7664
  glBindImageTextureEXT@Base 195
@@ -44,8 +46,10 @@ libGL.so.1 #PACKAGE# #MINVER#
  glBindProgramNV@Base 1.0.4349
  glBindRenderbuffer@Base 180
  glBindRenderbufferEXT@Base 1.0.7664
+ glBindSampler@Base 256
  glBindTexture@Base 1.0.4349
  glBindTextureEXT@Base 1.0.4349
+ glBindTransformFeedback@Base 256
  glBindTransformFeedbackEXT@Base 190.36
  glBindTransformFeedbackNV@Base 165
  glBindVertexArray@Base 180
@@ -58,12 +62,16 @@ libGL.so.1 #PACKAGE# #MINVER#
  glBlendEquationEXT@Base 1.0.4349
  glBlendEquationSeparate@Base 1.0.7664
  glBlendEquationSeparateEXT@Base 1.0.6106
+ glBlendEquationSeparatei@Base 256
  glBlendEquationSeparateiARB@Base 190.18.05
+ glBlendEquationi@Base 256
  glBlendEquationiARB@Base 190.18.05
  glBlendFunc@Base 1.0.4349
  glBlendFuncSeparate@Base 1.0.4349
  glBlendFuncSeparateEXT@Base 1.0.4349
+ glBlendFuncSeparatei@Base 256
  glBlendFuncSeparateiARB@Base 190.18.05
+ glBlendFunci@Base 256
  glBlendFunciARB@Base 190.18.05
  glBlitFramebuffer@Base 180
  glBlitFramebufferEXT@Base 1.0.9625
@@ -138,6 +146,10 @@ libGL.so.1 #PACKAGE# #MINVER#
  glColorMaskIndexedEXT@Base 1.0.9746
  glColorMaski@Base 180
  glColorMaterial@Base 1.0.4349
+ glColorP3ui@Base 256
+ glColorP3uiv@Base 256
+ glColorP4ui@Base 256
+ glColorP4uiv@Base 256
  glColorPointer@Base 1.0.4349
  glColorPointerEXT@Base 1.0.4349
  glColorSubTable@Base 1.0.4349
@@ -230,10 +242,12 @@ libGL.so.1 #PACKAGE# #MINVER#
  glDeleteQueriesARB@Base 1.0.5328
  glDeleteRenderbuffers@Base 180
  glDeleteRenderbuffersEXT@Base 1.0.7664
+ glDeleteSamplers@Base 256
  glDeleteShader@Base 1.0.7664
  glDeleteSync@Base 190.18.05
  glDeleteTextures@Base 1.0.4349
  glDeleteTexturesEXT@Base 1.0.4349
+ glDeleteTransformFeedbacks@Base 256
  glDeleteTransformFeedbacksEXT@Base 190.36
  glDeleteTransformFeedbacksNV@Base 165
  glDeleteVertexArrays@Base 180
@@ -257,7 +271,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glDisablei@Base 180
  glDrawArrays@Base 1.0.4349
  glDrawArraysEXT@Base 1.0.4349
- glDrawArraysIndirectEXT@Base 195
+ glDrawArraysIndirect@Base 256
  glDrawArraysInstanced@Base 190
  glDrawArraysInstancedARB@Base 180
  glDrawArraysInstancedEXT@Base 1.0.9746
@@ -267,7 +281,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glDrawBuffersATI@Base 1.0.6106
  glDrawElements@Base 1.0.4349
  glDrawElementsBaseVertex@Base 190.18.05
- glDrawElementsIndirectEXT@Base 195
+ glDrawElementsIndirect@Base 256
  glDrawElementsInstanced@Base 190
  glDrawElementsInstancedARB@Base 180
  glDrawElementsInstancedBaseVertex@Base 190.18.05
@@ -277,9 +291,10 @@ libGL.so.1 #PACKAGE# #MINVER#
  glDrawRangeElements@Base 1.0.4349
  glDrawRangeElementsBaseVertex@Base 190.18.05
  glDrawRangeElementsEXT@Base 1.0.4349
+ glDrawTransformFeedback@Base 256
  glDrawTransformFeedbackEXT@Base 190.36
  glDrawTransformFeedbackNV@Base 165
- glDrawTransformFeedbackStreamEXT@Base 195
+ glDrawTransformFeedbackStream@Base 256
  glEdgeFlag@Base 1.0.4349
  glEdgeFlagFormatNV@Base 185
  glEdgeFlagPointer@Base 1.0.4349
@@ -303,6 +318,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glEndOcclusionQueryNV@Base 1.0.4349
  glEndQuery@Base 1.0.6106
  glEndQueryARB@Base 1.0.5328
+ glEndQueryIndexed@Base 256
  glEndTransformFeedback@Base 180
  glEndTransformFeedbackNV@Base 1.0.9746
  glEndVideoCaptureNV@Base 190.32
@@ -380,8 +396,10 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGenQueriesARB@Base 1.0.5328
  glGenRenderbuffers@Base 180
  glGenRenderbuffersEXT@Base 1.0.7664
+ glGenSamplers@Base 256
  glGenTextures@Base 1.0.4349
  glGenTexturesEXT@Base 1.0.4349
+ glGenTransformFeedbacks@Base 256
  glGenTransformFeedbacksEXT@Base 190.36
  glGenTransformFeedbacksNV@Base 165
  glGenVertexArrays@Base 180
@@ -391,6 +409,9 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGenerateTextureMipmapEXT@Base 180
  glGetActiveAttrib@Base 1.0.7664
  glGetActiveAttribARB@Base 1.0.6106
+ glGetActiveSubroutineName@Base 256
+ glGetActiveSubroutineUniformName@Base 256
+ glGetActiveSubroutineUniformiv@Base 256
  glGetActiveUniform@Base 1.0.7664
  glGetActiveUniformARB@Base 1.0.6106
  glGetActiveUniformBlockName@Base 190
@@ -442,6 +463,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetFloatIndexedvEXT@Base 180
  glGetFloati_vEXT@Base 185
  glGetFloatv@Base 1.0.4349
+ glGetFragDataIndex@Base 256
  glGetFragDataLocation@Base 180
  glGetFragDataLocationEXT@Base 1.0.9746
  glGetFramebufferAttachmentParameteriv@Base 180
@@ -521,16 +543,19 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetProgramNamedParameterfvNV@Base 1.0.4349
  glGetProgramParameterdvNV@Base 1.0.4349
  glGetProgramParameterfvNV@Base 1.0.4349
- glGetProgramStageivEXT@Base 195.30
+ glGetProgramStageiv@Base 256
  glGetProgramStringARB@Base 1.0.4349
  glGetProgramStringNV@Base 1.0.4349
  glGetProgramSubroutineParameteruivNV@Base 195.30
  glGetProgramiv@Base 1.0.7664
  glGetProgramivARB@Base 1.0.4349
  glGetProgramivNV@Base 1.0.4349
+ glGetQueryIndexediv@Base 256
+ glGetQueryObjecti64v@Base 256
  glGetQueryObjecti64vEXT@Base 1.0.8174
  glGetQueryObjectiv@Base 1.0.6106
  glGetQueryObjectivARB@Base 1.0.5328
+ glGetQueryObjectui64v@Base 256
  glGetQueryObjectui64vEXT@Base 1.0.8174
  glGetQueryObjectuiv@Base 1.0.6106
  glGetQueryObjectuivARB@Base 1.0.5328
@@ -538,6 +563,10 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetQueryivARB@Base 1.0.5328
  glGetRenderbufferParameteriv@Base 180
  glGetRenderbufferParameterivEXT@Base 1.0.7664
+ glGetSamplerParameterIiv@Base 256
+ glGetSamplerParameterIuiv@Base 256
+ glGetSamplerParameterfv@Base 256
+ glGetSamplerParameteriv@Base 256
  glGetSeparableFilter@Base 1.0.4349
  glGetShaderInfoLog@Base 1.0.7664
  glGetShaderSource@Base 1.0.7664
@@ -545,9 +574,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetShaderiv@Base 1.0.7664
  glGetString@Base 1.0.4349
  glGetStringi@Base 180
- glGetSubroutineNameEXT@Base 195.30
- glGetSubroutineNumberEXT@Base 195.30
- glGetSubroutineUniformLocationEXT@Base 195.30
+ glGetSubroutineIndex@Base 256
+ glGetSubroutineUniformLocation@Base 256
  glGetSynciv@Base 190.18.05
  glGetTexEnvfv@Base 1.0.4349
  glGetTexEnviv@Base 1.0.4349
@@ -579,8 +607,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetUniformLocation@Base 1.0.7664
  glGetUniformLocationARB@Base 1.0.6106
  glGetUniformOffsetEXT@Base 1.0.9746
- glGetUniformSubroutineuivEXT@Base 195.30
- glGetUniformdvEXT@Base 195
+ glGetUniformSubroutineuiv@Base 256
+ glGetUniformdv@Base 256
  glGetUniformfv@Base 1.0.7664
  glGetUniformfvARB@Base 1.0.6106
  glGetUniformi64vNV@Base 195
@@ -663,10 +691,12 @@ libGL.so.1 #PACKAGE# #MINVER#
  glIsQueryARB@Base 1.0.5328
  glIsRenderbuffer@Base 180
  glIsRenderbufferEXT@Base 1.0.7664
+ glIsSampler@Base 256
  glIsShader@Base 1.0.7664
  glIsSync@Base 190.18.05
  glIsTexture@Base 1.0.4349
  glIsTextureEXT@Base 1.0.4349
+ glIsTransformFeedback@Base 256
  glIsTransformFeedbackEXT@Base 190.36
  glIsTransformFeedbackNV@Base 165
  glIsVertexArray@Base 180
@@ -737,6 +767,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glMatrixTranslatedEXT@Base 180
  glMatrixTranslatefEXT@Base 180
  glMemoryBarrierEXT@Base 195
+ glMinSampleShading@Base 256
  glMinSampleShadingARB@Base 190.18.05
  glMinmax@Base 1.0.4349
  glMultMatrixd@Base 1.0.4349
@@ -824,6 +855,14 @@ libGL.so.1 #PACKAGE# #MINVER#
  glMultiTexCoord4sARB@Base 1.0.4349
  glMultiTexCoord4sv@Base 1.0.4349
  glMultiTexCoord4svARB@Base 1.0.4349
+ glMultiTexCoordP1ui@Base 256
+ glMultiTexCoordP1uiv@Base 256
+ glMultiTexCoordP2ui@Base 256
+ glMultiTexCoordP2uiv@Base 256
+ glMultiTexCoordP3ui@Base 256
+ glMultiTexCoordP3uiv@Base 256
+ glMultiTexCoordP4ui@Base 256
+ glMultiTexCoordP4uiv@Base 256
  glMultiTexCoordPointerEXT@Base 180
  glMultiTexEnvfEXT@Base 180
  glMultiTexEnvfvEXT@Base 180
@@ -887,14 +926,19 @@ libGL.so.1 #PACKAGE# #MINVER#
  glNormal3s@Base 1.0.4349
  glNormal3sv@Base 1.0.4349
  glNormalFormatNV@Base 185
+ glNormalP3ui@Base 256
+ glNormalP3uiv@Base 256
  glNormalPointer@Base 1.0.4349
  glNormalPointerEXT@Base 1.0.4349
  glOrtho@Base 1.0.4349
  glPassThrough@Base 1.0.4349
+ glPatchParameterfv@Base 256
  glPatchParameterfvEXT@Base 195
  glPatchParameterfvNV@Base 195
+ glPatchParameteri@Base 256
  glPatchParameteriEXT@Base 195
  glPatchParameteriNV@Base 195
+ glPauseTransformFeedback@Base 256
  glPauseTransformFeedbackEXT@Base 190.36
  glPauseTransformFeedbackNV@Base 165
  glPixelDataRangeNV@Base 1.0.4349
@@ -971,8 +1015,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glProgramParameters4fvNV@Base 1.0.4349
  glProgramStringARB@Base 1.0.4349
  glProgramSubroutineParametersuivNV@Base 195.30
- glProgramUniform1dEXT@Base 195
- glProgramUniform1dvEXT@Base 195
+ glProgramUniform1d@Base 256
+ glProgramUniform1dv@Base 256
  glProgramUniform1fEXT@Base 180
  glProgramUniform1fvEXT@Base 180
  glProgramUniform1i64NV@Base 195
@@ -983,8 +1027,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glProgramUniform1ui64vNV@Base 195
  glProgramUniform1uiEXT@Base 180
  glProgramUniform1uivEXT@Base 180
- glProgramUniform2dEXT@Base 195
- glProgramUniform2dvEXT@Base 195
+ glProgramUniform2d@Base 256
+ glProgramUniform2dv@Base 256
  glProgramUniform2fEXT@Base 180
  glProgramUniform2fvEXT@Base 180
  glProgramUniform2i64NV@Base 195
@@ -995,8 +1039,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glProgramUniform2ui64vNV@Base 195
  glProgramUniform2uiEXT@Base 180
  glProgramUniform2uivEXT@Base 180
- glProgramUniform3dEXT@Base 195
- glProgramUniform3dvEXT@Base 195
+ glProgramUniform3d@Base 256
+ glProgramUniform3dv@Base 256
  glProgramUniform3fEXT@Base 180
  glProgramUniform3fvEXT@Base 180
  glProgramUniform3i64NV@Base 195
@@ -1007,8 +1051,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glProgramUniform3ui64vNV@Base 195
  glProgramUniform3uiEXT@Base 180
  glProgramUniform3uivEXT@Base 180
- glProgramUniform4dEXT@Base 195
- glProgramUniform4dvEXT@Base 195
+ glProgramUniform4d@Base 256
+ glProgramUniform4dv@Base 256
  glProgramUniform4fEXT@Base 180
  glProgramUniform4fvEXT@Base 180
  glProgramUniform4i64NV@Base 195
@@ -1019,23 +1063,23 @@ libGL.so.1 #PACKAGE# #MINVER#
  glProgramUniform4ui64vNV@Base 195
  glProgramUniform4uiEXT@Base 180
  glProgramUniform4uivEXT@Base 180
- glProgramUniformMatrix2dvEXT@Base 195
+ glProgramUniformMatrix2dv@Base 256
  glProgramUniformMatrix2fvEXT@Base 180
- glProgramUniformMatrix2x3dvEXT@Base 195
+ glProgramUniformMatrix2x3dv@Base 256
  glProgramUniformMatrix2x3fvEXT@Base 180
- glProgramUniformMatrix2x4dvEXT@Base 195
+ glProgramUniformMatrix2x4dv@Base 256
  glProgramUniformMatrix2x4fvEXT@Base 180
- glProgramUniformMatrix3dvEXT@Base 195
+ glProgramUniformMatrix3dv@Base 256
  glProgramUniformMatrix3fvEXT@Base 180
- glProgramUniformMatrix3x2dvEXT@Base 195
+ glProgramUniformMatrix3x2dv@Base 256
  glProgramUniformMatrix3x2fvEXT@Base 180
- glProgramUniformMatrix3x4dvEXT@Base 195
+ glProgramUniformMatrix3x4dv@Base 256
  glProgramUniformMatrix3x4fvEXT@Base 180
- glProgramUniformMatrix4dvEXT@Base 195
+ glProgramUniformMatrix4dv@Base 256
  glProgramUniformMatrix4fvEXT@Base 180
- glProgramUniformMatrix4x2dvEXT@Base 195
+ glProgramUniformMatrix4x2dv@Base 256
  glProgramUniformMatrix4x2fvEXT@Base 180
- glProgramUniformMatrix4x3dvEXT@Base 195
+ glProgramUniformMatrix4x3dv@Base 256
  glProgramUniformMatrix4x3fvEXT@Base 180
  glProgramUniformui64NV@Base 185
  glProgramUniformui64vNV@Base 185
@@ -1047,6 +1091,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glPushClientAttribDefaultEXT@Base 180
  glPushMatrix@Base 1.0.4349
  glPushName@Base 1.0.4349
+ glQueryCounter@Base 256
  glRasterPos2d@Base 1.0.4349
  glRasterPos2dv@Base 1.0.4349
  glRasterPos2f@Base 1.0.4349
@@ -1090,6 +1135,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glRequestResidentProgramsNV@Base 1.0.4349
  glResetHistogram@Base 1.0.4349
  glResetMinmax@Base 1.0.4349
+ glResumeTransformFeedback@Base 256
  glResumeTransformFeedbackEXT@Base 190.36
  glResumeTransformFeedbackNV@Base 165
  glRotated@Base 1.0.4349
@@ -1098,6 +1144,12 @@ libGL.so.1 #PACKAGE# #MINVER#
  glSampleCoverageARB@Base 1.0.4349
  glSampleMaskIndexedNV@Base 177
  glSampleMaski@Base 190.18.05
+ glSamplerParameterIiv@Base 256
+ glSamplerParameterIuiv@Base 256
+ glSamplerParameterf@Base 256
+ glSamplerParameterfv@Base 256
+ glSamplerParameteri@Base 256
+ glSamplerParameteriv@Base 256
  glScaled@Base 1.0.4349
  glScalef@Base 1.0.4349
  glScissor@Base 1.0.4349
@@ -1136,6 +1188,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glSecondaryColor3usv@Base 1.0.4349
  glSecondaryColor3usvEXT@Base 1.0.4349
  glSecondaryColorFormatNV@Base 185
+ glSecondaryColorP3ui@Base 256
+ glSecondaryColorP3uiv@Base 256
  glSecondaryColorPointer@Base 1.0.4349
  glSecondaryColorPointerEXT@Base 1.0.4349
  glSelectBuffer@Base 1.0.4349
@@ -1195,6 +1249,14 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTexCoord4s@Base 1.0.4349
  glTexCoord4sv@Base 1.0.4349
  glTexCoordFormatNV@Base 185
+ glTexCoordP1ui@Base 256
+ glTexCoordP1uiv@Base 256
+ glTexCoordP2ui@Base 256
+ glTexCoordP2uiv@Base 256
+ glTexCoordP3ui@Base 256
+ glTexCoordP3uiv@Base 256
+ glTexCoordP4ui@Base 256
+ glTexCoordP4uiv@Base 256
  glTexCoordPointer@Base 1.0.4349
  glTexCoordPointerEXT@Base 1.0.4349
  glTexEnvf@Base 1.0.4349
@@ -1210,9 +1272,11 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTexImage1D@Base 1.0.4349
  glTexImage2D@Base 1.0.4349
  glTexImage2DMultisample@Base 190.18.05
+ glTexImage2DMultisampleCoverageNV@Base 256
  glTexImage3D@Base 1.0.4349
  glTexImage3DEXT@Base 1.0.4349
  glTexImage3DMultisample@Base 190.18.05
+ glTexImage3DMultisampleCoverageNV@Base 256
  glTexParameterIiv@Base 180
  glTexParameterIivEXT@Base 1.0.9746
  glTexParameterIuiv@Base 180
@@ -1230,7 +1294,11 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTextureBufferEXT@Base 180
  glTextureImage1DEXT@Base 180
  glTextureImage2DEXT@Base 180
+ glTextureImage2DMultisampleCoverageNV@Base 256
+ glTextureImage2DMultisampleNV@Base 256
  glTextureImage3DEXT@Base 180
+ glTextureImage3DMultisampleCoverageNV@Base 256
+ glTextureImage3DMultisampleNV@Base 256
  glTextureParameterIivEXT@Base 180
  glTextureParameterIuivEXT@Base 180
  glTextureParameterfEXT@Base 180
@@ -1248,8 +1316,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTransformFeedbackVaryingsNV@Base 1.0.9746
  glTranslated@Base 1.0.4349
  glTranslatef@Base 1.0.4349
- glUniform1dEXT@Base 195
- glUniform1dvEXT@Base 195
+ glUniform1d@Base 256
+ glUniform1dv@Base 256
  glUniform1f@Base 1.0.7664
  glUniform1fARB@Base 1.0.6106
  glUniform1fv@Base 1.0.7664
@@ -1266,8 +1334,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glUniform1uiEXT@Base 1.0.9746
  glUniform1uiv@Base 180
  glUniform1uivEXT@Base 1.0.9746
- glUniform2dEXT@Base 195
- glUniform2dvEXT@Base 195
+ glUniform2d@Base 256
+ glUniform2dv@Base 256
  glUniform2f@Base 1.0.7664
  glUniform2fARB@Base 1.0.6106
  glUniform2fv@Base 1.0.7664
@@ -1284,8 +1352,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glUniform2uiEXT@Base 1.0.9746
  glUniform2uiv@Base 180
  glUniform2uivEXT@Base 1.0.9746
- glUniform3dEXT@Base 195
- glUniform3dvEXT@Base 195
+ glUniform3d@Base 256
+ glUniform3dv@Base 256
  glUniform3f@Base 1.0.7664
  glUniform3fARB@Base 1.0.6106
  glUniform3fv@Base 1.0.7664
@@ -1302,8 +1370,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glUniform3uiEXT@Base 1.0.9746
  glUniform3uiv@Base 180
  glUniform3uivEXT@Base 1.0.9746
- glUniform4dEXT@Base 195
- glUniform4dvEXT@Base 195
+ glUniform4d@Base 256
+ glUniform4dv@Base 256
  glUniform4f@Base 1.0.7664
  glUniform4fARB@Base 1.0.6106
  glUniform4fv@Base 1.0.7664
@@ -1322,28 +1390,28 @@ libGL.so.1 #PACKAGE# #MINVER#
  glUniform4uivEXT@Base 1.0.9746
  glUniformBlockBinding@Base 190
  glUniformBufferEXT@Base 1.0.9746
- glUniformMatrix2dvEXT@Base 195
+ glUniformMatrix2dv@Base 256
  glUniformMatrix2fv@Base 1.0.7664
  glUniformMatrix2fvARB@Base 1.0.6106
- glUniformMatrix2x3dvEXT@Base 195
+ glUniformMatrix2x3dv@Base 256
  glUniformMatrix2x3fv@Base 1.0.9625
- glUniformMatrix2x4dvEXT@Base 195
+ glUniformMatrix2x4dv@Base 256
  glUniformMatrix2x4fv@Base 1.0.9625
- glUniformMatrix3dvEXT@Base 195
+ glUniformMatrix3dv@Base 256
  glUniformMatrix3fv@Base 1.0.7664
  glUniformMatrix3fvARB@Base 1.0.6106
- glUniformMatrix3x2dvEXT@Base 195
+ glUniformMatrix3x2dv@Base 256
  glUniformMatrix3x2fv@Base 1.0.9625
- glUniformMatrix3x4dvEXT@Base 195
+ glUniformMatrix3x4dv@Base 256
  glUniformMatrix3x4fv@Base 1.0.9625
- glUniformMatrix4dvEXT@Base 195
+ glUniformMatrix4dv@Base 256
  glUniformMatrix4fv@Base 1.0.7664
  glUniformMatrix4fvARB@Base 1.0.6106
- glUniformMatrix4x2dvEXT@Base 195
+ glUniformMatrix4x2dv@Base 256
  glUniformMatrix4x2fv@Base 1.0.9625
- glUniformMatrix4x3dvEXT@Base 195
+ glUniformMatrix4x3dv@Base 256
  glUniformMatrix4x3fv@Base 1.0.9625
- glUniformSubroutinesuivEXT@Base 195.30
+ glUniformSubroutinesuiv@Base 256
  glUniformui64NV@Base 185
  glUniformui64vNV@Base 185
  glUnlockArraysEXT@Base 1.0.4349
@@ -1353,6 +1421,16 @@ libGL.so.1 #PACKAGE# #MINVER#
  glUseProgram@Base 1.0.7664
  glUseProgramObjectARB@Base 1.0.6106
  glUseShaderProgramEXT@Base 190
+ glVDPAUFiniNV@Base 256
+ glVDPAUGetSurfaceivNV@Base 256
+ glVDPAUInitNV@Base 256
+ glVDPAUIsSurfaceNV@Base 256
+ glVDPAUMapSurfacesNV@Base 256
+ glVDPAURegisterOutputSurfaceNV@Base 256
+ glVDPAURegisterVideoSurfaceNV@Base 256
+ glVDPAUSurfaceAccessNV@Base 256
+ glVDPAUUnmapSurfacesNV@Base 256
+ glVDPAUUnregisterSurfaceNV@Base 256
  glValidBackBufferHintAutodesk@Base 1.0.4349
  glValidateProgram@Base 1.0.7664
  glValidateProgramARB@Base 1.0.6106
@@ -1505,6 +1583,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glVertexAttrib4uivARB@Base 1.0.4349
  glVertexAttrib4usv@Base 1.0.7664
  glVertexAttrib4usvARB@Base 1.0.4349
+ glVertexAttribDivisor@Base 256
+ glVertexAttribDivisorARB@Base 256
  glVertexAttribFormatNV@Base 185
  glVertexAttribI1i@Base 180
  glVertexAttribI1iEXT@Base 1.0.9746
@@ -1575,6 +1655,14 @@ libGL.so.1 #PACKAGE# #MINVER#
  glVertexAttribL4ui64vNV@Base 195
  glVertexAttribLFormatNV@Base 195
  glVertexAttribLPointerEXT@Base 195
+ glVertexAttribP1ui@Base 256
+ glVertexAttribP1uiv@Base 256
+ glVertexAttribP2ui@Base 256
+ glVertexAttribP2uiv@Base 256
+ glVertexAttribP3ui@Base 256
+ glVertexAttribP3uiv@Base 256
+ glVertexAttribP4ui@Base 256
+ glVertexAttribP4uiv@Base 256
  glVertexAttribPointer@Base 1.0.7664
  glVertexAttribPointerARB@Base 1.0.4349
  glVertexAttribPointerNV@Base 1.0.4349
@@ -1596,6 +1684,12 @@ libGL.so.1 #PACKAGE# #MINVER#
  glVertexAttribs4svNV@Base 1.0.4349
  glVertexAttribs4ubvNV@Base 1.0.4349
  glVertexFormatNV@Base 185
+ glVertexP2ui@Base 256
+ glVertexP2uiv@Base 256
+ glVertexP3ui@Base 256
+ glVertexP3uiv@Base 256
+ glVertexP4ui@Base 256
+ glVertexP4uiv@Base 256
  glVertexPointer@Base 1.0.4349
  glVertexPointerEXT@Base 1.0.4349
  glVideoCaptureNV@Base 190.32
