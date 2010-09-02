@@ -578,9 +578,9 @@ Architecture: i386 amd64
 Depends: ${misc:Depends}
 Breaks:
  nvidia-glx (<< 195.36.31-2), libgl1-nvidia-glx-ia32 (<< 195.36.31-2),
- nvidia-glx-legacy-71xx (<< 71.86.13-2),
- nvidia-glx-legacy-96xx (<< 96.43.17),
- nvidia-glx-legacy-173xx (<< 173.14.25-3),
+ nvidia-glx-legacy-71xx (<< 71.86.14),
+ nvidia-glx-legacy-96xx (<< 96.43.18),
+ nvidia-glx-legacy-173xx (<< 173.14.27),
 Description: simplifies replacing MESA libGL with GPU vendor libraries
  Diverts the free libGL.so implementation (MESA) and introduces
  alternatives to simplify plugging in accelerated implementations from GPU
@@ -592,9 +592,9 @@ Architecture: amd64
 Depends: ${misc:Depends}
 Breaks:
  nvidia-glx-ia32 (<< 195.36.31-2), libgl1-nvidia-glx-ia32 (<< 195.36.31-2),
- nvidia-glx-legacy-71xx-ia32 (<< 71.86.13-2),
- nvidia-glx-legacy-96xx-ia32 (<< 96.43.17),
- nvidia-glx-legacy-173xx-ia32 (<< 173.14.25-3),
+ nvidia-glx-legacy-71xx-ia32 (<< 71.86.14),
+ nvidia-glx-legacy-96xx-ia32 (<< 96.43.18),
+ nvidia-glx-legacy-173xx-ia32 (<< 173.14.27),
 Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
  Diverts the free libGL.so (32-bit) implementation (MESA) and introduces
  alternatives to simplify plugging in accelerated implementations from GPU
@@ -606,9 +606,9 @@ Architecture: i386 amd64
 Depends: ${misc:Depends}
 Breaks:
  nvidia-glx (<< 195.36.31-3),
- nvidia-glx-legacy-71xx (<< 71.86.13-2),
- nvidia-glx-legacy-96xx (<< 96.43.17),
- nvidia-glx-legacy-173xx (<< 173.14.25-3),
+ nvidia-glx-legacy-71xx (<< 71.86.14),
+ nvidia-glx-legacy-96xx (<< 96.43.18),
+ nvidia-glx-legacy-173xx (<< 173.14.27),
 Description: simplifies replacing Xorg module libglx.so with GPU vendor library
  Diverts the free Xorg module libglx.so (Xorg) and introduces alternatives
  to simplify plugging in accelerated implementations from GPU vendors.
