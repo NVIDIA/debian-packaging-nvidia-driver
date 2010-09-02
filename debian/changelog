@@ -8,6 +8,7 @@ nvidia-graphics-drivers (256.53-0.1) experimental; urgency=low
   * Several libraries were renamed and SONAMEs were changed by upstream.
   * Ship new header cudaVDPAU.h.
   * Update symbols control files.
+  * Update nv-kernel.ids.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 02 Sep 2010 06:18:24 +0200
 
