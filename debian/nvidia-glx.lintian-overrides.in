@@ -1,9 +1,6 @@
 # The NVIDIA license does not allow any form of modification.
-nvidia-glx#LEGACY#: binary-has-unneeded-section
-nvidia-glx#LEGACY#: embedded-libpng
-#!i386#nvidia-glx#LEGACY#: shlib-with-executable-stack
-#!amd64#nvidia-glx#LEGACY#: shlib-with-non-pic-code
-#!amd64#nvidia-glx#LEGACY#: shlib-without-PT_GNU_STACK-section
+nvidia-glx#LEGACY#: embedded-libpng ./usr/lib/xorg/modules/drivers/nvidia_drv.so
+nvidia-glx#LEGACY#: embedded-zlib ./usr/lib/xorg/modules/drivers/nvidia_drv.so
 
 # The alternatives are placed here.
 nvidia-glx#LEGACY#: package-contains-empty-directory usr/lib/xorg/modules/extensions/

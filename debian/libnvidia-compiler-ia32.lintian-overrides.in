@@ -1,3 +1,5 @@
 # The NVIDIA license does not allow any form of modification.
-libnvidia-compiler-ia32: sharedobject-in-library-directory-missing-soname
+libnvidia-compiler-ia32: binary-has-unneeded-section
+libnvidia-compiler-ia32: shlib-with-executable-stack
+libnvidia-compiler-ia32: shlib-with-non-pic-code
 libnvidia-compiler-ia32: spelling-error-in-binary

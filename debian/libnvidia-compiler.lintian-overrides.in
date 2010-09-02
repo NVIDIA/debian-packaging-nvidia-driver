@@ -1,3 +1,12 @@
 # The NVIDIA license does not allow any form of modification.
-libnvidia-compiler: sharedobject-in-library-directory-missing-soname
+libnvidia-compiler: binary-has-unneeded-section
+libnvidia-compiler: shlib-with-executable-stack
+#!amd64#libnvidia-compiler: shlib-with-non-pic-code
 #!amd64#libnvidia-compiler: spelling-error-in-binary
+
+# The libnvidia-compiler.so.* SONAME changes with every upstream release.
+# But it is a (huge) plugin that is only used from other NVIDIA libraries
+# with the same upstream version (and a constant SONAME), so don't include
+# the SONAME in the package name to avoid going through NEW with every new
+# upstream release.
+libnvidia-compiler: package-name-doesnt-match-sonames

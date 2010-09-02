@@ -1,9 +1,6 @@
 # The NVIDIA license does not allow any form of modification.
-libgl1-nvidia#LEGACY#-glx: binary-has-unneeded-section
-libgl1-nvidia#LEGACY#-glx: shared-lib-without-dependency-information
-#!i386#libgl1-nvidia#LEGACY#-glx: shlib-with-executable-stack
+libgl1-nvidia#LEGACY#-glx: shlib-with-executable-stack
 #!amd64#libgl1-nvidia#LEGACY#-glx: shlib-with-non-pic-code
-#!amd64#libgl1-nvidia#LEGACY#-glx: shlib-without-PT_GNU_STACK-section
 libgl1-nvidia#LEGACY#-glx: spelling-error-in-binary
 
 # Packages built against the NVIDIA libGL should declare dependencies on
