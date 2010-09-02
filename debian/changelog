@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (256.53-0.1) experimental; urgency=low
+
+  [ Andreas Beckmann ]
+  * New upstream release.
+    (Closes: #586958, #592205, #592574, #594310, #595210)
+  * Upload to experimental.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 02 Sep 2010 06:18:24 +0200
+
 nvidia-graphics-drivers (195.36.31-3) unstable; urgency=low
 
   [ Andreas Beckmann ]
