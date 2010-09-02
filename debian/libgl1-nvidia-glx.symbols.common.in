@@ -1729,7 +1729,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glXWaitVideoSyncSGI@Base 1.0.4349
  glXWaitX@Base 1.0.4349
  glcuR0d4nX@Base 195.36
-libGLcore.so.1 #PACKAGE# #MINVER#
- (regex)"^(_nv\d*gl|mknod|stat)@Base$" 0
-libnvidia-tls.so.1 #PACKAGE# #MINVER#
- (regex)"^_nv\d*gl@Base$" 0
+libnvidia-glcore.so.#VERSION# #PACKAGE# #MINVER#
+ (regex)"^_nv\d*glcore@Base$" 0
+libnvidia-tls.so.#VERSION# #PACKAGE# #MINVER#
+ (regex)"^_nv\d*tls@Base$" 0
