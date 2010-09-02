@@ -4,7 +4,7 @@
 # symlinks to have the files accessible in the old locations for compatibility
 # with the legacy packages
 restore-upstream-directory-structure:
-	mkdir -p etc/OpenCL usr/X11R6 usr/share usr/src
+	mkdir -p etc/OpenCL usr/X11R6 usr/share/man usr/src
 	ln -s ../.. etc/OpenCL/vendors
 	ln -s .. usr/bin
 	ln -s .. usr/include
@@ -22,5 +22,6 @@ restore-upstream-directory-structure:
 	test ! -d 32/vdpau || rmdir 32/vdpau
 	test ! -d 32 || ln -s . 32/vdpau
 	ln -s ../.. usr/share/doc
+	ln -s ../../.. usr/share/man/man1
 	ln -s ../../kernel usr/src/nv
 
