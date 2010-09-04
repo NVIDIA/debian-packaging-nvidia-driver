@@ -581,6 +581,8 @@ Breaks:
  nvidia-glx-legacy-71xx (<< 71.86.14),
  nvidia-glx-legacy-96xx (<< 96.43.18),
  nvidia-glx-legacy-173xx (<< 173.14.27),
+Conflicts:
+ fglrx-glx,
 Description: simplifies replacing MESA libGL with GPU vendor libraries
  Diverts the free libGL.so implementation (MESA) and introduces
  alternatives to simplify plugging in accelerated implementations from GPU
@@ -595,6 +597,8 @@ Breaks:
  nvidia-glx-legacy-71xx-ia32 (<< 71.86.14),
  nvidia-glx-legacy-96xx-ia32 (<< 96.43.18),
  nvidia-glx-legacy-173xx-ia32 (<< 173.14.27),
+Conflicts:
+ fglrx-glx-ia32,
 Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
  Diverts the free libGL.so (32-bit) implementation (MESA) and introduces
  alternatives to simplify plugging in accelerated implementations from GPU
@@ -609,6 +613,8 @@ Breaks:
  nvidia-glx-legacy-71xx (<< 71.86.14),
  nvidia-glx-legacy-96xx (<< 96.43.18),
  nvidia-glx-legacy-173xx (<< 173.14.27),
+Conflicts:
+ fglrx-driver,
 Description: simplifies replacing Xorg module libglx.so with GPU vendor library
  Diverts the free Xorg module libglx.so (Xorg) and introduces alternatives
  to simplify plugging in accelerated implementations from GPU vendors.
