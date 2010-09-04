@@ -5,6 +5,7 @@ Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Uploaders:
  Andres Mejia <mcitadel@gmail.com>,
  Russ Allbery <rra@debian.org>,
+ Andreas Beckmann <debian@abeckmann.de>,
 Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
