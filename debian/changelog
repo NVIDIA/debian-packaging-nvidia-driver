@@ -12,6 +12,9 @@ nvidia-graphics-drivers (256.53-0.1) experimental; urgency=low
   * Update lintian overrides.
   * Add Conflicts: fglrx-driver, fglrx-glx, fglrx-glx-ia32 to the
     libgl*-nvidia-alternatives packages, too.
+  * libgl1-nvidia-alternatives-ia32: abort before configuring on broken
+    systems, i.e. /usr/lib32 being a symlink pointing to
+    /emul/ia32-linux/usr/lib (reinstall libc6-i386 to fix)
   * Add myself to Uploaders.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 02 Sep 2010 06:18:24 +0200
