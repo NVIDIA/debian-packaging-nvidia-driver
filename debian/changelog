@@ -22,7 +22,7 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
   [ Russ Allbery ]
   * Remove Andres Mejia from Uploaders at his request.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 11 Sep 2010 01:56:57 +0200
+ -- Russ Allbery <rra@debian.org>  Sat, 18 Sep 2010 15:07:19 -0700
 
 nvidia-graphics-drivers (195.36.31-3) unstable; urgency=low
 
