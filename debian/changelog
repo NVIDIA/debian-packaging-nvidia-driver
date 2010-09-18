@@ -19,6 +19,9 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
     not set (usually if called from dpkg-reconfigure, see #560317)
   * Add myself to Uploaders.
 
+  [ Russ Allbery ]
+  * Remove Andres Mejia from Uploaders at his request.
+
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 11 Sep 2010 01:56:57 +0200
 
 nvidia-graphics-drivers (195.36.31-3) unstable; urgency=low

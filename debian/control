@@ -3,7 +3,6 @@ Section: non-free/x11
 Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Uploaders:
- Andres Mejia <mcitadel@gmail.com>,
  Russ Allbery <rra@debian.org>,
  Andreas Beckmann <debian@abeckmann.de>,
 Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
