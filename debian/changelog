@@ -5,6 +5,10 @@ nvidia-graphics-drivers (195.36.31-4) UNRELEASED; urgency=low
     the nvidia-glx-ia32 postinst.
   * Update versioned Breaks for the new NVIDIA legacy releases.
 
+  [ Russ Allbery ]
+  * Remove Andres Mejia from Uploaders at his request.  Add Andreas
+    Beckmann.
+
  -- Russ Allbery <rra@debian.org>  Sat, 18 Sep 2010 14:28:42 -0700
 
 nvidia-graphics-drivers (195.36.31-3) unstable; urgency=low
