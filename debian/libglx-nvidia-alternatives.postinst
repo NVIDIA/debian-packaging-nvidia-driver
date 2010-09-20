@@ -26,6 +26,13 @@ exists()
 if [ "$1" = "configure" ]
 then
 
+	# dpkg-reconfigure does not set DPKG_MAINTSCRIPT_PACKAGE (#560317)
+	if [ -z "$DPKG_MAINTSCRIPT_PACKAGE" ]
+	then
+		echo "ERROR: DPKG_MAINTSCRIPT_PACKAGE is not set, usually a bug in dpkg-reconfigure"
+		exit 1
+	fi
+
 	# the destination directory for the diversions
 	test -d /usr/lib/nvidia/diversions || \
 		mkdir -p /usr/lib/nvidia/diversions || true

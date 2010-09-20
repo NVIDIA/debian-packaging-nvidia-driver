@@ -2,6 +2,18 @@
 set -e
 
 
+if [ "$1" = "configure" ]
+then
+
+	# dpkg-reconfigure does not set DPKG_MAINTSCRIPT_PACKAGE (#560317)
+	if [ -z "$DPKG_MAINTSCRIPT_PACKAGE" ]
+	then
+		echo "ERROR: DPKG_MAINTSCRIPT_PACKAGE is not set, usually a bug in dpkg-reconfigure"
+		exit 1
+	fi
+
+fi
+
 # <target: squeeze>
 dpkg-maintscript-helper rm_conffile /etc/default/$DPKG_MAINTSCRIPT_PACKAGE 195.36.24-1~ -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/init.d/$DPKG_MAINTSCRIPT_PACKAGE 195.36.24-3~ -- "$@"
