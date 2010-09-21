@@ -16,8 +16,8 @@ Manual disabling (and later reenabling) can be done with the command
     update-alternatives --config libglx.so
 
 
-libgGL.so.1
-===========
+libGL.so.1
+==========
 
 NVIDIA provides accelerated OpenGL libraries libGL.so* which are shipped 
 in the libgl1-nvidia-glx (or a corresponding libgl1-nvidia-legacy*-glx)
