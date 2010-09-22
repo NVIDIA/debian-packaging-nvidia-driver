@@ -20,6 +20,7 @@ nvidia-graphics-drivers (195.36.31-4) UNRELEASED; urgency=low
   * nvidia-kernel-source: lower Recommends: nvidia-glx to Suggests to avoid
     pulling nvidia-kernel-dkms into the system before the user had a chance to
     build a module (see #590221).
+  * Add new patch 2.6.36-ioctl.patch to fix module build for kernel 2.6.36.
   * Add myself to Uploaders.
 
   [ Russ Allbery ]

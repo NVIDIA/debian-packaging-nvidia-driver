@@ -1,0 +1,22 @@
+Author: Andreas Beckmann <debian@abeckmann.de>
+Description: Module build fix for 2.6.36
+ In Linux 2.6.36 the member 'ioctl' of struct file_operations was removed,
+ resulting in the following build failure:
+     nv.c:426: error: unknown field ‘ioctl’ specified in initializer
+ This patch adds some guards around its usage.
+ A replacement (unlocked_ioctl) was already introduced by NVIDIA.
+
+Index: b/nv.c
+===================================================================
+--- a/nv.c	2010-09-22 20:05:01.568537180 +0200
++++ b/nv.c	2010-09-22 20:06:30.068537833 +0200
+@@ -414,7 +414,9 @@
+ static struct file_operations nv_fops = {
+     .owner     = THIS_MODULE,
+     .poll      = nv_kern_poll,
++#if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,36)
+     .ioctl     = nv_kern_ioctl,
++#endif
+ #if defined(HAVE_UNLOCKED_IOCTL)
+     .unlocked_ioctl = nv_kern_unlocked_ioctl,
+ #endif
