@@ -11,6 +11,8 @@ nvidia-graphics-drivers (195.36.31-4) UNRELEASED; urgency=low
     /emul/ia32-linux/usr/lib (reinstall libc6-i386 to fix)
   * debian/*.postinst(configure): abort early if DPKG_MAINTSCRIPT_PACKAGE is
     not set (usually if called from dpkg-reconfigure, see #560317)
+  * nvidia-glx{,-ia32}: print warning in postinst if unknown
+    /usr/lib{,32}/libGL.so.*.* exist.  (Closes: #596898)
   * nvidia-glx: depend on xorg-video-abi-6.0 as suggested by Xorg maintainers.
   * libgl1-nvidia-glx: don't remove alternative owned by libgl1-nvidia-dev.
   * NEWS: rephrase legacy 71xx note because these drivers no longer work with
