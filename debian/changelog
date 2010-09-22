@@ -5,7 +5,7 @@ nvidia-graphics-drivers (195.36.31-4) UNRELEASED; urgency=low
     the nvidia-glx-ia32 postinst.
   * Update versioned Breaks for the new NVIDIA legacy releases.
   * Add Conflicts: fglrx-driver, fglrx-glx, fglrx-glx-ia32 to the
-    libgl*-nvidia-alternatives packages, too.
+    libgl*-nvidia-alternatives packages, too.  (Closes: #597443)
   * libgl1-nvidia-alternatives-ia32: abort before configuring on broken
     systems, i.e. /usr/lib32 being a symlink pointing to
     /emul/ia32-linux/usr/lib (reinstall libc6-i386 to fix)
