@@ -227,7 +227,9 @@ Section: non-free/kernel
 Architecture: i386 amd64
 Depends: ${misc:Depends}, debhelper (>= 8), make, quilt (>= 0.46-7~)
 Recommends: module-assistant | kernel-package,
- nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}), nvidia-kernel-common
+ nvidia-kernel-common
+Suggests:
+ nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}),
 Conflicts:
  linux-headers-2.6.32-trunk-486 [i386], linux-image-2.6.32-trunk-486 [i386],
  linux-headers-2.6.32-trunk-686 [i386], linux-image-2.6.32-trunk-686 [i386],
