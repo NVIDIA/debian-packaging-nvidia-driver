@@ -4,8 +4,6 @@ set -e
 
 if [ "$1" = "configure" ]; then
 
-	# disabled in order to prevent compile time linking vs. libGL.so.1 from NVIDIA
-	#update-alternatives --install /usr/lib/libGL.so libGL.so /usr/lib/nvidia/libGL.so 42
 	:
 
 fi
