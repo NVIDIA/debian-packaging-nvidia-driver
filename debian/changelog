@@ -27,6 +27,8 @@ nvidia-graphics-drivers (195.36.31-4) unstable; urgency=low
   * Stop shipping NVIDIA's copy of the OpenGL headers, depend on
     libgl1-mesa-dev instead.  NVIDIA will stop distributing the headers
     starting with the 260.xx release and recommends to use the official ones.
+  * Transition from nvidia-glx-dev directly to libgl1-mesa-dev.
+  * libgl1-nvidia-dev now only ships libXvMCNVIDIA.a - is this used by anyone?
   * Drop empty maintainer scripts.
   * Add myself to Uploaders.
 
