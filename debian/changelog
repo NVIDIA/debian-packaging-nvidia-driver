@@ -21,7 +21,8 @@ nvidia-graphics-drivers (195.36.31-4) unstable; urgency=low
     pulling nvidia-kernel-dkms into the system before the user had a chance to
     build a module (see #590221).
   * Add new patch 2.6.36-ioctl.patch to fix module build for kernel 2.6.36.
-  * Add missing changelog entries from 1.0.9625-1, 1.0.9625-2 (experimental).
+  * Add changelog entries missing due to concurrent development: 1.0.9625-2
+    (experimental), 1.0.9625-1 (experimental) and 1.0.7174-4 (unstable).
   * Add myself to Uploaders.
 
   [ Russ Allbery ]
@@ -1154,11 +1155,18 @@ nvidia-graphics-drivers (1.0.7664-1) experimental; urgency=low
 
  -- Randall Donald <rdonald@debian.org>  Sat, 18 Jun 2005 16:46:48 -0700
 
-nvidia-graphics-drivers (1.0.7664-0) unstable; urgency=low
+nvidia-graphics-drivers (1.0.7664-0) experimental; urgency=low
 
   * New upstream.
 
  -- Harald Dunkel <harald.dunkel@t-online.de>  Sat, 11 Jun 2005 22:42:26 +0200
+
+nvidia-graphics-drivers (1.0.7174-4) unstable; urgency=low
+
+  * Remove glu depends. 
+  * other fixes are being applied to a 1.0.7667 version coming soon.
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 18 Jul 2005 14:30:46 -0700
 
 nvidia-graphics-drivers (1.0.7174-3) unstable; urgency=low
 
