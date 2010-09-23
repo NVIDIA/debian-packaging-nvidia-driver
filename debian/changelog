@@ -887,17 +887,17 @@ nvidia-graphics-drivers (1.0.9625-2) experimental; urgency=low
       make init script create libGL.so for nvidia-glx-dev
       make sure nvidia-glx-dev diversions are removed and conflict with older
       versions of -dev
-      make init script detect libgl1-mesa-dev and create libGL.so link      
-      
+      make init script detect libgl1-mesa-dev and create libGL.so link
+
  -- Randall Donald <rdonald@debian.org>  Thu, 19 Oct 2006 20:32:25 -0700
 
 nvidia-graphics-drivers (1.0.9625-1) experimental; urgency=low
 
   * Beta Drivers supporting GLX_EXT_texture_from_pixmap.
   * install nvidia_drv.so
-    
+
  -- Randall Donald <rdonald@debian.org>  Sat, 23 Sep 2006 11:29:28 -0700
-     
+
 nvidia-graphics-drivers (1.0.8776-1) unstable; urgency=medium
 
   * New upstream.
@@ -1163,7 +1163,7 @@ nvidia-graphics-drivers (1.0.7664-0) experimental; urgency=low
 
 nvidia-graphics-drivers (1.0.7174-4) unstable; urgency=low
 
-  * Remove glu depends. 
+  * Remove glu depends.
   * other fixes are being applied to a 1.0.7667 version coming soon.
 
  -- Randall Donald <rdonald@debian.org>  Mon, 18 Jul 2005 14:30:46 -0700
