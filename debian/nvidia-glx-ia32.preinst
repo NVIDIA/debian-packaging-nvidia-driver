@@ -15,6 +15,12 @@ case "$1" in
 		rm /emul/ia32-linux/usr/lib/libGLcore.so.1 || true
 	test ! -L /emul/ia32-linux/usr/lib/libcuda.so.1 || \
 		rm /emul/ia32-linux/usr/lib/libcuda.so.1 || true
+	test ! -L /emul/ia32-linux/usr/lib/libvdpau_trace.so || \
+		rm /emul/ia32-linux/usr/lib/libvdpau_trace.so || true
+	test ! -L /emul/ia32-linux/usr/lib/libvdpau_nvidia.so || \
+		rm /emul/ia32-linux/usr/lib/libvdpau_nvidia.so || true
+	test ! -L /emul/ia32-linux/usr/lib/libvdpau.so.1 || \
+		rm /emul/ia32-linux/usr/lib/libvdpau.so.1 || true
 	# </target: squeeze>
 
     ;;
