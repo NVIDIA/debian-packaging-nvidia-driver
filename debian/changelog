@@ -24,6 +24,9 @@ nvidia-graphics-drivers (195.36.31-4) unstable; urgency=low
   * Add changelog entries missing due to concurrent development: 1.0.9625-2
     (experimental), 1.0.9625-1 (experimental) and 1.0.7174-4 (unstable).
   * Stop shipping libGL.so symlinks and handling alternatives involving them.
+  * Stop shipping NVIDIA's copy of the OpenGL headers, depend on
+    libgl1-mesa-dev instead.  NVIDIA will stop distributing the headers
+    starting with the 260.xx release and recommends to use the official ones.
   * Drop empty maintainer scripts.
   * Add myself to Uploaders.
 

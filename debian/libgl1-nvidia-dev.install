@@ -1,5 +1,1 @@
-usr/include/GL/gl.h		usr/include/nvidia/GL/
-usr/include/GL/glext.h		usr/include/nvidia/GL/
-usr/include/GL/glx.h		usr/include/nvidia/GL/
-usr/include/GL/glxext.h		usr/include/nvidia/GL/
 usr/X11R6/lib/libXvMCNVIDIA.a	usr/lib/

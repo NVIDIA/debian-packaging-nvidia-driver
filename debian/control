@@ -163,8 +163,8 @@ Architecture: i386 amd64
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  libx11-dev,
+ libgl1-mesa-dev | libgl-dev,
  ${misc:Depends}
-Recommends: libgl1-mesa-dev | libgl-dev
 Provides:
  libgl1-nvidia-dev,
 Conflicts:
@@ -176,13 +176,9 @@ Conflicts:
  nvidia-glx-legacy-173xx-dev,
 Replaces: nvidia-glx${nvidia:Legacy}-dev (<< 195.36.31)
 Description: NVIDIA OpenGL development files${nvidia:LegacyDesc}
- This package contains the development files for the NVIDIA OpenGL
- implementation. This package is only needed for applications that use some
- extensions available in the NVIDIA driver only. Include and library search
- paths have to be adjusted to explicitly select this implementation.
- .
- For building portable OpenGL applications, please install libgl1-mesa-dev
- instead.
+ NVIDIA recommends to use the official OpenGL headers for developing OpenGL
+ applications.  Therefore this package does not provide these headers any
+ longer but depends on libgl1-mesa-dev instead.
  .
  For more information on this source package visit NVIDIA's homepage
  at http://www.nvidia.com/ .
