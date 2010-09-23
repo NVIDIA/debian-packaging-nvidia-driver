@@ -35,7 +35,7 @@ nvidia-graphics-drivers (195.36.31-4) unstable; urgency=low
   [ Russ Allbery ]
   * Remove Andres Mejia from Uploaders at his request.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 23 Sep 2010 02:19:30 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 23 Sep 2010 17:41:14 +0200
 
 nvidia-graphics-drivers (195.36.31-3) unstable; urgency=low
 

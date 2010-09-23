@@ -34,16 +34,19 @@ Manual disabling (and later reenabling) can be done with the command
 The same setup is used for libgl1-nvidia-glx-ia32.  The reconfigurable
 alternative is called ia32-libGL.so.1
 
+A dpkg trigger is utilized to install/remove the alternatives pointing
+to the diverted libraries whenever libgl1-mesa-glx etc. are
+installed/updated/removed.
+
 
 libGL.so
 ========
 
-No alternative for libGL.so is set up by the libgl1-nvidia-dev (or a
-corresponding libgl1-nvidia-legacy*-dev) package.
-It is generally preferred to link with the MESA libraries during compilation,
-so one does not accidently pick up private symbols from NVIDIA.  Anyway,
-building OpenGL applications should be done with libgl1-mesa-dev installed.
+The libGL.so link is managed by a dpkg trigger as an alternative, too.
+But there are no alternative solutions available besides the diverted link
+from the libgl1-mesa-dev package (if this package is installed), so this
+cannot be reconfigured.
 
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 26 Aug 2010 11:21:31 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 23 Sep 2010 17:31:12 +0200
 
