@@ -28,14 +28,13 @@ nvidia-graphics-drivers (195.36.31-4) unstable; urgency=low
     libgl1-mesa-dev instead.  NVIDIA will stop distributing the headers
     starting with the 260.xx release and recommends to use the official ones.
   * Transition from nvidia-glx-dev directly to libgl1-mesa-dev.
-  * libgl1-nvidia-dev now only ships libXvMCNVIDIA.a - is this used by anyone?
-  * Drop empty maintainer scripts.
+  * Drop the libgl1-nvidia-dev package (and stop shipping libXvMCNVIDIA.a).
   * Add myself to Uploaders.
 
   [ Russ Allbery ]
   * Remove Andres Mejia from Uploaders at his request.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 23 Sep 2010 17:41:14 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 24 Sep 2010 12:15:39 +0200
 
 nvidia-graphics-drivers (195.36.31-3) unstable; urgency=low
 
