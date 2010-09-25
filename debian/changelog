@@ -24,6 +24,44 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
 
  -- Russ Allbery <rra@debian.org>  Sat, 18 Sep 2010 15:07:19 -0700
 
+nvidia-graphics-drivers (195.36.31-4) unstable; urgency=low
+
+  [ Andreas Beckmann ]
+  * Remove /emul directories if empty after removing old NVIDIA files in
+    the nvidia-glx-ia32 postinst.
+  * Update versioned Breaks for the new NVIDIA legacy releases.
+  * Add Conflicts: fglrx-driver, fglrx-glx, fglrx-glx-ia32 to the
+    libgl*-nvidia-alternatives packages, too.  (Closes: #597443)
+  * libgl1-nvidia-alternatives-ia32: abort before configuring on broken
+    systems, i.e. /usr/lib32 being a symlink pointing to
+    /emul/ia32-linux/usr/lib (reinstall libc6-i386 to fix)
+  * debian/*.postinst(configure): abort early if DPKG_MAINTSCRIPT_PACKAGE is
+    not set (usually if called from dpkg-reconfigure, see #560317)
+  * nvidia-glx{,-ia32}: print warning in postinst if unknown
+    /usr/lib{,32}/libGL.so.*.* exist.  (Closes: #596898)
+  * nvidia-glx: depend on xorg-video-abi-6.0 as suggested by Xorg maintainers.
+  * libgl1-nvidia-glx: don't remove alternative owned by libgl1-nvidia-dev.
+  * NEWS: rephrase legacy 71xx note because these drivers no longer work with
+    current Xorg.
+  * nvidia-kernel-source: lower Recommends: nvidia-glx to Suggests to avoid
+    pulling nvidia-kernel-dkms into the system before the user had a chance to
+    build a module (see #590221).
+  * Add new patch 2.6.36-ioctl.patch to fix module build for kernel 2.6.36.
+  * Add changelog entries missing due to concurrent development: 1.0.9625-2
+    (experimental), 1.0.9625-1 (experimental) and 1.0.7174-4 (unstable).
+  * Stop shipping libGL.so symlinks and handling alternatives involving them.
+  * Stop shipping NVIDIA's copy of the OpenGL headers, depend on
+    libgl1-mesa-dev instead.  NVIDIA will stop distributing the headers
+    starting with the 260.xx release and recommends to use the official ones.
+  * Transition from nvidia-glx-dev directly to libgl1-mesa-dev.
+  * Drop the libgl1-nvidia-dev package (and stop shipping libXvMCNVIDIA.a).
+  * Add myself to Uploaders.
+
+  [ Russ Allbery ]
+  * Remove Andres Mejia from Uploaders at his request.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 24 Sep 2010 12:15:39 +0200
+
 nvidia-graphics-drivers (195.36.31-3) unstable; urgency=low
 
   [ Andreas Beckmann ]
@@ -873,6 +911,25 @@ nvidia-graphics-drivers (1.0.9629-1) unstable; urgency=low
 
  -- Randall Donald <rdonald@debian.org>  Sat, 11 Nov 2006 13:35:39 -0800
 
+nvidia-graphics-drivers (1.0.9625-2) experimental; urgency=low
+
+  * Include NOSMBUS patch. (closes: #390767)
+  * Include all changes made to the 1.0.8774 branch:
+      add diversion of libGL.so to nvidia-glx-ia32 (closes: #393056)
+      make init script create libGL.so for nvidia-glx-dev
+      make sure nvidia-glx-dev diversions are removed and conflict with older
+      versions of -dev
+      make init script detect libgl1-mesa-dev and create libGL.so link
+
+ -- Randall Donald <rdonald@debian.org>  Thu, 19 Oct 2006 20:32:25 -0700
+
+nvidia-graphics-drivers (1.0.9625-1) experimental; urgency=low
+
+  * Beta Drivers supporting GLX_EXT_texture_from_pixmap.
+  * install nvidia_drv.so
+
+ -- Randall Donald <rdonald@debian.org>  Sat, 23 Sep 2006 11:29:28 -0700
+
 nvidia-graphics-drivers (1.0.8776-1) unstable; urgency=medium
 
   * New upstream.
@@ -1130,11 +1187,18 @@ nvidia-graphics-drivers (1.0.7664-1) experimental; urgency=low
 
  -- Randall Donald <rdonald@debian.org>  Sat, 18 Jun 2005 16:46:48 -0700
 
-nvidia-graphics-drivers (1.0.7664-0) unstable; urgency=low
+nvidia-graphics-drivers (1.0.7664-0) experimental; urgency=low
 
   * New upstream.
 
  -- Harald Dunkel <harald.dunkel@t-online.de>  Sat, 11 Jun 2005 22:42:26 +0200
+
+nvidia-graphics-drivers (1.0.7174-4) unstable; urgency=low
+
+  * Remove glu depends.
+  * other fixes are being applied to a 1.0.7667 version coming soon.
+
+ -- Randall Donald <rdonald@debian.org>  Mon, 18 Jul 2005 14:30:46 -0700
 
 nvidia-graphics-drivers (1.0.7174-3) unstable; urgency=low
 

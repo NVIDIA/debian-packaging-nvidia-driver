@@ -25,6 +25,7 @@ Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  libglx-nvidia-alternatives,
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ xorg-video-abi-6.0,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-vdpau-driver (>= ${nvidia:Version})
 Suggests: nvidia-settings,
@@ -88,13 +89,13 @@ Description: NVIDIA binary driver 32-bit libs${nvidia:LegacyDesc}
 Package: nvidia-glx-dev
 Section: non-free/oldlibs
 Architecture: i386 amd64
-Depends: libgl1-nvidia${nvidia:Legacy}-dev, ${misc:Depends}
+Depends: libgl1-mesa-dev | libgl-dev, ${misc:Depends}
+Conflicts: libgl1-nvidia${nvidia:Legacy}-dev
+Replaces: libgl1-nvidia${nvidia:Legacy}-dev
 Description: NVIDIA OpenGL development files (transitional package)${nvidia:LegacyDesc}
- This is a transitional dummy package to aid migration to
- libgl1-nvidia${nvidia:Legacy}-dev.
- .
- For building portable OpenGL applications, please install libgl1-mesa-dev
- instead.
+ This is a transitional dummy package to aid migration to libgl1-mesa-dev.
+ NVIDIA recommends to use the official headers for developing OpenGL
+ applications.
 
 Package: libgl1-nvidia-glx
 Section: non-free/libs
@@ -157,36 +158,6 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
  or /usr/share/doc/libgl1-nvidia${nvidia:Legacy}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-Package: libgl1-nvidia-dev
-Section: non-free/libdevel
-Architecture: i386 amd64
-Depends:
- libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
- libx11-dev,
- ${misc:Depends}
-Recommends: libgl1-mesa-dev | libgl-dev
-Provides:
- libgl1-nvidia-dev,
-Conflicts:
- libgl1-nvidia-dev,
- nvidia-glx-dev (<< 195.36.31),
- nvidia-glx-legacy-dev,
- nvidia-glx-legacy-71xx-dev,
- nvidia-glx-legacy-96xx-dev,
- nvidia-glx-legacy-173xx-dev,
-Replaces: nvidia-glx${nvidia:Legacy}-dev (<< 195.36.31)
-Description: NVIDIA OpenGL development files${nvidia:LegacyDesc}
- This package contains the development files for the NVIDIA OpenGL
- implementation. This package is only needed for applications that use some
- extensions available in the NVIDIA driver only. Include and library search
- paths have to be adjusted to explicitly select this implementation.
- .
- For building portable OpenGL applications, please install libgl1-mesa-dev
- instead.
- .
- For more information on this source package visit NVIDIA's homepage
- at http://www.nvidia.com/ .
-
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
@@ -227,7 +198,9 @@ Section: non-free/kernel
 Architecture: i386 amd64
 Depends: ${misc:Depends}, debhelper (>= 8), make, quilt (>= 0.46-7~)
 Recommends: module-assistant | kernel-package,
- nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}), nvidia-kernel-common
+ nvidia-kernel-common
+Suggests:
+ nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}),
 Conflicts:
  linux-headers-2.6.32-trunk-486 [i386], linux-image-2.6.32-trunk-486 [i386],
  linux-headers-2.6.32-trunk-686 [i386], linux-image-2.6.32-trunk-686 [i386],
