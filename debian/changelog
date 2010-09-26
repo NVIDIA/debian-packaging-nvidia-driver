@@ -8,6 +8,9 @@ nvidia-graphics-drivers (256.53-2) UNRELEASED; urgency=low
     these header files) already contains them and is the recommended source
     for these header files.  They will be contained in an nvidia-cuda-dev
     package in the future.
+  * Drop libcuda1-dev and nvidia-libopencl1-dev packages, move libOpenCL.so
+    link to nvidia-libopencl1.  libcuda1 and nvidia-libopencl1 Conflicts and
+    Replaces their old -dev packages for clean upgrades without transitionals.
 
   [ Russ Allbery ]
   * Use /lib/modules/`uname -r`/build as the default kernel build location

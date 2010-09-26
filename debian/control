@@ -349,7 +349,10 @@ Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Replaces: nvidia-glx (<< 185.18.14-2), nvidia-glx-dev (<< 185.18.14-2)
+Replaces: nvidia-glx (<< 185.18.14-2), nvidia-glx-dev (<< 185.18.14-2),
+ libcuda1-dev
+Conflicts: libcuda1-dev
+Provides: libcuda1-dev
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
@@ -391,24 +394,6 @@ Description: NVIDIA CUDA runtime library (32-bit)
  nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
  This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
-
-Package: libcuda1-dev
-Section: non-free/libdevel
-Architecture: i386 amd64
-Depends: libcuda1 (= ${binary:Version}), ${misc:Depends}
-Provides: libcuda-dev
-Replaces: nvidia-glx-dev (<< 185.18.14-2)
-Homepage: http://www.nvidia.com/CUDA
-Description: NVIDIA CUDA development files
- The Compute Unified Device Architecture (CUDA) enables NVIDIA
- graphics processing units (GPUs) to be used for massively parallel
- general purpose computation.
- .
- This package contains the driver specific NVIDIA CUDA
- development files.
- .
- For more information on this source package visit NVIDIA's CUDA Zone
- at http://www.nvidia.com/CUDA .
 
 Package: libnvidia-compiler
 Section: non-free/libs
@@ -507,7 +492,9 @@ Package: nvidia-libopencl1
 Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends},
-Provides: libopencl1
+Conflicts: nvidia-libopencl1-dev
+Replaces: nvidia-libopencl1-dev
+Provides: libopencl1, nvidia-libopencl1-dev
 Recommends: opencl-icd | nvidia-opencl-icd
 Description: NVIDIA OpenCL library
  OpenCL (Open Computing Language) is a multivendor open standard for
@@ -530,20 +517,6 @@ Description: NVIDIA OpenCL 32-bit library
  .
  This package contains the installable client driver loader (ICD Loader)
  32-bit library provided by NVIDIA.
-
-Package: nvidia-libopencl1-dev
-Section: non-free/libdevel
-Architecture: i386 amd64
-Depends: ${misc:Depends},
- nvidia-libopencl1 (= ${binary:Version}),
-Provides: libopencl1-dev
-Description: NVIDIA OpenCL development files
- OpenCL (Open Computing Language) is a multivendor open standard for
- general-purpose parallel programming of heterogeneous systems that include
- CPUs, GPUs and other processors.
- .
- This package contains the development files for the installable client driver
- loader (ICD Loader) library provided by NVIDIA.
 
 Package: libgl1-nvidia-alternatives
 Section: non-free/libs
