@@ -9,6 +9,15 @@ nvidia-graphics-drivers (256.53-2) UNRELEASED; urgency=low
     for these header files.  They will be contained in an nvidia-cuda-dev
     package in the future.
 
+  [ Russ Allbery ]
+  * Use /lib/modules/`uname -r`/build as the default kernel build location
+    for nvidia-kernel-source instead of /usr/src/linux, since this is set
+    up automatically by the current linux-headers-* packages.
+  * In the nvidia-kernel-source documentation, remove mention of setting
+    KVERS, which should no longer be needed, and mention that setting KSRC
+    is optional if the build link exists and you're building for the
+    currently running kernel.
+
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 25 Sep 2010 09:56:53 +0200
 
 nvidia-graphics-drivers (256.53-1) experimental; urgency=low
