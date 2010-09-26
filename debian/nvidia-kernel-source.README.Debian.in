@@ -86,7 +86,7 @@ As root (or using fakeroot)
    Make sure your kernel image and headers have matching release numbers to
    avoid possible problems in packages built from different sources. 
 
-4. Set an environment variables (if bash is your shell):
+4. Set an environment variable (if bash is your shell):
 
     export KSRC=/usr/src/linux-headers-2.6.14-2-k7
 
@@ -181,4 +181,4 @@ For any news on this package check
 http://bugs.debian.org/nvidia-kernel#LEGACY#-source
 
 
- -- Russ Allbery <rra@debian.org>, Sat, 25 Sep 2010 23:24:11 -0700
+ -- Russ Allbery <rra@debian.org>, Sat, 25 Sep 2010 23:30:28 -0700
