@@ -546,7 +546,7 @@ Description: NVIDIA OpenCL development files
 Package: libgl1-nvidia-alternatives
 Section: non-free/libs
 Architecture: i386 amd64
-Depends: ${misc:Depends}
+Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
  nvidia-glx (<< 195.36.31-2),
  nvidia-glx-dev (<< 195.36.31-2),
@@ -567,7 +567,7 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries
 Package: libgl1-nvidia-alternatives-ia32
 Section: non-free/libs
 Architecture: amd64
-Depends: ${misc:Depends}
+Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
  nvidia-glx-ia32 (<< 195.36.31-2), libgl1-nvidia-glx-ia32 (<< 195.36.31-2),
  nvidia-glx-legacy-71xx-ia32 (<< 71.86.14),
@@ -583,7 +583,7 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
 Package: libglx-nvidia-alternatives
 Section: non-free/libs
 Architecture: i386 amd64
-Depends: ${misc:Depends}
+Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
  nvidia-glx (<< 195.36.31-3),
  nvidia-glx-legacy-71xx (<< 71.86.14),
