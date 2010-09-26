@@ -1,7 +1,10 @@
 nvidia-graphics-drivers (195.36.31-5) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
-  * Drop Breaks: on old xserver now that we depend on xorg-video-abi-6.0.
+  * Drop Breaks: xserver-xorg-core (<< 2:1.6).
+    There is no file name conflict between /usr/lib/libGLcore.so.1 and
+    /usr/lib/xorg/modules/extensions/libGLcore.so (only in << 2:1.6) that
+    could cause the wong library to be loaded by NVIDIA's libgl.so.
   * libgl1-nvidia-alternatives needs to Breaks: old nvidia-glx*-dev packages,
     some were shipping a libGL.so symlink which may cause problems on partial
     upgrades.
