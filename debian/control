@@ -548,10 +548,15 @@ Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${misc:Depends}
 Breaks:
- nvidia-glx (<< 195.36.31-2), libgl1-nvidia-glx-ia32 (<< 195.36.31-2),
+ nvidia-glx (<< 195.36.31-2),
+ nvidia-glx-dev (<< 195.36.31-2),
+ libgl1-nvidia-glx (<< 195.36.31-2),
  nvidia-glx-legacy-71xx (<< 71.86.14),
+ nvidia-glx-legacy-71xx-dev (<< 71.86.14),
  nvidia-glx-legacy-96xx (<< 96.43.18),
+ nvidia-glx-legacy-96xx-dev (<< 96.43.18),
  nvidia-glx-legacy-173xx (<< 173.14.27),
+ nvidia-glx-legacy-173xx-dev (<< 173.14.27),
 Conflicts:
  fglrx-glx,
 Description: simplifies replacing MESA libGL with GPU vendor libraries
