@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (195.36.31-5) UNRELEASED; urgency=low
+
+  [ Andreas Beckmann ]
+  * Drop Breaks: on old xserver now that we depend on xorg-video-abi-6.0.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 26 Sep 2010 08:08:02 +0200
+
 nvidia-graphics-drivers (195.36.31-4) unstable; urgency=low
 
   [ Andreas Beckmann ]
