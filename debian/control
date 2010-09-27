@@ -298,6 +298,7 @@ Description: NVIDIA vdpau driver
 Package: nvidia-vdpau-driver-ia32
 Section: non-free/libs
 Architecture: amd64
+Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends: lib32vdpau1,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}
@@ -518,6 +519,7 @@ Description: NVIDIA OpenCL library
 Package: nvidia-libopencl1-ia32
 Section: non-free/libs
 Architecture: amd64
+Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends: ${shlibs:Depends}, ${misc:Depends},
 Provides: lib32opencl1
 Recommends: opencl-icd | nvidia-opencl-icd-ia32
@@ -567,6 +569,7 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries
 Package: libgl1-nvidia-alternatives-ia32
 Section: non-free/libs
 Architecture: amd64
+Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
  nvidia-glx-ia32 (<< 195.36.31-2), libgl1-nvidia-glx-ia32 (<< 195.36.31-2),
