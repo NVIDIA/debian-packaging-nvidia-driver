@@ -458,7 +458,7 @@ Package: nvidia-opencl-common
 Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${misc:Depends},
-Recommends: nvidia-opencl-icd | nvidia-opencl-icd-ia32
+Recommends: nvidia-opencl-icd | nvidia-opencl-icd-ia32 [amd64]
 Description: NVIDIA OpenCL driver
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
