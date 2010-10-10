@@ -2,7 +2,7 @@ nvidia-graphics-drivers (256.53-2) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
   * Upload to experimental.
-  * Merge 195.36.31-4. 
+  * Merge 195.36.31-4, 195.36.31-5. 
   * Stop shipping CUDA and OpenCL headers.  NVIDIA will stop including them in
     the 260.xx release.  The NVIDIA CUDA Toolkit (which is the only user of
     these header files) already contains them and is the recommended source
@@ -49,6 +49,28 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
   * Remove Andres Mejia from Uploaders at his request.
 
  -- Russ Allbery <rra@debian.org>  Sat, 18 Sep 2010 15:07:19 -0700
+
+nvidia-graphics-drivers (195.36.31-5) unstable; urgency=low
+
+  [ Andreas Beckmann ]
+  * Drop Breaks: xserver-xorg-core (<< 2:1.6).
+    There is no file name conflict between /usr/lib/libGLcore.so.1 (from
+    NVIDIA) and /usr/lib/xorg/modules/extensions/libGLcore.so (only in
+    xserver-xorg-core << 2:1.6) that could cause the wrong library to be
+    loaded by NVIDIA's libgl.so.
+  * Change xserver dependency to 'xorg-video-abi-6.0 | xserver-xorg-core
+    (<< 2:1.7.7)' as the driver is supposed to work with older abi versions,
+    too.  This is not needed for squeeze, but helps backports to lenny.
+  * Add Pre-Depends: libc6-i386 (>= 2.9-18) to all packages handling files in
+    /usr/lib32.
+  * Restrict nvidia-opencl-common Recommends: nvidia-opencl-icd-ia32 to amd64.
+  * libgl1-nvidia-alternatives needs to Breaks: old nvidia-glx*-dev packages,
+    some were shipping a libGL.so symlink which may cause problems on partial
+    upgrades.
+  * libgl*-nvidia-alternatives* needs to Depends: dpkg (>= 1.15) for using
+    dpkg-divert --listpackage in the postinst script.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 10 Oct 2010 20:53:35 +0200
 
 nvidia-graphics-drivers (195.36.31-4) unstable; urgency=low
 
