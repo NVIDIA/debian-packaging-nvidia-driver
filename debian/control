@@ -352,7 +352,6 @@ Suggests:
 Replaces: nvidia-glx (<< 185.18.14-2), nvidia-glx-dev (<< 185.18.14-2),
  libcuda1-dev
 Conflicts: libcuda1-dev
-Provides: libcuda1-dev
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
@@ -494,7 +493,7 @@ Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends},
 Conflicts: nvidia-libopencl1-dev
 Replaces: nvidia-libopencl1-dev
-Provides: libopencl1, nvidia-libopencl1-dev
+Provides: libopencl1
 Recommends: opencl-icd | nvidia-opencl-icd
 Description: NVIDIA OpenCL library
  OpenCL (Open Computing Language) is a multivendor open standard for
