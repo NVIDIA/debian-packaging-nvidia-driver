@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (195.36.31-5) UNRELEASED; urgency=low
+nvidia-graphics-drivers (195.36.31-5) unstable; urgency=low
 
   [ Andreas Beckmann ]
   * Drop Breaks: xserver-xorg-core (<< 2:1.6).
@@ -8,7 +8,7 @@ nvidia-graphics-drivers (195.36.31-5) UNRELEASED; urgency=low
     loaded by NVIDIA's libgl.so.
   * Change xserver dependency to 'xorg-video-abi-6.0 | xserver-xorg-core
     (<< 2:1.7.7)' as the driver is supposed to work with older abi versions,
-    too.
+    too.  This is not needed for squeeze, but helps backports to lenny.
   * Add Pre-Depends: libc6-i386 (>= 2.9-18) to all packages handling files in
     /usr/lib32.
   * Restrict nvidia-opencl-common Recommends: nvidia-opencl-icd-ia32 to amd64.
@@ -18,7 +18,7 @@ nvidia-graphics-drivers (195.36.31-5) UNRELEASED; urgency=low
   * libgl*-nvidia-alternatives* needs to Depends: dpkg (>= 1.15) for using
     dpkg-divert --listpackage in the postinst script.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sun, 26 Sep 2010 08:08:02 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 10 Oct 2010 20:53:35 +0200
 
 nvidia-graphics-drivers (195.36.31-4) unstable; urgency=low
 
