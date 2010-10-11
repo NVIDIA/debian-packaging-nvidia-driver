@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (256.53-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (256.53-2) experimental; urgency=low
 
   [ Andreas Beckmann ]
   * Upload to experimental.
@@ -32,7 +32,7 @@ nvidia-graphics-drivers (256.53-2) UNRELEASED; urgency=low
     is optional if the build link exists and you're building for the
     currently running kernel.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 25 Sep 2010 09:56:53 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 11 Oct 2010 14:50:06 +0200
 
 nvidia-graphics-drivers (256.53-1) experimental; urgency=low
 
