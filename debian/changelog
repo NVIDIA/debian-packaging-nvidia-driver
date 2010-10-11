@@ -20,6 +20,8 @@ nvidia-graphics-drivers (256.53-2) UNRELEASED; urgency=low
     - libnvidia-compiler1{,-ia32}
       (now Conflicts/Replaces by libnvidia-compiler{,-ia32}).
   * Lower Priority of *-ia32 packages to extra (debcheck).
+  * Switch default Section to non-free/libs with a few exceptions: x11
+    (nvidia-glx), utils (nvidia-smi), kernel (nvidia-kernel-{source,dkms}).
 
   [ Russ Allbery ]
   * Use /lib/modules/`uname -r`/build as the default kernel build location

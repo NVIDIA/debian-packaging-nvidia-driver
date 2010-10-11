@@ -1,5 +1,5 @@
 Source: nvidia-graphics-drivers
-Section: non-free/x11
+Section: non-free/libs
 Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Uploaders:
@@ -19,6 +19,7 @@ Standards-Version: 3.9.1
 Homepage: http://www.nvidia.com
 
 Package: nvidia-glx
+Section: non-free/x11
 Architecture: i386 amd64
 Pre-Depends: dpkg (>= 1.15.7.2)
 Depends:
@@ -87,7 +88,6 @@ Description: NVIDIA binary driver 32-bit libs${nvidia:LegacyDesc}
  for a complete list of supported GPUs and PCI IDs.
 
 Package: libgl1-nvidia-glx
-Section: non-free/libs
 Architecture: i386 amd64
 Depends:
  libgl1-nvidia-alternatives,
@@ -122,7 +122,6 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  for a complete list of supported GPUs and PCI IDs.
 
 Package: libgl1-nvidia-glx-ia32
-Section: non-free/libs
 Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
@@ -225,7 +224,6 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  for a complete list of supported GPUs and PCI IDs.
 
 Package: nvidia-vdpau-driver
-Section: non-free/libs
 Architecture: i386 amd64
 Depends: libvdpau1,
  ${shlibs:Depends}, ${misc:Depends}
@@ -256,7 +254,6 @@ Description: NVIDIA vdpau driver
  This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
 
 Package: nvidia-vdpau-driver-ia32
-Section: non-free/libs
 Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
@@ -290,6 +287,7 @@ Description: NVIDIA vdpau 32-bit driver
  This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
 
 Package: nvidia-smi
+Section: non-free/utils
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}
@@ -302,7 +300,6 @@ Description: NVIDIA System Management Interface
  Computing Systems.
 
 Package: libcuda1
-Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
@@ -330,7 +327,6 @@ Description: NVIDIA CUDA runtime library
  This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
 
 Package: libcuda1-ia32
-Section: non-free/libs
 Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
@@ -357,7 +353,6 @@ Description: NVIDIA CUDA runtime library (32-bit)
  This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
 
 Package: libnvidia-compiler
-Section: non-free/libs
 Architecture: i386 amd64
 Depends: libcuda1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
@@ -371,7 +366,6 @@ Description: NVIDIA runtime compiler library
  This package contains the runtime compiler library.
 
 Package: libnvidia-compiler-ia32
-Section: non-free/libs
 Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
@@ -387,7 +381,6 @@ Description: NVIDIA runtime compiler library (32-bit)
  This package contains the runtime compiler library (32-bit).
 
 Package: nvidia-opencl-common
-Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${misc:Depends},
 Recommends: nvidia-opencl-icd | nvidia-opencl-icd-ia32 [amd64]
@@ -400,7 +393,6 @@ Description: NVIDIA OpenCL driver
  driver (ICD) for OpenCL.
 
 Package: nvidia-opencl-icd
-Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${misc:Depends},
  nvidia-opencl-common,
@@ -417,7 +409,6 @@ Description: NVIDIA OpenCL ICD
  This package provides the NVIDIA installable client driver (ICD) for OpenCL.
 
 Package: nvidia-opencl-icd-ia32
-Section: non-free/libs
 Priority: extra
 Architecture: amd64
 Depends: ${misc:Depends},
@@ -436,7 +427,6 @@ Description: NVIDIA OpenCL ICD (32-bit)
  OpenCL.
 
 Package: nvidia-libopencl1
-Section: non-free/libs
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends},
 Conflicts: nvidia-libopencl1-dev
@@ -452,7 +442,6 @@ Description: NVIDIA OpenCL library
  library provided by NVIDIA.
 
 Package: nvidia-libopencl1-ia32
-Section: non-free/libs
 Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
@@ -468,7 +457,6 @@ Description: NVIDIA OpenCL 32-bit library
  32-bit library provided by NVIDIA.
 
 Package: libgl1-nvidia-alternatives
-Section: non-free/libs
 Architecture: i386 amd64
 Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
@@ -489,7 +477,6 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries
  vendors.  Handles both libGL.so.1 and libGL.so.
 
 Package: libgl1-nvidia-alternatives-ia32
-Section: non-free/libs
 Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
@@ -507,7 +494,6 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
  vendors.  Handles both libGL.so.1 and libGL.so.
 
 Package: libglx-nvidia-alternatives
-Section: non-free/libs
 Architecture: i386 amd64
 Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
