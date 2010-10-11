@@ -17,6 +17,7 @@ nvidia-graphics-drivers (256.53-2) UNRELEASED; urgency=low
   * Drop the transitional packages libnvidia-compiler1{,-ia32}.
     Use unversioned Conflicts/Replaces in the successor packages
     libnvidia-compiler{,-ia32} to ensure the old transitionals are removed.
+  * Drop the transitional packages nvidia-libvdpau{,-ia32,-dev}.
 
   [ Russ Allbery ]
   * Use /lib/modules/`uname -r`/build as the default kernel build location

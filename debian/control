@@ -228,44 +228,6 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  See /usr/share/doc/nvidia-kernel${nvidia:Legacy}-source/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-Package: nvidia-libvdpau1
-Section: non-free/oldlibs
-Architecture: i386 amd64
-Depends: nvidia-vdpau-driver (>= ${nvidia:Version}), libvdpau1,
- ${misc:Depends}
-Description: NVIDIA vdpau libraries (transitional package)
- These libraries provide the Video Decode and Presentation API for Unix.
- They provide accelerated video playback (incl. H.264) for the supported
- graphics cards.
- .
- This is a transitional dummy package depending on the free version of the
- VDPAU wrapper and trace libraries.
-
-Package: nvidia-libvdpau1-ia32
-Section: non-free/oldlibs
-Architecture: amd64
-Depends: nvidia-vdpau-driver-ia32 (>= ${nvidia:Version}), lib32vdpau1,
- ${misc:Depends}
-Description: NVIDIA vdpau 32-bit libraries (transitional package)
- These libraries provide the Video Decode and Presentation API for Unix.
- They provide accelerated video playback (incl. H.264) for the supported
- graphics cards.
- .
- This is a transitional dummy package depending on the free version of the
- VDPAU wrapper and trace libraries (32-bit).
-
-Package: nvidia-libvdpau-dev
-Section: non-free/oldlibs
-Architecture: i386 amd64
-Depends: libvdpau-dev, ${misc:Depends}
-Description: NVIDIA vdpau development files (transitional package)
- The NVIDIA Video Decode and Presentation API for Unix (VDPAU) provides a
- complete solution for decoding, post-processing, compositing, and displaying
- compressed or uncompressed video streams.
- .
- This is a transitional dummy package depending on the free version of the
- VDPAU development files.
-
 Package: nvidia-vdpau-driver
 Section: non-free/libs
 Architecture: i386 amd64
@@ -276,9 +238,10 @@ Enhances: libvdpau1
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver
+Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver,
+ nvidia-libvdpau1,
 Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver,
- nvidia-libvdpau1 (<< 190.42-3),
+ nvidia-libvdpau1,
 Breaks: libvdpau1 (<< 0.4)
 Provides: vdpau-driver
 Description: NVIDIA vdpau driver
@@ -308,10 +271,11 @@ Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau,
- nvidia-libvdpau1-driver-ia32, nvidia-libvdpau1-ia32 (<< 190.53-3)
+ nvidia-libvdpau1,
+ nvidia-libvdpau1-driver-ia32, nvidia-libvdpau1-ia32,
 Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau,
- nvidia-libvdpau1 (<< 190.42-3),
- nvidia-libvdpau1-driver-ia32, nvidia-libvdpau1-ia32 (<< 190.53-3)
+ nvidia-libvdpau1,
+ nvidia-libvdpau1-driver-ia32, nvidia-libvdpau1-ia32,
 Provides: vdpau-driver
 Description: NVIDIA vdpau 32-bit driver
  These libraries provide the Video Decode and Presentation API for Unix.
