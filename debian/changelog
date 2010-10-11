@@ -21,7 +21,8 @@ nvidia-graphics-drivers (256.53-2) experimental; urgency=low
       (now Conflicts/Replaces by libnvidia-compiler{,-ia32}).
   * Lower Priority of *-ia32 packages to extra (debcheck).
   * Switch default Section to non-free/libs with a few exceptions: x11
-    (nvidia-glx), utils (nvidia-smi), kernel (nvidia-kernel-{source,dkms}).
+    (nvidia-glx), utils (nvidia-smi), kernel (nvidia-kernel-{source,dkms}),
+    oldlibs (nvidia-glx-ia32).
 
   [ Russ Allbery ]
   * Use /lib/modules/`uname -r`/build as the default kernel build location

@@ -58,6 +58,7 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  for a complete list of supported GPUs and PCI IDs.
 
 Package: nvidia-glx-ia32
+Section: non-free/oldlibs
 Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
