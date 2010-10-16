@@ -2,6 +2,8 @@ nvidia-graphics-drivers (260.19.12-1) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
   * New upstream release.
+  * Upload to experimental.
+  * Update nv-kernel.ids.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 16 Oct 2010 14:40:06 +0200
 
