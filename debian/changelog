@@ -6,6 +6,8 @@ nvidia-graphics-drivers (195.36.31-6) UNRELEASED; urgency=low
     of the way.  This problem may originate from incorrect diversion creation
     before lenny (and was not noticed or fixed in lenny) or having used the
     nvidia installer to install the driver in the past.  (Closes: #600327)
+  * Add a NEWS entry recommending to update all pre-squeeze nvidia packages
+    before switching to a -legacy- variant.  (Closes: #596843)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 16 Oct 2010 18:44:53 +0200
 
