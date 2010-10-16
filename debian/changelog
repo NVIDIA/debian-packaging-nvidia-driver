@@ -9,6 +9,7 @@ nvidia-graphics-drivers (260.19.12-1) UNRELEASED; urgency=low
     pci_dma_mapping_error, scatterlist, pci_domain_nr, file_operations,
     sg_init_table.  Kernel versions of symbol (dis-)appearance from lxr.
   * Update symbols control files.
+  * Update lintian overrides.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 16 Oct 2010 14:40:06 +0200
 

@@ -1,3 +1,2 @@
 # The NVIDIA license does not allow any form of modification.
-nvidia-vdpau-driver-ia32: shlib-with-executable-stack
 nvidia-vdpau-driver-ia32: shlib-with-non-pic-code

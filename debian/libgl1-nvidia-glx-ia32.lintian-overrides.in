@@ -1,5 +1,4 @@
 # The NVIDIA license does not allow any form of modification.
-libgl1-nvidia#LEGACY#-glx-ia32: shlib-with-executable-stack
 libgl1-nvidia#LEGACY#-glx-ia32: shlib-with-non-pic-code
 libgl1-nvidia#LEGACY#-glx-ia32: spelling-error-in-binary
 
