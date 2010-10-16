@@ -1,3 +1,2 @@
 use-nv-kernel.o.ARCH.patch
 conditionally-include-linux_version.h.patch
-2.6.36-ioctl.patch

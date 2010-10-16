@@ -4,6 +4,7 @@ nvidia-graphics-drivers (260.19.12-1) UNRELEASED; urgency=low
   * New upstream release.
   * Upload to experimental.
   * Update nv-kernel.ids.
+  * Drop 2.6.36-ioctl.patch, fixed upstream.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 16 Oct 2010 14:40:06 +0200
 
