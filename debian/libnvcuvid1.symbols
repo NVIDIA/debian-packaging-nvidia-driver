@@ -1,0 +1,13 @@
+libnvcuvid.so.1 #PACKAGE# #MINVER#
+ cuvidCreateDecoder@Base 260
+ cuvidCreateVideoParser@Base 260
+ cuvidCtxLock@Base 260
+ cuvidCtxLockCreate@Base 260
+ cuvidCtxLockDestroy@Base 260
+ cuvidCtxUnlock@Base 260
+ cuvidDecodePicture@Base 260
+ cuvidDestroyDecoder@Base 260
+ cuvidDestroyVideoParser@Base 260
+ cuvidMapVideoFrame@Base 260
+ cuvidParseVideoData@Base 260
+ cuvidUnmapVideoFrame@Base 260

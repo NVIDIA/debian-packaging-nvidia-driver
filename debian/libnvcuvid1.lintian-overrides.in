@@ -1,0 +1,5 @@
+# The NVIDIA license does not allow any form of modification.
+#!amd64#libnvcuvid1: shlib-with-non-pic-code
+
+# A single symbolic link does not justify the creation of a new package.
+libnvcuvid1: non-dev-pkg-with-shlib-symlink
