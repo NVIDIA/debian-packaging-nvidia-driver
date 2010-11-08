@@ -30,16 +30,12 @@ nvidia-graphics-drivers (195.36.24-3) unstable; urgency=low
   hardware needing more time to initialize than is allowed by the default
   timeout settings.  Increasing the timeouts can work around this problem:
 
-  For 'kdm' edit /etc/kde4/kdm/kdmrc and set  (see #583312, will be fixed in
-                                                            kdm 4:4.4.5-4)
-    [X-*-Core]
-    ServerTimeout=120
-
   For 'gdm' edit /etc/gdm/gdm.conf and set  (see #521699)
     [daemon]
     GdmXserverTimeout=30
 
   For 'gdm3' and 'xdm' the default timeout setting seems to be sufficient.
+  For 'kdm' the timeout was increased in 4:4.4.5-4.
   This appears to be an issue with the hardware and the initialization
   sequence rather than with the drivers, since it also affects the free
   nouveau drivers.

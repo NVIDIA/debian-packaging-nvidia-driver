@@ -9,7 +9,7 @@ nvidia-graphics-drivers (195.36.31-6) UNRELEASED; urgency=low
   * Add a NEWS entry recommending to update all pre-squeeze nvidia packages
     before switching to a -legacy- variant.  (Closes: #596843)
   * Update gdm/kdm insufficient timeout NEWS entry: mention xdm (no workaround
-    needed) and that kdm will be fixed in 4:4.4.5-4.
+    needed) and that kdm was fixed in 4:4.4.5-4.
   * Document the warnings emitted by the maintainer scripts in README.Debian.
   * Install the upstream README.txt in the dkms package.  It is referenced by
     the package description.  Add a README.Debian, too.  (Closes: #602733)
