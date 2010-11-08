@@ -11,8 +11,8 @@ nvidia-graphics-drivers (195.36.31-6) UNRELEASED; urgency=low
   * Update gdm/kdm insufficient timeout NEWS entry: mention xdm (no workaround
     needed) and that kdm will be fixed in 4:4.4.5-4.
   * Document the warnings emitted by the maintainer scripts in README.Debian.
-  * Install the upstream README.txt in the dkms package, too.  It is
-    referenced by the package description.  (Closes: #602733)
+  * Install the upstream README.txt in the dkms package.  It is referenced by
+    the package description.  Add a README.Debian, too.  (Closes: #602733)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 16 Oct 2010 18:44:53 +0200
 
