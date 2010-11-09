@@ -1,9 +1,9 @@
-nvidia-graphics-drivers (195.36.31-6) unstable; urgency=low
+nvidia-graphics-drivers (195.36.24-4) unstable; urgency=low
 
   If your GPU is no longer supported by this driver release (see the LEGACY
   GPU notes below) and you have to switch to a legacy driver package instead,
   we highly recommend to follow this procedure for switching in order to work
-  around some problems the maintainer scripts of the packages currently
+  around some problems in the maintainer scripts of the packages currently
   installed:
 
   1. upgrade any pre-squeeze nvidia driver package you have installed
