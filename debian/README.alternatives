@@ -19,7 +19,7 @@ Manual disabling (and later reenabling) can be done with the command
 libGL.so.1
 ==========
 
-NVIDIA provides accelerated OpenGL libraries libGL.so* which are shipped 
+NVIDIA provides accelerated OpenGL libraries libGL.so* which are shipped
 in the libgl1-nvidia-glx (or a corresponding libgl1-nvidia-legacy*-glx)
 package.
 The free MESA libGL.so.1 is available as an alternative with low priority

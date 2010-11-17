@@ -5,7 +5,7 @@ nvidia-graphics-drivers#LEGACY# for Debian
 INTRODUCTION:
 -----------------------------------------------------------------------
 
-Welcome to Debian NVIDIA packages. This document contains notes on the 
+Welcome to Debian NVIDIA packages. This document contains notes on the
 kernel module interface for the NVIDIA driver offering.
 
 
@@ -27,7 +27,7 @@ KERNEL MODULE INSTRUCTIONS:
   * Requires a Debian supplied kernel or a kernel where you built a
     corresponding linux-headers-KVERS package.
   * Run this command every time your kernel or the driver was updated:
-        
+
         module-assistant auto-install nvidia#LEGACY#
 
   * For more information on module-assistant, see its man page and package
@@ -41,26 +41,26 @@ There are TWO more ways to build the nvidia-kernel package manually / via
 make-kpkg.
 Which one depends on your situation with your kernel.
 
- METHOD #3: You are running a Debian supplied kernel or built a 
-    linux-headers package along with your own self-built kernel. 
+ METHOD #3: You are running a Debian supplied kernel or built a
+    linux-headers package along with your own self-built kernel.
 
  METHOD #4: You are running your own self-built kernel built from kernel
-    source. 
+    source.
 
 Which method you choose really depends on what kernel headers you wish to
 use, those from a kernel-headers package or those from kernel
-source (from which you built your own kernel). 
+source (from which you built your own kernel).
 
 As mentioned above, if you are running a Debian supplied kernel you will
 probably want to choose METHOD #3. If you compile your own kernels, METHOD #4.
 
 
 
-PRELIMINARY: 
-- Decide where you want to build your module. By default it 
-will build under /usr/src like other kernel modules but you may choose 
-to build it under your home directory as some people prefer and writing to 
-/usr violates the FHS. 
+PRELIMINARY:
+- Decide where you want to build your module. By default it
+will build under /usr/src like other kernel modules but you may choose
+to build it under your home directory as some people prefer and writing to
+/usr violates the FHS.
 
 
 
@@ -68,11 +68,11 @@ METHOD #3 Using a linux-headers package
 ***********************************************************************
 
 As root (or using fakeroot)
-1. cd /usr/src 
+1. cd /usr/src
    tar xjvf nvidia-kernel#LEGACY#.tar.bz2 -C <YOUR BUILD LOCATION>
-   (It will install in <YOUR BUILD LOCATION>/modules) 
+   (It will install in <YOUR BUILD LOCATION>/modules)
    - or -
-   tar xjvf nvidia-kernel#LEGACY#.tar.bz2  (if building in /usr/src) 
+   tar xjvf nvidia-kernel#LEGACY#.tar.bz2  (if building in /usr/src)
 
    The standard build location is /usr/src
 
@@ -84,7 +84,7 @@ As root (or using fakeroot)
    It will install in /usr/src/
 
    Make sure your kernel image and headers have matching release numbers to
-   avoid possible problems in packages built from different sources. 
+   avoid possible problems in packages built from different sources.
 
 4. Set an environment variable (if bash is your shell):
 
@@ -125,9 +125,9 @@ kernel-package installed, then do the following:
 As root
 1. cd /usr/src
    tar xjvf nvidia-kernel#LEGACY#.tar.bz2 -C <YOUR BUILD LOCATION>
-   (It will install in <YOUR BUILD LOCATION>/modules) 
+   (It will install in <YOUR BUILD LOCATION>/modules)
    - or -
-   tar xjvf nvidia-kernel#LEGACY#.tar.bz2  (if building in /usr/src) 
+   tar xjvf nvidia-kernel#LEGACY#.tar.bz2  (if building in /usr/src)
 
 2. If you are NOT using the default modules location /usr/src/modules
    then you must set an environment variable that points to your modules
@@ -135,10 +135,10 @@ As root
 
      export MODULE_LOC=<YOUR BUILD LOCATION>/modules
 
-   This is needed by make-kpkg which is used later. If 
+   This is needed by make-kpkg which is used later. If
    <YOUR BUILD LOCATION> is /usr/src there is no need to set this.
 
-3. Build the modules under MODULE_LOC i.e. <YOU BUILD LOCATION>/modules 
+3. Build the modules under MODULE_LOC i.e. <YOU BUILD LOCATION>/modules
 
      cd linux (or your kernel source directory)
      make-kpkg modules_image
@@ -153,15 +153,15 @@ installed:
      cd <YOUR BUILD LOCATION>    (e.g. /usr/src)
      dpkg -i nvidia-kernel#LEGACY#-KVER*.deb
 
-Notes for method #2: 
+Notes for method #2:
 
-- It is advised not to clean the kernel source tree between 
-"make-kpkg kernel_image" and "make-kpkg modules_image". 
+- It is advised not to clean the kernel source tree between
+"make-kpkg kernel_image" and "make-kpkg modules_image".
 
 - The Riva framebuffer is known to conflict with the nvidia X driver. If you
 are using X it would be wise not to compile it in. The vesa framebuffer is
 known to work in some cases, and not in others. (people have recently been
-having problems with the vesa driver as well) 
+having problems with the vesa driver as well)
 
 GENERAL NOTES:
 
@@ -171,9 +171,9 @@ video. You can do this with:
         adduser username video
 
 Also note for AGP issues and further information please see the NVIDIA
-README file (README.gz) in the nvidia-glx#LEGACY# package 
+README file (README.gz) in the nvidia-glx#LEGACY# package
 
-An old nvidia.ko might be already loaded (run 'lsmod' to check) so 
+An old nvidia.ko might be already loaded (run 'lsmod' to check) so
 do 'rmmod nvidia' to remove the module from memory.
 
 

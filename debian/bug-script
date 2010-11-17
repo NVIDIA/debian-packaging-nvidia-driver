@@ -12,7 +12,7 @@ uname -a:
 EOF
 
 test ! -e /proc/driver/nvidia/version || cat << EOF >&3
-/proc/driver/nvidia/version: 
+/proc/driver/nvidia/version:
 `cat /proc/driver/nvidia/version`
 
 EOF

@@ -20,7 +20,7 @@ nvidia-graphics-drivers (256.53-2) experimental; urgency=low
 
   [ Andreas Beckmann ]
   * Upload to experimental.
-  * Merge 195.36.31-4, 195.36.31-5. 
+  * Merge 195.36.31-4, 195.36.31-5.
   * Stop shipping CUDA and OpenCL headers.  NVIDIA will stop including them in
     the 260.xx release.  The NVIDIA CUDA Toolkit (which is the only user of
     these header files) already contains them and is the recommended source

@@ -51,7 +51,7 @@ To enable accelerated XVideo Motion Compensation (XvMC) which is supported
 on GeForce 6 series and GeForce 7 series GPUs, you need to modify
 /etc/X11/XvMCConfig to contain a reference to the NVIDIA library
     libXvMCNVIDIA_dynamic.so.1
-instead.  For more information about XvMC support see Appendix G in 
+instead.  For more information about XvMC support see Appendix G in
 /usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz
 
 
