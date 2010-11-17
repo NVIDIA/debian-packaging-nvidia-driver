@@ -11,6 +11,8 @@ nvidia-graphics-drivers (260.19.21-1) UNRELEASED; urgency=low
   * Update symbols control files.
   * Update lintian overrides.
   * libnvcuvid1: new package for the nvcuvid library added upstream.
+  * Xorg 1.9 is supported since 256.53: add xorg-video-abi-8.0 as alternative
+    dependency and stop providing xserver-xorg-video-6.  (Closes: #603755)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 16 Oct 2010 14:40:06 +0200
 
