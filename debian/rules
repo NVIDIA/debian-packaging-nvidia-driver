@@ -241,6 +241,11 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 		grep ^$$id pci.ids.nvidia || echo $$id ; \
 	done > $@
 
+# only invoked manually
+LICENSE.txt: NVIDIA-Linux/LICENSE
+	sed -e 's/^ *//; s/ *$$//; s/^$$/./; s/^/ /;' $< > $@
+
+
 # Renaming control files for legacy packaging
 ifneq (,$(legacy))
 nvidia-glx$(legacy)%: nvidia-glx%
