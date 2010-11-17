@@ -18,7 +18,7 @@ NOTES ABOUT GLX DRIVER AND OPENGL:
 Using the nvidia X driver requires some user modification.
 
 The current X Server 1.7 can autodetect many things, so you probably don't
-have a /etc/X11/xorg.conf at all after a fresh installation of Debian sarge
+have a /etc/X11/xorg.conf at all after a fresh installation of Debian squeeze
 or a newer release.
 
 The NVIDIA driver is not autodetected by Xorg, so you will have to create a
@@ -43,6 +43,20 @@ format description and general options please see the xorg.conf(5) manpage.
 See /usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz and
 /usr/share/doc/nvidia-glx#LEGACY#/examples/xorg.conf.sample.gz
 for descriptions of all supported NVIDIA driver specific options.
+
+
+NOTES ABOUT XEN:
+-----------------------------------------------------------------------
+
+The non-free NVIDIA graphics driver does not work in a Xen kernel (e.g.
+linux-image-*-xen-*) running under the Xen hypervisor (xen-hypervisor-*).
+It does work however if this kernel is running standalone.
+Xen is currently not supported by NVIDIA.  For more information, please
+see http://bugs.debian.org/570365
+
+If you manage to get the NVIDIA driver to function properly when running
+under the Xen hypervisor (e.g. by using a custom kernel configuration or
+patching the module source), we would like to hear about it.
 
 
 NOTES ABOUT XvMC:
