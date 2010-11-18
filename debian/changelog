@@ -3,6 +3,7 @@ nvidia-graphics-drivers (260.19.21-1) UNRELEASED; urgency=low
   [ Andreas Beckmann ]
   * New upstream release.  (Closes: #603754)
   * Upload to experimental.
+  * Merge 195.36.31-6.
   * Update nv-kernel.ids.
   * Drop 2.6.36-ioctl.patch, fixed upstream.
   * conftest.h: implement new (after 195.xx) conftest.sh functions
@@ -79,6 +80,25 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
   * Remove Andres Mejia from Uploaders at his request.
 
  -- Russ Allbery <rra@debian.org>  Sat, 18 Sep 2010 15:07:19 -0700
+
+nvidia-graphics-drivers (195.36.31-6) unstable; urgency=low
+
+  * If both original and diverted file exist when removing obsolete
+    diversions, move the original file (which is not owned by any package) out
+    of the way.  This problem may originate from incorrect diversion creation
+    before lenny (and was not noticed or fixed in lenny) or having used the
+    nvidia installer to install the driver in the past.  (Closes: #600327)
+  * Add a NEWS entry recommending to update all pre-squeeze nvidia packages
+    before switching to a -legacy- variant.  (Closes: #596843)
+  * Update gdm/kdm insufficient timeout NEWS entry: mention xdm (no workaround
+    needed) and that kdm was fixed in 4:4.4.5-4.
+  * Document the warnings emitted by the maintainer scripts in README.Debian.
+  * Install the upstream README.txt in the dkms package.  It is referenced by
+    the package description.  Add a README.Debian, too.  (Closes: #602733)
+  * Add a note about the driver not working under the Xen hypervisor to
+    README.Debian.  (See: #570365)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Nov 2010 14:43:29 -0800
 
 nvidia-graphics-drivers (195.36.31-5) unstable; urgency=low
 

@@ -19,6 +19,29 @@ dpkg-maintscript-helper rm_conffile /etc/default/$DPKG_MAINTSCRIPT_PACKAGE 195.3
 dpkg-maintscript-helper rm_conffile /etc/init.d/$DPKG_MAINTSCRIPT_PACKAGE 195.36.24-3~ -- "$@"
 # </target: squeeze>
 
+# <target: squeeze>
+exists()
+{
+	test -e "$1" || test -L "$1"
+}
+
+undivert()
+{
+	div="$1"
+	ori="$2"
+	if exists "$ori" && exists "$div"
+	then
+		# If both the original and the diverted file exist, something went wrong long ago.
+		# Either a pre-lenny nvidia-glx package created the diversions incorrectly or
+		# the nvidia installer was used to install the driver and messed up things.
+		# Let's move the original file (which is not owned by any package) out of the way.
+		echo "WARNING: Renaming conflicting file '$ori'"
+		echo "         to '$ori.dpkg-old'".
+		mv "$ori" "$ori.dpkg-old"
+	fi
+	dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert "$div" "$ori"
+}
+# </target: squeeze>
 
 if [ "$1" = "configure" ]
 then
@@ -38,11 +61,11 @@ then
 	# </target: squeeze>
 
         # <target: squeeze>
-        if dpkg --compare-versions "$2" lt-nl 195.36.24-1 ; then
+        if true || dpkg --compare-versions "$2" lt-nl 195.36.24-1 ; then
             # remove obsolete diversions
-            dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libGLcore.so.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.so > /dev/null	
-            dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libGLcore.a.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.a > /dev/null
-            dpkg-divert --remove --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert /usr/lib/nvidia/libglx.a.xlibmesa /usr/lib/xorg/modules/extensions/libglx.a > /dev/null
+		undivert /usr/lib/nvidia/libGLcore.so.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.so
+		undivert /usr/lib/nvidia/libGLcore.a.xlibmesa /usr/lib/xorg/modules/extensions/libGLcore.a
+		undivert /usr/lib/nvidia/libglx.a.xlibmesa /usr/lib/xorg/modules/extensions/libglx.a
         fi
         # </target: squeeze>
 

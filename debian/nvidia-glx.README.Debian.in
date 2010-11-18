@@ -18,7 +18,7 @@ NOTES ABOUT GLX DRIVER AND OPENGL:
 Using the nvidia X driver requires some user modification.
 
 The current X Server 1.7 can autodetect many things, so you probably don't
-have a /etc/X11/xorg.conf at all after a fresh installation of Debian sarge
+have a /etc/X11/xorg.conf at all after a fresh installation of Debian squeeze
 or a newer release.
 
 The NVIDIA driver is not autodetected by Xorg, so you will have to create a
@@ -44,6 +44,20 @@ See /usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz
 for descriptions of all supported NVIDIA driver specific options.
 
 
+NOTES ABOUT XEN:
+-----------------------------------------------------------------------
+
+The non-free NVIDIA graphics driver does not work in a Xen kernel (e.g.
+linux-image-*-xen-*) running under the Xen hypervisor (xen-hypervisor-*).
+It does work however if this kernel is running standalone.
+Xen is currently not supported by NVIDIA.  For more information, please
+see http://bugs.debian.org/570365
+
+If you manage to get the NVIDIA driver to function properly when running
+under the Xen hypervisor (e.g. by using a custom kernel configuration or
+patching the module source), we would like to hear about it.
+
+
 NOTES ABOUT XvMC:
 -----------------------------------------------------------------------
 
@@ -55,4 +69,27 @@ instead.  For more information about XvMC support see Appendix G in
 /usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz
 
 
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 07 Jun 2010 11:19:12 +0200
+NOTES ABOUT WARNINGS emitted during installation/upgrade:
+-----------------------------------------------------------------------
+
+You might see these warnings while upgrading the nvidia driver package from a
+release before squeeze:
+
+    WARNING: Renaming conflicting file '<filename>' to '<filename>.dpkg-old'.
+
+    WARNING: The file '<filename>' found on your system may interfere with accelerated OpenGL.
+
+This usually means some file was found on your system that is not under the
+control of the package manager, i.e. not owned by any package currently
+installed.  The file may be remaining from an ancient buggy package
+(pre-dating the lenny release) that has been upgraded/removed in the meantime
+or from having used NVIDIA's installer in the past.
+
+These files most likely can be safely moved away from the library directories
+so that they may not cause harm, e.g. being preferred over the current driver
+etc.  Reinstallation of the libgl1-nvidia-alternatives package is recommended
+after (re-)moving these files.  This will correct missing/incorrect symbolic
+links.
+
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 16 Oct 2010 22:56:18 +0200
