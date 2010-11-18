@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (260.19.21-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
 
   [ Andreas Beckmann ]
   * New upstream release.  (Closes: #603754)
@@ -15,7 +15,7 @@ nvidia-graphics-drivers (260.19.21-1) UNRELEASED; urgency=low
   * Xorg 1.9 is supported since 256.53: add xorg-video-abi-8.0 as alternative
     dependency and stop providing xserver-xorg-video-6.  (Closes: #603755)
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 16 Oct 2010 14:40:06 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 18 Nov 2010 12:45:33 +0100
 
 nvidia-graphics-drivers (256.53-2) experimental; urgency=low
 
