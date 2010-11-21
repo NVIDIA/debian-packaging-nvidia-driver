@@ -15,7 +15,7 @@ nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
   * Xorg 1.9 is supported since 256.53: add xorg-video-abi-8.0 as alternative
     dependency and stop providing xserver-xorg-video-6.  (Closes: #603755)
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 18 Nov 2010 12:45:33 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Nov 2010 17:39:28 -0800
 
 nvidia-graphics-drivers (256.53-2) experimental; urgency=low
 
