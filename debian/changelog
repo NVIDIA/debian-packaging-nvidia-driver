@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (195.36.31-7) UNRELEASED; urgency=low
+
+  [ Andreas Beckmann ]
+  * Add nvidia-bug-report.sh manpage contributed by Vincent Cheng.
+    (Closes: #604782)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 28 Nov 2010 18:14:19 +0100
+
 nvidia-graphics-drivers (195.36.31-6) unstable; urgency=low
 
   * If both original and diverted file exist when removing obsolete
