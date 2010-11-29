@@ -93,4 +93,21 @@ after (re-)moving these files.  This will correct missing/incorrect symbolic
 links.
 
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 16 Oct 2010 22:56:18 +0200
+SWITCHING FROM NVIDIA WAY TO DEBIAN WAY:
+-----------------------------------------------------------------------
+
+If you had previously installed the NVIDIA driver directly (by executing the
+NVIDIA-Linux-*.run file) and want to switch to the Debian packages (which is
+recommended), please follow these upgrade instructions:
+
+http://forums.debian.net/viewtopic.php?f=6&t=53144#p306438
+
+In short:
+- remove all Debian *nvidia* packages
+- reinstall the NVIDIA driver by executing NVIDIA-Linux-*.run again
+  (otherwise removal will fail), ignore errors
+- remove the driver installed from the *.run file: nvidia-install --uninstall
+- remove all nvidia.ko still found under /lib/modules
+- reinstall the Debian nvidia-glx packages
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 29 Nov 2010 10:19:36 +0100
