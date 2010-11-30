@@ -86,6 +86,7 @@ override_dh_clean:
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
 override_dh_auto_configure: prepare
+	chmod +x debian/pre-install
 
 # Build two kernel module source tarballs for use with
 #  - module-assistant and make-kpkg

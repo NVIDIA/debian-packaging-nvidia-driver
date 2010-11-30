@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# This is a hook script executed by the nvidia-installer
+# (i.e. by running a NVIDIA-Linux-*.run file directly).
+
+cat - << EOF | tee /dev/tty
+
+
+
+If you want to use the nvidia-installer please uninstall the Debian packages
+first.  The two methods of installation cannot be used at the same time.
+Please ABORT now!
+
+EOF
+
+# let's try to kill nvidia-installer
+# yes, the missing 'r' is correct
+pkill -x nvidia-installe
+
+exit 1

@@ -8,6 +8,11 @@ nvidia-graphics-drivers (195.36.31-7) UNRELEASED; urgency=low
   * Let the bug-script to collect information about OpenGL and NVIDIA
     libraries and their symlinks, diversions and alternatives currently found
     on the system.  Also list files remaining from using the nvidia-installer.
+  * Add a pre-install hook for the nvidia-installer, giving a warning to users
+    running a NVIDIA-Linux-*.run file directly while Debian packages providing
+    the driver are installed.  This hook fails intentionally, but
+    unfortunately the default choice if the hook failed is to continue anyway.
+    Try to kill the nvidia-installer process.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 28 Nov 2010 18:14:19 +0100
 
