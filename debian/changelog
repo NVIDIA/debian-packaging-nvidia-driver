@@ -5,6 +5,9 @@ nvidia-graphics-drivers (195.36.31-7) UNRELEASED; urgency=low
     (Closes: #604782)
   * Add instructions how to switch driver installation from the NVIDIA way
     (running the *.run file) to the Debian way (using packages).
+  * Let the bug-script to collect information about OpenGL and NVIDIA
+    libraries and their symlinks, diversions and alternatives currently found
+    on the system.  Also list files remaining from using the nvidia-installer.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 28 Nov 2010 18:14:19 +0100
 

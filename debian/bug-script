@@ -24,3 +24,15 @@ if (lspci --version) > /dev/null 2>&1; then
 	done
 fi
 
+cat << EOF >&3
+OpenGL and NVIDIA library files installed:
+`ls -la /etc/alternatives/*libGL* /usr/lib/libGL.* /usr/lib/libGLcore* /usr/lib/libnvidia* /usr/lib32/libGL.* /usr/lib32/libGLcore* /usr/lib32/libnvidia* 2>/dev/null`
+
+`ls -la /usr/lib/nvidia /usr/lib/nvidia/diversions /usr/lib32/nvidia /usr/lib32/nvidia/diversions 2>/dev/null`
+
+Files from nvidia-installer:
+`ls -la /usr/bin/nvidia-installer /usr/bin/nvidia-uninstall /var/lib/nvidia 2>/dev/null`
+
+EOF
+
+exit 0
