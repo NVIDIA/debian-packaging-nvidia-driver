@@ -14,6 +14,8 @@ then
 
 fi
 
+. /usr/share/debconf/confmodule
+
 # <target: squeeze>
 dpkg-maintscript-helper rm_conffile /etc/default/$DPKG_MAINTSCRIPT_PACKAGE 195.36.24-1~ -- "$@"
 dpkg-maintscript-helper rm_conffile /etc/init.d/$DPKG_MAINTSCRIPT_PACKAGE 195.36.24-3~ -- "$@"
@@ -82,15 +84,32 @@ then
 
 	update-alternatives --install /usr/lib/xorg/modules/extensions/libglx.so libglx.so /usr/lib/nvidia/libglx.so 42
 
-	# <target: squeeze>
+	CONFLICT_LIBS=""
 	for f in /usr/lib/libGL.so.*.*
 	do
 		if [ -e "$f" ] || [ -L "$f" ]
 	       	then
-			echo "WARNING: The file '$f' found on your system may interfere with accelerated OpenGL."
+			CONFLICT_LIBS="$CONFLICT_LIBS $f"
 		fi
 	done
-	# </target: squeeze>
+	CONFLICT_LIBS="${CONFLICT_LIBS#[ ]}"
+
+	if [ -n "$CONFLICT_LIBS" ]; then
+		db_subst nvidia-graphics-drivers/remove-conflicting-libraries conflict-libs "$CONFLICT_LIBS"
+		db_fset nvidia-graphics-drivers/remove-conflicting-libraries seen false
+		db_input high nvidia-graphics-drivers/remove-conflicting-libraries
+		db_go
+		db_get nvidia-graphics-drivers/remove-conflicting-libraries
+		if [ "$RET" = "true" ]; then
+			backupdir=`mktemp -d /var/tmp/nvidia-backup.XXXXXX`
+			mv $CONFLICT_LIBS "$backupdir"
+			echo "Moved the conflicting libraries '$CONFLICT_LIBS' to '$backupdir'."
+			unset backupdir
+		else
+			echo "ERROR: The conflicting libraries '$CONFLICT_LIBS' still exist." >&2
+			exit 1
+		fi
+	fi
 
 fi
 

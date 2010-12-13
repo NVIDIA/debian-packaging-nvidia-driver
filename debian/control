@@ -9,6 +9,7 @@ Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers/tr
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
  debhelper (>= 8),
+ po-debconf,
  bzip2,
  dkms (>= 2.1.1.1),
  libxext6,

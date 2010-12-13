@@ -13,6 +13,14 @@ nvidia-graphics-drivers (195.36.31-7) UNRELEASED; urgency=low
     the driver are installed.  This hook fails intentionally, but
     unfortunately the default choice if the hook failed is to continue anyway.
     Try to kill the nvidia-installer process.
+  * Add debconf/po-debconf infrastructure to interactively resolve conflicts
+    with previous usage of the nvidia-installer.
+  * In the nvidia-glx postinst check for conflicting libraries (libGL.so.*.*
+    remaining from previous usage of the nvidia-installer) and offer to delete
+    them.  If the user chooses not to delete them, postinst configure fails as
+    long as the user has not cleaned up or lets the postinst delete the files.
+    (Currently the conflicting libraries are moved to
+    /var/lib/nvidia-backup.XXXXXX instead of deleting them.)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 28 Nov 2010 18:14:19 +0100
 
