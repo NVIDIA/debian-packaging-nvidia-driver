@@ -1,0 +1,54 @@
+#!/bin/sh
+set -e
+
+
+. /usr/share/debconf/confmodule
+
+exists()
+{
+	test -e "$1" || test -L "$1"
+}
+
+if [ "$1" = "install" ] || [ "$1" = "upgrade" ]
+then
+
+	if [ -x "/usr/bin/nvidia-installer" ]
+	then
+		db_fset nvidia-graphics-drivers/uninstall-nvidia-installer seen false
+		db_input high nvidia-graphics-drivers/uninstall-nvidia-installer
+		db_go
+		db_get nvidia-graphics-drivers/uninstall-nvidia-installer
+		if [ "$RET" = "true" ]
+		then
+			nvidia-installer --uninstall --no-runlevel-check --no-x-check --ui=none || true
+		elif [ ! -x "/usr/bin/nvidia-installer" ]
+		then
+			: # the user may has removed it inbetween
+		else
+			echo "ERROR: Please run 'nvidia-installer --uninstall' manually or delete it." >&2
+			exit 1
+		fi
+	fi
+
+	if exists "/usr/bin/nvidia-installer" || exists "/usr/bin/nvidia-uninstall"
+	then
+		db_fset nvidia-graphics-drivers/delete-nvidia-installer seen false
+		db_input high nvidia-graphics-drivers/delete-nvidia-installer
+		db_go
+		db_get nvidia-graphics-drivers/delete-nvidia-installer
+		if [ "$RET" = "true" ]
+		then
+			rm -f /usr/bin/nvidia-installer /usr/bin/nvidia-uninstall
+		else
+			echo "ERROR: Please run 'nvidia-installer --uninstall' manually or delete it." >&2
+			exit 1
+		fi
+	fi
+
+fi
+
+
+#DEBHELPER#
+
+exit 0
+

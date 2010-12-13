@@ -1,0 +1,20 @@
+Template: nvidia-graphics-drivers/uninstall-nvidia-installer
+Type: boolean
+Default: true
+_Description: Run 'nvidia-installer --uninstall'?
+ The 'nvidia-installer' program was found on your system.  This probably
+ remains from an earlier installation of the non-free NVIDIA graphics driver
+ using the *.run file directly.  This method is incompatible to using packages
+ and therefore it is neccessary to undo the changes performed by the
+ 'nvidia-installer'.
+
+Template: nvidia-graphics-drivers/delete-nvidia-installer
+Type: boolean
+Default: true
+_Description: Delete 'nvidia-installer' files?
+ Some files from the 'nvidia-installer' are still remaining on your system.
+ These probably stem from an earlier installation of the non-free NVIDIA
+ graphics driver using the *.run file directly.  Running the uninstallation
+ procedure may have failed and left these behind.  These files conflict with
+ the packages providing the non-free NVIDIA graphics driver and must be
+ removed before the package installation can continue.
