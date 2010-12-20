@@ -2,6 +2,8 @@ nvidia-graphics-drivers (260.19.29-1) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
   * New upstream release.  (Closes: #607430)
+  * Upload to experimental.
+  * Update nv-kernel.ids.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 20 Dec 2010 10:44:08 +0100
 
