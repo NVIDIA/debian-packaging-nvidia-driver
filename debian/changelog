@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (260.19.29-1) UNRELEASED; urgency=low
+
+  [ Andreas Beckmann ]
+  * New upstream release.  (Closes: #607430)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 20 Dec 2010 10:44:08 +0100
+
 nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
 
   [ Andreas Beckmann ]
