@@ -1,7 +1,10 @@
-nvidia-graphics-drivers (260.19.29-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
-  * New upstream release.  (Closes: #607430)
+  * New upstream release.  (Closes: #607430, #610755)
+    - Ensure that all system memory allocated for use with GPUs or within
+      user-space components of the NVIDIA driver stack is initialized to zero.
+      (Closes: #609338)
   * Upload to experimental.
   * Update nv-kernel.ids.
   * Detect license changes by comparing debian/copyright with the shipped
