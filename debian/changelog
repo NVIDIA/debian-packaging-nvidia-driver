@@ -9,6 +9,27 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
   * Update nv-kernel.ids.
   * Detect license changes by comparing debian/copyright with the shipped
     LICENSE during build.
+  * Pre-Depend on nvidia-common for interactive (using debconf)
+    nvidia-installer cleanup.  There is a mutual exclusion between using the
+    nvidia-installer and the driver packages.
+    - Checks for /usr/bin/nvidia-installer and asks the user whether to run
+      'nvidia-installer --uninstall'.  If that fails, offers to just delete
+      the remaining files.  If the user chooses to do the cleanup himself,
+      installation is blocked as long as nvidia-installer is still found on
+      the system.  (Closes: #605337)
+    - Adds a pre-install hook for the nvidia-installer, giving a warning to
+      users running a NVIDIA-Linux-*.run file directly while Debian packages
+      providing the driver are installed.  This hook fails intentionally, but
+      unfortunately the default choice if the hook failed is to continue
+      anyway.  Therefore the hook tries to kill the nvidia-installer process.
+    - Provides a script that checks for conflicting libraries (libGL.so.*.*
+      remaining from previous usage of the nvidia-installer) and offers to
+      delete them.  The script is intended to be run from postinst.  If the
+      user chooses not to delete them, postinst configure fails as long as the
+      user has not cleaned up or lets the postinst delete the files.
+  * nvidia-glx{,-ia32}.postinst: run the cleanup of conflicting libGL.so.*.*
+    (Currently the conflicting libraries are moved to
+    /var/lib/nvidia-backup.XXXXXX instead of deleting them.) (Closes: #606175)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 20 Dec 2010 10:44:08 +0100
 

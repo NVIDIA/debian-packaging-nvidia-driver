@@ -82,15 +82,10 @@ then
 
 	update-alternatives --install /usr/lib/xorg/modules/extensions/libglx.so libglx.so /usr/lib/nvidia/libglx.so 42
 
-	# <target: squeeze>
-	for f in /usr/lib/libGL.so.*.*
-	do
-		if [ -e "$f" ] || [ -L "$f" ]
-	       	then
-			echo "WARNING: The file '$f' found on your system may interfere with accelerated OpenGL."
-		fi
-	done
-	# </target: squeeze>
+	if [ -x /usr/lib/nvidia/check-for-conflicting-opengl-libraries ]
+	then
+		/usr/lib/nvidia/check-for-conflicting-opengl-libraries
+	fi
 
 fi
 

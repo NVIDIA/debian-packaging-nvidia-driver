@@ -21,7 +21,7 @@ Homepage: http://www.nvidia.com
 Package: nvidia-glx
 Section: non-free/x11
 Architecture: i386 amd64
-Pre-Depends: dpkg (>= 1.15.7.2)
+Pre-Depends: dpkg (>= 1.15.7.2), nvidia-common
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  libglx-nvidia-alternatives,
@@ -60,7 +60,7 @@ Package: nvidia-glx-ia32
 Section: non-free/oldlibs
 Priority: extra
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18)
+Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (= ${binary:Version}),
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
@@ -473,6 +473,7 @@ Description: NVIDIA OpenCL 32-bit library
 
 Package: libgl1-nvidia-alternatives
 Architecture: i386 amd64
+Pre-Depends: nvidia-common
 Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
  nvidia-glx (<< 195.36.31-2),
@@ -494,7 +495,7 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries
 Package: libgl1-nvidia-alternatives-ia32
 Priority: extra
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18)
+Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
 Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
  nvidia-glx-ia32 (<< 195.36.31-2), libgl1-nvidia-glx-ia32 (<< 195.36.31-2),
@@ -510,6 +511,7 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
 
 Package: libglx-nvidia-alternatives
 Architecture: i386 amd64
+Pre-Depends: nvidia-common
 Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
  nvidia-glx (<< 195.36.31-3),
