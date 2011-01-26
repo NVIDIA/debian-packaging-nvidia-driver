@@ -13,9 +13,3 @@ nvidia-glx#LEGACY#: script-with-language-extension usr/bin/nvidia-bug-report.sh
 
 # We provide ourselves as a virtual package.
 nvidia-glx: package-relation-with-self provides: nvidia-glx
-
-# Debconf is not used for "configuring" but only for resolving error
-# conditions (i.e. leftover stray libraries) interactively.  These can only
-# be detected reliably after all related packages have been configured.
-nvidia-glx#LEGACY#: no-debconf-config
-nvidia-glx#LEGACY#: postinst-uses-db-input

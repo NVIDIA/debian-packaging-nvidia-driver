@@ -9,7 +9,6 @@ Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers/tr
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
  debhelper (>= 8),
- po-debconf,
  bzip2,
  dkms (>= 2.1.1.1),
  libxext6,
@@ -549,7 +548,6 @@ Description: NVIDIA OpenCL development files
 Package: libgl1-nvidia-alternatives
 Section: non-free/libs
 Architecture: i386 amd64
-Pre-Depends: debconf
 Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
  nvidia-glx (<< 195.36.31-2),
