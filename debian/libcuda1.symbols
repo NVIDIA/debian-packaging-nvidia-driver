@@ -14,27 +14,37 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuCtxCreate@Base 169
  cuCtxCreate_v2@Base 260
  cuCtxDestroy@Base 177
+ cuCtxDestroy_v2@Base 270
  cuCtxDetach@Base 169
+ cuCtxDisablePeerAddressing@Base 270
+ cuCtxEnablePeerAddressing@Base 270
  cuCtxGetApiVersion@Base 260
  cuCtxGetCacheConfig@Base 260
+ cuCtxGetCurrent@Base 270
  cuCtxGetDevice@Base 177
  cuCtxGetLimit@Base 256
  cuCtxPopCurrent@Base 177
+ cuCtxPopCurrent_v2@Base 270
  cuCtxPushCurrent@Base 177
+ cuCtxPushCurrent_v2@Base 270
  cuCtxSetCacheConfig@Base 260
+ cuCtxSetCurrent@Base 270
  cuCtxSetLimit@Base 256
  cuCtxSynchronize@Base 169
+ cuDeviceCanAddressPeer@Base 270
  cuDeviceComputeCapability@Base 169
  cuDeviceGet@Base 169
  cuDeviceGetAttribute@Base 169
  cuDeviceGetCount@Base 169
  cuDeviceGetName@Base 169
+ cuDeviceGetPrimaryCtx@Base 270
  cuDeviceGetProperties@Base 169
  cuDeviceTotalMem@Base 169
  cuDeviceTotalMem_v2@Base 260
  cuDriverGetVersion@Base 185
  cuEventCreate@Base 169
  cuEventDestroy@Base 169
+ cuEventDestroy_v2@Base 270
  cuEventElapsedTime@Base 169
  cuEventQuery@Base 169
  cuEventRecord@Base 169
@@ -71,6 +81,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuLaunch@Base 169
  cuLaunchGrid@Base 169
  cuLaunchGridAsync@Base 169
+ cuLaunchKernel@Base 270
  cuMemAlloc@Base 169
  cuMemAllocHost@Base 169
  cuMemAllocHost_v2@Base 260
@@ -83,12 +94,18 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemGetAddressRange@Base 169
  cuMemGetAddressRange_v2@Base 260
  cuMemGetAttribute@Base 190
+ cuMemGetAttribute_v2@Base 270
  cuMemGetInfo@Base 169
  cuMemGetInfo_v2@Base 260
  cuMemHostAlloc@Base 185
  cuMemHostGetDevicePointer@Base 185
  cuMemHostGetDevicePointer_v2@Base 260
  cuMemHostGetFlags@Base 190
+ cuMemHostRegister@Base 270
+ cuMemHostUnregister@Base 270
+ cuMemPeerGetDevicePointer@Base 270
+ cuMemPeerRegister@Base 270
+ cuMemPeerUnregister@Base 270
  cuMemcpy2D@Base 169
  cuMemcpy2DAsync@Base 169
  cuMemcpy2DAsync_v2@Base 260
@@ -98,7 +115,11 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemcpy3D@Base 177
  cuMemcpy3DAsync@Base 177
  cuMemcpy3DAsync_v2@Base 260
+ cuMemcpy3DPeer@Base 270
+ cuMemcpy3DPeerAsync@Base 270
  cuMemcpy3D_v2@Base 260
+ cuMemcpy@Base 270
+ cuMemcpyAsync@Base 270
  cuMemcpyAtoA@Base 169
  cuMemcpyAtoA_v2@Base 260
  cuMemcpyAtoD@Base 169
@@ -125,6 +146,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemcpyHtoDAsync@Base 169
  cuMemcpyHtoDAsync_v2@Base 260
  cuMemcpyHtoD_v2@Base 260
+ cuMemcpyPeer@Base 270
+ cuMemcpyPeerAsync@Base 270
  cuMemsetD16@Base 169
  cuMemsetD16Async@Base 260
  cuMemsetD16_v2@Base 260
@@ -158,8 +181,13 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuParamSetf@Base 169
  cuParamSeti@Base 169
  cuParamSetv@Base 169
+ cuPointerGetAttribute@Base 270
+ cuProfilerInitialize@Base 270
+ cuProfilerStart@Base 270
+ cuProfilerStop@Base 270
  cuStreamCreate@Base 169
  cuStreamDestroy@Base 169
+ cuStreamDestroy_v2@Base 270
  cuStreamQuery@Base 169
  cuStreamSynchronize@Base 169
  cuStreamWaitEvent@Base 260

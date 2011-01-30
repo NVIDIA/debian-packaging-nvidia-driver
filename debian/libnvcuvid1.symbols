@@ -8,6 +8,8 @@ libnvcuvid.so.1 #PACKAGE# #MINVER#
  cuvidDecodePicture@Base 260
  cuvidDestroyDecoder@Base 260
  cuvidDestroyVideoParser@Base 260
+ cuvidMapVideoFrame64@Base 270
  cuvidMapVideoFrame@Base 260
  cuvidParseVideoData@Base 260
+ cuvidUnmapVideoFrame64@Base 270
  cuvidUnmapVideoFrame@Base 260
