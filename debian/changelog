@@ -2,6 +2,7 @@ nvidia-graphics-drivers (270.18-1) UNRELEASED; urgency=low
 
   * New upstream beta.
   * Upload to experimental.
+  * Update nv-kernel.ids.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 29 Jan 2011 16:56:41 +0100
 
