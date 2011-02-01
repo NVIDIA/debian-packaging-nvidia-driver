@@ -22,7 +22,7 @@ In short:
 - remove all Debian *nvidia* packages
 - reinstall the NVIDIA driver by executing NVIDIA-Linux-*.run again
   (otherwise removal will fail), ignore errors
-- remove the driver installed from the *.run file: nvidia-install --uninstall
+- remove the driver installed from the *.run file: nvidia-installer --uninstall
 - remove all nvidia.ko still found under /lib/modules
 - reinstall the Debian nvidia-glx packages
 
