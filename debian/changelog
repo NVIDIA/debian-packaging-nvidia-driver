@@ -1,10 +1,11 @@
 nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
-  * New upstream release.  (Closes: #607430, #610755)
+  * New upstream release.  (Closes: #607430, #610755, #612136)
     - Updated the NVIDIA kernel module to ensure that all system memory
       allocated by it for use with GPUs or within user-space components of the
       NVIDIA driver stack is initialized to zero.  (Closes: #609338)
+    - Fix deadlock in some applications that fork.  (Closes: #612998)
   * Upload to experimental.
   * Merge 195.36.31-7 (UNRELEASED).
   * Update nv-kernel.ids.
@@ -17,7 +18,7 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
       'nvidia-installer --uninstall'.  If that fails, offers to just delete
       the remaining files.  If the user chooses to do the cleanup himself,
       installation is blocked as long as nvidia-installer is still found on
-      the system.  (Closes: #605337)
+      the system.  (Closes: #605337, #611705)
     - Adds a pre-install hook for the nvidia-installer, giving a warning to
       users running a NVIDIA-Linux-*.run file directly while Debian packages
       providing the driver are installed.  This hook fails intentionally, but

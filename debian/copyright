@@ -17,7 +17,7 @@ License: NVIDIA-graphics-drivers and NVIDIA-notes
 
 Files: debian/*
 Copyright: 2001-2010 Randall Donald <rdonald@debian.org>
-           2009-2010 Andreas Beckmann <debian@abeckmann.de>
+           2009-2011 Andreas Beckmann <debian@abeckmann.de>
            2010 Russ Allbery <rra@debian.org>
            Based on packages by Christopher Cheney.
 License: GPL-2+
