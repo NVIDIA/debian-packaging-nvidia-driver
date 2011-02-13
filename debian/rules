@@ -166,9 +166,6 @@ kernel-source-tree: prepare build-kernel-source-tree
 override_dh_install:
 	dh_install --list-missing
 
-override_dh_installman:
-	dh_installman --language=C
-
 override_dh_installchangelogs:
 	dh_installchangelogs debian/tmp/usr/share/doc/NVIDIA_Changelog
 
