@@ -1,0 +1,66 @@
+Origin: upstream, http://developer.download.nvidia.com/misc/patches/sysmem_clear_on_allocation/sysmem_clear_on_allocation.zip
+Description: system memory clear on allocation
+ [From 260.19.36 upstream release notes:]
+ Updated the NVIDIA kernel module to ensure that all system memory allocated
+ by it for use with GPUs or within user-space components of the NVIDIA driver
+ stack is initialized to zero.
+Bug-Securityfocus: http://www.securityfocus.com/archive/1/515591/30/0
+Bug-Debian: http://bugs.debian.org/609338
+Applied-Upstream: 260.19.34
+Last-Updated: 2011-02-13
+
+README for system memory clear on allocation patch
+
+This feature is turned on by default in NVIDIA drivers v260.19.34 and later.  
+
+
+This patch has not been exhaustively tested again previous driver releases, but is expected to work for all v260.19.xx drivers and may work with older R260 and R195 drivers as well.
+
+
+To apply the patch to driver versions older than v260.19.34, follow the instructions below:
+
+
+ # sh /path/to/NVIDIA-Linux-x86-260.19.34.run \
+     --apply-patch /path/to/NVIDIA_kernel-260.19.34-778465.diff
+ ...
+ # sh ./NVIDIA-Linux-x86-260.19.34-custom.run
+
+
+The `--apply-patch` command line option extracts the .run file, applies the patch, and then rebuilds the .run file, appending `-custom' to the file name.
+
+
+The example shown above is for x86, but the process is the same for x86-64.
+
+diff -ru kernel/nv-vm.c kernel.778465/nv-vm.c
+--- kernel/nv-vm.c	2011-01-10 00:00:09.000000000 -0800
++++ kernel.778465/nv-vm.c	2011-01-12 15:20:32.512362735 -0800
+@@ -431,6 +431,9 @@
+     nvl = NV_GET_NVL_FROM_NV_STATE(nv);
+     dev = nvl->dev;
+     gfp_mask = (dev->dma_mask > 0xffffffff) ? NV_GFP_KERNEL : NV_GFP_DMA32;
++#if defined(__GFP_ZERO)
++    gfp_mask |= __GFP_ZERO;
++#endif
+ 
+     // allocate and prep contiguous pages up front if necessary
+     if (NV_ALLOC_MAPPING_CONTIG(at->flags))
+@@ -455,6 +458,9 @@
+                 "memory\n");
+             return -1;
+         }
++#if !defined(__GFP_ZERO)
++        memset(virt_addr, 0, (at->num_pages * PAGE_SIZE));
++#endif
+ 
+ #if defined(NV_SG_MAP_BUFFERS)
+         // for amd 64-bit platforms, remap pages to make them 32-bit addressable
+@@ -485,6 +491,9 @@
+                     "NVRM: VM: nv_vm_malloc_pages: failed to allocate a page\n");
+                 goto failed;
+             }
++#if !defined(__GFP_ZERO)
++            memset(virt_addr, 0, PAGE_SIZE);
++#endif
+         }
+ 
+         phys_addr = nv_get_kern_phys_address(virt_addr);

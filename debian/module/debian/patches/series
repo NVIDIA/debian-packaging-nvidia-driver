@@ -1,3 +1,4 @@
+NVIDIA_kernel-260.19.34-778465.diff
 use-nv-kernel.o.ARCH.patch
 conditionally-include-linux_version.h.patch
 2.6.36-ioctl.patch

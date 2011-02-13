@@ -1,6 +1,10 @@
 nvidia-graphics-drivers (195.36.31-7) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
+  * Security fix.  (Closes: #609338)
+    Apply upstream patch NVIDIA_kernel-260.19.34-778465.diff to fix
+    information leak in the kernel module: kernel memory was returned
+    uninitialized to user space.
   * Add instructions how to switch driver installation from the NVIDIA way
     (running the *.run file) to the Debian way (using packages).
   * Let the bug-script to collect information about OpenGL and NVIDIA
