@@ -8,6 +8,7 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
     - Fix deadlock in some applications that fork.  (Closes: #612998)
   * Upload to experimental.
   * Merge 195.36.31-7 (UNRELEASED).
+  * Remove NVIDIA_kernel-260.19.34-778465.diff, applied upstream.
   * Update nv-kernel.ids.
   * Detect license changes by comparing debian/copyright with the shipped
     LICENSE during build.
@@ -121,11 +122,13 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
 nvidia-graphics-drivers (195.36.31-7) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
-  * Add nvidia-bug-report.sh manpage contributed by Vincent Cheng.
-    (Closes: #604782)
+  * Security fix.  (Closes: #609338)
+    Apply upstream patch NVIDIA_kernel-260.19.34-778465.diff to fix
+    information leak in the kernel module: kernel memory was returned
+    uninitialized to user space.
   * Add instructions how to switch driver installation from the NVIDIA way
     (running the *.run file) to the Debian way (using packages).
-  * Let the bug-script to collect information about OpenGL and NVIDIA
+  * Let the bug-script collect detailed information about OpenGL and NVIDIA
     libraries and their symlinks, diversions and alternatives currently found
     on the system.  Also list files remaining from using the nvidia-installer.
 
