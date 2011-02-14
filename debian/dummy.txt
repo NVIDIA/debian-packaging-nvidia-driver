@@ -1,0 +1,3 @@
+This is a dummy placeholder file to ensure the directory where it resides
+is not removed accidently when it is empty.  This may happen on certain
+upgrade paths and cause problems later on.

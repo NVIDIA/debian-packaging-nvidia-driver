@@ -33,8 +33,12 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
   * nvidia-glx{,-ia32}.postinst: run the cleanup of conflicting libGL.so.*.*
     (Currently the conflicting libraries are moved to
     /var/lib/nvidia-backup.XXXXXX instead of deleting them.) (Closes: #606175)
+  * Install a dummy file in /usr/lib/nvidia/diversions to ensure it is not
+    removed by some old maintainer script.  Causes trouble if the destination
+    directory of some diversion is missing and the diverted file is installed
+    later on.  (Closes: #608625)
 
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 20 Dec 2010 10:44:08 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 13 Feb 2011 18:49:21 +0100
 
 nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
 
