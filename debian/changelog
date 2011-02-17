@@ -58,6 +58,8 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
     removed by some old maintainer script.  Causes trouble if the destination
     directory of some diversion is missing and the diverted file is installed
     later on.  (Closes: #608625)
+  * Add patch nvidia-kernel-compat-2.6.38.patch to fix build with 2.6.38-rc
+    kernels.  (Closes: #613798)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 13 Feb 2011 18:49:21 +0100
 
