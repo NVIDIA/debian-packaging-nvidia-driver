@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (270.18-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (270.26-1) UNRELEASED; urgency=low
 
   * New upstream beta.
   * Upload to experimental.
