@@ -12,7 +12,7 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
       color index overlays were enabled.
     - Fixed a bug that caused pixel value 255 to be treated as transparent in
       color index overlays.
-    - Fix deadlock in some applications that fork.  (Closes: #612998)
+    * Fix deadlock in some applications that fork.  (Closes: #612998)
   * New upstream release 260.19.29 (2010-12-13).
     - Added support for the following GPUs: GeForce GTX 460 SE,
       GeForce GTX 570, Quadro 5000M, NVS 300.
@@ -60,6 +60,8 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
     later on.  (Closes: #608625)
   * Add patch nvidia-kernel-compat-2.6.38.patch to fix build with 2.6.38-rc
     kernels.  (Closes: #613798)
+  * Depend on xorg-video-abi-8 without minor version to match what
+    xserver-xorg-core provides.  (Closes: #612956)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 13 Feb 2011 18:49:21 +0100
 

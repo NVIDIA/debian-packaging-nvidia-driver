@@ -26,7 +26,7 @@ Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  libglx-nvidia-alternatives,
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
- xorg-video-abi-8.0 | xorg-video-abi-6.0 | xserver-xorg-core (<< 2:1.7.7),
+ xorg-video-abi-8 | xorg-video-abi-6.0 | xserver-xorg-core (<< 2:1.7.7),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-vdpau-driver (>= ${nvidia:Version})
 Suggests: nvidia-settings,
