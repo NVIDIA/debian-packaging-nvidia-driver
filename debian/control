@@ -34,6 +34,8 @@ Suggests: nvidia-settings,
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:
  nvidia-glx,
+ xorg-driver-video,
+# for squeeze-backports add xserver-xorg-video-6
 Conflicts:
  nvidia-glx,
  nvidia-glx-legacy,

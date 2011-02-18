@@ -65,6 +65,7 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
   * Add script build-module-packages.sh to the documentation of the
     nvidia-kernel-source package, uses module-assistant to do a quick build of
     the modules for all installed linux-headers.
+  * Provide xorg-driver-video.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 13 Feb 2011 18:49:21 +0100
 
