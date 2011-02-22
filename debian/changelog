@@ -1,6 +1,5 @@
-nvidia-graphics-drivers (195.36.31-7) UNRELEASED; urgency=low
+nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
 
-  [ Andreas Beckmann ]
   * Security fix.  (Closes: #609338)
     Apply upstream patch NVIDIA_kernel-260.19.34-778465.diff to fix
     information leak in the kernel module: kernel memory was returned
