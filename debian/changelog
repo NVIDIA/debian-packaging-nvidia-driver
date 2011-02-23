@@ -67,6 +67,9 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
     the modules for all installed linux-headers.
   * Prevent concurrent installation of mismatching upstream versions of
     libgl1-nvidia-glx and libgl1-nvidia-glx-ia32.  (Closes: #614040)
+  * Catch module-assistant failures after nvidia-kernel-source updates without
+    running 'module-assistant clean nvidia'.  Only works if the old version
+    already contained this change and a module was built.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 13 Feb 2011 18:49:21 +0100
 

@@ -38,6 +38,18 @@ ifneq (,$(wildcard makefile))
 	@echo "   Please run: module-assistant clean nvidia"
 	@exit 1
 endif
+ifneq (,$(MA_SOURCE_PKG))
+# module-assistant extracts the current source over any existing old build
+# directory which may cause all sorts of strange build failures after
+# updates, so create a stamp file (but don't remove it in the clean target)
+# and try to catch this problem
+	test -f debian/m-a.stamp || cp debian/changelog debian/m-a.stamp
+	@if ! cmp -s debian/changelog debian/m-a.stamp ; then \
+		echo "ERROR: build directory from older version found" ; \
+		echo "   Please run: module-assistant clean $(MA_SOURCE_PKG:-source=)" ; \
+		exit 1 ; \
+	fi
+endif
 	sh debian/prep-modules $(KSRC)
 	sed 's/#KVERS#/$(KVERS)/g' debian/install.template > debian/install
 	touch $@
