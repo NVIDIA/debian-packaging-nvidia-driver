@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 260.19.12 */
+/* synchronized with conftest.sh from 260.19.36, 173.14.28, 96.43.19, 71.86.14 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -51,7 +51,7 @@
  #undef NV_REMAP_PFN_RANGE_PRESENT
 #endif
 
-/* not seen in 260.19.12 */
+/* only used by 173xx and 71xx */
 /* Implement conftest.sh function signal_struct */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,10)
  #define NV_SIGNAL_STRUCT_HAS_RLIM
@@ -88,14 +88,6 @@
  #undef NV_I2C_ADAPTER_HAS_INC_USE
  #undef NV_I2C_ADAPTER_HAS_DEC_USE
  #undef NV_I2C_ADAPTER_HAS_CLIENT_REGISTER
-#endif
-
-/* not seen in 260.19.12 */
-/* Implement conftest.sh function sysctl_max_map_count */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,5)
- #define NV_SYSCTL_MAX_MAP_COUNT_PRESENT
-#else
- #undef NV_SYSCTL_MAX_MAP_COUNT_PRESENT
 #endif
 
 /* Implement conftest.sh function pm_message_t */
