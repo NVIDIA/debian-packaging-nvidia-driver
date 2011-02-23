@@ -20,21 +20,3 @@ Index: nvidia-260.19.21/nv-linux.h
  #else
  #define NV_ACQUIRE_CONSOLE_SEM()
  #define NV_RELEASE_CONSOLE_SEM()
-Index: nvidia-260.19.21/conftest.h
-===================================================================
---- nvidia-260.19.21.orig/conftest.h	2011-02-16 19:45:02.000000000 +0100
-+++ nvidia-260.19.21/conftest.h	2011-02-16 19:49:00.000000000 +0100
-@@ -303,6 +303,13 @@
-  #undef NV_LINUX_SEMAPHORE_H_PRESENT
- #endif
- 
-+/* Check for generated/autoconfig.h */
-+#if LINUX_VERSION_CODE > KERNEL_VERSION(2,6,37)
-+ #define NV_GENERATED_AUTOCONF_H_PRESENT
-+#else
-+ #undef NV_GENERATED_AUTOCONF_H_PRESENT
-+#endif
-+
- /* Check for linux/cred.h */
- #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,27)
-  #define NV_LINUX_CRED_H_PRESENT
