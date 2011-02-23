@@ -309,3 +309,10 @@
 #else
  #undef NV_LINUX_CRED_H_PRESENT
 #endif
+
+/* Check for generated/autoconf.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,33)
+ #define NV_GENERATED_AUTOCONF_H_PRESENT
+#else
+ #undef NV_GENERATED_AUTOCONF_H_PRESENT
+#endif
