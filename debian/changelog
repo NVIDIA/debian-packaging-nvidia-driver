@@ -72,6 +72,7 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
     already contained this change and a module was built.
   * Use dpkg-parsechangelog to extract the upstream version number from
     debian/changelog, simplifying debian/rules.defs even more.
+  * Update lintian-overrides to work with lintian 2.5.0.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 13 Feb 2011 18:49:21 +0100
 

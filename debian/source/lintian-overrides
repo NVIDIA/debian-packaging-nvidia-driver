@@ -1,0 +1,2 @@
+# quilt is used to patch the module source for the dkms package
+nvidia-graphics-drivers source: unneeded-build-dep-on-quilt

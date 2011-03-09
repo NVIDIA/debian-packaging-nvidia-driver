@@ -1,4 +1,5 @@
 # The NVIDIA license does not allow any form of modification.
+#!amd64#libcuda1: embedded-library usr/lib/libcuda.so.#VERSION#: libm
 libcuda1: shlib-with-executable-stack
 #!amd64#libcuda1: shlib-with-non-pic-code
 libcuda1: unstripped-binary-or-object
