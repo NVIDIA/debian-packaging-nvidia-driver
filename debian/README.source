@@ -28,8 +28,8 @@ Importing a New Upstream Release
         tarball with:
             tar czvf nvidia-graphics-drivers_<version>.orig.tar.gz
 
-    * Edit debian/rules.defs in the Debian package and change
-      NVIDIA_RELEASE to the appropriate value.
+    * For generating tarballs of older versions first set WATCH_VERSION in
+      debian/rules.defs appropriately and regenerate debian/watch.
 
     * Edit debian/module/conftest.h if necessary for kernel compatibility
       and test.
