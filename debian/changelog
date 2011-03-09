@@ -1,8 +1,13 @@
-nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (260.19.44-1) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
-  * New upstream release 260.19.36 (2011-01-21).
+  * New upstream release 260.19.44 (2011-03-07).
     (Closes: #607430, #610755, #612136)
+    - Updated the NVIDIA X driver to not update mode timings for G-Sync
+      compatibility when NVIDIA 3D Vision or NVIDIA 3D VisionPro is
+      enabled along with a G-Sync device.
+    - Added support for the following GPUs: Quadro 2000 D, Quadro 400.
+  * New upstream release 260.19.36 (2011-01-21).
     - Updated the NVIDIA kernel module to ensure that all system memory
       allocated by it for use with GPUs or within user-space components of the
       NVIDIA driver stack is initialized to zero.  (Closes: #609338)
@@ -74,7 +79,7 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
     debian/changelog, simplifying debian/rules.defs even more.
   * Update lintian-overrides to work with lintian 2.5.0.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sun, 13 Feb 2011 18:49:21 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 09 Mar 2011 13:43:02 +0100
 
 nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
 
