@@ -70,6 +70,8 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
   * Catch module-assistant failures after nvidia-kernel-source updates without
     running 'module-assistant clean nvidia'.  Only works if the old version
     already contained this change and a module was built.
+  * Use dpkg-parsechangelog to extract the upstream version number from
+    debian/changelog, simplifying debian/rules.defs even more.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 13 Feb 2011 18:49:21 +0100
 
