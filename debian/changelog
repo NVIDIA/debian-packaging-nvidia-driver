@@ -10,7 +10,7 @@ nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
     libraries and their symlinks, diversions and alternatives currently found
     on the system.  Also list files remaining from using the nvidia-installer.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sun, 28 Nov 2010 18:14:19 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 22 Feb 2011 20:35:45 +0000
 
 nvidia-graphics-drivers (195.36.31-6) unstable; urgency=low
 
