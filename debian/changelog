@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (260.19.44-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (260.19.44-1) unstable; urgency=low
 
   [ Andreas Beckmann ]
   * New upstream release 260.19.44 (2011-03-07).
@@ -32,7 +32,6 @@ nvidia-graphics-drivers (260.19.44-1) UNRELEASED; urgency=low
       to store 3D Vision Pro configuration settings.
       See "Appendix B. X Config Options" in the README for
       more information.
-  * Upload to experimental.
   * Merge 195.36.31-7 (UNRELEASED).
   * Remove NVIDIA_kernel-260.19.34-778465.diff, applied upstream.
   * Update nv-kernel.ids.
@@ -79,7 +78,7 @@ nvidia-graphics-drivers (260.19.44-1) UNRELEASED; urgency=low
     debian/changelog, simplifying debian/rules.defs even more.
   * Update lintian-overrides to work with lintian 2.5.0.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 09 Mar 2011 13:43:02 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 16 Mar 2011 22:38:31 +0100
 
 nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
 
