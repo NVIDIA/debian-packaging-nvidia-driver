@@ -77,8 +77,9 @@ nvidia-graphics-drivers (260.19.44-1) unstable; urgency=low
   * Use dpkg-parsechangelog to extract the upstream version number from
     debian/changelog, simplifying debian/rules.defs even more.
   * Update lintian-overrides to work with lintian 2.5.0.
+  * Add patch fix-typos.patch to fix a typo in the module (found by lintian).
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 16 Mar 2011 22:38:31 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 17 Mar 2011 02:03:16 +0100
 
 nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
 
