@@ -1,4 +1,6 @@
 # The NVIDIA license does not allow any form of modification.
+nvidia-glx#LEGACY#: embedded-library usr/lib/xorg/modules/drivers/nvidia_drv.so: zlib
+nvidia-glx#LEGACY#: embedded-library usr/lib/xorg/modules/drivers/nvidia_drv.so: libpng
 nvidia-glx#LEGACY#: embedded-libpng ./usr/lib/xorg/modules/drivers/nvidia_drv.so
 nvidia-glx#LEGACY#: embedded-zlib ./usr/lib/xorg/modules/drivers/nvidia_drv.so
 

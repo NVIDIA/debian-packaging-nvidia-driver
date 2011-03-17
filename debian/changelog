@@ -9,15 +9,42 @@ nvidia-graphics-drivers (270.26-1) UNRELEASED; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 29 Jan 2011 16:56:41 +0100
 
-nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (260.19.44-1) unstable; urgency=low
 
   [ Andreas Beckmann ]
-  * New upstream release.  (Closes: #607430, #610755)
+  * New upstream release 260.19.44 (2011-03-07).
+    (Closes: #607430, #610755, #612136)
+    - Updated the NVIDIA X driver to not update mode timings for G-Sync
+      compatibility when NVIDIA 3D Vision or NVIDIA 3D VisionPro is
+      enabled along with a G-Sync device.
+    - Added support for the following GPUs: Quadro 2000 D, Quadro 400.
+  * New upstream release 260.19.36 (2011-01-21).
     - Updated the NVIDIA kernel module to ensure that all system memory
       allocated by it for use with GPUs or within user-space components of the
       NVIDIA driver stack is initialized to zero.  (Closes: #609338)
-  * Upload to experimental.
+      A new NVIDIA kernel module option, InitializeSystemMemoryAllocations,
+      allows administrators to revert to the previous behavior.
+    - Fixed a bug that caused X servers version 1.9 and higher to crash when
+      color index overlays were enabled.
+    - Fixed a bug that caused pixel value 255 to be treated as transparent in
+      color index overlays.
+    * Fix deadlock in some applications that fork.  (Closes: #612998)
+  * New upstream release 260.19.29 (2010-12-13).
+    - Added support for the following GPUs: GeForce GTX 460 SE,
+      GeForce GTX 570, Quadro 5000M, NVS 300.
+    - Fixed a bug that caused some OpenGL applications to become
+      unresponsive for up to a minute on some GPUs when changing
+      the resolution or refresh rate.
+    - Added support for NVIDIA 3D Vision Pro.
+      See the "Stereo" X configuration documentation in the README
+      for further details.
+    - Added a new X configuration option "3DVisionProConfigFile"
+      to allow user provide a filename which NVIDIA X driver uses
+      to store 3D Vision Pro configuration settings.
+      See "Appendix B. X Config Options" in the README for
+      more information.
   * Merge 195.36.31-7 (UNRELEASED).
+  * Remove NVIDIA_kernel-260.19.34-778465.diff, applied upstream.
   * Update nv-kernel.ids.
   * Detect license changes by comparing debian/copyright with the shipped
     LICENSE during build.
@@ -28,7 +55,7 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
       'nvidia-installer --uninstall'.  If that fails, offers to just delete
       the remaining files.  If the user chooses to do the cleanup himself,
       installation is blocked as long as nvidia-installer is still found on
-      the system.  (Closes: #605337)
+      the system.  (Closes: #605337, #611705)
     - Adds a pre-install hook for the nvidia-installer, giving a warning to
       users running a NVIDIA-Linux-*.run file directly while Debian packages
       providing the driver are installed.  This hook fails intentionally, but
@@ -42,13 +69,105 @@ nvidia-graphics-drivers (260.19.36-1) UNRELEASED; urgency=low
   * nvidia-glx{,-ia32}.postinst: run the cleanup of conflicting libGL.so.*.*
     (Currently the conflicting libraries are moved to
     /var/lib/nvidia-backup.XXXXXX instead of deleting them.) (Closes: #606175)
+  * Install a dummy file in /usr/lib/nvidia/diversions to ensure it is not
+    removed by some old maintainer script.  Causes trouble if the destination
+    directory of some diversion is missing and the diverted file is installed
+    later on.  (Closes: #608625)
+  * Add patch nvidia-kernel-compat-2.6.38.patch to fix build with 2.6.38-rc
+    kernels.  (Closes: #613798)
+  * Depend on xorg-video-abi-8 without minor version (Closes: #612956) and
+    provide xorg-driver-video to match what Xorg 1.9 provides and expects.
+  * Add script build-module-packages.sh to the documentation of the
+    nvidia-kernel-source package, uses module-assistant to do a quick build of
+    the modules for all installed linux-headers.
+  * Prevent concurrent installation of mismatching upstream versions of
+    libgl1-nvidia-glx and libgl1-nvidia-glx-ia32.  (Closes: #614040)
+  * Catch module-assistant failures after nvidia-kernel-source updates without
+    running 'module-assistant clean nvidia'.  Only works if the old version
+    already contained this change and a module was built.
+  * Use dpkg-parsechangelog to extract the upstream version number from
+    debian/changelog, simplifying debian/rules.defs even more.
+  * Update lintian-overrides to work with lintian 2.5.0.
+  * Add patch fix-typos.patch to fix a typo in the module (found by lintian).
+  * Drop Conflicts: binutils-gold, the problem is no longer reproducible with
+    binutils-gold 2.21.0.20110302-2 and driver 260.19.44 or 195.36.31, so
+    either the driver or gold was fixed inbetween.  (See #581336)
 
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 20 Dec 2010 10:44:08 +0100
+  [ Russ Allbery ]
+  * Readd the Lintian overrides for the old embedded library tags, since
+    part of the ftp-master verification process seems to be using an older
+    Lintian.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 16 Mar 2011 23:13:13 -0700
 
 nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
 
   [ Andreas Beckmann ]
-  * New upstream release.  (Closes: #603754)
+  * New upstream release 260.19.21 (2010-11-11).  (Closes: #603754)
+    - Fixed a race condition in OpenGL that could cause crashes with
+      multithreaded applications.
+    - Fixed a bug that may cause OpenGL applications which fork to crash.
+    - Fixed a bug in VDPAU that caused it to attempt allocation of huge
+      blocks of system memory. This regression was introduced in the
+      260.* driver series.
+  * New upstream release 260.19.12 (2010-10-13).
+    - Added support for the following GPUs: GeForce GTS 450, GeForce GTX 460M,
+      GeForce GT 415M, GeForce GT 425M, GeForce GT 420M, GeForce GT 435M,
+      Quadro 2000, Quadro 600.
+    - Fixed the CustomEDID X configuration option so that it can handle
+      EDID files from Linux procfs; e.g., /proc/acpi/video/IGPU/LCD0/EDID.
+  * New upstream release 260.19.06 (2010-09-15).
+    - Fixed an interaction problem with a change in X server behavior that
+      caused slow text rendering on X.Org xserver 1.9.
+    - Enhanced VDPAU to support interop with CUDA and OpenGL when Xinerama
+      is active.
+    - Fixed a bug in VDPAU that prevented temporal-spatial de-interlacing from
+      operating when temporal de-interlacing was not also enabled.
+    - Added support for configuring the dithering depth used when driving
+      a flat panel with a GeForce 8 family or Quadro 4600/5600 or
+      newer GPU.  See the "Dithering Controls" in the Flat Panel page
+      in nvidia-settings.
+  * New upstream release 260.19.04 (2010-09-08).
+    - Added support for the nvcuvid API.
+      nvcuvid provides a mechanism for decoding video and exposing the
+      surfaces to CUDA, allowing applications to perform custom processing of
+      the video. nvcuvid is primarily targeted at transcoding and video-
+      processing applications. nvcuvid was already available on other
+      platforms.
+    - Fixed a bug in VDPAU that could cause a "display preemption" when
+      toggling MPlayer to full-screen the first time.
+    - Added OpenGL 4.1 support for Quadro Fermi, GeForce GTX 4xx, and
+      later GPUs.
+    - Enhanced VDPAU to fully support Xinerama.
+    - Fixed a bug in the X driver that prevented operation of Xinerama when
+      using multiple NVIDIA GPUs from different major hardware generations
+      on X with ABI 4 or greater.
+    - Fixed a bug in the OpenGL driver's Xinerama support.
+      Rendering should have ocurred to all physical X screens driven by an
+      NVIDIA GPU compatible with the NVIDIA GPU driving physical X screen 0.
+      However, if some physical X screen did not satisfy that requirement,
+      then not only would that physical X screen not be rendered to (as
+      expected), but also all physical X screens with a higher number would
+      not be rendered to (which was unexpected).
+    - Added GPU "Processor Clock" reporting to the nvidia-settings PowerMizer
+      page.
+    - Implemented support for SLI Mosaic Mode on Quadro FX 5800 and
+      Quadro Fermi and newer Quadro GPUs.
+    - Enhanced the VDPAU overlay-based presentation queue to allow it to be
+      used when SLI is active, and in some cases when the X composite
+      extension is enabled. See the README for further details.
+    - Added support for configuring the dithering mode used when driving
+      a flat panel with a GeForce 8 family or Quadro 4600/5600 or
+      newer GPU.  See the "Dithering Controls" in the Flat Panel page
+      in nvidia-settings.
+    - Added support for configuring individual displays as any eye in passive
+      stereo mode "4" when using TwinView or SLI Mosaic through extensions to
+      the MetaMode syntax.
+    - Added ColorSpace and ColorRange features for HDMI. These give
+      the ability to output YUV over HDMI and select full/reduced
+      color range on RGB over HDMI. ColorSpace and ColorRange
+      are X Configuration options and can be changed dynamically
+      through nvidia-settings.
   * Upload to experimental.
   * Merge 195.36.31-6.
   * Update nv-kernel.ids.
@@ -128,14 +247,15 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
 
  -- Russ Allbery <rra@debian.org>  Sat, 18 Sep 2010 15:07:19 -0700
 
-nvidia-graphics-drivers (195.36.31-7) UNRELEASED; urgency=low
+nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
 
-  [ Andreas Beckmann ]
-  * Add nvidia-bug-report.sh manpage contributed by Vincent Cheng.
-    (Closes: #604782)
+  * Security fix.  (Closes: #609338)
+    Apply upstream patch NVIDIA_kernel-260.19.34-778465.diff to fix
+    information leak in the kernel module: kernel memory was returned
+    uninitialized to user space.
   * Add instructions how to switch driver installation from the NVIDIA way
     (running the *.run file) to the Debian way (using packages).
-  * Let the bug-script to collect information about OpenGL and NVIDIA
+  * Let the bug-script collect detailed information about OpenGL and NVIDIA
     libraries and their symlinks, diversions and alternatives currently found
     on the system.  Also list files remaining from using the nvidia-installer.
 

@@ -1,1 +1,2 @@
 debian/tmp/usr/share/doc/README.txt
+debian/build-module-packages.sh
