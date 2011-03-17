@@ -46,6 +46,7 @@ nvidia-graphics-drivers (270.30-1) UNRELEASED; urgency=low
   * Upload to experimental.
   * Update nv-kernel.ids.
   * Update symbols control files.
+  * Refresh use-nv-kernel.o.ARCH.patch.
   * Add package libnvidia-ml1 for the NVIDIA management library (NVML), a new
     library added by upstream.
   * Alternatively depend on xorg-video-abi-10.
