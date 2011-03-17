@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (270.26-1) UNRELEASED; urgency=low
 
-  * New upstream beta.
+  * New upstream beta.  (Closes: #616353)
   * Upload to experimental.
   * Update nv-kernel.ids.
   * Update symbols control files.
