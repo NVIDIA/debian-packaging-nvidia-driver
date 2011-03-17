@@ -43,51 +43,159 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  NvRmWriteRegistryBinary@Base 270
  NvRmWriteRegistryDword@Base 270
  (arch=i386)__dso_handle@Base 270
- g@Base 270
- getDefaultSubdevice@Base 270
- getDisplayDevice@Base 270
- getFbDevice@Base 270
- getGpuId@Base 270
- getGraphicsDevice@Base 270
- globalReaderEnter@Base 270
- globalReaderExit@Base 270
- globalWriterEnter@Base 270
- globalWriterExit@Base 270
+ apiEnter@Base 270
+ apiExit@Base 270
+ cuosCPUID@Base 270
+ cuosDeleteCriticalSection@Base 270
+ cuosEnterCriticalSection@Base 270
+ cuosEventClear@Base 270
+ cuosEventCreate@Base 270
+ cuosEventDestroy@Base 270
+ cuosEventGetOsPtr@Base 270
+ cuosEventIpcCreate@Base 270
+ cuosEventSignal@Base 270
+ cuosEventWait@Base 270
+ cuosFreeLibrary@Base 270
+ cuosFreePhysicalMemory@Base 270
+ cuosFreeSwapMemory@Base 270
+ cuosGetCpuTime@Base 270
+ cuosGetCurrentThreadId@Base 270
+ cuosGetEnv@Base 270
+ cuosGetFileSize@Base 270
+ cuosGetLocalTime@Base 270
+ cuosGetPageSize@Base 270
+ cuosGetProcAddress@Base 270
+ cuosGetProcCoreCount@Base 270
+ cuosGetTimer@Base 270
+ cuosGetUserDataNVPath@Base 270
+ cuosInit@Base 270
+ cuosInitializeCriticalSection@Base 270
+ cuosInterlockedCompareExchange@Base 270
+ cuosInterlockedCompareExchangePointer@Base 270
+ cuosInterlockedDecrement@Base 270
+ cuosInterlockedExchange@Base 270
+ cuosInterlockedIncrement@Base 270
+ cuosIpcCreate@Base 270
+ cuosIpcDestroy@Base 270
+ cuosIpcMakeName@Base 270
+ cuosLeaveCriticalSection@Base 270
+ cuosLoadLibrary@Base 270
+ cuosLockFile@Base 270
+ cuosMkdir@Base 270
+ cuosProcessId@Base 270
+ cuosResetTimer@Base 270
+ cuosRm@Base 270
+ cuosRmdir@Base 270
+ cuosSemaphoreCreate@Base 270
+ cuosSemaphoreDestroy@Base 270
+ cuosSemaphoreSignal@Base 270
+ cuosSemaphoreWait@Base 270
+ cuosSetEnv@Base 270
+ cuosShmBaseAddress@Base 270
+ cuosShmCreate@Base 270
+ cuosShmDestroy@Base 270
+ cuosShmMap@Base 270
+ cuosShmOpen@Base 270
+ cuosShmSize@Base 270
+ cuosShmUnmap@Base 270
+ cuosSleep@Base 270
+ cuosThreadCreate@Base 270
+ cuosThreadDetach@Base 270
+ cuosThreadIsCurrent@Base 270
+ cuosThreadJoin@Base 270
+ cuosThreadYield@Base 270
+ cuosThreadYieldHeavy@Base 270
+ cuosTlsAlloc@Base 270
+ cuosTlsFree@Base 270
+ cuosTlsGetValue@Base 270
+ cuosTlsSetValue@Base 270
+ cuosTotalPhysicalMemory@Base 270
+ cuosTotalSwapMemory@Base 270
+ cuosUnlockFile@Base 270
+ cuosVirtualAlloc@Base 270
+ cuosVirtualFree@Base 270
+ cuosglGetProcAddress@Base 270
+ deviceClearEccErrorCountsRM@Base 270
+ deviceGetComputeModeRM@Base 270
+ deviceGetDetailedAggregateEccErrorsRM@Base 270
+ deviceGetDetailedVolatileEccErrorsRM@Base 270
+ deviceGetDisplayModeRM@Base 270
+ deviceGetEccModeRM@Base 270
+ deviceGetFanSpeedRM@Base 270
+ deviceGetInforomVersionRM@Base 270
+ deviceGetMemoryInfoRM@Base 270
+ deviceGetNameRM@Base 270
+ deviceGetPciInfoRM@Base 270
+ deviceGetPersistenceModeRM@Base 270
+ deviceGetPowerCappingModeRM@Base 270
+ deviceGetPowerStateRM@Base 270
+ deviceGetPowerUsageRM@Base 270
+ deviceGetSerialRM@Base 270
+ deviceGetTemperatureRM@Base 270
+ deviceGetTotalAggregateEccErrorsRM@Base 270
+ deviceGetUUIDRM@Base 270
+ deviceGetUtilizationRatesRM@Base 270
+ deviceSetComputeModeRM@Base 270
+ deviceSetEccModeRM@Base 270
+ deviceSetPersistenceModeRM@Base 270
+ globals@Base 270
  isRootUser@Base 270
- isValidDeviceId@Base 270
  nv_cards@Base 270
  nv_ctl_mappings@Base 270
  nv_device_mappings@Base 270
  nv_env_info@Base 270
  nv_mappings@Base 270
+ nvmlCanoasInitRM@Base 270
  nvmlDeviceClearEccErrorCounts@Base 270
- nvmlDeviceGetClockInfo@Base 270
  nvmlDeviceGetComputeMode@Base 270
  nvmlDeviceGetCount@Base 270
- nvmlDeviceGetDetailedAggregateEccErrors@Base 270
  nvmlDeviceGetDetailedEccErrors@Base 270
- nvmlDeviceGetDetailedVolatileEccErrors@Base 270
  nvmlDeviceGetDisplayMode@Base 270
  nvmlDeviceGetDriverModel@Base 270
  nvmlDeviceGetEccMode@Base 270
  nvmlDeviceGetFanSpeed@Base 270
- nvmlDeviceGetId@Base 270
+ nvmlDeviceGetHandleByIndex@Base 270
+ nvmlDeviceGetHandleByPciBusId@Base 270
+ nvmlDeviceGetHandleBySerial@Base 270
  nvmlDeviceGetInforomVersion@Base 270
  nvmlDeviceGetMemoryInfo@Base 270
  nvmlDeviceGetName@Base 270
  nvmlDeviceGetPciInfo@Base 270
+ nvmlDeviceGetPersistenceMode@Base 270
+ nvmlDeviceGetPowerCappingMode@Base 270
+ nvmlDeviceGetPowerState@Base 270
+ nvmlDeviceGetPowerUsage@Base 270
  nvmlDeviceGetSerial@Base 270
  nvmlDeviceGetTemperature@Base 270
- nvmlDeviceGetTotalAggregateEccErrors@Base 270
  nvmlDeviceGetTotalEccErrors@Base 270
  nvmlDeviceGetUUID@Base 270
  nvmlDeviceGetUtilizationRates@Base 270
  nvmlDeviceSetComputeMode@Base 270
  nvmlDeviceSetDriverModel@Base 270
  nvmlDeviceSetEccMode@Base 270
+ nvmlDeviceSetPersistenceMode@Base 270
  nvmlInit@Base 270
+ nvmlInitDmalRM@Base 270
+ nvmlInitRM@Base 270
+ nvmlInitUnitDmalRM@Base 270
  nvmlShutdown@Base 270
+ nvmlShutdownRM@Base 270
  nvmlSystemGetDriverVersion@Base 270
- nvmlSystemGetPersistenceMode@Base 270
- nvmlSystemSetPersistenceMode@Base 270
+ nvmlUnitGetCount@Base 270
+ nvmlUnitGetDevices@Base 270
+ nvmlUnitGetFanSpeedInfo@Base 270
+ nvmlUnitGetHandleByIndex@Base 270
+ nvmlUnitGetLedState@Base 270
+ nvmlUnitGetPsuInfo@Base 270
+ nvmlUnitGetTemperature@Base 270
+ nvmlUnitGetUnitInfo@Base 270
+ nvmlUnitSetLedState@Base 270
  pNVIDIA_ML_ID@Base 270
+ systemGetDriverVersionRM@Base 270
+ unitGetFanSpeedInfoRM@Base 270
+ unitGetLedStateRM@Base 270
+ unitGetPsuInfoRM@Base 270
+ unitGetTemperatureRM@Base 270
+ unitGetUnitGpusRM@Base 270
+ unitGetUnitInfoRM@Base 270
+ unitSetLedStateRM@Base 270
