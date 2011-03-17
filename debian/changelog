@@ -1,6 +1,48 @@
-nvidia-graphics-drivers (270.26-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (270.30-1) UNRELEASED; urgency=low
 
-  * New upstream beta.  (Closes: #616353)
+  * New upstream beta 270.30 (2011-03-??).
+    - Added support for xserver ABI 10 (xorg-server 1.10).
+  * New upstream beta 270.29 (2011-02-24).
+  * New upstream beta 270.26 (2011-02-15).  (Closes: #616353)
+    - Added NV-CONTROL event notification for NV_CTRL_FRAMELOCK_SYNC_READY
+      status changes.
+    - Added support for the following GPUs: GeForce GTX 560 Ti.
+    - Added a new X configuration option "Interactive", which defaults to
+      enabled, but can be disabled to allow long-running GPU compute programs
+      to run concurrently with X.
+    - Fixed a bug in the VDPAU presentation queue that could cause VDPAU
+      "display preemption" when rendering to tiny or zero-sized windows or
+      pixmaps.
+    - Fixed a bug in VDPAU which prevented use of the overlay presentation
+      queue following an application exiting without gracefully destroying its
+      VDPAU presentation queue.
+    - Fixed a bug in VDPAU that prevented the overlay from ever being used if
+      a presentation queue was created while the target window was redirected
+      using the Composite extension when the presentation queue was created.
+  * New upstream beta 270.18 (2011-01-21).
+    - Reorganized the NVIDIA driver's /proc file system layout to better
+      reflect current needs: /proc/driver/nvidia/cards/0..N has been
+      moved to /proc/driver/nvidia/gpus/0..N/information
+    - Added new shared library: libnvidia-ml.so.
+      NVML provides programmatic access to static information and monitoring
+      data for NVIDIA GPUs, as well as limited managment capabilities. It is 
+      intended for use with Tesla compute products.
+      See web-based documentation and associated nvml.h header for more info.
+    - Added a new X configuration option "3DVisionDisplayType" to specify
+      the display type when NVIDIA 3D Vision is enabled with a non
+      3D Vision ready display.
+    - Fixed several bugs relating to hardware-accelerated gradients, which were
+      causing visual corruption in some of the default Ubuntu GNOME themes.
+  * New upstream beta 265 series.
+    - Modified colormap updates to no longer be synchronized to vblank.  This
+      allows applications to send XStoreColor and XStoreColors requests faster
+      than the screen's refresh rate.
+      This behavior can be controlled by a new NV-CONTROL attribute,
+      NV_CONTROL_SYNC_LUT_UPDATES.  By default, LUT updates are not
+      synchronized.  This may cause flickering in some applications that use the
+      colormap to perform animation, such as xpilot running on a depth 8 X
+      screen.  If you experience flickering, try running
+          nvidia-settings -a [gpu:0]/SynchronousPaletteUpdates=1
   * Upload to experimental.
   * Update nv-kernel.ids.
   * Update symbols control files.
