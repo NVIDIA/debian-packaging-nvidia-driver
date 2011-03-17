@@ -82,7 +82,12 @@ nvidia-graphics-drivers (260.19.44-1) unstable; urgency=low
     binutils-gold 2.21.0.20110302-2 and driver 260.19.44 or 195.36.31, so
     either the driver or gold was fixed inbetween.  (See #581336)
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 17 Mar 2011 02:03:16 +0100
+  [ Russ Allbery ]
+  * Readd the Lintian overrides for the old embedded library tags, since
+    part of the ftp-master verification process seems to be using an older
+    Lintian.
+
+ -- Russ Allbery <rra@debian.org>  Wed, 16 Mar 2011 23:13:13 -0700
 
 nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
 
