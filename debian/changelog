@@ -78,6 +78,9 @@ nvidia-graphics-drivers (260.19.44-1) unstable; urgency=low
     debian/changelog, simplifying debian/rules.defs even more.
   * Update lintian-overrides to work with lintian 2.5.0.
   * Add patch fix-typos.patch to fix a typo in the module (found by lintian).
+  * Drop Conflicts: binutils-gold, the problem is no longer reproducible with
+    binutils-gold 2.21.0.20110302-2 and driver 260.19.44 or 195.36.31, so
+    either the driver or gold was fixed inbetween.  (See #581336)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 17 Mar 2011 02:03:16 +0100
 
