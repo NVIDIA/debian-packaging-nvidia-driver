@@ -74,6 +74,8 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
   * Add patch nvidia-kernel-compat-2.6.38.patch to fix build with 2.6.38-rc
     kernels.
   * Add patch fix-typos.patch to fix a typo in the module (found by lintian).
+  * Update lintian-overrides to work with lintian 2.5.0.  Keep error overrides
+    compatible with older lintian releases until ftp-master is updated.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
 
