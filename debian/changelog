@@ -51,7 +51,16 @@ nvidia-graphics-drivers (270.30-1) experimental; urgency=low
     library added by upstream.
   * Alternatively depend on xorg-video-abi-10.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 17 Mar 2011 12:27:24 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 12:25:31 +0100
+
+nvidia-graphics-drivers (260.19.44-2) UNRELEASED; urgency=low
+
+  [ Andreas Beckmann ]
+  * Let nvidia-vdpau-driver Conflicts/Replaces the obsolete transitional
+    package nvidia-libvdpau-dev.
+  * Merge 195.36.31-90 (UNRELEASED).
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 09:54:42 +0100
 
 nvidia-graphics-drivers (260.19.44-1) unstable; urgency=low
 
@@ -87,7 +96,7 @@ nvidia-graphics-drivers (260.19.44-1) unstable; urgency=low
       to store 3D Vision Pro configuration settings.
       See "Appendix B. X Config Options" in the README for
       more information.
-  * Merge 195.36.31-7 (UNRELEASED).
+  * Merge 195.36.31-7.
   * Remove NVIDIA_kernel-260.19.34-778465.diff, applied upstream.
   * Update nv-kernel.ids.
   * Detect license changes by comparing debian/copyright with the shipped
@@ -291,6 +300,87 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
 
  -- Russ Allbery <rra@debian.org>  Sat, 18 Sep 2010 15:07:19 -0700
 
+nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
+
+  * Merge general changes from 256xx/260xx releases:
+  * Use dpkg-parsechangelog to extract the upstream version number from
+    debian/changelog, simplifying debian/rules.defs even more.
+  * Drop Conflicts: binutils-gold, driver or gold was fixed.
+  * Detect license changes by comparing debian/copyright with the shipped
+    LICENSE during build.
+  * Catch module-assistant failures after nvidia-kernel-source updates without
+    running 'module-assistant clean nvidia'.  Only works if the old version
+    already contained this change and a module was built.
+  * Add script build-module-packages.sh to the documentation of the
+    nvidia-kernel-source package, uses module-assistant to do a quick build of
+    the modules for all installed linux-headers.
+  * Install a dummy file in /usr/lib/nvidia/diversions to ensure it is not
+    removed by some old maintainer script.  Causes trouble if the destination
+    directory of some diversion is missing and the diverted file is installed
+    later on.
+  * conftest.h: implement new (after 195.xx) conftest.sh functions
+    pci_dma_mapping_error, scatterlist, pci_domain_nr, file_operations,
+    sg_init_table.  Kernel versions of symbol (dis-)appearance from lxr.
+  * Pre-Depend on nvidia-common for interactive (using debconf)
+    nvidia-installer cleanup.  There is a mutual exclusion between using the
+    nvidia-installer and the driver packages.
+    - Checks for /usr/bin/nvidia-installer and asks the user whether to run
+      'nvidia-installer --uninstall'.  If that fails, offers to just delete
+      the remaining files.  If the user chooses to do the cleanup himself,
+      installation is blocked as long as nvidia-installer is still found on
+      the system.
+    - Adds a pre-install hook for the nvidia-installer, giving a warning to
+      users running a NVIDIA-Linux-*.run file directly while Debian packages
+      providing the driver are installed.  This hook fails intentionally, but
+      unfortunately the default choice if the hook failed is to continue
+      anyway.  Therefore the hook tries to kill the nvidia-installer process.
+    - Provides a script that checks for conflicting libraries (libGL.so.*.*
+      remaining from previous usage of the nvidia-installer) and offers to
+      delete them.  The script is intended to be run from postinst.  If the
+      user chooses not to delete them, postinst configure fails as long as the
+      user has not cleaned up or lets the postinst delete the files.
+  * nvidia-glx{,-ia32}.postinst: run the cleanup of conflicting libGL.so.*.*
+    (Currently the conflicting libraries are moved to
+    /var/lib/nvidia-backup.XXXXXX instead of deleting them.)
+  * Use /lib/modules/`uname -r`/build as the default kernel build location
+    for nvidia-kernel-source instead of /usr/src/linux, since this is set
+    up automatically by the current linux-headers-* packages.
+  * In the nvidia-kernel-source documentation, remove mention of setting
+    KVERS, which should no longer be needed, and mention that setting KSRC
+    is optional if the build link exists and you're building for the
+    currently running kernel.
+  * Stop shipping CUDA and OpenCL headers.  NVIDIA will stop including them in
+    the 260.xx release.  The NVIDIA CUDA Toolkit (which is the only user of
+    these header files) already contains them and is the recommended source
+    for these header files.
+  * Drop libcuda1-dev and nvidia-libopencl1-dev packages, move libOpenCL.so
+    link to nvidia-libopencl1.  libcuda1 and nvidia-libopencl1 Conflicts and
+    Replaces their old -dev packages for clean upgrades without transitionals.
+  * NOTE to packagers of software that uses NVIDIA CUDA and/or OpenCL: use
+    Build-Depends: nvidia-cuda-dev and/or nvidia-opencl-dev or
+    nvidia-cuda-toolkit.  If a certain OpenCL API is required, add versioned
+    B-D on opencl-headers, e.g (<< 1.1) for API 1.0 or (>> 1.1) for API 1.1.
+  * Lower Priority of *-ia32 packages to extra (debcheck).
+  * Switch default Section to non-free/libs with a few exceptions: x11
+    (nvidia-glx), utils (nvidia-smi), kernel (nvidia-kernel-{source,dkms}),
+    oldlibs (nvidia-glx-ia32).
+  * Drop transitional packages that were released with squeeze:
+    - nvidia-glx-dev (now Conflicts/Replaces by libgl1-nvidia-glx)
+    - nvidia-libvdpau1{,-ia32}, nvidia-libvdpau-dev
+      (now Conflicts/Replaces by nvidia-vdpau-driver{,-ia32})
+    - libnvidia-compiler1{,-ia32}
+      (now Conflicts/Replaces by libnvidia-compiler{,-ia32}).
+  * Prevent concurrent installation of mismatching upstream versions of
+    libgl1-nvidia-glx and libgl1-nvidia-glx-ia32.
+  * Provide xorg-driver-video.
+  * Add patch nvidia-kernel-compat-2.6.38.patch to fix build with 2.6.38-rc
+    kernels.
+  * Add patch fix-typos.patch to fix a typo in the module (found by lintian).
+  * Update lintian-overrides to work with lintian 2.5.0.  Keep error overrides
+    compatible with older lintian releases until ftp-master is updated.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
+
 nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
 
   * Security fix.  (Closes: #609338)
@@ -303,7 +393,7 @@ nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
     libraries and their symlinks, diversions and alternatives currently found
     on the system.  Also list files remaining from using the nvidia-installer.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sun, 28 Nov 2010 18:14:19 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 22 Feb 2011 20:35:45 +0000
 
 nvidia-graphics-drivers (195.36.31-6) unstable; urgency=low
 

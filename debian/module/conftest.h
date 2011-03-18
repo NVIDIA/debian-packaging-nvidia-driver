@@ -257,7 +257,7 @@
 #if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,24)
  #define NV_SCATTERLIST_HAS_PAGE
 #else
- #undef NV_SCATTERLIST_HAS_PAGE 
+ #undef NV_SCATTERLIST_HAS_PAGE
 #endif
 
 /* Implement conftest.sh function pci_domain_nr */
