@@ -1,0 +1,17 @@
+Author: Andreas Beckmann <debian@abeckmann.de>
+Description: fix a typo found by lintian
+ s/ouput/output/
+
+Index: b/nv.c
+===================================================================
+--- a/nv.c	2011-02-28 07:41:12.000000000 +0100
++++ b/nv.c	2011-03-17 01:59:39.106352592 +0100
+@@ -3576,7 +3576,7 @@
+ 
+         if (agp_config != NVOS_AGP_CONFIG_DISABLE_AGP && NV_AGP_FAILED(nv)) {
+             len += sprintf(page+len,
+-                  "AGP initialization failed, please check the ouput  \n"
++                  "AGP initialization failed, please check the output \n"
+                   "of the 'dmesg' command and/or your system log file \n"
+                   "for additional information on this problem.        \n");
+         }
