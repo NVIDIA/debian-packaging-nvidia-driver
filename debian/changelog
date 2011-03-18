@@ -65,6 +65,7 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
   * Drop the transitional packages libnvidia-compiler1{,-ia32}.
     Use unversioned Conflicts/Replaces in the successor packages
     libnvidia-compiler{,-ia32} to ensure the old transitionals are removed.
+  * Drop the transitional packages nvidia-libvdpau{,-ia32,-dev}.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
 
