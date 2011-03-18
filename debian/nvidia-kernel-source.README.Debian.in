@@ -86,10 +86,14 @@ As root (or using fakeroot)
    Make sure your kernel image and headers have matching release numbers to
    avoid possible problems in packages built from different sources.
 
-4. Set some environment variables (if bash is your shell):
+4. Set an environment variable (if bash is your shell):
 
     export KSRC=/usr/src/linux-headers-2.6.14-2-k7
-    export KVERS=2.6.14-2-k7
+
+   If you are building for your currently running kernel, and if you have
+   the kernel build tree in /lib/modules/<version>/build (or a symlink
+   there to the appropriate place), you don't need to do this.  The
+   standard Debian linux-headers-* packages will set up that link.
 
 5. Then build nvidia-kernel package:
 
@@ -97,7 +101,7 @@ As root (or using fakeroot)
    debian/rules binary_modules
 
 (You can also combine step 4 and 5 into one line:
-KSRC=/usr/src/linux-headers-2.6.14-k7 KVERS=2.6.14-4-k7 debian/rules binary_modules)
+KSRC=/usr/src/linux-headers-2.6.14-k7 debian/rules binary_modules)
 
 6. Install nvidia-kernel-common on the machine where the module will be
 deployed:
@@ -177,4 +181,4 @@ For any news on this package check
 http://bugs.debian.org/nvidia-kernel#LEGACY#-source
 
 
- -- Randall Donald <rdonald@debian.org>, Fri, 30 Apr 2004 19:02:04 -0700
+ -- Russ Allbery <rra@debian.org>, Sat, 25 Sep 2010 23:30:28 -0700

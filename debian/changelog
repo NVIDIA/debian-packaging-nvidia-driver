@@ -40,6 +40,13 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
   * nvidia-glx{,-ia32}.postinst: run the cleanup of conflicting libGL.so.*.*
     (Currently the conflicting libraries are moved to
     /var/lib/nvidia-backup.XXXXXX instead of deleting them.)
+  * Use /lib/modules/`uname -r`/build as the default kernel build location
+    for nvidia-kernel-source instead of /usr/src/linux, since this is set
+    up automatically by the current linux-headers-* packages.
+  * In the nvidia-kernel-source documentation, remove mention of setting
+    KVERS, which should no longer be needed, and mention that setting KSRC
+    is optional if the build link exists and you're building for the
+    currently running kernel.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
 
