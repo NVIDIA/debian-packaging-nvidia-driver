@@ -47,6 +47,17 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
     KVERS, which should no longer be needed, and mention that setting KSRC
     is optional if the build link exists and you're building for the
     currently running kernel.
+  * Stop shipping CUDA and OpenCL headers.  NVIDIA will stop including them in
+    the 260.xx release.  The NVIDIA CUDA Toolkit (which is the only user of
+    these header files) already contains them and is the recommended source
+    for these header files.
+  * Drop libcuda1-dev and nvidia-libopencl1-dev packages, move libOpenCL.so
+    link to nvidia-libopencl1.  libcuda1 and nvidia-libopencl1 Conflicts and
+    Replaces their old -dev packages for clean upgrades without transitionals.
+  * NOTE to packagers of software that uses NVIDIA CUDA and/or OpenCL: use
+    Build-Depends: nvidia-cuda-dev and/or nvidia-opencl-dev or
+    nvidia-cuda-toolkit.  If a certain OpenCL API is required, add versioned
+    B-D on opencl-headers, e.g (<< 1.1) for API 1.0 or (>> 1.1) for API 1.1.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
 

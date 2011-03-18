@@ -1,3 +1,6 @@
 # The NVIDIA license does not allow any form of modification.
 #!amd64#nvidia-libopencl1: shlib-with-non-pic-code
 #!amd64#nvidia-libopencl1: shlib-without-PT_GNU_STACK-section
+
+# A single symbolic link does not justify the creation of a new package.
+nvidia-libopencl1: non-dev-pkg-with-shlib-symlink
