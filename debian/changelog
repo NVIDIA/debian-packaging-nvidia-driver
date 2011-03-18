@@ -62,10 +62,11 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
   * Switch default Section to non-free/libs with a few exceptions: x11
     (nvidia-glx), utils (nvidia-smi), kernel (nvidia-kernel-{source,dkms}),
     oldlibs (nvidia-glx-ia32).
-  * Drop the transitional packages libnvidia-compiler1{,-ia32}.
-    Use unversioned Conflicts/Replaces in the successor packages
-    libnvidia-compiler{,-ia32} to ensure the old transitionals are removed.
-  * Drop the transitional packages nvidia-libvdpau{,-ia32,-dev}.
+  * Drop transitional packages that were released with squeeze:
+    - nvidia-glx-dev (now Conflicts/Replaces by libgl1-nvidia-glx)
+    - nvidia-libvdpau1{,-ia32}, nvidia-libvdpau-dev
+    - libnvidia-compiler1{,-ia32}
+      (now Conflicts/Replaces by libnvidia-compiler{,-ia32}).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
 
