@@ -6,6 +6,9 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
   * Drop Conflicts: binutils-gold, driver or gold was fixed.
   * Detect license changes by comparing debian/copyright with the shipped
     LICENSE during build.
+  * Catch module-assistant failures after nvidia-kernel-source updates without
+    running 'module-assistant clean nvidia'.  Only works if the old version
+    already contained this change and a module was built.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
 
