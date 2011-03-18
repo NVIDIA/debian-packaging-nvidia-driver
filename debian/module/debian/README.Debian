@@ -4,7 +4,7 @@ nvidia-kernel for Debian
 Please report any actual driver related bugs (not packaging related) to
 NVIDIA directly.
 
-Please check http://www.nvidia.com/object/linux.html 
+Please check http://www.nvidia.com/object/linux.html
 and
 http://www.nvnews.net/vbulletin/forumdisplay.php?s=&forumid=14
 for known bugs.
