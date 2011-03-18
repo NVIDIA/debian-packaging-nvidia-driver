@@ -70,6 +70,7 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
       (now Conflicts/Replaces by libnvidia-compiler{,-ia32}).
   * Prevent concurrent installation of mismatching upstream versions of
     libgl1-nvidia-glx and libgl1-nvidia-glx-ia32.
+  * Provide xorg-driver-video.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
 
