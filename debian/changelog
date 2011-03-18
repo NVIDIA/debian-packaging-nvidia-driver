@@ -4,6 +4,8 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
   * Use dpkg-parsechangelog to extract the upstream version number from
     debian/changelog, simplifying debian/rules.defs even more.
   * Drop Conflicts: binutils-gold, driver or gold was fixed.
+  * Detect license changes by comparing debian/copyright with the shipped
+    LICENSE during build.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
 

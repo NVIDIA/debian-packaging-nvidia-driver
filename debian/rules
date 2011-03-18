@@ -40,7 +40,7 @@ dkms_source	 = debian/nvidia-kernel$(legacy)-dkms/usr/src/nvidia-$(version)
 
 .PHONY: autogen prepare
 autogen: $(AUTOGEN)
-prepare: autogen unpack-stamp nvidia.ids
+prepare: autogen unpack-stamp nvidia.ids compare-copyright-license
 
 
 unpack-stamp: ${filename_x86} ${filename_x86_64}
@@ -73,6 +73,18 @@ nv-kernel.ids: unpack-stamp
 nvidia.ids: nv-kernel.ids
 	cp $< $@
 
+# Reformat the LICENSE to the format needed for debian/copyright.
+LICENSE.txt: unpack-stamp
+	sed -e 's/^ *//; s/ *$$//; s/^$$/./; s/^/ /;' NVIDIA-Linux/LICENSE > $@
+
+# Compare the license in debian/copyright with the LICENSE shipped in the archive.
+compare-copyright-license: LICENSE.txt
+	sed -e '1,/^License: NVIDIA-graphics-drivers$$/d; /^$$/d; /^ .$$/d' debian/copyright > copyright.tmp
+	sed -e '/^ .$$/d' LICENSE.txt > LICENSE.tmp
+	diff -w copyright.tmp LICENSE.tmp
+	rm -f copyright.tmp LICENSE.tmp
+
+
 .PHONY: binary binary-arch binary-indep build clean install
 binary binary-arch binary-indep build clean install:
 	dh $@
@@ -83,6 +95,7 @@ override_dh_auto_clean:
 	rm -fr debian/temp
 	rm -fr kernel-source-tree
 	rm -f nvidia.ids nv-kernel.ids pci.ids.nvidia*
+	rm -f LICENSE.txt LICENSE.tmp copyright.tmp
 
 override_dh_clean:
 	dh_clean
@@ -244,6 +257,7 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 	while read id ; do \
 		grep ^$$id pci.ids.nvidia || echo $$id ; \
 	done > $@
+
 
 # Renaming control files for legacy packaging
 ifneq (,$(legacy))
