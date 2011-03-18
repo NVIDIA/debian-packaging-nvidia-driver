@@ -59,6 +59,9 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
     nvidia-cuda-toolkit.  If a certain OpenCL API is required, add versioned
     B-D on opencl-headers, e.g (<< 1.1) for API 1.0 or (>> 1.1) for API 1.1.
   * Lower Priority of *-ia32 packages to extra (debcheck).
+  * Switch default Section to non-free/libs with a few exceptions: x11
+    (nvidia-glx), utils (nvidia-smi), kernel (nvidia-kernel-{source,dkms}),
+    oldlibs (nvidia-glx-ia32).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
 
