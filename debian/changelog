@@ -58,6 +58,7 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
     Build-Depends: nvidia-cuda-dev and/or nvidia-opencl-dev or
     nvidia-cuda-toolkit.  If a certain OpenCL API is required, add versioned
     B-D on opencl-headers, e.g (<< 1.1) for API 1.0 or (>> 1.1) for API 1.1.
+  * Lower Priority of *-ia32 packages to extra (debcheck).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
 

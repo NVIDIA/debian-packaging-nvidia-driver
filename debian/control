@@ -56,6 +56,7 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  for a complete list of supported GPUs and PCI IDs.
 
 Package: nvidia-glx-ia32
+Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
 Depends:
@@ -128,6 +129,7 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
 
 Package: libgl1-nvidia-glx-ia32
 Section: non-free/libs
+Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
 Depends:
@@ -297,6 +299,7 @@ Description: NVIDIA vdpau driver
 
 Package: nvidia-vdpau-driver-ia32
 Section: non-free/libs
+Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
 Depends: lib32vdpau1,
@@ -369,6 +372,7 @@ Description: NVIDIA CUDA runtime library
 
 Package: libcuda1-ia32
 Section: non-free/libs
+Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends: ${shlibs:Depends}, ${misc:Depends}
@@ -409,6 +413,7 @@ Description: NVIDIA runtime compiler library
 
 Package: libnvidia-compiler-ia32
 Section: non-free/libs
+Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends: libcuda1-ia32 (= ${binary:Version}),
@@ -470,6 +475,7 @@ Description: NVIDIA OpenCL ICD
 
 Package: nvidia-opencl-icd-ia32
 Section: non-free/libs
+Priority: extra
 Architecture: amd64
 Depends: ${misc:Depends},
  nvidia-opencl-common,
@@ -504,6 +510,7 @@ Description: NVIDIA OpenCL library
 
 Package: nvidia-libopencl1-ia32
 Section: non-free/libs
+Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18)
 Depends: ${shlibs:Depends}, ${misc:Depends},
@@ -541,6 +548,7 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries
 
 Package: libgl1-nvidia-alternatives-ia32
 Section: non-free/libs
+Priority: extra
 Architecture: amd64
 Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
 Depends: dpkg (>= 1.15), ${misc:Depends}
