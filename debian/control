@@ -233,7 +233,7 @@ Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver,
- nvidia-libvdpau1,
+ nvidia-libvdpau1, nvidia-libvdpau-dev,
 Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver,
  nvidia-libvdpau1,
 Breaks: libvdpau1 (<< 0.4)

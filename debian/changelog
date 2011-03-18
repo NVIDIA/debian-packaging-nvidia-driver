@@ -65,6 +65,7 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
   * Drop transitional packages that were released with squeeze:
     - nvidia-glx-dev (now Conflicts/Replaces by libgl1-nvidia-glx)
     - nvidia-libvdpau1{,-ia32}, nvidia-libvdpau-dev
+      (now Conflicts/Replaces by nvidia-vdpau-driver{,-ia32})
     - libnvidia-compiler1{,-ia32}
       (now Conflicts/Replaces by libnvidia-compiler{,-ia32}).
 
