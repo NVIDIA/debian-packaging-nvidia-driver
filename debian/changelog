@@ -12,6 +12,10 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
   * Add script build-module-packages.sh to the documentation of the
     nvidia-kernel-source package, uses module-assistant to do a quick build of
     the modules for all installed linux-headers.
+  * Install a dummy file in /usr/lib/nvidia/diversions to ensure it is not
+    removed by some old maintainer script.  Causes trouble if the destination
+    directory of some diversion is missing and the diverted file is installed
+    later on.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
 
