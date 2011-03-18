@@ -60,12 +60,12 @@ License: NVIDIA-notes
  On 30 Jul 2003, Randall Donald wrote:
  .
  > To whom it may concern,
- > 
+ >
  > My name is Randall Donald and I am the maintainer for the Debian
- > downloader packages nvidia-glx-src and nvidia-kernel-src. 
- > As stated in your license and the README file 
- > ( "As indicated in the NVIDIA Software License, Linux distributions 
- >   are welcome to repackage and redistribute the NVIDIA Linux driver in 
+ > downloader packages nvidia-glx-src and nvidia-kernel-src.
+ > As stated in your license and the README file
+ > ( "As indicated in the NVIDIA Software License, Linux distributions
+ >   are welcome to repackage and redistribute the NVIDIA Linux driver in
  >   whatever package format they wish." )
  > I wish to include packages containing the Linux driver files in the
  > Debian archive.  I'd like to know if it is legally permitted to
@@ -74,12 +74,12 @@ License: NVIDIA-notes
  .
  This is fine; thanks for asking.
  .
- > I am also wondering if the "No Separation of Components" clause 
+ > I am also wondering if the "No Separation of Components" clause
  > ( No Separation of Components.  The SOFTWARE is licensed as a
  >   single product.  Its component parts may not be separated for use
  >   on more than one computer, nor otherwise used separately from the
  >   other parts.)
- > applies to splitting the glx driver and kernel module source into 
+ > applies to splitting the glx driver and kernel module source into
  > multiple binary packages.
  .
  This is also fine.  I believe this section of the license was
