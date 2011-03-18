@@ -1,7 +1,6 @@
-
-NVIDIA_RELEASE		 = 195.36.31
-NVIDIA_LEGACY		 =
-WATCH_PATTERN		 = 195\.[\d\.\-]+
+# If needed, set to the major part of the upstream version number.
+#NVIDIA_LEGACY		 =
+WATCH_VERSION		 = 195
 
 NVIDIA_DIRNAME_X86	 = NVIDIA-Linux-x86-${NVIDIA_RELEASE}-pkg0
 NVIDIA_DIRNAME_X86_64	 = NVIDIA-Linux-x86_64-${NVIDIA_RELEASE}-pkg2

@@ -6,11 +6,15 @@
 DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 
 include debian/rules.defs
+NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog | grep ^Version: | cut -d ' ' -f 2 | cut -d- -f 1)
+NVIDIA_LEGACY		?=
+WATCH_VERSION		?= $(NVIDIA_LEGACY)
+WATCH_PATTERN		?=
 version			 = $(NVIDIA_RELEASE)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 perfkit			 =
-watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(NVIDIA_LEGACY),$(NVIDIA_LEGACY)\.[\d\.\-]+),[\d\.\-]+)
+watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
 filename_x86		 = $(NVIDIA_FILENAME_X86)
 filename_x86_64		 = $(NVIDIA_FILENAME_X86_64)
 dirname_x86		 = $(NVIDIA_DIRNAME_X86)
@@ -205,7 +209,7 @@ override_dh_strip:
 
 
 # Generating control files
-%::	%.in debian/rules.defs
+%:: %.in debian/rules debian/rules.defs
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
