@@ -19,7 +19,7 @@ Homepage: http://www.nvidia.com
 
 Package: nvidia-glx
 Architecture: i386 amd64
-Pre-Depends: dpkg (>= 1.15.7.2)
+Pre-Depends: dpkg (>= 1.15.7.2), nvidia-common
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  libglx-nvidia-alternatives,
@@ -57,7 +57,7 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
 
 Package: nvidia-glx-ia32
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18)
+Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (= ${binary:Version}),
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
@@ -98,6 +98,7 @@ Description: NVIDIA OpenGL development files (transitional package)${nvidia:Lega
 Package: libgl1-nvidia-glx
 Section: non-free/libs
 Architecture: i386 amd64
+Pre-Depends: nvidia-common
 Depends:
  libgl1-nvidia-alternatives,
  ${shlibs:Depends}, ${misc:Depends}
@@ -128,7 +129,7 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
 Package: libgl1-nvidia-glx-ia32
 Section: non-free/libs
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18)
+Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
 Depends:
  libgl1-nvidia-alternatives-ia32,
  ${shlibs:Depends}, ${misc:Depends}
@@ -266,6 +267,7 @@ Description: NVIDIA vdpau development files (transitional package)
 Package: nvidia-vdpau-driver
 Section: non-free/libs
 Architecture: i386 amd64
+Pre-Depends: nvidia-common
 Depends: libvdpau1,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}
@@ -296,7 +298,7 @@ Description: NVIDIA vdpau driver
 Package: nvidia-vdpau-driver-ia32
 Section: non-free/libs
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18)
+Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
 Depends: lib32vdpau1,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}
@@ -546,6 +548,7 @@ Description: NVIDIA OpenCL development files
 Package: libgl1-nvidia-alternatives
 Section: non-free/libs
 Architecture: i386 amd64
+Pre-Depends: nvidia-common
 Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
  nvidia-glx (<< 195.36.31-2),
@@ -567,7 +570,7 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries
 Package: libgl1-nvidia-alternatives-ia32
 Section: non-free/libs
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18)
+Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
 Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
  nvidia-glx-ia32 (<< 195.36.31-2), libgl1-nvidia-glx-ia32 (<< 195.36.31-2),
@@ -584,6 +587,7 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
 Package: libglx-nvidia-alternatives
 Section: non-free/libs
 Architecture: i386 amd64
+Pre-Depends: nvidia-common
 Depends: dpkg (>= 1.15), ${misc:Depends}
 Breaks:
  nvidia-glx (<< 195.36.31-3),
