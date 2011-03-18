@@ -16,6 +16,9 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
     removed by some old maintainer script.  Causes trouble if the destination
     directory of some diversion is missing and the diverted file is installed
     later on.
+  * conftest.h: implement new (after 195.xx) conftest.sh functions
+    pci_dma_mapping_error, scatterlist, pci_domain_nr, file_operations,
+    sg_init_table.  Kernel versions of symbol (dis-)appearance from lxr.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
 

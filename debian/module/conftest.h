@@ -1,3 +1,5 @@
+/* synchronized with conftest.sh from 260.19.36, 173.14.28, 96.43.19, 71.86.14 */
+
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
 #endif
@@ -49,6 +51,7 @@
  #undef NV_REMAP_PFN_RANGE_PRESENT
 #endif
 
+/* only used by 173xx and 71xx */
 /* Implement conftest.sh function signal_struct */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,10)
  #define NV_SIGNAL_STRUCT_HAS_RLIM
@@ -87,13 +90,6 @@
  #undef NV_I2C_ADAPTER_HAS_CLIENT_REGISTER
 #endif
 
-/* Implement conftest.sh function sysctl_max_map_count */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,5)
- #define NV_SYSCTL_MAX_MAP_COUNT_PRESENT
-#else
- #undef NV_SYSCTL_MAX_MAP_COUNT_PRESENT
-#endif
-
 /* Implement conftest.sh function pm_message_t */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,11)
  #define NV_PM_MESSAGE_T_PRESENT
@@ -104,6 +100,7 @@
  #endif
 #else
  #undef NV_PM_MESSAGE_T_PRESENT
+ #undef NV_PM_MESSAGE_T_HAS_EVENT
 #endif
 
 /* Implement conftest.sh function pci_choose_state */
@@ -184,6 +181,10 @@
  #undef NV_ON_EACH_CPU_PRESENT
 #endif
 
+/* Implement conftest.sh function vmm_support */
+/* nv-xen.h does not exist */
+#undef HAVE_NV_XEN
+
 /* Implement conftest.sh function acpi_evaluate_integer */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,4,19)
  #define NV_ACPI_EVALUATE_INTEGER_PRESENT
@@ -193,7 +194,7 @@
   typedef unsigned long nv_acpi_integer_t;
  #endif
 #else
- #undef NV_ON_EACH_CPU_PRESENT
+ #undef NV_ACPI_EVALUATE_INTEGER_PRESENT
  typedef unsigned long nv_acpi_integer_t;
 #endif
 
@@ -233,11 +234,58 @@
  #undef NV_INIT_WORK_PRESENT
 #endif
 
+/* Implement conftest.sh function pci_dma_mapping_error */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,5)
+ #define NV_PCI_DMA_MAPPING_ERROR_PRESENT
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,27)
+  #define NV_PCI_DMA_MAPPING_ERROR_ARGUMENT_COUNT 2
+ #else
+  #define NV_PCI_DMA_MAPPING_ERROR_ARGUMENT_COUNT 1
+ #endif
+#else
+ #undef NV_PCI_DMA_MAPPING_ERROR_PRESENT
+#endif
+
 /* Implement conftest.sh function agp_memory */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,31)
  #define NV_AGP_MEMORY_HAS_PAGES
 #else
  #undef NV_AGP_MEMORY_HAS_PAGES
+#endif
+
+/* Implement conftest.sh function scatterlist */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,24)
+ #define NV_SCATTERLIST_HAS_PAGE
+#else
+ #undef NV_SCATTERLIST_HAS_PAGE 
+#endif
+
+/* Implement conftest.sh function pci_domain_nr */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,5,71)
+ #define NV_PCI_DOMAIN_NR_PRESENT
+#else
+ #undef NV_PCI_DOMAIN_NR_PRESENT
+#endif
+
+/* Implement conftest.sh function file_operations */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,36)
+ #define NV_FILE_OPERATIONS_HAS_IOCTL
+#else
+ #undef NV_FILE_OPERATIONS_HAS_IOCTL
+#endif
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,11)
+ #define NV_FILE_OPERATIONS_HAS_UNLOCKED_IOCTL
+ #define NV_FILE_OPERATIONS_HAS_COMPAT_IOCTL
+#else
+ #undef NV_FILE_OPERATIONS_HAS_UNLOCKED_IOCTL
+ #undef NV_FILE_OPERATIONS_HAS_COMPAT_IOCTL
+#endif
+
+/* Implement conftest.sh function sg_init_table */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,24)
+ #define NV_SG_INIT_TABLE_PRESENT
+#else
+ #undef NV_SG_INIT_TABLE_PRESENT
 #endif
 
 /* Check for linux/semaphore.h */
@@ -252,4 +300,11 @@
  #define NV_LINUX_CRED_H_PRESENT
 #else
  #undef NV_LINUX_CRED_H_PRESENT
+#endif
+
+/* Check for generated/autoconf.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,33)
+ #define NV_GENERATED_AUTOCONF_H_PRESENT
+#else
+ #undef NV_GENERATED_AUTOCONF_H_PRESENT
 #endif
