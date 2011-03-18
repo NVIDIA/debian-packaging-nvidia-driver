@@ -23,7 +23,7 @@ ifndef KPKG_DEST_DIR
     KPKG_DEST_DIR = ..
 endif
 KVERS := $(shell perl debian/kernel-version $(KSRC))
-export KSRC 
+export KSRC
 export KVERS
 export KPKG_DEST_DIR
 
