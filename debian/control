@@ -20,15 +20,19 @@ Homepage: http://www.nvidia.com
 Package: nvidia-glx
 Section: non-free/x11
 Architecture: i386 amd64
-Pre-Depends: dpkg (>= 1.15.7.2), nvidia-common
+Pre-Depends:
+ dpkg (>= 1.15.7.2),
+ nvidia-common,
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  libglx-nvidia-alternatives,
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
  xorg-video-abi-6.0 | xserver-xorg-core (<< 2:1.7.7),
  ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-vdpau-driver (>= ${nvidia:Version})
-Suggests: nvidia-settings,
+Recommends:
+ nvidia-vdpau-driver (>= ${nvidia:Version}),
+Suggests:
+ nvidia-settings,
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:
@@ -64,13 +68,17 @@ Package: nvidia-glx-ia32
 Section: non-free/oldlibs
 Priority: extra
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
+Pre-Depends:
+ libc6-i386 (>= 2.9-18),
+ nvidia-common,
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (= ${binary:Version}),
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
  ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-vdpau-driver-ia32 (>= ${nvidia:Version})
-Suggests: nvidia-settings,
+Recommends:
+ nvidia-vdpau-driver-ia32 (>= ${nvidia:Version}),
+Suggests:
+ nvidia-settings,
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:
@@ -93,7 +101,8 @@ Description: NVIDIA binary driver 32-bit libs${nvidia:LegacyDesc}
 
 Package: libgl1-nvidia-glx
 Architecture: i386 amd64
-Pre-Depends: nvidia-common
+Pre-Depends:
+ nvidia-common,
 Depends:
  libgl1-nvidia-alternatives,
  ${shlibs:Depends}, ${misc:Depends}
@@ -131,7 +140,9 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
 Package: libgl1-nvidia-glx-ia32
 Priority: extra
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
+Pre-Depends:
+ libc6-i386 (>= 2.9-18),
+ nvidia-common,
 Depends:
  libgl1-nvidia-alternatives-ia32,
  ${shlibs:Depends}, ${misc:Depends}
@@ -152,7 +163,8 @@ Conflicts:
  nvidia-glx-legacy-173xx-ia32,
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx (<< ${nvidia:Version}),
-Replaces: nvidia-glx${nvidia:Legacy}-ia32 (<< 195.36.31)
+Replaces:
+ nvidia-glx${nvidia:Legacy}-ia32 (<< 195.36.31),
 Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
  These binary 32-bit libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
@@ -164,8 +176,12 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
-Depends: ${misc:Depends}, dkms, nvidia-kernel-common (>= 20100522)
-Recommends: nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version})
+Depends:
+ dkms,
+ nvidia-kernel-common (>= 20100522),
+ ${misc:Depends}
+Recommends:
+ nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}),
 Provides:
  nvidia-kernel-dkms,
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
@@ -198,9 +214,14 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
 Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64
-Depends: ${misc:Depends}, debhelper (>= 8), make, quilt (>= 0.46-7~)
-Recommends: module-assistant | kernel-package,
- nvidia-kernel-common
+Depends:
+ debhelper (>= 8),
+ make,
+ quilt (>= 0.46-7~),
+ ${misc:Depends}
+Recommends:
+ module-assistant | kernel-package,
+ nvidia-kernel-common,
 Suggests:
  nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}),
 Conflicts:
@@ -232,20 +253,33 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
 
 Package: nvidia-vdpau-driver
 Architecture: i386 amd64
-Pre-Depends: nvidia-common
-Depends: libvdpau1,
+Pre-Depends:
+ nvidia-common,
+Depends:
+ libvdpau1,
  ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}
-Enhances: libvdpau1
+Recommends:
+ nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+Enhances:
+ libvdpau1,
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver,
- nvidia-libvdpau1, nvidia-libvdpau-dev,
-Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau, nvidia-libvdpau1-driver,
+Replaces:
+ nvidia-glx (<< 180.51),
+ nvidia-libvdpau,
+ nvidia-libvdpau1-driver,
  nvidia-libvdpau1,
-Breaks: libvdpau1 (<< 0.4)
-Provides: vdpau-driver
+ nvidia-libvdpau-dev,
+Conflicts:
+ nvidia-glx (<< 180.51),
+ nvidia-libvdpau,
+ nvidia-libvdpau1-driver,
+ nvidia-libvdpau1,
+Breaks:
+ libvdpau1 (<< 0.4),
+Provides:
+ vdpau-driver,
 Description: NVIDIA vdpau driver
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
@@ -264,21 +298,33 @@ Description: NVIDIA vdpau driver
 Package: nvidia-vdpau-driver-ia32
 Priority: extra
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
-Depends: lib32vdpau1,
+Pre-Depends:
+ libc6-i386 (>= 2.9-18),
+ nvidia-common,
+Depends:
+ lib32vdpau1,
  ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}
-Enhances: lib32vdpau1
+Recommends:
+ nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+Enhances:
+ lib32vdpau1,
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Replaces: nvidia-glx (<< 180.51), nvidia-libvdpau,
+Replaces:
+ nvidia-glx (<< 180.51),
+ nvidia-libvdpau,
  nvidia-libvdpau1,
- nvidia-libvdpau1-driver-ia32, nvidia-libvdpau1-ia32,
-Conflicts: nvidia-glx (<< 180.51), nvidia-libvdpau,
+ nvidia-libvdpau1-driver-ia32,
+ nvidia-libvdpau1-ia32,
+Conflicts:
+ nvidia-glx (<< 180.51),
+ nvidia-libvdpau,
  nvidia-libvdpau1,
- nvidia-libvdpau1-driver-ia32, nvidia-libvdpau1-ia32,
-Provides: vdpau-driver
+ nvidia-libvdpau1-driver-ia32,
+ nvidia-libvdpau1-ia32,
+Provides:
+ vdpau-driver,
 Description: NVIDIA vdpau 32-bit driver
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
@@ -297,8 +343,10 @@ Description: NVIDIA vdpau 32-bit driver
 Package: nvidia-smi
 Section: non-free/utils
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends:
+ nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
@@ -309,15 +357,20 @@ Description: NVIDIA System Management Interface
 
 Package: libcuda1
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
- nvidia-smi
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends:
+ nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ nvidia-smi,
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Replaces: nvidia-glx (<< 185.18.14-2), nvidia-glx-dev (<< 185.18.14-2),
- libcuda1-dev
-Conflicts: libcuda1-dev
+Replaces:
+ nvidia-glx (<< 185.18.14-2),
+ nvidia-glx-dev (<< 185.18.14-2),
+ libcuda1-dev,
+Conflicts:
+ libcuda1-dev,
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
@@ -337,13 +390,17 @@ Description: NVIDIA CUDA runtime library
 Package: libcuda1-ia32
 Priority: extra
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}
+Pre-Depends:
+ libc6-i386 (>= 2.9-18),
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends:
+ nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Replaces: nvidia-glx-ia32 (<< 185.18.14-2)
+Replaces:
+ nvidia-glx-ia32 (<< 185.18.14-2),
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library (32-bit)
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
@@ -362,10 +419,13 @@ Description: NVIDIA CUDA runtime library (32-bit)
 
 Package: libnvidia-compiler
 Architecture: i386 amd64
-Depends: libcuda1 (= ${binary:Version}),
+Depends:
+ libcuda1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Conflicts: libnvidia-compiler1
-Replaces: libnvidia-compiler1
+Conflicts:
+ libnvidia-compiler1,
+Replaces:
+ libnvidia-compiler1,
 Description: NVIDIA runtime compiler library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -376,11 +436,15 @@ Description: NVIDIA runtime compiler library
 Package: libnvidia-compiler-ia32
 Priority: extra
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: libcuda1-ia32 (= ${binary:Version}),
+Pre-Depends:
+ libc6-i386 (>= 2.9-18),
+Depends:
+ libcuda1-ia32 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Conflicts: libnvidia-compiler1-ia32
-Replaces: libnvidia-compiler1-ia32
+Conflicts:
+ libnvidia-compiler1-ia32,
+Replaces:
+ libnvidia-compiler1-ia32,
 Description: NVIDIA runtime compiler library (32-bit)
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -390,8 +454,10 @@ Description: NVIDIA runtime compiler library (32-bit)
 
 Package: nvidia-opencl-common
 Architecture: i386 amd64
-Depends: ${misc:Depends},
-Recommends: nvidia-opencl-icd | nvidia-opencl-icd-ia32 [amd64]
+Depends:
+ ${misc:Depends}
+Recommends:
+ nvidia-opencl-icd | nvidia-opencl-icd-ia32 [amd64]
 Description: NVIDIA OpenCL driver
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -402,13 +468,17 @@ Description: NVIDIA OpenCL driver
 
 Package: nvidia-opencl-icd
 Architecture: i386 amd64
-Depends: ${misc:Depends},
+Depends:
  nvidia-opencl-common,
  libopencl1,
- libcuda1 (>= 195)
-Recommends: libnvidia-compiler
-Enhances: libopencl1
-Provides: opencl-icd
+ libcuda1 (>= 195),
+ ${misc:Depends}
+Recommends:
+ libnvidia-compiler
+Enhances:
+ libopencl1,
+Provides:
+ opencl-icd,
 Description: NVIDIA OpenCL ICD
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -419,13 +489,17 @@ Description: NVIDIA OpenCL ICD
 Package: nvidia-opencl-icd-ia32
 Priority: extra
 Architecture: amd64
-Depends: ${misc:Depends},
+Depends:
  nvidia-opencl-common,
  lib32opencl1,
- libcuda1-ia32 (>= 195)
-Recommends: libnvidia-compiler-ia32
-Enhances: lib32opencl1
-Provides: opencl-icd
+ libcuda1-ia32 (>= 195),
+ ${misc:Depends}
+Recommends:
+ libnvidia-compiler-ia32,
+Enhances:
+ lib32opencl1,
+Provides:
+ opencl-icd,
 Description: NVIDIA OpenCL ICD (32-bit)
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -436,11 +510,16 @@ Description: NVIDIA OpenCL ICD (32-bit)
 
 Package: nvidia-libopencl1
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends},
-Conflicts: nvidia-libopencl1-dev
-Replaces: nvidia-libopencl1-dev
-Provides: libopencl1
-Recommends: opencl-icd | nvidia-opencl-icd
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Conflicts:
+ nvidia-libopencl1-dev,
+Replaces:
+ nvidia-libopencl1-dev,
+Provides:
+ libopencl1,
+Recommends:
+ opencl-icd | nvidia-opencl-icd,
 Description: NVIDIA OpenCL library
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -452,10 +531,14 @@ Description: NVIDIA OpenCL library
 Package: nvidia-libopencl1-ia32
 Priority: extra
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18)
-Depends: ${shlibs:Depends}, ${misc:Depends},
-Provides: lib32opencl1
-Recommends: opencl-icd | nvidia-opencl-icd-ia32
+Pre-Depends:
+ libc6-i386 (>= 2.9-18),
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ lib32opencl1,
+Recommends:
+ opencl-icd | nvidia-opencl-icd-ia32,
 Description: NVIDIA OpenCL 32-bit library
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -466,8 +549,11 @@ Description: NVIDIA OpenCL 32-bit library
 
 Package: libgl1-nvidia-alternatives
 Architecture: i386 amd64
-Pre-Depends: nvidia-common
-Depends: dpkg (>= 1.15), ${misc:Depends}
+Pre-Depends:
+ nvidia-common,
+Depends:
+ dpkg (>= 1.15),
+ ${misc:Depends}
 Breaks:
  nvidia-glx (<< 195.36.31-2),
  nvidia-glx-dev (<< 195.36.31-2),
@@ -488,10 +574,15 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries
 Package: libgl1-nvidia-alternatives-ia32
 Priority: extra
 Architecture: amd64
-Pre-Depends: libc6-i386 (>= 2.9-18), nvidia-common
-Depends: dpkg (>= 1.15), ${misc:Depends}
+Pre-Depends:
+ libc6-i386 (>= 2.9-18),
+ nvidia-common,
+Depends:
+ dpkg (>= 1.15),
+ ${misc:Depends}
 Breaks:
- nvidia-glx-ia32 (<< 195.36.31-2), libgl1-nvidia-glx-ia32 (<< 195.36.31-2),
+ nvidia-glx-ia32 (<< 195.36.31-2),
+ libgl1-nvidia-glx-ia32 (<< 195.36.31-2),
  nvidia-glx-legacy-71xx-ia32 (<< 71.86.14),
  nvidia-glx-legacy-96xx-ia32 (<< 96.43.18),
  nvidia-glx-legacy-173xx-ia32 (<< 173.14.27),
@@ -504,8 +595,11 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
 
 Package: libglx-nvidia-alternatives
 Architecture: i386 amd64
-Pre-Depends: nvidia-common
-Depends: dpkg (>= 1.15), ${misc:Depends}
+Pre-Depends:
+ nvidia-common,
+Depends:
+ dpkg (>= 1.15),
+ ${misc:Depends}
 Breaks:
  nvidia-glx (<< 195.36.31-3),
  nvidia-glx-legacy-71xx (<< 71.86.14),
