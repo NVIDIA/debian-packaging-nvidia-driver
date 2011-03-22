@@ -260,26 +260,27 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
-Enhances:
- libvdpau1,
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Replaces:
- nvidia-glx (<< 180.51),
- nvidia-libvdpau,
- nvidia-libvdpau1-driver,
- nvidia-libvdpau1,
- nvidia-libvdpau-dev,
+Enhances:
+ libvdpau1,
+Provides:
+ vdpau-driver,
 Conflicts:
  nvidia-glx (<< 180.51),
  nvidia-libvdpau,
- nvidia-libvdpau1-driver,
+ nvidia-libvdpau-dev,
  nvidia-libvdpau1,
+ nvidia-libvdpau1-driver,
 Breaks:
  libvdpau1 (<< 0.4),
-Provides:
- vdpau-driver,
+Replaces:
+ nvidia-glx (<< 180.51),
+ nvidia-libvdpau,
+ nvidia-libvdpau-dev,
+ nvidia-libvdpau1,
+ nvidia-libvdpau1-driver,
 Description: NVIDIA vdpau driver
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
@@ -306,25 +307,25 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
-Enhances:
- lib32vdpau1,
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Replaces:
- nvidia-glx (<< 180.51),
- nvidia-libvdpau,
- nvidia-libvdpau1,
- nvidia-libvdpau1-driver-ia32,
- nvidia-libvdpau1-ia32,
+Enhances:
+ lib32vdpau1,
+Provides:
+ vdpau-driver,
 Conflicts:
  nvidia-glx (<< 180.51),
  nvidia-libvdpau,
  nvidia-libvdpau1,
- nvidia-libvdpau1-driver-ia32,
  nvidia-libvdpau1-ia32,
-Provides:
- vdpau-driver,
+ nvidia-libvdpau1-driver-ia32,
+Replaces:
+ nvidia-glx (<< 180.51),
+ nvidia-libvdpau,
+ nvidia-libvdpau1,
+ nvidia-libvdpau1-ia32,
+ nvidia-libvdpau1-driver-ia32,
 Description: NVIDIA vdpau 32-bit driver
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
@@ -365,11 +366,11 @@ Recommends:
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+Conflicts:
+ libcuda1-dev,
 Replaces:
  nvidia-glx (<< 185.18.14-2),
  nvidia-glx-dev (<< 185.18.14-2),
- libcuda1-dev,
-Conflicts:
  libcuda1-dev,
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library
@@ -512,14 +513,14 @@ Package: nvidia-libopencl1
 Architecture: i386 amd64
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
+Recommends:
+ opencl-icd | nvidia-opencl-icd,
+Provides:
+ libopencl1,
 Conflicts:
  nvidia-libopencl1-dev,
 Replaces:
  nvidia-libopencl1-dev,
-Provides:
- libopencl1,
-Recommends:
- opencl-icd | nvidia-opencl-icd,
 Description: NVIDIA OpenCL library
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -535,10 +536,10 @@ Pre-Depends:
  libc6-i386 (>= 2.9-18),
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
-Provides:
- lib32opencl1,
 Recommends:
  opencl-icd | nvidia-opencl-icd-ia32,
+Provides:
+ lib32opencl1,
 Description: NVIDIA OpenCL 32-bit library
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -554,6 +555,8 @@ Pre-Depends:
 Depends:
  dpkg (>= 1.15),
  ${misc:Depends}
+Conflicts:
+ fglrx-glx,
 Breaks:
  nvidia-glx (<< 195.36.31-2),
  nvidia-glx-dev (<< 195.36.31-2),
@@ -564,8 +567,6 @@ Breaks:
  nvidia-glx-legacy-96xx-dev (<< 96.43.18),
  nvidia-glx-legacy-173xx (<< 173.14.27),
  nvidia-glx-legacy-173xx-dev (<< 173.14.27),
-Conflicts:
- fglrx-glx,
 Description: simplifies replacing MESA libGL with GPU vendor libraries
  Diverts the free libGL.so implementation (MESA) and introduces
  alternatives to simplify plugging in accelerated implementations from GPU
@@ -580,14 +581,14 @@ Pre-Depends:
 Depends:
  dpkg (>= 1.15),
  ${misc:Depends}
+Conflicts:
+ fglrx-glx-ia32,
 Breaks:
  nvidia-glx-ia32 (<< 195.36.31-2),
  libgl1-nvidia-glx-ia32 (<< 195.36.31-2),
  nvidia-glx-legacy-71xx-ia32 (<< 71.86.14),
  nvidia-glx-legacy-96xx-ia32 (<< 96.43.18),
  nvidia-glx-legacy-173xx-ia32 (<< 173.14.27),
-Conflicts:
- fglrx-glx-ia32,
 Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
  Diverts the free libGL.so (32-bit) implementation (MESA) and introduces
  alternatives to simplify plugging in accelerated implementations from GPU
@@ -600,13 +601,13 @@ Pre-Depends:
 Depends:
  dpkg (>= 1.15),
  ${misc:Depends}
+Conflicts:
+ fglrx-driver,
 Breaks:
  nvidia-glx (<< 195.36.31-3),
  nvidia-glx-legacy-71xx (<< 71.86.14),
  nvidia-glx-legacy-96xx (<< 96.43.18),
  nvidia-glx-legacy-173xx (<< 173.14.27),
-Conflicts:
- fglrx-driver,
 Description: simplifies replacing Xorg module libglx.so with GPU vendor library
  Diverts the free Xorg module libglx.so (Xorg) and introduces alternatives
  to simplify plugging in accelerated implementations from GPU vendors.
