@@ -455,7 +455,8 @@ Description: NVIDIA runtime compiler library (32-bit)
 
 Package: libnvcuvid1
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA CUDA nvcuvid runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
