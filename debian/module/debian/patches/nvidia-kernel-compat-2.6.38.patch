@@ -1,5 +1,5 @@
 From: Antonio Ospite <ospite@studenti.unina.it>
-Description: Fix build with 2.6.38-rc kernels
+Description: Fix build with 2.6.38 kernels
 Bug-Debian: http://bugs.debian.org/613798
 
 Index: nvidia-260.19.21/nv-linux.h
