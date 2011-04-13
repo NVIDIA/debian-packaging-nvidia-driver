@@ -14,7 +14,7 @@ Build-Depends:
  libxext6,
  quilt,
  ia32-libs (>= 20090804) [amd64],
-Standards-Version: 3.9.1
+Standards-Version: 3.9.2
 Homepage: http://www.nvidia.com
 
 Package: nvidia-glx
