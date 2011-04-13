@@ -178,7 +178,7 @@ build-kernel-dkms-tree: build-kernel-source-tree
 kernel-source-tree: prepare build-kernel-source-tree
 	rm -rf $@
 	cp -a $(module_source) $@
-	cd $@ && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2
+	cd $@ && QUILT_PATCHES=../debian/module/debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2
 
 #override_dh_install:
 #	dh_install --list-missing
