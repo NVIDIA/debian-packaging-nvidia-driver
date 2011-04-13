@@ -116,6 +116,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  cuosVirtualFree@Base 270
  cuosglGetProcAddress@Base 270
  deviceClearEccErrorCountsRM@Base 270
+ deviceGetClockInfoRM@Base 270
  deviceGetComputeModeRM@Base 270
  deviceGetDetailedAggregateEccErrorsRM@Base 270
  deviceGetDetailedVolatileEccErrorsRM@Base 270
@@ -127,7 +128,8 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  deviceGetNameRM@Base 270
  deviceGetPciInfoRM@Base 270
  deviceGetPersistenceModeRM@Base 270
- deviceGetPowerCappingModeRM@Base 270
+ deviceGetPowerManagementLimitRM@Base 270
+ deviceGetPowerManagementModeRM@Base 270
  deviceGetPowerStateRM@Base 270
  deviceGetPowerUsageRM@Base 270
  deviceGetSerialRM@Base 270
@@ -147,6 +149,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nv_mappings@Base 270
  nvmlCanoasInitRM@Base 270
  nvmlDeviceClearEccErrorCounts@Base 270
+ nvmlDeviceGetClockInfo@Base 270
  nvmlDeviceGetComputeMode@Base 270
  nvmlDeviceGetCount@Base 270
  nvmlDeviceGetDetailedEccErrors@Base 270
@@ -162,7 +165,8 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetName@Base 270
  nvmlDeviceGetPciInfo@Base 270
  nvmlDeviceGetPersistenceMode@Base 270
- nvmlDeviceGetPowerCappingMode@Base 270
+ nvmlDeviceGetPowerManagementLimit@Base 270
+ nvmlDeviceGetPowerManagementMode@Base 270
  nvmlDeviceGetPowerState@Base 270
  nvmlDeviceGetPowerUsage@Base 270
  nvmlDeviceGetSerial@Base 270

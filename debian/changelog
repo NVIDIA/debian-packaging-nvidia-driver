@@ -10,6 +10,7 @@ nvidia-graphics-drivers (270.41.03-1) UNRELEASED; urgency=low
       NVS 4200M, Quadro 1000M, Quadro 2000M.
   * Upload to experimental.
   * Update nv-kernel.ids.
+  * Update symbols control files.
   * Refresh use-nv-kernel.o.ARCH.patch.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 17:28:19 +0200

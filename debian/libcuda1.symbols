@@ -102,9 +102,6 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemHostGetFlags@Base 190
  cuMemHostRegister@Base 270
  cuMemHostUnregister@Base 270
- cuMemPeerGetDevicePointer@Base 270
- cuMemPeerRegister@Base 270
- cuMemPeerUnregister@Base 270
  cuMemcpy2D@Base 169
  cuMemcpy2DAsync@Base 169
  cuMemcpy2DAsync_v2@Base 260
