@@ -1,6 +1,20 @@
+nvidia-graphics-drivers (270.41.03-1) UNRELEASED; urgency=low
+
+  * New upstream beta 270.41.03 (2011-04-??).
+    - Fixed a bug causing the X server to hang every 49.7 days on 32-bit
+      platforms.
+    - Added support for the following GPUs: GeForce GT 520, GeForce GT 520M,
+      GeForce GT 525M, GeForce GT 530, GeForce 405, GeForce GT 420,
+      GeForce GT 440, GeForce GT 445M, GeForce GT 550M, GeForce GT 555M,
+      GeForce GTX 470M, GeForce GTX 485M, GeForce GTX 550 Ti, GeForce GTX 590,
+      NVS 4200M, Quadro 1000M, Quadro 2000M.
+  * Upload to experimental.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 17:28:19 +0200
+
 nvidia-graphics-drivers (270.30-1) experimental; urgency=low
 
-  * New upstream beta 270.30 (2011-03-??).
+  * New upstream beta 270.30 (2011-03-02).
     - Added support for xserver ABI 10 (xorg-server 1.10).
   * New upstream beta 270.29 (2011-02-24).
   * New upstream beta 270.26 (2011-02-15).  (Closes: #616353)
