@@ -103,6 +103,7 @@ Package: libgl1-nvidia-glx
 Architecture: i386 amd64
 Pre-Depends:
  nvidia-common,
+ ${misc:Pre-Depends}
 Depends:
  libgl1-nvidia-alternatives,
  ${shlibs:Depends}, ${misc:Depends}
@@ -143,6 +144,7 @@ Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
  nvidia-common,
+ ${misc:Pre-Depends}
 Depends:
  libgl1-nvidia-alternatives-ia32,
  ${shlibs:Depends}, ${misc:Depends}
@@ -255,6 +257,7 @@ Package: nvidia-vdpau-driver
 Architecture: i386 amd64
 Pre-Depends:
  nvidia-common,
+ ${misc:Pre-Depends}
 Depends:
  libvdpau1,
  ${shlibs:Depends}, ${misc:Depends}
@@ -302,6 +305,7 @@ Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
  nvidia-common,
+ ${misc:Pre-Depends}
 Depends:
  lib32vdpau1,
  ${shlibs:Depends}, ${misc:Depends}
@@ -358,6 +362,8 @@ Description: NVIDIA System Management Interface
 
 Package: libcuda1
 Architecture: i386 amd64
+Pre-Depends:
+ ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -393,6 +399,7 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
+ ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -420,6 +427,8 @@ Description: NVIDIA CUDA runtime library (32-bit)
 
 Package: libnvidia-compiler
 Architecture: i386 amd64
+Pre-Depends:
+ ${misc:Pre-Depends}
 Depends:
  libcuda1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
@@ -439,6 +448,7 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
+ ${misc:Pre-Depends}
 Depends:
  libcuda1-ia32 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
@@ -511,6 +521,8 @@ Description: NVIDIA OpenCL ICD (32-bit)
 
 Package: nvidia-libopencl1
 Architecture: i386 amd64
+Pre-Depends:
+ ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -534,6 +546,7 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
+ ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
