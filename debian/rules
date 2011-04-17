@@ -10,6 +10,8 @@ NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog | grep ^Version: | cut -d ' ' -f 
 NVIDIA_LEGACY		?=
 WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
+XORG_ABI_LIST		?=
+BACKPORT		?=
 version			 = $(NVIDIA_RELEASE)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
@@ -37,6 +39,12 @@ AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 module_source	 = debian/nvidia-kernel$(legacy)-source/usr/src/modules/nvidia-kernel$(legacy)
 module_tbz	 = $(subst /modules/,/,$(module_source)).tar.bz2
 dkms_source	 = debian/nvidia-kernel$(legacy)-dkms/usr/src/nvidia-$(version)
+
+comma		 = ,
+xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
+xorg_depends	+= $(if $(BACKPORT), xserver-xorg-core (<< 2:1.7.7) |)
+xorg_provides	 = xorg-driver-video
+xorg_provides	+= $(if $(BACKPORT), $(comma) xserver-xorg-video-6)
 
 .PHONY: autogen prepare
 autogen: $(AUTOGEN)
@@ -203,8 +211,12 @@ override_dh_makeshlibs:
 		sed -i -e '/^libGL\.so/,/^lib/{/^libGL\.so\|^ /d}' debian/libgl1-nvidia$(legacy)-glx-ia32/DEBIAN/symbols
 
 override_dh_gencontrol:
-	dh_gencontrol -- -V'nvidia:Version=$(version)' -V'nvidia:Legacy=$(legacy)' \
-		-V'nvidia:LegacyDesc=$(legacy_description)' -V'nvidia:Perfkit=$(perfkit)' \
+	dh_gencontrol -- -V'nvidia:Version=$(version)' \
+		-V'nvidia:xorgDepends=$(xorg_depends)' \
+		-V'nvidia:xorgProvides=$(xorg_provides)' \
+		-V'nvidia:Legacy=$(legacy)' \
+		-V'nvidia:LegacyDesc=$(legacy_description)' \
+		-V'nvidia:Perfkit=$(perfkit)' \
 		-Vnvidia:Models="`cat debian/control.models`"
 
 # Do not run dh_strip here.  The NVIDIA license says:

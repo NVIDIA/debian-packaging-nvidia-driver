@@ -1,8 +1,11 @@
 # If needed, set to the major part of the upstream version number.
 #NVIDIA_LEGACY		 =
 WATCH_VERSION		 = 195
+XORG_ABI_LIST		 = 6.0
 
 NVIDIA_DIRNAME_X86	 = NVIDIA-Linux-x86-${NVIDIA_RELEASE}-pkg0
 NVIDIA_DIRNAME_X86_64	 = NVIDIA-Linux-x86_64-${NVIDIA_RELEASE}-pkg2
 NVIDIA_FILENAME_X86	 = ${NVIDIA_DIRNAME_X86}.run
 NVIDIA_FILENAME_X86_64	 = ${NVIDIA_DIRNAME_X86_64}.run
+
+#BACKPORT		 = squeeze

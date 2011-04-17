@@ -27,7 +27,7 @@ Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  libglx-nvidia-alternatives,
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
- xorg-video-abi-6.0 | xserver-xorg-core (<< 2:1.7.7),
+ ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-vdpau-driver (>= ${nvidia:Version}),
@@ -37,9 +37,7 @@ Suggests:
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:
  nvidia-glx,
- xorg-driver-video,
- xserver-xorg-video-6,
-# for squeeze-backports add xserver-xorg-video-6
+ ${nvidia:xorgProvides},
 Conflicts:
  nvidia-glx,
  nvidia-glx-legacy,
