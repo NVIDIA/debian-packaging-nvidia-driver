@@ -4,6 +4,7 @@
 #export DH_VERBOSE=1
 
 DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
+DEB_HOST_MULTIARCH	?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 include debian/rules.defs
 NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog | grep ^Version: | cut -d ' ' -f 2 | cut -d- -f 1)
@@ -11,6 +12,7 @@ NVIDIA_LEGACY		?=
 WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
+MULTIARCH		?=
 BACKPORT		?=
 version			 = $(NVIDIA_RELEASE)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
@@ -21,6 +23,9 @@ filename_x86		 = $(NVIDIA_FILENAME_X86)
 filename_x86_64		 = $(NVIDIA_FILENAME_X86_64)
 dirname_x86		 = $(NVIDIA_DIRNAME_X86)
 dirname_x86_64		 = $(NVIDIA_DIRNAME_X86_64)
+
+# system libdir
+libdir			 = usr/lib$(if $(MULTIARCH),/$(DEB_HOST_MULTIARCH))
 
 ALL_CONTROL	:= $(wildcard debian/nvidia-glx* debian/libgl1-nvidia* debian/nvidia-kernel*)
 LEGACY_CONTROL	:= $(wildcard debian/nvidia-glx$(legacy)* debian/libgl1-nvidia$(legacy)* debian/nvidia-kernel$(legacy)*)
@@ -45,6 +50,10 @@ xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
 xorg_depends	+= $(if $(BACKPORT), xserver-xorg-core (<< 2:1.7.7) |)
 xorg_provides	 = xorg-driver-video
 xorg_provides	+= $(if $(BACKPORT), $(comma) xserver-xorg-video-6)
+
+# sanity checks
+$(if $(and $(BACKPORT),$(MULTIARCH)),$(error Oops, backports do not support multiarch.))
+
 
 .PHONY: autogen prepare
 autogen: $(AUTOGEN)
@@ -108,6 +117,7 @@ override_dh_auto_clean:
 override_dh_clean:
 	dh_clean
 	rm -f $(AUTOCLEAN)
+	echo $(if $(MULTIARCH),9,8) > debian/compat  # HACK!
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
 override_dh_auto_configure: prepare
@@ -241,6 +251,7 @@ override_dh_strip:
 	-e 's{#!i386#}{$(if $(filter i386,$(DEB_HOST_ARCH)),#)}g;' \
 	-e 's{#!amd64#}{$(if $(filter amd64,$(DEB_HOST_ARCH)),#)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
+	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog
