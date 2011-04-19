@@ -10,6 +10,8 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.
     - Add #LIBDIR# substitution variable for generated config files.
+  * Add support for installing the libraries of current and legacy drivers in
+    parallel, add #PRIVATE# substitution variable for generated config files.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 19:50:56 +0200
 
