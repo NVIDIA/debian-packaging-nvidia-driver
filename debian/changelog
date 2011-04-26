@@ -1,6 +1,12 @@
-nvidia-graphics-drivers (270.41.03-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (270.41.06-1) UNRELEASED; urgency=low
 
-  * New upstream beta 270.41.03 (2011-04-??).
+  * New upstream beta 270.41.06 (2011-04-??).
+    - Fixed a bug that caused some GPUs to stop responding when the X Server
+      was started. All GPUs are susceptible, but the failure was primarily
+      seen on GF104 and GF106 boards.
+    - Added support for the following GPUs: Tesla M2090, Tesla M2075,
+      Tesla C2075, Quadro 7000.
+  * New upstream beta 270.41.03 (2011-04-18).
     - Fixed a bug causing the X server to hang every 49.7 days on 32-bit
       platforms.
     - Added support for the following GPUs: GeForce GT 520, GeForce GT 520M,
