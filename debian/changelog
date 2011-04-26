@@ -17,7 +17,7 @@ nvidia-graphics-drivers (270.41.06-1) UNRELEASED; urgency=low
   * Upload to experimental.
   * Update nv-kernel.ids.
   * Update symbols control files.
-  * Refresh use-nv-kernel.o.ARCH.patch.
+  * Refresh use-nv-kernel.o.ARCH.patch and fix-typos.patch.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 17:28:19 +0200
 
