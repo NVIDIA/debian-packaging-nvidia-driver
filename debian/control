@@ -482,7 +482,10 @@ Description: NVIDIA CUDA nvcuvid runtime library
 
 Package: libnvidia-ml1
 Architecture: i386 amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA management library (NVML) runtime library
  FIXME! NVML is the library version of nvidia-smi, some management and health
  monitoring utility for the TESLA platform
