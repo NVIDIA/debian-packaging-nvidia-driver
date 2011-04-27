@@ -1,6 +1,10 @@
 nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
 
   * Update to Standards-Version: 3.9.2.
+  * Add no-smp_lock.patch to remove the superfluous inclusion of
+    linux/smp_lock.h (kernel_locked is not used anywhere, so this seems to be
+    bitrot).  That header is no longer available in 2.6.39-rc4, so this patch
+    fixes build with the kernel in experimental.
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg

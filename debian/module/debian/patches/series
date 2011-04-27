@@ -4,3 +4,4 @@ conditionally-include-linux_version.h.patch
 2.6.36-ioctl.patch
 nvidia-kernel-compat-2.6.38.patch
 fix-typos.patch
+no-smp_lock.patch

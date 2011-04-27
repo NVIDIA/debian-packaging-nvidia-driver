@@ -1,0 +1,16 @@
+Author: Andreas Beckmann <debian@abeckmann.de>
+Description: remove superfluous inclusion of linux/smp_lock.h
+ This fixes build with 2.6.39-rc4 which no longer provides the header.
+
+Index: b/nv-linux.h
+===================================================================
+--- a/nv-linux.h	2011-04-27 09:55:52.763352648 +0200
++++ b/nv-linux.h	2011-04-27 09:56:09.911352903 +0200
+@@ -89,7 +89,6 @@
+ #if !defined(KERNEL_2_4)
+ #include <linux/sched.h>            /* suser(), capable() replacement   */
+ #include <linux/moduleparam.h>      /* module_param()                   */
+-#include <linux/smp_lock.h>         /* kernel_locked                    */
+ #include <asm/tlbflush.h>           /* flush_tlb(), flush_tlb_all()     */
+ #include <asm/kmap_types.h>         /* page table entry lookup          */
+ #endif
