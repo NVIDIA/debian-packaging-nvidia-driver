@@ -5,6 +5,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     linux/smp_lock.h (kernel_locked is not used anywhere, so this seems to be
     bitrot).  That header is no longer available in 2.6.39-rc4, so this patch
     fixes build with the kernel in experimental.
+  * Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
