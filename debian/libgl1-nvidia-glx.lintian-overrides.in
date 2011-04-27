@@ -19,7 +19,7 @@ libgl1-nvidia#LEGACY#-glx: shlibs-declares-dependency-on-other-package libgl1-me
 libgl1-nvidia#LEGACY#-glx: package-name-doesnt-match-sonames
 
 # Due to complex maintainer script operations (migration of diversions) a
-# simple Breaks+Recommends is not sufficient to ensure clean up-/downgrades.
+# simple Breaks+Replaces is not sufficient to ensure clean up-/downgrades.
 libgl1-nvidia#LEGACY#-glx: conflicts-with-version nvidia-glx#LEGACY# *
 
 # We provide ourselves as a virtual package.

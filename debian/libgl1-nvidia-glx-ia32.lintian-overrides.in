@@ -13,7 +13,7 @@ libgl1-nvidia#LEGACY#-glx-ia32: spelling-error-in-binary
 libgl1-nvidia#LEGACY#-glx-ia32: shlibs-declares-dependency-on-other-package ia32-libs (>= 20090804)
 
 # Due to complex maintainer script operations (migration of diversions) a
-# simple Breaks+Recommends is not sufficient to ensure clean up-/downgrades.
+# simple Breaks+Replaces is not sufficient to ensure clean up-/downgrades.
 libgl1-nvidia#LEGACY#-glx-ia32: conflicts-with-version nvidia-glx#LEGACY#-ia32 *
 
 # We provide ourselves as a virtual package.
