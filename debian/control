@@ -464,6 +464,8 @@ Description: NVIDIA runtime compiler library (32-bit)
 
 Package: libnvcuvid1
 Architecture: i386 amd64
+Pre-Depends:
+ ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA CUDA nvcuvid runtime library
