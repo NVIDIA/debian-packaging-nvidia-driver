@@ -18,6 +18,8 @@ nvidia-graphics-drivers (270.41.06-1) UNRELEASED; urgency=low
   * Update nv-kernel.ids.
   * Update symbols control files.
   * Refresh use-nv-kernel.o.ARCH.patch and fix-typos.patch.
+  * Merge 260.19.44-2 (UNRELEASED).
+  * Drop no-smp_lock.patch, fixed upstream.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 17:28:19 +0200
 
@@ -82,8 +84,19 @@ nvidia-graphics-drivers (260.19.44-2) UNRELEASED; urgency=low
   * Let nvidia-vdpau-driver Conflicts/Replaces the obsolete transitional
     package nvidia-libvdpau-dev.
   * Merge 195.36.31-90 (UNRELEASED).
+  * Merge 195.36.31-91 (UNRELEASED).
+    - Update to Standards-Version: 3.9.2.
+    - Add no-smp_lock.patch, fixes build with 2.6.39-rc.
+    - Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
+    - Support backport specific operations in debian/rules by setting the
+      BACKPORT variable in debian/rules.defs.
+    - Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
+      related Depends/Provides, compute the values in debian/rules.
+      Add compatibility settings for old Xorg versions for backports only.
+    - Add #LIBDIR# and #PRIVATE# substitution variables for generated control
+      files.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 09:54:42 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 27 Apr 2011 11:17:06 +0200
 
 nvidia-graphics-drivers (260.19.44-1) unstable; urgency=low
 
@@ -323,6 +336,24 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
 
  -- Russ Allbery <rra@debian.org>  Sat, 18 Sep 2010 15:07:19 -0700
 
+nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
+
+  * Update to Standards-Version: 3.9.2.
+  * Add no-smp_lock.patch to remove the superfluous inclusion of
+    linux/smp_lock.h (kernel_locked is not used anywhere, so this seems to be
+    bitrot).  That header is no longer available in 2.6.39-rc4, so this patch
+    fixes build with the kernel in experimental.
+  * Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
+  * Support backport specific operations in debian/rules by setting the
+    BACKPORT variable in debian/rules.defs.
+  * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
+    related Depends/Provides, compute the values in debian/rules.
+    Add compatibility settings for old Xorg versions for backports only.
+  * Add #LIBDIR# and #PRIVATE# substitution variables for generated control
+    files.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 27 Apr 2011 11:07:37 +0200
+
 nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
 
   * Merge general changes from 256xx/260xx releases:
@@ -396,7 +427,7 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
   * Prevent concurrent installation of mismatching upstream versions of
     libgl1-nvidia-glx and libgl1-nvidia-glx-ia32.
   * Provide xorg-driver-video.
-  * Add patch nvidia-kernel-compat-2.6.38.patch to fix build with 2.6.38-rc
+  * Add patch nvidia-kernel-compat-2.6.38.patch to fix build with 2.6.38
     kernels.
   * Add patch fix-typos.patch to fix a typo in the module (found by lintian).
   * Update lintian-overrides to work with lintian 2.5.0.  Keep error overrides
