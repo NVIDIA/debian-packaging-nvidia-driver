@@ -28,6 +28,7 @@ nvidia-graphics-drivers (270.41.06-1) unstable; urgency=low
       Add compatibility settings for old Xorg versions for backports only.
     - Add #LIBDIR# and #PRIVATE# substitution variables for generated control
       files.
+  * Add nvidia-installer-cleanup as an alternative to nvidia-common.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 27 Apr 2011 12:22:39 +0200
 
