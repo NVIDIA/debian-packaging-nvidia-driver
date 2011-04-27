@@ -13,7 +13,7 @@ module-assistant build --text-mode --force --kvers-list "$kernels" $modules
 ls -l *.deb
 for m in $modules ; do
 	for k in $kernels ; do
-		echo "* $m-$k:"
-		ls -l $m-$k*.deb
+		echo "* ${m}-${k}:"
+		ls -l ${m}-${k}_*.deb
 	done
 done
