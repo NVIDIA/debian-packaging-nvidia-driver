@@ -18,7 +18,20 @@ nvidia-graphics-drivers (270.41.06-1) UNRELEASED; urgency=low
   * Update nv-kernel.ids.
   * Update symbols control files.
   * Refresh use-nv-kernel.o.ARCH.patch and fix-typos.patch.
-  * Merge 260.19.44-2 (UNRELEASED).
+  * Let nvidia-vdpau-driver Conflicts/Replaces the obsolete transitional
+    package nvidia-libvdpau-dev.
+  * Merge 195.36.31-90 (UNRELEASED).
+  * Merge 195.36.31-91 (UNRELEASED).
+    - Update to Standards-Version: 3.9.2.
+    - Add no-smp_lock.patch, fixes build with 2.6.39-rc.
+    - Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
+    - Support backport specific operations in debian/rules by setting the
+      BACKPORT variable in debian/rules.defs.
+    - Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
+      related Depends/Provides, compute the values in debian/rules.
+      Add compatibility settings for old Xorg versions for backports only.
+    - Add #LIBDIR# and #PRIVATE# substitution variables for generated control
+      files.
   * Drop no-smp_lock.patch, fixed upstream.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 17:28:19 +0200
@@ -77,26 +90,6 @@ nvidia-graphics-drivers (270.30-1) experimental; urgency=low
   * Alternatively depend on xorg-video-abi-10.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 12:25:31 +0100
-
-nvidia-graphics-drivers (260.19.44-2) UNRELEASED; urgency=low
-
-  [ Andreas Beckmann ]
-  * Let nvidia-vdpau-driver Conflicts/Replaces the obsolete transitional
-    package nvidia-libvdpau-dev.
-  * Merge 195.36.31-90 (UNRELEASED).
-  * Merge 195.36.31-91 (UNRELEASED).
-    - Update to Standards-Version: 3.9.2.
-    - Add no-smp_lock.patch, fixes build with 2.6.39-rc.
-    - Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
-    - Support backport specific operations in debian/rules by setting the
-      BACKPORT variable in debian/rules.defs.
-    - Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
-      related Depends/Provides, compute the values in debian/rules.
-      Add compatibility settings for old Xorg versions for backports only.
-    - Add #LIBDIR# and #PRIVATE# substitution variables for generated control
-      files.
-
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 27 Apr 2011 11:17:06 +0200
 
 nvidia-graphics-drivers (260.19.44-1) unstable; urgency=low
 
