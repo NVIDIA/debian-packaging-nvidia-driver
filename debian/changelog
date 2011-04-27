@@ -1,6 +1,6 @@
-nvidia-graphics-drivers (270.41.06-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (270.41.06-1) unstable; urgency=low
 
-  * New upstream beta 270.41.06 (2011-04-??).
+  * New upstream release 270.41.06 (2011-04-20).
     - Fixed a bug that caused some GPUs to stop responding when the X Server
       was started. All GPUs are susceptible, but the failure was primarily
       seen on GF104 and GF106 boards.
@@ -14,7 +14,7 @@ nvidia-graphics-drivers (270.41.06-1) UNRELEASED; urgency=low
       GeForce GT 440, GeForce GT 445M, GeForce GT 550M, GeForce GT 555M,
       GeForce GTX 470M, GeForce GTX 485M, GeForce GTX 550 Ti, GeForce GTX 590,
       NVS 4200M, Quadro 1000M, Quadro 2000M.
-  * Upload to experimental.
+  * Upload to unstable.
   * Update nv-kernel.ids.
   * Update symbols control files.
   * Refresh use-nv-kernel.o.ARCH.patch and fix-typos.patch.
@@ -34,7 +34,7 @@ nvidia-graphics-drivers (270.41.06-1) UNRELEASED; urgency=low
       files.
   * Drop no-smp_lock.patch, fixed upstream.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 17:28:19 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 27 Apr 2011 12:22:39 +0200
 
 nvidia-graphics-drivers (270.30-1) experimental; urgency=low
 
