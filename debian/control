@@ -487,8 +487,9 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA management library (NVML) runtime library
- FIXME! NVML is the library version of nvidia-smi, some management and health
- monitoring utility for the TESLA platform
+ NVML provides programmatic access to static information and monitoring
+ data for NVIDIA GPUs, as well as limited managment capabilities.
+ It is intended for use with Tesla compute products.
  .
  This package contains the nvidia-ml runtime library.
 
