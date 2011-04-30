@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (270.41.06-1) unstable; urgency=low
 
-  * New upstream release 270.41.06 (2011-04-20).
+  * New upstream release 270.41.06 (2011-04-20).  (Closes: #624644)
     - Fixed a bug that caused some GPUs to stop responding when the X Server
       was started. All GPUs are susceptible, but the failure was primarily
       seen on GF104 and GF106 boards.
