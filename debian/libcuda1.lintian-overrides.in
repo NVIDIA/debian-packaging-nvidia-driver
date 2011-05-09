@@ -1,7 +1,7 @@
 # The NVIDIA license does not allow any form of modification.
-#!amd64#libcuda1: shlib-with-non-pic-code
-#!amd64#libcuda1: shlib-without-PT_GNU_STACK-section
-libcuda1: unstripped-binary-or-object
+#!amd64#shlib-with-non-pic-code
+#!amd64#shlib-without-PT_GNU_STACK-section
+unstripped-binary-or-object
 
 # libcudart.so.2 does dlopen("libcuda.so").
-libcuda1: non-dev-pkg-with-shlib-symlink
+non-dev-pkg-with-shlib-symlink

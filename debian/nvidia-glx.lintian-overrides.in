@@ -1,17 +1,17 @@
 # The NVIDIA license does not allow any form of modification.
-nvidia-glx#LEGACY#: binary-has-unneeded-section
+binary-has-unneeded-section
 # keep old override for embedded-libpng until ftp-master verification process uses newer lintian
-nvidia-glx#LEGACY#: embedded-libpng
-nvidia-glx#LEGACY#: embedded-library usr/lib/xorg/modules/drivers/nvidia_drv.so: libpng
-#!i386#nvidia-glx#LEGACY#: shlib-with-executable-stack
-#!amd64#nvidia-glx#LEGACY#: shlib-with-non-pic-code
-#!amd64#nvidia-glx#LEGACY#: shlib-without-PT_GNU_STACK-section
+embedded-libpng
+embedded-library usr/lib/xorg/modules/drivers/nvidia_drv.so: libpng
+#!i386#shlib-with-executable-stack
+#!amd64#shlib-with-non-pic-code
+#!amd64#shlib-without-PT_GNU_STACK-section
 
 # The alternatives are placed here.
-nvidia-glx#LEGACY#: package-contains-empty-directory usr/lib/xorg/modules/extensions/
+package-contains-empty-directory usr/lib/xorg/modules/extensions/
 
 # Referenced by upstream documentation.
-nvidia-glx#LEGACY#: script-with-language-extension usr/bin/nvidia-bug-report.sh
+script-with-language-extension usr/bin/nvidia-bug-report.sh
 
 # We provide ourselves as a virtual package.
-nvidia-glx: package-relation-with-self provides: nvidia-glx
+package-relation-with-self provides: nvidia-glx

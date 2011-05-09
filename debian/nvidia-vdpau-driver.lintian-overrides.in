@@ -1,5 +1,5 @@
 # The NVIDIA license does not allow any form of modification.
-nvidia-vdpau-driver: binary-has-unneeded-section
-#!i386#nvidia-vdpau-driver: shlib-with-executable-stack
-#!amd64#nvidia-vdpau-driver: shlib-with-non-pic-code
-#!amd64#nvidia-vdpau-driver: shlib-without-PT_GNU_STACK-section
+binary-has-unneeded-section
+#!i386#shlib-with-executable-stack
+#!amd64#shlib-with-non-pic-code
+#!amd64#shlib-without-PT_GNU_STACK-section

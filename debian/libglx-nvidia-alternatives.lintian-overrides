@@ -1,2 +1,4 @@
 # The diversions are placed here.
-#libglx-nvidia-alternatives: package-contains-empty-directory usr/lib/nvidia/diversions/
+# Due to some bad interaction with ancient maintainer scripts that
+# repeatedly removed this directory, we now ship a dummy file there.
+#package-contains-empty-directory usr/lib/nvidia/diversions/

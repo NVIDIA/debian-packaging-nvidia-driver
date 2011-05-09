@@ -73,7 +73,6 @@ Forking a new legacy package
     * in
         - debian/changelog
         - debian/control (Source: and Package: lines)
-        - debian/source/lintian-overrides
       change the package name by inserting '-legacy-42xx' into the package
       name after
         - nvidia-glx
