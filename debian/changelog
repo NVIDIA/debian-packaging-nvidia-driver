@@ -1,6 +1,10 @@
 nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
 
   * Update to Standards-Version: 3.9.2.
+  * Drop nvidia-kernel-compat-2.6.38.patch and adjust conftest.h to mark
+    aquire_console_sem as no longer available in 2.6.38 and newer kernels.
+    This avoids different behaviour between the kernel modules built from
+    upstream installer and the Debian packages.
   * Add no-smp_lock.patch to remove the superfluous inclusion of
     linux/smp_lock.h (kernel_locked is not used anywhere, so this seems to be
     bitrot).  That header is no longer available in 2.6.39-rc4, so this patch
