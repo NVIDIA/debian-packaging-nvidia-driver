@@ -22,7 +22,7 @@ Section: non-free/x11
 Architecture: i386 amd64
 Pre-Depends:
  dpkg (>= 1.15.7.2),
- nvidia-common,
+ nvidia-installer-cleanup | nvidia-common,
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  libglx-nvidia-alternatives,
@@ -68,7 +68,7 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
- nvidia-common,
+ nvidia-installer-cleanup | nvidia-common,
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (= ${binary:Version}),
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
@@ -100,7 +100,7 @@ Description: NVIDIA binary driver 32-bit libs${nvidia:LegacyDesc}
 Package: libgl1-nvidia-glx
 Architecture: i386 amd64
 Pre-Depends:
- nvidia-common,
+ nvidia-installer-cleanup | nvidia-common,
  ${misc:Pre-Depends}
 Depends:
  libgl1-nvidia-alternatives,
@@ -141,7 +141,7 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
- nvidia-common,
+ nvidia-installer-cleanup | nvidia-common,
  ${misc:Pre-Depends}
 Depends:
  libgl1-nvidia-alternatives-ia32,
@@ -254,7 +254,7 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
 Package: nvidia-vdpau-driver
 Architecture: i386 amd64
 Pre-Depends:
- nvidia-common,
+ nvidia-installer-cleanup | nvidia-common,
  ${misc:Pre-Depends}
 Depends:
  libvdpau1,
@@ -302,7 +302,7 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
- nvidia-common,
+ nvidia-installer-cleanup | nvidia-common,
  ${misc:Pre-Depends}
 Depends:
  lib32vdpau1,
@@ -563,7 +563,7 @@ Description: NVIDIA OpenCL 32-bit library
 Package: libgl1-nvidia-alternatives
 Architecture: i386 amd64
 Pre-Depends:
- nvidia-common,
+ nvidia-installer-cleanup | nvidia-common,
 Depends:
  dpkg (>= 1.15),
  ${misc:Depends}
@@ -589,7 +589,7 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
- nvidia-common,
+ nvidia-installer-cleanup | nvidia-common,
 Depends:
  dpkg (>= 1.15),
  ${misc:Depends}
@@ -609,7 +609,7 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
 Package: libglx-nvidia-alternatives
 Architecture: i386 amd64
 Pre-Depends:
- nvidia-common,
+ nvidia-installer-cleanup | nvidia-common,
 Depends:
  dpkg (>= 1.15),
  ${misc:Depends}
