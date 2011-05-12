@@ -16,6 +16,10 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Convert nvidia-vdpau-driver{,-ia32} related versioned Conflicts/Replaces
     to Breaks/Replaces.
   * Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
+  * Let the triggers only create the alternatives to diverted libraries if the
+    diverted file is a symbolic link and points to an actual file.  This
+    avoids failures running the triggers on some systems with broken diverted
+    files.
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
