@@ -56,6 +56,18 @@ then
 	fi
 	# </target: squeeze>
 
+	# <target: wheezy>
+	# remove incorrect libGL.so created by an unknown script
+	# otherwise we dpkg-divert --rename an unowned file
+	if [ -L /usr/lib32/libGL.so ] && \
+		[ "$(readlink /usr/lib32/libGL.so)" != "/etc/alternatives/ia32-libGL.so" ] && \
+		[ "$(readlink /usr/lib32/libGL.so)" != "libGL.so.1" ]
+	then
+		echo "Removing /usr/lib/libGL.so symlink from unknown origin."
+		rm -f /usr/lib32/libGL.so
+	fi
+	# </target: wheezy>
+
 	# <target: squeeze>
 	# take over diversions from nvidia-glx{,-legacy-*xx}-ia32
 	for file in libGL.so.1.2 libGL.so.1 libGL.so
@@ -116,6 +128,47 @@ then
 	dpkg-divert $DIVERT_QUIET --add --rename --package $DPKG_MAINTSCRIPT_PACKAGE --divert \
 		/usr/lib32/nvidia/diversions/libGL.so.1.2 \
 		/usr/lib32/libGL.so.1.2
+
+fi
+
+
+validate_diverted_symlink()
+{
+	local original diverted target owner filename
+	original="$1"
+	diverted="$2"
+	target="$3"
+	filename="$(basename "$original")"
+
+	# determine ownership of the original file
+	owner="$(dpkg-query -S "$original" 2>/dev/null | grep -v '^diversion by' || true)"
+
+	if [ -L "$diverted" ] && [ -z "$owner" ]; then
+		echo "Removing diverted '$filename' symlink owned by no package."
+		rm "$diverted"
+	fi
+
+	if [ -L "$diverted" ] && [ "$(readlink "$diverted")" != "$target" ]; then
+		echo "Removing diverted '$filename' symlink with unexpected target."
+		rm "$diverted"
+	fi
+
+	if [ ! -L "$diverted" ] && [ -n "$owner" ]; then
+		echo "Restoring diverted '$filename' symlink."
+		ln -s "$target" "$diverted"
+	fi
+}
+
+if [ "$1" = "configure" ]; then
+
+	# do some validation of the diverted libGL.so and libGL.so.1
+	validate_diverted_symlink /usr/lib32/libGL.so /usr/lib32/nvidia/diversions/libGL.so libGL.so.1
+	validate_diverted_symlink /usr/lib32/libGL.so.1 /usr/lib32/nvidia/diversions/libGL.so.1 libGL.so.1.2
+
+fi
+
+
+if [ "$1" = "configure" ]; then
 
 	# activate our trigger
 	dpkg-trigger /usr/lib32/libGL.so.1
