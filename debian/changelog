@@ -13,6 +13,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     built with ld.gold does not work properly.
     (See #626279, #625761, #617391)
   * Add nvidia-installer-cleanup as an alternative to nvidia-common.
+  * Drop dependency on nvidia-common in favor of nvidia-installer-cleanup.
   * Convert nvidia-vdpau-driver{,-ia32} related versioned Conflicts/Replaces
     to Breaks/Replaces.
   * Add support for arch-specific overrides (lintian 2.5.0).
