@@ -27,6 +27,7 @@ Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  libglx-nvidia-alternatives,
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ nvidia-support,
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
