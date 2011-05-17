@@ -26,6 +26,8 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     libgl1-nvidia-alternatives and libgl1-nvidia-alternatives-ia32.
   * Add Depends: nvidia-support to nvidia-glx.  The new support package ships
     the nvidia-bug-report.sh manpage.
+  * Override the binary-without-manpage lintian warning now that we provide a
+    manpage (in nvidia-support).
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
