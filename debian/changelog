@@ -1,3 +1,23 @@
+nvidia-graphics-drivers (270.41.19-1) UNRELEASED; urgency=low
+
+  * New upstream beta?/release? 270.41.19 (201-05-??).
+    - Fixed a bug in the VDPAU presentation queue that could cause 1
+      second hangs when transitioning from blit-based display to overlay-
+      based display. This would most commonly happen when disabling a
+      compositing manager.
+    - Fixed a bug that could cause crashes when capturing SDI video.
+    - Fixed a corner-case in which the OpenGL driver could leak resources
+      in applications utilizing fork().
+    - Addressed a Linux kernel interface compatibility problem that could
+      lead to ioremap() errors and, potentially, functional and/or
+      stability problems.
+    - Fixed a bug that caused SLI initialization to fail on some Intel
+      based systems.
+    - Fixed a bug that caused SLI initialization to fail when using recent
+      Linux kernels, such as 2.6.38.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 19 May 2011 21:36:33 +0200
+
 nvidia-graphics-drivers (270.41.06-1) unstable; urgency=low
 
   * New upstream release 270.41.06 (2011-04-20).  (Closes: #624644)
