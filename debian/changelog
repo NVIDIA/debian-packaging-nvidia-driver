@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (270.41.19-1) UNRELEASED; urgency=low
 
-  * New upstream beta?/release? 270.41.19 (201-05-??).
+  * New upstream release 270.41.19 (201-05-20).
     - Fixed a bug in the VDPAU presentation queue that could cause 1
       second hangs when transitioning from blit-based display to overlay-
       based display. This would most commonly happen when disabling a
@@ -24,7 +24,7 @@ nvidia-graphics-drivers (270.41.19-1) UNRELEASED; urgency=low
       upstream installer and the Debian packages.
     - Add avoid-ld.gold.patch to explicitly link with ld.bfd.  The kernel
       module built with ld.gold does not work properly.
-      (See #626279, #625761, #617391)
+      (Closes: #625761, #626279)
     - Drop dependency on nvidia-common in favor of nvidia-installer-cleanup.
     - Convert nvidia-vdpau-driver{,-ia32} related versioned Conflicts/Replaces
       to Breaks/Replaces.
@@ -34,7 +34,7 @@ nvidia-graphics-drivers (270.41.19-1) UNRELEASED; urgency=low
     - Let the triggers only create the alternatives to diverted libraries if
       the diverted file is a symbolic link and points to an actual file.  This
       avoids failures running the triggers on some systems with broken
-      diverted files.
+      diverted files.  (Closes: #626399)
     - Perform the same validation and correction of the diverted symlinks in
       libgl1-nvidia-alternatives and libgl1-nvidia-alternatives-ia32.
     - Add Depends: nvidia-support to nvidia-glx.  The new support package
