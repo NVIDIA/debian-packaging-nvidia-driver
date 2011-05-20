@@ -6,30 +6,30 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     This avoids different behaviour between the kernel modules built from
     upstream installer and the Debian packages.
   * Add no-smp_lock.patch to remove the superfluous inclusion of
-    linux/smp_lock.h (kernel_locked is not used anywhere, so this seems to be
-    bitrot).  That header is no longer available in 2.6.39-rc4, so this patch
-    fixes build with the kernel in experimental.
-  * Add avoid-ld.gold.patch to explicitly link with ld.bfd.  The kernel module
-    built with ld.gold does not work properly.
+    linux/smp_lock.h (kernel_locked is not used anywhere, so this seems to
+    be bitrot).  That header is no longer available in 2.6.39-rc4, so this
+    patch fixes build with the kernel in experimental.
+  * Add avoid-ld.gold.patch to explicitly link with ld.bfd.  The kernel
+    module built with ld.gold does not work properly.
     (See #626279, #625761, #617391)
   * Add nvidia-installer-cleanup as an alternative to nvidia-common.
   * Drop dependency on nvidia-common in favor of nvidia-installer-cleanup.
   * Convert nvidia-vdpau-driver{,-ia32} related versioned Conflicts/Replaces
     to Breaks/Replaces.
-  * Turn nvidia-glx-ia32 into a transitional package, the libraries have been
-    shipped in libgl1-nvidia-glx-ia32 for quite some time.
+  * Turn nvidia-glx-ia32 into a transitional package, the libraries have
+    been shipped in libgl1-nvidia-glx-ia32 for quite some time.
   * Add support for arch-specific overrides (lintian 2.5.0).
   * Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
-  * Let the triggers only create the alternatives to diverted libraries if the
-    diverted file is a symbolic link and points to an actual file.  This
-    avoids failures running the triggers on some systems with broken diverted
-    files.
+  * Let the triggers only create the alternatives to diverted libraries if
+    the diverted file is a symbolic link and points to an actual file.  This
+    avoids failures running the triggers on some systems with broken
+    diverted files.
   * Perform the same validation and correction of the diverted symlinks in
     libgl1-nvidia-alternatives and libgl1-nvidia-alternatives-ia32.
-  * Add Depends: nvidia-support to nvidia-glx.  The new support package ships
-    the nvidia-bug-report.sh manpage.
-  * Override the binary-without-manpage lintian warning now that we provide a
-    manpage (in nvidia-support).
+  * Add Depends: nvidia-support to nvidia-glx.  The new support package
+    ships the nvidia-bug-report.sh manpage.
+  * Override the binary-without-manpage lintian warning now that we provide
+    a manpage (in nvidia-support).
   * conftest.h: implement conftest.sh function ioremap_cache (270.41.19).
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.
