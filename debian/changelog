@@ -17,6 +17,13 @@ nvidia-graphics-drivers (270.41.19-1) UNRELEASED; urgency=low
       Linux kernels, such as 2.6.38.
   * Update nv-kernel.ids.
   * Update symbols control files.
+  * Partially merge 195.36.31-91 (UNRELEASED).
+    - Drop nvidia-kernel-compat-2.6.38.patch and adjust conftest.h to mark
+      aquire_console_sem as no longer available in 2.6.38 and newer kernels.
+      This avoids different behaviour between the kernel modules built from
+      upstream installer and the Debian packages.
+    - Convert nvidia-vdpau-driver{,-ia32} related versioned Conflicts/Replaces
+      to Breaks/Replaces.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 19 May 2011 21:36:33 +0200
 
@@ -353,10 +360,17 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
 nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
 
   * Update to Standards-Version: 3.9.2.
+  * Drop nvidia-kernel-compat-2.6.38.patch and adjust conftest.h to mark
+    aquire_console_sem as no longer available in 2.6.38 and newer kernels.
+    This avoids different behaviour between the kernel modules built from
+    upstream installer and the Debian packages.
   * Add no-smp_lock.patch to remove the superfluous inclusion of
     linux/smp_lock.h (kernel_locked is not used anywhere, so this seems to be
     bitrot).  That header is no longer available in 2.6.39-rc4, so this patch
     fixes build with the kernel in experimental.
+  * Add nvidia-installer-cleanup as an alternative to nvidia-common.
+  * Convert nvidia-vdpau-driver{,-ia32} related versioned Conflicts/Replaces
+    to Breaks/Replaces.
   * Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.

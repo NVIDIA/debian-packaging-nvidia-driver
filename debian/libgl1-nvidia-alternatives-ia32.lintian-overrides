@@ -1,2 +1,2 @@
 # The diversions are placed here.
-libgl1-nvidia-alternatives-ia32: package-contains-empty-directory usr/lib32/nvidia/diversions/
+package-contains-empty-directory usr/lib32/nvidia/diversions/

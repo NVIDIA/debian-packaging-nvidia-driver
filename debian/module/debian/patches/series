@@ -1,4 +1,3 @@
 use-nv-kernel.o.ARCH.patch
 conditionally-include-linux_version.h.patch
-nvidia-kernel-compat-2.6.38.patch
 fix-typos.patch

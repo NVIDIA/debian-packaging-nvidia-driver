@@ -270,13 +270,13 @@ Enhances:
 Provides:
  vdpau-driver,
 Conflicts:
- nvidia-glx (<< 180.51),
  nvidia-libvdpau,
  nvidia-libvdpau-dev,
  nvidia-libvdpau1,
  nvidia-libvdpau1-driver,
 Breaks:
  libvdpau1 (<< 0.4),
+ nvidia-glx (<< 180.51),
 Replaces:
  nvidia-glx (<< 180.51),
  nvidia-libvdpau,
@@ -318,11 +318,12 @@ Enhances:
 Provides:
  vdpau-driver,
 Conflicts:
- nvidia-glx (<< 180.51),
  nvidia-libvdpau,
  nvidia-libvdpau1,
  nvidia-libvdpau1-ia32,
  nvidia-libvdpau1-driver-ia32,
+Breaks:
+ nvidia-glx (<< 180.51),
 Replaces:
  nvidia-glx (<< 180.51),
  nvidia-libvdpau,
