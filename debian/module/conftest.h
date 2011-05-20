@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 260.19.36, 173.14.28, 96.43.19, 71.86.14 */
+/* synchronized with conftest.sh from 270.41.19, 173.14.28, 96.43.19, 71.86.14 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -209,6 +209,13 @@
  #define NV_ACPI_WALK_NAMESPACE_ARGUMENT_COUNT 7
 #else
  #define NV_ACPI_WALK_NAMESPACE_ARGUMENT_COUNT 6
+#endif
+
+/* Implement conftest.sh function ioremap_cache */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
+ #define NV_IOREMAP_CACHE_PRESENT
+#else
+ #undef NV_IOREMAP_CACHE_PRESENT
 #endif
 
 /* Implement conftest.sh function ioremap_wc */

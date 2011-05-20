@@ -30,6 +30,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     the nvidia-bug-report.sh manpage.
   * Override the binary-without-manpage lintian warning now that we provide a
     manpage (in nvidia-support).
+  * conftest.h: implement conftest.sh function ioremap_cache (270.41.19).
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
