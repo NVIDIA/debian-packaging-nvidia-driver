@@ -14,6 +14,7 @@ WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
 MULTIARCH		?=
 BACKPORT		?=
+LINTIAN25		?= $(MULTIARCH)
 version			 = $(NVIDIA_RELEASE)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
@@ -250,8 +251,8 @@ override_dh_strip:
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
-	-e 's{#!i386#}{$(if $(filter i386,$(DEB_HOST_ARCH)),#)}g;' \
-	-e 's{#!amd64#}{$(if $(filter amd64,$(DEB_HOST_ARCH)),#)}g;' \
+	-e 's{#!i386#}{$(if $(LINTIAN25),[!i386]: ,$(if $(filter i386,$(DEB_HOST_ARCH)),#))}g;' \
+	-e 's{#!amd64#}{$(if $(LINTIAN25),[!amd64]: ,$(if $(filter amd64,$(DEB_HOST_ARCH)),#))}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \

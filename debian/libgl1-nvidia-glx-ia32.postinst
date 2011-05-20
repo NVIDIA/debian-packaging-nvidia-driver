@@ -6,6 +6,11 @@ if [ "$1" = "configure" ]; then
 
 	update-alternatives --install /usr/lib32/libGL.so.1 ia32-libGL.so.1 /usr/lib32/nvidia/libGL.so.1 42
 
+	if [ -x /usr/lib/nvidia/check-for-conflicting-opengl-libraries ]
+	then
+		/usr/lib/nvidia/check-for-conflicting-opengl-libraries
+	fi
+
 fi
 
 
