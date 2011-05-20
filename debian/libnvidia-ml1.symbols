@@ -10,6 +10,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  NvRmAllocOsEvent@Base 270
  NvRmAllocRoot@Base 270
  NvRmAllocSubDevice@Base 270
+ NvRmApiInitialize@Base 270.41.19
  NvRmBindArbitraryContextDma@Base 270
  NvRmBindContextDma@Base 270
  NvRmChangeResMode@Base 270
@@ -122,6 +123,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  deviceGetDetailedVolatileEccErrorsRM@Base 270
  deviceGetDisplayModeRM@Base 270
  deviceGetEccModeRM@Base 270
+ deviceGetEcidRM@Base 270.41.19
  deviceGetFanSpeedRM@Base 270
  deviceGetInforomVersionRM@Base 270
  deviceGetMemoryInfoRM@Base 270

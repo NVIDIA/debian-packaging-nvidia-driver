@@ -16,6 +16,7 @@ nvidia-graphics-drivers (270.41.19-1) UNRELEASED; urgency=low
     - Fixed a bug that caused SLI initialization to fail when using recent
       Linux kernels, such as 2.6.38.
   * Update nv-kernel.ids.
+  * Update symbols control files.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 19 May 2011 21:36:33 +0200
 
