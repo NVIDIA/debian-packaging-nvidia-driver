@@ -16,6 +16,8 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Drop dependency on nvidia-common in favor of nvidia-installer-cleanup.
   * Convert nvidia-vdpau-driver{,-ia32} related versioned Conflicts/Replaces
     to Breaks/Replaces.
+  * Turn nvidia-glx-ia32 into a transitional package, the libraries have been
+    shipped in libgl1-nvidia-glx-ia32 for quite some time.
   * Add support for arch-specific overrides (lintian 2.5.0).
   * Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
   * Let the triggers only create the alternatives to diverted libraries if the

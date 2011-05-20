@@ -67,36 +67,12 @@ Package: nvidia-glx-ia32
 Section: non-free/oldlibs
 Priority: extra
 Architecture: amd64
-Pre-Depends:
- libc6-i386 (>= 2.9-18),
- nvidia-installer-cleanup,
 Depends:
- libgl1-nvidia${nvidia:Legacy}-glx-ia32 (= ${binary:Version}),
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
- ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- nvidia-vdpau-driver-ia32 (>= ${nvidia:Version}),
-Suggests:
- nvidia-settings,
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Provides:
- nvidia-glx-ia32,
-Conflicts:
- nvidia-glx-ia32,
- nvidia-glx-legacy-ia32,
- nvidia-glx-legacy-71xx-ia32,
- nvidia-glx-legacy-96xx-ia32,
- nvidia-glx-legacy-173xx-ia32,
-Description: NVIDIA binary driver 32-bit libs${nvidia:LegacyDesc}
- These binary drivers provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
- AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
- .
- ${nvidia:Models}
- .
- See /usr/share/doc/nvidia-glx${nvidia:Legacy}/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+ libgl1-nvidia${nvidia:Legacy}-glx-ia32,
+ ${misc:Depends}
+Description: NVIDIA 32-bit libraries (transitional package)
+ This is a dummy package to aid switching to
+ libgl1-nvidia${nvidia:Legacy}-glx-ia32.
 
 Package: libgl1-nvidia-glx
 Architecture: i386 amd64
