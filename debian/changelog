@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (270.41.19-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (270.41.19-1) unstable; urgency=low
 
   * New upstream release 270.41.19 (201-05-20).
     - Fixed a bug in the VDPAU presentation queue that could cause 1
@@ -43,7 +43,7 @@ nvidia-graphics-drivers (270.41.19-1) UNRELEASED; urgency=low
       a manpage (in nvidia-support).
     - conftest.h: implement conftest.sh function ioremap_cache (270.41.19).
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 19 May 2011 21:36:33 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 22 May 2011 21:34:48 +0200
 
 nvidia-graphics-drivers (270.41.06-1) unstable; urgency=low
 
