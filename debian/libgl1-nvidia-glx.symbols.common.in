@@ -216,6 +216,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glCopyMultiTexSubImage1DEXT@Base 180
  glCopyMultiTexSubImage2DEXT@Base 180
  glCopyMultiTexSubImage3DEXT@Base 180
+ glCopyPathNV@Base 275
  glCopyPixels@Base 1.0.4349
  glCopyTexImage1D@Base 1.0.4349
  glCopyTexImage2D@Base 1.0.4349
@@ -229,6 +230,10 @@ libGL.so.1 #PACKAGE# #MINVER#
  glCopyTextureSubImage1DEXT@Base 180
  glCopyTextureSubImage2DEXT@Base 180
  glCopyTextureSubImage3DEXT@Base 180
+ glCoverFillPathInstancedNV@Base 275
+ glCoverFillPathNV@Base 275
+ glCoverStrokePathInstancedNV@Base 275
+ glCoverStrokePathNV@Base 275
  glCreateProgram@Base 1.0.7664
  glCreateProgramObjectARB@Base 1.0.6106
  glCreateShader@Base 1.0.7664
@@ -249,6 +254,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glDeleteNamedStringARB@Base 270
  glDeleteObjectARB@Base 1.0.6106
  glDeleteOcclusionQueriesNV@Base 1.0.4349
+ glDeletePathsNV@Base 275
  glDeleteProgram@Base 1.0.7664
  glDeleteProgramPipelines@Base 260
  glDeleteProgramsARB@Base 1.0.4349
@@ -414,6 +420,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGenFramebuffersEXT@Base 1.0.7664
  glGenLists@Base 1.0.4349
  glGenOcclusionQueriesNV@Base 1.0.4349
+ glGenPathsNV@Base 275
  glGenProgramPipelines@Base 260
  glGenProgramsARB@Base 1.0.4349
  glGenProgramsNV@Base 1.0.4349
@@ -557,6 +564,19 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetObjectParameterivARB@Base 1.0.6106
  glGetOcclusionQueryivNV@Base 1.0.4349
  glGetOcclusionQueryuivNV@Base 1.0.4349
+ glGetPathColorGenfvNV@Base 275
+ glGetPathColorGenivNV@Base 275
+ glGetPathCommandsNV@Base 275
+ glGetPathCoordsNV@Base 275
+ glGetPathDashArrayNV@Base 275
+ glGetPathLengthNV@Base 275
+ glGetPathMetricRangeNV@Base 275
+ glGetPathMetricsNV@Base 275
+ glGetPathParameterfvNV@Base 275
+ glGetPathParameterivNV@Base 275
+ glGetPathSpacingNV@Base 275
+ glGetPathTexGenfvNV@Base 275
+ glGetPathTexGenivNV@Base 275
  glGetPixelMapfv@Base 1.0.4349
  glGetPixelMapuiv@Base 1.0.4349
  glGetPixelMapusv@Base 1.0.4349
@@ -737,6 +757,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glIndexubv@Base 1.0.4349
  glInitNames@Base 1.0.4349
  glInterleavedArrays@Base 1.0.4349
+ glInterpolatePathsNV@Base 275
  glIsBuffer@Base 1.0.6106
  glIsBufferARB@Base 1.0.4349
  glIsBufferResidentNV@Base 185
@@ -750,6 +771,9 @@ libGL.so.1 #PACKAGE# #MINVER#
  glIsNamedBufferResidentNV@Base 185
  glIsNamedStringARB@Base 270
  glIsOcclusionQueryNV@Base 1.0.4349
+ glIsPathNV@Base 275
+ glIsPointInFillPathNV@Base 275
+ glIsPointInStrokePathNV@Base 275
  glIsProgram@Base 1.0.7664
  glIsProgramARB@Base 1.0.4349
  glIsProgramNV@Base 1.0.4349
@@ -1008,6 +1032,24 @@ libGL.so.1 #PACKAGE# #MINVER#
  glPatchParameterfvNV@Base 195
  glPatchParameteri@Base 256
  glPatchParameteriNV@Base 195
+ glPathColorGenNV@Base 275
+ glPathCommandsNV@Base 275
+ glPathCoordsNV@Base 275
+ glPathCoverDepthFuncNV@Base 275
+ glPathDashArrayNV@Base 275
+ glPathFogGenNV@Base 275
+ glPathGlyphRangeNV@Base 275
+ glPathGlyphsNV@Base 275
+ glPathParameterfNV@Base 275
+ glPathParameterfvNV@Base 275
+ glPathParameteriNV@Base 275
+ glPathParameterivNV@Base 275
+ glPathStencilDepthOffsetNV@Base 275
+ glPathStencilFuncNV@Base 275
+ glPathStringNV@Base 275
+ glPathSubCommandsNV@Base 275
+ glPathSubCoordsNV@Base 275
+ glPathTexGenNV@Base 275
  glPauseTransformFeedback@Base 256
  glPauseTransformFeedbackEXT@Base 190.36
  glPauseTransformFeedbackNV@Base 165
@@ -1020,6 +1062,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glPixelTransferf@Base 1.0.4349
  glPixelTransferi@Base 1.0.4349
  glPixelZoom@Base 1.0.4349
+ glPointAlongPathNV@Base 275
  glPointParameterf@Base 1.0.4349
  glPointParameterfARB@Base 1.0.4349
  glPointParameterfEXT@Base 1.0.4349
@@ -1315,12 +1358,16 @@ libGL.so.1 #PACKAGE# #MINVER#
  glStatePropertyfNV@Base 260
  glStatePropertyiNV@Base 260
  glStateTypeNV@Base 260
+ glStencilFillPathInstancedNV@Base 275
+ glStencilFillPathNV@Base 275
  glStencilFunc@Base 1.0.4349
  glStencilFuncSeparate@Base 1.0.7664
  glStencilMask@Base 1.0.4349
  glStencilMaskSeparate@Base 1.0.7664
  glStencilOp@Base 1.0.4349
  glStencilOpSeparate@Base 1.0.7664
+ glStencilStrokePathInstancedNV@Base 275
+ glStencilStrokePathNV@Base 275
  glTestFenceNV@Base 1.0.4349
  glTexBuffer@Base 190
  glTexBufferARB@Base 180
@@ -1433,6 +1480,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTransformFeedbackStreamAttribsNV@Base 195
  glTransformFeedbackVaryings@Base 180
  glTransformFeedbackVaryingsNV@Base 1.0.9746
+ glTransformPathNV@Base 275
  glTranslated@Base 1.0.4349
  glTranslatef@Base 1.0.4349
  glUniform1d@Base 256
@@ -1832,6 +1880,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glViewportIndexedf@Base 260
  glViewportIndexedfv@Base 260
  glWaitSync@Base 190.18.05
+ glWeightPathsNV@Base 275
  glWindowBackBufferHintAutodesk@Base 1.0.4349
  glWindowPos2d@Base 1.0.4349
  glWindowPos2dARB@Base 1.0.4349

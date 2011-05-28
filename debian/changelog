@@ -12,6 +12,7 @@ nvidia-graphics-drivers (275.09-1) UNRELEASED; urgency=low
       extend a single X screen transparently across all of the available
       display outputs on each GPU. See "Appendix B. X Config Options" in the
       README for more information.
+  * Update symbols control files.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 28 May 2011 13:31:18 +0200
 
