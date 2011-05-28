@@ -15,6 +15,8 @@ nvidia-graphics-drivers (275.09-1) UNRELEASED; urgency=low
   * Update symbols control files.
   * Refresh conditionally-include-linux_version.h.patch and
     use-nv-kernel.o.ARCH.patch.
+  * conftest.h: implement checks for generated/compile.h and
+    generated/utsrelease.h (275.09).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 28 May 2011 13:31:18 +0200
 
