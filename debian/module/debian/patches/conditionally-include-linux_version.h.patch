@@ -7,10 +7,10 @@ Description: Conditionally include linux/version.h
 
 Index: b/nv-linux.h
 ===================================================================
---- a/nv-linux.h	2010-04-23 05:40:40.000000000 +0200
-+++ b/nv-linux.h	2010-04-27 10:21:53.475537265 +0200
-@@ -23,7 +23,9 @@
- #endif
+--- a/nv-linux.h	2011-05-17 03:00:27.000000000 +0200
++++ b/nv-linux.h	2011-05-28 13:51:34.021852338 +0200
+@@ -35,7 +35,9 @@
+   #include <generated/compile.h>
  #endif
  
 +#ifndef LINUX_VERSION_CODE

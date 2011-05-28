@@ -13,6 +13,8 @@ nvidia-graphics-drivers (275.09-1) UNRELEASED; urgency=low
       display outputs on each GPU. See "Appendix B. X Config Options" in the
       README for more information.
   * Update symbols control files.
+  * Refresh conditionally-include-linux_version.h.patch and
+    use-nv-kernel.o.ARCH.patch.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 28 May 2011 13:31:18 +0200
 

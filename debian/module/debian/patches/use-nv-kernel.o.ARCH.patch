@@ -7,14 +7,14 @@ Description: Select the correct nv-kernel.o for the target architecture
 
 Index: b/Makefile.kbuild
 ===================================================================
---- a/Makefile.kbuild	2011-04-18 23:54:07.000000000 +0200
-+++ b/Makefile.kbuild	2011-04-26 20:33:04.423352651 +0200
+--- a/Makefile.kbuild	2011-05-17 03:00:27.000000000 +0200
++++ b/Makefile.kbuild	2011-05-28 13:46:14.986351745 +0200
 @@ -43,7 +43,7 @@
  # understands that we want a module.
  #
  
 -CORE_OBJS := nv-kernel.o
 +CORE_OBJS := nv-kernel.o$(NVARCH)
- RESMAN_GLUE_OBJS := $(patsubst %.c,%.o,nv.c nv-chrdev.c nv-mlock.c nv-procfs.c nv_gvi.c nv-vm.c os-agp.c os-interface.c os-smp.c os-registry.c nv-cray.c nv-i2c.c nvacpi.c)
+ RESMAN_GLUE_OBJS := $(patsubst %.c,%.o,nv.c nv-chrdev.c nv-mlock.c nv-procfs.c nv-usermap.c nv_gvi.c nv-vm.c os-agp.c os-interface.c os-smp.c os-usermap.c os-registry.c nv-cray.c nv-i2c.c nvacpi.c)
  
  $(MODULE_NAME)-objs := $(CORE_OBJS) $(RESMAN_GLUE_OBJS)
