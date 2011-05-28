@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (275.09-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (275.09-1) experimental; urgency=low
 
   * New upstream beta 275.09 (2011-05-20).
     - Fixed a bug that caused the pop-out and external DVI displays to go blank
@@ -12,13 +12,14 @@ nvidia-graphics-drivers (275.09-1) UNRELEASED; urgency=low
       extend a single X screen transparently across all of the available
       display outputs on each GPU. See "Appendix B. X Config Options" in the
       README for more information.
+  * Upload to experimental.
   * Update symbols control files.
   * Refresh conditionally-include-linux_version.h.patch and
     use-nv-kernel.o.ARCH.patch.
   * conftest.h: implement checks for generated/compile.h and
     generated/utsrelease.h (275.09).
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 28 May 2011 13:31:18 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 28 May 2011 15:20:41 +0200
 
 nvidia-graphics-drivers (270.41.19-1) unstable; urgency=low
 
