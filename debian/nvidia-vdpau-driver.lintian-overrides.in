@@ -1,5 +1,5 @@
 # The NVIDIA license does not allow any form of modification.
 binary-has-unneeded-section
-#!i386#shlib-with-executable-stack
-#!amd64#shlib-with-non-pic-code
-#!amd64#shlib-without-PT_GNU_STACK-section
+[amd64]: shlib-with-executable-stack
+[i386]: shlib-with-non-pic-code
+[i386]: shlib-without-PT_GNU_STACK-section
