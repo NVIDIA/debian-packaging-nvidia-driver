@@ -264,6 +264,20 @@ override_dh_strip:
 debian/module/debian/changelog: debian/changelog
 	sed '1s/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@
 
+
+# Renaming control files for legacy packaging
+ifneq (,$(legacy))
+nvidia-glx$(legacy)%: nvidia-glx%
+	cp -a $< $@
+
+libgl1-nvidia$(legacy)%: libgl1-nvidia%
+	cp -a $< $@
+
+nvidia-kernel$(legacy)%: nvidia-kernel%
+	cp -a $< $@
+endif
+
+
 # only invoked manually
 %.txt: %.list
 	cat $< \
@@ -287,19 +301,6 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 	while read id ; do \
 		grep ^$$id pci.ids.nvidia || echo $$id ; \
 	done > $@
-
-
-# Renaming control files for legacy packaging
-ifneq (,$(legacy))
-nvidia-glx$(legacy)%: nvidia-glx%
-	cp -a $< $@
-
-libgl1-nvidia$(legacy)%: libgl1-nvidia%
-	cp -a $< $@
-
-nvidia-kernel$(legacy)%: nvidia-kernel%
-	cp -a $< $@
-endif
 
 
 .PHONY: get-orig-source
