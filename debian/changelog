@@ -1,6 +1,33 @@
+nvidia-graphics-drivers (275.09.04-1) UNRELEASED; urgency=low
+
+  * New upstream beta 275.09.04 (2011-06-??).
+    - Modified the X driver to request that hardware inform the audio driver
+      whenever a display is disabled. This will allow the audio driver to
+      generate the appropriate jack unplug events to applications.
+    - Added support for the GL_EXT_x11_sync_object extension.  See the
+      extension specification in the OpenGL registry here:
+        http://www.opengl.org/registry/specs/EXT/x11_sync_object.txt
+      for more details.
+    - Improved performance of window resize operations in KDE 4 on systems
+      with slow CPUs.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 06 Jun 2011 17:29:59 +0200
+
 nvidia-graphics-drivers (275.09-1) experimental; urgency=low
 
   * New upstream beta 275.09 (2011-05-20).
+    - Added support for hardware button based pairing to NVIDIA 3D Vision Pro.
+      Single click button on the hub to enter into a pairing mode which pairs
+      one pair of glasses at a time. Double click the same button on the
+      hub to enter into a pairing mode which pairs multiple pairs of glasses
+      at a time.
+    - Added unofficial GLX protocol support (i.e., for GLX indirect
+      rendering) for the following OpenGL extensions:
+      GL_NV_framebuffer_multisample_coverage
+      GL_NV_texture_barrier
+    - Added GLX protocol support (i.e., for GLX
+      indirect rendering) for the following OpenGL extension:
+      GL_NV_register_combiners2
     - Fixed a bug that caused the pop-out and external DVI displays to go blank
       on Lenovo ThinkPad W701 laptops.
     - Fixed a bug that caused corruption on the menus in OpenOffice.org when the
@@ -12,6 +39,9 @@ nvidia-graphics-drivers (275.09-1) experimental; urgency=low
       extend a single X screen transparently across all of the available
       display outputs on each GPU. See "Appendix B. X Config Options" in the
       README for more information.
+  * Unreleased upstream 270.41.?? (2011-??-??).
+    - Fixed a bug causing incorrect reporting of GPU core and ambient
+      temperatures via NV-CONTROL.
   * Upload to experimental.
   * Update symbols control files.
   * Refresh conditionally-include-linux_version.h.patch and
