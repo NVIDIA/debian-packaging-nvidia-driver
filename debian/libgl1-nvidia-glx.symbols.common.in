@@ -741,6 +741,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGpuSyncReleaseNVX@Base 1.0.9625
  glHint@Base 1.0.4349
  glHistogram@Base 1.0.4349
+ glImportSyncEXT@Base 275.09.04
  glIndexFormatNV@Base 185
  glIndexMask@Base 1.0.4349
  glIndexPointer@Base 1.0.4349

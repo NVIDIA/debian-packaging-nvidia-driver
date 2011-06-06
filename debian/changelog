@@ -10,6 +10,7 @@ nvidia-graphics-drivers (275.09.04-1) UNRELEASED; urgency=low
       for more details.
     - Improved performance of window resize operations in KDE 4 on systems
       with slow CPUs.
+  * Update symbols control files.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 06 Jun 2011 17:29:59 +0200
 
