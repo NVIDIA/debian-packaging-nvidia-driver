@@ -16,6 +16,7 @@ nvidia-graphics-drivers (275.09.04-1) UNRELEASED; urgency=low
       2.5.0.
       Generate some *-ia32.lintian-overrides by swapping [i386] and [amd64].
     - Update Vcs-Browser URL for recent alioth.d.o changes.
+  * Add linux3.patch to make the module build on linux-3.0.  (Closes: #628925)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 06 Jun 2011 17:29:59 +0200
 
