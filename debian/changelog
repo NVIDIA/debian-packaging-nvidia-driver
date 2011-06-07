@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (275.09.04-1) experimental; urgency=low
 
+  [ Andreas Beckmann ]
   * New upstream beta 275.09.04 (2011-06-??).  (Closes: #629513, #627608)
     - Modified the X driver to request that hardware inform the audio driver
       whenever a display is disabled. This will allow the audio driver to
@@ -19,7 +20,10 @@ nvidia-graphics-drivers (275.09.04-1) experimental; urgency=low
     - Update Vcs-Browser URL for recent alioth.d.o changes.
   * Add linux3.patch to make the module build on linux-3.0.  (Closes: #628925)
 
- -- Andreas Beckmann <debian@abeckmann.de>  Tue, 07 Jun 2011 17:23:57 +0200
+  [ Russ Allbery ]
+  * Add DM-Upload-Allowed: yes to debian/control.
+
+ -- Russ Allbery <rra@debian.org>  Tue, 07 Jun 2011 09:50:24 -0700
 
 nvidia-graphics-drivers (275.09-1) experimental; urgency=low
 
