@@ -1,9 +1,9 @@
 # This is the upstream binary module, which we're not allowed (by the
 # NVIDIA license) to change in any way.  Both architectures are included
 # so that (on i386) we can build the kernel module for the amd64 kernel.
-[i386]: binary-from-other-architecture
+#!amd64#binary-from-other-architecture
 unstripped-binary-or-object
-spelling-error-in-binary
+nvidia-kernel#LEGACY#-dkms: spelling-error-in-binary
 
 # We provide ourselves as a virtual package.
 package-relation-with-self provides: nvidia-kernel-dkms

@@ -13,11 +13,6 @@ nvidia-graphics-drivers (275.09.04-1) experimental; urgency=low
       with slow CPUs.
   * Upload to experimental.
   * Update symbols control files.
-  * Partially merge 195.36.31-91 (UNRELEASED).
-    - Convert lintian-overrides to use [arch lists] introduced in lintian
-      2.5.0.
-      Generate some *-ia32.lintian-overrides by swapping [i386] and [amd64].
-    - Update Vcs-Browser URL for recent alioth.d.o changes.
   * Add linux3.patch to make the module build on linux-3.0.  (Closes: #628925)
 
   [ Russ Allbery ]
@@ -459,8 +454,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     to Breaks/Replaces.
   * Turn nvidia-glx-ia32 into a transitional package, the libraries have
     been shipped in libgl1-nvidia-glx-ia32 for quite some time.
-  * Convert lintian-overrides to use [arch lists] introduced in lintian 2.5.0.
-    Generate some *-ia32.lintian-overrides by swapping [i386] and [amd64].
+  * Add support for arch-specific overrides (lintian 2.5.0).
   * Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
   * Let the triggers only create the alternatives to diverted libraries if
     the diverted file is a symbolic link and points to an actual file.  This
@@ -473,7 +467,6 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Override the binary-without-manpage lintian warning now that we provide
     a manpage (in nvidia-support).
   * conftest.h: implement conftest.sh function ioremap_cache (270.41.19).
-  * Update Vcs-Browser URL for recent alioth.d.o changes.
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
