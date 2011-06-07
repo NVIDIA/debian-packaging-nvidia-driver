@@ -1,9 +1,9 @@
 # The NVIDIA license does not allow any form of modification.
 binary-has-unneeded-section
-#!amd64#embedded-library usr/lib/libnvidia-compiler.so.#VERSION#: libm
+[i386]: embedded-library usr/lib/libnvidia-compiler.so.#VERSION#: libm
 shlib-with-executable-stack
-#!amd64#shlib-with-non-pic-code
-#!amd64#spelling-error-in-binary
+[i386]: shlib-with-non-pic-code
+[i386]: spelling-error-in-binary
 
 # The libnvidia-compiler.so.* SONAME changes with every upstream release.
 # But it is a (huge) plugin that is only used from other NVIDIA libraries

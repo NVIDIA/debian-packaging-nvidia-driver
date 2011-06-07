@@ -6,7 +6,7 @@ Uploaders:
  Russ Allbery <rra@debian.org>,
  Andreas Beckmann <debian@abeckmann.de>,
 Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
-Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers/
+Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
  debhelper (>= 8),
  bzip2,
