@@ -1,7 +1,7 @@
 nvidia-graphics-drivers (275.09.04-1) experimental; urgency=low
 
   [ Andreas Beckmann ]
-  * New upstream beta 275.09.04 (2011-06-??).  (Closes: #629513, #627608)
+  * New upstream beta 275.09.04 (2011-06-??).
     - Modified the X driver to request that hardware inform the audio driver
       whenever a display is disabled. This will allow the audio driver to
       generate the appropriate jack unplug events to applications.
@@ -10,7 +10,7 @@ nvidia-graphics-drivers (275.09.04-1) experimental; urgency=low
         http://www.opengl.org/registry/specs/EXT/x11_sync_object.txt
       for more details.
     - Improved performance of window resize operations in KDE 4 on systems
-      with slow CPUs.
+      with slow CPUs.  (Closes: #629513, #627608, #625877)
   * Upload to experimental.
   * Update symbols control files.
   * Add linux3.patch to make the module build on linux-3.0.  (Closes: #628925)
