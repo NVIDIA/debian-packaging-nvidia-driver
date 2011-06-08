@@ -5,3 +5,4 @@ avoid-ld.gold.patch
 2.6.36-ioctl.patch
 fix-typos.patch
 no-smp_lock.patch
+linux3.patch
