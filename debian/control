@@ -153,6 +153,8 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
+Pre-Depends:
+ nvidia-installer-cleanup,
 Depends:
  dkms,
  nvidia-kernel-common (>= 20100522),
