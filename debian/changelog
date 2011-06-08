@@ -34,6 +34,8 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * conftest.h: implement conftest.sh function ioremap_cache (270.41.19).
   * Update Vcs-Browser URL for recent alioth.d.o changes.
   * Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.
+  * Let nvidia-opencl-icd{,-ia32} depend on libnvidia-compiler{,-ia32},
+    OpenCL code usually requires compilation at runtime.
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg

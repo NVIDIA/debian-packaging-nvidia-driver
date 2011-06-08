@@ -460,10 +460,9 @@ Architecture: i386 amd64
 Depends:
  nvidia-opencl-common,
  libopencl1,
- libcuda1 (>= 195),
+ libcuda1,
+ libnvidia-compiler,
  ${misc:Depends}
-Recommends:
- libnvidia-compiler
 Enhances:
  libopencl1,
 Provides:
@@ -481,10 +480,9 @@ Architecture: amd64
 Depends:
  nvidia-opencl-common,
  lib32opencl1,
- libcuda1-ia32 (>= 195),
- ${misc:Depends}
-Recommends:
+ libcuda1-ia32,
  libnvidia-compiler-ia32,
+ ${misc:Depends}
 Enhances:
  lib32opencl1,
 Provides:
