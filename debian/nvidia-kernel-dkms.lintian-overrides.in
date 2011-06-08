@@ -3,7 +3,7 @@
 # so that (on i386) we can build the kernel module for the amd64 kernel.
 #!amd64#binary-from-other-architecture
 unstripped-binary-or-object
-nvidia-kernel#LEGACY#-dkms: spelling-error-in-binary
+spelling-error-in-binary
 
 # We provide ourselves as a virtual package.
 package-relation-with-self provides: nvidia-kernel-dkms

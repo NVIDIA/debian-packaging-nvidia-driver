@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (270.41.19-1) unstable; urgency=low
 
-  * New upstream release 270.41.19 (201-05-20).
+  * New upstream release 270.41.19 (2011-05-20).
     - Fixed a bug in the VDPAU presentation queue that could cause 1
       second hangs when transitioning from blit-based display to overlay-
       based display. This would most commonly happen when disabling a
