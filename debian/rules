@@ -14,7 +14,6 @@ WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
 MULTIARCH		?=
 BACKPORT		?=
-LINTIAN25		?= $(MULTIARCH)
 version			 = $(NVIDIA_RELEASE)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
@@ -252,8 +251,8 @@ override_dh_strip:
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
-	-e 's{#!i386#}{$(if $(LINTIAN25),[!i386]: ,$(if $(filter i386,$(DEB_HOST_ARCH)),#))}g;' \
-	-e 's{#!amd64#}{$(if $(LINTIAN25),[!amd64]: ,$(if $(filter amd64,$(DEB_HOST_ARCH)),#))}g;' \
+	-e 's{#!i386#}{$(if $(filter i386,$(DEB_HOST_ARCH)),#)}g;' \
+	-e 's{#!amd64#}{$(if $(filter amd64,$(DEB_HOST_ARCH)),#)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
@@ -261,6 +260,20 @@ override_dh_strip:
 
 debian/module/debian/changelog: debian/changelog
 	sed '1s/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@
+
+
+# Renaming control files for legacy packaging
+ifneq (,$(legacy))
+nvidia-glx$(legacy)%: nvidia-glx%
+	cp -a $< $@
+
+libgl1-nvidia$(legacy)%: libgl1-nvidia%
+	cp -a $< $@
+
+nvidia-kernel$(legacy)%: nvidia-kernel%
+	cp -a $< $@
+endif
+
 
 # only invoked manually
 %.txt: %.list
@@ -285,19 +298,6 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 	while read id ; do \
 		grep ^$$id pci.ids.nvidia || echo $$id ; \
 	done > $@
-
-
-# Renaming control files for legacy packaging
-ifneq (,$(legacy))
-nvidia-glx$(legacy)%: nvidia-glx%
-	cp -a $< $@
-
-libgl1-nvidia$(legacy)%: libgl1-nvidia%
-	cp -a $< $@
-
-nvidia-kernel$(legacy)%: nvidia-kernel%
-	cp -a $< $@
-endif
 
 
 .PHONY: get-orig-source

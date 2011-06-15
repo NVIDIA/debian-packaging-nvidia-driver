@@ -9,6 +9,13 @@ nvidia-graphics-drivers (275.09.07-1) UNRELEASED; urgency=low
       Quadro 3000M, Quadro 4000M, Quadro 5010M.
   * Update symbols control files.
   * Refresh linux3.patch, upstream partially added Linux 3 support.
+  * Partially merge 195.36.31-91 (UNRELEASED).
+    - Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.
+    - Let nvidia-opencl-icd{,-ia32} depend on libnvidia-compiler{,-ia32},
+      OpenCL code usually requires compilation at runtime.  (Closes: #629808)
+    - Temporarily add versioned Breaks: libgl1-mesa-glx (>= 7.10.2-4~), we need
+      to rework the diversions for cooperation with multiarch enabled MESA
+      libraries.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 15 Jun 2011 15:08:54 +0200
 
@@ -464,13 +471,13 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     patch fixes build with the kernel in experimental.
   * Add avoid-ld.gold.patch to explicitly link with ld.bfd.  The kernel
     module built with ld.gold does not work properly.
+  * Add linux3.patch to make the module build on linux-3.0.
   * Add nvidia-installer-cleanup as an alternative to nvidia-common.
   * Drop dependency on nvidia-common in favor of nvidia-installer-cleanup.
   * Convert nvidia-vdpau-driver{,-ia32} related versioned Conflicts/Replaces
     to Breaks/Replaces.
   * Turn nvidia-glx-ia32 into a transitional package, the libraries have
     been shipped in libgl1-nvidia-glx-ia32 for quite some time.
-  * Add support for arch-specific overrides (lintian 2.5.0).
   * Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
   * Let the triggers only create the alternatives to diverted libraries if
     the diverted file is a symbolic link and points to an actual file.  This
@@ -482,7 +489,16 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     ships the nvidia-bug-report.sh manpage.
   * Override the binary-without-manpage lintian warning now that we provide
     a manpage (in nvidia-support).
-  * conftest.h: implement conftest.sh function ioremap_cache (270.41.19).
+  * conftest.h:
+    - Implement conftest.sh function ioremap_cache (270.41.19).
+    - Implement checks for generated/compile.h and generated/utsrelease.h
+      (275.09).
+  * Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.
+  * Let nvidia-opencl-icd{,-ia32} depend on libnvidia-compiler{,-ia32},
+    OpenCL code usually requires compilation at runtime.
+  * Temporarily add versioned Breaks: libgl1-mesa-glx (>= 7.10.2-4~), we need
+    to rework the diversions for cooperation with multiarch enabled MESA
+    libraries.
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg

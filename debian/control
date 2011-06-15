@@ -103,6 +103,7 @@ Conflicts:
  nvidia-glx${nvidia:Legacy}-dev,
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
+ libgl1-mesa-glx (>= 7.10.2-4~),
 Replaces:
  nvidia-glx${nvidia:Legacy} (<< 195.36.31),
  libgl1-nvidia${nvidia:Legacy}-dev,
@@ -155,6 +156,8 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
+Pre-Depends:
+ nvidia-installer-cleanup,
 Depends:
  dkms,
  nvidia-kernel-common (>= 20100522),
@@ -491,10 +494,9 @@ Architecture: i386 amd64
 Depends:
  nvidia-opencl-common,
  libopencl1,
- libcuda1 (>= 195),
+ libcuda1,
+ libnvidia-compiler,
  ${misc:Depends}
-Recommends:
- libnvidia-compiler
 Enhances:
  libopencl1,
 Provides:
@@ -512,10 +514,9 @@ Architecture: amd64
 Depends:
  nvidia-opencl-common,
  lib32opencl1,
- libcuda1-ia32 (>= 195),
- ${misc:Depends}
-Recommends:
+ libcuda1-ia32,
  libnvidia-compiler-ia32,
+ ${misc:Depends}
 Enhances:
  lib32opencl1,
 Provides:
@@ -589,6 +590,7 @@ Breaks:
  nvidia-glx-legacy-96xx-dev (<< 96.43.18),
  nvidia-glx-legacy-173xx (<< 173.14.27),
  nvidia-glx-legacy-173xx-dev (<< 173.14.27),
+ libgl1-mesa-glx (>= 7.10.2-4~),
 Description: simplifies replacing MESA libGL with GPU vendor libraries
  Diverts the free libGL.so implementation (MESA) and introduces
  alternatives to simplify plugging in accelerated implementations from GPU
