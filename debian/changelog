@@ -8,6 +8,7 @@ nvidia-graphics-drivers (275.09.07-1) UNRELEASED; urgency=low
       GeForce GTX 560M, GeForce 315M, GeForce 320M, GeForce 410M,
       Quadro 3000M, Quadro 4000M, Quadro 5010M.
   * Update symbols control files.
+  * Refresh linux3.patch, upstream partially added Linux 3 support.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 15 Jun 2011 15:08:54 +0200
 
