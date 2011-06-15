@@ -3,7 +3,7 @@ nvidia-graphics-drivers (275.09.07-1) unstable; urgency=low
   [ Andreas Beckmann ]
   * New upstream release 275.09.07 (2011-06-14).
     - Fixed a bug that caused desktop corruption in GNOME 3 after a
-      VT-switch or suspend/resume cycle.
+      VT-switch or suspend/resume cycle.  (Closes: #629203)
     - Added support for the following GPUs: GeForce GT 545, GeForce GTX 560,
       GeForce GTX 560M, GeForce 315M, GeForce 320M, GeForce 410M,
       Quadro 3000M, Quadro 4000M, Quadro 5010M.
