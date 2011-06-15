@@ -29,7 +29,10 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     ships the nvidia-bug-report.sh manpage.
   * Override the binary-without-manpage lintian warning now that we provide
     a manpage (in nvidia-support).
-  * conftest.h: implement conftest.sh function ioremap_cache (270.41.19).
+  * conftest.h:
+    - Implement conftest.sh function ioremap_cache (270.41.19).
+    - Implement checks for generated/compile.h and generated/utsrelease.h
+      (275.09).
   * Update Vcs-Browser URL for recent alioth.d.o changes.
   * Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.
   * Let nvidia-opencl-icd{,-ia32} depend on libnvidia-compiler{,-ia32},
