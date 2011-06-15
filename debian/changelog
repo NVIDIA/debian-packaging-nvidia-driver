@@ -1,7 +1,22 @@
+nvidia-graphics-drivers (275.09.07-1) UNRELEASED; urgency=low
+
+  [ Andreas Beckmann ]
+  * New upstream release 275.09.07 (2011-06-14).
+    - Fixed a bug that caused desktop corruption in GNOME 3 after a
+      VT-switch or suspend/resume cycle.
+    - Added support for the following GPUs: GeForce GT 545, GeForce GTX 560,
+      GeForce GTX 560M, GeForce 315M, GeForce 320M, GeForce 410M,
+      Quadro 3000M, Quadro 4000M, Quadro 5010M.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 15 Jun 2011 15:08:54 +0200
+
 nvidia-graphics-drivers (275.09.04-1) experimental; urgency=low
 
   [ Andreas Beckmann ]
-  * New upstream beta 275.09.04 (2011-06-??).
+  * New upstream beta 275.09.04 (2011-06-04).
+    - Fixed a bug that caused freezes and crashes when resizing windows in
+      KDE 4 with desktop effects enabled using X.Org X server version 1.10
+      or later.  (Closes: #629513, #627608, #625877)
     - Modified the X driver to request that hardware inform the audio driver
       whenever a display is disabled. This will allow the audio driver to
       generate the appropriate jack unplug events to applications.
@@ -10,7 +25,7 @@ nvidia-graphics-drivers (275.09.04-1) experimental; urgency=low
         http://www.opengl.org/registry/specs/EXT/x11_sync_object.txt
       for more details.
     - Improved performance of window resize operations in KDE 4 on systems
-      with slow CPUs.  (Closes: #629513, #627608, #625877)
+      with slow CPUs.
   * Upload to experimental.
   * Update symbols control files.
   * Add linux3.patch to make the module build on linux-3.0.  (Closes: #628925)
@@ -46,7 +61,6 @@ nvidia-graphics-drivers (275.09-1) experimental; urgency=low
       extend a single X screen transparently across all of the available
       display outputs on each GPU. See "Appendix B. X Config Options" in the
       README for more information.
-  * Unreleased upstream 270.41.?? (2011-??-??).
     - Fixed a bug causing incorrect reporting of GPU core and ambient
       temperatures via NV-CONTROL.
   * Upload to experimental.
