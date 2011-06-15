@@ -145,7 +145,8 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  globals@Base 270
  isRootUser@Base 270
  nv_cards@Base 270
- nv_ctl_mappings@Base 270
+ nv_ctl_mapping@Base 275.09.07
+#MISSING: 275.09.07# nv_ctl_mappings@Base 270
  nv_device_mappings@Base 270
  nv_env_info@Base 270
  nv_mappings@Base 270
