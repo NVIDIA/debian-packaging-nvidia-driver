@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (275.09.07-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (275.09.07-1) unstable; urgency=low
 
   [ Andreas Beckmann ]
   * New upstream release 275.09.07 (2011-06-14).
@@ -7,6 +7,7 @@ nvidia-graphics-drivers (275.09.07-1) UNRELEASED; urgency=low
     - Added support for the following GPUs: GeForce GT 545, GeForce GTX 560,
       GeForce GTX 560M, GeForce 315M, GeForce 320M, GeForce 410M,
       Quadro 3000M, Quadro 4000M, Quadro 5010M.
+  * Upload to unstable.
   * Update symbols control files.
   * Refresh linux3.patch, upstream partially added Linux 3 support.
   * Partially merge 195.36.31-91 (UNRELEASED).
@@ -17,7 +18,7 @@ nvidia-graphics-drivers (275.09.07-1) UNRELEASED; urgency=low
       to rework the diversions for cooperation with multiarch enabled MESA
       libraries.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 15 Jun 2011 15:08:54 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 15 Jun 2011 17:13:16 +0200
 
 nvidia-graphics-drivers (275.09.04-1) experimental; urgency=low
 
