@@ -2,9 +2,9 @@
 binary-has-unneeded-section
 shared-lib-without-dependency-information
 shlib-calls-exit
-[amd64]: shlib-with-executable-stack
-[i386]: shlib-with-non-pic-code
-[i386]: shlib-without-PT_GNU_STACK-section
+#!i386#shlib-with-executable-stack
+#!amd64#shlib-with-non-pic-code
+#!amd64#shlib-without-PT_GNU_STACK-section
 spelling-error-in-binary
 
 # Packages built against the NVIDIA libGL should declare dependencies on
