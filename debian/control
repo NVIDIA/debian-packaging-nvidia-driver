@@ -101,7 +101,6 @@ Conflicts:
  nvidia-glx${nvidia:Legacy}-dev,
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
- libgl1-mesa-glx (>= 7.10.2-4~),
 Replaces:
  nvidia-glx${nvidia:Legacy} (<< 195.36.31),
  libgl1-nvidia${nvidia:Legacy}-dev,
@@ -557,7 +556,6 @@ Breaks:
  nvidia-glx-legacy-96xx-dev (<< 96.43.18),
  nvidia-glx-legacy-173xx (<< 173.14.27),
  nvidia-glx-legacy-173xx-dev (<< 173.14.27),
- libgl1-mesa-glx (>= 7.10.2-4~),
 Description: simplifies replacing MESA libGL with GPU vendor libraries
  Diverts the free libGL.so implementation (MESA) and introduces
  alternatives to simplify plugging in accelerated implementations from GPU

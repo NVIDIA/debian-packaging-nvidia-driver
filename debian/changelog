@@ -36,9 +36,6 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.
   * Let nvidia-opencl-icd{,-ia32} depend on libnvidia-compiler{,-ia32},
     OpenCL code usually requires compilation at runtime.
-  * Temporarily add versioned Breaks: libgl1-mesa-glx (>= 7.10.2-4~), we need
-    to rework the diversions for cooperation with multiarch enabled MESA
-    libraries.
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
