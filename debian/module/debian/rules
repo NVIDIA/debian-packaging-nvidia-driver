@@ -74,6 +74,7 @@ binary-arch: build-stamp
 	dh_installchangelogs NVIDIA_Changelog
 	dh_installmodules
 	dh_bugfiles
+	dh_lintian
 	dh_strip
 	dh_compress
 	dh_fixperms
