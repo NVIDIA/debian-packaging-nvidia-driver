@@ -12,6 +12,8 @@ nvidia-graphics-drivers (275.09.07-2) UNRELEASED; urgency=low
     glx-alternatives).  libGL.so.1 and libglx.so (the Xorg module) no longer
     can be configured independently, avoiding possible mixed NVIDIA/MESA
     setups.
+  * Split the Xorg driver and modules from nvidia-glx into new package
+    xserver-xorg-driver-nvidia (package name agreed by Cyril Brulebois).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 17 Jun 2011 20:44:52 +0200
 
