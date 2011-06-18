@@ -1,7 +1,6 @@
 # The NVIDIA license does not allow any form of modification.
 binary-has-unneeded-section
 shared-lib-without-dependency-information
-shlib-calls-exit
 shlib-with-non-pic-code
 shlib-without-PT_GNU_STACK-section
 spelling-error-in-binary
