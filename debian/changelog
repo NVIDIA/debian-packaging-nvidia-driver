@@ -1,12 +1,12 @@
 nvidia-graphics-drivers (275.09.07-2) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
-  * Override a spelling error in the binary-only part of the kernel module.
   * Switch to multiarch-aware libGL.* diversion handling provided by the
     glx-alternatives source package, make old packages transitional packages:
     - libgl1-nvidia-alternatives -> libgl1-diversions
     - libglx-nvidia-alternatives -> libglx-diversions
     (Closes: #630527, #630775, #630579, #630565, #630850)
+  * Drop Breaks: libgl1-mesa-glx (>= 7.10.2-4~).
   * Move handling of alternatives from nvidia-glx and libgl1-nvidia-glx to
     nvidia-alternative (new package) and glx-alternative-nvidia (from
     glx-alternatives).  libGL.so.1 and libglx.so (the Xorg module) no longer
@@ -14,6 +14,8 @@ nvidia-graphics-drivers (275.09.07-2) UNRELEASED; urgency=low
     setups.
   * Split the Xorg driver and modules from nvidia-glx into new package
     xserver-xorg-driver-nvidia (package name agreed by Cyril Brulebois).
+  * Override a spelling error in the binary-only part of the kernel module.
+  * Drop override for no longer emitted experimental shlib-calls-exit.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 17 Jun 2011 20:44:52 +0200
 
@@ -498,7 +500,6 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     to Breaks/Replaces.
   * Turn nvidia-glx-ia32 into a transitional package, the libraries have
     been shipped in libgl1-nvidia-glx-ia32 for quite some time.
-  * Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
   * Let the triggers only create the alternatives to diverted libraries if
     the diverted file is a symbolic link and points to an actual file.  This
     avoids failures running the triggers on some systems with broken
@@ -516,9 +517,6 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.
   * Let nvidia-opencl-icd{,-ia32} depend on libnvidia-compiler{,-ia32},
     OpenCL code usually requires compilation at runtime.
-  * Temporarily add versioned Breaks: libgl1-mesa-glx (>= 7.10.2-4~), we need
-    to rework the diversions for cooperation with multiarch enabled MESA
-    libraries.
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
