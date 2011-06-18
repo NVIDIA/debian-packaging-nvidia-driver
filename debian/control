@@ -573,28 +573,26 @@ Description: NVIDIA OpenCL 32-bit library
 
 Package: libgl1-nvidia-alternatives
 Architecture: i386 amd64
-Pre-Depends:
- nvidia-installer-cleanup,
 Depends:
- dpkg (>= 1.15),
+ libgl1-diversions,
  ${misc:Depends}
-Conflicts:
- fglrx-glx,
 Breaks:
  nvidia-glx (<< 195.36.31-2),
  nvidia-glx-dev (<< 195.36.31-2),
- libgl1-nvidia-glx (<< 195.36.31-2),
+ libgl1-nvidia-glx (<< 275.09.07-2),
  nvidia-glx-legacy-71xx (<< 71.86.14),
  nvidia-glx-legacy-71xx-dev (<< 71.86.14),
+ libgl1-nvidia-legacy-71xx-glx (<< 71.86.14-3~),
  nvidia-glx-legacy-96xx (<< 96.43.18),
  nvidia-glx-legacy-96xx-dev (<< 96.43.18),
+ libgl1-nvidia-legacy-96xx-glx (<< 96.43.19-2~),
  nvidia-glx-legacy-173xx (<< 173.14.27),
  nvidia-glx-legacy-173xx-dev (<< 173.14.27),
+ libgl1-nvidia-legacy-173xx-glx (<< 173.14.30-2~),
  libgl1-mesa-glx (>= 7.10.2-4~),
-Description: simplifies replacing MESA libGL with GPU vendor libraries
- Diverts the free libGL.so implementation (MESA) and introduces
- alternatives to simplify plugging in accelerated implementations from GPU
- vendors.  Handles both libGL.so.1 and libGL.so.
+Description: transition to libgl1-diversions
+ This is a transitional package aiding the upgrade to libgl1-diversions.
+ It can be safely removed from the system once nothing depends on it.
 
 Package: libgl1-nvidia-alternatives-ia32
 Priority: extra
@@ -620,20 +618,15 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
 
 Package: libglx-nvidia-alternatives
 Architecture: i386 amd64
-Pre-Depends:
- nvidia-installer-cleanup,
 Depends:
- dpkg (>= 1.15),
+ libglx-diversions,
  ${misc:Depends}
-Conflicts:
- fglrx-driver,
 Breaks:
- nvidia-glx (<< 195.36.31-3),
- nvidia-glx-legacy-71xx (<< 71.86.14),
- nvidia-glx-legacy-96xx (<< 96.43.18),
- nvidia-glx-legacy-173xx (<< 173.14.27),
-Description: simplifies replacing Xorg module libglx.so with GPU vendor library
- Diverts the free Xorg module libglx.so (Xorg) and introduces alternatives
- to simplify plugging in accelerated implementations from GPU vendors.
- Handles both libglx.so and its debug symbols.
+ nvidia-glx (<< 275.09.07-2),
+ nvidia-glx-legacy-71xx (<< 71.86.14-3~),
+ nvidia-glx-legacy-96xx (<< 96.43.19-2~),
+ nvidia-glx-legacy-173xx (<< 173.14.30-2~),
+Description: transition to libglx-diversions
+ This is a transitional package aiding the upgrade to libglx-diversions.
+ It can be safely removed from the system once nothing depends on it.
 
