@@ -1,0 +1,65 @@
+#!/bin/sh
+set -e
+
+
+TRIPLETS="/ /i386-linux-gnu/ /x86_64-linux-gnu/"
+
+multiarch_slaves()
+{
+	local target_dir file lib_sub_dir triplet
+	target_dir="$1"
+	file="$2"
+	lib_sub_dir="$3"
+
+	for triplet in $TRIPLETS ; do
+		echo --slave \
+			"${target_dir}${triplet}${file}" \
+			"nvidia-${file}$(echo ${triplet} | sed -e 's/\/$//; s/^\//-/')" \
+			"${target_dir}${triplet}${lib_sub_dir}${file}"
+	done
+}
+
+# A trigger that handles the alternatives for /usr/lib/nvidia/libGL.so.1 etc.
+if [ "$1" = "triggered" ]; then
+
+	if	[ -f x/usr/lib/#PRIVATE#/libGL.so.1 ] || \
+		[ -f x/usr/lib/i386-linux-gnu/#PRIVATE#/libGL.so.1 ] || \
+		[ -f x/usr/lib/x86_64-linux-gnu/#PRIVATE#/libGL.so.1 ] || \
+		[ -f x/usr/lib/#PRIVATE#/libglx.so ]
+	then
+		update-alternatives --install /usr/lib/nvidia/nvidia nvidia /usr/lib/#PRIVATE# 275 \
+			$(multiarch_slaves /usr/lib libGL.so.1 #PRIVATE#/) \
+			--slave /usr/lib/xorg/modules/extensions/libglx.so libglx.so /usr/lib/nvidia/libglx.so
+	else
+		update-alternatives --remove nvidia /usr/lib/#PRIVATE#
+	fi
+
+	# activate the trigger selecting NVIDIA as GLX provider
+	dpkg-trigger register-glx-alternative-nvidia
+
+fi
+
+
+# <target: wheezy>
+if [ "$1" = "configure" ]; then
+
+	# remove alternatives set up by libgl1-nvidia-glx#LEGACY#-glx, nvidia-glx#LEGACY#
+	update-alternatives --remove libGL.so.1 /usr/lib/nvidia/libGL.so.1
+	update-alternatives --remove libglx.so /usr/lib/nvidia/libglx.so
+
+fi
+# </target: wheezy>
+
+
+if [ "$1" = "configure" ]; then
+
+	# activate our trigger
+	dpkg-trigger register-nvidia-alternative
+
+fi
+
+
+#DEBHELPER#
+
+exit 0
+

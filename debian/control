@@ -28,6 +28,7 @@ Pre-Depends:
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  libglx-nvidia-alternatives,
+ nvidia-alternative${nvidia:Legacy},
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
  nvidia-support,
  ${nvidia:xorgDepends},
@@ -83,6 +84,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  libgl1-nvidia-alternatives,
+ nvidia-alternative${nvidia:Legacy},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
@@ -152,6 +154,25 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
  See the description of the nvidia-glx${nvidia:Legacy} package
  or /usr/share/doc/libgl1-nvidia${nvidia:Legacy}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+
+Package: nvidia-alternative
+Architecture: i386 amd64
+Depends:
+ glx-alternative-nvidia,
+ ${misc:Depends}
+Breaks:
+ nvidia-glx (<< 275.09.07-2),
+ libgl1-nvidia-glx (<< 275.09.07-2),
+Description: allows the selection of NVIDIA as GLX provider
+ In setups with several NVIDIA driver versions installed (e.g. current and
+ legacy) this metapackage registers an alternative to allow easy switching
+ between the different versions.
+ .
+ Use 'update-alternatives --config nvidia' to select a version.
+ .
+ This package does not depend on the corresponding NVIDIA libraries.
+ In order to install the NVIDIA driver and libraries, install the nvidia-glx
+ package instead.
 
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
