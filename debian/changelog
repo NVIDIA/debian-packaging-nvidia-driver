@@ -1,6 +1,7 @@
-nvidia-graphics-drivers (275.09.07-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (275.09.07-2) experimental; urgency=low
 
   [ Andreas Beckmann ]
+  * Upload to experimental.
   * Switch to multiarch-aware libGL.* diversion handling provided by the
     glx-alternatives source package, make old packages transitional packages:
     - libgl1-nvidia-alternatives -> libgl1-diversions
@@ -17,7 +18,7 @@ nvidia-graphics-drivers (275.09.07-2) UNRELEASED; urgency=low
   * Override a spelling error in the binary-only part of the kernel module.
   * Drop override for no longer emitted experimental shlib-calls-exit.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Fri, 17 Jun 2011 20:44:52 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 18 Jun 2011 13:45:25 +0200
 
 nvidia-graphics-drivers (275.09.07-1) unstable; urgency=low
 
