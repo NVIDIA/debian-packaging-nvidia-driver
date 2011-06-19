@@ -73,7 +73,6 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
- libglx-nvidia-alternatives,
  nvidia-alternative${nvidia:Legacy} (= ${binary:Version}),
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
@@ -124,7 +123,6 @@ Pre-Depends:
  nvidia-installer-cleanup,
  ${misc:Pre-Depends}
 Depends:
- libgl1-nvidia-alternatives,
  nvidia-alternative${nvidia:Legacy},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -198,7 +196,7 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
 Package: nvidia-alternative
 Architecture: i386 amd64
 Depends:
- glx-alternative-nvidia,
+ glx-alternative-nvidia (>= 0.0.1),
  ${misc:Depends}
 Breaks:
  nvidia-glx (<< 275.09.07-2),
@@ -636,7 +634,7 @@ Package: libgl1-nvidia-alternatives
 Section: non-free/oldlibs
 Architecture: i386 amd64
 Depends:
- libgl1-diversions,
+ glx-alternative-nvidia,
  ${misc:Depends}
 Breaks:
  nvidia-glx (<< 195.36.31-2),
@@ -651,8 +649,8 @@ Breaks:
  nvidia-glx-legacy-173xx (<< 173.14.27),
  nvidia-glx-legacy-173xx-dev (<< 173.14.27),
  libgl1-nvidia-legacy-173xx-glx (<< 173.14.30-2~),
-Description: transition to libgl1-diversions
- This is a transitional package aiding the upgrade to libgl1-diversions.
+Description: transition to glx-alternative-nvidia
+ This is a transitional package aiding the upgrade to glx-alternative-nvidia.
  It can be safely removed from the system once nothing depends on it.
 
 Package: libgl1-nvidia-alternatives-ia32
@@ -681,14 +679,14 @@ Package: libglx-nvidia-alternatives
 Section: non-free/oldlibs
 Architecture: i386 amd64
 Depends:
- libglx-diversions,
+ glx-alternative-nvidia,
  ${misc:Depends}
 Breaks:
  nvidia-glx (<< 275.09.07-2),
  nvidia-glx-legacy-71xx (<< 71.86.14-3~),
  nvidia-glx-legacy-96xx (<< 96.43.19-2~),
  nvidia-glx-legacy-173xx (<< 173.14.30-2~),
-Description: transition to libglx-diversions
- This is a transitional package aiding the upgrade to libglx-diversions.
+Description: transition to glx-alternative-nvidia
+ This is a transitional package aiding the upgrade to glx-alternative-nvidia.
  It can be safely removed from the system once nothing depends on it.
 

@@ -3,9 +3,8 @@ nvidia-graphics-drivers (275.09.07-2) experimental; urgency=low
   [ Andreas Beckmann ]
   * Upload to experimental.
   * Switch to multiarch-aware libGL.* diversion handling provided by the
-    glx-alternatives source package, make old packages transitional packages:
-    - libgl1-nvidia-alternatives -> libgl1-diversions
-    - libglx-nvidia-alternatives -> libglx-diversions
+    glx-diversions/glx-alternatives-nvidia packages, convert old packages
+    libgl{1,x}-nvidia-alternatives to transitional ones.
     (Closes: #630527, #630775, #630579, #630565, #630850)
   * Drop Breaks: libgl1-mesa-glx (>= 7.10.2-4~).
   * Move handling of alternatives from nvidia-glx and libgl1-nvidia-glx to
