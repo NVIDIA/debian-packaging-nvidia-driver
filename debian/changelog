@@ -2,6 +2,8 @@ nvidia-graphics-drivers (275.09.07-3) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
   * Add XS-Autobuild: yes to debian/control.  See instructions in #602838.
+  * Install nvidia_drv.so into /usr/lib/nvidia and let the glx alternative
+    handle appropriate symlinks in /usr/lib/xorg.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 20 Jun 2011 10:44:37 +0200
 

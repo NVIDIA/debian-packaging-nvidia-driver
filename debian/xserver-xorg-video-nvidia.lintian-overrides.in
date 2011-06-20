@@ -7,3 +7,4 @@ embedded-zlib ./usr/lib/xorg/modules/drivers/nvidia_drv.so
 
 # The alternatives are placed here.
 package-contains-empty-directory usr/lib/xorg/modules/extensions/
+package-contains-empty-directory usr/lib/xorg/modules/drivers/
