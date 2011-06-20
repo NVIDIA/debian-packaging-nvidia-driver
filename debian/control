@@ -18,6 +18,7 @@ Build-Depends:
  ia32-libs (>= 20090804) [amd64],
 Standards-Version: 3.9.2
 Homepage: http://www.nvidia.com
+XS-Autobuild: yes
 
 Package: nvidia-glx
 Section: non-free/x11
