@@ -47,7 +47,6 @@ Conflicts:
  nvidia-glx-legacy-71xx,
  nvidia-glx-legacy-96xx,
  nvidia-glx-legacy-173xx,
- fglrx-driver,
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
@@ -91,7 +90,11 @@ Conflicts:
  nvidia-glx-legacy-71xx,
  nvidia-glx-legacy-96xx,
  nvidia-glx-legacy-173xx,
- fglrx-driver,
+Breaks:
+ nvidia-glx (<< 275.09.07-2),
+ fglrx-driver (<< 11-6),
+Replaces:
+ nvidia-glx (<< 275.09.07-2),
 Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  These binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
@@ -135,7 +138,6 @@ Provides:
  libgl1-nvidia-glx,
 Conflicts:
  libgl1-nvidia-glx,
- fglrx-glx,
  nvidia-glx (<< 195.36.31),
  nvidia-glx-legacy,
  nvidia-glx-legacy-71xx,
@@ -145,6 +147,7 @@ Conflicts:
  nvidia-glx${nvidia:Legacy}-dev,
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
+ fglrx-glx (<< 11-6),
 Replaces:
  nvidia-glx${nvidia:Legacy} (<< 195.36.31),
  libgl1-nvidia${nvidia:Legacy}-dev,
