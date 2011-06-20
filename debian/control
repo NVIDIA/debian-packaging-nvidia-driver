@@ -637,6 +637,8 @@ Description: NVIDIA OpenCL 32-bit library
 Package: libgl1-nvidia-alternatives
 Section: non-free/oldlibs
 Architecture: i386 amd64
+Pre-Depends:
+ glx-diversions,
 Depends:
  glx-alternative-mesa,
  glx-alternative-nvidia,
@@ -686,6 +688,8 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
 Package: libglx-nvidia-alternatives
 Section: non-free/oldlibs
 Architecture: i386 amd64
+Pre-Depends:
+ glx-diversions,
 Depends:
  glx-alternative-mesa,
  glx-alternative-nvidia,
