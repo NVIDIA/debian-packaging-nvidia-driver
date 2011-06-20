@@ -2,9 +2,8 @@ nvidia-graphics-drivers (275.09.07-2) experimental; urgency=low
 
   [ Andreas Beckmann ]
   * Upload to experimental.
-  * Switch to multiarch-aware libGL.* diversion handling provided by the
-    glx-diversions/glx-alternatives-nvidia packages, convert old packages
-    libgl{1,x}-nvidia-alternatives to transitional ones.
+  * Switch to multiarch-aware diversion and alternatives handling provided by
+    the glx-diversions/glx-alternatives-nvidia packages.
     (Closes: #630527, #630775, #630579, #630565, #630850)
   * Drop Breaks: libgl1-mesa-glx (>= 7.10.2-4~).
   * Move handling of alternatives from nvidia-glx and libgl1-nvidia-glx to
@@ -12,6 +11,10 @@ nvidia-graphics-drivers (275.09.07-2) experimental; urgency=low
     glx-alternatives).  libGL.so.1 and libglx.so (the Xorg module) no longer
     can be configured independently, avoiding possible mixed NVIDIA/MESA
     setups.
+  * Convert old packages libgl{1,x}-nvidia-alternatives to transitional ones.
+  * Note: The diversion and alternative handling of
+    libgl1-nvidia-{glx,alternatives}-ia32 is not being changed.
+    These packages will become obsolete by adding multiarch support.
   * Split the Xorg driver and modules from nvidia-glx into new package
     xserver-xorg-driver-nvidia (package name agreed by Cyril Brulebois).
   * Override a spelling error in the binary-only part of the kernel module.
