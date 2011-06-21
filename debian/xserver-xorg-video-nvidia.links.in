@@ -1,1 +1,1 @@
-usr/lib/nvidia/libglx.so.#VERSION#	usr/lib/nvidia/libglx.so
+usr/lib/#PRIVATE#/libglx.so.#VERSION#	usr/lib/#PRIVATE#/libglx.so
