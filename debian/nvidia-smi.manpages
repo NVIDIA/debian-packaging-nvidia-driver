@@ -1,1 +1,1 @@
-nvidia-smi.*
+debian/tmp/nvidia-smi.*
