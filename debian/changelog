@@ -12,6 +12,8 @@ nvidia-graphics-drivers (275.09.07-3) UNRELEASED; urgency=low
     handles creation of appropriate symlinks in /usr/lib/nvidia.
   * The 'glx' alternative (set up by package glx-alternative-nvidia) handles
     creation of appropriate symlinks in /usr/lib, /usr/lib/xorg, etc.
+  * Update bug-script to list files in the new private directory as well as in
+    multiarch directories.
   * Convert the Conflicts: fglrx-* to versioned Breaks: fglrx-* as we should
     be co-installable by now.  (Closes: #610021)
 
