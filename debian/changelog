@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (275.09.07-3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (275.09.07-3) experimental; urgency=low
 
   [ Andreas Beckmann ]
   * Add XS-Autobuild: yes to debian/control.  See instructions in #602838.
@@ -29,7 +29,7 @@ nvidia-graphics-drivers (275.09.07-3) UNRELEASED; urgency=low
     be only one nvidia-*-dkms package installed at a time as they all generate
     the same kernel module: nvidia.ko.  (Closes: #610021)
 
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 20 Jun 2011 10:44:37 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 21 Jun 2011 15:02:41 +0200
 
 nvidia-graphics-drivers (275.09.07-2) experimental; urgency=low
 
