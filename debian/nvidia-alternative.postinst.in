@@ -4,32 +4,49 @@ set -e
 
 TRIPLETS="/ /i386-linux-gnu/ /x86_64-linux-gnu/"
 
-multiarch_slaves()
+add_slave()
 {
-	local target_dir file lib_sub_dir triplet
+	local target_link name source_path triplet
+	target_link="$1"
+	name="$2"
+	source_path="$3"
+
+	if [ -f "${source_path}" ]; then
+		echo --slave "${target_link}" "nvidia--${name}" "${source_path}"
+	fi
+}
+
+add_multiarch_slave()
+{
+	local target_dir target_sub_dir file source_dir source_sub_dir triplet
 	target_dir="$1"
-	file="$2"
-	lib_sub_dir="$3"
+	target_sub_dir="$2"
+	file="$3"
+	source_dir="$4"
+	source_sub_dir="$5"
 
 	for triplet in $TRIPLETS ; do
-		echo --slave \
-			"${target_dir}${triplet}${file}" \
-			"nvidia-${file}$(echo ${triplet} | sed -e 's/\/$//; s/^\//-/')" \
-			"${target_dir}${triplet}${lib_sub_dir}${file}"
+		add_slave \
+			"${target_dir}${triplet}${target_sub_dir}${file}" \
+			"${file}$(echo ${triplet} | sed -e 's/\/$//; s/^\//-/')" \
+			"${source_dir}${triplet}${source_sub_dir}${file}"
 	done
 }
 
-# A trigger that handles the alternatives for /usr/lib/nvidia/libGL.so.1 etc.
+# A trigger that handles the alternatives for /usr/lib[/<triplet>]/nvidia/*.*
 if [ "$1" = "triggered" ]; then
 
-	if	[ -f x/usr/lib/#PRIVATE#/libGL.so.1 ] || \
-		[ -f x/usr/lib/i386-linux-gnu/#PRIVATE#/libGL.so.1 ] || \
-		[ -f x/usr/lib/x86_64-linux-gnu/#PRIVATE#/libGL.so.1 ] || \
-		[ -f x/usr/lib/#PRIVATE#/libglx.so ]
-	then
-		update-alternatives --install /usr/lib/nvidia/nvidia nvidia /usr/lib/#PRIVATE# 275 \
-			$(multiarch_slaves /usr/lib libGL.so.1 #PRIVATE#/) \
-			--slave /usr/lib/xorg/modules/extensions/libglx.so libglx.so /usr/lib/nvidia/libglx.so
+	slaves="
+		$(add_multiarch_slave /usr/lib nvidia/ libGL.so.1 /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib nvidia/ libnvidia-cfg.so.1 /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib nvidia/ libXvMCNVIDIA.so.1 /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib nvidia/ libXvMCNVIDIA_dynamic.so.1 /usr/lib #PRIVATE#/)
+		$(add_slave /usr/lib/nvidia/libglx.so libglx.so /usr/lib/#PRIVATE#/libglx.so)
+		$(add_slave /usr/lib/nvidia/nvidia_drv.so nvidia_drv.so /usr/lib/#PRIVATE#/nvidia_drv.so)
+		$(add_slave /usr/lib/nvidia/nvidia-bug-report.sh nvidia-bug-report.sh /usr/lib/#PRIVATE#/nvidia-bug-report.sh)
+"
+	if echo "$slaves" | grep -q "slave" ; then
+		update-alternatives --install /usr/lib/nvidia/nvidia nvidia /usr/lib/#PRIVATE# #MAJOR# $slaves
 	else
 		update-alternatives --remove nvidia /usr/lib/#PRIVATE#
 	fi
@@ -54,7 +71,7 @@ fi
 if [ "$1" = "configure" ]; then
 
 	# activate our trigger
-	dpkg-trigger register-nvidia-alternative
+	dpkg-trigger register-nvidia-alternative#LEGACY#
 
 fi
 
