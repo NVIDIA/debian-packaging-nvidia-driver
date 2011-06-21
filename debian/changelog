@@ -18,6 +18,8 @@ nvidia-graphics-drivers (275.09.07-3) UNRELEASED; urgency=low
     - Add Multi-Arch: same/foreign/allowed.
     - Use compat level 9.
     - Work around missing multiarch support in libvdpau1.
+  * Add Conflicts: lib{*}-ia32 [i386] to lib{*} to prevent mixing multiarch
+    and biarch packages, e.g. lib{*}:i386 and lib{*}-ia32:amd64 on amd64.
   * Convert the Conflicts: fglrx-* to versioned Breaks: fglrx-* as we should
     be co-installable by now.  (Closes: #610021)
 

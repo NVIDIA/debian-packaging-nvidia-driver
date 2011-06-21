@@ -146,6 +146,7 @@ Conflicts:
  nvidia-glx-legacy-173xx,
  libgl1-nvidia${nvidia:Legacy}-dev,
  nvidia-glx${nvidia:Legacy}-dev,
+ libgl1-nvidia-glx-ia32 [i386],
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
  fglrx-glx (<< 11-6),
@@ -323,6 +324,7 @@ Conflicts:
  nvidia-libvdpau-dev,
  nvidia-libvdpau1,
  nvidia-libvdpau1-driver,
+ nvidia-vdpau-driver-ia32 [i386],
 Breaks:
  libvdpau1 (<< 0.4),
  nvidia-glx (<< 180.51),
@@ -424,6 +426,7 @@ Suggests:
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Conflicts:
  libcuda1-dev,
+ libcuda1-ia32 [i386],
 Replaces:
  nvidia-glx (<< 185.18.14-2),
  nvidia-glx-dev (<< 185.18.14-2),
@@ -485,6 +488,7 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libnvidia-compiler1,
+ libnvidia-compiler-ia32 [i386],
 Replaces:
  libnvidia-compiler1,
 Description: NVIDIA runtime compiler library
@@ -573,6 +577,8 @@ Depends:
  ${misc:Depends}
 Enhances:
  libopencl1,
+Conflicts:
+ nvidia-opencl-icd-ia32 [i386],
 Provides:
  opencl-icd,
 Description: NVIDIA OpenCL ICD
@@ -616,6 +622,7 @@ Provides:
  libopencl1,
 Conflicts:
  nvidia-libopencl1-dev,
+ nvidia-libopencl1-ia32 [i386],
 Replaces:
  nvidia-libopencl1-dev,
 Description: NVIDIA OpenCL library
