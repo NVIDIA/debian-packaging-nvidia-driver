@@ -20,6 +20,8 @@ nvidia-graphics-drivers (275.09.07-3) UNRELEASED; urgency=low
     - Work around missing multiarch support in libvdpau1.
   * Add Conflicts: lib{*}-ia32 [i386] to lib{*} to prevent mixing multiarch
     and biarch packages, e.g. lib{*}:i386 and lib{*}-ia32:amd64 on amd64.
+  * Stop working around the upstream tarball layout changes after 195xx, work
+    around this in the legacy packages instead.
   * Convert the Conflicts: fglrx-* to versioned Breaks: fglrx-* as we should
     be co-installable by now.  (Closes: #610021)
 

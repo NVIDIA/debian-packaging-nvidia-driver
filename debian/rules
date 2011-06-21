@@ -70,12 +70,8 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 	ln -s ${dirname_x86} NVIDIA-Linux-i386
 	ln -s ${dirname_x86_64} NVIDIA-Linux-amd64
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
-	test -d NVIDIA-Linux-i386/usr || \
-		$(MAKE) -C NVIDIA-Linux-i386 -f ../debian/restore-upstream-directory-structure
-	test -d NVIDIA-Linux-amd64/usr || \
-		$(MAKE) -C NVIDIA-Linux-amd64 -f ../debian/restore-upstream-directory-structure
-	test -f NVIDIA-Linux/usr/share/doc/README.txt || \
-		mv NVIDIA-Linux/usr/share/doc/README NVIDIA-Linux/usr/share/doc/README.txt
+	test -f NVIDIA-Linux/README.txt || \
+		mv NVIDIA-Linux/README NVIDIA-Linux/README.txt
 	ls -al
 	touch $@
 
@@ -201,8 +197,8 @@ kernel-source-tree: prepare build-kernel-source-tree
 	cp -a $(module_source) $@
 	cd $@ && QUILT_PATCHES=../debian/module/debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2
 
-#override_dh_install:
-#	dh_install --list-missing
+override_dh_install:
+	dh_install --list-missing
 
 override_dh_installchangelogs:
 	dh_installchangelogs debian/tmp/usr/share/doc/NVIDIA_Changelog
