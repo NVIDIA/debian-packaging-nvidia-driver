@@ -24,8 +24,10 @@ nvidia-graphics-drivers (275.09.07-3) UNRELEASED; urgency=low
     around this in the legacy packages instead.
   * Provide nvidia-glx-any, xserver-xorg-video-nvidia-any,
     libgl1-nvidia-glx-any, libgl1-nvidia-glx-ia32-any.
-  * Convert the Conflicts: fglrx-* to versioned Breaks: fglrx-* as we should
-    be co-installable by now.  (Closes: #610021)
+  * Convert the Conflicts: *-legacy-*, fglrx-* to versioned Breaks: as the
+    library and driver parts should be co-installable by now.  There still can
+    be only one nvidia-*-dkms package installed at a time as they all generate
+    the same kernel module: nvidia.ko.  (Closes: #610021)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 20 Jun 2011 10:44:37 +0200
 

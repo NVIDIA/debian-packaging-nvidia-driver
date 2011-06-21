@@ -29,26 +29,23 @@ Pre-Depends:
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  xserver-xorg-video-nvidia${nvidia:Legacy} (= ${binary:Version}),
+ nvidia-vdpau-driver (>= ${nvidia:Version}),
  nvidia-alternative${nvidia:Legacy} (= ${binary:Version}),
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- nvidia-vdpau-driver (>= ${nvidia:Version}),
 Suggests:
  nvidia-settings,
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:
  nvidia-glx-any,
-Conflicts:
- nvidia-glx,
- nvidia-glx-legacy,
- nvidia-glx-legacy-71xx,
- nvidia-glx-legacy-96xx,
- nvidia-glx-legacy-173xx,
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
+ nvidia-glx-legacy (<< 71.86.14-3),
+ nvidia-glx-legacy-71xx (<< 71.86.14-3),
+ nvidia-glx-legacy-96xx (<< 96.43.19-2),
+ nvidia-glx-legacy-173xx (<< 173.14.30-2),
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary driver and libraries
  that provide optimized hardware acceleration of
@@ -86,13 +83,12 @@ Suggests:
 Provides:
  xserver-xorg-video-nvidia-any,
  ${nvidia:xorgProvides},
-Conflicts:
- nvidia-glx-legacy,
- nvidia-glx-legacy-71xx,
- nvidia-glx-legacy-96xx,
- nvidia-glx-legacy-173xx,
 Breaks:
  nvidia-glx (<< 275.09.07-2),
+ nvidia-glx-legacy (<< 71.86.14-3),
+ nvidia-glx-legacy-71xx (<< 71.86.14-3),
+ nvidia-glx-legacy-96xx (<< 96.43.19-2),
+ nvidia-glx-legacy-173xx (<< 173.14.30-2),
  fglrx-driver (<< 11-6),
 Replaces:
  nvidia-glx (<< 275.09.07-2),
@@ -139,17 +135,16 @@ Suggests:
 Provides:
  libgl1-nvidia-glx-any,
 Conflicts:
- libgl1-nvidia-glx,
- nvidia-glx (<< 195.36.31),
- nvidia-glx-legacy,
- nvidia-glx-legacy-71xx,
- nvidia-glx-legacy-96xx,
- nvidia-glx-legacy-173xx,
  libgl1-nvidia${nvidia:Legacy}-dev,
  nvidia-glx${nvidia:Legacy}-dev,
  libgl1-nvidia-glx-ia32 [i386],
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
+ nvidia-glx (<< 275.09.07-3),
+ nvidia-glx-legacy (<< 71.86.14-3),
+ nvidia-glx-legacy-71xx (<< 71.86.14-3),
+ nvidia-glx-legacy-96xx (<< 96.43.19-2),
+ nvidia-glx-legacy-173xx (<< 173.14.30-2),
  fglrx-glx (<< 11-6),
 Replaces:
  nvidia-glx${nvidia:Legacy} (<< 195.36.31),
@@ -204,7 +199,7 @@ Package: nvidia-alternative
 Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
- glx-alternative-nvidia (>= 0.0.1),
+ glx-alternative-nvidia (>= 0.0.1~),
  ${misc:Depends}
 Breaks:
  nvidia-glx (<< 275.09.07-2),
@@ -669,13 +664,13 @@ Breaks:
  libgl1-nvidia-glx (<< 275.09.07-2),
  nvidia-glx-legacy-71xx (<< 71.86.14),
  nvidia-glx-legacy-71xx-dev (<< 71.86.14),
- libgl1-nvidia-legacy-71xx-glx (<< 71.86.14-3~),
+ libgl1-nvidia-legacy-71xx-glx (<< 71.86.14-3),
  nvidia-glx-legacy-96xx (<< 96.43.18),
  nvidia-glx-legacy-96xx-dev (<< 96.43.18),
- libgl1-nvidia-legacy-96xx-glx (<< 96.43.19-2~),
+ libgl1-nvidia-legacy-96xx-glx (<< 96.43.19-2),
  nvidia-glx-legacy-173xx (<< 173.14.27),
  nvidia-glx-legacy-173xx-dev (<< 173.14.27),
- libgl1-nvidia-legacy-173xx-glx (<< 173.14.30-2~),
+ libgl1-nvidia-legacy-173xx-glx (<< 173.14.30-2),
 Description: transition libGL.so* diversions to glx-alternative-nvidia
  This is a transitional package aiding the upgrade to glx-alternative-nvidia.
  The libGL.so* diversions are now handled by glx-diversions and the
@@ -716,9 +711,9 @@ Depends:
  ${misc:Depends}
 Breaks:
  nvidia-glx (<< 275.09.07-2),
- nvidia-glx-legacy-71xx (<< 71.86.14-3~),
- nvidia-glx-legacy-96xx (<< 96.43.19-2~),
- nvidia-glx-legacy-173xx (<< 173.14.30-2~),
+ nvidia-glx-legacy-71xx (<< 71.86.14-3),
+ nvidia-glx-legacy-96xx (<< 96.43.19-2),
+ nvidia-glx-legacy-173xx (<< 173.14.30-2),
 Description: transition libgl.so diversions to glx-alternative-nvidia
  This is a transitional package aiding the upgrade to glx-alternative-nvidia.
  The libglx.so diversions are now handled by glx-diversions and the
