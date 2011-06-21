@@ -250,6 +250,7 @@ override_dh_strip:
 %:: %.in debian/rules debian/rules.defs
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
+	-e 's{#MAJOR#}{$(firstword $(subst ., ,$(version)))}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
 	-e 's{#!i386#}{$(if $(filter i386,$(DEB_HOST_ARCH)),#)}g;' \
 	-e 's{#!amd64#}{$(if $(filter amd64,$(DEB_HOST_ARCH)),#)}g;' \
