@@ -76,7 +76,7 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 	touch $@
 
 nv-kernel.ids: unpack-stamp
-	sh debian/extract-pci-ids.sh NVIDIA-Linux/usr/src/nv/nv-kernel.o \
+	sh debian/extract-pci-ids.sh NVIDIA-Linux/kernel/nv-kernel.o \
 		| tr a-f A-F | sort -u > $@
 	test -s $@ || cp debian/$@ $@
 	@set -e -x ; \
@@ -143,10 +143,10 @@ install-into-tmp:
 build-kernel-source-tree: install-into-tmp
 	# Build the nvidia-kernel-source tree.
 	mkdir -p $(module_source)
-	mv debian/tmp/usr/src/nv/* $(module_source)/
+	mv debian/tmp/kernel/* $(module_source)/
 	# This copy of the changelog is going to be installed into the module
 	# binary packages.
-	cp -a debian/tmp/usr/share/doc/NVIDIA_Changelog $(module_source)/
+	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
 
 	# We don't want these makefiles that don't work with kbuild.
 	rm $(module_source)/makefile
@@ -155,9 +155,9 @@ build-kernel-source-tree: install-into-tmp
 	# We want both 32 and 64 bit versions of nv-kernel.o.  Do not use a
 	# name matching *.o to prevent accidental deletion by some clean
 	# target.
-	cp -a NVIDIA-Linux-i386/usr/src/nv/nv-kernel.o \
+	cp -a NVIDIA-Linux-i386/kernel/nv-kernel.o \
 	    $(module_source)/nv-kernel.o.i386
-	cp -a NVIDIA-Linux-amd64/usr/src/nv/nv-kernel.o \
+	cp -a NVIDIA-Linux-amd64/kernel/nv-kernel.o \
 	    $(module_source)/nv-kernel.o.x86_64
 	rm -f $(module_source)/nv-kernel.o
 
@@ -201,7 +201,7 @@ override_dh_install:
 	dh_install --list-missing
 
 override_dh_installchangelogs:
-	dh_installchangelogs debian/tmp/usr/share/doc/NVIDIA_Changelog
+	dh_installchangelogs debian/tmp/NVIDIA_Changelog
 
 override_dh_bugfiles:
 	dh_bugfiles -A
