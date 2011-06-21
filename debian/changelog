@@ -14,6 +14,9 @@ nvidia-graphics-drivers (275.09.07-3) UNRELEASED; urgency=low
     creation of appropriate symlinks in /usr/lib, /usr/lib/xorg, etc.
   * Update bug-script to list files in the new private directory as well as in
     multiarch directories.
+  * Enable multiarch.
+    - Add Multi-Arch: same/foreign/allowed.
+    - Use compat level 9.
   * Convert the Conflicts: fglrx-* to versioned Breaks: fglrx-* as we should
     be co-installable by now.  (Closes: #610021)
 
