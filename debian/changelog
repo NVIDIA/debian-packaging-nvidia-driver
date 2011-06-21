@@ -22,6 +22,8 @@ nvidia-graphics-drivers (275.09.07-3) UNRELEASED; urgency=low
     and biarch packages, e.g. lib{*}:i386 and lib{*}-ia32:amd64 on amd64.
   * Stop working around the upstream tarball layout changes after 195xx, work
     around this in the legacy packages instead.
+  * Provide nvidia-glx-any, xserver-xorg-video-nvidia-any,
+    libgl1-nvidia-glx-any, libgl1-nvidia-glx-ia32-any.
   * Convert the Conflicts: fglrx-* to versioned Breaks: fglrx-* as we should
     be co-installable by now.  (Closes: #610021)
 
