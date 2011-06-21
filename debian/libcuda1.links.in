@@ -1,2 +1,2 @@
-usr/lib/libcuda.so.#VERSION#	usr/lib/libcuda.so.1
-usr/lib/libcuda.so.1		usr/lib/libcuda.so
+#LIBDIR#/libcuda.so.#VERSION#	#LIBDIR#/libcuda.so.1
+#LIBDIR#/libcuda.so.1		#LIBDIR#/libcuda.so

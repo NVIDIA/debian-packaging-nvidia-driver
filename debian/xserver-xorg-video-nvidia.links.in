@@ -1,1 +1,1 @@
-usr/lib/#PRIVATE#/libglx.so.#VERSION#	usr/lib/#PRIVATE#/libglx.so
+#LIBDIR#/#PRIVATE#/libglx.so.#VERSION#	#LIBDIR#/#PRIVATE#/libglx.so
