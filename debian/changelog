@@ -28,6 +28,7 @@ nvidia-graphics-drivers (275.09.07-3) experimental; urgency=low
     library and driver parts should be co-installable by now.  There still can
     be only one nvidia-*-dkms package installed at a time as they all generate
     the same kernel module: nvidia.ko.  (Closes: #610021)
+  * Update README.alternatives.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 21 Jun 2011 15:02:41 +0200
 
