@@ -30,7 +30,7 @@ nvidia-graphics-drivers (275.09.07-3) experimental; urgency=low
     the same kernel module: nvidia.ko.  (Closes: #610021)
   * Update README.alternatives.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Tue, 21 Jun 2011 15:02:41 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 22 Jun 2011 14:17:37 +0200
 
 nvidia-graphics-drivers (275.09.07-2) experimental; urgency=low
 

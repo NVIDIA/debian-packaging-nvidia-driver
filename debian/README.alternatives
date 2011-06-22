@@ -51,8 +51,8 @@ package glx-diversions which is a general solution to be used by all vendor
 implementations.
 All vendor implementations install their files in a private library directory
 so there are no file conflicts happening.  Then they register an alternative
-'glx' which allows to select the implementation.  In case it is enabled, all
-libraries (and other files) belonging to the implementation will be enabled
+'glx' which allows one to select the implementation.  In case it is enabled,
+all libraries (and other files) belonging to the implementation will be enabled
 via slave alternatives, i.e. appropriate symlinks will be put into the system
 locations.  Triggers are being used to detect the installation or removal of
 any file belonging to the slave set of an alternative and to update the
@@ -62,11 +62,11 @@ User configuration can be done with the command
 
     update-alternatives --config glx
 
-which allows to select a glx provider from mesa, nvidia, fglrx.  (Available
-choices depend on the installed drivers.)
+which allows one to select a glx provider from mesa, nvidia, fglrx.
+(Available choices depend on the installed drivers.)
 
-For NVIDIA, there is a second alternative that allows to switch between the
-current driver version and eventually installed legacy ones:
+For NVIDIA, there is a second alternative that allows one to switch between
+ the current driver version and eventually installed legacy ones:
 
     update-alternatives --config nvidia
 
