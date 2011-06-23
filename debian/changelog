@@ -30,7 +30,11 @@ nvidia-graphics-drivers (275.09.07-3) experimental; urgency=low
     the same kernel module: nvidia.ko.  (Closes: #610021)
   * Update README.alternatives.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 22 Jun 2011 14:17:37 +0200
+  [ Russ Allbery ]
+  * Update Lintian overrides for libnvidia-complier and libcuda1 for the
+    move to multiarch paths.
+
+ -- Russ Allbery <rra@debian.org>  Thu, 23 Jun 2011 16:07:52 -0700
 
 nvidia-graphics-drivers (275.09.07-2) experimental; urgency=low
 
