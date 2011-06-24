@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (275.09.07-4) UNRELEASED; urgency=low
+
+  * Drop lintian 2.4.3 compatibility overrides.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 24 Jun 2011 02:06:05 +0200
+
 nvidia-graphics-drivers (275.09.07-3) experimental; urgency=low
 
   [ Andreas Beckmann ]

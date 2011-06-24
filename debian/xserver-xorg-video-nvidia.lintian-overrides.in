@@ -1,9 +1,6 @@
 # The NVIDIA license does not allow any form of modification.
 embedded-library usr/lib/#PRIVATE#/nvidia_drv.so: zlib
 embedded-library usr/lib/#PRIVATE#/nvidia_drv.so: libpng
-# keep old override for embedded-libpng until ftp-master verification process uses newer lintian
-embedded-libpng ./usr/lib/#PRIVATE#/nvidia_drv.so
-embedded-zlib ./usr/lib/#PRIVATE#/nvidia_drv.so
 
 # The alternatives are placed here.
 package-contains-empty-directory usr/lib/xorg/modules/extensions/
