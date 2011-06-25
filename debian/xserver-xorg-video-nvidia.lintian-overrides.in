@@ -1,7 +1,3 @@
 # The NVIDIA license does not allow any form of modification.
 embedded-library usr/lib/#PRIVATE#/nvidia_drv.so: zlib
 embedded-library usr/lib/#PRIVATE#/nvidia_drv.so: libpng
-
-# The alternatives are placed here.
-package-contains-empty-directory usr/lib/xorg/modules/extensions/
-package-contains-empty-directory usr/lib/xorg/modules/drivers/

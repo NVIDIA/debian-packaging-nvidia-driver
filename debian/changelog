@@ -3,6 +3,8 @@ nvidia-graphics-drivers (275.09.07-4) UNRELEASED; urgency=low
   * Drop lintian 2.4.3 compatibility overrides.
   * Ship the /usr/lib/nvidia/current directory in the nvidia-alternative
     package to ensure the master alternative exists.
+  * Drop empty directories from xserver-xorg-driver-nvidia, these are provided
+    by glx-alternative-nvidia.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 24 Jun 2011 02:06:05 +0200
 
