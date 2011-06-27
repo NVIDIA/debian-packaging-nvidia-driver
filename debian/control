@@ -29,7 +29,7 @@ Pre-Depends:
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  xserver-xorg-video-nvidia${nvidia:Legacy} (= ${binary:Version}),
- nvidia-vdpau-driver (>= ${nvidia:Version}),
+ nvidia-vdpau-driver (= ${binary:Version}),
  nvidia-alternative${nvidia:Legacy} (= ${binary:Version}),
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
  nvidia-support,
