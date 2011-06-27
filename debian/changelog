@@ -1,5 +1,6 @@
-nvidia-graphics-drivers (275.09.07-4) UNRELEASED; urgency=low
+nvidia-graphics-drivers (275.09.07-4) unstable; urgency=low
 
+  * Upload to unstable.
   * Drop lintian 2.4.3 compatibility overrides.
   * Ship the /usr/lib/nvidia/current directory in the nvidia-alternative
     package to ensure the master alternative exists.
@@ -9,11 +10,12 @@ nvidia-graphics-drivers (275.09.07-4) UNRELEASED; urgency=low
     added/renamed packages.
   * Convert some lintian overrides to use the [arch] format (lintian 2.5.1).
 
- -- Andreas Beckmann <debian@abeckmann.de>  Fri, 24 Jun 2011 02:06:05 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 27 Jun 2011 22:03:13 +0200
 
 nvidia-graphics-drivers (275.09.07-3) experimental; urgency=low
 
   [ Andreas Beckmann ]
+  * Upload to experimental.
   * Add XS-Autobuild: yes to debian/control.  See instructions in #602838.
   * Add Pre-Depends: glx-diversions to the transitional packages to ensure
     clean diversion upgrades in some corner cases.
