@@ -5,6 +5,8 @@ nvidia-graphics-drivers (275.09.07-4) UNRELEASED; urgency=low
     package to ensure the master alternative exists.
   * Drop empty directories from xserver-xorg-driver-nvidia, these are provided
     by glx-alternative-nvidia.
+  * Update bug-control to report information about some of the recently
+    added/renamed packages.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 24 Jun 2011 02:06:05 +0200
 
