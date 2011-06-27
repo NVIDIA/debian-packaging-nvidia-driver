@@ -1,7 +1,7 @@
 # The NVIDIA license does not allow any form of modification.
-#!amd64#embedded-library #LIBDIR#/libcuda.so.#VERSION#: libm
+[i386]: embedded-library #LIBDIR#/libcuda.so.#VERSION#: libm
 shlib-with-executable-stack
-#!amd64#shlib-with-non-pic-code
+[i386]: shlib-with-non-pic-code
 unstripped-binary-or-object
 
 # libcudart.so.2 does dlopen("libcuda.so").

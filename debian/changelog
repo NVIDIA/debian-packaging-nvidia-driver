@@ -7,6 +7,7 @@ nvidia-graphics-drivers (275.09.07-4) UNRELEASED; urgency=low
     by glx-alternative-nvidia.
   * Update bug-control to report information about some of the recently
     added/renamed packages.
+  * Convert some lintian overrides to use the [arch] format (lintian 2.5.1).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 24 Jun 2011 02:06:05 +0200
 
