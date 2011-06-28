@@ -126,6 +126,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  nvidia-alternative${nvidia:Legacy},
+ nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
@@ -167,6 +168,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  libgl1-nvidia-alternatives-ia32,
+ nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},

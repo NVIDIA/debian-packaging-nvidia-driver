@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+
+if [ "$1" = "configure" ]
+then
+
+	if [ -x /usr/lib/nvidia/check-for-conflicting-opengl-libraries ]
+	then
+		/usr/lib/nvidia/check-for-conflicting-opengl-libraries
+	fi
+
+fi
+
+
+#DEBHELPER#
+
+exit 0

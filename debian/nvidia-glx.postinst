@@ -80,11 +80,6 @@ then
 	dpkg-trigger /usr/lib/libGL.so
         # </target: squeeze>
 
-	if [ -x /usr/lib/nvidia/check-for-conflicting-opengl-libraries ]
-	then
-		/usr/lib/nvidia/check-for-conflicting-opengl-libraries
-	fi
-
 fi
 
 

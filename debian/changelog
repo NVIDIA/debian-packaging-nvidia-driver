@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (275.09.07-5) UNRELEASED; urgency=low
+
+  * Run check-for-conflicting-opengl-libraries from libgl1-nvidia*-glx{,-ia32}
+    postinst.
+  * Add Depends: nvidia-support to libgl1-nvidia*-glx{,-ia32}.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 28 Jun 2011 11:56:22 +0200
+
 nvidia-graphics-drivers (275.09.07-4) unstable; urgency=low
 
   * Upload to unstable.
