@@ -89,7 +89,7 @@ Breaks:
  nvidia-glx-legacy-71xx (<< 71.86.14-3),
  nvidia-glx-legacy-96xx (<< 96.43.19-2),
  nvidia-glx-legacy-173xx (<< 173.14.30-2),
- fglrx-driver (<< 11-6),
+ fglrx-driver (<< 11-6-~),
 Replaces:
  nvidia-glx (<< 275.09.07-2),
 Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
@@ -146,7 +146,7 @@ Breaks:
  nvidia-glx-legacy-71xx (<< 71.86.14-3),
  nvidia-glx-legacy-96xx (<< 96.43.19-2),
  nvidia-glx-legacy-173xx (<< 173.14.30-2),
- fglrx-glx (<< 11-6),
+ fglrx-glx (<< 11-6-~),
 Replaces:
  nvidia-glx${nvidia:Legacy} (<< 195.36.31),
  libgl1-nvidia${nvidia:Legacy}-dev,
