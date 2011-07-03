@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (280.04-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (280.04-1) experimental; urgency=low
 
   [ Andreas Beckmann ]
   * New upstream beta 280.04 (2011-06-??).
@@ -8,6 +8,7 @@ nvidia-graphics-drivers (280.04-1) UNRELEASED; urgency=low
       and hangs when destroying a presentation queue. This happens when
       exiting applications, and also when toggling to and from full-screen
       mode in Adobe Flash.
+  * Upload to experimental.
   * Update symbols control files.
   * Add Breaks: nvidia-smi (<< $(nvidia:Version}) to libnvidia-ml1 because the
     interface is changing frequently but the soname is kept.
@@ -15,7 +16,7 @@ nvidia-graphics-drivers (280.04-1) UNRELEASED; urgency=low
   * Convert lintian overrides to use the [arch] format (lintian 2.5.1) instead
     of #!i386#/#!amd64# parameter substitution.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jul 2011 10:58:36 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jul 2011 11:56:43 +0200
 
 nvidia-graphics-drivers (275.09.07-5) UNRELEASED; urgency=low
 
