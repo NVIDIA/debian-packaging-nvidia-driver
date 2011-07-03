@@ -1,3 +1,16 @@
+nvidia-graphics-drivers (280.04-1) UNRELEASED; urgency=low
+
+  [ Andreas Beckmann ]
+  * New upstream beta 280.04 (2011-06-??).
+  * New upstream beta 275 series.
+    - Added support for the following GPUs: GeForce GT 540M.
+    - Fixed bugs in the VDPAU presentation queue that could cause GPU errors
+      and hangs when destroying a presentation queue. This happens when
+      exiting applications, and also when toggling to and from full-screen
+      mode in Adobe Flash.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jul 2011 10:58:36 +0200
+
 nvidia-graphics-drivers (275.09.07-5) UNRELEASED; urgency=low
 
   * Run check-for-conflicting-opengl-libraries from libgl1-nvidia*-glx{,-ia32}
