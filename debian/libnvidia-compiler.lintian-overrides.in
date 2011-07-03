@@ -4,6 +4,8 @@ binary-has-unneeded-section
 shlib-with-executable-stack
 [i386]: shlib-with-non-pic-code
 spelling-error-in-binary
+# Fallback for lintian 2.5.0 which is still being used on ftp-master.
+embedded-library #LIBDIR#/libnvidia-compiler.so.#VERSION#: libm
 
 # The libnvidia-compiler.so.* SONAME changes with every upstream release.
 # But it is a (huge) plugin that is only used from other NVIDIA libraries

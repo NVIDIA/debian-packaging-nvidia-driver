@@ -15,6 +15,7 @@ nvidia-graphics-drivers (280.04-1) experimental; urgency=low
   * Update lintian overrides.
   * Convert lintian overrides to use the [arch] format (lintian 2.5.1) instead
     of #!i386#/#!amd64# parameter substitution.
+  * Work around autoreject by ftp-master which is still running lintian 2.5.0.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jul 2011 11:56:43 +0200
 
