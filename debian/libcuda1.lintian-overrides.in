@@ -3,8 +3,6 @@
 shlib-with-executable-stack
 [i386]: shlib-with-non-pic-code
 unstripped-binary-or-object
-# Fallback for lintian 2.5.0 which is still being used on ftp-master.
-embedded-library #LIBDIR#/libcuda.so.#VERSION#: libm
 
 # libcudart.so.2 does dlopen("libcuda.so").
 non-dev-pkg-with-shlib-symlink
