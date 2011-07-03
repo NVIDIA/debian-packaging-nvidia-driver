@@ -8,6 +8,7 @@ nvidia-graphics-drivers (280.04-1) UNRELEASED; urgency=low
       and hangs when destroying a presentation queue. This happens when
       exiting applications, and also when toggling to and from full-screen
       mode in Adobe Flash.
+  * Update symbols control files.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jul 2011 10:58:36 +0200
 
