@@ -9,6 +9,8 @@ nvidia-graphics-drivers (280.04-1) UNRELEASED; urgency=low
       exiting applications, and also when toggling to and from full-screen
       mode in Adobe Flash.
   * Update symbols control files.
+  * Add Breaks: nvidia-smi (<< $(nvidia:Version}) to libnvidia-ml1 because the
+    interface is changing frequently but the soname is kept.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jul 2011 10:58:36 +0200
 
