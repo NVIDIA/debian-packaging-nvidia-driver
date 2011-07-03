@@ -12,6 +12,8 @@ nvidia-graphics-drivers (280.04-1) UNRELEASED; urgency=low
   * Add Breaks: nvidia-smi (<< $(nvidia:Version}) to libnvidia-ml1 because the
     interface is changing frequently but the soname is kept.
   * Update lintian overrides.
+  * Convert lintian overrides to use the [arch] format (lintian 2.5.1) instead
+    of #!i386#/#!amd64# parameter substitution.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jul 2011 10:58:36 +0200
 
