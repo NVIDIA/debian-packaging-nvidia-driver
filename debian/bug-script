@@ -34,7 +34,9 @@ OpenGL and NVIDIA library files installed:
 `ls -la /usr/lib/nvidia/ /usr/lib/nvidia/*/ \
 	/usr/lib/*-linux-gnu/nvidia/ /usr/lib/*-linux-gnu/nvidia/*/ \
 	/usr/lib/mesa-diverted/ /usr/lib/mesa-diverted/*/ \
-	/usr/lib32/nvidia/ /usr/lib32/nvidia/diversions/ 2>/dev/null`
+	/usr/lib32/nvidia/ /usr/lib32/nvidia/diversions/ \
+	/etc/X11/{xorg,nvidia}.conf /etc/X11/xorg.conf.d \
+	2>/dev/null`
 
 Files from nvidia-installer:
 `ls -la /usr/bin/nvidia-installer /usr/bin/nvidia-uninstall /var/lib/nvidia 2>/dev/null`

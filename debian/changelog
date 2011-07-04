@@ -5,6 +5,8 @@ nvidia-graphics-drivers (275.09.07-5) UNRELEASED; urgency=low
   * Run check-for-mismatching-nvidia-module from libgl1-nvidia*-glx{,-ia32},
     xserver-xorg-video-nvidia* and libcuda1{,-ia32} postinst, if available.
     (Closes: #620327)
+  * Run create-xorg-nvidia-conf from xserver-xorg-video-nvidia* postinst.
+    (Closes: #612093)
   * Add Depends: nvidia-support to libgl1-nvidia*-glx{,-ia32} and
     xserver-xorg-video-nvidia.
   * Add Breaks: nvidia-smi (<< $(nvidia:Version}) to libnvidia-ml1 because the
