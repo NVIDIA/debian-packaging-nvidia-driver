@@ -542,6 +542,8 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
+Breaks:
+ nvidia-smi (<< ${nvidia:Version}),
 Description: NVIDIA management library (NVML) runtime library
  NVML provides programmatic access to static information and monitoring
  data for NVIDIA GPUs, as well as limited managment capabilities.

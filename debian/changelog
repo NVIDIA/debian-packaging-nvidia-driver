@@ -6,6 +6,8 @@ nvidia-graphics-drivers (275.09.07-5) UNRELEASED; urgency=low
     xserver-xorg-video-nvidia* and libcuda1{,-ia32} postinst, if available.
     (Closes: #620327)
   * Add Depends: nvidia-support to libgl1-nvidia*-glx{,-ia32}.
+  * Add Breaks: nvidia-smi (<< $(nvidia:Version}) to libnvidia-ml1 because the
+    interface is changing frequently but the soname is kept.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 28 Jun 2011 11:56:22 +0200
 
