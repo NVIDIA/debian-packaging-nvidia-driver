@@ -39,6 +39,7 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.
     - Add #LIBDIR# substitution variable for generated control files.
+    - Work around missing multiarch support in libvdpau1.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 05 Jul 2011 17:17:36 +0200
 
