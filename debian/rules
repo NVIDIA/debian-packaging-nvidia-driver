@@ -248,6 +248,7 @@ override_dh_strip:
 %:: %.in debian/rules debian/rules.defs
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
+	-e 's{#MAJOR#}{$(firstword $(subst ., ,$(version)))}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
