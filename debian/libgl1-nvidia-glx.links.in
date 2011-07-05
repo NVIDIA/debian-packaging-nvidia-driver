@@ -1,7 +1,7 @@
-usr/lib/#PRIVATE#/libGL.so.#VERSION#		usr/lib/#PRIVATE#/libGL.so.1
-usr/lib/libGLcore.so.#VERSION#				usr/lib/libGLcore.so.1
-usr/lib/#PRIVATE#/libnvidia-cfg.so.#VERSION#	usr/lib/#PRIVATE#/libnvidia-cfg.so.1
-usr/lib/libnvidia-tls.so.#VERSION#			usr/lib/libnvidia-tls.so.1
-usr/lib/tls/libnvidia-tls.so.#VERSION#			usr/lib/tls/libnvidia-tls.so.1
-usr/lib/#PRIVATE#/libXvMCNVIDIA.so.#VERSION#	usr/lib/#PRIVATE#/libXvMCNVIDIA.so.1
-usr/lib/#PRIVATE#/libXvMCNVIDIA.so.#VERSION#	usr/lib/#PRIVATE#/libXvMCNVIDIA_dynamic.so.1
+#LIBDIR#/#PRIVATE#/libGL.so.#VERSION#			#LIBDIR#/#PRIVATE#/libGL.so.1
+#LIBDIR#/libGLcore.so.#VERSION#				#LIBDIR#/libGLcore.so.1
+#LIBDIR#/#PRIVATE#/libnvidia-cfg.so.#VERSION#		#LIBDIR#/#PRIVATE#/libnvidia-cfg.so.1
+#LIBDIR#/libnvidia-tls.so.#VERSION#			#LIBDIR#/libnvidia-tls.so.1
+#LIBDIR#/tls/libnvidia-tls.so.#VERSION#			#LIBDIR#/tls/libnvidia-tls.so.1
+#LIBDIR#/#PRIVATE#/libXvMCNVIDIA.so.#VERSION#		#LIBDIR#/#PRIVATE#/libXvMCNVIDIA.so.1
+#LIBDIR#/#PRIVATE#/libXvMCNVIDIA.so.#VERSION#		#LIBDIR#/#PRIVATE#/libXvMCNVIDIA_dynamic.so.1
