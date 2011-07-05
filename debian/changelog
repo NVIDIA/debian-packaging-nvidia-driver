@@ -29,6 +29,10 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
   * Provide nvidia-glx-any, xserver-xorg-video-nvidia-any,
     libgl1-nvidia-glx-any, libgl1-nvidia-glx-ia32-any.
   * Update README.alternatives.
+  * Update bug-script to list files in the new private directory as well as in
+    multiarch directories.
+  * Update bug-control to report information about some of the recently
+    added/renamed packages.
   * Add preliminary Multi-Arch support, can be enabled by setting the
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.
