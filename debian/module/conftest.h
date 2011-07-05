@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 260.19.36, 173.14.28, 96.43.19, 71.86.14 */
+/* synchronized with conftest.sh from 275.09, 270.41.19, 173.14.28, 96.43.19, 71.86.14 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -143,7 +143,10 @@
 #endif
 
 /* Implement conftest.sh function acquire_console_sem */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,4,10)
+// 2.6.38 renamed {acquire,release}_console_sem() to console_{,un}lock()
+// but NVIDIA neither checks for these new names nor uses them
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,4,10) && \
+    LINUX_VERSION_CODE < KERNEL_VERSION(2,6,38)
  #define NV_ACQUIRE_CONSOLE_SEM_PRESENT
 #else
  #undef NV_ACQUIRE_CONSOLE_SEM_PRESENT
@@ -206,6 +209,13 @@
  #define NV_ACPI_WALK_NAMESPACE_ARGUMENT_COUNT 7
 #else
  #define NV_ACPI_WALK_NAMESPACE_ARGUMENT_COUNT 6
+#endif
+
+/* Implement conftest.sh function ioremap_cache */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
+ #define NV_IOREMAP_CACHE_PRESENT
+#else
+ #undef NV_IOREMAP_CACHE_PRESENT
 #endif
 
 /* Implement conftest.sh function ioremap_wc */
@@ -307,4 +317,18 @@
  #define NV_GENERATED_AUTOCONF_H_PRESENT
 #else
  #undef NV_GENERATED_AUTOCONF_H_PRESENT
+#endif
+
+/* Check for generated/compile.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,33)
+ #define NV_GENERATED_COMPILE_H_PRESENT
+#else
+ #undef NV_GENERATED_COMPILE_H_PRESENT
+#endif
+
+/* Check for generated/utsrelease.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,33)
+ #define NV_GENERATED_UTSRELEASE_H_PRESENT
+#else
+ #undef NV_GENERATED_UTSRELEASE_H_PRESENT
 #endif

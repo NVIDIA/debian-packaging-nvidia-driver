@@ -5,6 +5,7 @@ Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Uploaders:
  Russ Allbery <rra@debian.org>,
  Andreas Beckmann <debian@abeckmann.de>,
+DM-Upload-Allowed: yes
 Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
@@ -17,17 +18,19 @@ Build-Depends:
  ia32-libs (>= 20090804) [amd64],
 Standards-Version: 3.9.2
 Homepage: http://www.nvidia.com
+XS-Autobuild: yes
 
 Package: nvidia-glx
 Section: non-free/x11
 Architecture: i386 amd64
 Pre-Depends:
  dpkg (>= 1.15.7.2),
- nvidia-common,
+ nvidia-installer-cleanup,
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  libglx-nvidia-alternatives,
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ nvidia-support,
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -67,41 +70,17 @@ Package: nvidia-glx-ia32
 Section: non-free/oldlibs
 Priority: extra
 Architecture: amd64
-Pre-Depends:
- libc6-i386 (>= 2.9-18),
- nvidia-common,
 Depends:
- libgl1-nvidia${nvidia:Legacy}-glx-ia32 (= ${binary:Version}),
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
- ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- nvidia-vdpau-driver-ia32 (>= ${nvidia:Version}),
-Suggests:
- nvidia-settings,
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Provides:
- nvidia-glx-ia32,
-Conflicts:
- nvidia-glx-ia32,
- nvidia-glx-legacy-ia32,
- nvidia-glx-legacy-71xx-ia32,
- nvidia-glx-legacy-96xx-ia32,
- nvidia-glx-legacy-173xx-ia32,
-Description: NVIDIA binary driver 32-bit libs${nvidia:LegacyDesc}
- These binary drivers provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
- AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
- .
- ${nvidia:Models}
- .
- See /usr/share/doc/nvidia-glx${nvidia:Legacy}/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+ libgl1-nvidia${nvidia:Legacy}-glx-ia32,
+ ${misc:Depends}
+Description: NVIDIA 32-bit libraries (transitional package)
+ This is a dummy package to aid switching to
+ libgl1-nvidia${nvidia:Legacy}-glx-ia32.
 
 Package: libgl1-nvidia-glx
 Architecture: i386 amd64
 Pre-Depends:
- nvidia-common,
+ nvidia-installer-cleanup,
  ${misc:Pre-Depends}
 Depends:
  libgl1-nvidia-alternatives,
@@ -123,6 +102,7 @@ Conflicts:
  nvidia-glx-legacy-173xx,
  libgl1-nvidia${nvidia:Legacy}-dev,
  nvidia-glx${nvidia:Legacy}-dev,
+ libgl1-nvidia-glx-ia32 [i386],
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
 Replaces:
@@ -142,7 +122,7 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
- nvidia-common,
+ nvidia-installer-cleanup,
  ${misc:Pre-Depends}
 Depends:
  libgl1-nvidia-alternatives-ia32,
@@ -177,6 +157,8 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
+Pre-Depends:
+ nvidia-installer-cleanup,
 Depends:
  dkms,
  nvidia-kernel-common (>= 20100522),
@@ -255,7 +237,7 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
 Package: nvidia-vdpau-driver
 Architecture: i386 amd64
 Pre-Depends:
- nvidia-common,
+ nvidia-installer-cleanup,
  ${misc:Pre-Depends}
 Depends:
  libvdpau1,
@@ -270,13 +252,14 @@ Enhances:
 Provides:
  vdpau-driver,
 Conflicts:
- nvidia-glx (<< 180.51),
  nvidia-libvdpau,
  nvidia-libvdpau-dev,
  nvidia-libvdpau1,
  nvidia-libvdpau1-driver,
+ nvidia-vdpau-driver-ia32 [i386],
 Breaks:
  libvdpau1 (<< 0.4),
+ nvidia-glx (<< 180.51),
 Replaces:
  nvidia-glx (<< 180.51),
  nvidia-libvdpau,
@@ -303,7 +286,7 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
- nvidia-common,
+ nvidia-installer-cleanup,
  ${misc:Pre-Depends}
 Depends:
  lib32vdpau1,
@@ -318,11 +301,12 @@ Enhances:
 Provides:
  vdpau-driver,
 Conflicts:
- nvidia-glx (<< 180.51),
  nvidia-libvdpau,
  nvidia-libvdpau1,
  nvidia-libvdpau1-ia32,
  nvidia-libvdpau1-driver-ia32,
+Breaks:
+ nvidia-glx (<< 180.51),
 Replaces:
  nvidia-glx (<< 180.51),
  nvidia-libvdpau,
@@ -373,6 +357,7 @@ Suggests:
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Conflicts:
  libcuda1-dev,
+ libcuda1-ia32 [i386],
 Replaces:
  nvidia-glx (<< 185.18.14-2),
  nvidia-glx-dev (<< 185.18.14-2),
@@ -433,6 +418,7 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libnvidia-compiler1,
+ libnvidia-compiler-ia32 [i386],
 Replaces:
  libnvidia-compiler1,
 Description: NVIDIA runtime compiler library
@@ -499,12 +485,13 @@ Architecture: i386 amd64
 Depends:
  nvidia-opencl-common,
  libopencl1,
- libcuda1 (>= 195),
+ libcuda1,
+ libnvidia-compiler,
  ${misc:Depends}
-Recommends:
- libnvidia-compiler
 Enhances:
  libopencl1,
+Conflicts:
+ nvidia-opencl-icd-ia32 [i386],
 Provides:
  opencl-icd,
 Description: NVIDIA OpenCL ICD
@@ -520,10 +507,9 @@ Architecture: amd64
 Depends:
  nvidia-opencl-common,
  lib32opencl1,
- libcuda1-ia32 (>= 195),
- ${misc:Depends}
-Recommends:
+ libcuda1-ia32,
  libnvidia-compiler-ia32,
+ ${misc:Depends}
 Enhances:
  lib32opencl1,
 Provides:
@@ -548,6 +534,7 @@ Provides:
  libopencl1,
 Conflicts:
  nvidia-libopencl1-dev,
+ nvidia-libopencl1-ia32 [i386],
 Replaces:
  nvidia-libopencl1-dev,
 Description: NVIDIA OpenCL library
@@ -581,7 +568,7 @@ Description: NVIDIA OpenCL 32-bit library
 Package: libgl1-nvidia-alternatives
 Architecture: i386 amd64
 Pre-Depends:
- nvidia-common,
+ nvidia-installer-cleanup,
 Depends:
  dpkg (>= 1.15),
  ${misc:Depends}
@@ -607,7 +594,7 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
- nvidia-common,
+ nvidia-installer-cleanup,
 Depends:
  dpkg (>= 1.15),
  ${misc:Depends}
@@ -627,7 +614,7 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
 Package: libglx-nvidia-alternatives
 Architecture: i386 amd64
 Pre-Depends:
- nvidia-common,
+ nvidia-installer-cleanup,
 Depends:
  dpkg (>= 1.15),
  ${misc:Depends}

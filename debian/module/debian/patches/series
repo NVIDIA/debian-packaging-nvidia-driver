@@ -1,5 +1,6 @@
 use-nv-kernel.o.ARCH.patch
 conditionally-include-linux_version.h.patch
-nvidia-kernel-compat-2.6.38.patch
+avoid-ld.gold.patch
 fix-typos.patch
 no-smp_lock.patch
+linux3.patch

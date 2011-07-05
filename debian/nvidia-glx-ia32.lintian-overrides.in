@@ -1,2 +1,0 @@
-# We provide ourselves as a virtual package.
-nvidia-glx-ia32: package-relation-with-self provides: nvidia-glx-ia32

@@ -36,8 +36,11 @@ RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
 			$(patsubst debian/libgl1-nvidia%,debian/libgl1-nvidia$(legacy)%,\
 			$(patsubst debian/nvidia-kernel%,debian/nvidia-kernel$(legacy)%,\
 				$(RENAME_CONTROL))))
+IA32_OVERRIDES	 = nvidia-vdpau-driver libcuda1 nvidia-libopencl1
+GEN_IA32_OVERRIDES := $(foreach p,$(IA32_OVERRIDES),$(if $(wildcard debian/$p.lintian-overrides*),$p))
 TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
+AUTOGEN		+= $(foreach pkg,$(GEN_IA32_OVERRIDES), debian/$(pkg)-ia32.lintian-overrides)
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOKEEP	 = debian/watch
@@ -82,6 +85,7 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 nv-kernel.ids: unpack-stamp
 	sh debian/extract-pci-ids.sh NVIDIA-Linux/usr/src/nv/nv-kernel.o \
 		| tr a-f A-F | sort -u > $@
+	test -s $@ || cp debian/$@ $@
 	@set -e -x ; \
 	if ! cmp -s debian/nv-kernel.ids nv-kernel.ids ; then \
 		diff -u debian/nv-kernel.ids nv-kernel.ids || true ; \
@@ -119,7 +123,6 @@ override_dh_auto_clean:
 override_dh_clean:
 	dh_clean
 	rm -f $(AUTOCLEAN)
-	echo $(if $(MULTIARCH),9,8) > debian/compat  # HACK!
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
 override_dh_auto_configure: prepare
@@ -250,15 +253,30 @@ override_dh_strip:
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
-	-e 's{#!i386#}{$(if $(filter i386,$(DEB_HOST_ARCH)),#)}g;' \
-	-e 's{#!amd64#}{$(if $(filter amd64,$(DEB_HOST_ARCH)),#)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
 	< $< > $@
 
+%-ia32.lintian-overrides: %.lintian-overrides
+	sed -r -e '/^\[amd64\]: /d; s/^\[i386\]: //; s%$(libdir)%usr/lib32%g' $< > $@
+
 debian/module/debian/changelog: debian/changelog
 	sed '1s/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@
+
+
+# Renaming control files for legacy packaging
+ifneq (,$(legacy))
+nvidia-glx$(legacy)%: nvidia-glx%
+	cp -a $< $@
+
+libgl1-nvidia$(legacy)%: libgl1-nvidia%
+	cp -a $< $@
+
+nvidia-kernel$(legacy)%: nvidia-kernel%
+	cp -a $< $@
+endif
+
 
 # only invoked manually
 %.txt: %.list
@@ -283,19 +301,6 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 	while read id ; do \
 		grep ^$$id pci.ids.nvidia || echo $$id ; \
 	done > $@
-
-
-# Renaming control files for legacy packaging
-ifneq (,$(legacy))
-nvidia-glx$(legacy)%: nvidia-glx%
-	cp -a $< $@
-
-libgl1-nvidia$(legacy)%: libgl1-nvidia%
-	cp -a $< $@
-
-nvidia-kernel$(legacy)%: nvidia-kernel%
-	cp -a $< $@
-endif
 
 
 .PHONY: get-orig-source

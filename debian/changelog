@@ -256,30 +256,79 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
 
  -- Russ Allbery <rra@debian.org>  Sat, 18 Sep 2010 15:07:19 -0700
 
+nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
+
+  [ Andreas Beckmann ]
+  * Add preliminary Multi-Arch support, can be enabled by setting the
+    MULTIARCH variable in debian/rules.defs:
+    - Add ${misc:Pre-Depends} to all library packages.
+    - Add #LIBDIR# substitution variable for generated control files.
+  * Add support for installing the libraries of current and legacy drivers in
+    parallel, add #PRIVATE# substitution variable for generated control files.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 05 Jul 2011 17:17:36 +0200
+
 nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
 
+  [ Andreas Beckmann ]
   * Update to Standards-Version: 3.9.2.
+  * Drop nvidia-kernel-compat-2.6.38.patch and adjust conftest.h to mark
+    aquire_console_sem as no longer available in 2.6.38 and newer kernels.
+    This avoids different behaviour between the kernel modules built from
+    upstream installer and the Debian packages.
   * Add no-smp_lock.patch to remove the superfluous inclusion of
-    linux/smp_lock.h (kernel_locked is not used anywhere, so this seems to be
-    bitrot).  That header is no longer available in 2.6.39-rc4, so this patch
-    fixes build with the kernel in experimental.
-  * Override the experimental lintian tag shlib-calls-exit (libGL.so.*).
+    linux/smp_lock.h (kernel_locked is not used anywhere, so this seems to
+    be bitrot).  That header is no longer available in 2.6.39-rc4, so this
+    patch fixes build with the kernel in experimental.
+  * Add avoid-ld.gold.patch to explicitly link with ld.bfd.  The kernel
+    module built with ld.gold does not work properly.
+  * Add linux3.patch to make the module build on linux-3.0.
+  * Add nvidia-installer-cleanup as an alternative to nvidia-common.
+  * Drop dependency on nvidia-common in favor of nvidia-installer-cleanup.
+  * Convert nvidia-vdpau-driver{,-ia32} related versioned Conflicts/Replaces
+    to Breaks/Replaces.
+  * Turn nvidia-glx-ia32 into a transitional package, the libraries have
+    been shipped in libgl1-nvidia-glx-ia32 for quite some time.
+  * Let the triggers only create the alternatives to diverted libraries if
+    the diverted file is a symbolic link and points to an actual file.  This
+    avoids failures running the triggers on some systems with broken
+    diverted files.
+  * Perform the same validation and correction of the diverted symlinks in
+    libgl1-nvidia-alternatives and libgl1-nvidia-alternatives-ia32.
+  * Add Depends: nvidia-support to nvidia-glx.  The new support package
+    ships the nvidia-bug-report.sh manpage.
+  * Override the binary-without-manpage lintian warning now that we provide
+    a manpage (in nvidia-support).
+  * conftest.h:
+    - Implement conftest.sh function ioremap_cache (270.41.19).
+    - Implement checks for generated/compile.h and generated/utsrelease.h
+      (275.09).
+  * Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.
+  * Let nvidia-opencl-icd{,-ia32} depend on libnvidia-compiler{,-ia32},
+    OpenCL code usually requires compilation at runtime.
   * Support backport specific operations in debian/rules by setting the
     BACKPORT variable in debian/rules.defs.
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
     related Depends/Provides, compute the values in debian/rules.
     Add compatibility settings for old Xorg versions for backports only.
-  * Add preliminary Multi-Arch support, can be enabled by setting the
-    MULTIARCH variable in debian/rules.defs:
-    - Add ${misc:Pre-Depends} to all library packages.
-    - Add #LIBDIR# substitution variable for generated config files.
-  * Add support for installing the libraries of current and legacy drivers in
-    parallel, add #PRIVATE# substitution variable for generated config files.
+  * Drop lintian 2.4.3 compatibility overrides.
+  * Convert lintian-overrides to use [arch lists] introduced in lintian 2.5.1.
+  * Generate some *-ia32.lintian-overrides by swapping [i386] and [amd64].
+  * Fall back to the old version of nvidia.ids if extract-pci-ids.sh failed.
+  * Add Conflicts: lib{*}-ia32 [i386] to lib{*} to prevent mixing multiarch
+    and biarch packages, e.g. lib{*}:i386 and lib{*}-ia32:amd64 on amd64.
+  * Add XS-Autobuild: yes to debian/control.  See instructions in #602838.
+  * Add #LIBDIR# and #PRIVATE# substitution variables for generated control
+    files.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 19:50:56 +0200
+  [ Russ Allbery ]
+  * Add DM-Upload-Allowed: yes to debian/control.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 05 Jul 2011 11:44:00 +0200
 
 nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
 
+  [ Andreas Beckmann ]
   * Merge general changes from 256xx/260xx releases:
   * Use dpkg-parsechangelog to extract the upstream version number from
     debian/changelog, simplifying debian/rules.defs even more.
@@ -357,10 +406,11 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
   * Update lintian-overrides to work with lintian 2.5.0.  Keep error overrides
     compatible with older lintian releases until ftp-master is updated.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 19:50:56 +0200
 
 nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
 
+  [ Andreas Beckmann ]
   * Security fix.  (Closes: #609338)
     Apply upstream patch NVIDIA_kernel-260.19.34-778465.diff to fix
     information leak in the kernel module: kernel memory was returned
@@ -375,6 +425,7 @@ nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
 
 nvidia-graphics-drivers (195.36.31-6) unstable; urgency=low
 
+  [ Andreas Beckmann ]
   * If both original and diverted file exist when removing obsolete
     diversions, move the original file (which is not owned by any package) out
     of the way.  This problem may originate from incorrect diversion creation

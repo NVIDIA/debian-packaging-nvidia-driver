@@ -2,8 +2,6 @@
 set -e
 
 
-#DIVERT_QUIET="--quiet"
-
 case "$1" in
     install|upgrade)
 

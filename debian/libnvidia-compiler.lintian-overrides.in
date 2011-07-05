@@ -3,7 +3,7 @@ libnvidia-compiler: binary-has-unneeded-section
 #!amd64#libnvidia-compiler: embedded-library usr/lib/libnvidia-compiler.so.#VERSION#: libm
 libnvidia-compiler: shlib-with-executable-stack
 #!amd64#libnvidia-compiler: shlib-with-non-pic-code
-#!amd64#libnvidia-compiler: spelling-error-in-binary
+[i386]: spelling-error-in-binary
 
 # The libnvidia-compiler.so.* SONAME changes with every upstream release.
 # But it is a (huge) plugin that is only used from other NVIDIA libraries

@@ -6,13 +6,17 @@ set -e
 # /usr/lib/libGL.so.1.
 if [ "$1" = "triggered" ]; then
 
-	if [ -L /usr/lib/nvidia/diversions/libGL.so.1 ]; then
+	if	[ -L /usr/lib/nvidia/diversions/libGL.so.1 ] && \
+		[ -f /usr/lib/nvidia/diversions/libGL.so.1 ]
+	then
 		update-alternatives --install /usr/lib/libGL.so.1 libGL.so.1 /usr/lib/nvidia/diversions/libGL.so.1 5
 	else
 		update-alternatives --remove libGL.so.1 /usr/lib/nvidia/diversions/libGL.so.1
 	fi
 
-	if [ -L /usr/lib/nvidia/diversions/libGL.so ]; then
+	if	[ -L /usr/lib/nvidia/diversions/libGL.so ] && \
+		[ -f /usr/lib/nvidia/diversions/libGL.so ]
+	then
 		# libgl-mesa-dev was installed, create libGL.so
 		update-alternatives --install /usr/lib/libGL.so libGL.so /usr/lib/nvidia/diversions/libGL.so 9995
 	else
@@ -117,68 +121,40 @@ then
 fi
 
 
-# <target: squeeze>
-if [ "$1" = "configure" ]
-then
+validate_diverted_symlink()
+{
+	local original diverted target owner filename
+	original="$1"
+	diverted="$2"
+	target="$3"
+	filename="$(basename "$original")"
 
-	# <target: squeeze>
-	# do some validation of the diverted libGL.so
+	# determine ownership of the original file
+	owner="$(dpkg-query -S "$original" 2>/dev/null | grep -v '^diversion by' || true)"
 
-	# check ownership of the original libGL.so
-	libGLso="$(dpkg-query -S /usr/lib/libGL.so 2>/dev/null | grep -v '^diversion by' || true)"
-
-	if [ -L /usr/lib/nvidia/diversions/libGL.so ] && \
-		[ -z "$libGLso" ]
-	then
-		echo "Removing diverted libGL.so symlink owned by no package."
-		rm /usr/lib/nvidia/diversions/libGL.so
+	if [ -L "$diverted" ] && [ -z "$owner" ]; then
+		echo "Removing diverted '$filename' symlink owned by no package."
+		rm "$diverted"
 	fi
 
-	if [ -L /usr/lib/nvidia/diversions/libGL.so ] && \
-		[ "`readlink /usr/lib/nvidia/diversions/libGL.so`" != "libGL.so.1" ]
-	then
-		echo "Removing diverted libGL.so symlink with unexpected target."
-		rm /usr/lib/nvidia/diversions/libGL.so
+	if [ -L "$diverted" ] && [ "$(readlink "$diverted")" != "$target" ]; then
+		echo "Removing diverted '$filename' symlink with unexpected target."
+		rm "$diverted"
 	fi
 
-	if [ ! -L /usr/lib/nvidia/diversions/libGL.so ] && \
-		[ -n "$libGLso" ]
-	then
-		echo "Restoring diverted libGL.so symlink."
-		ln -s libGL.so.1 /usr/lib/nvidia/diversions/libGL.so
+	if [ ! -L "$diverted" ] && [ -n "$owner" ]; then
+		echo "Restoring diverted '$filename' symlink."
+		ln -s "$target" "$diverted"
 	fi
-	# </target: squeeze>
+}
 
-	# <target: squeeze>
-	# do some validation of the diverted libGL.so.1
+if [ "$1" = "configure" ]; then
 
-	# check ownership of the original libGL.so.1
-	libGLso1="$(dpkg-query -S /usr/lib/libGL.so.1 2>/dev/null | grep -v '^diversion by' || true)"
-
-	if [ -L /usr/lib/nvidia/diversions/libGL.so.1 ] && \
-		[ -z "$libGLso1" ]
-	then
-		echo "Removing diverted libGL.so.1 symlink owned by no package."
-		rm /usr/lib/nvidia/diversions/libGL.so.1
-	fi
-
-	if [ -L /usr/lib/nvidia/diversions/libGL.so.1 ] && \
-		[ "`readlink /usr/lib/nvidia/diversions/libGL.so.1`" != "libGL.so.1.2" ]
-	then
-		echo "Removing diverted libGL.so.1 symlink with unexpected target."
-		rm /usr/lib/nvidia/diversions/libGL.so.1
-	fi
-
-	if [ ! -L /usr/lib/nvidia/diversions/libGL.so.1 ] && \
-		[ -n "$libGLso1" ]
-	then
-		echo "Restoring diverted libGL.so.1 symlink."
-		ln -s libGL.so.1.2 /usr/lib/nvidia/diversions/libGL.so.1
-	fi
-	# </target: squeeze>
+	# do some validation of the diverted libGL.so and libGL.so.1
+	validate_diverted_symlink /usr/lib/libGL.so /usr/lib/nvidia/diversions/libGL.so libGL.so.1
+	validate_diverted_symlink /usr/lib/libGL.so.1 /usr/lib/nvidia/diversions/libGL.so.1 libGL.so.1.2
 
 fi
-# </target: squeeze>
 
 
 if [ "$1" = "configure" ]; then
