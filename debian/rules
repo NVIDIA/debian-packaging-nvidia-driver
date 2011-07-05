@@ -36,8 +36,11 @@ RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
 			$(patsubst debian/libgl1-nvidia%,debian/libgl1-nvidia$(legacy)%,\
 			$(patsubst debian/nvidia-kernel%,debian/nvidia-kernel$(legacy)%,\
 				$(RENAME_CONTROL))))
+IA32_OVERRIDES	 = nvidia-vdpau-driver libcuda1 nvidia-libopencl1
+GEN_IA32_OVERRIDES := $(foreach p,$(IA32_OVERRIDES),$(if $(wildcard debian/$p.lintian-overrides*),$p))
 TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
+AUTOGEN		+= $(foreach pkg,$(GEN_IA32_OVERRIDES), debian/$(pkg)-ia32.lintian-overrides)
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOKEEP	 = debian/watch
@@ -116,7 +119,6 @@ override_dh_auto_clean:
 override_dh_clean:
 	dh_clean
 	rm -f $(AUTOCLEAN)
-	echo $(if $(MULTIARCH),9,8) > debian/compat  # HACK!
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
 override_dh_auto_configure: prepare
@@ -252,6 +254,9 @@ override_dh_strip:
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
 	< $< > $@
+
+%-ia32.lintian-overrides: %.lintian-overrides
+	sed -r -e '/^\[amd64\]: /d; s/^\[i386\]: //; s%$(libdir)%usr/lib32%g' $< > $@
 
 debian/module/debian/changelog: debian/changelog
 	sed '1s/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@

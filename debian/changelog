@@ -13,6 +13,8 @@ nvidia-graphics-drivers (275.09.07-5) UNRELEASED; urgency=low
     interface is changing frequently but the soname is kept.
   * Convert lintian overrides to use the [arch] format (lintian 2.5.1) instead
     of #!i386#/#!amd64# parameter substitution.
+  * Partially merge 195.36.31-91 (UNRELEASED).
+    - Generate some *-ia32.lintian-overrides by swapping [i386] and [amd64].
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 28 Jun 2011 11:56:22 +0200
 
@@ -555,6 +557,7 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
 
 nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
 
+  [ Andreas Beckmann ]
   * Update to Standards-Version: 3.9.2.
   * Drop nvidia-kernel-compat-2.6.38.patch and adjust conftest.h to mark
     aquire_console_sem as no longer available in 2.6.38 and newer kernels.
@@ -595,6 +598,14 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
     related Depends/Provides, compute the values in debian/rules.
     Add compatibility settings for old Xorg versions for backports only.
+  * Drop lintian 2.4.3 compatibility overrides.
+  * Convert lintian-overrides to use [arch lists] introduced in lintian 2.5.1.
+  * Generate some *-ia32.lintian-overrides by swapping [i386] and [amd64].
+  * Fall back to the old version of nvidia.ids if extract-pci-ids.sh failed.
+  * Remove support for restoring the upstream layout used up to 195xx.
+  * Add Conflicts: lib{*}-ia32 [i386] to lib{*} to prevent mixing multiarch
+    and biarch packages, e.g. lib{*}:i386 and lib{*}-ia32:amd64 on amd64.
+  * Add XS-Autobuild: yes to debian/control.  See instructions in #602838.
   * Add preliminary Multi-Arch support, can be enabled by setting the
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.
@@ -602,10 +613,14 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Add support for installing the libraries of current and legacy drivers in
     parallel, add #PRIVATE# substitution variable for generated config files.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 19:50:56 +0200
+  [ Russ Allbery ]
+  * Add DM-Upload-Allowed: yes to debian/control.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 05 Jul 2011 11:44:00 +0200
 
 nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
 
+  [ Andreas Beckmann ]
   * Merge general changes from 256xx/260xx releases:
   * Use dpkg-parsechangelog to extract the upstream version number from
     debian/changelog, simplifying debian/rules.defs even more.
@@ -683,10 +698,11 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
   * Update lintian-overrides to work with lintian 2.5.0.  Keep error overrides
     compatible with older lintian releases until ftp-master is updated.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 19:50:56 +0200
 
 nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
 
+  [ Andreas Beckmann ]
   * Security fix.  (Closes: #609338)
     Apply upstream patch NVIDIA_kernel-260.19.34-778465.diff to fix
     information leak in the kernel module: kernel memory was returned
@@ -701,6 +717,7 @@ nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
 
 nvidia-graphics-drivers (195.36.31-6) unstable; urgency=low
 
+  [ Andreas Beckmann ]
   * If both original and diverted file exist when removing obsolete
     diversions, move the original file (which is not owned by any package) out
     of the way.  This problem may originate from incorrect diversion creation
