@@ -27,6 +27,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Add linux3.patch to make the module build on linux-3.0.
   * Add nvidia-installer-cleanup as an alternative to nvidia-common.
   * Drop dependency on nvidia-common in favor of nvidia-installer-cleanup.
+  * Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.
   * Convert nvidia-vdpau-driver{,-ia32} related versioned Conflicts/Replaces
     to Breaks/Replaces.
   * Turn nvidia-glx-ia32 into a transitional package, the libraries have
@@ -45,7 +46,6 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     - Implement conftest.sh function ioremap_cache (270.41.19).
     - Implement checks for generated/compile.h and generated/utsrelease.h
       (275.09).
-  * Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.
   * Let nvidia-opencl-icd{,-ia32} depend on libnvidia-compiler{,-ia32},
     OpenCL code usually requires compilation at runtime.
   * Support backport specific operations in debian/rules by setting the
