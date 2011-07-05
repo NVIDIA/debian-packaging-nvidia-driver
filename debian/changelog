@@ -14,12 +14,16 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
     These packages will become obsolete by adding multiarch support.
   * Split the Xorg driver and modules from nvidia-glx into new package
     xserver-xorg-driver-nvidia (package name agreed by Cyril Brulebois).
+  * Install the following files that exist in both current and legacy drivers
+    into a version specific directory /usr/lib/nvidia/{current,legacy-*}:
+    libGL.so.1, libglx.so, nvidia_drv.so, libnvidia-cfg.so.1,
+    libXvMCNVIDIA.so.1, libXvMCNVIDIA_dynamic.so.1, nvidia-bug-report.sh.
+  * Install nvidia_drv.so into /usr/lib/nvidia and let the glx alternative
+    handle appropriate symlinks in /usr/lib/xorg.
   * Add preliminary Multi-Arch support, can be enabled by setting the
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.
     - Add #LIBDIR# substitution variable for generated control files.
-  * Add support for installing the libraries of current and legacy drivers in
-    parallel, add #PRIVATE# substitution variable for generated control files.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 05 Jul 2011 17:17:36 +0200
 
@@ -53,8 +57,6 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     libgl1-nvidia-alternatives and libgl1-nvidia-alternatives-ia32.
   * Add Depends: nvidia-support to nvidia-glx.  The new support package
     ships the nvidia-bug-report.sh manpage.
-  * Override the binary-without-manpage lintian warning now that we provide
-    a manpage (in nvidia-support).
   * conftest.h:
     - Implement conftest.sh function ioremap_cache (270.41.19).
     - Implement checks for generated/compile.h and generated/utsrelease.h

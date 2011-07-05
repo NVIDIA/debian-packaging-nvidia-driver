@@ -1,6 +1,6 @@
 # The NVIDIA license does not allow any form of modification.
 binary-has-unneeded-section
-embedded-library usr/lib/xorg/modules/drivers/nvidia_drv.so: libpng
+embedded-library usr/lib/#PRIVATE#/nvidia_drv.so: libpng
 [amd64]: shlib-with-executable-stack
 [i386]: shlib-with-non-pic-code
 [i386]: shlib-without-PT_GNU_STACK-section

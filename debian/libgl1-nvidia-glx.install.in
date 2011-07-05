@@ -1,6 +1,6 @@
-usr/lib/libGL.so.#VERSION#				usr/lib/nvidia/
+usr/lib/libGL.so.#VERSION#			usr/lib/#PRIVATE#/
 usr/lib/libGLcore.so.#VERSION#
-usr/lib/libnvidia-cfg.so.#VERSION#
+usr/lib/libnvidia-cfg.so.#VERSION#		usr/lib/#PRIVATE#/
 usr/lib/libnvidia-tls.so.#VERSION#
 usr/lib/tls/libnvidia-tls.so.#VERSION#
-usr/X11R6/lib/libXvMCNVIDIA.so.#VERSION#		usr/lib/
+usr/X11R6/lib/libXvMCNVIDIA.so.#VERSION#	usr/lib/#PRIVATE#/
