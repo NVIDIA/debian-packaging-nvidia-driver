@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
 
+  [ Andreas Beckmann ]
   * Update to Standards-Version: 3.9.2.
   * Drop nvidia-kernel-compat-2.6.38.patch and adjust conftest.h to mark
     aquire_console_sem as no longer available in 2.6.38 and newer kernels.
@@ -54,6 +55,9 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     - Add #LIBDIR# substitution variable for generated control files.
   * Add support for installing the libraries of current and legacy drivers in
     parallel, add #PRIVATE# substitution variable for generated control files.
+
+  [ Russ Allbery ]
+  * Add DM-Upload-Allowed: yes to debian/control.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 19:50:56 +0200
 
