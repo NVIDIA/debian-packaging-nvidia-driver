@@ -1,6 +1,6 @@
 # The NVIDIA license does not allow any form of modification.
-libnvidia-compiler-ia32: binary-has-unneeded-section
-libnvidia-compiler-ia32: embedded-library usr/lib32/libnvidia-compiler.so.#VERSION#: libm
-libnvidia-compiler-ia32: shlib-with-executable-stack
-libnvidia-compiler-ia32: shlib-with-non-pic-code
+binary-has-unneeded-section
+embedded-library usr/lib32/libnvidia-compiler.so.#VERSION#: libm
+shlib-with-executable-stack
+shlib-with-non-pic-code
 spelling-error-in-binary
