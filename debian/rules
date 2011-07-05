@@ -119,7 +119,6 @@ override_dh_auto_clean:
 override_dh_clean:
 	dh_clean
 	rm -f $(AUTOCLEAN)
-	echo $(if $(MULTIARCH),9,8) > debian/compat  # HACK!
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
 override_dh_auto_configure: prepare
