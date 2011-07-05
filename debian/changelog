@@ -44,6 +44,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Convert lintian-overrides to use [arch lists] introduced in lintian 2.5.1.
   * Generate some *-ia32.lintian-overrides by swapping [i386] and [amd64].
   * Fall back to the old version of nvidia.ids if extract-pci-ids.sh failed.
+  * Remove support for restoring the upstream layout used up to 195xx.
   * Add preliminary Multi-Arch support, can be enabled by setting the
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.
