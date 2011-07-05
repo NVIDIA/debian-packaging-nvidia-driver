@@ -23,7 +23,7 @@ device_ids() {
   sed -e '0,/A. Supported\|APPENDIX A: SUPPORTED/d' \
     -e '0,/Appendix A. Supported\|APPENDIX A: SUPPORTED/d' \
     -e '0,/^Below\|APPENDIX B/{/ 0x/s/.*  0x\([0-9a-fA-F]\{4\}\).*/\1/p};d' \
-    NVIDIA-Linux/usr/share/doc/README.txt \
+    NVIDIA-Linux/README.txt \
     | tr A-F a-f | sort | uniq >"$readme_list"
 
   local readme_length="$(grep -Ec . "$readme_list")"
