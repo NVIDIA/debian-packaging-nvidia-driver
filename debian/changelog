@@ -12,6 +12,8 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
   * Note: The diversion and alternative handling of
     libgl1-nvidia-{glx,alternatives}-ia32 is not being changed.
     These packages will become obsolete by adding multiarch support.
+  * Split the Xorg driver and modules from nvidia-glx into new package
+    xserver-xorg-driver-nvidia (package name agreed by Cyril Brulebois).
   * Add preliminary Multi-Arch support, can be enabled by setting the
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.

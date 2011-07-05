@@ -1,4 +1,1 @@
 usr/bin/nvidia-bug-report.sh
-usr/X11R6/lib/modules/drivers/nvidia_drv.so		usr/lib/xorg/modules/drivers/
-usr/X11R6/lib/modules/extensions/libglx.so.#VERSION#	usr/lib/nvidia/
-nvidia.ids						usr/share/xserver-xorg/pci/
