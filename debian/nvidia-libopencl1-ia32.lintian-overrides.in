@@ -1,6 +1,0 @@
-# The NVIDIA license does not allow any form of modification.
-shlib-with-non-pic-code
-shlib-without-PT_GNU_STACK-section
-
-# A single symbolic link does not justify the creation of a new package.
-non-dev-pkg-with-shlib-symlink

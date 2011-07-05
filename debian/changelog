@@ -41,6 +41,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     related Depends/Provides, compute the values in debian/rules.
     Add compatibility settings for old Xorg versions for backports only.
   * Convert lintian-overrides to use [arch lists] introduced in lintian 2.5.1.
+  * Generate some *-ia32.lintian-overrides by swapping [i386] and [amd64].
   * Add preliminary Multi-Arch support, can be enabled by setting the
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.
