@@ -119,6 +119,7 @@ Description: NVIDIA 32-bit libraries${nvidia:LegacyDesc} (transitional package)
 
 Package: libgl1-nvidia-glx
 Architecture: i386 amd64
+Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
  ${misc:Pre-Depends}
@@ -195,6 +196,7 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
 
 Package: nvidia-alternative
 Architecture: i386 amd64
+Multi-Arch: foreign
 Depends:
  glx-alternative-nvidia (>= 0.0.1~),
  ${misc:Depends}
@@ -215,6 +217,7 @@ Description: allows the selection of NVIDIA as GLX provider
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
+Multi-Arch: allowed
 Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
@@ -294,8 +297,10 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
 
 Package: nvidia-vdpau-driver
 Architecture: i386 amd64
+Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
+ multiarch-support,
  ${misc:Pre-Depends}
 Depends:
  libvdpau1,
@@ -403,6 +408,7 @@ Description: NVIDIA System Management Interface
 
 Package: libcuda1
 Architecture: i386 amd64
+Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
@@ -469,6 +475,7 @@ Description: NVIDIA CUDA runtime library (32-bit)
 
 Package: libnvidia-compiler
 Architecture: i386 amd64
+Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
@@ -508,6 +515,7 @@ Description: NVIDIA runtime compiler library (32-bit)
 
 Package: nvidia-opencl-common
 Architecture: i386 amd64
+Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Recommends:
@@ -522,6 +530,7 @@ Description: NVIDIA OpenCL driver
 
 Package: nvidia-opencl-icd
 Architecture: i386 amd64
+Multi-Arch: same
 Depends:
  nvidia-opencl-common,
  libopencl1,
@@ -564,6 +573,7 @@ Description: NVIDIA OpenCL ICD (32-bit)
 
 Package: nvidia-libopencl1
 Architecture: i386 amd64
+Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
