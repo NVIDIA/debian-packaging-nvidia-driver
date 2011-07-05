@@ -269,10 +269,14 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Set the supported Xorg ABIs in debian/rules.defs, use substvars for Xorg
     related Depends/Provides, compute the values in debian/rules.
     Add compatibility settings for old Xorg versions for backports only.
-  * Add #LIBDIR# and #PRIVATE# substitution variables for generated control
-    files.
+  * Add preliminary Multi-Arch support, can be enabled by setting the
+    MULTIARCH variable in debian/rules.defs:
+    - Add ${misc:Pre-Depends} to all library packages.
+    - Add #LIBDIR# substitution variable for generated config files.
+  * Add support for installing the libraries of current and legacy drivers in
+    parallel, add #PRIVATE# substitution variable for generated config files.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 27 Apr 2011 11:07:37 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 19:50:56 +0200
 
 nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
 
