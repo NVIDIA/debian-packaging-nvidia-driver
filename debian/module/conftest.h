@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 270.41.19, 173.14.28, 96.43.19, 71.86.14 */
+/* synchronized with conftest.sh from 275.09, 270.41.19, 173.14.28, 96.43.19, 71.86.14 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -317,4 +317,18 @@
  #define NV_GENERATED_AUTOCONF_H_PRESENT
 #else
  #undef NV_GENERATED_AUTOCONF_H_PRESENT
+#endif
+
+/* Check for generated/compile.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,33)
+ #define NV_GENERATED_COMPILE_H_PRESENT
+#else
+ #undef NV_GENERATED_COMPILE_H_PRESENT
+#endif
+
+/* Check for generated/utsrelease.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,33)
+ #define NV_GENERATED_UTSRELEASE_H_PRESENT
+#else
+ #undef NV_GENERATED_UTSRELEASE_H_PRESENT
 #endif

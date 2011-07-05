@@ -5,6 +5,7 @@ Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Uploaders:
  Russ Allbery <rra@debian.org>,
  Andreas Beckmann <debian@abeckmann.de>,
+DM-Upload-Allowed: yes
 Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
@@ -17,6 +18,7 @@ Build-Depends:
  ia32-libs (>= 20090804) [amd64],
 Standards-Version: 3.9.2
 Homepage: http://www.nvidia.com
+XS-Autobuild: yes
 
 Package: nvidia-glx
 Section: non-free/x11
@@ -100,6 +102,7 @@ Conflicts:
  nvidia-glx-legacy-173xx,
  libgl1-nvidia${nvidia:Legacy}-dev,
  nvidia-glx${nvidia:Legacy}-dev,
+ libgl1-nvidia-glx-ia32 [i386],
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
 Replaces:
@@ -154,6 +157,8 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
+Pre-Depends:
+ nvidia-installer-cleanup,
 Depends:
  dkms,
  nvidia-kernel-common (>= 20100522),
@@ -251,6 +256,7 @@ Conflicts:
  nvidia-libvdpau-dev,
  nvidia-libvdpau1,
  nvidia-libvdpau1-driver,
+ nvidia-vdpau-driver-ia32 [i386],
 Breaks:
  libvdpau1 (<< 0.4),
  nvidia-glx (<< 180.51),
@@ -351,6 +357,7 @@ Suggests:
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Conflicts:
  libcuda1-dev,
+ libcuda1-ia32 [i386],
 Replaces:
  nvidia-glx (<< 185.18.14-2),
  nvidia-glx-dev (<< 185.18.14-2),
@@ -411,6 +418,7 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libnvidia-compiler1,
+ libnvidia-compiler-ia32 [i386],
 Replaces:
  libnvidia-compiler1,
 Description: NVIDIA runtime compiler library
@@ -490,12 +498,13 @@ Architecture: i386 amd64
 Depends:
  nvidia-opencl-common,
  libopencl1,
- libcuda1 (>= 195),
+ libcuda1,
+ libnvidia-compiler,
  ${misc:Depends}
-Recommends:
- libnvidia-compiler
 Enhances:
  libopencl1,
+Conflicts:
+ nvidia-opencl-icd-ia32 [i386],
 Provides:
  opencl-icd,
 Description: NVIDIA OpenCL ICD
@@ -511,10 +520,9 @@ Architecture: amd64
 Depends:
  nvidia-opencl-common,
  lib32opencl1,
- libcuda1-ia32 (>= 195),
- ${misc:Depends}
-Recommends:
+ libcuda1-ia32,
  libnvidia-compiler-ia32,
+ ${misc:Depends}
 Enhances:
  lib32opencl1,
 Provides:
@@ -539,6 +547,7 @@ Provides:
  libopencl1,
 Conflicts:
  nvidia-libopencl1-dev,
+ nvidia-libopencl1-ia32 [i386],
 Replaces:
  nvidia-libopencl1-dev,
 Description: NVIDIA OpenCL library

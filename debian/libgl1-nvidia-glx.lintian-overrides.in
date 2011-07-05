@@ -1,6 +1,5 @@
 # The NVIDIA license does not allow any form of modification.
-shlib-calls-exit
-#!amd64#shlib-with-non-pic-code
+[i386]: shlib-with-non-pic-code
 spelling-error-in-binary
 
 # Packages built against the NVIDIA libGL should declare dependencies on
