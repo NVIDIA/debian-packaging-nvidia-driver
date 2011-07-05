@@ -85,6 +85,7 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 nv-kernel.ids: unpack-stamp
 	sh debian/extract-pci-ids.sh NVIDIA-Linux/usr/src/nv/nv-kernel.o \
 		| tr a-f A-F | sort -u > $@
+	test -s $@ || cp debian/$@ $@
 	@set -e -x ; \
 	if ! cmp -s debian/nv-kernel.ids nv-kernel.ids ; then \
 		diff -u debian/nv-kernel.ids nv-kernel.ids || true ; \
