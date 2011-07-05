@@ -33,6 +33,8 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
     multiarch directories.
   * Update bug-control to report information about some of the recently
     added/renamed packages.
+  * Run check-for-conflicting-opengl-libraries from libgl1-nvidia*-glx{,-ia32}
+    and xserver-xorg-video-nvidia* postinst.
   * Add preliminary Multi-Arch support, can be enabled by setting the
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.
