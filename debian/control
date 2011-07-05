@@ -82,7 +82,6 @@ Pre-Depends:
  nvidia-installer-cleanup,
  ${misc:Pre-Depends}
 Depends:
- libgl1-nvidia-alternatives,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
@@ -547,28 +546,33 @@ Description: NVIDIA OpenCL 32-bit library
  32-bit library provided by NVIDIA.
 
 Package: libgl1-nvidia-alternatives
+Section: non-free/oldlibs
 Architecture: i386 amd64
 Pre-Depends:
- nvidia-installer-cleanup,
+ glx-diversions,
 Depends:
- dpkg (>= 1.15),
+ glx-alternative-mesa,
+ glx-alternative-nvidia,
  ${misc:Depends}
-Conflicts:
- fglrx-glx,
 Breaks:
  nvidia-glx (<< 195.36.31-2),
  nvidia-glx-dev (<< 195.36.31-2),
- libgl1-nvidia-glx (<< 195.36.31-2),
+ libgl1-nvidia-glx (<< 275.09.07-2),
  nvidia-glx-legacy-71xx (<< 71.86.14),
  nvidia-glx-legacy-71xx-dev (<< 71.86.14),
+ libgl1-nvidia-legacy-71xx-glx (<< 71.86.14-3~),
  nvidia-glx-legacy-96xx (<< 96.43.18),
  nvidia-glx-legacy-96xx-dev (<< 96.43.18),
+ libgl1-nvidia-legacy-96xx-glx (<< 96.43.19-2~),
  nvidia-glx-legacy-173xx (<< 173.14.27),
  nvidia-glx-legacy-173xx-dev (<< 173.14.27),
-Description: simplifies replacing MESA libGL with GPU vendor libraries
- Diverts the free libGL.so implementation (MESA) and introduces
- alternatives to simplify plugging in accelerated implementations from GPU
- vendors.  Handles both libGL.so.1 and libGL.so.
+ libgl1-nvidia-legacy-173xx-glx (<< 173.14.30-2~),
+Description: transition libGL.so* diversions to glx-alternative-nvidia
+ This is a transitional package aiding the upgrade to glx-alternative-nvidia.
+ The libGL.so* diversions are now handled by glx-diversions and the
+ alternatives by glx-alternative-mesa.
+ .
+ This package can be safely removed from the system once nothing depends on it.
 
 Package: libgl1-nvidia-alternatives-ia32
 Priority: extra
@@ -593,21 +597,23 @@ Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
  vendors.  Handles both libGL.so.1 and libGL.so.
 
 Package: libglx-nvidia-alternatives
+Section: non-free/oldlibs
 Architecture: i386 amd64
 Pre-Depends:
- nvidia-installer-cleanup,
+ glx-diversions,
 Depends:
- dpkg (>= 1.15),
+ glx-alternative-mesa,
+ glx-alternative-nvidia,
  ${misc:Depends}
-Conflicts:
- fglrx-driver,
 Breaks:
- nvidia-glx (<< 195.36.31-3),
- nvidia-glx-legacy-71xx (<< 71.86.14),
- nvidia-glx-legacy-96xx (<< 96.43.18),
- nvidia-glx-legacy-173xx (<< 173.14.27),
-Description: simplifies replacing Xorg module libglx.so with GPU vendor library
- Diverts the free Xorg module libglx.so (Xorg) and introduces alternatives
- to simplify plugging in accelerated implementations from GPU vendors.
- Handles both libglx.so and its debug symbols.
+ nvidia-glx (<< 275.09.07-2),
+ nvidia-glx-legacy-71xx (<< 71.86.14-3~),
+ nvidia-glx-legacy-96xx (<< 96.43.19-2~),
+ nvidia-glx-legacy-173xx (<< 173.14.30-2~),
+Description: transition libgl.so diversions to glx-alternative-nvidia
+ This is a transitional package aiding the upgrade to glx-alternative-nvidia.
+ The libglx.so diversions are now handled by glx-diversions and the
+ alternatives by glx-alternative-mesa.
+ .
+ This package can be safely removed from the system once nothing depends on it.
 
