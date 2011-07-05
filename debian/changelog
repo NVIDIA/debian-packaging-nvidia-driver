@@ -22,6 +22,10 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
     handles creation of appropriate symlinks in /usr/lib/nvidia.
   * The 'glx' alternative (set up by package glx-alternative-nvidia) handles
     creation of appropriate symlinks in /usr/lib, /usr/lib/xorg, etc.
+  * Convert the Conflicts: *-legacy-*, fglrx-* to versioned Breaks: as the
+    library and driver parts should be co-installable by now.  There still can
+    be only one nvidia-*-dkms package installed at a time as they all generate
+    the same kernel module: nvidia.ko.
   * Add preliminary Multi-Arch support, can be enabled by setting the
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.
