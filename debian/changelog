@@ -47,6 +47,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Remove support for restoring the upstream layout used up to 195xx.
   * Add Conflicts: lib{*}-ia32 [i386] to lib{*} to prevent mixing multiarch
     and biarch packages, e.g. lib{*}:i386 and lib{*}-ia32:amd64 on amd64.
+  * Add XS-Autobuild: yes to debian/control.  See instructions in #602838.
   * Add preliminary Multi-Arch support, can be enabled by setting the
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.
