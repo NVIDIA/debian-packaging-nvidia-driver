@@ -180,7 +180,7 @@ nvidia-graphics-drivers (275.09-1) experimental; urgency=low
 
 nvidia-graphics-drivers (270.41.19-1) unstable; urgency=low
 
-  * New upstream release 270.41.19 (201-05-20).
+  * New upstream release 270.41.19 (2011-05-20).
     - Fixed a bug in the VDPAU presentation queue that could cause 1
       second hangs when transitioning from blit-based display to overlay-
       based display. This would most commonly happen when disabling a
@@ -555,6 +555,18 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
 
  -- Russ Allbery <rra@debian.org>  Sat, 18 Sep 2010 15:07:19 -0700
 
+nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
+
+  [ Andreas Beckmann ]
+  * Add preliminary Multi-Arch support, can be enabled by setting the
+    MULTIARCH variable in debian/rules.defs:
+    - Add ${misc:Pre-Depends} to all library packages.
+    - Add #LIBDIR# substitution variable for generated control files.
+  * Add support for installing the libraries of current and legacy drivers in
+    parallel, add #PRIVATE# substitution variable for generated control files.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 05 Jul 2011 17:17:36 +0200
+
 nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
@@ -606,12 +618,8 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Add Conflicts: lib{*}-ia32 [i386] to lib{*} to prevent mixing multiarch
     and biarch packages, e.g. lib{*}:i386 and lib{*}-ia32:amd64 on amd64.
   * Add XS-Autobuild: yes to debian/control.  See instructions in #602838.
-  * Add preliminary Multi-Arch support, can be enabled by setting the
-    MULTIARCH variable in debian/rules.defs:
-    - Add ${misc:Pre-Depends} to all library packages.
-    - Add #LIBDIR# substitution variable for generated config files.
-  * Add support for installing the libraries of current and legacy drivers in
-    parallel, add #PRIVATE# substitution variable for generated config files.
+  * Add #LIBDIR# and #PRIVATE# substitution variables for generated control
+    files.
 
   [ Russ Allbery ]
   * Add DM-Upload-Allowed: yes to debian/control.
