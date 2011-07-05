@@ -3,6 +3,11 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
   [ Andreas Beckmann ]
   * Switch to multiarch-aware diversion and alternatives handling provided by
     the glx-diversions/glx-alternative-nvidia packages.
+  * Move handling of alternatives from nvidia-glx and libgl1-nvidia-glx to
+    nvidia-alternative (new package) and glx-alternative-nvidia (from
+    glx-alternatives).  libGL.so.1 and libglx.so (the Xorg module) no longer
+    can be configured independently, avoiding possible mixed NVIDIA/MESA
+    setups.
   * Convert old packages libgl{1,x}-nvidia-alternatives to transitional ones.
   * Note: The diversion and alternative handling of
     libgl1-nvidia-{glx,alternatives}-ia32 is not being changed.
