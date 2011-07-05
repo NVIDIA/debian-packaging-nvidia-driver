@@ -28,6 +28,7 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
     the same kernel module: nvidia.ko.
   * Provide nvidia-glx-any, xserver-xorg-video-nvidia-any,
     libgl1-nvidia-glx-any, libgl1-nvidia-glx-ia32-any.
+  * Update README.alternatives.
   * Add preliminary Multi-Arch support, can be enabled by setting the
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.

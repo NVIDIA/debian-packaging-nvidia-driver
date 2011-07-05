@@ -8,20 +8,6 @@ Goals for wheezy:
     - OR use debconf to create a minimal xorg.conf (unless one already
       exists), see #612093
 
-  * allow parallel installation of nvidia-glx, nvidia-glx-legacy-ABCxx,
-    fglrx-driver, see #610021
-    - we could use more alternatives to accomplish this and keep links in
-      sync even if not all possible packages are installed
-    - install everything to /usr/lib/nvidia/{current,legacy-ABCxx}
-    - add an alternative name=nvidia target=/usr/lib/nvidia/nvidia
-      source=/usr/lib/nvidia/{current,legacy-ABCxx} priority=MAJOR
-      with a lot (= all possible) slaves
-    - add an alternative "glx" which allows to choose between
-      free, nvidia, fglrx
-    - rename packages libgl*-nvidia-alternatives* to
-      libgl*-non-free-alternatives, move to separate contrib package,
-      support fglrx, coordinate with mesa packagers
-
   * multiarch support - is this going to be in wheezy?
     - implemention would go best together with the previous point because it
       involves moving around a lot of files and alternatives
