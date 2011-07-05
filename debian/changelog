@@ -59,7 +59,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   [ Russ Allbery ]
   * Add DM-Upload-Allowed: yes to debian/control.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 19:50:56 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 05 Jul 2011 11:44:00 +0200
 
 nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
 
@@ -141,7 +141,7 @@ nvidia-graphics-drivers (195.36.31-90) UNRELEASED; urgency=low
   * Update lintian-overrides to work with lintian 2.5.0.  Keep error overrides
     compatible with older lintian releases until ftp-master is updated.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Fri, 18 Mar 2011 00:40:02 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 13 Apr 2011 19:50:56 +0200
 
 nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
 
