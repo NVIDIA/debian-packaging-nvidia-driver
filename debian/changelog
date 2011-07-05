@@ -26,6 +26,8 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
     library and driver parts should be co-installable by now.  There still can
     be only one nvidia-*-dkms package installed at a time as they all generate
     the same kernel module: nvidia.ko.
+  * Provide nvidia-glx-any, xserver-xorg-video-nvidia-any,
+    libgl1-nvidia-glx-any, libgl1-nvidia-glx-ia32-any.
   * Add preliminary Multi-Arch support, can be enabled by setting the
     MULTIARCH variable in debian/rules.defs:
     - Add ${misc:Pre-Depends} to all library packages.
