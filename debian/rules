@@ -29,13 +29,16 @@ libdir			 = usr/lib$(if $(MULTIARCH),/$(DEB_HOST_MULTIARCH))
 # nvidia specific directory below $(libdir)
 nvidia_private		 = nvidia$(if $(legacy),/$(patsubst -%,%,$(legacy)),/current)
 
-ALL_CONTROL	:= $(wildcard debian/nvidia-glx* debian/libgl1-nvidia* debian/nvidia-kernel*)
-LEGACY_CONTROL	:= $(wildcard debian/nvidia-glx$(legacy)* debian/libgl1-nvidia$(legacy)* debian/nvidia-kernel$(legacy)*)
+CONTROL_PREFIXES = nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
+ALL_CONTROL	:= $(wildcard $(patsubst %,debian/%*,$(CONTROL_PREFIXES)))
+LEGACY_CONTROL	:= $(wildcard $(patsubst %,debian/%$(legacy)*,$(CONTROL_PREFIXES)))
 RENAME_CONTROL	 = $(filter-out $(LEGACY_CONTROL),$(ALL_CONTROL))
 RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
 			$(patsubst debian/libgl1-nvidia%,debian/libgl1-nvidia$(legacy)%,\
 			$(patsubst debian/nvidia-kernel%,debian/nvidia-kernel$(legacy)%,\
-				$(RENAME_CONTROL))))
+			$(patsubst debian/nvidia-alternative%,debian/nvidia-alternative$(legacy)%,\
+			$(patsubst debian/xserver-xorg-video-nvidia%,debian/xserver-xorg-video-nvidia$(legacy)%,\
+				$(RENAME_CONTROL))))))
 IA32_OVERRIDES	 = nvidia-vdpau-driver libcuda1 nvidia-libopencl1
 GEN_IA32_OVERRIDES := $(foreach p,$(IA32_OVERRIDES),$(if $(wildcard debian/$p.lintian-overrides*),$p))
 TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in)
@@ -273,15 +276,12 @@ debian/module/debian/changelog: debian/changelog
 
 
 # Renaming control files for legacy packaging
+define rename-template
+$1$$(legacy)%: $1%
+	cp -a $$< $$@
+endef
 ifneq (,$(legacy))
-nvidia-glx$(legacy)%: nvidia-glx%
-	cp -a $< $@
-
-libgl1-nvidia$(legacy)%: libgl1-nvidia%
-	cp -a $< $@
-
-nvidia-kernel$(legacy)%: nvidia-kernel%
-	cp -a $< $@
+$(foreach p,$(CONTROL_PREFIXES),$(eval $(call rename-template,$p)))
 endif
 
 
