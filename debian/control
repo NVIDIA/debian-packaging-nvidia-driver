@@ -59,7 +59,6 @@ Package: xserver-xorg-video-nvidia
 Section: non-free/x11
 Architecture: i386 amd64
 Pre-Depends:
- dpkg (>= 1.15.7.2),
  nvidia-installer-cleanup,
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
