@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
+  * Merge multiarch and other changes from 275xx releases:
   * Switch to multiarch-aware diversion and alternatives handling provided by
     the glx-diversions/glx-alternative-nvidia packages.
   * Move handling of alternatives from nvidia-glx and libgl1-nvidia-glx to
@@ -51,7 +52,7 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
   * Remove the nvidia alternative before removing the libraries.
   * Only add slave links if the destination directory exists.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Tue, 05 Jul 2011 17:17:36 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 06 Jul 2011 15:13:12 +0200
 
 nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
 
