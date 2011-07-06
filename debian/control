@@ -207,8 +207,8 @@ Description: allows the selection of NVIDIA as GLX provider
  Use 'update-alternatives --config nvidia' to select a version.
  .
  This package does not depend on the corresponding NVIDIA libraries.
- In order to install the NVIDIA driver and libraries, install the nvidia-glx
- package instead.
+ In order to install the NVIDIA driver and libraries, install the
+ nvidia-glx${nvidia:Legacy} package instead.
 
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
