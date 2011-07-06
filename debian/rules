@@ -74,7 +74,14 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 	ln -s ${dirname_x86_64} NVIDIA-Linux-amd64
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
 	test -f NVIDIA-Linux/README.txt || \
-		mv NVIDIA-Linux/README NVIDIA-Linux/README.txt
+		mv NVIDIA-Linux/usr/share/doc/README.txt NVIDIA-Linux/README.txt 2>/dev/null || \
+		mv NVIDIA-Linux/usr/share/doc/README NVIDIA-Linux/README.txt
+	test -f NVIDIA-Linux/NVIDIA_Changelog || \
+		mv NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog NVIDIA-Linux/
+	test -d NVIDIA-Linux-i386/kernel || \
+		mv NVIDIA-Linux-i386/usr/src/nv NVIDIA-Linux-i386/kernel
+	test -d NVIDIA-Linux-amd64/kernel || \
+		mv NVIDIA-Linux-amd64/usr/src/nv NVIDIA-Linux-amd64/kernel
 	ls -al
 	touch $@
 

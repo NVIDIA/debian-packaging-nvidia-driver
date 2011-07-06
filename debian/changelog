@@ -558,12 +558,51 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
 nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
-  * Add preliminary Multi-Arch support, can be enabled by setting the
-    MULTIARCH variable in debian/rules.defs:
+  * Switch to multiarch-aware diversion and alternatives handling provided by
+    the glx-diversions/glx-alternative-nvidia packages.
+  * Move handling of alternatives from nvidia-glx and libgl1-nvidia-glx to
+    nvidia-alternative (new package) and glx-alternative-nvidia (from
+    glx-alternatives).  libGL.so.1 and libglx.so (the Xorg module) no longer
+    can be configured independently, avoiding possible mixed NVIDIA/MESA
+    setups.
+  * Convert old packages libgl{1,x}-nvidia-alternatives to transitional ones.
+  * Note: The diversion and alternative handling of
+    libgl1-nvidia-{glx,alternatives}-ia32 is not being changed.
+    These packages will become obsolete by adding multiarch support.
+  * Split the Xorg driver and modules from nvidia-glx into new package
+    xserver-xorg-driver-nvidia (package name agreed by Cyril Brulebois).
+  * Install the following files that exist in both current and legacy drivers
+    into a version specific directory /usr/lib/nvidia/{current,legacy-*}:
+    libGL.so.1, libglx.so, nvidia_drv.so, libnvidia-cfg.so.1,
+    libXvMCNVIDIA.so.1, libXvMCNVIDIA_dynamic.so.1, nvidia-bug-report.sh.
+  * The 'nvidia' alternative (set up by package nvidia-alternative{,-legacy-*})
+    handles creation of appropriate symlinks in /usr/lib/nvidia.
+  * The 'glx' alternative (set up by package glx-alternative-nvidia) handles
+    creation of appropriate symlinks in /usr/lib, /usr/lib/xorg, etc.
+  * Convert the Conflicts: *-legacy-*, fglrx-* to versioned Breaks: as the
+    library and driver parts should be co-installable by now.  There still can
+    be only one nvidia-*-dkms package installed at a time as they all generate
+    the same kernel module: nvidia.ko.
+  * Provide nvidia-glx-any, xserver-xorg-video-nvidia-any,
+    libgl1-nvidia-glx-any, libgl1-nvidia-glx-ia32-any.
+  * Update README.alternatives.
+  * Update bug-script to list files in the new private directory as well as in
+    multiarch directories.
+  * Update bug-control to report information about some of the recently
+    added/renamed packages.
+  * Run check-for-conflicting-opengl-libraries from libgl1-nvidia*-glx{,-ia32}
+    and xserver-xorg-video-nvidia* postinst.
+  * Enable multiarch.
     - Add ${misc:Pre-Depends} to all library packages.
-    - Add #LIBDIR# substitution variable for generated control files.
-  * Add support for installing the libraries of current and legacy drivers in
-    parallel, add #PRIVATE# substitution variable for generated control files.
+    - Add Multi-Arch: same/foreign/allowed.
+    - Use compat level 9.
+    - Use #LIBDIR# substitution variable.
+    - Work around missing multiarch support in libvdpau1.
+  * Run check-for-mismatching-nvidia-module from libgl1-nvidia*-glx{,-ia32},
+    xserver-xorg-video-nvidia* and libcuda1{,-ia32} postinst, if available.
+  * Run create-xorg-nvidia-conf from xserver-xorg-video-nvidia* postinst.
+  * Add Depends: nvidia-support to libgl1-nvidia*-glx{,-ia32} and
+    xserver-xorg-video-nvidia.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 05 Jul 2011 17:17:36 +0200
 
@@ -584,6 +623,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Add linux3.patch to make the module build on linux-3.0.
   * Add nvidia-installer-cleanup as an alternative to nvidia-common.
   * Drop dependency on nvidia-common in favor of nvidia-installer-cleanup.
+  * Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.
   * Convert nvidia-vdpau-driver{,-ia32} related versioned Conflicts/Replaces
     to Breaks/Replaces.
   * Turn nvidia-glx-ia32 into a transitional package, the libraries have
@@ -596,13 +636,10 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     libgl1-nvidia-alternatives and libgl1-nvidia-alternatives-ia32.
   * Add Depends: nvidia-support to nvidia-glx.  The new support package
     ships the nvidia-bug-report.sh manpage.
-  * Override the binary-without-manpage lintian warning now that we provide
-    a manpage (in nvidia-support).
   * conftest.h:
     - Implement conftest.sh function ioremap_cache (270.41.19).
     - Implement checks for generated/compile.h and generated/utsrelease.h
       (275.09).
-  * Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.
   * Let nvidia-opencl-icd{,-ia32} depend on libnvidia-compiler{,-ia32},
     OpenCL code usually requires compilation at runtime.
   * Support backport specific operations in debian/rules by setting the
@@ -615,9 +652,12 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Generate some *-ia32.lintian-overrides by swapping [i386] and [amd64].
   * Fall back to the old version of nvidia.ids if extract-pci-ids.sh failed.
   * Remove support for restoring the upstream layout used up to 195xx.
+  * Canonicalize the location of upstream's README.txt, NVIDIA_Changelog and
+    kernel module source path.
   * Add Conflicts: lib{*}-ia32 [i386] to lib{*} to prevent mixing multiarch
     and biarch packages, e.g. lib{*}:i386 and lib{*}-ia32:amd64 on amd64.
   * Add XS-Autobuild: yes to debian/control.  See instructions in #602838.
+  * Add #MAJOR# substitution variable.
   * Add #LIBDIR# and #PRIVATE# substitution variables for generated control
     files.
 

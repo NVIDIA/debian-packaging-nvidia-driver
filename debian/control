@@ -115,7 +115,7 @@ Architecture: amd64
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
  ${misc:Depends}
-Description: NVIDIA 32-bit libraries (transitional package)
+Description: NVIDIA 32-bit libraries${nvidia:LegacyDesc} (transitional package)
  This is a dummy package to aid switching to
  libgl1-nvidia${nvidia:Legacy}-glx-ia32.
 
