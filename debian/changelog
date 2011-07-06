@@ -41,6 +41,8 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
     - Use compat level 9.
     - Use #LIBDIR# substitution variable.
     - Work around missing multiarch support in libvdpau1.
+  * Run check-for-mismatching-nvidia-module from libgl1-nvidia*-glx{,-ia32},
+    xserver-xorg-video-nvidia* and libcuda1{,-ia32} postinst, if available.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 05 Jul 2011 17:17:36 +0200
 
