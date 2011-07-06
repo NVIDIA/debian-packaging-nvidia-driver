@@ -7,7 +7,7 @@ DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_MULTIARCH	?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 include debian/rules.defs
-NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog | grep ^Version: | cut -d ' ' -f 2 | cut -d- -f 1)
+NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog | sed -nr '/^Version:/s/Version: (.*:)?(.*)-(.*)/\2/p')
 NVIDIA_LEGACY		?=
 WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
