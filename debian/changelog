@@ -49,6 +49,7 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
   * Add Depends: nvidia-support to libgl1-nvidia*-glx{,-ia32} and
     xserver-xorg-video-nvidia.
   * Remove the nvidia alternative before removing the libraries.
+  * Only add slave links if the destination directory exists.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 05 Jul 2011 17:17:36 +0200
 

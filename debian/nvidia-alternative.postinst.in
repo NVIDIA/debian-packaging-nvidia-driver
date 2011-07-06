@@ -6,13 +6,14 @@ TRIPLETS="/ /i386-linux-gnu/ /x86_64-linux-gnu/"
 
 add_slave()
 {
-	local target_link name source_path triplet
+	local target_link name source_path prefix
 	target_link="$1"
 	name="$2"
 	source_path="$3"
+	prefix="nvidia--"
 
-	if [ -f "${source_path}" ]; then
-		echo --slave "${target_link}" "nvidia--${name}" "${source_path}"
+	if [ -f "${source_path}" ] && [ -d "$(dirname "${target_link}")" ]; then
+		echo --slave "${target_link}" "${prefix}${name}" "${source_path}"
 	fi
 }
 
