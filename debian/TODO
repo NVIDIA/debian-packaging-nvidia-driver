@@ -5,12 +5,8 @@ Goals for wheezy:
     - fix Xorg autodetection (which may be an insufficiency in the nvidia
       driver that does not expose its supported PCI IDs properly), see
       #586502
-    - OR use debconf to create a minimal xorg.conf (unless one already
-      exists), see #612093
-
-  * multiarch support - is this going to be in wheezy?
-    - implemention would go best together with the previous point because it
-      involves moving around a lot of files and alternatives
+    - this has become less important since we have a way to ask in postinst
+      whether to create a minimal xorg.conf, see #612093
 
 
 When to remove old relationships and maintainer script code:
