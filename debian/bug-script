@@ -2,45 +2,80 @@
 
 PATH=/sbin:$PATH
 
-cat << EOF >&3
-uname -a:
-`uname -a`
+export LC_ALL=C
 
-/proc/version:
-`cat /proc/version`
+exec >&3
 
-EOF
+echo "uname -a:"
+uname -a
+echo
 
-test ! -e /proc/driver/nvidia/version || cat << EOF >&3
-/proc/driver/nvidia/version:
-`cat /proc/driver/nvidia/version`
+echo "/proc/version:"
+cat /proc/version
+echo
 
-EOF
+if [ -e /proc/driver/nvidia/version ]; then
+	echo "/proc/driver/nvidia/version:"
+	cat /proc/driver/nvidia/version
+	echo
+fi
 
 if (lspci --version) > /dev/null 2>&1; then
-  	echo "lspci 'VGA compatible controller [0300]':" >&3
+  	echo "lspci 'VGA compatible controller [0300]':"
 	for device in `lspci -mn | awk '{ if ($2 == "\"0300\"") { print $1 } }'`; do
-		LC_ALL=C lspci -vvnn -s $device >&3
+		LC_ALL=C lspci -vvnn -s $device
 	done
 fi
 
-cat << EOF >&3
-OpenGL and NVIDIA library files installed:
-`ls -la /etc/alternatives/glx* /etc/alternatives/nvidia* /etc/alternatives/*libGL* \
-	/usr/lib/libGL.* /usr/lib/libGLcore* /usr/lib/libnvidia* \
-	/usr/lib/*-linux-gnu/libGL.* /usr/lib/*-linux-gnu/libGLcore* /usr/lib/*-linux-gnu/libnvidia* \
-	/usr/lib32/libGL.* /usr/lib32/libGLcore* /usr/lib32/libnvidia* 2>/dev/null`
+if [ -x /bin/dmesg ]; then
+	echo "dmesg:"
+	dmesg | grep -iE 'nvidia|nvrm|agp|vga'
+	echo
+fi
 
-`ls -la /usr/lib/nvidia/ /usr/lib/nvidia/*/ \
-	/usr/lib/*-linux-gnu/nvidia/ /usr/lib/*-linux-gnu/nvidia/*/ \
-	/usr/lib/mesa-diverted/ /usr/lib/mesa-diverted/*/ \
-	/usr/lib32/nvidia/ /usr/lib32/nvidia/diversions/ \
-	/etc/X11/{xorg,nvidia}.conf /etc/X11/xorg.conf.d \
-	2>/dev/null`
+echo "OpenGL and NVIDIA library files installed:"
+ls -l	/etc/alternatives/glx* \
+	/etc/alternatives/nvidia* \
+	/etc/alternatives/*libGL* \
+	/usr/lib/libGL.* \
+	/usr/lib/libGLcore* \
+	/usr/lib/libnvidia* \
+	/usr/lib/*-linux-gnu/libGL.* \
+	/usr/lib/*-linux-gnu/libGLcore* \
+	/usr/lib/*-linux-gnu/libnvidia* \
+	/usr/lib32/libGL.* \
+	/usr/lib32/libGLcore* \
+	/usr/lib32/libnvidia* \
+	2>/dev/null
 
-Files from nvidia-installer:
-`ls -la /usr/bin/nvidia-installer /usr/bin/nvidia-uninstall /var/lib/nvidia 2>/dev/null`
+ls -la	/usr/lib/nvidia/ \
+	/usr/lib/nvidia/*/ \
+	/usr/lib/*-linux-gnu/nvidia/ \
+	/usr/lib/*-linux-gnu/nvidia/*/ \
+	/usr/lib/mesa-diverted/ \
+	/usr/lib/mesa-diverted/*-linux-gnu/ \
+	/usr/lib32/nvidia/ \
+	/usr/lib32/nvidia/diversions/ \
+	/etc/X11/{xorg,nvidia}.conf \
+	/etc/X11/xorg.conf.d \
+	/var/log/Xorg.*.log* \
+	2>/dev/null
+echo
 
-EOF
+echo "Files from nvidia-installer:"
+ls -la /usr/bin/nvidia-installer /usr/bin/nvidia-uninstall /var/lib/nvidia 2>/dev/null
+echo
+
+echo "Config and logfiles:"
+echo
+for file in /etc/X11/xorg.conf /etc/X11/xorg.conf.d/*.conf $(ls -dt /var/log/Xorg.*.log* 2>/dev/null | head -n 1)
+do
+	if [ -f "$file" ] && [ -r "$file" ]; then
+		echo "<<<<<<<<<< $file >>>>>>>>>>"
+		cat "$file"
+		echo "^^^^^^^^^^ $file ^^^^^^^^^^"
+		echo
+	fi
+done
 
 exit 0
