@@ -32,7 +32,7 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
     libgl1-nvidia-glx-any, libgl1-nvidia-glx-ia32-any.
   * Update README.alternatives.
   * Update bug-script to list files in the new private directory as well as in
-    multiarch directories.
+    multiarch directories.  Collect xorg.conf and most recent Xorg.*.log.
   * Update bug-control to report information about some of the recently
     added/renamed packages.
   * Run check-for-conflicting-opengl-libraries from libgl1-nvidia*-glx{,-ia32}

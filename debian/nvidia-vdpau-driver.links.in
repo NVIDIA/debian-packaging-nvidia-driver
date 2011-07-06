@@ -1,2 +1,3 @@
+# work around missing multiarch support in libvdpau1
 #LIBDIR#/vdpau/libvdpau_nvidia.so.1		usr/lib/vdpau/libvdpau_nvidia.so.1
 #LIBDIR#/vdpau/libvdpau_nvidia.so.#VERSION#	#LIBDIR#/vdpau/libvdpau_nvidia.so.1
