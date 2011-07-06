@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (275.09.07-5) UNRELEASED; urgency=low
+nvidia-graphics-drivers (275.09.07-5) unstable; urgency=low
 
   * Add dependency on libgl{1,x}-nvidia-alternatives to nvidia-alternative to
     ensure the old packages are not removed prematurely.  (Closes: #632742)
@@ -13,7 +13,7 @@ nvidia-graphics-drivers (275.09.07-5) UNRELEASED; urgency=low
     - Remove the nvidia alternative before removing the libraries.
     - Only add slave links if the destination directory exists.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Tue, 28 Jun 2011 11:56:22 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 06 Jul 2011 21:57:28 +0200
 
 nvidia-graphics-drivers (275.09.07-4) unstable; urgency=low
 
