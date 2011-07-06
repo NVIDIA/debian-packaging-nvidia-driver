@@ -1,2 +1,2 @@
-usr/lib/libnvidia-compiler.so.#VERSION# usr/lib/libnvidia-compiler.so.1
-usr/lib/libnvidia-compiler.so.1		usr/lib/libnvidia-compiler.so
+#LIBDIR#/libnvidia-compiler.so.#VERSION#	#LIBDIR#/libnvidia-compiler.so.1
+#LIBDIR#/libnvidia-compiler.so.1		#LIBDIR#/libnvidia-compiler.so
