@@ -1,5 +1,7 @@
 nvidia-graphics-drivers (275.09.07-5) UNRELEASED; urgency=low
 
+  * Add dependency on libgl{1,x}-nvidia-alternatives to nvidia-alternative to
+    ensure the old packages are not removed prematurely.  (Closes: #632742)
   * Run check-for-conflicting-opengl-libraries from libgl1-nvidia*-glx{,-ia32}
     and xserver-xorg-video-nvidia* postinst.
   * Run check-for-mismatching-nvidia-module from libgl1-nvidia*-glx{,-ia32},
