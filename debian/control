@@ -91,7 +91,7 @@ Breaks:
  nvidia-glx-legacy-173xx (<< 173.14.30-2),
  fglrx-driver (<< 11-6-~),
 Replaces:
- nvidia-glx (<< 275.09.07-2),
+ nvidia-glx${nvidia:Legacy} (<< 275.09.07-2),
 Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  These binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
@@ -201,11 +201,11 @@ Package: nvidia-alternative
 Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
- glx-alternative-nvidia (>= 0.0.1~),
+ glx-alternative-nvidia (>= 0.1.90),
  ${misc:Depends}
 Breaks:
- nvidia-glx (<< 275.09.07-2),
- libgl1-nvidia-glx (<< 275.09.07-2),
+ nvidia-glx${nvidia:Legacy} (<< 275.09.07-2),
+ libgl1-nvidia${nvidia:Legacy}-glx (<< 275.09.07-2),
 Description: allows the selection of NVIDIA as GLX provider
  In setups with several NVIDIA driver versions installed (e.g. current and
  legacy) this metapackage registers an alternative to allow easy switching
