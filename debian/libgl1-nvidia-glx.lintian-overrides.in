@@ -12,7 +12,10 @@ spelling-error-in-binary
 # other libraries).
 shlibs-declares-dependency-on-other-package libgl1-mesa-glx | libgl1
 
-# This package is a strange special case since it overrides standard
-# libraries and diverts them, so the package name won't ever be able to
-# match the library names it provides.
-package-name-doesnt-match-sonames
+# Some slave alternatives are placed there.
+package-contains-empty-directory #LIBDIR#/nvidia/tls/
+package-contains-empty-directory #LIBDIR#/tls/
+
+# Debhelper generates them anyway.
+postinst-has-useless-call-to-ldconfig
+postrm-has-useless-call-to-ldconfig

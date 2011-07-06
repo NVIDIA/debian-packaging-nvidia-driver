@@ -18,6 +18,8 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
     into a version specific directory /usr/lib/nvidia/{current,legacy-*}:
     libGL.so.1, libglx.so, nvidia_drv.so, libnvidia-cfg.so.1,
     libXvMCNVIDIA.so.1, libXvMCNVIDIA_dynamic.so.1, nvidia-bug-report.sh.
+  * Do the same with libnvidia-tls.so.1, tls/libnvidia-tls.so.1 and
+    libGLcore.so.1 which are only supplied by the legacy packages.
   * The 'nvidia' alternative (set up by package nvidia-alternative{,-legacy-*})
     handles creation of appropriate symlinks in /usr/lib/nvidia.
   * The 'glx' alternative (set up by package glx-alternative-nvidia) handles

@@ -18,17 +18,21 @@ add_slave()
 
 add_multiarch_slave()
 {
-	local target_dir target_sub_dir file source_dir source_sub_dir triplet
+	local target_dir target_sub_dir file source_dir source_sub_dir prefix suffix triplet
 	target_dir="$1"
 	target_sub_dir="$2"
 	file="$3"
 	source_dir="$4"
 	source_sub_dir="$5"
+	prefix="$6"
 
 	for triplet in $TRIPLETS ; do
+		# s|/$||; s|^/|-|;
+		suffix="${triplet%/}"
+		suffix="${suffix:+-${suffix#/}}"
 		add_slave \
 			"${target_dir}${triplet}${target_sub_dir}${file}" \
-			"${file}$(echo ${triplet} | sed -e 's/\/$//; s/^\//-/')" \
+			"${prefix}${file}${suffix}" \
 			"${source_dir}${triplet}${source_sub_dir}${file}"
 	done
 }
@@ -38,7 +42,10 @@ if [ "$1" = "triggered" ]; then
 
 	slaves="
 		$(add_multiarch_slave /usr/lib nvidia/ libGL.so.1 /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib nvidia/ libGLcore.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib nvidia/ libnvidia-cfg.so.1 /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib nvidia/ libnvidia-tls.so.1 /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib nvidia/tls/ libnvidia-tls.so.1 /usr/lib #PRIVATE#/tls/ tls-)
 		$(add_multiarch_slave /usr/lib nvidia/ libXvMCNVIDIA.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib nvidia/ libXvMCNVIDIA_dynamic.so.1 /usr/lib #PRIVATE#/)
 		$(add_slave /usr/lib/nvidia/libglx.so libglx.so /usr/lib/#PRIVATE#/libglx.so)

@@ -228,6 +228,9 @@ override_dh_makeshlibs:
 	test ! -d debian/libgl1-nvidia$(legacy)-glx-ia32 || \
 		sed -i -e '/^libGL\.so/,/^lib/{/^libGL\.so\|^ /d}' debian/libgl1-nvidia$(legacy)-glx-ia32/DEBIAN/symbols
 
+override_dh_shlibdeps:
+	LD_LIBRARY_PATH=/$(libdir)/$(nvidia_private):$(LD_LIBRARY_PATH) dh_shlibdeps
+
 override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' \
 		-V'nvidia:xorgDepends=$(xorg_depends)' \
