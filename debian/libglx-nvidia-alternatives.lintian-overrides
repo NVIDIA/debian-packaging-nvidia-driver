@@ -1,4 +1,0 @@
-# The diversions are placed here.
-# Due to some bad interaction with ancient maintainer scripts that
-# repeatedly removed this directory, we now ship a dummy file there.
-#package-contains-empty-directory usr/lib/nvidia/diversions/

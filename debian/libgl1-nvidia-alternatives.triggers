@@ -1,4 +1,0 @@
-interest /usr/lib/libGL.so.1
-interest /usr/lib/libGL.so
-interest /usr/lib/nvidia/diversions/libGL.so.1
-interest /usr/lib/nvidia/diversions/libGL.so
