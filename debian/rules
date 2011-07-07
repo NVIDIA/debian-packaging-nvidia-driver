@@ -209,8 +209,8 @@ kernel-source-tree: prepare build-kernel-source-tree
 	cp -a $(module_source) $@
 	cd $@ && QUILT_PATCHES=../debian/module/debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2
 
-#override_dh_install:
-#	dh_install --list-missing
+override_dh_install:
+	dh_install --list-missing
 
 override_dh_installchangelogs:
 	dh_installchangelogs debian/tmp/NVIDIA_Changelog
