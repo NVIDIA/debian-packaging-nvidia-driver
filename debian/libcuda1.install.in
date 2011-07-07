@@ -1,1 +1,1 @@
-usr/lib/libcuda.so.#VERSION#
+libcuda.so.#VERSION#	#LIBDIR#/

@@ -1,6 +1,6 @@
-usr/lib/libGL.so.#VERSION#				usr/lib/nvidia/
-libnvidia-glcore.so.#VERSION#		usr/lib/
-usr/lib/libnvidia-cfg.so.#VERSION#
-usr/lib/libnvidia-tls.so.#VERSION#
-usr/lib/tls/libnvidia-tls.so.#VERSION#
-usr/X11R6/lib/libXvMCNVIDIA.so.#VERSION#		usr/lib/
+libGL.so.#VERSION#		#LIBDIR#/#PRIVATE#/
+libnvidia-glcore.so.#VERSION#	#LIBDIR#/
+libnvidia-cfg.so.#VERSION#	#LIBDIR#/#PRIVATE#/
+libnvidia-tls.so.#VERSION#	#LIBDIR#/
+tls/libnvidia-tls.so.#VERSION#	#LIBDIR#/tls/
+libXvMCNVIDIA.so.#VERSION#	#LIBDIR#/#PRIVATE#/

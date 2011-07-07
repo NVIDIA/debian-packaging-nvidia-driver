@@ -1,1 +1,1 @@
-usr/lib/vdpau/libvdpau_nvidia.so.#VERSION#
+libvdpau_nvidia.so.#VERSION#	#LIBDIR#/vdpau/

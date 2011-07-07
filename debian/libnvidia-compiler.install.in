@@ -1,1 +1,1 @@
-usr/lib/libnvidia-compiler.so.#VERSION#
+libnvidia-compiler.so.#VERSION#		#LIBDIR#/

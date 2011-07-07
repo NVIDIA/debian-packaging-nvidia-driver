@@ -1,1 +1,1 @@
-libnvcuvid.so.#VERSION#		usr/lib/
+libnvcuvid.so.#VERSION#		#LIBDIR#/

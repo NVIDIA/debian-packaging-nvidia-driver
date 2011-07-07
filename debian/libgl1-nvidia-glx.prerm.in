@@ -4,7 +4,8 @@ set -e
 
 if [ "$1" = "remove" ] || [ "$1" = "deconfigure" ]; then
 
-	update-alternatives --remove libglx.so /usr/lib/nvidia/diversions/libglx.so
+	update-alternatives --remove nvidia /usr/lib/#PRIVATE#
+	dpkg-trigger register-glx-alternative-nvidia
 
 fi
 
@@ -12,3 +13,4 @@ fi
 #DEBHELPER#
 
 exit 0
+

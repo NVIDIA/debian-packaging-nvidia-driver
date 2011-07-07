@@ -7,7 +7,7 @@ DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_MULTIARCH	?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 include debian/rules.defs
-NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog | grep ^Version: | cut -d ' ' -f 2 | cut -d- -f 1)
+NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog | sed -nr '/^Version:/s/Version: (.*:)?(.*)-(.*)/\2/p')
 NVIDIA_LEGACY		?=
 WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
@@ -27,15 +27,18 @@ dirname_x86_64		 = $(NVIDIA_DIRNAME_X86_64)
 # system libdir
 libdir			 = usr/lib$(if $(MULTIARCH),/$(DEB_HOST_MULTIARCH))
 # nvidia specific directory below $(libdir)
-nvidia_private		 = nvidia
+nvidia_private		 = nvidia$(if $(legacy),/$(patsubst -%,%,$(legacy)),/current)
 
-ALL_CONTROL	:= $(wildcard debian/nvidia-glx* debian/libgl1-nvidia* debian/nvidia-kernel*)
-LEGACY_CONTROL	:= $(wildcard debian/nvidia-glx$(legacy)* debian/libgl1-nvidia$(legacy)* debian/nvidia-kernel$(legacy)*)
+CONTROL_PREFIXES = nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
+ALL_CONTROL	:= $(wildcard $(patsubst %,debian/%*,$(CONTROL_PREFIXES)))
+LEGACY_CONTROL	:= $(wildcard $(patsubst %,debian/%$(legacy)*,$(CONTROL_PREFIXES)))
 RENAME_CONTROL	 = $(filter-out $(LEGACY_CONTROL),$(ALL_CONTROL))
 RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
 			$(patsubst debian/libgl1-nvidia%,debian/libgl1-nvidia$(legacy)%,\
 			$(patsubst debian/nvidia-kernel%,debian/nvidia-kernel$(legacy)%,\
-				$(RENAME_CONTROL))))
+			$(patsubst debian/nvidia-alternative%,debian/nvidia-alternative$(legacy)%,\
+			$(patsubst debian/xserver-xorg-video-nvidia%,debian/xserver-xorg-video-nvidia$(legacy)%,\
+				$(RENAME_CONTROL))))))
 IA32_OVERRIDES	 = nvidia-vdpau-driver libcuda1 nvidia-libopencl1
 GEN_IA32_OVERRIDES := $(foreach p,$(IA32_OVERRIDES),$(if $(wildcard debian/$p.lintian-overrides*),$p))
 TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in)
@@ -73,17 +76,20 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 	ln -s ${dirname_x86} NVIDIA-Linux-i386
 	ln -s ${dirname_x86_64} NVIDIA-Linux-amd64
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
-	test -d NVIDIA-Linux-i386/usr || \
-		$(MAKE) -C NVIDIA-Linux-i386 -f ../debian/restore-upstream-directory-structure
-	test -d NVIDIA-Linux-amd64/usr || \
-		$(MAKE) -C NVIDIA-Linux-amd64 -f ../debian/restore-upstream-directory-structure
-	test -f NVIDIA-Linux/usr/share/doc/README.txt || \
-		mv NVIDIA-Linux/usr/share/doc/README NVIDIA-Linux/usr/share/doc/README.txt
+	test -f NVIDIA-Linux/README.txt || \
+		mv NVIDIA-Linux/usr/share/doc/README.txt NVIDIA-Linux/README.txt 2>/dev/null || \
+		mv NVIDIA-Linux/usr/share/doc/README NVIDIA-Linux/README.txt
+	test -f NVIDIA-Linux/NVIDIA_Changelog || \
+		mv NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog NVIDIA-Linux/
+	test -d NVIDIA-Linux-i386/kernel || \
+		mv NVIDIA-Linux-i386/usr/src/nv NVIDIA-Linux-i386/kernel
+	test -d NVIDIA-Linux-amd64/kernel || \
+		mv NVIDIA-Linux-amd64/usr/src/nv NVIDIA-Linux-amd64/kernel
 	ls -al
 	touch $@
 
 nv-kernel.ids: unpack-stamp
-	sh debian/extract-pci-ids.sh NVIDIA-Linux/usr/src/nv/nv-kernel.o \
+	sh debian/extract-pci-ids.sh NVIDIA-Linux/kernel/nv-kernel.o \
 		| tr a-f A-F | sort -u > $@
 	test -s $@ || cp debian/$@ $@
 	@set -e -x ; \
@@ -150,10 +156,10 @@ install-into-tmp:
 build-kernel-source-tree: install-into-tmp
 	# Build the nvidia-kernel-source tree.
 	mkdir -p $(module_source)
-	mv debian/tmp/usr/src/nv/* $(module_source)/
+	mv debian/tmp/kernel/* $(module_source)/
 	# This copy of the changelog is going to be installed into the module
 	# binary packages.
-	cp -a debian/tmp/usr/share/doc/NVIDIA_Changelog $(module_source)/
+	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
 
 	# We don't want these makefiles that don't work with kbuild.
 	rm $(module_source)/makefile
@@ -162,9 +168,9 @@ build-kernel-source-tree: install-into-tmp
 	# We want both 32 and 64 bit versions of nv-kernel.o.  Do not use a
 	# name matching *.o to prevent accidental deletion by some clean
 	# target.
-	cp -a NVIDIA-Linux-i386/usr/src/nv/nv-kernel.o \
+	cp -a NVIDIA-Linux-i386/kernel/nv-kernel.o \
 	    $(module_source)/nv-kernel.o.i386
-	cp -a NVIDIA-Linux-amd64/usr/src/nv/nv-kernel.o \
+	cp -a NVIDIA-Linux-amd64/kernel/nv-kernel.o \
 	    $(module_source)/nv-kernel.o.x86_64
 	rm -f $(module_source)/nv-kernel.o
 
@@ -204,11 +210,11 @@ kernel-source-tree: prepare build-kernel-source-tree
 	cp -a $(module_source) $@
 	cd $@ && QUILT_PATCHES=../debian/module/debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2
 
-#override_dh_install:
-#	dh_install --list-missing
+override_dh_install:
+	dh_install --list-missing
 
 override_dh_installchangelogs:
-	dh_installchangelogs debian/tmp/usr/share/doc/NVIDIA_Changelog
+	dh_installchangelogs debian/tmp/NVIDIA_Changelog
 
 override_dh_bugfiles:
 	dh_bugfiles -A
@@ -225,6 +231,9 @@ override_dh_makeshlibs:
 		sed -i -e '/^libGL\.so/,/^lib/{/^libGL\.so\|^ /d}' debian/libgl1-nvidia$(legacy)-glx/DEBIAN/symbols
 	test ! -d debian/libgl1-nvidia$(legacy)-glx-ia32 || \
 		sed -i -e '/^libGL\.so/,/^lib/{/^libGL\.so\|^ /d}' debian/libgl1-nvidia$(legacy)-glx-ia32/DEBIAN/symbols
+
+override_dh_shlibdeps:
+	LD_LIBRARY_PATH=/$(libdir)/$(nvidia_private):$(LD_LIBRARY_PATH) dh_shlibdeps
 
 override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' \
@@ -253,6 +262,7 @@ override_dh_strip:
 %:: %.in debian/rules debian/rules.defs
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
+	-e 's{#MAJOR#}{$(firstword $(subst ., ,$(version)))}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
@@ -267,15 +277,12 @@ debian/module/debian/changelog: debian/changelog
 
 
 # Renaming control files for legacy packaging
+define rename-template
+$1$$(legacy)%: $1%
+	cp -a $$< $$@
+endef
 ifneq (,$(legacy))
-nvidia-glx$(legacy)%: nvidia-glx%
-	cp -a $< $@
-
-libgl1-nvidia$(legacy)%: libgl1-nvidia%
-	cp -a $< $@
-
-nvidia-kernel$(legacy)%: nvidia-kernel%
-	cp -a $< $@
+$(foreach p,$(CONTROL_PREFIXES),$(eval $(call rename-template,$p)))
 endif
 
 
