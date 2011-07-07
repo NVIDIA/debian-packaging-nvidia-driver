@@ -357,6 +357,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
   * Convert lintian-overrides to use [arch lists] introduced in lintian 2.5.1.
   * Generate some *-ia32.lintian-overrides by swapping [i386] and [amd64].
   * Fall back to the old version of nvidia.ids if extract-pci-ids.sh failed.
+  * Remove support for restoring the upstream layout used up to 195xx.
   * Canonicalize the location of upstream's README.txt, NVIDIA_Changelog and
     kernel module source path.
   * Add Conflicts: lib{*}-ia32 [i386] to lib{*} to prevent mixing multiarch
