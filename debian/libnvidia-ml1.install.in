@@ -1,1 +1,1 @@
-libnvidia-ml.so.#VERSION#		usr/lib/
+libnvidia-ml.so.#VERSION#	#LIBDIR#/
