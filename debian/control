@@ -139,6 +139,10 @@ Breaks:
  nvidia-glx-legacy-71xx (<< 71.86.14-3),
  nvidia-glx-legacy-96xx (<< 96.43.19-2),
  nvidia-glx-legacy-173xx (<< 173.14.30-2),
+# libgl1-nvidia-glx (<< 275.09.07-3),
+ libgl1-nvidia-legacy-71xx-glx (<< 71.86.14-3),
+ libgl1-nvidia-legacy-96xx-glx (<< 96.43.19-2),
+ libgl1-nvidia-legacy-173xx-glx (<< 173.14.30-2),
  fglrx-glx (<< 11-6-~),
 Replaces:
  nvidia-glx${nvidia:Legacy} (<< 195.36.31),
@@ -171,6 +175,7 @@ Suggests:
 Provides:
  libgl1-nvidia-glx-ia32-any,
 Conflicts:
+ libgl1-nvidia-glx-ia32,
  libgl1-nvidia-glx-ia32-any,
  fglrx-glx-ia32,
  nvidia-glx-ia32 (<< 195.36.31),
