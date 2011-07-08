@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (275.09.07-6) UNRELEASED; urgency=low
 
+  [ Andreas Beckmann ]
   * Run check-for-conflicting-opengl-libraries from libgl1-nvidia*-glx{,-ia32}
     and xserver-xorg-video-nvidia* postinst.
   * Run check-for-mismatching-nvidia-module from libgl1-nvidia*-glx{,-ia32},
@@ -14,6 +15,7 @@ nvidia-graphics-drivers (275.09.07-6) UNRELEASED; urgency=low
 
 nvidia-graphics-drivers (275.09.07-5) unstable; urgency=low
 
+  [ Andreas Beckmann ]
   * Add dependency on libgl{1,x}-nvidia-alternatives to nvidia-alternative to
     ensure the old packages are not removed prematurely.  (Closes: #632742)
   * Add Breaks: nvidia-smi (<< $(nvidia:Version}) to libnvidia-ml1 because the
@@ -31,6 +33,7 @@ nvidia-graphics-drivers (275.09.07-5) unstable; urgency=low
 
 nvidia-graphics-drivers (275.09.07-4) unstable; urgency=low
 
+  [ Andreas Beckmann ]
   * Upload to unstable.
   * Drop lintian 2.4.3 compatibility overrides.
   * Ship the /usr/lib/nvidia/current directory in the nvidia-alternative
@@ -154,6 +157,7 @@ nvidia-graphics-drivers (275.09.04-1) experimental; urgency=low
 
 nvidia-graphics-drivers (275.09-1) experimental; urgency=low
 
+  [ Andreas Beckmann ]
   * New upstream beta 275.09 (2011-05-20).
     - Added support for hardware button based pairing to NVIDIA 3D Vision Pro.
       Single click button on the hub to enter into a pairing mode which pairs
@@ -191,6 +195,7 @@ nvidia-graphics-drivers (275.09-1) experimental; urgency=low
 
 nvidia-graphics-drivers (270.41.19-1) unstable; urgency=low
 
+  [ Andreas Beckmann ]
   * New upstream release 270.41.19 (2011-05-20).
     - Fixed a bug in the VDPAU presentation queue that could cause 1
       second hangs when transitioning from blit-based display to overlay-
@@ -238,6 +243,7 @@ nvidia-graphics-drivers (270.41.19-1) unstable; urgency=low
 
 nvidia-graphics-drivers (270.41.06-1) unstable; urgency=low
 
+  [ Andreas Beckmann ]
   * New upstream release 270.41.06 (2011-04-20).  (Closes: #624644)
     - Fixed a bug that caused some GPUs to stop responding when the X Server
       was started. All GPUs are susceptible, but the failure was primarily
@@ -272,6 +278,7 @@ nvidia-graphics-drivers (270.41.06-1) unstable; urgency=low
 
 nvidia-graphics-drivers (270.30-1) experimental; urgency=low
 
+  [ Andreas Beckmann ]
   * New upstream beta 270.30 (2011-03-02).
     - Added support for xserver ABI 10 (xorg-server 1.10).
   * New upstream beta 270.29 (2011-02-24).
@@ -569,7 +576,7 @@ nvidia-graphics-drivers (256.53-1) experimental; urgency=low
 nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
-  * Merge multiarch and other changes from 275xx releases:
+  * Merge diversions, alternatives and multiarch changes from 275xx releases:
   * Switch to multiarch-aware diversion and alternatives handling provided by
     the glx-diversions/glx-alternative-nvidia packages.
   * Move handling of alternatives from nvidia-glx and libgl1-nvidia-glx to
@@ -625,6 +632,7 @@ nvidia-graphics-drivers (195.36.31-92) UNRELEASED; urgency=low
 nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
+  * Merge general changes from 270xx/275xx releases:
   * Update to Standards-Version: 3.9.2.
   * Drop nvidia-kernel-compat-2.6.38.patch and adjust conftest.h to mark
     aquire_console_sem as no longer available in 2.6.38 and newer kernels.
