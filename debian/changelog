@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (280.04-2) UNRELEASED; urgency=low
+
+  [ Andreas Beckmann ]
+  * Rebase on 275.09.07-5/275.09.07-6.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jul 2011 22:32:10 +0200
+
 nvidia-graphics-drivers (275.09.07-6) UNRELEASED; urgency=low
 
   * Run check-for-conflicting-opengl-libraries from libgl1-nvidia*-glx{,-ia32}
@@ -28,6 +35,27 @@ nvidia-graphics-drivers (275.09.07-5) unstable; urgency=low
     - Only add slave links if the destination directory exists.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 06 Jul 2011 21:57:28 +0200
+
+nvidia-graphics-drivers (280.04-1) experimental; urgency=low
+
+  [ Andreas Beckmann ]
+  * New upstream beta 280.04 (2011-06-??).
+  * New upstream beta 275 series.
+    - Added support for the following GPUs: GeForce GT 540M.
+    - Fixed bugs in the VDPAU presentation queue that could cause GPU errors
+      and hangs when destroying a presentation queue. This happens when
+      exiting applications, and also when toggling to and from full-screen
+      mode in Adobe Flash.
+  * Upload to experimental.
+  * Update symbols control files.
+  * Add Breaks: nvidia-smi (<< $(nvidia:Version}) to libnvidia-ml1 because the
+    interface is changing frequently but the soname is kept.
+  * Update lintian overrides.
+  * Convert lintian overrides to use the [arch] format (lintian 2.5.1) instead
+    of #!i386#/#!amd64# parameter substitution.
+  * Work around autoreject by ftp-master which is still running lintian 2.5.0.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jul 2011 11:56:43 +0200
 
 nvidia-graphics-drivers (275.09.07-4) unstable; urgency=low
 
