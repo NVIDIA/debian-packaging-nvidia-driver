@@ -1,6 +1,6 @@
 # If needed, set to the major part of the upstream version number.
 #NVIDIA_LEGACY		 =
-WATCH_VERSION		 = 275
+#WATCH_VERSION		 =
 XORG_ABI_LIST		 = 10 8 6.0
 
 NVIDIA_DIRNAME_X86	 = NVIDIA-Linux-x86-${NVIDIA_RELEASE}
