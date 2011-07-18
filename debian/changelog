@@ -1,6 +1,21 @@
-nvidia-graphics-drivers (275.09.07-6) UNRELEASED; urgency=low
+nvidia-graphics-drivers (275.19-1) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
+  * New upstream release 275.19 (2011-07-15).
+    - Fix memory error and abort reported by glibc when running the application
+      FieldView from Intelligent Light.
+    - Fixed an OpenGL driver bug that caused an application crash when running
+      Altair HyperMesh.
+    - Fixed a performance problem when switching between stereo and monoscopic
+      rendering in the application Smoke.
+    - Fixed poor X driver handling of pixmap out of memory scenarios.
+    - Fixed an interrupt handling deficiency that could lead to performance and
+      stability problems when many NVIDIA GPUs shared few IRQs.
+    - Added support for the following GPUs: GeForce GT 540M.
+    - Fixed bugs in the VDPAU presentation queue that could cause GPU errors
+      and hangs when destroying a presentation queue. This happens when
+      exiting applications, and also when toggling to and from full-screen
+      mode in Adobe Flash.
   * Run check-for-conflicting-opengl-libraries from libgl1-nvidia*-glx{,-ia32}
     and xserver-xorg-video-nvidia* postinst.
   * Run check-for-mismatching-nvidia-module from libgl1-nvidia*-glx{,-ia32},
@@ -9,7 +24,7 @@ nvidia-graphics-drivers (275.09.07-6) UNRELEASED; urgency=low
   * Add Depends: nvidia-support to libgl1-nvidia*-glx{,-ia32} and
     xserver-xorg-video-nvidia.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 06 Jul 2011 22:02:23 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 18 Jul 2011 21:03:38 +0200
 
 nvidia-graphics-drivers (275.09.07-5) unstable; urgency=low
 
