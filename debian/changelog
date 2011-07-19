@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (275.19-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (275.19-1) unstable; urgency=low
 
   [ Andreas Beckmann ]
   * New upstream release 275.19 (2011-07-15).
@@ -24,7 +24,7 @@ nvidia-graphics-drivers (275.19-1) UNRELEASED; urgency=low
   * Add Depends: nvidia-support to libgl1-nvidia*-glx{,-ia32} and
     xserver-xorg-video-nvidia.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 18 Jul 2011 21:03:38 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 19 Jul 2011 21:03:24 +0200
 
 nvidia-graphics-drivers (275.09.07-5) unstable; urgency=low
 
