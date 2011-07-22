@@ -12,8 +12,8 @@ nvidia-graphics-drivers (275.21-1) unstable; urgency=low
       See "Appendix B. X Config Options" in the README for more information.
     - Fixed a bug that prevented initialization of the NVIDIA 3D Vision or
       NVIDIA 3D Vision Pro hub if no EDID was present.
-  * Use a versioned dependency on the transitional packages
-    libgl{1,x}-nvidia-alternatives.
+  * Use a versioned dependency on the transitional
+    libgl{1,x}-nvidia-alternatives packages.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 22 Jul 2011 16:59:32 +0200
 
