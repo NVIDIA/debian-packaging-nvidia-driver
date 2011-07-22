@@ -1,3 +1,20 @@
+nvidia-graphics-drivers (275.21-1) UNRELEASED; urgency=low
+
+  [ Andreas Beckmann ]
+  * New upstream release 275.21 (2011-07-21).
+    - Restored the release splash screen in the NVIDIA X driver (the beta
+      splash screen was accidentally reenabled between 275.09.07 and
+      275.19).
+    - Added X configuration options "3DVisionProHwButtonPairing",
+      "3DVisionProHwSinglePairingTimeout", "3DVisionProHwMultiPairingTimeout",
+      and "3DVisionProHwDoubleClickThreshold" to configure hardware button
+      based pairing in NVIDIA 3D Vision Pro.
+      See "Appendix B. X Config Options" in the README for more information.
+    - Fixed a bug that prevented initialization of the NVIDIA 3D Vision or
+      NVIDIA 3D Vision Pro hub if no EDID was present.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 22 Jul 2011 10:53:14 +0200
+
 nvidia-graphics-drivers (275.19-1) unstable; urgency=low
 
   [ Andreas Beckmann ]
