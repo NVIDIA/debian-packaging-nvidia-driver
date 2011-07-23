@@ -15,11 +15,6 @@ then
 		/usr/lib/nvidia/check-for-mismatching-nvidia-module
 	fi
 
-	if [ -x /usr/lib/nvidia/create-xorg-nvidia-conf ]
-	then
-		/usr/lib/nvidia/create-xorg-nvidia-conf
-	fi
-
 fi
 
 
