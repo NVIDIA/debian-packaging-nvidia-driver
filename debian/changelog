@@ -1,9 +1,14 @@
-nvidia-graphics-drivers (280.04-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (280.11-1) UNRELEASED; urgency=low
 
-  [ Andreas Beckmann ]
-  * Rebase on 275.09.07-5/275.09.07-6.
+  * New upstream beta 280.11 (2011-07-??).
+    - Fixed a GLX_EXT_texture_from_pixmap bug that caused corruption
+      when texturing from sufficiently small pixmaps and, in particular,
+      corruption in the GNOME Shell Message Tray.
+  * New upstream beta 275 series.
+    - Fixed a bug in VDPAU that caused a glibc assertion when a call to
+      VdpDeviceCreateX11 failed in certain ways.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jul 2011 22:32:10 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 23 Jul 2011 16:47:07 +0200
 
 nvidia-graphics-drivers (275.21-1) unstable; urgency=low
 
@@ -73,13 +78,16 @@ nvidia-graphics-drivers (275.09.07-5) unstable; urgency=low
 nvidia-graphics-drivers (280.04-1) experimental; urgency=low
 
   [ Andreas Beckmann ]
-  * New upstream beta 280.04 (2011-06-??).
-  * New upstream beta 275 series.
-    - Added support for the following GPUs: GeForce GT 540M.
-    - Fixed bugs in the VDPAU presentation queue that could cause GPU errors
-      and hangs when destroying a presentation queue. This happens when
-      exiting applications, and also when toggling to and from full-screen
-      mode in Adobe Flash.
+  * New upstream beta 280.04 (2011-06-29).
+    - Added support for the following GPUs: GeForce GTX 570M,
+      GeForce GTX 580M.
+    - Added unofficial GLX protocol support (i.e., for GLX indirect
+      rendering) for the following OpenGL extension:
+          GL_EXT_vertex_attrib_64bit
+    - Added GLX protocol support (i.e., for GLX
+      indirect rendering) for the following OpenGL extensions:
+        GL_ARB_half_float_pixel
+        GL_EXT_packed_depth_stencil
   * Upload to experimental.
   * Update symbols control files.
   * Add Breaks: nvidia-smi (<< $(nvidia:Version}) to libnvidia-ml1 because the
