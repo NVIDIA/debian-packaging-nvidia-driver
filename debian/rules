@@ -93,13 +93,26 @@ nv-kernel.ids: unpack-stamp
 		| tr a-f A-F | sort -u > $@
 	test -s $@ || cp debian/$@ $@
 	@set -e -x ; \
-	if ! cmp -s debian/nv-kernel.ids nv-kernel.ids ; then \
-		diff -u debian/nv-kernel.ids nv-kernel.ids || true ; \
+	if ! cmp -s debian/$@ $@ ; then \
+		diff -u debian/$@ $@ || true ; \
 		: "*** Supported PCI IDs have changed. See diff above. Aborting. ***"; \
 		exit 1 ; \
 	fi
 
-nvidia.ids: nv-kernel.ids
+nv-readme.ids: unpack-stamp
+	sed	-e '0,/A. Supported\|APPENDIX A: SUPPORTED/d' \
+		-e '0,/Appendix A. Supported\|APPENDIX A: SUPPORTED/d' \
+		-e '0,/^Below\|APPENDIX B/{/ 0x/s/.*  0x\([0-9a-fA-F]\{4\}\).*/10de\1/p};d' \
+		NVIDIA-Linux/README.txt \
+		| tr a-f A-F | sort -u > $@
+	@set -e -x ; \
+	if ! cmp -s debian/$@ $@ ; then \
+		diff -u debian/$@ $@ || true ; \
+		: "*** Supported PCI IDs have changed. See diff above. Aborting. ***"; \
+		exit 1 ; \
+	fi
+
+nvidia.ids: nv-kernel.ids nv-readme.ids
 	cp $< $@
 
 # Reformat the LICENSE to the format needed for debian/copyright.
@@ -123,7 +136,7 @@ override_dh_auto_clean:
 	rm -fr $(dirname_x86) $(dirname_x86_64)
 	rm -fr debian/temp
 	rm -fr kernel-source-tree
-	rm -f nvidia.ids nv-kernel.ids pci.ids.nvidia*
+	rm -f nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
 	rm -f LICENSE.txt LICENSE.tmp copyright.tmp
 
 override_dh_clean:

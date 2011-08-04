@@ -19,6 +19,9 @@ nvidia-graphics-drivers (280.13-1) UNRELEASED; urgency=low
   * Upload to unstable.
   * conftest.h: remove obsolete conftest.sh function signal_struct, no longer
     used by the legacy drivers.
+  * Because PCI ID extraction from the binary object no longer seems to work,
+    extract the supported PCI IDs from the README and track changes in
+    debian/nv-readme.ids.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 04 Aug 2011 04:32:54 +0200
 
