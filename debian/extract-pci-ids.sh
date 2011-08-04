@@ -31,7 +31,7 @@ device_ids() {
   objdump --section=.rodata --syms "$object" |
   sed -nr '/SYMBOL TABLE/,/^$/ {
     s/^([0-9a-f]+)\s+l\s+O\s+\S+\s+([0-9a-f]+)\s+\S+.*/\2 \1/p
-  }' >"$symbols"
+  }' | sort -r >"$symbols"
 
   while read length start; do
     [ "$((0x$length))" -gt 0 ] || continue
@@ -47,6 +47,15 @@ device_ids() {
     diff -u "$readme_list" "$object_list" | tail -n +3 >"$diff"
     local num_deletions="$(grep -Ec '^-' "$diff")"
     local num_additions="$(grep -Ec '^\+' "$diff")"
+
+    if [ -n "$extract_verbose$extract_debug" ] && [ "$num_deletions" -lt "$readme_length" ]; then
+      echo "start=0x$start length=0x$length readme=$readme_length object=$object_length deletions=$num_deletions additions=$num_additions kept=$(($readme_length - num_deletions))" >&2
+      if [ -n "$extract_debug" ]; then
+        cp "$readme_list" list.readme
+        cp "$object_list" list.$start
+        cp "$diff" list.$start.diff
+      fi
+    fi
 
     # Some thresholds for now.
     if [ "$num_deletions" -eq 0 ] &&
