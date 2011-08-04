@@ -17,6 +17,8 @@ nvidia-graphics-drivers (280.13-1) UNRELEASED; urgency=low
     - Fixed an error handling bug that caused the OpenGL driver to
       crash while running certain WebGL applications.
   * Upload to unstable.
+  * conftest.h: remove obsolete conftest.sh function signal_struct, no longer
+    used by the legacy drivers.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 04 Aug 2011 04:32:54 +0200
 

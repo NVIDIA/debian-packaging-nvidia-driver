@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 275.09, 270.41.19, 173.14.28, 96.43.19, 71.86.14 */
+/* synchronized with conftest.sh from 280.13, 173.14.31, 96.43.20, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -49,14 +49,6 @@
  #define NV_REMAP_PFN_RANGE_PRESENT
 #else
  #undef NV_REMAP_PFN_RANGE_PRESENT
-#endif
-
-/* only used by 173xx and 71xx */
-/* Implement conftest.sh function signal_struct */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,10)
- #define NV_SIGNAL_STRUCT_HAS_RLIM
-#else
- #undef NV_SIGNAL_STRUCT_HAS_RLIM
 #endif
 
 /* Implement conftest.sh function agp_backend_acquire */
