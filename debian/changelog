@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (280.13-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (280.13-1) unstable; urgency=low
 
   [ Andreas Beckmann ]
   * New upstream release 280.13 (2011-08-03).
@@ -23,7 +23,7 @@ nvidia-graphics-drivers (280.13-1) UNRELEASED; urgency=low
     extract the supported PCI IDs from the README and track changes in
     debian/nv-readme.ids.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 04 Aug 2011 04:32:54 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 04 Aug 2011 06:40:28 +0200
 
 nvidia-graphics-drivers (280.11-1) experimental; urgency=low
 
