@@ -82,6 +82,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glBufferAddressRangeNV@Base 185
  glBufferData@Base 1.0.6106
  glBufferDataARB@Base 1.0.4349
+ glBufferDataSysmem@Base 280
  glBufferSubData@Base 1.0.6106
  glBufferSubDataARB@Base 1.0.4349
  glCallList@Base 1.0.4349

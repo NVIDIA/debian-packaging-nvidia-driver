@@ -1,3 +1,40 @@
+nvidia-graphics-drivers (280.11-1) experimental; urgency=low
+
+  * New upstream beta 280.11 (2011-07-??).
+    - Fixed a GLX_EXT_texture_from_pixmap bug that caused corruption
+      when texturing from sufficiently small pixmaps and, in particular,
+      corruption in the GNOME Shell Message Tray.
+  * New upstream beta 275 series.
+    - Fixed a bug in VDPAU that caused a glibc assertion when a call to
+      VdpDeviceCreateX11 failed in certain ways.
+  * Upload to experimental.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 23 Jul 2011 17:00:20 +0200
+
+nvidia-graphics-drivers (280.04-1) experimental; urgency=low
+
+  [ Andreas Beckmann ]
+  * New upstream beta 280.04 (2011-06-29).
+    - Added support for the following GPUs: GeForce GTX 570M,
+      GeForce GTX 580M.
+    - Added unofficial GLX protocol support (i.e., for GLX indirect
+      rendering) for the following OpenGL extension:
+          GL_EXT_vertex_attrib_64bit
+    - Added GLX protocol support (i.e., for GLX
+      indirect rendering) for the following OpenGL extensions:
+        GL_ARB_half_float_pixel
+        GL_EXT_packed_depth_stencil
+  * Upload to experimental.
+  * Update symbols control files.
+  * Add Breaks: nvidia-smi (<< $(nvidia:Version}) to libnvidia-ml1 because the
+    interface is changing frequently but the soname is kept.
+  * Update lintian overrides.
+  * Convert lintian overrides to use the [arch] format (lintian 2.5.1) instead
+    of #!i386#/#!amd64# parameter substitution.
+  * Work around autoreject by ftp-master which is still running lintian 2.5.0.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jul 2011 11:56:43 +0200
+
 nvidia-graphics-drivers (275.21-1) unstable; urgency=low
 
   [ Andreas Beckmann ]
