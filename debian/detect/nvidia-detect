@@ -1,12 +1,37 @@
 #!/bin/bash
+# Based on http://wiki.debian.org/NvidiaGraphicsDrivers?action=AttachFile&do=view&target=nvidia-versions.sh
 
 shopt -s compat31 nocasematch 2>/dev/null || { echo "Error: this script only works with bash. Execute it or source it from bash:\n$ . nvidia-versions.sh" && exit; } # Avoid cryptic failure when running dash on this script
-NVGA=$(lspci -mn|awk '/"?0300"? "?(10de)|(12d2)"?/{ gsub("\"","") ; print $4 }')
-CARDS=`echo $NVGA|wc -w`
-if [ $CARDS == 1 ]; then
+
+# last time the PCI IDs were updated
+LATEST="275.21"
+PACKAGE=
+
+if ! (lspci --version) > /dev/null 2>&1; then
+	echo "ERROR: The 'lspci' command was not found. Please install the 'pciutils' package." >&2
+	exit 1
+fi
+
+NV_DEVICES=$(lspci -mn | awk '{ if ($2 == "\"0300\"" && ($3 == "\"10de\"" || $3 == "\"12d2\"")) { print $1 } }')
+
+if [ -z "$NV_DEVICES" ]; then
+	echo "No NVIDIA GPU detected."
+	exit 0
+fi
+
+echo "Detected NVIDIA GPUs:"
+for d in $NV_DEVICES ; do
+	lspci -nn -s $d
+done
+
+if [ "$(echo $NV_DEVICES | wc -w)" != 1 ]; then
+	echo "Several NVIDIA GPUs detected. Checking only the first."
+fi
+
+NVGA=$(lspci -mn -s ${NV_DEVICES%% *} | awk '{ gsub("\"","") ; print $4 }')
 
 	if [[ $NVGA =~ "(0020)|(0028)|(0029)|(002C)|(002D)|(0040)|(0041)|(0045)|(004E)|(00A0)|(00C1)|(00C2)|(00C8)|(00C9)|(00CC)|(00CC)|(00CD)|(00CE)|(00F0)|(00F1)|(00F2)|(00F3)|(00F3)|(00F8)|(00F9)|(00FA)|(00FB)|(00FC)|(00FD)|(00FE)|(00FF)|(0100)|(0101)|(0103)|(0110)|(0111)|(0112)|(0113)|(0140)|(0141)|(0144)|(0145)|(0146)|(0148)|(014E)|(014F)|(0150)|(0151)|(0152)|(0153)|(0161)|(0162)|(0164)|(0166)|(0167)|(0168)|(0170)|(0171)|(0172)|(0173)|(0174)|(0175)|(0176)|(0177)|(0178)|(0179)|(017A)|(017C)|(017D)|(0181)|(0182)|(0183)|(0185)|(0188)|(018A)|(018B)|(018C)|(01A0)|(01F0)|(0200)|(0201)|(0202)|(0203)|(0211)|(0212)|(0215)|(0250)|(0251)|(0253)|(0258)|(0259)|(025B)|(0280)|(0281)|(0282)|(0286)|(0288)|(0289)|(028C)|(0301)|(0302)|(0308)|(0309)|(0311)|(0312)|(0314)|(031A)|(031B)|(031C)|(0320)|(0321)|(0322)|(0323)|(0324)|(0325)|(0326)|(0327)|(0328)|(032A)|(032B)|(032C)|(032D)|(0330)|(0331)|(0332)|(0333)|(0334)|(0338)|(033F)|(0341)|(0342)|(0343)|(0344)|(0347)|(0348)|(034C)|(034E)" ]];
-	then VERSIONS[${#VERSIONS[*]}]=71.86;
+	then VERSIONS[${#VERSIONS[71]}]=71.86;
 	fi
 
 	if [[ $NVGA =~ "(0040)|(0041)|(0043)|(0044)|(0045)|(0046)|(0047)|(0048)|(004E)|(0090)|(0091)|(0092)|(0093)|(0098)|(0099)|(009D)|(00C0)|(00C1)|(00C2)|(00C3)|(00C8)|(00C9)|(00CC)|(00CD)|(00CE)|(00F0)|(00F1)|(00F2)|(00F3)|(00F4)|(00F5)|(00F6)|(00F8)|(00F9)|(00FA)|(00FB)|(00FC)|(00FD)|(00FE)|(00FF)|(0110)|(0111)|(0112)|(0113)|(0140)|(0141)|(0142)|(0143)|(0144)|(0145)|(0146)|(0148)|(0149)|(014A)|(014C)|(014E)|(014F)|(0160)|(0161)|(0164)|(0165)|(0166)|(0167)|(0168)|(0170)|(0171)|(0172)|(0173)|(0174)|(0175)|(0176)|(0177)|(0178)|(0179)|(017A)|(017C)|(017D)|(0181)|(0182)|(0183)|(0185)|(0188)|(018A)|(018B)|(018C)|(01A0)|(01D1)|(01D7)|(01D7)|(01D8)|(01DA)|(01DB)|(01DC)|(01DE)|(01DF)|(01F0)|(0200)|(0201)|(0202)|(0203)|(0211)|(0212)|(0215)|(0218)|(0240)|(0241)|(0242)|(0250)|(0251)|(0253)|(0258)|(0259)|(025B)|(0280)|(0281)|(0282)|(0286)|(0288)|(0289)|(028C)|(0290)|(0291)|(0298)|(0299)|(029A)|(029B)|(029C)|(029D)|(029E)|(029F)|(02E1)|(0301)|(0302)|(0308)|(0309)|(0311)|(0312)|(0314)|(031A)|(031B)|(031C)|(0320)|(0321)|(0322)|(0323)|(0324)|(0325)|(0326)|(0327)|(0328)|(032A)|(032B)|(032C)|(032D)|(0330)|(0331)|(0332)|(0333)|(0334)|(0338)|(033F)|(0341)|(0342)|(0343)|(0344)|(0347)|(0348)|(034C)|(034E)|(0391)|(0392)|(0398)|(039E)" ]];
@@ -26,10 +51,11 @@ if [ $CARDS == 1 ]; then
 	fi
 
 
-	if [[ ${#VERSIONS[*]} == 0 ]]
-	then echo "Uh oh. Your card is not supported by any driver version."
-	exit;
-	fi
+if [[ ${#VERSIONS[*]} == 0 ]]; then
+       	echo "Uh oh. Your card is not supported by any driver version up to $LATEST."
+	echo "A newer driver may add support for your card."
+	exit 0;
+fi
 
 	if grep -q "lenny\|5" /etc/debian_version;
 	then
@@ -51,22 +77,23 @@ if [ $CARDS == 1 ]; then
 		fi;
 	elif grep -q "squeeze\|^6" /etc/debian_version;
 	then
-		if [[ -n ${VERSIONS[195]} ]];
-		then
-			if [[ -n ${VERSIONS[173]} ]];
-				then
-				if [[ -n ${VERSIONS[96]} ]];
-					then echo "Your card is supported by all driver versions.";
+		if [[ -n ${VERSIONS[195]} ]]; then
+			if [[ -n ${VERSIONS[173]} ]]; then
+				if [[ -n ${VERSIONS[96]} ]]; then
+				       	echo "Your card is supported by all driver versions.";
 				else
 					echo "Your card is supported by the default drivers and version 173.";
 				fi;
 			else
 				echo "Your card is supported by the default drivers.";
 			fi;
+			PACKAGE="nvidia-glx"
 		elif [[ -n ${VERSIONS[173]} ]]; then
-			echo "Your card is only supported up to the 173.14 legacy drivers series. You can use VERSION=\"-legacy-173xx\"";
+			echo "Your card is only supported up to the 173.14 legacy drivers series.";
+			PACKAGE="nvidia-glx-legacy-173xx"
 		elif [[ -n ${VERSIONS[96]} ]]; then
-			echo "Your card is only supported up to the 96.43 legacy drivers series. You can use VERSION=\"-legacy-96xx\"";
+			echo "Your card is only supported up to the 96.43 legacy drivers series.";
+			PACKAGE="nvidia-glx-legacy-96xx"
 		elif [[ -n ${VERSIONS[999]} ]]; then
 			echo "Uh oh. Your card is only supported by a newer version of the current drivers series.";
 		else
@@ -74,22 +101,23 @@ if [ $CARDS == 1 ]; then
 		fi;
 	elif grep -q "wheezy" /etc/debian_version;
 	then
-		if [[ -n ${VERSIONS[999]} ]];
-		then
-			if [[ -n ${VERSIONS[173]} ]];
-				then
-				if [[ -n ${VERSIONS[96]} ]];
-					then echo "Your card is supported by all driver versions.";
+		if [[ -n ${VERSIONS[999]} ]]; then
+			if [[ -n ${VERSIONS[173]} ]]; then
+				if [[ -n ${VERSIONS[96]} ]]; then
+				       	echo "Your card is supported by all driver versions.";
 				else
 					echo "Your card is supported by the default drivers and version 173.";
 				fi;
 			else
-			echo "Your card is supported by the default drivers.";
+				echo "Your card is supported by the default drivers.";
 			fi;
+			PACKAGE="nvidia-glx"
 		elif [[ -n ${VERSIONS[173]} ]]; then
-			echo "Your card is only supported up to the 173.14 legacy drivers series. You can use VERSION=\"-legacy-173xx\"";
+			echo "Your card is only supported up to the 173.14 legacy drivers series.";
+			PACKAGE="nvidia-glx-legacy-173xx"
 		elif [[ -n ${VERSIONS[96]} ]]; then
-			echo "Uh oh. Your card is only supported up to the 96.43 legacy drivers series, which is not in Wheezy.";
+			echo "Your card is only supported up to the 96.43 legacy drivers series.";
+			PACKAGE="nvidia-glx-legacy-96xx"
 		else
 			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite.";
 		fi;
@@ -100,8 +128,10 @@ if [ $CARDS == 1 ]; then
 		echo "Uh oh. Failed to identify your Debian suite.";
 	fi;
 
-elif [ $CARDS == 0 ]; then echo "No NVIDIA card detected."
-	else echo "Several NVIDIA cards detected. Check support manually."
+if [ -n "$PACKAGE" ]; then
+	echo "It is recommended to install the"
+	echo "    $PACKAGE"
+	echo "package."
 fi
 
 #To generate a new PCI IDs list, $ awk 'BEGIN {ORS=")|("} /0x/{print substr($0,match($0, "0x")+2,4)}' < 190.42
