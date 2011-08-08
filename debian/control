@@ -722,3 +722,15 @@ Description: transition libgl.so diversions to glx-alternative-nvidia
  .
  This package can be safely removed from the system once nothing depends on it.
 
+Package: nvidia-detect
+Section: non-free/x11
+Architecture: i386 amd64
+Depends:
+ pciutils,
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA GPU detection utility
+ The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
+ system and recommends one of the non-free accelerated driver meta-packages
+ (nvidia-glx, nvidia-glx-legacy-173xx or nvidia-glx-legacy-96xx) for
+ installation.
+
