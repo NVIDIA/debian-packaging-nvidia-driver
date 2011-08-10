@@ -6,6 +6,9 @@ nvidia-graphics-drivers (280.13-2) unstable; urgency=low
   * Add a nvidia-detect package with a script 'nvidia-detect' to detect NVIDIA
     GPUs and recommend a driver meta package to install.  (Closes: #614825)
     Based on the script from http://wiki.debian.org/NvidiaGraphicsDrivers
+  * Add instructions for squeeze-backports to README.source and a
+    prepare-squeeze-backport target to debian/rules that performs the
+    necessary changes.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 08 Aug 2011 14:19:04 +0200
 

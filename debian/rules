@@ -323,6 +323,19 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 	done > $@
 
 
+prepare-squeeze-backport:
+	echo 8 > debian/compat
+	sed -i 	-e '/^MULTIARCH/ s/^/#/; s/yes/no/' \
+		-e '/^#BACKPORT/ s/^#//' \
+		debian/rules.defs
+	sed -i -e 's/debhelper (>= .*)/debhelper (>= 8)/' \
+	       -e '/^Multi-Arch:/ d' \
+	       -e '/multiarch-support,/ d' \
+	       debian/control
+	debchange --bpo "Disable multiarch build."
+	debchange "Reduce Build-Depends: debhelper and compat level to 8."
+
+
 .PHONY: get-orig-source
 get-orig-source:
 	rm -rf get-orig-source || true
