@@ -9,6 +9,7 @@ nvidia-graphics-drivers (280.13-2) unstable; urgency=low
   * Add instructions for squeeze-backports to README.source and a
     prepare-squeeze-backport target to debian/rules that performs the
     necessary changes.
+  * Add lintian overrides for shlib-calls-exit (experimental tag).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 08 Aug 2011 14:19:04 +0200
 
