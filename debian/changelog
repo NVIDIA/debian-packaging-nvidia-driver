@@ -7,6 +7,8 @@ nvidia-graphics-drivers (285.03-1) UNRELEASED; urgency=low
       an OpenGL stereo application which is a member of a swap group.
   * Upload to experimental.
   * Refresh use-nv-kernel.o.ARCH.patch.
+  * Update symbols control files.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 22 Aug 2011 05:41:03 +0200
 

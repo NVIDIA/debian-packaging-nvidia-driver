@@ -41,6 +41,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glBindFragDataLocationIndexed@Base 256
  glBindFramebuffer@Base 180
  glBindFramebufferEXT@Base 1.0.7664
+ glBindImageTexture@Base 285
  glBindImageTextureEXT@Base 195
  glBindMultiTextureEXT@Base 180
  glBindProgramARB@Base 1.0.4349
@@ -110,6 +111,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glClientActiveTextureARB@Base 1.0.4349
  glClientAttribDefaultEXT@Base 180
  glClientWaitSync@Base 190.18.05
+ glClientWaitSyncValueuiNVX@Base 285
  glClipPlane@Base 1.0.4349
  glColor3b@Base 1.0.4349
  glColor3bv@Base 1.0.4349
@@ -303,6 +305,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glDrawArraysIndirect@Base 256
  glDrawArraysInstanced@Base 190
  glDrawArraysInstancedARB@Base 180
+ glDrawArraysInstancedBaseInstance@Base 285
  glDrawArraysInstancedEXT@Base 1.0.9746
  glDrawBuffer@Base 1.0.4349
  glDrawBuffers@Base 1.0.7664
@@ -314,7 +317,9 @@ libGL.so.1 #PACKAGE# #MINVER#
  glDrawElementsIndirect@Base 256
  glDrawElementsInstanced@Base 190
  glDrawElementsInstancedARB@Base 180
+ glDrawElementsInstancedBaseInstance@Base 285
  glDrawElementsInstancedBaseVertex@Base 190.18.05
+ glDrawElementsInstancedBaseVertexBaseInstance@Base 285
  glDrawElementsInstancedEXT@Base 1.0.9746
  glDrawMeshNV@Base 1.0.4349
  glDrawPixels@Base 1.0.4349
@@ -323,8 +328,10 @@ libGL.so.1 #PACKAGE# #MINVER#
  glDrawRangeElementsEXT@Base 1.0.4349
  glDrawTransformFeedback@Base 256
  glDrawTransformFeedbackEXT@Base 190.36
+ glDrawTransformFeedbackInstanced@Base 285
  glDrawTransformFeedbackNV@Base 165
  glDrawTransformFeedbackStream@Base 256
+ glDrawTransformFeedbackStreamInstanced@Base 285
  glEdgeFlag@Base 1.0.4349
  glEdgeFlagFormatNV@Base 185
  glEdgeFlagPointer@Base 1.0.4349
@@ -367,6 +374,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glExecuteProgramNV@Base 1.0.4349
  glFeedbackBuffer@Base 1.0.4349
  glFenceSync@Base 190.18.05
+ glFenceValueuiNVX@Base 285
  glFinalCombinerInputNV@Base 1.0.4349
  glFinish@Base 1.0.4349
  glFinishFenceNV@Base 1.0.4349
@@ -442,6 +450,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGenerateMipmapEXT@Base 1.0.7664
  glGenerateMultiTexMipmapEXT@Base 180
  glGenerateTextureMipmapEXT@Base 180
+ glGetActiveAtomicCounterBufferiv@Base 285
  glGetActiveAttrib@Base 1.0.7664
  glGetActiveAttribARB@Base 1.0.6106
  glGetActiveSubroutineName@Base 256
@@ -522,6 +531,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetIntegerui64i_vNV@Base 185
  glGetIntegerui64vNV@Base 185
  glGetIntegerv@Base 1.0.4349
+ glGetInternalformativ@Base 285
  glGetLightfv@Base 1.0.4349
  glGetLightiv@Base 1.0.4349
  glGetMapdv@Base 1.0.4349
@@ -643,6 +653,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetSubroutineIndex@Base 256
  glGetSubroutineUniformLocation@Base 256
  glGetSynciv@Base 190.18.05
+ glGetSyncv64NVX@Base 285
  glGetTexEnvfv@Base 1.0.4349
  glGetTexEnviv@Base 1.0.4349
  glGetTexGendv@Base 1.0.4349
@@ -863,6 +874,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glMatrixScalefEXT@Base 180
  glMatrixTranslatedEXT@Base 180
  glMatrixTranslatefEXT@Base 180
+ glMemoryBarrier@Base 285
  glMemoryBarrierEXT@Base 195
  glMinSampleShading@Base 256
  glMinSampleShadingARB@Base 190.18.05
@@ -1453,6 +1465,12 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTexParameteri@Base 1.0.4349
  glTexParameteriv@Base 1.0.4349
  glTexRenderbufferNV@Base 177
+ glTexStorage1D@Base 285
+ glTexStorage1DEXT@Base 285
+ glTexStorage2D@Base 285
+ glTexStorage2DEXT@Base 285
+ glTexStorage3D@Base 285
+ glTexStorage3DEXT@Base 285
  glTexSubImage1D@Base 1.0.4349
  glTexSubImage2D@Base 1.0.4349
  glTexSubImage3D@Base 1.0.4349
@@ -1474,6 +1492,9 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTextureParameteriEXT@Base 180
  glTextureParameterivEXT@Base 180
  glTextureRenderbufferEXT@Base 180
+ glTextureStorage1DEXT@Base 285
+ glTextureStorage2DEXT@Base 285
+ glTextureStorage3DEXT@Base 285
  glTextureSubImage1DEXT@Base 180
  glTextureSubImage2DEXT@Base 180
  glTextureSubImage3DEXT@Base 180
@@ -1882,6 +1903,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glViewportIndexedf@Base 260
  glViewportIndexedfv@Base 260
  glWaitSync@Base 190.18.05
+ glWaitSyncValueuiNVX@Base 285
  glWeightPathsNV@Base 275
  glWindowBackBufferHintAutodesk@Base 1.0.4349
  glWindowPos2d@Base 1.0.4349
