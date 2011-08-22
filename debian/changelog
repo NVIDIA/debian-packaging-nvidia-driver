@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (285.03-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (285.03-1) experimental; urgency=low
 
   * New upstream beta 285.03 (2011-08-17).
     - Fixed a bug causing corruption of images which are 2047 pixels wide.
@@ -10,7 +10,7 @@ nvidia-graphics-drivers (285.03-1) UNRELEASED; urgency=low
   * Update symbols control files.
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 22 Aug 2011 05:41:03 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 22 Aug 2011 11:51:51 +0200
 
 nvidia-graphics-drivers (280.13-2) UNRELEASED; urgency=low
 
