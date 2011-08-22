@@ -10,6 +10,7 @@ nvidia-graphics-drivers (280.13-2) unstable; urgency=low
     prepare-squeeze-backport target to debian/rules that performs the
     necessary changes.
   * Add lintian overrides for shlib-calls-exit (experimental tag).
+  * Add empty /usr/lib/tls directory to ensure smoother upgrades.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 08 Aug 2011 14:19:04 +0200
 
