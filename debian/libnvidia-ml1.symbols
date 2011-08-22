@@ -1,5 +1,4 @@
 libnvidia-ml.so.1 #PACKAGE# #MINVER#
- (arch=i386)__dso_handle@Base 270
  nvmlDeviceClearEccErrorCounts@Base 270
  nvmlDeviceGetClockInfo@Base 270
  nvmlDeviceGetComputeMode@Base 270
