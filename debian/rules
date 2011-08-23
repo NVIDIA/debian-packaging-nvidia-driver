@@ -57,7 +57,7 @@ comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
 xorg_depends	+= $(if $(BACKPORT), xserver-xorg-core (<< 2:1.7.7) |)
 xorg_provides	 = xorg-driver-video
-xorg_provides	+= $(if $(BACKPORT), $(comma) xserver-xorg-video-6)
+xorg_provides	+= $(if $(filter-out squeeze,$(BACKPORT)), $(comma) xserver-xorg-video-6)
 
 # sanity checks
 $(if $(and $(BACKPORT),$(MULTIARCH)),$(error Oops, backports do not support multiarch.))
