@@ -12,18 +12,24 @@ nvidia-graphics-drivers (285.03-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 22 Aug 2011 11:51:51 +0200
 
-nvidia-graphics-drivers (280.13-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (280.13-2) unstable; urgency=low
 
   [ Andreas Beckmann ]
+  * Add experimental alternative dependency on xorg-video-abi-11 for using the
+    NVIDIA driver with Xserver 1.11 in unstable.  NVIDIA does not yet support
+    this version officially, therefore the "IgnoreABI" option needs to be
+    enabled, see xorg.conf(5).  (Closes: #639737)
+  * Call check-for-mismatching-nvidia-module properly by passing the new
+    upstream version as first argument.  (Closes: #636680)
   * Bump debhelper dependency to >= 8.1.3 for experimental debhelper compat
-    level 9, which is needed for multiarch build.  (Closes: #637368)
+    level 9, which is used for multiarch build.  (Closes: #637368)
   * Add instructions for squeeze-backports to README.source and a
     prepare-squeeze-backport target to debian/rules that performs the
     necessary changes.
-  * Add lintian overrides for shlib-calls-exit (experimental tag).
   * Add empty /usr/lib/tls directory to ensure smoother upgrades.
+  * Add lintian overrides for shlib-calls-exit (experimental tag).
 
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 08 Aug 2011 14:19:04 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 30 Aug 2011 15:01:09 +0200
 
 nvidia-graphics-drivers (280.13-1) unstable; urgency=low
 
