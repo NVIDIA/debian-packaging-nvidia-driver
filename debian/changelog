@@ -1,5 +1,17 @@
+nvidia-graphics-drivers (285.03-2) experimental; urgency=low
+
+  [ Andreas Beckmann ]
+  * Merge changes from 280.13-2.
+  * Rebuild with alternative dependency on xorg-video-abi-11.
+    NVIDIA does not yet support this version officially, therefore the
+    "IgnoreABI" option needs to be enabled, see xorg.conf(5).
+  * Upload to experimental.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 30 Aug 2011 15:44:04 +0200
+
 nvidia-graphics-drivers (285.03-1) experimental; urgency=low
 
+  [ Andreas Beckmann ]
   * New upstream beta 285.03 (2011-08-17).
     - Fixed a bug causing corruption of images which are 2047 pixels wide.
     - Improved performance of the RENDER extension on Fermi-based GPUs.
