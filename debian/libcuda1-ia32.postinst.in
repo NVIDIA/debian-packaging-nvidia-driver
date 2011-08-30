@@ -7,7 +7,7 @@ then
 
 	if [ -x /usr/lib/nvidia/check-for-mismatching-nvidia-module ]
 	then
-		/usr/lib/nvidia/check-for-mismatching-nvidia-module
+		/usr/lib/nvidia/check-for-mismatching-nvidia-module #VERSION#
 	fi
 
 fi
