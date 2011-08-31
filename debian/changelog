@@ -1,3 +1,13 @@
+nvidia-graphics-drivers (280.13-3) unstable; urgency=low
+
+  [ Andreas Beckmann ]
+  * Revert enabling xorg-video-abi-11, there are some more ABI changes in
+    Xserver 1.11.0 that didn't get properly versioned and may cause trouble,
+    see http://www.nvnews.net/vbulletin/showthread.php?t=165665
+    (Reopens: #639737)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 31 Aug 2011 09:49:09 +0200
+
 nvidia-graphics-drivers (280.13-2) unstable; urgency=low
 
   [ Andreas Beckmann ]
