@@ -332,6 +332,8 @@ prepare-squeeze-backport:
 	       -e '/^Multi-Arch:/ d' \
 	       -e '/multiarch-support,/ d' \
 	       debian/control
+	sed -i -e '/^package-contains-empty-directory usr\/lib\/tls\// s/^/#/' \
+		debian/libgl1-nvidia-glx.lintian-overrides.in
 	debchange --bpo "Disable multiarch build."
 	debchange "Reduce Build-Depends: debhelper and compat level to 8."
 
