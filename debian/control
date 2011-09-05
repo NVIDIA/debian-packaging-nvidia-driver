@@ -724,7 +724,7 @@ Description: transition libgl.so diversions to glx-alternative-nvidia
 
 Package: nvidia-detect
 Section: non-free/x11
-Architecture:
+Architecture: i386 amd64
 Depends:
  pciutils,
  ${shlibs:Depends}, ${misc:Depends}
