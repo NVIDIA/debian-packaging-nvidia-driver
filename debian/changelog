@@ -1,5 +1,6 @@
-nvidia-graphics-drivers (280.13-4) UNRELEASED; urgency=low
+nvidia-graphics-drivers (280.13-4) unstable; urgency=low
 
+  [ Andreas Beckmann ]
   * Avoid multiarch file conflicts:
     - Install the x86 README.txt in libgl1-nvidia-glx and nvidia-vdpau-driver.
     - Use wildcards instead of multiarch paths in *.lintian-overrides.
@@ -11,7 +12,7 @@ nvidia-graphics-drivers (280.13-4) UNRELEASED; urgency=low
     GPUs and recommend a driver meta package to install.  (Closes: #614825)
     Based on the script from http://wiki.debian.org/NvidiaGraphicsDrivers
 
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 05 Sep 2011 12:56:07 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 06 Sep 2011 06:26:50 +0200
 
 nvidia-graphics-drivers (280.13-3) unstable; urgency=low
 
