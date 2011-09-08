@@ -12,6 +12,7 @@ NVIDIA_LEGACY		?=
 WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
+XORG_BOUND		?=
 MULTIARCH		?=
 BACKPORT		?=
 version			 = $(NVIDIA_RELEASE)
@@ -56,6 +57,7 @@ dkms_source	 = debian/nvidia-kernel$(legacy)-dkms/usr/src/nvidia-$(version)
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
 xorg_depends	+= $(if $(BACKPORT), xserver-xorg-core (<< 2:1.7.7) |)
+xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND)
 xorg_provides	 = xorg-driver-video
 xorg_provides	+= $(if $(filter-out squeeze,$(BACKPORT)), $(comma) xserver-xorg-video-6)
 
