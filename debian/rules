@@ -117,7 +117,7 @@ nv-readme.ids: unpack-stamp
 		exit 1 ; \
 	fi
 
-nvidia.ids: nv-kernel.ids nv-readme.ids
+nvidia.ids: nv-readme.ids
 	cp $< $@
 
 # Reformat the LICENSE to the format needed for debian/copyright.
