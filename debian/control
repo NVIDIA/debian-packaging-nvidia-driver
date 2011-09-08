@@ -235,13 +235,6 @@ Provides:
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
 Conflicts:
  nvidia-kernel-dkms,
- linux-headers-2.6.32-trunk-486 [i386], linux-image-2.6.32-trunk-486 [i386],
- linux-headers-2.6.32-trunk-686 [i386], linux-image-2.6.32-trunk-686 [i386],
- linux-headers-2.6.32-trunk-686-bigmem [i386], linux-image-2.6.32-trunk-686-bigmem [i386],
- linux-headers-2.6.32-trunk-amd64, linux-image-2.6.32-trunk-amd64,
- linux-headers-2.6.32-trunk-vserver-686 [i386], linux-image-2.6.32-trunk-vserver-686 [i386],
- linux-headers-2.6.32-trunk-vserver-686-bigmem [i386], linux-image-2.6.32-trunk-vserver-686-bigmem [i386],
- linux-headers-2.6.32-trunk-vserver-amd64 [amd64], linux-image-2.6.32-trunk-vserver-amd64 [amd64],
 Breaks:
  make (= 3.82-1),
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
@@ -274,14 +267,6 @@ Recommends:
  nvidia-kernel-common,
 Suggests:
  nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}),
-Conflicts:
- linux-headers-2.6.32-trunk-486 [i386], linux-image-2.6.32-trunk-486 [i386],
- linux-headers-2.6.32-trunk-686 [i386], linux-image-2.6.32-trunk-686 [i386],
- linux-headers-2.6.32-trunk-686-bigmem [i386], linux-image-2.6.32-trunk-686-bigmem [i386],
- linux-headers-2.6.32-trunk-amd64, linux-image-2.6.32-trunk-amd64,
- linux-headers-2.6.32-trunk-vserver-686 [i386], linux-image-2.6.32-trunk-vserver-686 [i386],
- linux-headers-2.6.32-trunk-vserver-686-bigmem [i386], linux-image-2.6.32-trunk-vserver-686-bigmem [i386],
- linux-headers-2.6.32-trunk-vserver-amd64 [amd64], linux-image-2.6.32-trunk-vserver-amd64 [amd64],
 Breaks:
  make (= 3.82-1),
 Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
