@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (280.13-5) UNRELEASED; urgency=low
 
   [ Andreas Beckmann ]
+  * Add a NEWS entry about incompatibility with Xorg Xserver 1.11.
   * Drop Conflicts with pre-squeeze kernel *-2.6.32-trunk-*.
   * xserver-xorg-video-nvidia: add (versioned) Depends: xserver-xorg-core.
   * Use PCI IDs extracted from the README, not the kernel module.

@@ -1,3 +1,20 @@
+nvidia-graphics-drivers (280.13-5) unstable; urgency=low
+
+  The NVIDIA drivers do not yet support the new Xorg Xserver 1.11.0
+  (available in Debian unstable in the xserver-corg-core package) because of
+  ABI changes.  Therefore the xserver-xorg-video-nvidia package can't provide
+  the virtual package xorg-video-abi-11, yet.
+  For more details see http://bugs.debian.org/639737 and the merged bugs.
+
+  It is currently unclear when NVIDIA will add support for the new Xorg.
+
+  If you want to continue using the NVIDIA driver, please keep Xorg 1.10.x
+  which is available in testing (wheezy) installed.  If you already upgraded
+  to Xorg 1.11, you should uninstall all the Xorg packages and reinstall them
+  from testing, see http://bugs.debian.org/640814 for a possible solution.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 09 Sep 2011 09:29:26 +0200
+
 nvidia-graphics-drivers (195.36.24-4) unstable; urgency=low
 
   If your GPU is no longer supported by this driver release (see the LEGACY
