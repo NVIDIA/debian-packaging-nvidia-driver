@@ -1,11 +1,5 @@
 libnvidia-ml.so.1 #PACKAGE# #MINVER#
- ETID_NVMLCaptureBuffer@Base 280
- ETID_NVMLDeviceMemoryPartitionCount@Base 280
- ETID_NVMLEccAddresses@Base 280
- ETID_NVMLEdcCount@Base 280
- ETID_NVMLGpuFlags@Base 280
- ETID_NVMLPowerManagement@Base 280
- ETID_NVMLTemperature@Base 280
+ NVIDIA_ML_ID@Base 270
  NvRmAlloc@Base 270
  NvRmAllocChannelDma@Base 270
  NvRmAllocContextDma2@Base 270
@@ -122,63 +116,41 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  cuosVirtualAlloc@Base 270
  cuosVirtualFree@Base 270
  cuosglGetProcAddress@Base 270
- deviceClearEccErrorCounts@Base 280
- deviceGetBlacklistedAddresses@Base 280
- deviceGetCaptureBuffer@Base 280
- deviceGetCaptureBufferSize@Base 280
- deviceGetClockInfo@Base 280
- deviceGetComputeMode@Base 280
- deviceGetDetailedAggregateEccErrors@Base 280
- deviceGetDetailedVolatileEccErrors@Base 280
- deviceGetDisplayMode@Base 280
- deviceGetEccAddresses@Base 280
- deviceGetEccMemoryDetails@Base 280
- deviceGetEccMode@Base 280
- deviceGetEdcCounts@Base 280
- deviceGetEdcTotalCount@Base 280
- deviceGetFanControlPolicy@Base 280
- deviceGetFanSpeed@Base 280
- deviceGetInforomVersion@Base 280
- deviceGetMaxClockInfo@Base 280
- deviceGetMemoryInfo@Base 280
- deviceGetName@Base 280
- deviceGetPersistenceMode@Base 280
- deviceGetPowerManagementLimit@Base 280
- deviceGetPowerManagementMode@Base 280
- deviceGetPowerManagementStatus@Base 280
- deviceGetPowerState@Base 280
- deviceGetPowerUsage@Base 280
- deviceGetSerial@Base 280
- deviceGetStaticPciInfo@Base 280
- deviceGetTemperature@Base 280
- deviceGetTotalAggregateEccErrors@Base 280
- deviceGetUUID@Base 280
- deviceGetUtilizationRates@Base 280
- deviceGetVbiosVersion@Base 280
- deviceHasConnectedSystemController@Base 280
- deviceSetComputeMode@Base 280
- deviceSetDefaultFanSpeed@Base 280
- deviceSetEccMode@Base 280
- deviceSetFanSpeed@Base 280
- deviceSetPersistenceMode@Base 280
- dmalInit@Base 280
- dmalShutdown@Base 280
- g_etblNVMLCaptureBuffer@Base 280
- g_etblNVMLDeviceMemoryPartitionCount@Base 280
- g_etblNVMLEccAddresses@Base 280
- g_etblNVMLEdcCount@Base 280
- g_etblNVMLGpuFlags@Base 280
- g_etblNVMLPowerManagement@Base 280
- g_etblNVMLTemperature@Base 280
+ deviceClearEccErrorCountsRM@Base 270
+ deviceGetClockInfoRM@Base 270
+ deviceGetComputeModeRM@Base 270
+ deviceGetDetailedAggregateEccErrorsRM@Base 270
+ deviceGetDetailedVolatileEccErrorsRM@Base 270
+ deviceGetDisplayModeRM@Base 270
+ deviceGetEccModeRM@Base 270
+ deviceGetEcidRM@Base 270.41.19
+ deviceGetFanSpeedRM@Base 270
+ deviceGetInforomVersionRM@Base 270
+ deviceGetMemoryInfoRM@Base 270
+ deviceGetNameRM@Base 270
+ deviceGetPciInfoRM@Base 270
+ deviceGetPersistenceModeRM@Base 270
+ deviceGetPowerManagementLimitRM@Base 270
+ deviceGetPowerManagementModeRM@Base 270
+ deviceGetPowerStateRM@Base 270
+ deviceGetPowerUsageRM@Base 270
+ deviceGetSerialRM@Base 270
+ deviceGetTemperatureRM@Base 270
+ deviceGetTotalAggregateEccErrorsRM@Base 270
+ deviceGetUUIDRM@Base 270
+ deviceGetUtilizationRatesRM@Base 270
+ deviceSetComputeModeRM@Base 270
+ deviceSetEccModeRM@Base 270
+ deviceSetPersistenceModeRM@Base 270
  globals@Base 270
- isLinuxDriverLoaded@Base 280
  isRootUser@Base 270
- loggingTimer@Base 280
  nv_cards@Base 270
- nv_ctl_mappings@Base 270
+ nv_ctl_mapping@Base 275.09.07
+#MISSING: 275.09.07# nv_ctl_mappings@Base 270
  nv_device_mappings@Base 270
  nv_env_info@Base 270
  nv_mappings@Base 270
+ nvmlCanoasInitRM@Base 270
  nvmlDeviceClearEccErrorCounts@Base 270
  nvmlDeviceGetClockInfo@Base 270
  nvmlDeviceGetComputeMode@Base 270
@@ -209,14 +181,12 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceSetDriverModel@Base 270
  nvmlDeviceSetEccMode@Base 270
  nvmlDeviceSetPersistenceMode@Base 270
- nvmlErrorString@Base 280
  nvmlInit@Base 270
- nvmlInternalGetExportTable@Base 280
- nvmlLoggingDebugLevel@Base 280
- nvmlLoggingInit@Base 280
- nvmlLoggingPrintf@Base 280
- nvmlLoggingShutdown@Base 280
+ nvmlInitDmalRM@Base 270
+ nvmlInitRM@Base 270
+ nvmlInitUnitDmalRM@Base 270
  nvmlShutdown@Base 270
+ nvmlShutdownRM@Base 270
  nvmlSystemGetDriverVersion@Base 270
  nvmlUnitGetCount@Base 270
  nvmlUnitGetDevices@Base 270
@@ -227,18 +197,12 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlUnitGetTemperature@Base 270
  nvmlUnitGetUnitInfo@Base 270
  nvmlUnitSetLedState@Base 270
- simpleEncryptionDecode@Base 280
- simpleEncryptionEncode@Base 280
- simpleEncryptionInit@Base 280
- systemGetCaptureBuffer@Base 280
- systemGetCaptureBufferSize@Base 280
- systemGetDriverVersion@Base 280
- systemGetHicVersion@Base 280
- unitGetFanSpeedInfo@Base 280
- unitGetLedState@Base 280
- unitGetPsuInfo@Base 280
- unitGetPsuType@Base 280
- unitGetTemperature@Base 280
- unitGetUnitGpus@Base 280
- unitGetUnitInfo@Base 280
- unitSetLedState@Base 280
+ pNVIDIA_ML_ID@Base 270
+ systemGetDriverVersionRM@Base 270
+ unitGetFanSpeedInfoRM@Base 270
+ unitGetLedStateRM@Base 270
+ unitGetPsuInfoRM@Base 270
+ unitGetTemperatureRM@Base 270
+ unitGetUnitGpusRM@Base 270
+ unitGetUnitInfoRM@Base 270
+ unitSetLedStateRM@Base 270
