@@ -1,3 +1,5 @@
+# HACK for upstream version downgrade
+NVIDIA_RELEASE		 = 275.28
 # If needed, set to the major part of the upstream version number.
 #NVIDIA_LEGACY		 =
 #WATCH_VERSION		 =

@@ -1,3 +1,19 @@
+nvidia-graphics-drivers (280.13.really.275.28-1) UNRELEASED; urgency=low
+
+  * New upstream release 275.28 (2011-09-09).
+    * WARNING: this is a downgrade, some features added in 280.xx are no
+      longer available and some devices may be no longer supported.
+    - Added support for xserver ABI 11 (xorg-server 1.11).
+    - Fixed a bug that caused the GLSL built-in uniforms gl_FrontMaterial
+      and gl_BackMaterial to not be updated properly when calling
+      glMaterial from a display list.
+    - Fixed an error handling bug that caused the OpenGL driver to
+      crash while running certain WebGL applications.
+    - Fixed a bug in VDPAU that caused a glibc assertion when a call to
+      VdpDeviceCreateX11 failed in certain ways.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 11 Sep 2011 19:13:36 +0200
+
 nvidia-graphics-drivers (280.13-5) unstable; urgency=low
 
   [ Andreas Beckmann ]
