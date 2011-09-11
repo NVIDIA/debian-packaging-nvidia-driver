@@ -11,6 +11,8 @@ nvidia-graphics-drivers (280.13.really.275.28-1) UNRELEASED; urgency=low
       crash while running certain WebGL applications.
     - Fixed a bug in VDPAU that caused a glibc assertion when a call to
       VdpDeviceCreateX11 failed in certain ways.
+  * Add xorg-video-abi-11 as alternative dependency and bump xserver-xorg-core
+    dependency.  (Closes: #639737)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 11 Sep 2011 19:13:36 +0200
 
