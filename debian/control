@@ -293,7 +293,6 @@ Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
- multiarch-support,
  ${misc:Pre-Depends}
 Depends:
  libvdpau1,

@@ -335,7 +335,6 @@ prepare-squeeze-backport:
 		debian/rules.defs
 	sed -i -e 's/debhelper (>= .*)/debhelper (>= 8)/' \
 	       -e '/^Multi-Arch:/ d' \
-	       -e '/multiarch-support,/ d' \
 	       debian/control
 	sed -i -e '/^package-contains-empty-directory usr\/lib\/tls\// s/^/#/' \
 		debian/libgl1-nvidia-glx.lintian-overrides.in
