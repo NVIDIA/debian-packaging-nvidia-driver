@@ -1,3 +1,21 @@
+nvidia-graphics-drivers (285.05.09-1) UNRELEASED; urgency=low
+
+  * New upstream beta 285.05.09 (2011-10-03).
+    * Added support for xserver ABI 11 (xorg-server 1.11).  (Closes: #639737)
+    - Fixed a bug causing a Linux kernel BUG when retrieving CPU information on
+      some systems.
+    - Fixed a bug causing some applications to hang on exit.
+    - Fixed a bug causing flickering in some GPU/display combinations.
+    - Fixed a bug that prevented the driver from loading on some ION systems.
+    - Fixed a bug that could result in poor OpenGL performance after hotplugging
+      a monitor.
+    - Added support for the following GPU: GeForce GT 520MX.
+    - Fixed a bug causing possible text corruption when recovering from GPU
+      errors.
+  * Upload to experimental.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 04 Oct 2011 13:04:21 +0200
+
 nvidia-graphics-drivers (285.03-2) experimental; urgency=low
 
   [ Andreas Beckmann ]
