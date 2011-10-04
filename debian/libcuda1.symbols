@@ -56,6 +56,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuFuncSetSharedSize@Base 169
  cuGLCtxCreate@Base 177
  cuGLCtxCreate_v2@Base 260
+ cuGLGetDevices@Base 285.05
  cuGLInit@Base 169
  cuGLMapBufferObject@Base 169
  cuGLMapBufferObjectAsync@Base 190
@@ -79,6 +80,11 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGraphicsVDPAURegisterOutputSurface@Base 256
  cuGraphicsVDPAURegisterVideoSurface@Base 256
  cuInit@Base 169
+ cuIpcCloseMemHandle@Base 285.05
+ cuIpcGetEventHandle@Base 285.05
+ cuIpcGetMemHandle@Base 285.05
+ cuIpcOpenEventHandle@Base 285.05
+ cuIpcOpenMemHandle@Base 285.05
  cuLaunch@Base 169
  cuLaunchGrid@Base 169
  cuLaunchGridAsync@Base 169

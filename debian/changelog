@@ -13,6 +13,8 @@ nvidia-graphics-drivers (285.05.09-1) UNRELEASED; urgency=low
     - Fixed a bug causing possible text corruption when recovering from GPU
       errors.
   * Upload to experimental.
+  * Update symbols control files.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 04 Oct 2011 13:04:21 +0200
 
