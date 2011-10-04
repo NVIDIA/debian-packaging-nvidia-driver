@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (285.05.09-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (285.05.09-1) experimental; urgency=low
 
   * New upstream beta 285.05.09 (2011-10-03).
     * Added support for xserver ABI 11 (xorg-server 1.11).  (Closes: #639737)
@@ -17,7 +17,7 @@ nvidia-graphics-drivers (285.05.09-1) UNRELEASED; urgency=low
   * Update nv-readme.ids.
   * Merge changes from 280.13.really.275.28-1.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Tue, 04 Oct 2011 13:04:21 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 04 Oct 2011 14:37:00 +0200
 
 nvidia-graphics-drivers (285.03-2) experimental; urgency=low
 
