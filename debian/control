@@ -235,13 +235,8 @@ Provides:
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
 Conflicts:
  nvidia-kernel-dkms,
- linux-headers-2.6.32-trunk-486 [i386], linux-image-2.6.32-trunk-486 [i386],
- linux-headers-2.6.32-trunk-686 [i386], linux-image-2.6.32-trunk-686 [i386],
- linux-headers-2.6.32-trunk-686-bigmem [i386], linux-image-2.6.32-trunk-686-bigmem [i386],
- linux-headers-2.6.32-trunk-amd64, linux-image-2.6.32-trunk-amd64,
- linux-headers-2.6.32-trunk-vserver-686 [i386], linux-image-2.6.32-trunk-vserver-686 [i386],
- linux-headers-2.6.32-trunk-vserver-686-bigmem [i386], linux-image-2.6.32-trunk-vserver-686-bigmem [i386],
- linux-headers-2.6.32-trunk-vserver-amd64 [amd64], linux-image-2.6.32-trunk-vserver-amd64 [amd64],
+Breaks:
+ make (= 3.82-1),
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  This package builds the NVIDIA Xorg binary kernel module needed by
  nvidia-glx${nvidia:Legacy}, using DKMS.
@@ -272,14 +267,8 @@ Recommends:
  nvidia-kernel-common,
 Suggests:
  nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}),
-Conflicts:
- linux-headers-2.6.32-trunk-486 [i386], linux-image-2.6.32-trunk-486 [i386],
- linux-headers-2.6.32-trunk-686 [i386], linux-image-2.6.32-trunk-686 [i386],
- linux-headers-2.6.32-trunk-686-bigmem [i386], linux-image-2.6.32-trunk-686-bigmem [i386],
- linux-headers-2.6.32-trunk-amd64, linux-image-2.6.32-trunk-amd64,
- linux-headers-2.6.32-trunk-vserver-686 [i386], linux-image-2.6.32-trunk-vserver-686 [i386],
- linux-headers-2.6.32-trunk-vserver-686-bigmem [i386], linux-image-2.6.32-trunk-vserver-686-bigmem [i386],
- linux-headers-2.6.32-trunk-vserver-amd64 [amd64], linux-image-2.6.32-trunk-vserver-amd64 [amd64],
+Breaks:
+ make (= 3.82-1),
 Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  This package provides the source for the NVIDIA Xorg binary kernel module
  needed by nvidia-glx${nvidia:Legacy} in a form suitable
@@ -304,7 +293,6 @@ Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
- multiarch-support,
  ${misc:Pre-Depends}
 Depends:
  libvdpau1,
@@ -724,7 +712,7 @@ Description: transition libgl.so diversions to glx-alternative-nvidia
 
 Package: nvidia-detect
 Section: non-free/x11
-Architecture:
+Architecture: i386 amd64
 Depends:
  pciutils,
  ${shlibs:Depends}, ${misc:Depends}

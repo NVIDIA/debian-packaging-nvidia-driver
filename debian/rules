@@ -6,12 +6,13 @@
 DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_MULTIARCH	?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
-include debian/rules.defs
 NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog | sed -nr '/^Version:/s/Version: (.*:)?(.*)-(.*)/\2/p')
+include debian/rules.defs
 NVIDIA_LEGACY		?=
 WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
+XORG_BOUND		?=
 MULTIARCH		?=
 BACKPORT		?=
 version			 = $(NVIDIA_RELEASE)
@@ -41,7 +42,7 @@ RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
 				$(RENAME_CONTROL))))))
 IA32_OVERRIDES	 = nvidia-vdpau-driver libcuda1 nvidia-libopencl1
 GEN_IA32_OVERRIDES := $(foreach p,$(IA32_OVERRIDES),$(if $(wildcard debian/$p.lintian-overrides*),$p))
-TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in)
+TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in debian/detect/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= $(foreach pkg,$(GEN_IA32_OVERRIDES), debian/$(pkg)-ia32.lintian-overrides)
 AUTOGEN		+= debian/module/debian/changelog
@@ -56,6 +57,7 @@ dkms_source	 = debian/nvidia-kernel$(legacy)-dkms/usr/src/nvidia-$(version)
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
 xorg_depends	+= $(if $(BACKPORT), xserver-xorg-core (<< 2:1.7.7) |)
+xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND)
 xorg_provides	 = xorg-driver-video
 xorg_provides	+= $(if $(filter-out squeeze,$(BACKPORT)), $(comma) xserver-xorg-video-6)
 
@@ -76,9 +78,12 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 	ln -s ${dirname_x86} NVIDIA-Linux-i386
 	ln -s ${dirname_x86_64} NVIDIA-Linux-amd64
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
-	test -f NVIDIA-Linux/README.txt || \
-		mv NVIDIA-Linux/usr/share/doc/README.txt NVIDIA-Linux/README.txt 2>/dev/null || \
-		mv NVIDIA-Linux/usr/share/doc/README NVIDIA-Linux/README.txt
+	test -f NVIDIA-Linux-i386/README.txt || \
+		mv NVIDIA-Linux-i386/usr/share/doc/README.txt NVIDIA-Linux-i386/README.txt 2>/dev/null || \
+		mv NVIDIA-Linux-i386/usr/share/doc/README NVIDIA-Linux-i386/README.txt
+	test -f NVIDIA-Linux-amd64/README.txt || \
+		mv NVIDIA-Linux-amd64/usr/share/doc/README.txt NVIDIA-Linux-amd64/README.txt 2>/dev/null || \
+		mv NVIDIA-Linux-amd64/usr/share/doc/README NVIDIA-Linux-amd64/README.txt
 	test -f NVIDIA-Linux/NVIDIA_Changelog || \
 		mv NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog NVIDIA-Linux/
 	test -d NVIDIA-Linux-i386/kernel || \
@@ -112,7 +117,7 @@ nv-readme.ids: unpack-stamp
 		exit 1 ; \
 	fi
 
-nvidia.ids: nv-kernel.ids nv-readme.ids
+nvidia.ids: nv-readme.ids
 	cp $< $@
 
 # Reformat the LICENSE to the format needed for debian/copyright.
@@ -330,8 +335,9 @@ prepare-squeeze-backport:
 		debian/rules.defs
 	sed -i -e 's/debhelper (>= .*)/debhelper (>= 8)/' \
 	       -e '/^Multi-Arch:/ d' \
-	       -e '/multiarch-support,/ d' \
 	       debian/control
+	sed -i -e '/^package-contains-empty-directory usr\/lib\/tls\// s/^/#/' \
+		debian/libgl1-nvidia-glx.lintian-overrides.in
 	debchange --bpo "Disable multiarch build."
 	debchange "Reduce Build-Depends: debhelper and compat level to 8."
 

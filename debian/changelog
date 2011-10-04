@@ -15,6 +15,7 @@ nvidia-graphics-drivers (285.05.09-1) UNRELEASED; urgency=low
   * Upload to experimental.
   * Update symbols control files.
   * Update nv-readme.ids.
+  * Merge changes from 280.13.really.275.28-1.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 04 Oct 2011 13:04:21 +0200
 
@@ -43,6 +44,70 @@ nvidia-graphics-drivers (285.03-1) experimental; urgency=low
   * Update nv-readme.ids.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 22 Aug 2011 11:51:51 +0200
+
+nvidia-graphics-drivers (280.13.really.275.28-2) UNRELEASED; urgency=low
+
+  * Drop libvdpau1 multiarch workaround, libvdpau1 0.4.1-3 got multiarch.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 20 Sep 2011 12:26:29 +0200
+
+nvidia-graphics-drivers (280.13.really.275.28-1) unstable; urgency=low
+
+  * New upstream release 275.28 (2011-09-09).
+    * WARNING: this is a downgrade, some features added in 280.xx are no
+      longer available and some devices may be no longer supported.
+    - Added support for xserver ABI 11 (xorg-server 1.11).
+    - Fixed a bug that caused the GLSL built-in uniforms gl_FrontMaterial
+      and gl_BackMaterial to not be updated properly when calling
+      glMaterial from a display list.
+    - Fixed an error handling bug that caused the OpenGL driver to
+      crash while running certain WebGL applications.
+    - Fixed a bug in VDPAU that caused a glibc assertion when a call to
+      VdpDeviceCreateX11 failed in certain ways.
+  * Add xorg-video-abi-11 as alternative dependency and bump xserver-xorg-core
+    dependency.  (Closes: #639737)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 12 Sep 2011 00:06:58 +0200
+
+nvidia-graphics-drivers (280.13-5) unstable; urgency=low
+
+  [ Andreas Beckmann ]
+  * Add a NEWS entry about incompatibility with Xorg Xserver 1.11.
+  * Drop Conflicts with pre-squeeze kernel *-2.6.32-trunk-*.
+  * xserver-xorg-video-nvidia: add (versioned) Depends: xserver-xorg-core.
+  * Use PCI IDs extracted from the README, not the kernel module.
+  * Ship PCI ID lists of GPUs supported by the different legacy drivers in
+    the nvidia-detect package in /usr/share/nvidia.  (Closes: #639793)
+  * Let nvidia-detect read the PCI IDs from /usr/share/nvidia/ instead of
+    hardcoding them in the script.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 09 Sep 2011 15:31:58 +0200
+
+nvidia-graphics-drivers (280.13-4) unstable; urgency=low
+
+  [ Andreas Beckmann ]
+  * Avoid multiarch file conflicts:
+    - Install the x86 README.txt in libgl1-nvidia-glx and nvidia-vdpau-driver.
+    - Use wildcards instead of multiarch paths in *.lintian-overrides.
+  * Work around make bug #635317: "make 3.82 breaks kernel module build:
+    'mixed implicit and normal rules' in linux-headers-*" (only affects the
+    version in experimental) by adding Breaks: make (= 3.82-1) to the source
+    packages.  (Closes: #640539)
+  * Add a nvidia-detect package with a script 'nvidia-detect' to detect NVIDIA
+    GPUs and recommend a driver meta package to install.  (Closes: #614825)
+    Based on the script from http://wiki.debian.org/NvidiaGraphicsDrivers
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 06 Sep 2011 06:26:50 +0200
+
+nvidia-graphics-drivers (280.13-3) unstable; urgency=low
+
+  [ Andreas Beckmann ]
+  * Revert enabling xorg-video-abi-11, there are some more ABI changes in
+    Xserver 1.11.0 that didn't get properly versioned and may cause trouble,
+    see http://www.nvnews.net/vbulletin/showthread.php?t=165665
+    (Reopens: #639737)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 31 Aug 2011 09:49:09 +0200
 
 nvidia-graphics-drivers (280.13-2) unstable; urgency=low
 
