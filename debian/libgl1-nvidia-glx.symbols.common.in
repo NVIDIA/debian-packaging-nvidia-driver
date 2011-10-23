@@ -523,6 +523,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetHistogram@Base 1.0.4349
  glGetHistogramParameterfv@Base 1.0.4349
  glGetHistogramParameteriv@Base 1.0.4349
+ glGetImageHandleNV@Base 290
  glGetInfoLogARB@Base 1.0.6106
  glGetInteger64i_v@Base 190.36
  glGetInteger64v@Base 190.18.05
@@ -645,6 +646,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetShaderiv@Base 1.0.7664
  glGetStateDynamicPropertyNameivNV@Base 260
  glGetStateDynamicPropertyValuevNV@Base 260
+ glGetStateGPUHandleNV@Base 290
  glGetStateParameterivNV@Base 260
  glGetStatePropertyfvNV@Base 260
  glGetStatePropertyivNV@Base 260
@@ -669,6 +671,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetTexParameterIuivEXT@Base 1.0.9746
  glGetTexParameterfv@Base 1.0.4349
  glGetTexParameteriv@Base 1.0.4349
+ glGetTextureHandleNV@Base 290
  glGetTextureImageEXT@Base 180
  glGetTextureLevelParameterfvEXT@Base 180
  glGetTextureLevelParameterivEXT@Base 180
@@ -676,6 +679,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetTextureParameterIuivEXT@Base 180
  glGetTextureParameterfvEXT@Base 180
  glGetTextureParameterivEXT@Base 180
+ glGetTextureSamplerHandleNV@Base 290
  glGetTrackMatrixivNV@Base 1.0.4349
  glGetTransformFeedbackVarying@Base 180
  glGetTransformFeedbackVaryingNV@Base 1.0.9746
@@ -780,6 +784,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glIsFenceNV@Base 1.0.4349
  glIsFramebuffer@Base 180
  glIsFramebufferEXT@Base 1.0.7664
+ glIsImageHandleResidentNV@Base 290
  glIsList@Base 1.0.4349
  glIsNamedBufferResidentNV@Base 185
  glIsNamedStringARB@Base 270
@@ -801,6 +806,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glIsSync@Base 190.18.05
  glIsTexture@Base 1.0.4349
  glIsTextureEXT@Base 1.0.4349
+ glIsTextureHandleResidentNV@Base 290
  glIsTransformFeedback@Base 256
  glIsTransformFeedbackEXT@Base 190.36
  glIsTransformFeedbackNV@Base 165
@@ -834,8 +840,12 @@ libGL.so.1 #PACKAGE# #MINVER#
  glLogicOp@Base 1.0.4349
  glMakeBufferNonResidentNV@Base 185
  glMakeBufferResidentNV@Base 185
+ glMakeImageHandleNonResidentNV@Base 290
+ glMakeImageHandleResidentNV@Base 290
  glMakeNamedBufferNonResidentNV@Base 185
  glMakeNamedBufferResidentNV@Base 185
+ glMakeTextureHandleNonResidentNV@Base 290
+ glMakeTextureHandleResidentNV@Base 290
  glMap1d@Base 1.0.4349
  glMap1f@Base 1.0.4349
  glMap2d@Base 1.0.4349
@@ -1217,6 +1227,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glProgramUniform4uiEXT@Base 180
  glProgramUniform4uiv@Base 260
  glProgramUniform4uivEXT@Base 180
+ glProgramUniformHandleui64NV@Base 290
+ glProgramUniformHandleui64vNV@Base 290
  glProgramUniformMatrix2dv@Base 256
  glProgramUniformMatrix2fv@Base 260
  glProgramUniformMatrix2fvEXT@Base 180
@@ -1580,6 +1592,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glUniform4uivEXT@Base 1.0.9746
  glUniformBlockBinding@Base 190
  glUniformBufferEXT@Base 1.0.9746
+ glUniformHandleui64NV@Base 290
+ glUniformHandleui64vNV@Base 290
  glUniformMatrix2dv@Base 256
  glUniformMatrix2fv@Base 1.0.7664
  glUniformMatrix2fvARB@Base 1.0.6106
