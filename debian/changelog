@@ -29,6 +29,7 @@ nvidia-graphics-drivers (290.03-1) UNRELEASED; urgency=low
       on older GPUs with xorg-server 1.11.  (Closes: #642757 and 15 dupes)
   * Update symbols control files.
   * Update nv-readme.ids.
+  * Refresh use-nv-kernel.o.ARCH.patch.
   * bug-control: collect information about installed nouveau packages.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sun, 23 Oct 2011 20:19:42 +0200
