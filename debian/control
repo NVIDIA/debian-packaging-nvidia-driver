@@ -575,7 +575,8 @@ Description: NVIDIA OpenCL ICD
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
  .
- This package provides the NVIDIA installable client driver (ICD) for OpenCL.
+ This metapackage provides the NVIDIA installable client driver (ICD) for
+ OpenCL.
 
 Package: nvidia-opencl-icd-ia32
 Priority: extra
@@ -595,7 +596,7 @@ Description: NVIDIA OpenCL ICD (32-bit)
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
  .
- This package provides the 32-bit NVIDIA installable client driver (ICD) for
+ This metapackage provides the 32-bit NVIDIA installable client driver (ICD) for
  OpenCL.
 
 Package: nvidia-libopencl1
