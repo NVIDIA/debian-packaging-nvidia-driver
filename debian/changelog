@@ -1,23 +1,57 @@
-nvidia-graphics-drivers (285.05.09-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (290.03-1) UNRELEASED; urgency=low
 
+  * New upstream beta 290.03 (2011-10-21).
+    - Fixed a bug that prevented the driver from loading on some systems with 
+      integrated graphics.
+    - Fixed issues in VDPAU that prevented allocating and displaying extremely
+      large VdpOutputSurfaces.
+    - Added support for limiting heap allocations in the OpenGL driver through
+      the use of the __GL_HEAP_ALLOC_LIMIT environment variable.  See the README
+      for further details.
+    - Added an "Accel" option to the X driver to allow disabling its use of the
+      graphics processing hardware.  This is useful when other components, such
+      as CUDA, require exclusive use of the GPU's processing cores.
+    - Modified how the OpenGL driver allocates executable memory so it may
+      continue to function properly if /tmp is mounted noexec. As some fallback
+      allocation methods may be prohibited under SELinux policy, the driver now
+      supports detection of this policy as well as manual override of this
+      detection via the __GL_SELINUX_BOOLEANS environment variable.
+    - Fixed a bug that caused various GLSL built-in uniforms to not
+      be updated properly when calling glPopAttrib.
+    - Improved performance by caching compiled OpenGL shaders to disk. Added a
+      "GLShaderDiskCache" option to the X driver to enable/disable this
+      feature. Added the __GL_SHADER_DISK_CACHE and __GL_SHADER_DISK_CACHE_PATH
+      environment variables for further configuration. See the README for
+      further details.
+  * New upstream long-lived branch 275 series (unreleased).
+    - Added support for the following GPU: GeForce 510.
+    - Fixed a bug that caused trapezoid and triangle rendering to be very slow
+      on older GPUs with xorg-server 1.11.  (Closes: #642757 and 15 dupes)
   * bug-control: collect information about installed nouveau packages.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sun, 16 Oct 2011 21:03:55 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 23 Oct 2011 20:19:42 +0200
 
 nvidia-graphics-drivers (285.05.09-1) experimental; urgency=low
 
   * New upstream beta 285.05.09 (2011-10-03).
-    * Added support for xserver ABI 11 (xorg-server 1.11).  (Closes: #639737)
     - Fixed a bug causing a Linux kernel BUG when retrieving CPU information on
       some systems.
     - Fixed a bug causing some applications to hang on exit.
     - Fixed a bug causing flickering in some GPU/display combinations.
-    - Fixed a bug that prevented the driver from loading on some ION systems.
     - Fixed a bug that could result in poor OpenGL performance after hotplugging
       a monitor.
     - Added support for the following GPU: GeForce GT 520MX.
     - Fixed a bug causing possible text corruption when recovering from GPU
       errors.
+  * New upstream long-lived branch release 275.28 (2011-09-09).
+    - Added support for xserver ABI 11 (xorg-server 1.11).  (Closes: #639737)
+    - Fixed a bug that caused the GLSL built-in uniforms gl_FrontMaterial
+      and gl_BackMaterial to not be updated properly when calling
+      glMaterial from a display list.
+    - Fixed an error handling bug that caused the OpenGL driver to
+      crash while running certain WebGL applications.
+    - Fixed a bug in VDPAU that caused a glibc assertion when a call to
+      VdpDeviceCreateX11 failed in certain ways.
   * Upload to experimental.
   * Update symbols control files.
   * Update nv-readme.ids.
