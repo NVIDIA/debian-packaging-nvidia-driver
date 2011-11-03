@@ -226,7 +226,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  dkms,
- nvidia-kernel-common (>= 20100522),
+ nvidia-kernel-common (>= 20110213),
  ${misc:Depends}
 Recommends:
  nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}),

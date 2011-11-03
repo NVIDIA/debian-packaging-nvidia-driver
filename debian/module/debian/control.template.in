@@ -10,7 +10,7 @@ Homepage: http://www.nvidia.com/
 Package: nvidia-kernel#LEGACY#-#KVERS#
 Architecture: i386 amd64
 Provides: nvidia-kernel-#VERSION#
-Depends: nvidia-kernel-common (>= 20100522)
+Depends: nvidia-kernel-common (>= 20110213)
 Recommends: linux-image-#KVERS#
 Description: NVIDIA binary kernel module for Linux #KVERS#
  This package provides the non-free NVIDIA binary kernel module built for
