@@ -1,9 +1,16 @@
-nvidia-graphics-drivers (290.03-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (290.06-1) UNRELEASED; urgency=low
 
+  * New upstream beta 290.06 (2011-11-04).
+    - Added support for the following GPU: GeForce GTX 460 SE v2.
+    - Fixed a bug that would cause applications which export custom allocation
+      functions to our driver (such as Adobe Flash in Firefox or Chrome) to
+      crash.
+  * Upload to experimental.
+  * Update nv-readme.ids.
   * Update lintian overrides.
   * Merge changes from 280.13.really.275.36-1.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 03 Nov 2011 10:18:01 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 04 Nov 2011 21:34:56 +0100
 
 nvidia-graphics-drivers (290.03-1) experimental; urgency=low
 
@@ -30,7 +37,7 @@ nvidia-graphics-drivers (290.03-1) experimental; urgency=low
       feature. Added the __GL_SHADER_DISK_CACHE and __GL_SHADER_DISK_CACHE_PATH
       environment variables for further configuration. See the README for
       further details.
-  * New upstream long-lived branch 275 series (unreleased).
+  * New upstream long-lived branch release 275.36 (2011-11-04).
     - Added support for the following GPU: GeForce 510.
     - Fixed a bug that caused trapezoid and triangle rendering to be very slow
       on older GPUs with xorg-server 1.11.  (Closes: #642757 and 15 dupes)
