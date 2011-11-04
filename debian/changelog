@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (290.06-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (290.06-1) experimental; urgency=low
 
   * New upstream beta 290.06 (2011-11-04).
     - Added support for the following GPU: GeForce GTX 460 SE v2.
@@ -10,7 +10,7 @@ nvidia-graphics-drivers (290.06-1) UNRELEASED; urgency=low
   * Update lintian overrides.
   * Merge changes from 280.13.really.275.36-1.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Fri, 04 Nov 2011 21:34:56 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 04 Nov 2011 22:11:36 +0100
 
 nvidia-graphics-drivers (290.03-1) experimental; urgency=low
 
