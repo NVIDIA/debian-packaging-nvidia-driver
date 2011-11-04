@@ -2,6 +2,7 @@ nvidia-graphics-drivers (290.03-2) UNRELEASED; urgency=low
 
   * Bump nvidia-kernel-common versioned dependency to 20110213 (updates initrd
     to enable/disable the nouveau blacklist).
+  * Bump glx-alternative-nvidia versioned dependency to 0.2.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 03 Nov 2011 10:18:01 +0100
 
