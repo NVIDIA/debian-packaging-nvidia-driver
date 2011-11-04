@@ -200,7 +200,7 @@ Package: nvidia-alternative
 Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
- glx-alternative-nvidia (>= 0.1.4),
+ glx-alternative-nvidia (>= 0.2),
  libgl1-nvidia-alternatives (>= 275.09.07-4),
  libglx-nvidia-alternatives (>= 275.09.07-4),
  ${misc:Depends}
@@ -226,7 +226,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  dkms,
- nvidia-kernel-common (>= 20100522),
+ nvidia-kernel-common (>= 20110213),
  ${misc:Depends}
 Recommends:
  nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}),
@@ -575,7 +575,8 @@ Description: NVIDIA OpenCL ICD
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
  .
- This package provides the NVIDIA installable client driver (ICD) for OpenCL.
+ This metapackage provides the NVIDIA installable client driver (ICD) for
+ OpenCL.
 
 Package: nvidia-opencl-icd-ia32
 Priority: extra
@@ -595,7 +596,7 @@ Description: NVIDIA OpenCL ICD (32-bit)
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
  .
- This package provides the 32-bit NVIDIA installable client driver (ICD) for
+ This metapackage provides the 32-bit NVIDIA installable client driver (ICD) for
  OpenCL.
 
 Package: nvidia-libopencl1
