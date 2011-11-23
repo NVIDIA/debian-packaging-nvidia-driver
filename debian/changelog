@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (290.10-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (290.10-1) unstable; urgency=low
 
   * New upstream release 290.10 (2011-11-22).
     - Fixed a bug that would cause OpenGL applications to crash when run
@@ -20,10 +20,11 @@ nvidia-graphics-drivers (290.10-1) UNRELEASED; urgency=low
     - Fixed a regression that caused blank/white windows when exhausting video
       memory on GeForce 6 and 7 series GPUs while using composited
       desktops.  (Closes: #646975)
+  * Upload to unstable.
   * Update lintian overrides.
   * debian/copyright: Update to dep5.mdwn?revision=202.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 23 Nov 2011 02:04:37 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 23 Nov 2011 05:02:23 +0100
 
 nvidia-graphics-drivers (290.06-1) experimental; urgency=low
 
