@@ -35,8 +35,10 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuDeviceComputeCapability@Base 169
  cuDeviceGet@Base 169
  cuDeviceGetAttribute@Base 169
+ cuDeviceGetByPCIBusId@Base 285
  cuDeviceGetCount@Base 169
  cuDeviceGetName@Base 169
+ cuDeviceGetPCIBusId@Base 285
  cuDeviceGetProperties@Base 169
  cuDeviceTotalMem@Base 169
  cuDeviceTotalMem_v2@Base 260
@@ -54,6 +56,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuFuncSetSharedSize@Base 169
  cuGLCtxCreate@Base 177
  cuGLCtxCreate_v2@Base 260
+ cuGLGetDevices@Base 285.05
  cuGLInit@Base 169
  cuGLMapBufferObject@Base 169
  cuGLMapBufferObjectAsync@Base 190
@@ -77,6 +80,11 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGraphicsVDPAURegisterOutputSurface@Base 256
  cuGraphicsVDPAURegisterVideoSurface@Base 256
  cuInit@Base 169
+ cuIpcCloseMemHandle@Base 285.05
+ cuIpcGetEventHandle@Base 285.05
+ cuIpcGetMemHandle@Base 285.05
+ cuIpcOpenEventHandle@Base 285.05
+ cuIpcOpenMemHandle@Base 285.05
  cuLaunch@Base 169
  cuLaunchGrid@Base 169
  cuLaunchGridAsync@Base 169
@@ -200,6 +208,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuTexRefGetFormat@Base 177
  cuTexRefSetAddress2D@Base 185
  cuTexRefSetAddress2D_v2@Base 260
+ cuTexRefSetAddress2D_v3@Base 285
  cuTexRefSetAddress@Base 169
  cuTexRefSetAddressMode@Base 169
  cuTexRefSetAddress_v2@Base 260

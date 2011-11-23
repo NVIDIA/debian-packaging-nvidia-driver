@@ -1,3 +1,108 @@
+nvidia-graphics-drivers (290.06-1) experimental; urgency=low
+
+  * New upstream beta 290.06 (2011-11-04).
+    - Added support for the following GPU: GeForce GTX 460 SE v2.
+    - Fixed a bug that would cause applications which export custom allocation
+      functions to our driver (such as Adobe Flash in Firefox or Chrome) to
+      crash.
+  * Upload to experimental.
+  * Update nv-readme.ids.
+  * Update lintian overrides.
+  * Merge changes from 280.13.really.275.36-1.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 04 Nov 2011 22:11:36 +0100
+
+nvidia-graphics-drivers (290.03-1) experimental; urgency=low
+
+  * New upstream beta 290.03 (2011-10-21).
+    - Fixed a bug that prevented the driver from loading on some systems with 
+      integrated graphics.
+    - Fixed issues in VDPAU that prevented allocating and displaying extremely
+      large VdpOutputSurfaces.
+    - Added support for limiting heap allocations in the OpenGL driver through
+      the use of the __GL_HEAP_ALLOC_LIMIT environment variable.  See the README
+      for further details.
+    - Added an "Accel" option to the X driver to allow disabling its use of the
+      graphics processing hardware.  This is useful when other components, such
+      as CUDA, require exclusive use of the GPU's processing cores.
+    - Modified how the OpenGL driver allocates executable memory so it may
+      continue to function properly if /tmp is mounted noexec. As some fallback
+      allocation methods may be prohibited under SELinux policy, the driver now
+      supports detection of this policy as well as manual override of this
+      detection via the __GL_SELINUX_BOOLEANS environment variable.
+    - Fixed a bug that caused various GLSL built-in uniforms to not
+      be updated properly when calling glPopAttrib.
+    - Improved performance by caching compiled OpenGL shaders to disk. Added a
+      "GLShaderDiskCache" option to the X driver to enable/disable this
+      feature. Added the __GL_SHADER_DISK_CACHE and __GL_SHADER_DISK_CACHE_PATH
+      environment variables for further configuration. See the README for
+      further details.
+  * New upstream long-lived branch release 275.36 (2011-11-04).
+    - Added support for the following GPU: GeForce 510.
+    - Fixed a bug that caused trapezoid and triangle rendering to be very slow
+      on older GPUs with xorg-server 1.11.  (Closes: #642757 and 15 dupes)
+  * Upload to experimental.
+  * Update symbols control files.
+  * Update nv-readme.ids.
+  * Refresh use-nv-kernel.o.ARCH.patch.
+  * bug-control: collect information about installed nouveau packages.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 24 Oct 2011 02:30:46 +0200
+
+nvidia-graphics-drivers (285.05.09-1) experimental; urgency=low
+
+  * New upstream beta 285.05.09 (2011-10-03).
+    - Fixed a bug causing a Linux kernel BUG when retrieving CPU information on
+      some systems.
+    - Fixed a bug causing some applications to hang on exit.
+    - Fixed a bug causing flickering in some GPU/display combinations.
+    - Fixed a bug that could result in poor OpenGL performance after hotplugging
+      a monitor.
+    - Added support for the following GPU: GeForce GT 520MX.
+    - Fixed a bug causing possible text corruption when recovering from GPU
+      errors.
+  * New upstream long-lived branch release 275.28 (2011-09-09).
+    - Added support for xserver ABI 11 (xorg-server 1.11).  (Closes: #639737)
+    - Fixed a bug that caused the GLSL built-in uniforms gl_FrontMaterial
+      and gl_BackMaterial to not be updated properly when calling
+      glMaterial from a display list.
+    - Fixed an error handling bug that caused the OpenGL driver to
+      crash while running certain WebGL applications.
+    - Fixed a bug in VDPAU that caused a glibc assertion when a call to
+      VdpDeviceCreateX11 failed in certain ways.
+  * Upload to experimental.
+  * Update symbols control files.
+  * Update nv-readme.ids.
+  * Merge changes from 280.13.really.275.28-1.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 04 Oct 2011 14:37:00 +0200
+
+nvidia-graphics-drivers (285.03-2) experimental; urgency=low
+
+  [ Andreas Beckmann ]
+  * Merge changes from 280.13-2.
+  * Rebuild with alternative dependency on xorg-video-abi-11.
+    NVIDIA does not yet support this version officially, therefore the
+    "IgnoreABI" option needs to be enabled, see xorg.conf(5).
+  * Upload to experimental.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 30 Aug 2011 15:44:04 +0200
+
+nvidia-graphics-drivers (285.03-1) experimental; urgency=low
+
+  [ Andreas Beckmann ]
+  * New upstream beta 285.03 (2011-08-17).
+    - Fixed a bug causing corruption of images which are 2047 pixels wide.
+    - Improved performance of the RENDER extension on Fermi-based GPUs.
+    - Fixed a bug causing the X server to crash after a VT-switch while running
+      an OpenGL stereo application which is a member of a swap group.
+  * Upload to experimental.
+  * Refresh use-nv-kernel.o.ARCH.patch.
+  * Update symbols control files.
+  * Update nv-readme.ids.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 22 Aug 2011 11:51:51 +0200
+
 nvidia-graphics-drivers (280.13.really.275.36-1) unstable; urgency=low
 
   [ Andreas Beckmann ]

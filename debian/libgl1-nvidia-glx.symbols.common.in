@@ -41,6 +41,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glBindFragDataLocationIndexed@Base 256
  glBindFramebuffer@Base 180
  glBindFramebufferEXT@Base 1.0.7664
+ glBindImageTexture@Base 285
  glBindImageTextureEXT@Base 195
  glBindMultiTextureEXT@Base 180
  glBindProgramARB@Base 1.0.4349
@@ -82,6 +83,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glBufferAddressRangeNV@Base 185
  glBufferData@Base 1.0.6106
  glBufferDataARB@Base 1.0.4349
+ glBufferDataSysmem@Base 280
  glBufferSubData@Base 1.0.6106
  glBufferSubDataARB@Base 1.0.4349
  glCallList@Base 1.0.4349
@@ -109,6 +111,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glClientActiveTextureARB@Base 1.0.4349
  glClientAttribDefaultEXT@Base 180
  glClientWaitSync@Base 190.18.05
+ glClientWaitSyncValueuiNVX@Base 285
  glClipPlane@Base 1.0.4349
  glColor3b@Base 1.0.4349
  glColor3bv@Base 1.0.4349
@@ -302,6 +305,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glDrawArraysIndirect@Base 256
  glDrawArraysInstanced@Base 190
  glDrawArraysInstancedARB@Base 180
+ glDrawArraysInstancedBaseInstance@Base 285
  glDrawArraysInstancedEXT@Base 1.0.9746
  glDrawBuffer@Base 1.0.4349
  glDrawBuffers@Base 1.0.7664
@@ -313,7 +317,9 @@ libGL.so.1 #PACKAGE# #MINVER#
  glDrawElementsIndirect@Base 256
  glDrawElementsInstanced@Base 190
  glDrawElementsInstancedARB@Base 180
+ glDrawElementsInstancedBaseInstance@Base 285
  glDrawElementsInstancedBaseVertex@Base 190.18.05
+ glDrawElementsInstancedBaseVertexBaseInstance@Base 285
  glDrawElementsInstancedEXT@Base 1.0.9746
  glDrawMeshNV@Base 1.0.4349
  glDrawPixels@Base 1.0.4349
@@ -322,8 +328,10 @@ libGL.so.1 #PACKAGE# #MINVER#
  glDrawRangeElementsEXT@Base 1.0.4349
  glDrawTransformFeedback@Base 256
  glDrawTransformFeedbackEXT@Base 190.36
+ glDrawTransformFeedbackInstanced@Base 285
  glDrawTransformFeedbackNV@Base 165
  glDrawTransformFeedbackStream@Base 256
+ glDrawTransformFeedbackStreamInstanced@Base 285
  glEdgeFlag@Base 1.0.4349
  glEdgeFlagFormatNV@Base 185
  glEdgeFlagPointer@Base 1.0.4349
@@ -366,6 +374,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glExecuteProgramNV@Base 1.0.4349
  glFeedbackBuffer@Base 1.0.4349
  glFenceSync@Base 190.18.05
+ glFenceValueuiNVX@Base 285
  glFinalCombinerInputNV@Base 1.0.4349
  glFinish@Base 1.0.4349
  glFinishFenceNV@Base 1.0.4349
@@ -441,6 +450,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGenerateMipmapEXT@Base 1.0.7664
  glGenerateMultiTexMipmapEXT@Base 180
  glGenerateTextureMipmapEXT@Base 180
+ glGetActiveAtomicCounterBufferiv@Base 285
  glGetActiveAttrib@Base 1.0.7664
  glGetActiveAttribARB@Base 1.0.6106
  glGetActiveSubroutineName@Base 256
@@ -513,6 +523,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetHistogram@Base 1.0.4349
  glGetHistogramParameterfv@Base 1.0.4349
  glGetHistogramParameteriv@Base 1.0.4349
+ glGetImageHandleNV@Base 290
  glGetInfoLogARB@Base 1.0.6106
  glGetInteger64i_v@Base 190.36
  glGetInteger64v@Base 190.18.05
@@ -521,6 +532,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetIntegerui64i_vNV@Base 185
  glGetIntegerui64vNV@Base 185
  glGetIntegerv@Base 1.0.4349
+ glGetInternalformativ@Base 285
  glGetLightfv@Base 1.0.4349
  glGetLightiv@Base 1.0.4349
  glGetMapdv@Base 1.0.4349
@@ -634,6 +646,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetShaderiv@Base 1.0.7664
  glGetStateDynamicPropertyNameivNV@Base 260
  glGetStateDynamicPropertyValuevNV@Base 260
+ glGetStateGPUHandleNV@Base 290
  glGetStateParameterivNV@Base 260
  glGetStatePropertyfvNV@Base 260
  glGetStatePropertyivNV@Base 260
@@ -642,6 +655,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetSubroutineIndex@Base 256
  glGetSubroutineUniformLocation@Base 256
  glGetSynciv@Base 190.18.05
+ glGetSyncv64NVX@Base 285
  glGetTexEnvfv@Base 1.0.4349
  glGetTexEnviv@Base 1.0.4349
  glGetTexGendv@Base 1.0.4349
@@ -657,6 +671,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetTexParameterIuivEXT@Base 1.0.9746
  glGetTexParameterfv@Base 1.0.4349
  glGetTexParameteriv@Base 1.0.4349
+ glGetTextureHandleNV@Base 290
  glGetTextureImageEXT@Base 180
  glGetTextureLevelParameterfvEXT@Base 180
  glGetTextureLevelParameterivEXT@Base 180
@@ -664,6 +679,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetTextureParameterIuivEXT@Base 180
  glGetTextureParameterfvEXT@Base 180
  glGetTextureParameterivEXT@Base 180
+ glGetTextureSamplerHandleNV@Base 290
  glGetTrackMatrixivNV@Base 1.0.4349
  glGetTransformFeedbackVarying@Base 180
  glGetTransformFeedbackVaryingNV@Base 1.0.9746
@@ -768,6 +784,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glIsFenceNV@Base 1.0.4349
  glIsFramebuffer@Base 180
  glIsFramebufferEXT@Base 1.0.7664
+ glIsImageHandleResidentNV@Base 290
  glIsList@Base 1.0.4349
  glIsNamedBufferResidentNV@Base 185
  glIsNamedStringARB@Base 270
@@ -789,6 +806,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glIsSync@Base 190.18.05
  glIsTexture@Base 1.0.4349
  glIsTextureEXT@Base 1.0.4349
+ glIsTextureHandleResidentNV@Base 290
  glIsTransformFeedback@Base 256
  glIsTransformFeedbackEXT@Base 190.36
  glIsTransformFeedbackNV@Base 165
@@ -822,8 +840,12 @@ libGL.so.1 #PACKAGE# #MINVER#
  glLogicOp@Base 1.0.4349
  glMakeBufferNonResidentNV@Base 185
  glMakeBufferResidentNV@Base 185
+ glMakeImageHandleNonResidentNV@Base 290
+ glMakeImageHandleResidentNV@Base 290
  glMakeNamedBufferNonResidentNV@Base 185
  glMakeNamedBufferResidentNV@Base 185
+ glMakeTextureHandleNonResidentNV@Base 290
+ glMakeTextureHandleResidentNV@Base 290
  glMap1d@Base 1.0.4349
  glMap1f@Base 1.0.4349
  glMap2d@Base 1.0.4349
@@ -862,6 +884,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glMatrixScalefEXT@Base 180
  glMatrixTranslatedEXT@Base 180
  glMatrixTranslatefEXT@Base 180
+ glMemoryBarrier@Base 285
  glMemoryBarrierEXT@Base 195
  glMinSampleShading@Base 256
  glMinSampleShadingARB@Base 190.18.05
@@ -1204,6 +1227,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glProgramUniform4uiEXT@Base 180
  glProgramUniform4uiv@Base 260
  glProgramUniform4uivEXT@Base 180
+ glProgramUniformHandleui64NV@Base 290
+ glProgramUniformHandleui64vNV@Base 290
  glProgramUniformMatrix2dv@Base 256
  glProgramUniformMatrix2fv@Base 260
  glProgramUniformMatrix2fvEXT@Base 180
@@ -1452,6 +1477,12 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTexParameteri@Base 1.0.4349
  glTexParameteriv@Base 1.0.4349
  glTexRenderbufferNV@Base 177
+ glTexStorage1D@Base 285
+ glTexStorage1DEXT@Base 285
+ glTexStorage2D@Base 285
+ glTexStorage2DEXT@Base 285
+ glTexStorage3D@Base 285
+ glTexStorage3DEXT@Base 285
  glTexSubImage1D@Base 1.0.4349
  glTexSubImage2D@Base 1.0.4349
  glTexSubImage3D@Base 1.0.4349
@@ -1473,6 +1504,9 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTextureParameteriEXT@Base 180
  glTextureParameterivEXT@Base 180
  glTextureRenderbufferEXT@Base 180
+ glTextureStorage1DEXT@Base 285
+ glTextureStorage2DEXT@Base 285
+ glTextureStorage3DEXT@Base 285
  glTextureSubImage1DEXT@Base 180
  glTextureSubImage2DEXT@Base 180
  glTextureSubImage3DEXT@Base 180
@@ -1558,6 +1592,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glUniform4uivEXT@Base 1.0.9746
  glUniformBlockBinding@Base 190
  glUniformBufferEXT@Base 1.0.9746
+ glUniformHandleui64NV@Base 290
+ glUniformHandleui64vNV@Base 290
  glUniformMatrix2dv@Base 256
  glUniformMatrix2fv@Base 1.0.7664
  glUniformMatrix2fvARB@Base 1.0.6106
@@ -1881,6 +1917,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glViewportIndexedf@Base 260
  glViewportIndexedfv@Base 260
  glWaitSync@Base 190.18.05
+ glWaitSyncValueuiNVX@Base 285
  glWeightPathsNV@Base 275
  glWindowBackBufferHintAutodesk@Base 1.0.4349
  glWindowPos2d@Base 1.0.4349
