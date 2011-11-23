@@ -1,7 +1,8 @@
-Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=135
-Name: NVIDIA Linux Display Drivers
-Maintainer: NVIDIA Corporation <linux-bugs@nvidia.com>
-Source: ftp://download.nvidia.com/XFree86/Linux-x86/
+Format: http://anonscm.debian.org/viewvc/dep/web/deps/dep5.mdwn?revision=202&view=co
+Upstream-Name: NVIDIA Linux Display Drivers
+Upstream-Contact: NVIDIA Corporation <linux-bugs@nvidia.com>
+Source:
+ ftp://download.nvidia.com/XFree86/Linux-x86/
  ftp://download.nvidia.com/XFree86/Linux-x86_64/
 Disclaimer:
  This package is not part of the GNU/Linux Debian distribution.  It is
