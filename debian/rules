@@ -40,7 +40,7 @@ RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
 			$(patsubst debian/nvidia-alternative%,debian/nvidia-alternative$(legacy)%,\
 			$(patsubst debian/xserver-xorg-video-nvidia%,debian/xserver-xorg-video-nvidia$(legacy)%,\
 				$(RENAME_CONTROL))))))
-IA32_OVERRIDES	 = nvidia-vdpau-driver libcuda1 nvidia-libopencl1
+IA32_OVERRIDES	 = nvidia-vdpau-driver libcuda1
 GEN_IA32_OVERRIDES := $(foreach p,$(IA32_OVERRIDES),$(if $(wildcard debian/$p.lintian-overrides*),$p))
 TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in debian/detect/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
