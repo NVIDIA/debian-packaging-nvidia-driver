@@ -20,6 +20,7 @@ nvidia-graphics-drivers (290.10-1) UNRELEASED; urgency=low
     - Fixed a regression that caused blank/white windows when exhausting video
       memory on GeForce 6 and 7 series GPUs while using composited
       desktops.  (Closes: #646975)
+  * Update lintian overrides.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 23 Nov 2011 02:04:37 +0100
 
