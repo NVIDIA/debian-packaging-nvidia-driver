@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (290.10-2) UNRELEASED; urgency=low
+
+  * Fix debian/module/debian/kernel-version to report the correct version for
+    using in the package name.  Try $KSRC/include/generated/utsrelease.h
+    before $KSRC/include/config/kernel.release (which has chenaged in 3.1).
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 29 Nov 2011 16:15:26 +0100
+
 nvidia-graphics-drivers (290.10-1) unstable; urgency=low
 
   * New upstream release 290.10 (2011-11-22).

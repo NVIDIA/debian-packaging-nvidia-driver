@@ -15,6 +15,16 @@ if ($line =~ /"(.+)"/) {
     $found = 1;
 }
 exit 0 if $found;
+if (open (VERSION, "$ksrc/include/generated/utsrelease.h")) {
+    if ($line = <VERSION>) {
+        if ($line =~ /UTS_RELEASE *"(.+)"/) {
+            print "$1\n";
+            $found = 1;
+        }
+    }
+}
+exit 0 if $found;
+# kernel.release is no longer useful since 3.1.0
 unless (open (VERSION, "$ksrc/include/config/kernel.release")) {
     exit 0;
 }
