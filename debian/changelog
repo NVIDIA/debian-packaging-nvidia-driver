@@ -1,3 +1,28 @@
+nvidia-graphics-drivers (295.09-1) UNRELEASED; urgency=low
+
+  * New upstream beta 295.09 (2011-12-27).
+    - Fixed an OpenGL bug where using display lists on Fermi-based GPUs
+      could result in missing rendering in some cases.
+    - Fixed an OpenGL bug that caused incorrect rendering when using
+      framebuffer objects to render to 16-bit color textures with
+      alpha.
+    - Added support for the following GPU: Tesla X2090.
+    - Fixed two bugs that caused sporadic application crashes in some multi-
+      threaded OpenGL applications.
+    - Fixed a bug that caused creating OpenGL 4.2 contexts
+      with glXCreateContextAttribsARB to fail.
+    - Fixed a bug that caused OpenGL to print
+        Xlib:  extension "NV-GLX" missing on display ":0".
+      when used with a non-NVIDIA implementation of the GLX X extension.
+    - Implemented color depth 30 (10 bits per component) support for GeForce 8
+      series and higher GPUs.
+    - Implemented support for constraining cursors to the visible regions of
+      connected displays; see the "ConstrainCursor" X Option in the README for
+      details.
+  * Upload to experimental.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 02 Jan 2012 18:59:52 +0100
+
 nvidia-graphics-drivers (290.10-2) UNRELEASED; urgency=low
 
   * Fix debian/module/debian/kernel-version to report the correct version for
