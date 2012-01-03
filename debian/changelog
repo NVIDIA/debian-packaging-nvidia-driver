@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (295.09-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (295.09-1) experimental; urgency=low
 
   * New upstream beta 295.09 (2011-12-27).
     - Fixed an OpenGL bug where using display lists on Fermi-based GPUs
@@ -26,16 +26,11 @@ nvidia-graphics-drivers (295.09-1) UNRELEASED; urgency=low
   * Update lintian overrides.
   * nvidia-detect: Add IDs for the 275.xx package in squeeze-backports and
     suggest the backported package for newer GPUs that don't work in squeeze.
-
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 02 Jan 2012 18:59:52 +0100
-
-nvidia-graphics-drivers (290.10-2) UNRELEASED; urgency=low
-
   * Fix debian/module/debian/kernel-version to report the correct version for
     using in the package name.  Try $KSRC/include/generated/utsrelease.h
-    before $KSRC/include/config/kernel.release (which has chenaged in 3.1).
+    before $KSRC/include/config/kernel.release (which has changed in 3.1).
 
- -- Andreas Beckmann <debian@abeckmann.de>  Tue, 29 Nov 2011 16:15:26 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 03 Jan 2012 16:02:43 +0100
 
 nvidia-graphics-drivers (290.10-1) unstable; urgency=low
 
