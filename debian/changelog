@@ -24,6 +24,8 @@ nvidia-graphics-drivers (295.09-1) UNRELEASED; urgency=low
   * Update symbols control files.
   * Update nv-readme.ids.
   * Update lintian overrides.
+  * nvidia-detect: Add IDs for the 275.xx package in squeeze-backports and
+    suggest the backported package for newer GPUs that don't work in squeeze.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 02 Jan 2012 18:59:52 +0100
 
