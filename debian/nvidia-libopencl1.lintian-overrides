@@ -1,6 +1,5 @@
 # The NVIDIA license does not allow any form of modification.
 shlib-with-executable-stack
-[i386]: shlib-with-non-pic-code
 
 # There are multiple vendors providing this library.
 package-name-doesnt-match-sonames libOpenCL1

@@ -20,6 +20,10 @@ nvidia-graphics-drivers (295.09-1) UNRELEASED; urgency=low
       connected displays; see the "ConstrainCursor" X Option in the README for
       details.
   * Upload to experimental.
+  * Refresh use-nv-kernel.o.ARCH.patch.
+  * Update symbols control files.
+  * Update nv-readme.ids.
+  * Update lintian overrides.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 02 Jan 2012 18:59:52 +0100
 
