@@ -6,6 +6,7 @@ nvidia-graphics-drivers (295.17-1) UNRELEASED; urgency=low
     * Added support for xserver 1.11.99.901 (also known as 1.12 RC1).
   * Add xorg-video-abi-12 as alternative dependency and bump xserver-xorg-core
     dependency accordingly.
+  * Bump debhelper dependency to 9.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 03 Feb 2012 20:26:21 +0100
 
