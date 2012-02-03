@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (295.17-1) UNRELEASED; urgency=low
+
+  * New upstream beta 295.17 (2012-01-31).
+    - Fixed a bug that prevented the internal panel from working on some
+      laptops with GeForce 7 series GPUs.
+    * Added support for xserver 1.11.99.901 (also known as 1.12 RC1).
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 03 Feb 2012 20:26:21 +0100
+
 nvidia-graphics-drivers (295.09-1) experimental; urgency=low
 
   * New upstream beta 295.09 (2011-12-27).
