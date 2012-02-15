@@ -197,6 +197,7 @@ build-kernel-source-tree: install-into-tmp
 	cp -a debian/copyright $(module_source)/debian/
 	cp -a debian/bug-script $(module_source)/debian/
 	cp -a debian/bug-control $(module_source)/debian/
+	echo "Submit-As: nvidia-kernel$(legacy)-source" >> $(module_source)/debian/bug-control
 
 	# Fix permissions.
 	chmod -R a-sx,u=rwX,go=rX $(module_source)/../..
