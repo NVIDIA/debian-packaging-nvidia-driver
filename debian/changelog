@@ -1,10 +1,10 @@
-nvidia-graphics-drivers (295.20-1+exp1) unstable; urgency=low
+nvidia-graphics-drivers (295.20-1+exp1) experimental; urgency=low
 
   * Upload to experimental.
   * Add xorg-video-abi-12 as alternative dependency and bump xserver-xorg-core
-    dependency accordingly.
+    dependency accordingly to be usable with Xorg Xserver 1.12 RC1.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 15 Feb 2012 22:34:38 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 15 Feb 2012 22:46:48 +0100
 
 nvidia-graphics-drivers (295.20-1) unstable; urgency=low
 
