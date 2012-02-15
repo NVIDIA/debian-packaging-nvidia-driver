@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (295.20-1+exp1) unstable; urgency=low
+
+  * Upload to experimental.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 15 Feb 2012 22:34:38 +0100
+
 nvidia-graphics-drivers (295.20-1) unstable; urgency=low
 
   * New upstream release 295.20 (2012-02-13).  (Closes: #659855)
