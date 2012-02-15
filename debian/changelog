@@ -18,6 +18,8 @@ nvidia-graphics-drivers (295.20-1) UNRELEASED; urgency=low
   * Bump debhelper dependency to 9.
   * Redirect bug reports against module binary packages to
     nvidia-kernel-source.
+  * nvidia-đetect: Support querying a PCI ID given on the command line instead
+    of autodetecting an installed NVIDIA GPU.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 15 Feb 2012 14:26:12 +0100
 
