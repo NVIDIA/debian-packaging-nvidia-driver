@@ -21,6 +21,7 @@ nvidia-graphics-drivers (295.20-1) UNRELEASED; urgency=low
     nvidia-kernel-source.
   * nvidia-đetect: Support querying a PCI ID given on the command line instead
     of autodetecting an installed NVIDIA GPU.
+  * Add some notes about the 'EQ overflowing...' error to the README.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 15 Feb 2012 14:26:12 +0100
 

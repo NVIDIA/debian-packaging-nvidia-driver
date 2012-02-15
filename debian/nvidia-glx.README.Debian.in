@@ -44,6 +44,15 @@ See /usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz
 for descriptions of all supported NVIDIA driver specific options.
 
 
+NOTES ABOUT 'EQ overflowing. The server is probably stuck in an infinite loop.'
+-----------------------------------------------------------------------
+
+If you see this error in /var/log/Xorg.0.log, please ensure that the versions
+of linux-image-* and the corresponding linux-headers-* are identical up to
+the last digit.  Rebuild the module for this exactly matching kernel+header
+pair and reboot.  See http://bugs.debian.org/642497 for details.
+
+
 NOTES ABOUT XEN:
 -----------------------------------------------------------------------
 
