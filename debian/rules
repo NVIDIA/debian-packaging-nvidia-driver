@@ -277,6 +277,7 @@ override_dh_gencontrol:
 # in a way other than unzipping of compressed files.
 override_dh_strip:
 
+############################################################################
 
 # Generating control files
 %:: %.in debian/rules debian/rules.defs
@@ -305,6 +306,7 @@ ifneq (,$(legacy))
 $(foreach p,$(CONTROL_PREFIXES),$(eval $(call rename-template,$p)))
 endif
 
+############################################################################
 
 # only invoked manually
 %.txt: %.list
@@ -330,6 +332,7 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 		grep ^$$id pci.ids.nvidia || echo $$id ; \
 	done > $@
 
+############################################################################
 
 prepare-squeeze-backport:
 	echo 8 > debian/compat
@@ -344,6 +347,7 @@ prepare-squeeze-backport:
 	debchange --bpo "Disable multiarch build."
 	debchange "Reduce Build-Depends: debhelper and compat level to 8."
 
+############################################################################
 
 .PHONY: get-orig-source
 get-orig-source:
