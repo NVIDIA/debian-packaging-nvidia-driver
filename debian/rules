@@ -134,7 +134,7 @@ compare-copyright-license: LICENSE.txt
 
 .PHONY: binary binary-arch binary-indep build clean install
 binary binary-arch binary-indep build clean install:
-	dh $@
+	dh $@ --with dkms
 
 override_dh_auto_clean:
 	rm -f NVIDIA-Linux-i386 NVIDIA-Linux-amd64 NVIDIA-Linux
@@ -219,7 +219,6 @@ build-kernel-dkms-tree: build-kernel-source-tree
 	    && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2 \
 	    && rm -rf .pc debian
 	ls -la $(dkms_source)
-	dh_dkms -V $(version)
 
 # This target is not used by the package build process.  You can use it if
 # you want to work with the patches that get applied to the module source.
@@ -233,6 +232,9 @@ override_dh_install:
 
 override_dh_installchangelogs:
 	dh_installchangelogs debian/tmp/NVIDIA_Changelog
+
+override_dh_dkms:
+	dh_dkms -V $(version)
 
 override_dh_bugfiles:
 	dh_bugfiles -A

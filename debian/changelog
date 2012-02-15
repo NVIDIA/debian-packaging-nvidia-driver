@@ -16,6 +16,7 @@ nvidia-graphics-drivers (295.20-1) UNRELEASED; urgency=low
       laptops with GeForce 7 series GPUs.
     * Added support for xserver 1.11.99.901 (also known as 1.12 RC1).
   * Bump debhelper dependency to 9.
+  * debian/rules: Switch to dh --with dkms.
   * Redirect bug reports against module binary packages to
     nvidia-kernel-source.
   * nvidia-đetect: Support querying a PCI ID given on the command line instead
