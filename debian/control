@@ -225,7 +225,7 @@ Multi-Arch: allowed
 Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
- dkms,
+ dkms (>> 2.1),
  nvidia-kernel-common (>= 20110213),
  ${misc:Depends}
 Recommends:
