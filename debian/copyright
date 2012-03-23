@@ -1,4 +1,4 @@
-Format: http://anonscm.debian.org/viewvc/dep/web/deps/dep5.mdwn?revision=202&view=co
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: NVIDIA Linux Display Drivers
 Upstream-Contact: NVIDIA Corporation <linux-bugs@nvidia.com>
 Source:

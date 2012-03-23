@@ -34,6 +34,7 @@ nvidia-graphics-drivers (295.33-1) UNRELEASED; urgency=low
   * Update symbols control files.
   * Add xorg-video-abi-12 as alternative dependency and bump xserver-xorg-core
     dependency accordingly to be usable with Xorg Xserver 1.12 RC1.
+  * Use the final copyright-format/1.0 URL.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 16 Feb 2012 11:38:23 +0100
 
