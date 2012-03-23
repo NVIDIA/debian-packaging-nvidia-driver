@@ -31,6 +31,7 @@ nvidia-graphics-drivers (295.33-1) UNRELEASED; urgency=low
       an X server was started.
   * Add missing upstream changelog entries in 295.20 and earlier releases.
   * Update nv-readme.ids.
+  * Update symbols control files.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 16 Feb 2012 11:38:23 +0100
 

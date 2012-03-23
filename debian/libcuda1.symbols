@@ -23,6 +23,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuCtxGetCurrent@Base 270
  cuCtxGetDevice@Base 177
  cuCtxGetLimit@Base 256
+ cuCtxGetSharedMemConfig@Base 295.33
  cuCtxPopCurrent@Base 177
  cuCtxPopCurrent_v2@Base 270
  cuCtxPushCurrent@Base 177
@@ -30,6 +31,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuCtxSetCacheConfig@Base 260
  cuCtxSetCurrent@Base 270
  cuCtxSetLimit@Base 256
+ cuCtxSetSharedMemConfig@Base 295.33
  cuCtxSynchronize@Base 169
  cuDeviceCanAccessPeer@Base 270
  cuDeviceComputeCapability@Base 169
@@ -53,6 +55,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuFuncGetAttribute@Base 185
  cuFuncSetBlockShape@Base 169
  cuFuncSetCacheConfig@Base 195.30
+ cuFuncSetSharedMemConfig@Base 295.33
  cuFuncSetSharedSize@Base 169
  cuGLCtxCreate@Base 177
  cuGLCtxCreate_v2@Base 260
