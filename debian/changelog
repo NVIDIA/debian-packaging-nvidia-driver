@@ -32,6 +32,8 @@ nvidia-graphics-drivers (295.33-1) UNRELEASED; urgency=low
   * Add missing upstream changelog entries in 295.20 and earlier releases.
   * Update nv-readme.ids.
   * Update symbols control files.
+  * Add xorg-video-abi-12 as alternative dependency and bump xserver-xorg-core
+    dependency accordingly to be usable with Xorg Xserver 1.12 RC1.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 16 Feb 2012 11:38:23 +0100
 
