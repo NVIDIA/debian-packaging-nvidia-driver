@@ -1,6 +1,36 @@
-nvidia-graphics-drivers (295.20-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (295.33-1) UNRELEASED; urgency=low
 
-  * Add missing upstream changelog entries.
+  * New upstream long-lived branch release 295.33 (2012-03-22).
+    - Added support for the following GPUs: GeForce GTX 680, GeForce GT 630M,
+      GeForce GT 620.
+    - Fixed a VDPAU bug where decoding some H.264 streams would cause hardware
+      errors on lower-end products, resulting in corruption and poor
+      performance.
+    - Fixed a bug that caused DisplayPort audio to stop working after monitors
+      are hotplugged on GeForce GT 520.
+    - Improved compatibility with recent Linux kernels.
+    - Fixed a behavior change that prevented ConnectedMonitor from being usable
+      with DisplayPort connectors.
+    - Marked the GVO Clone mode NV-CONTROL attributes:
+        NV_CTRL_GVO_DISPLAY_X_SCREEN
+        NV_CTRL_GVO_X_SCREEN_PAN_X
+        NV_CTRL_GVO_X_SCREEN_PAN_Y
+      as deprecated.  They will be removed in a future release.  To display
+      an X screen over GVO, it is recommended to use GVO with MetaModes,
+      instead.
+    - Fixed a bug that caused DisplayPort devices to not be listed in
+      Xorg.*.log.  For example, if only DisplayPort devices are attached, the
+      log file would contain
+        (--) NVIDIA(0): Connected display device(s) on NVIDIA GPU at PCI:2:0:0
+        (--) NVIDIA(0):     none
+    - Added support for 3D Vision ready displays that have a NVIDIA 3D Vision
+      infrared emitter built inside the panel itself.
+    - Fixed a bug that caused OpenGL applications to crash with some libc
+      versions, such as eglibc 2.15.  (Closes: #660189)
+    - Fixed a bug that caused HDMI audio to stop working on AppleTV devices when
+      an X server was started.
+  * Add missing upstream changelog entries in 295.20 and earlier releases.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 16 Feb 2012 11:38:23 +0100
 
@@ -20,7 +50,7 @@ nvidia-graphics-drivers (295.20-1) unstable; urgency=low
     - Fixed a bug that could cause some OpenGL applications (including
       desktop environments like KDE and GNOME Shell) to hang.
     - Fixed a bug that prevented the internal panel from working on some
-      laptops with GeForce 7 series GPUs.
+      laptops with GeForce 7 series GPUs.  (Closes: #652995)
   * New upstream release 275 series.
     - Added support for the following GPU: NVS 5200M
     - Added support for deleting SDI audio ancillary data packets when a video
