@@ -14,7 +14,7 @@ Disclaimer:
 
 Files: *
 Copyright: 1993-2011 NVIDIA Corporation.  All rights reserved.
-License: NVIDIA-graphics-drivers and NVIDIA-notes
+License: NVIDIA-graphics-drivers
 
 Files: debian/*
 Copyright: 2001-2010 Randall Donald <rdonald@debian.org>
@@ -42,60 +42,6 @@ License: GPL-2+
  On Debian systems, the full text of the GNU General Public
  License version 2 can be found in the file
  `/usr/share/common-licenses/GPL-2'.
-
-License: NVIDIA-notes
- First a note from the README file
- .
- Q: Why does NVIDIA not provide rpms anymore?
- .
- A: Not every Linux distribution uses rpm, and NVIDIA wanted a single
-    solution that would work across all Linux distributions.  As indicated
-    in the NVIDIA Software License, Linux distributions are welcome to
-    repackage and redistribute the NVIDIA Linux driver in whatever package
-    format they wish.
- .
- Furthermore, an email from NVIDIA:
- .
- Greetings, Randall!  Comments below:
- .
- On 30 Jul 2003, Randall Donald wrote:
- .
- > To whom it may concern,
- >
- > My name is Randall Donald and I am the maintainer for the Debian
- > downloader packages nvidia-glx-src and nvidia-kernel-src.
- > As stated in your license and the README file
- > ( "As indicated in the NVIDIA Software License, Linux distributions
- >   are welcome to repackage and redistribute the NVIDIA Linux driver in
- >   whatever package format they wish." )
- > I wish to include packages containing the Linux driver files in the
- > Debian archive.  I'd like to know if it is legally permitted to
- > distribute binary kernel modules compiled from the NVIDIA kernel module
- > source and Debian kernel headers.
- .
- This is fine; thanks for asking.
- .
- > I am also wondering if the "No Separation of Components" clause
- > ( No Separation of Components.  The SOFTWARE is licensed as a
- >   single product.  Its component parts may not be separated for use
- >   on more than one computer, nor otherwise used separately from the
- >   other parts.)
- > applies to splitting the glx driver and kernel module source into
- > multiple binary packages.
- .
- This is also fine.  I believe this section of the license was
- intended to prevent users from doing things like using our Windows
- control panel with a competitor's display driver (that's not actually
- possible, but you get the idea...).  In the case of separating the
- driver into a glx package and a kernel package (like we used to
- do ourselves), this is simply a packaging issue; of course users
- will use the packages together when they install.
- .
- Please feel free to redistribute the NVIDIA graphics driver.
- .
- Thank you for doing this for the NVIDIA+Debian community!
- .
- - Andy
 
 License: NVIDIA-graphics-drivers
  License For Customer Use of NVIDIA Software
@@ -224,4 +170,57 @@ License: NVIDIA-graphics-drivers
  United States Bureau of Export Administration or any export laws,
  restrictions or regulations.  This LICENSE may only be modified in
  writing signed by an authorized officer of NVIDIA.
+Comment:
+ First a note from the README file
+ .
+ Q: Why does NVIDIA not provide rpms anymore?
+ .
+ A: Not every Linux distribution uses rpm, and NVIDIA wanted a single
+    solution that would work across all Linux distributions.  As indicated
+    in the NVIDIA Software License, Linux distributions are welcome to
+    repackage and redistribute the NVIDIA Linux driver in whatever package
+    format they wish.
+ .
+ Furthermore, an email from NVIDIA:
+ .
+ Greetings, Randall!  Comments below:
+ .
+ On 30 Jul 2003, Randall Donald wrote:
+ .
+ > To whom it may concern,
+ >
+ > My name is Randall Donald and I am the maintainer for the Debian
+ > downloader packages nvidia-glx-src and nvidia-kernel-src.
+ > As stated in your license and the README file
+ > ( "As indicated in the NVIDIA Software License, Linux distributions
+ >   are welcome to repackage and redistribute the NVIDIA Linux driver in
+ >   whatever package format they wish." )
+ > I wish to include packages containing the Linux driver files in the
+ > Debian archive.  I'd like to know if it is legally permitted to
+ > distribute binary kernel modules compiled from the NVIDIA kernel module
+ > source and Debian kernel headers.
+ .
+ This is fine; thanks for asking.
+ .
+ > I am also wondering if the "No Separation of Components" clause
+ > ( No Separation of Components.  The SOFTWARE is licensed as a
+ >   single product.  Its component parts may not be separated for use
+ >   on more than one computer, nor otherwise used separately from the
+ >   other parts.)
+ > applies to splitting the glx driver and kernel module source into
+ > multiple binary packages.
+ .
+ This is also fine.  I believe this section of the license was
+ intended to prevent users from doing things like using our Windows
+ control panel with a competitor's display driver (that's not actually
+ possible, but you get the idea...).  In the case of separating the
+ driver into a glx package and a kernel package (like we used to
+ do ourselves), this is simply a packaging issue; of course users
+ will use the packages together when they install.
+ .
+ Please feel free to redistribute the NVIDIA graphics driver.
+ .
+ Thank you for doing this for the NVIDIA+Debian community!
+ .
+ - Andy
 

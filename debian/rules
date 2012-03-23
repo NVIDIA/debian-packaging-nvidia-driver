@@ -126,7 +126,7 @@ LICENSE.txt: unpack-stamp
 
 # Compare the license in debian/copyright with the LICENSE shipped in the archive.
 compare-copyright-license: LICENSE.txt
-	sed -e '1,/^License: NVIDIA-graphics-drivers$$/d; /^$$/,$$d; /^ .$$/d' debian/copyright > copyright.tmp
+	sed -e '1,/^License: NVIDIA-graphics-drivers$$/d; 1,/^License: NVIDIA-graphics-drivers$$/d; /^$$\|^Comment:$$/,$$d; /^ .$$/d' debian/copyright > copyright.tmp
 	sed -e '/^ .$$/d' LICENSE.txt > LICENSE.tmp
 	diff -w copyright.tmp LICENSE.tmp
 	rm -f copyright.tmp LICENSE.tmp
