@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (295.33-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (295.33-1) unstable; urgency=low
 
   * New upstream long-lived branch release 295.33 (2012-03-22).
     - Added support for the following GPUs: GeForce GTX 680, GeForce GT 630M,
@@ -37,7 +37,7 @@ nvidia-graphics-drivers (295.33-1) UNRELEASED; urgency=low
   * Use the final copyright-format/1.0 URL.
   * Reorder debian/copyright and use the Comment: field for extra information.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 16 Feb 2012 11:38:23 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 23 Mar 2012 14:19:45 +0100
 
 nvidia-graphics-drivers (295.20-1) unstable; urgency=low
 
