@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (295.33-2) UNRELEASED; urgency=low
+
+  * New patch patch-3.0-rt-nvidia.patch taken from Arch Linux: enable building
+    the kernel module for RT kernels.  (Closes: #641654)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 04 Apr 2012 11:38:55 +0200
+
 nvidia-graphics-drivers (295.33-1) unstable; urgency=low
 
   * New upstream long-lived branch release 295.33 (2012-03-22).
