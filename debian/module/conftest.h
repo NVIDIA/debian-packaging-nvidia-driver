@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 280.13, 173.14.31, 96.43.20, 71.86.15 */
+/* synchronized with conftest.sh from 295.33, 173.14.31, 96.43.20, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -17,11 +17,15 @@
  #undef NV_REMAP_PAGE_RANGE_PRESENT
 #endif
 
+/* Implement conftest.sh function set_memory_uc */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
+ #define NV_SET_MEMORY_UC_PRESENT
+#else
+ #undef NV_SET_MEMORY_UC_PRESENT
+#endif
+
 /* Implement conftest.sh function set_pages_uc */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
- #ifdef NV_CHANGE_PAGE_ATTR_PRESENT
-  #undef NV_CHANGE_PAGE_ATTR_PRESENT
- #endif
  #define NV_SET_PAGES_UC_PRESENT
 #else
  #undef NV_SET_PAGES_UC_PRESENT
@@ -29,10 +33,8 @@
 
 /* Implement conftest.sh function change_page_attr */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,4,20) && \
-               LINUX_VERSION_CODE < KERNEL_VERSION(2,6,25)
- #ifndef NV_SET_PAGES_UC_PRESENT
-  #define NV_CHANGE_PAGE_ATTR_PRESENT
- #endif
+               LINUX_VERSION_CODE <= KERNEL_VERSION(2,6,25)
+ #define NV_CHANGE_PAGE_ATTR_PRESENT
 #else
  #undef NV_CHANGE_PAGE_ATTR_PRESENT
 #endif
@@ -42,6 +44,13 @@
  #define NV_PCI_GET_CLASS_PRESENT
 #else
  #undef NV_PCI_GET_CLASS_PRESENT
+#endif
+
+/* Implement conftest.sh function pci_get_domain_bus_and_slot */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,33)
+ #define NV_PCI_GET_DOMAIN_BUS_AND_SLOT_PRESENT
+#else
+ #undef NV_PCI_GET_DOMAIN_BUS_AND_SLOT_PRESENT
 #endif
 
 /* Implement conftest.sh function remap_pfn_range */

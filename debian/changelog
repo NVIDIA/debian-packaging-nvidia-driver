@@ -1,3 +1,13 @@
+nvidia-graphics-drivers (295.33-3) UNRELEASED; urgency=low
+
+  * conftest.h:
+    - Implement new conftest.sh function pci_get_domain_bus_and_slot (290.06).
+    - Implement new conftest.sh function set_memory_uc and simplify functions
+      set_pages_uc, change_page_attr (295.09).
+    - Kernel versions of symbol (dis-)appearance from lxr.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 12 Apr 2012 14:11:53 +0200
+
 nvidia-graphics-drivers (295.33-2) unstable; urgency=low
 
   * New patch patch-3.0-rt-nvidia.patch taken from Arch Linux: support
