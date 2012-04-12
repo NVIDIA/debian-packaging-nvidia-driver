@@ -11,6 +11,7 @@ nvidia-graphics-drivers (295.40-1) UNRELEASED; urgency=low
       "AllowNon3DVisionModes", to allow modes that are not optimized for
       NVIDIA 3D Vision to be validated on 3D Vision monitors.
     - Added support for the following GPUs: GeForce GT 635M, GeForce 610M.
+  * Update nv-readme.ids.
   * conftest.h:
     - Implement new conftest.sh function pci_get_domain_bus_and_slot (290.06).
     - Implement new conftest.sh function set_memory_uc and simplify functions
