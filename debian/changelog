@@ -1,5 +1,16 @@
-nvidia-graphics-drivers (295.33-3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (295.40-1) UNRELEASED; urgency=low
 
+  * New upstream release 295.40 (2012-04-11).
+    - Closed a security vulnerability which made it possible for attackers to
+      reconfigure GPUs to gain access to arbitrary system memory. For further
+      details, see: http://nvidia.custhelp.com/app/answers/detail/a_id/3109
+      CVE-2012-0946
+    - Fixed a bug that caused DisplayPort devices to occasionally fail to turn
+      back on after the system is resumed from suspend.
+    - Added a ModeValidation X configuration option token,
+      "AllowNon3DVisionModes", to allow modes that are not optimized for
+      NVIDIA 3D Vision to be validated on 3D Vision monitors.
+    - Added support for the following GPUs: GeForce GT 635M, GeForce 610M.
   * conftest.h:
     - Implement new conftest.sh function pci_get_domain_bus_and_slot (290.06).
     - Implement new conftest.sh function set_memory_uc and simplify functions
@@ -9,7 +20,7 @@ nvidia-graphics-drivers (295.33-3) UNRELEASED; urgency=low
      has split and removed asm/system.h.  Based on patch from Antonio Ospite.
      (Closes: #667719)
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 12 Apr 2012 14:11:53 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 12 Apr 2012 19:11:39 +0200
 
 nvidia-graphics-drivers (295.33-2) unstable; urgency=low
 
