@@ -5,6 +5,9 @@ nvidia-graphics-drivers (295.33-3) UNRELEASED; urgency=low
     - Implement new conftest.sh function set_memory_uc and simplify functions
       set_pages_uc, change_page_attr (295.09).
     - Kernel versions of symbol (dis-)appearance from lxr.
+   * New patch kernel-3.4.patch to fix the module build with kernel 3.4 which
+     has split and removed asm/system.h.  Based on patch from Antonio Ospite.
+     (Closes: #667719)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 12 Apr 2012 14:11:53 +0200
 
