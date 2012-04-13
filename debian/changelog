@@ -12,6 +12,7 @@ nvidia-graphics-drivers (195.36.31-6squeeze1) stable-proposed-updates; urgency=m
   * Let the bug-script collect detailed information about OpenGL and NVIDIA
     libraries and their symlinks, diversions and alternatives currently found
     on the system.  Also list files remaining from using the nvidia-installer.
+    Report status of more related packages.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 13 Apr 2012 22:15:27 +0200
 
