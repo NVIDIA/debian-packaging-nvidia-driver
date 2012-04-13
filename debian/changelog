@@ -1,10 +1,10 @@
-nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
+nvidia-graphics-drivers (195.36.31-6squeeze1) stable-proposed-updates; urgency=medium
 
-  * Security fix.  (Closes: #609338)
+  * Security fix (backported from 195.36.31-7).  (Closes: #609338)
     Apply upstream patch NVIDIA_kernel-260.19.34-778465.diff to fix
     information leak in the kernel module: kernel memory was returned
     uninitialized to user space.
-  * CVE-2012-0946:
+  * CVE-2012-0946 (backported from 295.40-1):
     Add upstream patch nvidia-blacklist-register-mapping-195.diff:
     Closed a security vulnerability which made it possible for attackers to
     reconfigure GPUs to gain access to arbitrary system memory. For further
@@ -13,7 +13,7 @@ nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
     libraries and their symlinks, diversions and alternatives currently found
     on the system.  Also list files remaining from using the nvidia-installer.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Tue, 22 Feb 2011 20:35:45 +0000
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 13 Apr 2012 22:15:27 +0200
 
 nvidia-graphics-drivers (195.36.31-6) unstable; urgency=low
 
