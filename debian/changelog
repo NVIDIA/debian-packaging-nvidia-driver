@@ -9,8 +9,6 @@ nvidia-graphics-drivers (195.36.31-7) unstable; urgency=medium
     Closed a security vulnerability which made it possible for attackers to
     reconfigure GPUs to gain access to arbitrary system memory. For further
     details, see: http://nvidia.custhelp.com/app/answers/detail/a_id/3109
-  * Add instructions how to switch driver installation from the NVIDIA way
-    (running the *.run file) to the Debian way (using packages).
   * Let the bug-script collect detailed information about OpenGL and NVIDIA
     libraries and their symlinks, diversions and alternatives currently found
     on the system.  Also list files remaining from using the nvidia-installer.

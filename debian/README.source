@@ -14,7 +14,7 @@ Importing a New Upstream Release
 
     * Create a changelog entry for the new version
 
-          debchange --distribution UNRELEASED --newversion <version>-1
+          debchange --newversion <version>
 
     * Download the driver archives and create a new .orig.tar.gz
 
