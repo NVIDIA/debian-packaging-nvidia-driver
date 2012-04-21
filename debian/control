@@ -313,7 +313,7 @@ Conflicts:
  nvidia-libvdpau1-driver,
  nvidia-vdpau-driver-ia32 [i386],
 Breaks:
- libvdpau1 (<< 0.4),
+ libvdpau1 (<< 0.4.1-3)
  nvidia-glx (<< 180.51),
 Replaces:
  nvidia-glx (<< 180.51),
