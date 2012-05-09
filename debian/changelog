@@ -115,6 +115,7 @@ nvidia-graphics-drivers (302.07-1) unstable; urgency=low
       Configuration Page" of nvidia-settings, and added a new "Selection"
       dropdown menu for selecting X screens or display devices.  This
       makes it easier to select X screens/Displays that are hidden.
+  * Update symbols control files.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 09 May 2012 10:20:03 +0200
 

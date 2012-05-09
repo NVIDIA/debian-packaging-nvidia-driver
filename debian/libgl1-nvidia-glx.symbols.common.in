@@ -8,6 +8,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glActiveVaryingNV@Base 1.0.9746
  glAddSwapHintRectWIN@Base 1.0.4349
  glAlphaFunc@Base 1.0.4349
+ glAlphaFuncx@Base 302
  glAreProgramsResidentNV@Base 1.0.4349
  glAreTexturesResident@Base 1.0.4349
  glAreTexturesResidentEXT@Base 1.0.4349
@@ -102,9 +103,11 @@ libGL.so.1 #PACKAGE# #MINVER#
  glClearColor@Base 1.0.4349
  glClearColorIiEXT@Base 1.0.9746
  glClearColorIuiEXT@Base 1.0.9746
+ glClearColorx@Base 302
  glClearDepth@Base 1.0.4349
  glClearDepthdNV@Base 1.0.9746
  glClearDepthf@Base 260
+ glClearDepthx@Base 302
  glClearIndex@Base 1.0.4349
  glClearStencil@Base 1.0.4349
  glClientActiveTexture@Base 1.0.4349
@@ -113,6 +116,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glClientWaitSync@Base 190.18.05
  glClientWaitSyncValueuiNVX@Base 285
  glClipPlane@Base 1.0.4349
+ glClipPlanef@Base 302
+ glClipPlanex@Base 302
  glColor3b@Base 1.0.4349
  glColor3bv@Base 1.0.4349
  glColor3d@Base 1.0.4349
@@ -131,6 +136,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glColor3uiv@Base 1.0.4349
  glColor3us@Base 1.0.4349
  glColor3usv@Base 1.0.4349
+ glColor3x@Base 302
  glColor4b@Base 1.0.4349
  glColor4bv@Base 1.0.4349
  glColor4d@Base 1.0.4349
@@ -149,6 +155,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glColor4uiv@Base 1.0.4349
  glColor4us@Base 1.0.4349
  glColor4usv@Base 1.0.4349
+ glColor4x@Base 302
  glColorFormatNV@Base 185
  glColorMask@Base 1.0.4349
  glColorMaskIndexedEXT@Base 1.0.9746
@@ -288,6 +295,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glDepthRangeIndexeddNV@Base 260
  glDepthRangedNV@Base 1.0.9746
  glDepthRangef@Base 260
+ glDepthRangex@Base 302
  glDetachObjectARB@Base 1.0.6106
  glDetachShader@Base 1.0.7664
  glDisable@Base 1.0.4349
@@ -400,6 +408,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glFogfv@Base 1.0.4349
  glFogi@Base 1.0.4349
  glFogiv@Base 1.0.4349
+ glFogx@Base 302
+ glFogxv@Base 302
  glFramebufferDrawBufferEXT@Base 180
  glFramebufferDrawBuffersEXT@Base 180
  glFramebufferReadBufferEXT@Base 180
@@ -422,6 +432,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glFramebufferTextureLayerEXT@Base 1.0.9746
  glFrontFace@Base 1.0.4349
  glFrustum@Base 1.0.4349
+ glFrustumf@Base 302
+ glFrustumx@Base 302
  glGenBuffers@Base 1.0.6106
  glGenBuffersARB@Base 1.0.4349
  glGenFencesNV@Base 1.0.4349
@@ -480,6 +492,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetBufferSubData@Base 1.0.6106
  glGetBufferSubDataARB@Base 1.0.4349
  glGetClipPlane@Base 1.0.4349
+ glGetClipPlanef@Base 302
+ glGetClipPlanex@Base 302
  glGetColorTable@Base 1.0.4349
  glGetColorTableEXT@Base 1.0.4349
  glGetColorTableParameterfv@Base 1.0.4349
@@ -508,6 +522,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetFenceivNV@Base 1.0.4349
  glGetFinalCombinerInputParameterfvNV@Base 1.0.4349
  glGetFinalCombinerInputParameterivNV@Base 1.0.4349
+ glGetFixedv@Base 302
  glGetFloatIndexedvEXT@Base 180
  glGetFloati_v@Base 260
  glGetFloati_vEXT@Base 185
@@ -535,11 +550,13 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetInternalformativ@Base 285
  glGetLightfv@Base 1.0.4349
  glGetLightiv@Base 1.0.4349
+ glGetLightxv@Base 302
  glGetMapdv@Base 1.0.4349
  glGetMapfv@Base 1.0.4349
  glGetMapiv@Base 1.0.4349
  glGetMaterialfv@Base 1.0.4349
  glGetMaterialiv@Base 1.0.4349
+ glGetMaterialxv@Base 302
  glGetMinmax@Base 1.0.4349
  glGetMinmaxParameterfv@Base 1.0.4349
  glGetMinmaxParameteriv@Base 1.0.4349
@@ -658,6 +675,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetSyncv64NVX@Base 285
  glGetTexEnvfv@Base 1.0.4349
  glGetTexEnviv@Base 1.0.4349
+ glGetTexEnvxv@Base 302
  glGetTexGendv@Base 1.0.4349
  glGetTexGenfv@Base 1.0.4349
  glGetTexGeniv@Base 1.0.4349
@@ -671,6 +689,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetTexParameterIuivEXT@Base 1.0.9746
  glGetTexParameterfv@Base 1.0.4349
  glGetTexParameteriv@Base 1.0.4349
+ glGetTexParameterxv@Base 302
  glGetTextureHandleNV@Base 290
  glGetTextureImageEXT@Base 180
  glGetTextureLevelParameterfvEXT@Base 180
@@ -816,18 +835,24 @@ libGL.so.1 #PACKAGE# #MINVER#
  glLightModelfv@Base 1.0.4349
  glLightModeli@Base 1.0.4349
  glLightModeliv@Base 1.0.4349
+ glLightModelx@Base 302
+ glLightModelxv@Base 302
  glLightf@Base 1.0.4349
  glLightfv@Base 1.0.4349
  glLighti@Base 1.0.4349
  glLightiv@Base 1.0.4349
+ glLightx@Base 302
+ glLightxv@Base 302
  glLineStipple@Base 1.0.4349
  glLineWidth@Base 1.0.4349
+ glLineWidthx@Base 302
  glLinkProgram@Base 1.0.7664
  glLinkProgramARB@Base 1.0.6106
  glListBase@Base 1.0.4349
  glLoadIdentity@Base 1.0.4349
  glLoadMatrixd@Base 1.0.4349
  glLoadMatrixf@Base 1.0.4349
+ glLoadMatrixx@Base 302
  glLoadName@Base 1.0.4349
  glLoadProgramNV@Base 1.0.4349
  glLoadTransformEXT@Base 1.0.7664
@@ -864,6 +889,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glMaterialfv@Base 1.0.4349
  glMateriali@Base 1.0.4349
  glMaterialiv@Base 1.0.4349
+ glMaterialx@Base 302
+ glMaterialxv@Base 302
  glMatrixFrustumEXT@Base 180
  glMatrixLoadIdentityEXT@Base 180
  glMatrixLoadTransposedEXT@Base 180
@@ -891,6 +918,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glMinmax@Base 1.0.4349
  glMultMatrixd@Base 1.0.4349
  glMultMatrixf@Base 1.0.4349
+ glMultMatrixx@Base 302
  glMultTransformEXT@Base 1.0.7664
  glMultTransposeMatrixd@Base 1.0.4349
  glMultTransposeMatrixdARB@Base 1.0.4349
@@ -898,9 +926,11 @@ libGL.so.1 #PACKAGE# #MINVER#
  glMultTransposeMatrixfARB@Base 1.0.4349
  glMultiDrawArrays@Base 1.0.4349
  glMultiDrawArraysEXT@Base 1.0.4349
+ glMultiDrawArraysIndirectAMD@Base 302
  glMultiDrawElements@Base 1.0.4349
  glMultiDrawElementsBaseVertex@Base 190.18.05
  glMultiDrawElementsEXT@Base 1.0.4349
+ glMultiDrawElementsIndirectAMD@Base 302
  glMultiTexBufferEXT@Base 180
  glMultiTexCoord1d@Base 1.0.4349
  glMultiTexCoord1dARB@Base 1.0.4349
@@ -920,6 +950,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glMultiTexCoord1sARB@Base 1.0.4349
  glMultiTexCoord1sv@Base 1.0.4349
  glMultiTexCoord1svARB@Base 1.0.4349
+ glMultiTexCoord1x@Base 302
+ glMultiTexCoord1xv@Base 302
  glMultiTexCoord2d@Base 1.0.4349
  glMultiTexCoord2dARB@Base 1.0.4349
  glMultiTexCoord2dv@Base 1.0.4349
@@ -938,6 +970,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glMultiTexCoord2sARB@Base 1.0.4349
  glMultiTexCoord2sv@Base 1.0.4349
  glMultiTexCoord2svARB@Base 1.0.4349
+ glMultiTexCoord2x@Base 302
+ glMultiTexCoord2xv@Base 302
  glMultiTexCoord3d@Base 1.0.4349
  glMultiTexCoord3dARB@Base 1.0.4349
  glMultiTexCoord3dv@Base 1.0.4349
@@ -956,6 +990,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glMultiTexCoord3sARB@Base 1.0.4349
  glMultiTexCoord3sv@Base 1.0.4349
  glMultiTexCoord3svARB@Base 1.0.4349
+ glMultiTexCoord3x@Base 302
+ glMultiTexCoord3xv@Base 302
  glMultiTexCoord4d@Base 1.0.4349
  glMultiTexCoord4dARB@Base 1.0.4349
  glMultiTexCoord4dv@Base 1.0.4349
@@ -974,6 +1010,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glMultiTexCoord4sARB@Base 1.0.4349
  glMultiTexCoord4sv@Base 1.0.4349
  glMultiTexCoord4svARB@Base 1.0.4349
+ glMultiTexCoord4x@Base 302
+ glMultiTexCoord4xv@Base 302
  glMultiTexCoordP1ui@Base 256
  glMultiTexCoordP1uiv@Base 256
  glMultiTexCoordP2ui@Base 256
@@ -1045,12 +1083,15 @@ libGL.so.1 #PACKAGE# #MINVER#
  glNormal3iv@Base 1.0.4349
  glNormal3s@Base 1.0.4349
  glNormal3sv@Base 1.0.4349
+ glNormal3x@Base 302
  glNormalFormatNV@Base 185
  glNormalP3ui@Base 256
  glNormalP3uiv@Base 256
  glNormalPointer@Base 1.0.4349
  glNormalPointerEXT@Base 1.0.4349
  glOrtho@Base 1.0.4349
+ glOrthof@Base 302
+ glOrthox@Base 302
  glPassThrough@Base 1.0.4349
  glPatchParameterfv@Base 256
  glPatchParameterfvNV@Base 195
@@ -1097,9 +1138,14 @@ libGL.so.1 #PACKAGE# #MINVER#
  glPointParameteriNV@Base 1.0.4349
  glPointParameteriv@Base 1.0.4349
  glPointParameterivNV@Base 1.0.4349
+ glPointParameterx@Base 302
+ glPointParameterxv@Base 302
  glPointSize@Base 1.0.4349
+ glPointSizePointerOES@Base 302
+ glPointSizex@Base 302
  glPolygonMode@Base 1.0.4349
  glPolygonOffset@Base 1.0.4349
+ glPolygonOffsetx@Base 302
  glPolygonStipple@Base 1.0.4349
  glPopAttrib@Base 1.0.4349
  glPopClientAttrib@Base 1.0.4349
@@ -1318,8 +1364,10 @@ libGL.so.1 #PACKAGE# #MINVER#
  glResumeTransformFeedbackNV@Base 165
  glRotated@Base 1.0.4349
  glRotatef@Base 1.0.4349
+ glRotatex@Base 302
  glSampleCoverage@Base 1.0.4349
  glSampleCoverageARB@Base 1.0.4349
+ glSampleCoveragex@Base 302
  glSampleMaskIndexedNV@Base 177
  glSampleMaski@Base 190.18.05
  glSamplerParameterIiv@Base 256
@@ -1330,6 +1378,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glSamplerParameteriv@Base 256
  glScaled@Base 1.0.4349
  glScalef@Base 1.0.4349
+ glScalex@Base 302
  glScissor@Base 1.0.4349
  glScissorArrayv@Base 260
  glScissorIndexed@Base 260
@@ -1453,6 +1502,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTexEnvfv@Base 1.0.4349
  glTexEnvi@Base 1.0.4349
  glTexEnviv@Base 1.0.4349
+ glTexEnvx@Base 302
+ glTexEnvxv@Base 302
  glTexGend@Base 1.0.4349
  glTexGendv@Base 1.0.4349
  glTexGenf@Base 1.0.4349
@@ -1476,6 +1527,8 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTexParameterfv@Base 1.0.4349
  glTexParameteri@Base 1.0.4349
  glTexParameteriv@Base 1.0.4349
+ glTexParameterx@Base 302
+ glTexParameterxv@Base 302
  glTexRenderbufferNV@Base 177
  glTexStorage1D@Base 285
  glTexStorage1DEXT@Base 285
@@ -1518,6 +1571,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTransformPathNV@Base 275
  glTranslated@Base 1.0.4349
  glTranslatef@Base 1.0.4349
+ glTranslatex@Base 302
  glUniform1d@Base 256
  glUniform1dv@Base 256
  glUniform1f@Base 1.0.7664
