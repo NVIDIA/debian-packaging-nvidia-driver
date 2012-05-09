@@ -1,8 +1,16 @@
-nvidia-graphics-drivers (295.40-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (295.49-1) UNRELEASED; urgency=low
 
+  * New upstream long-lived branch release 295.49 (2012-05-03).
+    - Added support for the following GPU: GeForce GTX 690.
+    - Fixed a problem where starting, stopping, and moving OpenGL application
+      windows was very slow on Quadro FX 4600, Quadro FX 5600, GeForce 8800
+      GTX, GeForce 8800 GTS, and GeForce 8800 Ultra.
+    - Fixed an OpenGL performance regression which affected Geforce 6 and
+      Geforce 7 series integrated GPUs.  (Closes: #668854)
+  * Update nv-readme.ids.
   * nvidia-vdpau-driver: Add Breaks against pre-multiarch libvdpau1.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 21 Apr 2012 13:41:56 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 09 May 2012 09:11:10 +0200
 
 nvidia-graphics-drivers (295.40-1) unstable; urgency=medium
 
