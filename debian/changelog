@@ -1,3 +1,123 @@
+nvidia-graphics-drivers (302.07-1) unstable; urgency=low
+
+  * New upstream beta 302.07 (2012-05-02).
+    - Fixed a bug that caused OpenGL programs to leak file descriptors
+      when calling exec() on themselves.
+    - Fixed rendering corruption at the start of new X server generation.
+      (Closes: #651155)
+    - Added X driver support for RandR 1.2 and RandR 1.3.  See "Support
+      for the X Resize and Rotate Extension" in the README for details.
+    - Extended the MetaMode X configuration option syntax with the
+      following new attributes:
+        "Rotation"    : specifies the display device's rotation
+        "Reflection"  : specifies the display device's reflection
+        "Transform"   : specifies a 3x3 transformation matrix to be
+                        applied to the display device
+        "ViewPortOut" : specifies the region of the mode in which to
+                        display pixels
+        "ViewPortIn"  : specifies the size of the region in the X screen
+                        to display in the ViewPortOut
+      For example, "DFP-0: nvidia-auto-select { Rotation=left }".
+      See "Configuring Multiple Display Devices on One X Screen" in the
+      README for details.
+    - Removed the "TwinView" X configuration option; the functionality
+      it provided is now enabled by default.
+      Previously, the NVIDIA X driver only enabled one display device
+      for an X screen unless "TwinView" was enabled.  Now, the NVIDIA
+      X driver enables, by default, as many display devices as the
+      GPU supports driving simultaneously.  To limit how many display
+      devices are driven by an X screen, use the "UseDisplayDevice"
+      X configuration option.
+    - Added a "CurrentMetaMode" attribute to the nvidia-settings command
+      line, to query and set the current MetaMode.
+      As an example, these two commands are equivalent:
+        xrandr --output DVI-I-2 --mode 1280x1024 --pos 0x0 \
+               --output DVI-I-3 --mode 1920x1200 --pos 1280x0
+        nvidia-settings --assign CurrentMetaMode=\
+                "DVI-I-2: 1280x1024 +0+0, DVI-I-3: 1920x1200 +1280+0"
+    - Removed overscan compensation configurability from NV-CONTROL and
+      nvidia-settings. This can be configured, with finer granularity,
+      through the ViewPortIn and ViewPortOut MetaMode attributes.
+      See "Configuring Multiple Display Devices on One X Screen" in the
+      README for details.
+    - Altered mode validation such that for digital display devices
+      the X driver only allows, by default, modes which are reported in
+      the EDID.  Previously, the NVIDIA X driver allowed other modes,
+      but implicitly scaled those other modes to one of the EDID modes.
+      Now, only the modes in the EDID are validated and the X driver
+      does not do any implicit scaling.  Any desired scaling can be
+      configured explicitly through the new "ViewPortIn" and "ViewPortOut"
+      MetaMode attributes.  See "Configuring Multiple Display Devices
+      on One X Screen" in the README for details.
+    - Removed Flat Panel Scaling configurability in nvidia-settings.
+      Any desired scaling can be configured through the new "ViewPortIn"
+      and "ViewPortOut" MetaMode attributes.
+    - Hotplug events (specifically, the RRNotify_OutputChange RandR
+      event) are now generated when display devices are connected and
+      disconnected from the GPU.  Many desktop environments automatically
+      resize the X desktop in response to these events.
+    - Added display device name aliases, such that X configuration options
+      that use display device names can refer to a display device by one of
+      several names, including the RandR Output name for the display
+      device.  The X log reports the list of aliases for each display device.
+    - Updated EDID parsing to include more complete support for EDID 1.4
+      and more recent versions of CEA-861.
+    - Removed the "Rotate" X configuration option.  This was used to
+      statically rotate the X screen.  Its functionality is replaced by
+      the "Rotation" MetaMode attribute and RandR 1.2 rotation support.
+      See the README for details.
+    - Removed the "RandRRotation" X configuration option.  This enabled
+      configurability of X screen rotation via RandR 1.1.  Its functionality
+      is replaced by the "Rotation" MetaMode attribute and RandR 1.2
+      rotation support.  See the README for details.
+    - Removed support for the following NV-CONTROL attributes:
+        NV_CTRL_GPU_SCALING
+        NV_CTRL_GPU_SCALING_DEFAULT_TARGET
+        NV_CTRL_GPU_SCALING_DEFAULT_METHOD
+        NV_CTRL_DFP_SCALING_ACTIVE
+        NV_CTRL_GPU_SCALING_ACTIVE
+        NV_CTRL_FRONTEND_RESOLUTION
+        NV_CTRL_BACKEND_RESOLUTION
+        NV_CTRL_OVERSCAN_COMPENSATION
+        NV_CTRL_FLATPANEL_BEST_FIT_RESOLUTION
+    - Improved rendering performance for RENDER bitmap text.
+    - Enabled the OpenGL "Sync to VBlank" option by default.
+    - Added a new option, --restore-original-backup, to nvidia-xconfig.
+      nvidia-xconfig creates a backup of the original X configuration
+      file when modifying an X configuration file that does not appear
+      to have been previously modified by nvidia-xconfig. This option
+      restores a backup of the original X configuration file, if such
+      a backup is found.
+    - Expose the following additional FSAA modes via NV-CONTROL,
+      nvidia-settings, and through X visuals and GLXFBConfigs:
+        16X multisample FSAA on all GeForce GPUs
+        Coverage sample FSAA on G80 and above GeForce GPUs
+        32X multisample FSAA on G80 and above Quadro GPUs
+        64X multisample FSAA on Fermi and above Quadro GPUs
+    - Enabled conformant texture clamping by default in OpenGL.
+    - Removed support for the GVO Clone mode NV-CONTROL attributes:
+        NV_CTRL_GVO_DISPLAY_X_SCREEN
+        NV_CTRL_GVO_X_SCREEN_PAN_X
+        NV_CTRL_GVO_X_SCREEN_PAN_Y
+    - Added a new, higher resolution icon for nvidia-settings.
+    - Updated the NVIDIA X driver's handling of X configuration options
+      that affect an entire GPU, not just a particular X screen running
+      on a GPU (e.g., "NoPowerConnectorCheck"): for such X configuration
+      options, the X driver will now honor the option on any of the X
+      screens configured on the GPU.  Prior to this change, the NVIDIA
+      X driver only honored such options on the first X screen configured
+      on a GPU.
+    - Added a checkbox to nvidia-settings to control the texture clamping
+      attribute.  When the box is checked, OpenGL textures are clamped
+      according to the OpenGL specification.  When it is unchecked, GL_CLAMP
+      is remapped to GL_CLAMP_TO_EDGE for borderless 2D textures.
+    - Removed the "Display" and "X Screen" tabs from the "X Server Display
+      Configuration Page" of nvidia-settings, and added a new "Selection"
+      dropdown menu for selecting X screens or display devices.  This
+      makes it easier to select X screens/Displays that are hidden.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 09 May 2012 10:20:03 +0200
+
 nvidia-graphics-drivers (295.49-1) unstable; urgency=low
 
   * New upstream long-lived branch release 295.49 (2012-05-03).
