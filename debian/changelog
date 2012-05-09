@@ -8,6 +8,7 @@ nvidia-graphics-drivers (295.49-1) UNRELEASED; urgency=low
     - Fixed an OpenGL performance regression which affected Geforce 6 and
       Geforce 7 series integrated GPUs.  (Closes: #668854)
   * Update nv-readme.ids.
+  * Update lintian overrides.
   * nvidia-vdpau-driver: Add Breaks against pre-multiarch libvdpau1.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 09 May 2012 09:11:10 +0200
