@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (302.07-1) unstable; urgency=low
+nvidia-graphics-drivers (302.07-1) experimental; urgency=low
 
   * New upstream beta 302.07 (2012-05-02).
     - Fixed a bug that caused OpenGL programs to leak file descriptors
@@ -82,12 +82,6 @@ nvidia-graphics-drivers (302.07-1) unstable; urgency=low
         NV_CTRL_FLATPANEL_BEST_FIT_RESOLUTION
     - Improved rendering performance for RENDER bitmap text.
     - Enabled the OpenGL "Sync to VBlank" option by default.
-    - Added a new option, --restore-original-backup, to nvidia-xconfig.
-      nvidia-xconfig creates a backup of the original X configuration
-      file when modifying an X configuration file that does not appear
-      to have been previously modified by nvidia-xconfig. This option
-      restores a backup of the original X configuration file, if such
-      a backup is found.
     - Expose the following additional FSAA modes via NV-CONTROL,
       nvidia-settings, and through X visuals and GLXFBConfigs:
         16X multisample FSAA on all GeForce GPUs
@@ -99,7 +93,6 @@ nvidia-graphics-drivers (302.07-1) unstable; urgency=low
         NV_CTRL_GVO_DISPLAY_X_SCREEN
         NV_CTRL_GVO_X_SCREEN_PAN_X
         NV_CTRL_GVO_X_SCREEN_PAN_Y
-    - Added a new, higher resolution icon for nvidia-settings.
     - Updated the NVIDIA X driver's handling of X configuration options
       that affect an entire GPU, not just a particular X screen running
       on a GPU (e.g., "NoPowerConnectorCheck"): for such X configuration
@@ -111,13 +104,10 @@ nvidia-graphics-drivers (302.07-1) unstable; urgency=low
       attribute.  When the box is checked, OpenGL textures are clamped
       according to the OpenGL specification.  When it is unchecked, GL_CLAMP
       is remapped to GL_CLAMP_TO_EDGE for borderless 2D textures.
-    - Removed the "Display" and "X Screen" tabs from the "X Server Display
-      Configuration Page" of nvidia-settings, and added a new "Selection"
-      dropdown menu for selecting X screens or display devices.  This
-      makes it easier to select X screens/Displays that are hidden.
+  * Upload to experimental.
   * Update symbols control files.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 09 May 2012 10:20:03 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 09 May 2012 13:45:27 +0200
 
 nvidia-graphics-drivers (295.49-1) unstable; urgency=low
 
