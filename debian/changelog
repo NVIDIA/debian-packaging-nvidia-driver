@@ -1,3 +1,16 @@
+nvidia-graphics-drivers (302.11-1) UNRELEASED; urgency=low
+
+  * New upstream beta 302.11 (2012-05-18).
+    - Added support for calculating the physical size and DPI of each
+      RandR 1.2 Output using the EDID Detailed Timing Description.
+    - Fixed a bug that prevented a workaround for the invalid EDID in certain
+      AUO laptop flat panels from being applied, leading to an 800x600 desktop
+      repeated several times across the screen.
+    - Fixed a bug that caused the link configuration of DisplayPort devices to
+      be reported incorrectly in nvidia-settings.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 21 May 2012 18:37:27 +0200
+
 nvidia-graphics-drivers (302.07-1) experimental; urgency=low
 
   * New upstream beta 302.07 (2012-05-02).
