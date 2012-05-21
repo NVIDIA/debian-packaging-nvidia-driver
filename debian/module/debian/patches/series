@@ -4,4 +4,3 @@ conditionally-include-linux_version.h.patch
 avoid-ld.gold.patch
 fix-typos.patch
 linux3.patch
-kernel-3.4.patch
