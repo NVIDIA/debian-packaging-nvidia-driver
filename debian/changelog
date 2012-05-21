@@ -125,11 +125,13 @@ nvidia-graphics-drivers (302.07-1) experimental; urgency=low
 nvidia-graphics-drivers (295.49-1) unstable; urgency=low
 
   * New upstream long-lived branch release 295.49 (2012-05-03).
+    - Added support for the following GPU: GeForce GTX 690.
     - Fixed a problem where starting, stopping, and moving OpenGL application
       windows was very slow on Quadro FX 4600, Quadro FX 5600, GeForce 8800
       GTX, GeForce 8800 GTS, and GeForce 8800 Ultra.
     - Fixed an OpenGL performance regression which affected Geforce 6 and
       Geforce 7 series integrated GPUs.  (Closes: #668854)
+  * Update nv-readme.ids.
   * Update lintian overrides.
   * nvidia-vdpau-driver: Add Breaks against pre-multiarch libvdpau1.
 
