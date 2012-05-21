@@ -1,5 +1,8 @@
 # The NVIDIA license does not allow any form of modification.
 shlib-with-executable-stack
+hardening-no-fortify-functions
+hardening-no-relro
+hardening-no-stackprotector
 
 # There are multiple vendors providing this library.
 package-name-doesnt-match-sonames libOpenCL1

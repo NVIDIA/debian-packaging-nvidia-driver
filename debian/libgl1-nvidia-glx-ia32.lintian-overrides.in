@@ -2,6 +2,9 @@
 shlib-with-non-pic-code
 spelling-error-in-binary
 shlib-calls-exit
+hardening-no-fortify-functions
+hardening-no-relro
+hardening-no-stackprotector
 
 # Packages built against the NVIDIA libGL should declare dependencies on
 # the free version for Debian's purposes.  Therefore we use a special

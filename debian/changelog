@@ -122,6 +122,21 @@ nvidia-graphics-drivers (302.07-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 09 May 2012 13:45:27 +0200
 
+nvidia-graphics-drivers (295.53-1) unstable; urgency=low
+
+  * New upstream long-lived branch release 295.53 (2012-05-16).
+    - Added support for the following GPUs: GeForce GTX 670, GeForce 605,
+      GeForce GT 610, GeForce GT 630, GeForce GT 640, GeForce GT 645.
+    - Fixed a bug affecting some G-Sync configurations which could cause
+      active stereo content to be inverted on some display devices.
+  * Update nv-readme.ids.
+  * conftest.h: implement check for asm/system.h (295.53).
+  * kernel-3.4.patch: remove, fixed upstream.
+  * Add lintian overrides for hardening-*.
+  * bug-script: report traces of Ubuntu ld.so.conf.d GL configuration.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 21 May 2012 21:44:34 +0200
+
 nvidia-graphics-drivers (295.49-1) unstable; urgency=low
 
   * New upstream long-lived branch release 295.49 (2012-05-03).
