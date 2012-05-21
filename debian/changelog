@@ -9,6 +9,7 @@ nvidia-graphics-drivers (295.53-1) UNRELEASED; urgency=low
   * conftest.h: implement check for asm/system.h (295.53).
   * kernel-3.4.patch: remove, fixed upstream.
   * Add lintian overrides for hardening-*.
+  * bug-script: report traces of Ubuntu ld.so.conf.d GL configuration.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 21 May 2012 17:38:51 +0200
 
