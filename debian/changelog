@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (295.53-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (295.53-1) unstable; urgency=low
 
   * New upstream long-lived branch release 295.53 (2012-05-16).
     - Added support for the following GPUs: GeForce GTX 670, GeForce 605,
@@ -11,7 +11,7 @@ nvidia-graphics-drivers (295.53-1) UNRELEASED; urgency=low
   * Add lintian overrides for hardening-*.
   * bug-script: report traces of Ubuntu ld.so.conf.d GL configuration.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 21 May 2012 17:38:51 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 21 May 2012 21:44:34 +0200
 
 nvidia-graphics-drivers (295.49-1) unstable; urgency=low
 
