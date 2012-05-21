@@ -5,6 +5,7 @@ nvidia-graphics-drivers (295.53-1) UNRELEASED; urgency=low
       GeForce GT 610, GeForce GT 630, GeForce GT 640, GeForce GT 645.
     - Fixed a bug affecting some G-Sync configurations which could cause
       active stereo content to be inverted on some display devices.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 21 May 2012 17:38:51 +0200
 
