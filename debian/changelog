@@ -6,6 +6,7 @@ nvidia-graphics-drivers (295.53-1) UNRELEASED; urgency=low
     - Fixed a bug affecting some G-Sync configurations which could cause
       active stereo content to be inverted on some display devices.
   * Update nv-readme.ids.
+  * conftest.h: implement check for asm/system.h (295.53).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 21 May 2012 17:38:51 +0200
 

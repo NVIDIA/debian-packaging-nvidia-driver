@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 295.33, 173.14.31, 96.43.20, 71.86.15 */
+/* synchronized with conftest.sh from 302.11, 295.53, 173.14.34, 96.43.20, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -332,4 +332,11 @@
  #define NV_GENERATED_UTSRELEASE_H_PRESENT
 #else
  #undef NV_GENERATED_UTSRELEASE_H_PRESENT
+#endif
+
+/* Check for asm/system.h */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(3,4,0)
+ #define NV_ASM_SYSTEM_H_PRESENT
+#else
+ #undef NV_ASM_SYSTEM_H_PRESENT
 #endif
