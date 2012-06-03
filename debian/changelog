@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (295.53-2) UNRELEASED; urgency=low
+
+  * bug-script: report all /lib/modules/.../nvidia.ko in and their version.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jun 2012 16:22:43 +0200
+
 nvidia-graphics-drivers (295.53-1) unstable; urgency=low
 
   * New upstream long-lived branch release 295.53 (2012-05-16).
