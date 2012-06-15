@@ -1,8 +1,19 @@
-nvidia-graphics-drivers (295.53-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (295.59-1) UNRELEASED; urgency=low
 
+  * New upstream long-lived branch release 295.59 (2012-06-11).
+    - Disabled the use of certain OpenGL optimizations with Autodesk Maya
+      and Mudbox, due to conflicts between these applications and the
+      optimizations. Some performance loss in Autodesk Maya and Mudbox is
+      possible, as a result.
+    - Added support for the following GPUs: GeForce GT 620M, GeForce GT 640M,
+      GeForce GT 640M LE, GeForce GT 650M, GeForce GTX 660M, GeForce GTX 670M,
+      GeForce GTX 675M, GeForce GTX 555, GeForce GTX 560 SE, GeForce GT 415,
+      GeForce GTX 460 v2, NVS 5400M, NVS 310, Quadro 410.
+    - Fixed a behavior issue where redundant DPMS state transitions were
+      leading to unexpected screen blanking on DisplayPort displays.
   * bug-script: report all /lib/modules/.../nvidia.ko in and their version.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sun, 03 Jun 2012 16:22:43 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 15 Jun 2012 10:47:22 +0200
 
 nvidia-graphics-drivers (295.53-1) unstable; urgency=low
 
