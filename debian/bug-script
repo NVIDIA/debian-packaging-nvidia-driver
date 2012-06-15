@@ -37,6 +37,8 @@ echo "OpenGL and NVIDIA library files installed:"
 ls -l	/etc/alternatives/glx* \
 	/etc/alternatives/nvidia* \
 	/etc/alternatives/*libGL* \
+	/etc/alternatives/*_gl_conf \
+	/etc/ld.so.conf.d/*_GL.conf \
 	/usr/lib/libGL.* \
 	/usr/lib/libGLcore* \
 	/usr/lib/libnvidia* \
@@ -52,6 +54,8 @@ ls -la	/usr/lib/nvidia/ \
 	/usr/lib/nvidia/*/ \
 	/usr/lib/*-linux-gnu/nvidia/ \
 	/usr/lib/*-linux-gnu/nvidia/*/ \
+	/usr/lib/mesa/ \
+	/usr/lib/*-linux-gnu/mesa/ \
 	/usr/lib/mesa-diverted/ \
 	/usr/lib/mesa-diverted/*-linux-gnu/ \
 	/usr/lib32/nvidia/ \
@@ -77,5 +81,11 @@ do
 		echo
 	fi
 done
+
+echo "Kernel modules: nvidia.ko"
+find /lib/modules -name nvidia.ko
+echo
+find /lib/modules -name nvidia.ko | xargs -r modinfo | grep -v ^parm:
+echo
 
 exit 0
