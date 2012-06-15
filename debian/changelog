@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (295.59-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (295.59-1) unstable; urgency=low
 
   * New upstream long-lived branch release 295.59 (2012-06-11).
     - Disabled the use of certain OpenGL optimizations with Autodesk Maya
@@ -12,9 +12,9 @@ nvidia-graphics-drivers (295.59-1) UNRELEASED; urgency=low
     - Fixed a behavior issue where redundant DPMS state transitions were
       leading to unexpected screen blanking on DisplayPort displays.
   * Update nv-readme.ids.
-  * bug-script: report all /lib/modules/.../nvidia.ko in and their version.
+  * bug-script: report all /lib/modules/.../nvidia.ko and their version.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Fri, 15 Jun 2012 10:47:22 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 15 Jun 2012 10:50:03 +0200
 
 nvidia-graphics-drivers (295.53-1) unstable; urgency=low
 
