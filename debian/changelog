@@ -14,7 +14,7 @@ nvidia-graphics-drivers (195.36.31-6squeeze1) stable-proposed-updates; urgency=m
     on the system.  Also list files remaining from using the nvidia-installer.
     Report status of more related packages.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Fri, 13 Apr 2012 22:15:27 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 15 Jun 2012 11:40:37 +0200
 
 nvidia-graphics-drivers (195.36.31-6) unstable; urgency=low
 
