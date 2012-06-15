@@ -11,6 +11,7 @@ nvidia-graphics-drivers (295.59-1) UNRELEASED; urgency=low
       GeForce GTX 460 v2, NVS 5400M, NVS 310, Quadro 410.
     - Fixed a behavior issue where redundant DPMS state transitions were
       leading to unexpected screen blanking on DisplayPort displays.
+  * Update nv-readme.ids.
   * bug-script: report all /lib/modules/.../nvidia.ko in and their version.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 15 Jun 2012 10:47:22 +0200
