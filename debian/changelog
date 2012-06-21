@@ -1,6 +1,53 @@
+nvidia-graphics-drivers (302.17-1) UNRELEASED; urgency=low
+
+  * New upstream release 302.17 (2012-06-15).
+    - Made nvidiaXineramaInfoOrder consistent with the RRSetOutputPrimary
+      and RRGetOutputPrimary RandR requests: changes to either
+      nvidiaXineramaInfoOrder or RandR OutputPrimary will be reflected in
+      the other.
+    - Fixed an interaction problem between RandR 1.2, ConstrainCursor,
+      and panning that prevented panning from working properly.
+    - Fixed a bug that caused RandR RRNotify_CrtcChange events to not
+      be generated when switching between MetaModes with the same total
+      size but different layout of display devices.  This bug caused
+      some window managers to not update their layouts in response to
+      switching same-sized MetaModes.
+    - Added support for desktop panning when rotation, reflection,
+      or transformation is applied to a display device (either through
+      RandR or through the MetaMode syntax); panning would previously be
+      ignored in that case.
+    - Added an "EDID" property to RandR 1.2 outputs.  This property contains the
+      binary contents of the connected monitor's extended display identification
+      data, which allows applications such as the GNOME display properties
+      dialog to query information about it.
+    - Fixed a bug that caused audio over HDMI to not work on some GPUs
+      after querying the RandR configuration (e.g., `xrandr -q`).
+    - Added the "nvidiaXineramaInfo" X configuration option to report
+      the layout of multiple display devices within an X screen.  This is
+      enabled by default.  When disabled on X servers with RandR 1.2
+      support, the NVIDIA X driver will report one screen-sized region.
+      When disabled on X servers without RandR 1.2 support, no Xinerama
+      information will be reported.  For backwards compatibility, the
+      "NoTwinViewXineramaInfo" option disables nvidiaXineramaInfo.
+    - Added the "nvidiaXineramaInfoOrder" X configuration option as
+      a replacement for "TwinViewXineramaInfoOrder".  For backwards
+      compatibility, "TwinViewXineramaInfoOrder" is kept as a synonym for
+      "nvidiaXineramaInfoOrder".
+    - Added the "nvidiaXineramaInfoOverride" X configuration option as
+      a replacement for "TwinViewXineramaInfoOverride".  For backwards
+      compatibility, "TwinViewXineramaInfoOverride" is kept as a synonym
+      for "nvidiaXineramaInfoOverride".
+    - Fixed a bug that prevented the use of some SLI Mosaic topologies.
+    - Added the "MetaModeOrientation" X configuration option as a
+      replacement for "TwinViewOrientation".  "TwinViewOrientation"
+      is kept as a synonym for "MetaModeOrientation", for backwards
+      compatibility.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 18 Jun 2012 12:40:45 +0200
+
 nvidia-graphics-drivers (302.11-1) experimental; urgency=low
 
-  * New upstream beta 302.11 (2012-05-18).
+  * New upstream beta 302.11 (2012-05-19).
     - Added support for calculating the physical size and DPI of each
       RandR 1.2 Output using the EDID Detailed Timing Description.
     - Fixed a bug that prevented a workaround for the invalid EDID in certain
