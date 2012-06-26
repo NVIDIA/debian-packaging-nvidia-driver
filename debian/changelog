@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (302.17-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 26 Jun 2012 10:48:21 +0200
+
 nvidia-graphics-drivers (302.17-1) experimental; urgency=low
 
   * New upstream release 302.17 (2012-06-15).
