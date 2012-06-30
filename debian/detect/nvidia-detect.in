@@ -155,8 +155,7 @@ fi
 			echo "Your card is only supported up to the 173.14 legacy drivers series.";
 			PACKAGE="nvidia-glx-legacy-173xx"
 		elif [[ -n ${VERSIONS[96]} ]]; then
-			echo "Your card is only supported up to the 96.43 legacy drivers series.";
-			PACKAGE="nvidia-glx-legacy-96xx"
+			echo "Uh oh. Your card is only supported up to the 96.43 legacy drivers series, which is no longer usable due to lack of support for current Xorg Xserver 1.12";
 		else
 			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite.";
 		fi;
