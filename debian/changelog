@@ -5,6 +5,10 @@ nvidia-graphics-drivers (302.17-3) UNRELEASED; urgency=low
   * nvidia-detect: wheezy does not have legacy 96xx.
   * nvidia-libopencl1: Provides/Conflicts/Replaces: libopencl1.
     (Closes: #679047)
+  * xserver-xorg-video-nvidia.{config,postinst}: Present a debconf note about
+    needing manual Xorg configuration to enable the fglrx driver.
+  * xserver-xorg-video-nvidia.postrm: Present a debconf note if the driver was
+    removed, but it is still enabled in xorg.conf(.d/).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 30 Jun 2012 16:09:39 +0200
 

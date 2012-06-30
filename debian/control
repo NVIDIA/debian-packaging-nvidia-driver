@@ -64,7 +64,7 @@ Pre-Depends:
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  nvidia-alternative${nvidia:Legacy} (= ${binary:Version}),
- nvidia-support,
+ nvidia-support (>= 20120630),
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
