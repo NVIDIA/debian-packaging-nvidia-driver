@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (302.17-3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (302.17-3) unstable; urgency=low
 
   * nvidia-smi: Add missing Depends: libnvidia-ml1.  (Closes: #679332)
   * nvidia-detect: squeeze-backports now has 295.59.
@@ -10,7 +10,7 @@ nvidia-graphics-drivers (302.17-3) UNRELEASED; urgency=low
   * xserver-xorg-video-nvidia.postrm: Present a debconf note if the driver was
     removed, but it is still enabled in xorg.conf(.d/).
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 30 Jun 2012 16:09:39 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 30 Jun 2012 18:04:03 +0200
 
 nvidia-graphics-drivers (302.17-2) unstable; urgency=low
 
