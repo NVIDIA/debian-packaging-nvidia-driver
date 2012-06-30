@@ -612,9 +612,11 @@ Recommends:
 Provides:
  libopencl1,
 Conflicts:
+ libopencl1,
  nvidia-libopencl1-dev,
  nvidia-libopencl1-ia32 [i386],
 Replaces:
+ libopencl1,
  nvidia-libopencl1-dev,
 Description: NVIDIA OpenCL library
  OpenCL (Open Computing Language) is a multivendor open standard for
