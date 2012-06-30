@@ -74,9 +74,9 @@ then
 	VERSIONS[195]=195.36.24
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-275.ids
+if grep -q -i $NVGA $IDLISTDIR/nvidia-295.ids
 then
-	VERSIONS[275]=275.36
+	VERSIONS[295]=295.59
 fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia.ids
@@ -123,7 +123,7 @@ fi
 				echo "Your card is supported by the default drivers.";
 			fi;
 			PACKAGE="nvidia-glx"
-		elif [[ -n ${VERSIONS[275]} ]]; then
+		elif [[ -n ${VERSIONS[295]} ]]; then
 			echo "Your card is only supported by the updated drivers from squeeze-backports."
 			echo "See http://backports.debian.org for instructions how to use backports."
 			PACKAGE="nvidia-glx/squeeze-backports"
