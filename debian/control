@@ -387,6 +387,7 @@ Package: nvidia-smi
 Section: non-free/utils
 Architecture: i386 amd64
 Depends:
+ libnvidia-ml1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},

@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (302.17-3) UNRELEASED; urgency=low
+
+  * nvidia-smi: Add missing Depends: libnvidia-ml1.  (Closes: #679332)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 30 Jun 2012 16:09:39 +0200
+
 nvidia-graphics-drivers (302.17-2) unstable; urgency=low
 
   * Upload to unstable.
