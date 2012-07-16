@@ -1,8 +1,89 @@
-nvidia-graphics-drivers (302.17-4) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.22-1) UNRELEASED; urgency=low
 
+  * New upstream beta 304.22 (2012-07-13).
+    - Added support for the following GPUs: GeForce GTX 680M, Quadro K1000M,
+      Quadro K2000M.
+    - Enhanced the functionality of the IncludeImplicitMetaModes X
+      configuration option:
+      + Implicit MetaModes will be added for the primary display device,
+        even if multiple display devices are in use when X is initialized.
+      + Implicit MetaModes will be added for common resolutions, even
+        if there isn't a mode with that resolution in the mode pool of
+        the display device.
+      + Extended the syntax of the IncludeImplicitMetaModes X
+        configuration option, e.g., to control which display device is
+        used for creation of implicit MetaModes.
+      See the description of the IncludeImplicitMetaModes X configuration
+      option in the README for details.
+    - Modified the handling of the RandR 1.0/1.1 requests RRGetScreenInfo
+      and RRSetScreenConfig (e.g., `xrandr -q --q1` and `xrandr --size ...`
+      and `xrandr --orientation ...`) such that they operate on MetaModes.
+      This was the behavior in NVIDIA X driver versions 295.xx and
+      earlier, but 302.xx releases altered the handling of these RandR
+      1.0/1.1 requests to operate on a single RandR output's modes.
+    - With the above changes to IncludeImplicitMetaModes and RandR 1.0/1.1
+      handling, fullscreen applications (e.g., SDL-based applications,
+      Wine), should have more resolutions available to them, and should
+      interact better with multiple monitor configurations.
+    - Fixed a bug that could cause G8x, G9x, and GT2xx GPUs to display a black
+      screen or corruption after waking up from suspend.  (Closes: #679577)
+    - Fixed several bugs that could cause some OpenGL programs to hang
+      when calling fork(3).
+    - Fixed an nvidia-settings bug that caused the results of ProbeDisplays
+      queries made with the --display-device-string option to be formatted
+      incorrectly.
+    - Improved the responsiveness of updates to the nvidia-settings
+      control panel when displays are hotplugged.
+    - Fixed a bug that caused display corruption when setting some
+      transforms, especially when panning a transformed display.
+    - Fixed a bug that caused extra RandR events to be generated the first
+      time a display is hotplugged.
+    - Fixed a bug that caused X11 modelines with '@' in their names to
+      be rejected.
+    - Added support for DisplayPort 1.2 branch devices, which allow multiple
+      displays to be connected to a single DisplayPort connector on a graphics
+      board.
+    - Fixed a bug that caused most OpenGL texture uploads to be slow when
+      the context was bound rendering to an RGB overlay drawable.
+    - Fixed a bug that caused audio over HDMI to not work after restarting
+      the X server on some MCP7x (IGP) GPUs.
+    - Updated the X configuration option "UseDisplayDevice" to honor the
+      value "none" on any GPU.
+    - Added support for DKMS in nvidia-installer. Installing the kernel
+      module through DKMS allows the module to be rebuilt automatically
+      when changing to a different Linux kernel. See the README and the
+      nvidia-installer help text for the "--dkms" option.
+    - Added RandR output properties _ConnectorLocation, ConnectorNumber,
+      ConnectorType, EDID, _GUID, and SignalFormat.  See the README for details
+      on these properties.
+    - Extended support for Base Mosaic to all G80+ SLI configurations with up
+      to three displays.
+    - Fixed a bug that caused some monitors to fail to wake from DPMS suspend
+      mode when multiple DisplayPort monitors were attached to one GPU.
+    - Removed controls for XVideo attributes from the "X Server XVideo
+      Settings" page of the nvidia-settings control panel. XVideo attributes
+      can be configured in XVideo player applications, or through utilities
+      such as xvattr.
+    - Fixed a bug that caused all ports on an XVideo adaptor to share
+      color correction settings.
+    - Removed support for the following X configuration options:
+         SecondMonitorHorizSync
+         SecondMonitorVertRefresh
+       Similar control is available through the NVIDIA HorizSync and
+       VertRefresh X configuration options.  Please see the NVIDIA driver
+       README for details.
+    - Fixed a bug that prevented NVIDIA 3D Vision Pro from working
+      properly when switching between X servers on different VTs.
+  * New upstream release 302 series.
+    - Added support for desktop panning when rotation, reflection,
+      or transformation is applied to a display device (either through
+      RandR or through the MetaMode syntax); panning would previously be
+      ignored in that case.
+  * Upload to experimental.
+  * Update nv-readme.ids.
   * Work around dpkg-gencontrol bug #659814. 
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 12 Jul 2012 09:36:35 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 16 Jul 2012 19:05:43 +0200
 
 nvidia-graphics-drivers (302.17-3) unstable; urgency=low
 
