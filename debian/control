@@ -163,6 +163,7 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  for a complete list of supported GPUs and PCI IDs.
 
 Package: libgl1-nvidia-glx-ia32
+Section: non-free/oldlibs
 Priority: extra
 Architecture: amd64
 Pre-Depends:
@@ -338,6 +339,7 @@ Description: NVIDIA vdpau driver
  This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
 
 Package: nvidia-vdpau-driver-ia32
+Section: non-free/oldlibs
 Priority: extra
 Architecture: amd64
 Pre-Depends:
@@ -423,6 +425,7 @@ Description: NVIDIA CUDA runtime library
  This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
 
 Package: libcuda1-ia32
+Section: non-free/oldlibs
 Priority: extra
 Architecture: amd64
 Pre-Depends:
@@ -464,6 +467,7 @@ Description: NVIDIA runtime compiler library
  This package contains the runtime compiler library.
 
 Package: libnvidia-compiler-ia32
+Section: non-free/oldlibs
 Priority: extra
 Architecture: amd64
 Pre-Depends:
@@ -558,6 +562,7 @@ Description: NVIDIA OpenCL ICD
  OpenCL.
 
 Package: nvidia-opencl-icd-ia32
+Section: non-free/oldlibs
 Priority: extra
 Architecture: amd64
 Depends:
@@ -599,6 +604,7 @@ Description: NVIDIA OpenCL library
  library provided by NVIDIA.
 
 Package: nvidia-libopencl1-ia32
+Section: non-free/oldlibs
 Priority: extra
 Architecture: amd64
 Pre-Depends:
@@ -607,12 +613,12 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-libopencl1-i386,
-Description: please switch to multiarch nvidia-opencl-icd:i386
+Description: please switch to multiarch nvidia-libopencl1:i386
  This is an empty transitional package to aid switching to multiarch.
  .
  Run the following commands to install the multiarch library:
  * dpkg --add-architecture i386 ; apt-get update
- * apt-get install nvidia-opencl-icd:i386
+ * apt-get install nvidia-libopencl1:i386
 
 Package: libgl1-nvidia-alternatives
 Section: non-free/oldlibs
