@@ -40,11 +40,8 @@ RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
 			$(patsubst debian/nvidia-alternative%,debian/nvidia-alternative$(legacy)%,\
 			$(patsubst debian/xserver-xorg-video-nvidia%,debian/xserver-xorg-video-nvidia$(legacy)%,\
 				$(RENAME_CONTROL))))))
-IA32_OVERRIDES	 = nvidia-vdpau-driver libcuda1
-GEN_IA32_OVERRIDES := $(foreach p,$(IA32_OVERRIDES),$(if $(wildcard debian/$p.lintian-overrides*),$p))
 TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in debian/detect/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
-AUTOGEN		+= $(foreach pkg,$(GEN_IA32_OVERRIDES), debian/$(pkg)-ia32.lintian-overrides)
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOKEEP	 = debian/watch
@@ -244,13 +241,9 @@ override_dh_makeshlibs:
 	# Redirect shlibs for libGL.so.1 to libgl1-mesa-glx | libgl1.
 	test ! -f debian/libgl1-nvidia$(legacy)-glx/DEBIAN/shlibs || \
 		sed -i -e '/^libGL 1 /s/.*/libGL 1 libgl1-mesa-glx | libgl1/' debian/libgl1-nvidia$(legacy)-glx/DEBIAN/shlibs
-	test ! -f debian/libgl1-nvidia$(legacy)-glx-ia32/DEBIAN/shlibs || \
-		sed -i -e '/^libGL 1 /s/.*/libGL 1 ia32-libs (>= 20090804)/' debian/libgl1-nvidia$(legacy)-glx-ia32/DEBIAN/shlibs
 	# Remove libGL.so from symbols files in order not to override our special shlibs files.
 	test ! -f debian/libgl1-nvidia$(legacy)-glx/DEBIAN/symbols || \
 		sed -i -e '/^libGL\.so/,/^lib/{/^libGL\.so\|^ /d}' debian/libgl1-nvidia$(legacy)-glx/DEBIAN/symbols
-	test ! -f debian/libgl1-nvidia$(legacy)-glx-ia32/DEBIAN/symbols || \
-		sed -i -e '/^libGL\.so/,/^lib/{/^libGL\.so\|^ /d}' debian/libgl1-nvidia$(legacy)-glx-ia32/DEBIAN/symbols
 
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir)/$(nvidia_private):$(LD_LIBRARY_PATH) dh_shlibdeps
@@ -289,9 +282,6 @@ override_dh_strip:
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
 	< $< > $@
-
-%-ia32.lintian-overrides: %.lintian-overrides
-	sed -r -e '/^\[amd64\]: /d; s/^\[i386\]: //; s%$(libdir)%usr/lib32%g' $< > $@
 
 debian/module/debian/changelog: debian/changelog
 	sed '1s/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@
