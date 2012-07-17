@@ -1,4 +1,0 @@
-32/libGL.so.#VERSION#			usr/lib32/nvidia/
-32/libnvidia-glcore.so.#VERSION#	usr/lib32/
-32/libnvidia-tls.so.#VERSION#		usr/lib32/
-32/tls/libnvidia-tls.so.#VERSION#	usr/lib32/tls/
