@@ -81,6 +81,7 @@ nvidia-graphics-drivers (304.22-1) UNRELEASED; urgency=low
       ignored in that case.
   * Upload to experimental.
   * Update nv-readme.ids.
+  * Update symbols control files.
   * Work around dpkg-gencontrol bug #659814. 
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 16 Jul 2012 19:05:43 +0200

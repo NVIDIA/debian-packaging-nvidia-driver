@@ -74,6 +74,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGraphicsGLRegisterBuffer@Base 195
  cuGraphicsGLRegisterImage@Base 195
  cuGraphicsMapResources@Base 195
+ cuGraphicsResourceGetMappedMipmappedArray@Base 304
  cuGraphicsResourceGetMappedPointer@Base 195
  cuGraphicsResourceGetMappedPointer_v2@Base 260
  cuGraphicsResourceSetMapFlags@Base 195
@@ -173,6 +174,9 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemsetD8@Base 169
  cuMemsetD8Async@Base 260
  cuMemsetD8_v2@Base 260
+ cuMipmappedArrayCreate@Base 304
+ cuMipmappedArrayDestroy@Base 304
+ cuMipmappedArrayGetLevel@Base 304
  cuModuleGetFunction@Base 169
  cuModuleGetGlobal@Base 169
  cuModuleGetGlobal_v2@Base 260
@@ -192,14 +196,23 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuProfilerInitialize@Base 270
  cuProfilerStart@Base 270
  cuProfilerStop@Base 270
+ cuStreamAddCallback@Base 304
  cuStreamCreate@Base 169
  cuStreamDestroy@Base 169
  cuStreamDestroy_v2@Base 270
  cuStreamQuery@Base 169
  cuStreamSynchronize@Base 169
  cuStreamWaitEvent@Base 260
+ cuSurfObjectCreate@Base 304
+ cuSurfObjectDestroy@Base 304
+ cuSurfObjectGetResourceDesc@Base 304
  cuSurfRefGetArray@Base 256
  cuSurfRefSetArray@Base 256
+ cuTexObjectCreate@Base 304
+ cuTexObjectDestroy@Base 304
+ cuTexObjectGetResourceDesc@Base 304
+ cuTexObjectGetResourceViewDesc@Base 304
+ cuTexObjectGetTextureDesc@Base 304
  cuTexRefCreate@Base 169
  cuTexRefDestroy@Base 169
  cuTexRefGetAddress@Base 169
@@ -209,6 +222,11 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuTexRefGetFilterMode@Base 169
  cuTexRefGetFlags@Base 169
  cuTexRefGetFormat@Base 177
+ cuTexRefGetMaxAnisotropy@Base 304
+ cuTexRefGetMipmapFilterMode@Base 304
+ cuTexRefGetMipmapLevelBias@Base 304
+ cuTexRefGetMipmapLevelClamp@Base 304
+ cuTexRefGetMipmappedArray@Base 304
  cuTexRefSetAddress2D@Base 185
  cuTexRefSetAddress2D_v2@Base 260
  cuTexRefSetAddress2D_v3@Base 285
@@ -219,9 +237,15 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuTexRefSetFilterMode@Base 169
  cuTexRefSetFlags@Base 169
  cuTexRefSetFormat@Base 169
+ cuTexRefSetMaxAnisotropy@Base 304
+ cuTexRefSetMipmapFilterMode@Base 304
+ cuTexRefSetMipmapLevelBias@Base 304
+ cuTexRefSetMipmapLevelClamp@Base 304
+ cuTexRefSetMipmappedArray@Base 304
  cuVDPAUCtxCreate@Base 256
  cuVDPAUCtxCreate_v2@Base 260
  cuVDPAUGetDevice@Base 256
  cudbgGetAPI@Base 195
  cudbgGetAPIVersion@Base 195
+ cudbgMain@Base 304
  gpudbgDebuggerAttached@Base 177
