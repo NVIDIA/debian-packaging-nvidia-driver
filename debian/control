@@ -168,19 +168,10 @@ Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
  nvidia-installer-cleanup,
- ${misc:Pre-Depends}
 Depends:
- libgl1-nvidia-alternatives-ia32,
- nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  libgl1-nvidia${nvidia:Legacy}-glx-i386,
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
-Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Provides:
- libgl1-nvidia-glx-ia32-any,
 Conflicts:
  libgl1-nvidia-glx-ia32,
  libgl1-nvidia-glx-ia32-any,
@@ -194,14 +185,12 @@ Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx (<< ${nvidia:Version}),
 Replaces:
  nvidia-glx${nvidia:Legacy}-ia32 (<< 195.36.31),
-Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
+Description: please switch to multiarch libgl1-nvidia${nvidia:Legacy}-glx:i386
+ This is an empty transitional package to aid switching to multiarch.
  .
- These binary 32-bit libraries provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
- .
- See the description of the nvidia-glx${nvidia:Legacy} package
- or /usr/share/doc/libgl1-nvidia${nvidia:Legacy}-glx/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+ Run the following commands to install the multiarch library:
+ * dpkg --add-architecture i386 ; apt-get update
+ * apt-get install libgl1-nvidia${nvidia:Legacy}-glx:i386
 
 Package: nvidia-alternative
 Architecture: i386 amd64
@@ -354,20 +343,10 @@ Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
  nvidia-installer-cleanup,
- ${misc:Pre-Depends}
 Depends:
- lib32vdpau1,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-vdpau-driver-i386,
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
-Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Enhances:
- lib32vdpau1,
-Provides:
- vdpau-driver,
 Conflicts:
  nvidia-libvdpau,
  nvidia-libvdpau1,
@@ -381,21 +360,12 @@ Replaces:
  nvidia-libvdpau1,
  nvidia-libvdpau1-ia32,
  nvidia-libvdpau1-driver-ia32,
-Description: NVIDIA vdpau 32-bit driver
+Description: please switch to multiarch nvidia-vdpau-driver:i386
+ This is an empty transitional package to aid switching to multiarch.
  .
- These libraries provide the Video Decode and Presentation API for Unix.
- They provide accelerated video playback (incl. H.264) for the supported
- graphics cards.
- .
- This package contains the NVIDIA VDPAU driver (32-bit).
- .
- See /usr/share/doc/nvidia-vdpau-driver-ia32/README.txt.gz
- for more information.
- .
- Please see the nvidia-kernel${nvidia:Legacy}-dkms or
- nvidia-kernel${nvidia:Legacy}-source packages
- for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
+ Run the following commands to install the multiarch library:
+ * dpkg --add-architecture i386 ; apt-get update
+ * apt-get install nvidia-vdpau-driver:i386
 
 Package: nvidia-smi
 Section: non-free/utils
@@ -457,33 +427,19 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
- ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  libcuda1-i386,
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
-Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Replaces:
  nvidia-glx-ia32 (<< 185.18.14-2),
 Homepage: http://www.nvidia.com/CUDA
-Description: NVIDIA CUDA runtime library (32-bit)
+Description: please switch to multiarch libcuda1:i386
+ This is an empty transitional package to aid switching to multiarch.
  .
- The Compute Unified Device Architecture (CUDA) enables NVIDIA
- graphics processing units (GPUs) to be used for massively parallel
- general purpose computation.
- .
- This package contains the driver specific runtime library (32-bit).
- .
- Supported NVIDIA devices include GPUs starting from GeForce 8 and Quadro FX
- series, as well as the Tesla computing processors.
- .
- Please see the nvidia-kernel${nvidia:Legacy}-dkms or
- nvidia-kernel${nvidia:Legacy}-source packages
- for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
+ Run the following commands to install the multiarch library:
+ * dpkg --add-architecture i386 ; apt-get update
+ * apt-get install libcuda1:i386
 
 Package: libnvidia-compiler
 Architecture: i386 amd64
@@ -512,9 +468,7 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
- ${misc:Pre-Depends}
 Depends:
- libcuda1-ia32 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  libnvidia-compiler-i386,
@@ -522,12 +476,12 @@ Conflicts:
  libnvidia-compiler1-ia32,
 Replaces:
  libnvidia-compiler1-ia32,
-Description: NVIDIA runtime compiler library (32-bit)
- The Compute Unified Device Architecture (CUDA) enables NVIDIA
- graphics processing units (GPUs) to be used for massively parallel
- general purpose computation.
+Description: please switch to multiarch libnvidia-compiler:i386
+ This is an empty transitional package to aid switching to multiarch.
  .
- This package contains the runtime compiler library (32-bit).
+ Run the following commands to install the multiarch library:
+ * dpkg --add-architecture i386 ; apt-get update
+ * apt-get install libnvidia-compiler:i386
 
 Package: libnvcuvid1
 Architecture: i386 amd64
@@ -570,7 +524,7 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Recommends:
- nvidia-opencl-icd | nvidia-opencl-icd-ia32 [amd64]
+ nvidia-opencl-icd
 Description: NVIDIA OpenCL driver
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -607,24 +561,15 @@ Package: nvidia-opencl-icd-ia32
 Priority: extra
 Architecture: amd64
 Depends:
- nvidia-opencl-common,
- lib32opencl1,
- libcuda1-ia32,
- libnvidia-compiler-ia32,
  ${misc:Depends}
 Recommends:
  nvidia-opencl-icd-i386,
-Enhances:
- lib32opencl1,
-Provides:
- opencl-icd,
-Description: NVIDIA OpenCL ICD (32-bit)
- OpenCL (Open Computing Language) is a multivendor open standard for
- general-purpose parallel programming of heterogeneous systems that include
- CPUs, GPUs and other processors.
+Description: please switch to multiarch nvidia-opencl-icd:i386
+ This is an empty transitional package to aid switching to multiarch.
  .
- This metapackage provides the 32-bit NVIDIA installable client driver (ICD) for
- OpenCL.
+ Run the following commands to install the multiarch library:
+ * dpkg --add-architecture i386 ; apt-get update
+ * apt-get install nvidia-opencl-icd:i386
 
 Package: nvidia-libopencl1
 Architecture: i386 amd64
@@ -658,21 +603,16 @@ Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
- ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-libopencl1-i386,
- opencl-icd | nvidia-opencl-icd-ia32,
-Provides:
- lib32opencl1,
-Description: NVIDIA OpenCL 32-bit library
- OpenCL (Open Computing Language) is a multivendor open standard for
- general-purpose parallel programming of heterogeneous systems that include
- CPUs, GPUs and other processors.
+Description: please switch to multiarch nvidia-opencl-icd:i386
+ This is an empty transitional package to aid switching to multiarch.
  .
- This package contains the installable client driver loader (ICD Loader)
- 32-bit library provided by NVIDIA.
+ Run the following commands to install the multiarch library:
+ * dpkg --add-architecture i386 ; apt-get update
+ * apt-get install nvidia-opencl-icd:i386
 
 Package: libgl1-nvidia-alternatives
 Section: non-free/oldlibs
