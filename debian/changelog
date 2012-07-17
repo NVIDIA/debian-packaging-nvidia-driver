@@ -82,6 +82,7 @@ nvidia-graphics-drivers (304.22-1) UNRELEASED; urgency=low
   * Upload to experimental.
   * Update nv-readme.ids.
   * Update symbols control files.
+  * Update lintian overrides.
   * Work around dpkg-gencontrol bug #659814. 
   * Convert *-ia32 into transitional packages due to ia32-libs transition:
     - $pkg:i386 Provides: $pkg-i386
