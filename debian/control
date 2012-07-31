@@ -187,6 +187,7 @@ Breaks:
 Replaces:
  nvidia-glx${nvidia:Legacy}-ia32 (<< 195.36.31),
 Description: please switch to multiarch libgl1-nvidia${nvidia:Legacy}-glx:i386
+ .
  This is an empty transitional package to aid switching to multiarch.
  .
  Run the following commands to install the multiarch library:
