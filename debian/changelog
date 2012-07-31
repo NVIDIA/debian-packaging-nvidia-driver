@@ -34,6 +34,8 @@ nvidia-graphics-drivers (304.30-1) UNRELEASED; urgency=low
     - Added support for FXAA, Fast Approximate Anti-Aliasing.
   * Update nv-readme.ids.
   * Update symbols control files.
+  * xserver-xorg-video-nvidia.postrm: Do not fail if the debconf templates
+    from nvidia-support are not available.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 31 Jul 2012 00:07:32 +0200
 
