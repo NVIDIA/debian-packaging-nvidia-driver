@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (304.30-2) UNRELEASED; urgency=low
 
   * Disable patch-3.0-rt-nvidia.patch, no longer needed.
+  * Add legacy qualification to nvidia-settings suggestion.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 31 Jul 2012 17:46:11 +0200
 

@@ -36,7 +36,7 @@ Depends:
 Recommends:
  libgl1-nvidia${nvidia:Legacy}-glx-i386 [amd64],
 Suggests:
- nvidia-settings,
+ nvidia-settings${nvidia:Legacy},
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:
@@ -73,7 +73,7 @@ Recommends:
  nvidia-vdpau-driver (>= ${nvidia:Version}),
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
 Suggests:
- nvidia-settings,
+ nvidia-settings${nvidia:Legacy},
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:
