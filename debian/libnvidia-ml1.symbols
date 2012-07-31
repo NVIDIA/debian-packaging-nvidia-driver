@@ -1,7 +1,8 @@
 libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceClearEccErrorCounts@Base 270
+ nvmlDeviceGetApplicationsClock@Base 304.30
  nvmlDeviceGetClockInfo@Base 270
- nvmlDeviceGetClockLimit@Base 304
+#MISSING: 304.30# nvmlDeviceGetClockLimit@Base 304
  nvmlDeviceGetComputeMode@Base 270
  nvmlDeviceGetComputeRunningProcesses@Base 285
  nvmlDeviceGetCount@Base 270
@@ -49,7 +50,9 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetVbiosVersion@Base 285
  nvmlDeviceOnSameBoard@Base 295
  nvmlDeviceRegisterEvents@Base 285
- nvmlDeviceSetClocksLimit@Base 304
+ nvmlDeviceResetApplicationsClocks@Base 304.30
+ nvmlDeviceSetApplicationsClocks@Base 304.30
+#MISSING: 304.30# nvmlDeviceSetClocksLimit@Base 304
  nvmlDeviceSetComputeMode@Base 270
  nvmlDeviceSetDriverModel@Base 270
  nvmlDeviceSetEccMode@Base 270

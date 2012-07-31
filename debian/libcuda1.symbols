@@ -1,6 +1,6 @@
 libcuda.so.1 #PACKAGE# #MINVER#
- clGetExtensionFunctionAddress@Base 195
- clGetPlatformInfo@Base 195.30
+#MISSING: 304.30# clGetExtensionFunctionAddress@Base 195
+#MISSING: 304.30# clGetPlatformInfo@Base 195.30
  cuArray3DCreate@Base 177
  cuArray3DCreate_v2@Base 260
  cuArray3DGetDescriptor@Base 177
