@@ -451,7 +451,6 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- libcuda1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libnvidia-compiler-i386 [i386],
@@ -530,6 +529,8 @@ Depends:
  ${misc:Depends}
 Recommends:
  nvidia-opencl-icd
+Breaks:
+ nvidia-opencl-icd (<< ${nvidia:Version}),
 Description: NVIDIA OpenCL driver
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -541,12 +542,13 @@ Description: NVIDIA OpenCL driver
 Package: nvidia-opencl-icd
 Architecture: i386 amd64
 Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
 Depends:
- nvidia-opencl-common,
+ nvidia-opencl-common (= ${binary:Version}),
  libopencl1,
- libcuda1,
- libnvidia-compiler,
- ${misc:Depends}
+ libnvidia-compiler (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
 Enhances:
  libopencl1,
 Conflicts:

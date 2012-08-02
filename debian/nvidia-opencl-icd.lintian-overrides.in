@@ -1,0 +1,9 @@
+# The NVIDIA license does not allow any form of modification.
+shlib-with-executable-stack
+unstripped-binary-or-object
+hardening-no-fortify-functions
+hardening-no-relro
+hardening-no-stackprotector
+
+# This library is only used indirectly via nvidia.icd.
+package-name-doesnt-match-sonames libnvidia-opencl1
