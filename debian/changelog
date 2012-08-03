@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.30-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.30-2) experimental; urgency=low
 
   * Disable patch-3.0-rt-nvidia.patch, no longer needed.
   * Add legacy qualification to nvidia-settings suggestion.
@@ -6,7 +6,7 @@ nvidia-graphics-drivers (304.30-2) UNRELEASED; urgency=low
     dependency on nvidia-opencl-common and libnvidia-compiler.
     (Closes: #683678)
 
- -- Andreas Beckmann <debian@abeckmann.de>  Tue, 31 Jul 2012 17:46:11 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 03 Aug 2012 13:41:12 +0200
 
 nvidia-graphics-drivers (304.30-1) experimental; urgency=low
 
