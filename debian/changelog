@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.32-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.32-1) experimental; urgency=low
 
   * New upstream beta 304.32 (2012-08-03).
     - Fixed a bug that caused applications that use DirectColor visuals, such as
@@ -11,7 +11,7 @@ nvidia-graphics-drivers (304.32-1) UNRELEASED; urgency=low
   * Add xorg-video-abi-13 as alternative dependency.
   * Update symbols control files.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 04 Aug 2012 13:46:26 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 04 Aug 2012 14:41:00 +0200
 
 nvidia-graphics-drivers (304.30-2) experimental; urgency=low
 
