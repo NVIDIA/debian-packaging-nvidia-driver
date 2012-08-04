@@ -8,6 +8,7 @@ nvidia-graphics-drivers (304.32-1) UNRELEASED; urgency=low
       do not actually resize the screen.  This reduces screen flicker in certain
       cases when using GNOME.
   * debian/rules: get-orig-source: Make --pasv overridable.
+  * Add xorg-video-abi-13 as alternative dependency.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 04 Aug 2012 13:46:26 +0200
 
