@@ -1,3 +1,15 @@
+nvidia-graphics-drivers (304.32-1) UNRELEASED; urgency=low
+
+  * New upstream beta 304.32 (2012-08-03).
+    - Fixed a bug that caused applications that use DirectColor visuals, such as
+      Enemy Territory: Quake Wars and Braid, to appear in shades of blue instead
+      of the correct colors.  (Closes: #683758)
+    - Modified handling of RRSetScreenSize requests to ignore requests that
+      do not actually resize the screen.  This reduces screen flicker in certain
+      cases when using GNOME.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 04 Aug 2012 13:46:26 +0200
+
 nvidia-graphics-drivers (304.30-2) experimental; urgency=low
 
   * Disable patch-3.0-rt-nvidia.patch, no longer needed.
@@ -11,6 +23,7 @@ nvidia-graphics-drivers (304.30-2) experimental; urgency=low
 nvidia-graphics-drivers (304.30-1) experimental; urgency=low
 
   * New upstream beta 304.30 (2012-07-30).
+    - Added support for xserver ABI 13 (xorg-server 1.13).
     - Added support for RandR per-CRTC gamma manipulation through the
       RandR 1.2 RRGetCrtcGammaSize, RRGetCrtcGamma, and RRSetCrtcGamma
       requests.
