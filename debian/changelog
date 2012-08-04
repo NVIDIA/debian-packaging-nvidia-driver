@@ -9,6 +9,7 @@ nvidia-graphics-drivers (304.32-1) UNRELEASED; urgency=low
       cases when using GNOME.
   * debian/rules: get-orig-source: Make --pasv overridable.
   * Add xorg-video-abi-13 as alternative dependency.
+  * Update symbols control files.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 04 Aug 2012 13:46:26 +0200
 
