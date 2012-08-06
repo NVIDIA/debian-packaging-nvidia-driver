@@ -63,6 +63,8 @@ build-stamp: configure-stamp
 	$(MAKE) LINUXDIR=$(KSRC)
 	touch $@
 
+get_built_using	?= $(filter-out (=),$(shell dpkg-query -f='$${source:Package} (=$${source:Version})' -W $1))
+
 binary: binary-arch binary-indep
 binary-indep:
 binary-arch: build-stamp
@@ -79,7 +81,9 @@ binary-arch: build-stamp
 	dh_compress
 	dh_fixperms
 	dh_installdeb
-	dh_gencontrol -- -v`cat debian/VERSION`
+	dh_gencontrol -- -v`cat debian/VERSION` \
+		-V'built:using:kernel=$(call get_built_using,linux-headers-$(KVERS))' \
+		-V'built:using:nvidia=$(call get_built_using,$(shell dpkg-parsechangelog | sed -nr '/^Source:/s/Source: //p')-source)'
 	dh_md5sums
 	dh_builddeb --destdir=$(KPKG_DEST_DIR)
 
