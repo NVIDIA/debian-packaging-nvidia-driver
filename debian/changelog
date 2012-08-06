@@ -3,6 +3,8 @@ nvidia-graphics-drivers (304.32-2) UNRELEASED; urgency=low
   * nvidia-kernel-source: Add Built-Using attribute to the generated module
     packages to record the exact versions of linux and nvidia-graphics-drivers
     that were used during the build.
+  * libgl1-nvidia-glx:i386: Add Breaks: ia32-libs (<< 20120701) because that
+    is shipping /usr/lib32/libGL.so.1 which gets no longer diverted away.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 06 Aug 2012 20:32:21 +0200
 
