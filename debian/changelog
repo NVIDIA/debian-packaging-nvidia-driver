@@ -1,12 +1,25 @@
-nvidia-graphics-drivers (304.32-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.37-1) UNRELEASED; urgency=low
 
+  * New upstream long lived branch release 304.37 (2012-08-13).
+    - Removed the ability to enable SLI on GPUs with ECC enabled.
+    - Fixed several bugs that prevented some RandR transform geometries from
+      being applied.
+    - Fixed a bug that caused frequent hangs or crashes on some systems.
+    - Fixed a bug that would cause corruption and performance issues in certain
+      OpenGL applications such as Amnesia: The Dark Descent on GeForce 6 and 7
+      GPUs.
+  * New upstream release 295 series.
+    * CVE-2012-4225  (Closes: 684781)
+    - Implemented hotfix for a privilege escalation vulnerability reported on
+      August 1, 2012.  For more details, see:
+      http://nvidia.custhelp.com/app/answers/detail/a_id/3140
   * nvidia-kernel-source: Add Built-Using attribute to the generated module
     packages to record the exact versions of linux and nvidia-graphics-drivers
     that were used during the build.
   * libgl1-nvidia-glx:i386: Add Breaks: ia32-libs (<< 20120701) because that
     is shipping /usr/lib32/libGL.so.1 which gets no longer diverted away.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 06 Aug 2012 20:32:21 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 14 Aug 2012 02:02:44 +0200
 
 nvidia-graphics-drivers (304.32-1) experimental; urgency=low
 
