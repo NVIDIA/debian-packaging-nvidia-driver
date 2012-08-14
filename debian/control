@@ -30,7 +30,8 @@ Depends:
  xserver-xorg-video-nvidia${nvidia:Legacy} (= ${binary:Version}),
  nvidia-vdpau-driver (= ${binary:Version}),
  nvidia-alternative${nvidia:Legacy} (= ${binary:Version}),
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
+ | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -71,7 +72,8 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-vdpau-driver (>= ${nvidia:Version}),
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
+ | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
 Suggests:
  nvidia-settings${nvidia:Legacy},
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
@@ -126,7 +128,8 @@ Depends:
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
+ | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
@@ -300,7 +303,8 @@ Depends:
  libvdpau1,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
+ | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
@@ -378,7 +382,8 @@ Depends:
  libnvidia-ml1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
+ | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
@@ -395,7 +400,8 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
+ | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
  nvidia-smi,
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})

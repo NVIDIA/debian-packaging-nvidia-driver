@@ -21,6 +21,8 @@ nvidia-graphics-drivers (304.37-1) UNRELEASED; urgency=low
   * 3.6_kernel.patch: New patch to fix compilation with Linux 3.6, taken from
     rpmfusion.  (Closes: #684486)
   * nvidia-kernel-dkms: Set Multi-Arch: foreign (instead of allowed).
+  * Add nvidia-kernel-dkms (= ${binary:Version}) as preferred alternative to
+    (virtual) nvidia-kernel-${nvidia:Version}.  (Closes: #684782)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 14 Aug 2012 02:02:44 +0200
 
