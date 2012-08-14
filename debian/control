@@ -221,7 +221,7 @@ Description: allows the selection of NVIDIA as GLX provider
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
-Multi-Arch: allowed
+Multi-Arch: foreign
 Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
