@@ -1,5 +1,6 @@
 NVIDIA_kernel-260.19.34-778465.diff
 nvidia-blacklist-register-mapping-195.diff -p3
+nvidia-blacklist-vga-pmu-registers-195.diff -p3
 use-nv-kernel.o.ARCH.patch
 conditionally-include-linux_version.h.patch
 2.6.36-ioctl.patch

@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (195.36.31-6squeeze2) stable-proposed-updates; urgency=low
+
+  * CVE-2012-4225.  (Closes: #684781)
+    Add upstream patch nvidia-blacklist-vga-pmu-registers-195.diff:
+    Fix exploitable local privilege escalation through VGA window manipulation
+    via the device nodes that allows access to arbitrary physical memory.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 17 Aug 2012 00:43:36 +0200
+
 nvidia-graphics-drivers (195.36.31-6squeeze1) stable-proposed-updates; urgency=medium
 
   * Security fix (backported from 195.36.31-7).  (Closes: #609338)
