@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (304.37-2) UNRELEASED; urgency=low
+
+  * bug-control: Report installed versions of libgl1-nvidia-alternatives-ia32
+    and ia32-libs.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 16 Aug 2012 09:45:17 +0200
+
 nvidia-graphics-drivers (304.37-1) unstable; urgency=low
 
   * New upstream long lived branch release 304.37 (2012-08-13).
