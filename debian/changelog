@@ -2,6 +2,9 @@ nvidia-graphics-drivers (304.37-2) UNRELEASED; urgency=low
 
   * bug-control: Report installed versions of libgl1-nvidia-alternatives-ia32,
     libgl1-nvidiai{,-legacy-173xx}-glx-ia32, and ia32-libs.
+  * libgl1-nvidia-glx: The 302+ drivers add many features not supported by
+    older releases of nvidia-settings, therefore add
+    Breaks: nvidia-settings (<< 304), nvidia-settings-legacy-173
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 16 Aug 2012 09:45:17 +0200
 
