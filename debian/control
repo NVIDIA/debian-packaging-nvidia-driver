@@ -526,7 +526,7 @@ Breaks:
  nvidia-smi (<< ${nvidia:Version}),
 Description: NVIDIA management library (NVML) runtime library
  NVML provides programmatic access to static information and monitoring
- data for NVIDIA GPUs, as well as limited managment capabilities.
+ data for NVIDIA GPUs, as well as limited management capabilities.
  It is intended for use with Tesla compute products.
  .
  This package contains the nvidia-ml runtime library.
