@@ -5,6 +5,9 @@ nvidia-graphics-drivers (304.37-2) UNRELEASED; urgency=low
   * libgl1-nvidia-glx: The 302+ drivers add many features not supported by
     older releases of nvidia-settings, therefore add
     Breaks: nvidia-settings (<< 304), nvidia-settings-legacy-173
+  * {libgl1-nvidia-glx,libcuda1,nvidia-vdpau-driver,nvidia-opencl-icd}-ia32:
+    Add NEWS file describing the steps needed to install the multiarch :i386
+    nvidia packages on amd64.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 16 Aug 2012 09:45:17 +0200
 
