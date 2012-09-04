@@ -1,5 +1,16 @@
-nvidia-graphics-drivers (304.37-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.43-1) UNRELEASED; urgency=low
 
+  * New upstream long lived branch release 304.43 (2012-08-27).
+    - Fixed a bug that caused pre-release versions of X.Org xserver 1.13 to
+      crash when certain GLX operations were performed, such as when starting
+      Firefox.
+    - Fixed a bug that caused VDPAU to hang when expanding the YouTube
+      Flash Player.
+    - Fixed a bug that prevented the display palette from being updated
+      immediately after an application called XStoreColors.
+    - Added support for the following GPUs: GeForce GTX 660 Ti,
+      Quadro K5000, Quadro K5000M, Quadro K4000M, Quadro K3000M, NVS 510.
+  * Update nv-readme.ids.
   * bug-control: Report installed versions of libgl1-nvidia-alternatives-ia32,
     libgl1-nvidiai{,-legacy-173xx}-glx-ia32, and ia32-libs.
   * libgl1-nvidia-glx: The 302+ drivers add many features not supported by
@@ -9,7 +20,7 @@ nvidia-graphics-drivers (304.37-2) UNRELEASED; urgency=low
     Add NEWS file describing the steps needed to install the multiarch :i386
     nvidia packages on amd64.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 16 Aug 2012 09:45:17 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 04 Sep 2012 01:29:58 +0200
 
 nvidia-graphics-drivers (304.37-1) unstable; urgency=low
 
