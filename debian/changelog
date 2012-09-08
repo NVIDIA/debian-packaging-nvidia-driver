@@ -11,9 +11,11 @@ nvidia-graphics-drivers (304.43-1) UNRELEASED; urgency=low
     - Added support for the following GPUs: GeForce GTX 660 Ti,
       Quadro K5000, Quadro K5000M, Quadro K4000M, Quadro K3000M, NVS 510.
   * Update nv-readme.ids.
+  * conftest.h:
+    - Implement check for linux/screen_info.h (302.17).
   * 3.6_kernel.patch: Remove, fixed upstream.
   * bug-control: Report installed versions of libgl1-nvidia-alternatives-ia32,
-    libgl1-nvidiai{,-legacy-173xx}-glx-ia32, and ia32-libs.
+    libgl1-nvidia{,-legacy-173xx}-glx-ia32, and ia32-libs.
   * libgl1-nvidia-glx: The 302+ drivers add many features not supported by
     older releases of nvidia-settings, therefore add
     Breaks: nvidia-settings (<< 304), nvidia-settings-legacy-173
