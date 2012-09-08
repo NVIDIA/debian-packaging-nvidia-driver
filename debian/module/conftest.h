@@ -341,6 +341,13 @@
  #undef NV_ASM_SYSTEM_H_PRESENT
 #endif
 
+/* Check for linux/kconfig.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,1,0)
+ #define NV_LINUX_KCONFIG_H_PRESENT
+#else
+ #undef NV_LINUX_SCREEN_INFO_H_PRESENT
+#endif
+
 /* Check for linux/screen_info.h */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,16)
  #define NV_LINUX_SCREEN_INFO_H_PRESENT
