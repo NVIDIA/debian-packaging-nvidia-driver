@@ -14,6 +14,8 @@ nvidia-graphics-drivers (304.43-1) UNRELEASED; urgency=low
   * conftest.h:
     - Implement check for linux/screen_info.h (302.17).
     - Implement check for linux/kconfig.h (304.30).
+    - Implement new conftest.sh function acpi_os_wait_events_complete
+      (304.43).
   * 3.6_kernel.patch: Remove, fixed upstream.
   * bug-control: Report installed versions of libgl1-nvidia-alternatives-ia32,
     libgl1-nvidia{,-legacy-173xx}-glx-ia32, and ia32-libs.
