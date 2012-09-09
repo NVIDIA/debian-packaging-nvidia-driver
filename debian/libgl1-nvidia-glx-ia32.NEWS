@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.37-2) unstable; urgency=low
+nvidia-graphics-drivers (304.43-1) unstable; urgency=low
 
   The *nvidia*-ia32 packages have been converted into empty dummy packages
   to aid switching to multiarch packages and removing the obsolete ia32-libs

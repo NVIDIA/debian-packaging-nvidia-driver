@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.43-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.43-1) unstable; urgency=low
 
   * New upstream long lived branch release 304.43 (2012-08-27).
     - Fixed a bug that caused pre-release versions of X.Org xserver 1.13 to
@@ -26,7 +26,7 @@ nvidia-graphics-drivers (304.43-1) UNRELEASED; urgency=low
     Add NEWS file describing the steps needed to install the multiarch :i386
     nvidia packages on amd64.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Tue, 04 Sep 2012 01:29:58 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Sun, 09 Sep 2012 04:11:49 +0200
 
 nvidia-graphics-drivers (304.37-1) unstable; urgency=low
 
