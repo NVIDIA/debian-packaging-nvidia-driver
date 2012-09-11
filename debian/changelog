@@ -10,6 +10,7 @@ nvidia-graphics-drivers (304.43-1) unstable; urgency=low
       immediately after an application called XStoreColors.
     - Added support for the following GPUs: GeForce GTX 660 Ti,
       Quadro K5000, Quadro K5000M, Quadro K4000M, Quadro K3000M, NVS 510.
+    * Closes: #684123.
   * Update nv-readme.ids.
   * conftest.h:
     - Implement check for linux/screen_info.h (302.17).
@@ -35,6 +36,7 @@ nvidia-graphics-drivers (304.37-1) unstable; urgency=low
     - Fixed several bugs that prevented some RandR transform geometries from
       being applied.
     - Fixed a bug that caused frequent hangs or crashes on some systems.
+      (Closes: #686092, #667684)
     - Fixed a bug that would cause corruption and performance issues in certain
       OpenGL applications such as Amnesia: The Dark Descent on GeForce 6 and 7
       GPUs.
@@ -200,6 +202,7 @@ nvidia-graphics-drivers (304.22-1) experimental; urgency=low
        README for details.
     - Fixed a bug that prevented NVIDIA 3D Vision Pro from working
       properly when switching between X servers on different VTs.
+    * Closes: #682618
   * New upstream release 302 series.
     - Added support for desktop panning when rotation, reflection,
       or transformation is applied to a display device (either through
