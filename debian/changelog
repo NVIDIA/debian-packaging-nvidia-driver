@@ -17,6 +17,7 @@ nvidia-graphics-drivers (304.48-1) UNRELEASED; urgency=low
   * Update nv-readme.ids.
   * Update symbols control files.
   * get-orig-source: Skip downloading if cached files are in ../.cache/
+  * Switch .deb compression to xz, saves 13 MB (24 %) on amd64.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 12 Sep 2012 11:10:00 +0200
 
