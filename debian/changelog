@@ -251,7 +251,7 @@ nvidia-graphics-drivers (302.17-3) unstable; urgency=low
   * nvidia-libopencl1: Provides/Conflicts/Replaces: libopencl1.
     (Closes: #679047)
   * xserver-xorg-video-nvidia.{config,postinst}: Present a debconf note about
-    needing manual Xorg configuration to enable the fglrx driver.
+    needing manual Xorg configuration to enable the nvidia driver.
   * xserver-xorg-video-nvidia.postrm: Present a debconf note if the driver was
     removed, but it is still enabled in xorg.conf(.d/).
 
