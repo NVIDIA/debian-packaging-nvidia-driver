@@ -19,6 +19,7 @@ nvidia-graphics-drivers (304.51-1) UNRELEASED; urgency=low
     prevent apt from removing libgl1-nvidia-alternatives-ia32 (which would
     remove the diversions) while the old (pre-transitional)
     libgl1-nvidia-glx-ia32 is still installed.  (Closes: #688659)
+  * get-orig-source: Fix caching for legacy drivers.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 24 Sep 2012 18:14:16 +0200
 

@@ -352,7 +352,8 @@ PASV	?= --pasv
 get-orig-source:
 	rm -rf get-orig-source || true
 	mkdir get-orig-source
-	ln -v ../.cache/*-$(version).run get-orig-source/ || true
+	ln -v ../.cache/*-$(version).run get-orig-source/ 2>/dev/null || true
+	ln -v ../.cache/*-$(version)-*.run get-orig-source/ 2>/dev/null || true
 	uscan --no-symlink --download-current-version $(PASV) \
 	    --watchfile debian/watch --destdir get-orig-source
 	test $$(ls get-orig-source/* | wc -l) = 2  # we need exactly 2 downloaded files
