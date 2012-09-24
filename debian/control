@@ -176,6 +176,7 @@ Pre-Depends:
  libc6-i386 (>= 2.9-18),
  nvidia-installer-cleanup,
 Depends:
+ libgl1-nvidia-alternatives-ia32,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  libgl1-nvidia${nvidia:Legacy}-glx-i386,
