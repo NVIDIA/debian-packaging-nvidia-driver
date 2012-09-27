@@ -15,6 +15,7 @@ XORG_ABI_LIST		?=
 XORG_BOUND		?=
 MULTIARCH		?=
 BACKPORT		?=
+NVIDIA_SETTINGS		?= nvidia-settings
 version			 = $(NVIDIA_RELEASE)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
@@ -256,6 +257,7 @@ override_dh_gencontrol:
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
 		-V'nvidia:Perfkit=$(perfkit)' \
+		-V'nvidia:nvidia-settings=$(NVIDIA_SETTINGS)' \
 		-Vnvidia:Models="`cat debian/control.models`"
 
 # Do not run dh_strip here.  The NVIDIA license says:

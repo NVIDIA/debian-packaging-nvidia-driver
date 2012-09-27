@@ -35,9 +35,9 @@ Depends:
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
+ ${nvidia:nvidia-settings},
  libgl1-nvidia${nvidia:Legacy}-glx-i386 [amd64],
 Suggests:
- nvidia-settings${nvidia:Legacy},
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:
@@ -74,8 +74,8 @@ Recommends:
  nvidia-vdpau-driver (>= ${nvidia:Version}),
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
  | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia:nvidia-settings},
 Suggests:
- nvidia-settings${nvidia:Legacy},
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:

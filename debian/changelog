@@ -26,6 +26,8 @@ nvidia-graphics-drivers (304.51-1) UNRELEASED; urgency=low
     to Recommends. Fixes multiarch installation of libgl1-nvidia-glx:amd64
     with libgl1-nvidia-glx:i386. (See: #676723, #685054, #686033, #688714)
     A proper fix will be splitting libxvmcnvidia1 from libgl1-nvidia-glx.
+  * Upgrade nvidia-settings relationship from Suggests to Recommends and use a
+    substvar for the name of the compatible nvidia-settings package.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 24 Sep 2012 18:14:16 +0200
 
