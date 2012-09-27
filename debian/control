@@ -130,7 +130,6 @@ Depends:
 Recommends:
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
  | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
- libxvmc1 [i386],
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
