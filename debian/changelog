@@ -5,7 +5,7 @@ nvidia-graphics-drivers (304.48-2) unstable; urgency=low
     remove the diversions) while the old (pre-transitional)
     libgl1-nvidia-glx-ia32 is still installed.  (Closes: #688659)
   * get-orig-source: Fix caching for legacy drivers.
-  * bug-control: report version info about revived
+  * bug-control: Report version info about revived
     libgl1-nvidia-legacy-96xx-glx-ia32.
   * libgl1-nvidia-glx:i386: Apply crude HACK to downgrade libxvmc1 dependency
     to Recommends. Fixes multiarch installation of libgl1-nvidia-glx:amd64
@@ -18,7 +18,7 @@ nvidia-graphics-drivers (304.48-2) unstable; urgency=low
   * There is no need to exclude squeeze-backports from using xz compression.
   * Update lintian overrides.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 24 Sep 2012 18:14:16 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 27 Sep 2012 07:52:51 +0200
 
 nvidia-graphics-drivers (304.48-1) unstable; urgency=low
 
