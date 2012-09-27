@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.51-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.51-1) experimental; urgency=low
 
   * New upstream long lived branch release 304.51 (2012-09-24).
     - Added support for the following GPUs: GeForce GT 645M,
@@ -15,8 +15,9 @@ nvidia-graphics-drivers (304.51-1) UNRELEASED; urgency=low
       transformations such as rotation and keystone correction are in use.
     * Closes: #688660.
   * Update nv-readme.ids.
+  * Upload to experimental
 
- -- Andreas Beckmann <debian@abeckmann.de>  Mon, 24 Sep 2012 18:14:16 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 27 Sep 2012 08:25:18 +0200
 
 nvidia-graphics-drivers (304.48-2) unstable; urgency=low
 
