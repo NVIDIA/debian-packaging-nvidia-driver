@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (304.48-3) UNRELEASED; urgency=low
+
+  * Split libxvmcnvidia1 from libgl1-nvidia-glx.
+    - Drops libxvmc1 dependency from libgl1-nvidia-glx, making the package
+      multi-arch co-installable.  (Closes: #676723, #685054, #686033, #688714)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 27 Sep 2012 09:38:46 +0200
+
 nvidia-graphics-drivers (304.48-2) unstable; urgency=low
 
   * libgl1-nvidia-glx-ia32: readd Depends: libgl1-nvidia-alternatives-ia32 to

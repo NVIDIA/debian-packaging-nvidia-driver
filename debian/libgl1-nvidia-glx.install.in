@@ -3,4 +3,4 @@ libnvidia-glcore.so.#VERSION#	#LIBDIR#/
 libnvidia-cfg.so.#VERSION#	#LIBDIR#/#PRIVATE#/
 libnvidia-tls.so.#VERSION#	#LIBDIR#/
 tls/libnvidia-tls.so.#VERSION#	#LIBDIR#/tls/
-libXvMCNVIDIA.so.#VERSION#	#LIBDIR#/#PRIVATE#/
+#libXvMCNVIDIA.so.#VERSION#	#LIBDIR#/#PRIVATE#/
