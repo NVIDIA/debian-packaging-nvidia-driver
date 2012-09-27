@@ -273,10 +273,8 @@ override_dh_gencontrol:
 # in a way other than unzipping of compressed files.
 override_dh_strip:
 
-ifneq (squeeze,$(BACKPORT))
 override_dh_builddeb:
 	dh_builddeb -- -Zxz
-endif
 
 ############################################################################
 
