@@ -154,6 +154,7 @@ Breaks:
  libgl1-nvidia-legacy-173xx-glx (<< 173.14.30-2),
  fglrx-glx (<< 1:11-6-~),
  ia32-libs (<< 20120701) [i386],
+ ia32-libs (= 20120926) [i386],
  nvidia-settings (<< 304),
  nvidia-settings-legacy-173xx,
 Replaces:
