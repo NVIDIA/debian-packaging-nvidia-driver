@@ -257,7 +257,7 @@ override_dh_gencontrol:
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
 		-V'nvidia:Perfkit=$(perfkit)' \
-		-V'nvidia:nvidia-settings=$(NVIDIA_SETTINGS)' \
+		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
 		-Vnvidia:Models="`cat debian/control.models`"
 
 # Do not run dh_strip here.  The NVIDIA license says:
