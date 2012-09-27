@@ -16,6 +16,7 @@ nvidia-graphics-drivers (304.48-2) unstable; urgency=low
   * libgl1-nvidia-glx:i386: Add Breaks: ia32-libs (= 20120926) as the version
     in squeeze-proposed-updates is now newer than the version in sid.
   * There is no need to exclude squeeze-backports from using xz compression.
+  * Update lintian overrides.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 24 Sep 2012 18:14:16 +0200
 
