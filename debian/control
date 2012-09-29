@@ -141,7 +141,7 @@ Provides:
 Conflicts:
  libgl1-nvidia${nvidia:Legacy}-dev,
  nvidia-glx${nvidia:Legacy}-dev,
- libgl1-nvidia-glx-ia32 [i386],
+ libgl1-nvidia${nvidia:Legacy}-glx-ia32 [i386],
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
  nvidia-glx (<< 275.09.07-3),
