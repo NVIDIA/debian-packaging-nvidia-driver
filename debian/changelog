@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (304.48-3) UNRELEASED; urgency=low
 
+  * libgl1-nvidia-glx:i386: Breaks: ia32-libs (<< 1:0), versioning was fixed.
   * Split libxvmcnvidia1 from libgl1-nvidia-glx.
     - Drops libxvmc1 dependency from libgl1-nvidia-glx, making the package
       multi-arch co-installable.  (Closes: #676723, #685054, #686033, #688714)
