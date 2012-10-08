@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (304.51-1+exp1) UNRELEASED; urgency=low
+
+  * Merge proposed changes for 304.48-3:
+    - Split libxvmcnvidia1 from libgl1-nvidia-glx.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Mon, 08 Oct 2012 16:01:06 +0200
+
 nvidia-graphics-drivers (304.51-1) experimental; urgency=low
 
   * New upstream long lived branch release 304.51 (2012-09-24).
