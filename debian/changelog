@@ -19,6 +19,13 @@ nvidia-graphics-drivers (304.51-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 27 Sep 2012 08:25:18 +0200
 
+nvidia-graphics-drivers (304.48-3) UNRELEASED; urgency=low
+
+  * libgl1-nvidia-glx:i386: Breaks: ia32-libs (<< 1:0), versioning was fixed.
+  * Fix missing legacy substitution.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 27 Sep 2012 09:38:46 +0200
+
 nvidia-graphics-drivers (304.48-2) unstable; urgency=low
 
   * libgl1-nvidia-glx-ia32: readd Depends: libgl1-nvidia-alternatives-ia32 to

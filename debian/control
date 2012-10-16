@@ -140,7 +140,7 @@ Provides:
 Conflicts:
  libgl1-nvidia${nvidia:Legacy}-dev,
  nvidia-glx${nvidia:Legacy}-dev,
- libgl1-nvidia-glx-ia32 [i386],
+ libgl1-nvidia${nvidia:Legacy}-glx-ia32 [i386],
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
  nvidia-glx (<< 275.09.07-3),
@@ -153,8 +153,7 @@ Breaks:
  libgl1-nvidia-legacy-96xx-glx (<< 96.43.19-2),
  libgl1-nvidia-legacy-173xx-glx (<< 173.14.30-2),
  fglrx-glx (<< 1:11-6-~),
- ia32-libs (<< 20120701) [i386],
- ia32-libs (= 20120926) [i386],
+ ia32-libs (<< 1:0) [i386],
  nvidia-settings (<< 304),
  nvidia-settings-legacy-173xx,
 Replaces:
