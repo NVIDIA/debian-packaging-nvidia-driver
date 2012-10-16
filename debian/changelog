@@ -29,6 +29,7 @@ nvidia-graphics-drivers (310.14-1) UNRELEASED; urgency=low
   * Add NEWS entry about models that were moved to legacy support.
   * Update nv-readme.ids.
   * Refresh use-nv-kernel.o.ARCH.patch.
+  * Drop fix-typos.patch, fixed upstream.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 16 Oct 2012 17:45:45 +0200
 
