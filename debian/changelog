@@ -24,6 +24,10 @@ nvidia-graphics-drivers (310.14-1) UNRELEASED; urgency=low
       an NVIDIA X screen with xserver ABI 12 (xorg-server 1.12) or newer.
     - Fixed a bug that caused GLX to leak memory when Xinerama is
       enabled.
+  * Upstream has dropped support for several old chips, e.g. GeForce 6xxx/7xxx
+    (they will be supported by a legacy-304xx driver until end of 2017).
+  * Add NEWS entry about models that were moved to legacy support.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 16 Oct 2012 17:45:45 +0200
 
