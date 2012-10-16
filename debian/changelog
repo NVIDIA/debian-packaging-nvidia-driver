@@ -1,3 +1,32 @@
+nvidia-graphics-drivers (310.14-1) UNRELEASED; urgency=low
+
+  * New upstream beta 310.14 (2012-10-15).
+    - Fixed an issue which affected the performance of moving windows of VDPAU
+      applications when run in some composite managers.
+    - Added unofficial GLX protocol support (i.e., for GLX indirect rendering)
+      for the GL_ARB_pixel_buffer_object OpenGL extension.
+    - Added support for HDMI 3D Stereo with Quadro Kepler and later GPUs. See
+      the documentation for the "Stereo" X configuration option in the README
+      for details.
+    - Added experimental support for OpenGL threaded optimizations, available
+      through the __GL_THREADED_OPTIMIZATIONS environment variable. For more
+      information, please refer to the "Threaded Optimizations" section in
+      chapter "Specifying OpenGL Environment Variable Settings" of the README.
+    - Improved performance and responsiveness of windowed OpenGL applications
+      running inside a Unity session.
+  * New upstream release 304 series.
+    - Added support for OpenGL 4.3.
+    - Added support for the "Backlight" RandR output property for
+      configuring the brightness of some notebook internal panels.
+    - Fixed a bug that prevented the Ubuntu Unity launcher panel from
+      unhiding: https://bugs.launchpad.net/unity/+bug/1057000
+    - Fixed a bug that caused incorrect input transformation after resizing
+      an NVIDIA X screen with xserver ABI 12 (xorg-server 1.12) or newer.
+    - Fixed a bug that caused GLX to leak memory when Xinerama is
+      enabled.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 16 Oct 2012 17:45:45 +0200
+
 nvidia-graphics-drivers (304.51-1) experimental; urgency=low
 
   * New upstream long lived branch release 304.51 (2012-09-24).
