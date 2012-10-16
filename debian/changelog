@@ -30,6 +30,7 @@ nvidia-graphics-drivers (310.14-1) UNRELEASED; urgency=low
   * Update nv-readme.ids.
   * Refresh use-nv-kernel.o.ARCH.patch.
   * Drop fix-typos.patch, fixed upstream.
+  * libXvMCNVIDIA.so.1 is gone, was only supported on GeForce 6/7 series.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 16 Oct 2012 17:45:45 +0200
 

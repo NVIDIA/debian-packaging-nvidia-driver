@@ -13,7 +13,6 @@ Build-Depends:
  bzip2,
  dkms (>= 2.1.1.1),
  libxext6,
- libxvmc1,
  quilt,
 Standards-Version: 3.9.3
 Homepage: http://www.nvidia.com
