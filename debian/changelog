@@ -32,6 +32,10 @@ nvidia-graphics-drivers (310.14-1) UNRELEASED; urgency=low
   * Drop fix-typos.patch, fixed upstream.
   * libXvMCNVIDIA.so.1 is gone, was only supported on GeForce 6/7 series.
   * Update symbols control files.
+  * conftest.h:
+    - Implement checks for linux/efi.h and linux/nvmap.h (310.14).
+    - Implement new conftest.sh functions outer_flush_all, nvmap_support, and
+      efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 16 Oct 2012 17:45:45 +0200
 
