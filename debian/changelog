@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (310.14-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
   * New upstream beta 310.14 (2012-10-15).
     - Fixed an issue which affected the performance of moving windows of VDPAU
@@ -25,7 +25,7 @@ nvidia-graphics-drivers (310.14-1) UNRELEASED; urgency=low
     - Fixed a bug that caused GLX to leak memory when Xinerama is
       enabled.
   * Upstream has dropped support for several old chips, e.g. GeForce 6xxx/7xxx
-    (they will be supported by a legacy-304xx driver until end of 2017).
+    (they will be supported by the legacy-304xx driver until end of 2017).
   * Add NEWS entry about models that were moved to legacy support.
   * Update nv-readme.ids.
   * Refresh use-nv-kernel.o.ARCH.patch.
@@ -37,7 +37,7 @@ nvidia-graphics-drivers (310.14-1) UNRELEASED; urgency=low
     - Implement new conftest.sh functions outer_flush_all, nvmap_support, and
       efi_enabled (310.14).
 
- -- Andreas Beckmann <debian@abeckmann.de>  Tue, 16 Oct 2012 17:45:45 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
 nvidia-graphics-drivers (304.51-1) experimental; urgency=low
 
