@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (310.14-2) UNRELEASED; urgency=low
 
   * Merge changes from 304.60-1.
+  * Merge proposed NEW packages from 304.60-2.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Oct 2012 19:56:44 +0200
 
@@ -36,6 +37,18 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
+
+nvidia-graphics-drivers (304.60-2) UNRELEASED; urgency=low
+
+  * Add libxvmcnvidia1 package for the libXvMCNVIDIA*.so.1 library that was
+    previously included in libgl1-nvidia-glx. The libgl1-nvidia-glx package
+    was split in order to remove the libxvmc1 dependency and make it multiarch
+    co-installable.  (Closes: #676723, #685054, #686033, #688714)
+  * nvidia-cuda-proxy: New package for nvidia-cuda-proxy-{control,server}.
+  * libgl1-nvidia-glx-i386:i386: New M-A: foreign helper package that can be
+    recommended by libgl1-nvidia-glx-ia32:amd64.  (Closes: #687506)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Oct 2012 19:15:49 +0200
 
 nvidia-graphics-drivers (304.60-1) unstable; urgency=low
 
