@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.60-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.60-1) unstable; urgency=low
 
   * New upstream long lived branch release 304.60 (2012-10-18).
     - Fixed a bug that caused the X server to crash if a display was put into
@@ -19,6 +19,7 @@ nvidia-graphics-drivers (304.60-1) UNRELEASED; urgency=low
       an NVIDIA X screen with xserver ABI 12 (xorg-server 1.12) or newer.
     - Fixed a bug that caused GLX to leak memory when Xinerama is
       enabled.
+  * Upload to unstable.
   * Restrict watch file to releases from the 304.xx long lived branch.
   * libgl1-nvidia-glx:i386: Breaks: ia32-libs (<< 1:0), versioning was fixed.
   * Fix missing legacy substitution.
@@ -31,7 +32,7 @@ nvidia-graphics-drivers (304.60-1) UNRELEASED; urgency=low
     - Implement new conftest.sh functions outer_flush_all, nvmap_support, and
       efi_enabled (310.14).
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Oct 2012 13:03:16 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Oct 2012 18:41:50 +0200
 
 nvidia-graphics-drivers (304.51-1) experimental; urgency=low
 
