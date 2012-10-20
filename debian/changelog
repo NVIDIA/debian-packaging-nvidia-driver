@@ -9,6 +9,27 @@ nvidia-graphics-drivers (304.48-3) UNRELEASED; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 27 Sep 2012 09:38:46 +0200
 
+nvidia-graphics-drivers (304.51-1) experimental; urgency=low
+
+  * New upstream long lived branch release 304.51 (2012-09-24).
+    - Added support for the following GPUs: GeForce GT 645M,
+      GeForce GTX 670MX, GeForce GTX 675MX, GeForce GTX 650 Ti.
+    - Added support for the new Quadro Sync board for Quadro Kepler GPUs.
+      See the "Configuring Frame Lock and Genlock" chapter in the README
+      for details.
+    - Fixed an X server crash on X.Org xserver 1.13 when it is compiled
+      without support for DRI2.
+    - Fixed a regression that broke color controls on older X servers.
+    - Fixed a bug that prevented panning from working correctly after a
+      modeswitch on some X servers with support for cursor constraining.
+    - Gamma ramp and colormap adjustments now apply correctly when screen
+      transformations such as rotation and keystone correction are in use.
+    * Closes: #688660.
+  * Update nv-readme.ids.
+  * Upload to experimental
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 27 Sep 2012 08:25:18 +0200
+
 nvidia-graphics-drivers (304.48-2) unstable; urgency=low
 
   * libgl1-nvidia-glx-ia32: readd Depends: libgl1-nvidia-alternatives-ia32 to
