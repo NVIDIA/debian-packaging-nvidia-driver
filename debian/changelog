@@ -2,8 +2,8 @@ nvidia-graphics-drivers (304.60-1) UNRELEASED; urgency=low
 
   * New upstream long lived branch release 304.60 (2012-10-18).
     - Fixed a bug that caused the X server to crash if a display was put into
-      DPMS off mode and subsequently reenabled while screen transformations are
-      in use.
+      DPMS off mode and subsequently re-enabled while screen transformations
+      are in use.
     - Fixed a bug that caused the X Resize and Rotate extension to be enabled
       when Xinerama is enabled.  These two X extensions are incompatible and
       having them both enabled can confuse window managers such as KDE's kwin.
