@@ -181,9 +181,9 @@ Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Breaks:
- libgl1-nvidia-glx (<< 304.48-3),
+ libgl1-nvidia-glx (<< 304.60-2),
 Replaces:
- libgl1-nvidia-glx (<< 304.48-3),
+ libgl1-nvidia-glx (<< 304.60-2),
 Description: NVIDIA binary XvMC library${nvidia:LegacyDesc}
  These binary library provides the NVIDIA XvMC implementation which supports
  GeForce 6 series and GeForce 7 series graphics cards.
