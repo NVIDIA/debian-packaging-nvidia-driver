@@ -136,12 +136,12 @@ Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:
- libgl1-nvidia${nvidia:Legacy}-glx-i386 [i386],
+# libgl1-nvidia${nvidia:Legacy}-glx-i386 [i386],
  libgl1-nvidia-glx-any,
 Conflicts:
  libgl1-nvidia${nvidia:Legacy}-dev,
  nvidia-glx${nvidia:Legacy}-dev,
- libgl1-nvidia${nvidia:Legacy}-glx-ia32 [i386],
+# libgl1-nvidia${nvidia:Legacy}-glx-ia32 [i386],
 Breaks:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
  nvidia-glx (<< 275.09.07-3),
@@ -190,6 +190,20 @@ Description: NVIDIA binary XvMC library${nvidia:LegacyDesc}
  .
  See /usr/share/doc/libgl1-nvidia${nvidia:Legacy}-glx/README.txt.gz
  for instructions how to enable XvMC acceleration.
+
+Package: libgl1-nvidia-glx-i386
+Section: non-free/oldlibs
+Priority: extra
+Architecture: i386
+Multi-Arch: foreign
+Depends:
+ libgl1-nvidia${nvidia:Legacy}-glx,
+ ${shlibs:Depends}, ${misc:Depends}
+Description: helper for switching to multiarch libgl1-nvidia${nvidia:Legacy}-glx:i386
+ This is an empty transitional package to aid switching to multiarch.
+ .
+ It adds support for "cross-arch Recommends" in libgl1-nvidia-glx-ia32 to
+ smoothen the migration path from -ia32:amd64 to :i386 packages.
 
 Package: libgl1-nvidia-glx-ia32
 Section: non-free/oldlibs
