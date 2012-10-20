@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (304.60-2) UNRELEASED; urgency=low
+
+  * Add libxvmcnvidia1 package for the libXvMCNVIDIA*.so.1 library that was
+    previously included in libgl1-nvidia-glx. The libgl1-nvidia-glx package
+    was split in order to remove the libxvmc1 dependency and make it multiarch
+    co-installable.  (Closes: #676723, #685054, #686033, #688714)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Oct 2012 19:15:49 +0200
+
 nvidia-graphics-drivers (304.60-1) unstable; urgency=low
 
   * New upstream long lived branch release 304.60 (2012-10-18).
