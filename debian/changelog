@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (304.48-3) UNRELEASED; urgency=low
 
+  * Restrict watch file to releases from the 304.xx long lived branch.
   * libgl1-nvidia-glx:i386: Breaks: ia32-libs (<< 1:0), versioning was fixed.
   * Fix missing legacy substitution.
   * Revert libxvmc1 dependency downgrade HACK.
