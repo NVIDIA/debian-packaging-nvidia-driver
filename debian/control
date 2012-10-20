@@ -418,6 +418,22 @@ Description: NVIDIA System Management Interface
  system state and diagnostic information for the NVIDIA Tesla Visual
  Computing Systems.
 
+Package: nvidia-cuda-proxy
+Section: non-free/utils
+Architecture: i386 amd64
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA CUDA Proxy
+ The Compute Unified Device Architecture (CUDA) enables NVIDIA
+ graphics processing units (GPUs) to be used for massively parallel
+ general purpose computation.
+ .
+ CUDA proxy is a feature that allows multiple CUDA processes to share a single
+ GPU context.  The proxy mode should be transparent to CUDA programs.
+ .
+ Proxy mode requires a device that supports Unified Virtual Address (UVA).
+ Pre-CUDA 4.0 APIs are not supported under proxy mode.
+
 Package: libcuda1
 Architecture: i386 amd64
 Multi-Arch: same
