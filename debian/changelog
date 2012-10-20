@@ -2,9 +2,10 @@ nvidia-graphics-drivers (304.48-3) UNRELEASED; urgency=low
 
   * libgl1-nvidia-glx:i386: Breaks: ia32-libs (<< 1:0), versioning was fixed.
   * Fix missing legacy substitution.
-  * Split libxvmcnvidia1 from libgl1-nvidia-glx.
-    - Drops libxvmc1 dependency from libgl1-nvidia-glx, making the package
-      multi-arch co-installable.  (Closes: #676723, #685054, #686033, #688714)
+  * Revert libxvmc1 dependency downgrade HACK.
+  * libgl1-nvidia-glx: Stop shipping libXvMCNVIDIA*.so.1 to avoid dependency
+    on libxvmc1 (which is not yet converted to multiarch, see #640499), making
+    libgl1-nvidia-glx multiarch co-installable.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 27 Sep 2012 09:38:46 +0200
 
