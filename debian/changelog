@@ -1,9 +1,12 @@
-nvidia-graphics-drivers (310.14-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (310.14-1+exp1) experimental; urgency=low
 
   * Merge changes from 304.60-1.
   * Merge proposed NEW packages from 304.60-2.
+    - The libxvmcnvidia1 package is empty in experimental because the library
+      it should contain was just removed upstream in 310.14. It will gain
+      some content once 304.60-2 gets uploaded to unstable.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Oct 2012 19:56:44 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Oct 2012 20:25:47 +0200
 
 nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
