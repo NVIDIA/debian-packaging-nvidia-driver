@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (304.60-2) UNRELEASED; urgency=low
+
+  * build-module-packages.sh: Build modules only for the variant (current or
+    legacy-abcxx) that shipped the script.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Sat, 03 Nov 2012 23:08:26 +0100
+
 nvidia-graphics-drivers (304.60-1) unstable; urgency=low
 
   * New upstream long lived branch release 304.60 (2012-10-18).
