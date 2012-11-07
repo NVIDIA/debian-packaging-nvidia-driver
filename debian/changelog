@@ -16,6 +16,7 @@ nvidia-graphics-drivers (304.64-1) UNRELEASED; urgency=low
     - Added support for the following GPUs: VGX K1, VGX K2, Tesla K20c,
       Tesla K20m.
   * Update nv-readme.ids.
+  * conftest.h: Implement new conftest.sh function set_memory_array_uc.
   * build-module-packages.sh: Build modules only for the variant (current or
     legacy-abcxx) that shipped the script.
 
