@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (304.64-2) unstable; urgency=low
+
+  * Always use the upstream changelog from the x86_64 release to avoid minor
+    differences causing multiarch conflicts.  (Closes: #692644)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 08 Nov 2012 19:48:43 +0100
+
 nvidia-graphics-drivers (304.64-1) unstable; urgency=low
 
   * New upstream long lived branch release 304.64 (2012-11-06).
