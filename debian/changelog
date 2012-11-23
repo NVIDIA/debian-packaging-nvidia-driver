@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (310.14-2) UNRELEASED; urgency=low
 
-  * Merge changes from 304.60-1.
+  * Merge changes from 304.64-2.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Oct 2012 19:56:44 +0200
 
@@ -37,9 +37,47 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
+nvidia-graphics-drivers (304.64-2) unstable; urgency=low
+
+  * Always use the upstream changelog from the x86_64 release to avoid minor
+    differences causing multiarch conflicts.  (Closes: #692644)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 08 Nov 2012 19:48:43 +0100
+
+nvidia-graphics-drivers (304.64-1) unstable; urgency=low
+
+  * New upstream long lived branch release 304.64 (2012-11-06).
+    - Fixed a regression in backlight control functionality on some
+      notebook configurations.
+    - Fixed a performance issue with recent Linux kernels when allocating
+      and freeing system memory.
+    - Fixed a bug that prevented X driver gamma manipulation from working
+      after a VT-switch on some configurations.
+    - Added the option "--output-file" to nvidia-bug-report.sh to allow
+      specifying a custom filename for the log file.
+    - Fixed a hang when using OpenGL programs with some SLI Mosaic
+      configurations on pre-Fermi GPUs.
+    - Added sections to the "Supported NVIDIA GPU Products" list for NVS,
+      Tesla, and VGX products.
+    - Added support for the following GPUs: VGX K1, VGX K2, Tesla K20c,
+      Tesla K20m.
+  * Update nv-readme.ids.
+  * conftest.h: Implement new conftest.sh function set_memory_array_uc.
+  * build-module-packages.sh: Build modules only for the variant (current or
+    legacy-abcxx) that shipped the script.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 07 Nov 2012 10:14:11 +0100
+
 nvidia-graphics-drivers (304.60-1) unstable; urgency=low
 
   * New upstream long lived branch release 304.60 (2012-10-18).
+    - Fixed a bug that caused the EIZO FlexScan SX2762W monitor to remain blank
+      when connected via DisplayPort.
+    - Fixed a bug that caused applications to stop rendering or the X server to
+      hang in Xinerama configurations when windows were moved, resized, mapped,
+      or unmapped.
+    - Fixed a bug that caused poor OpenGL performance on GeForce 6 and 7 PCI
+      cards.
     - Fixed a bug that caused the X server to crash if a display was put into
       DPMS off mode and subsequently re-enabled while screen transformations
       are in use.

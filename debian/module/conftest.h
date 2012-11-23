@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 310.14, 304.60, 295.75, 173.14.36, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 310.14, 304.64, 295.75, 173.14.36, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -22,6 +22,13 @@
  #define NV_SET_MEMORY_UC_PRESENT
 #else
  #undef NV_SET_MEMORY_UC_PRESENT
+#endif
+
+/* Implement conftest.sh function set_memory_array_uc */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,28)
+ #define NV_SET_MEMORY_ARRAY_UC_PRESENT
+#else
+ #undef NV_SET_MEMORY_ARRAY_UC_PRESENT
 #endif
 
 /* Implement conftest.sh function set_pages_uc */
