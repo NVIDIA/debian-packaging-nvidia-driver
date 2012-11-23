@@ -1,8 +1,13 @@
-nvidia-graphics-drivers (310.14-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (310.19-1) UNRELEASED; urgency=low
 
+  * New upstream release 310.19 (2012-11-16).
+  * New upstream release 304 series.
+    - Added a new X configuration option, "UseHotplugEvents", to allow the
+      suppression of RandR events when adding or removing non-DisplayPort
+      displays. See the "X Config Options" appendix of the README for details.
   * Merge changes from 304.64-2.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Oct 2012 19:56:44 +0200
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 23 Nov 2012 15:22:46 +0100
 
 nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
@@ -20,7 +25,7 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       chapter "Specifying OpenGL Environment Variable Settings" of the README.
     - Improved performance and responsiveness of windowed OpenGL applications
       running inside a Unity session.
-  * New upstream release 304 series.
+  * New upstream release 304.15.00.02 (2012-08-06).
     - Added support for OpenGL 4.3.
   * Upstream has dropped support for several old chips, e.g. GeForce 6xxx/7xxx
     (they will be supported by the legacy-304xx driver until end of 2017).
