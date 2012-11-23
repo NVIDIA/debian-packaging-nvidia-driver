@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (310.19-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (310.19-0+exp1) experimental; urgency=low
 
   * New upstream release 310.19 (2012-11-16).
   * New upstream release 304 series.
@@ -7,7 +7,7 @@ nvidia-graphics-drivers (310.19-1) UNRELEASED; urgency=low
       displays. See the "X Config Options" appendix of the README for details.
   * Merge changes from 304.64-2.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Fri, 23 Nov 2012 15:22:46 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Fri, 23 Nov 2012 18:05:13 +0100
 
 nvidia-graphics-drivers (310.14-1+exp1) experimental; urgency=low
 
