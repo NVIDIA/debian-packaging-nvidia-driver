@@ -361,7 +361,7 @@ nvidia-graphics-drivers (304.22-1) experimental; urgency=low
   * Update nv-readme.ids.
   * Update symbols control files.
   * Update lintian overrides.
-  * Work around dpkg-gencontrol bug #659814. 
+  * Work around dpkg-gencontrol bug #659814.
   * Convert *-ia32 into transitional packages due to ia32-libs transition:
     - $pkg:i386 Provides: $pkg-i386
     - $pkg-ia32 Recommends: $pkg-i386
@@ -808,7 +808,7 @@ nvidia-graphics-drivers (290.06-1) experimental; urgency=low
 nvidia-graphics-drivers (290.03-1) experimental; urgency=low
 
   * New upstream beta 290.03 (2011-10-21).
-    - Fixed a bug that prevented the driver from loading on some systems with 
+    - Fixed a bug that prevented the driver from loading on some systems with
       integrated graphics.
     - Fixed issues in VDPAU that prevented allocating and displaying extremely
       large VdpOutputSurfaces.
@@ -1396,7 +1396,7 @@ nvidia-graphics-drivers (270.30-1) experimental; urgency=low
       moved to /proc/driver/nvidia/gpus/0..N/information
     - Added new shared library: libnvidia-ml.so.
       NVML provides programmatic access to static information and monitoring
-      data for NVIDIA GPUs, as well as limited managment capabilities. It is 
+      data for NVIDIA GPUs, as well as limited managment capabilities. It is
       intended for use with Tesla compute products.
       See web-based documentation and associated nvml.h header for more info.
     - Added a new X configuration option "3DVisionDisplayType" to specify
