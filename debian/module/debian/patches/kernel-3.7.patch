@@ -1,0 +1,22 @@
+Author: Andreas Beckmann <debian@abeckmann.de>
+Description: fix building against kernel 3.7
+ The VM_RESERVED flag was removed in kernel 3.7:
+ http://git.kernel.org/?p=linux/kernel/git/stable/linux-stable.git;a=commit;h=314e51b9851b4f4e8ab302243ff5a6fc6147f379
+Bug-Debian: http://bugs.debian.org/697061
+
+--- nvidia-304.64.orig/nv-mmap.c	2012-10-30 17:58:25.000000000 +0000
++++ nvidia-304.64/nv-mmap.c	2013-01-08 10:13:20.152603291 +0000
+@@ -463,6 +463,13 @@
+         NV_PRINT_AT(NV_DBG_MEMINFO, at);
+         nv_vm_list_page_count(&at->page_table[i], pages);
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,7,0)
++// VM_RESERVED was replaced by VM_DONTEXPAND | VM_DONTDUMP in Linux 3.7
++# ifndef VM_RESERVED
++#  define VM_RESERVED (VM_DONTEXPAND | VM_DONTDUMP)
++# endif
++#endif
++
+         vma->vm_flags |= (VM_IO | VM_LOCKED | VM_RESERVED);
+ 
+ #if defined(VM_DRIVER_PAGES)

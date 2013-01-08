@@ -1,6 +1,8 @@
 nvidia-graphics-drivers (304.64-4) UNRELEASED; urgency=low
 
   * nvidia-detect: Fix detection of Debian 7.0 (wheezy).  (Closes: #697282)
+  * kernel-3.7.patch: New patch to fix compilation with Linux 3.7 (which
+    replaced VM_RESERVED by VM_DONTEXPAND | VM_DONTDUMP).  (Closes: #697061)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 08 Jan 2013 11:01:39 +0100
 
