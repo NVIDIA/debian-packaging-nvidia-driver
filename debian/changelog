@@ -1,3 +1,34 @@
+nvidia-graphics-drivers (313.09-1) UNRELEASED; urgency=low
+
+  * New upstream beta 313.09 (2012-12-12).
+    - Added unofficial GLX protocol support (i.e for GLX indirect rendering)
+      for the following extension and core commands.
+      GL_ARB_vertex_array_object
+      OpenGL 3.0 commands ClearBufferfi, ClearBufferfv, ClearBufferiv,
+      ClearBufferuiv and GetStringi.
+    - Fixed a bug that caused the cursor shadow to be clipped to 32x32
+      pixels, even on Kepler GPUs that support a 256x256 cursor image.
+    - Fixed a bug that prevented some cursor image updates from taking
+      effect on displays with rotation or other transformations applied.
+    - Fixed cursor alpha blending artifacts on displays with rotation
+      or other transformations applied.
+    - Added support for the GLX_EXT_buffer_age extension.
+    - Improved the performance of glDrawPixels() by up to 450% when the pixel
+      data is of type GL_BYTE.
+  * New upstream release 310 series.
+    - Fixed libnvidia-encode.so library dependency by linking it with
+      libnvcuvid.so.1 instead of libnvcuvid.so while creating it.
+    - Improved performance of OpenGL framebuffer object binds with Xinerama
+      enabled by 2000-3000% when the application's windows do not span screen
+      boundaries.
+    - Fix performance issues when using some versions of HyperMesh with Quadro
+      GPUs.
+  * New upstream release 304 series.
+    - Fixed a potential X server crash during initialization, when a 
+      graphics card with a TV connector has no TV connected.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 10 Jan 2013 14:55:42 +0100
+
 nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 
   * New upstream release 310.19 (2012-11-16).
@@ -17,22 +48,6 @@ nvidia-graphics-drivers (310.19-1) experimental; urgency=low
     (Closes: #695883)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 10 Jan 2013 13:25:30 +0100
-
-nvidia-graphics-drivers (310.19-0+exp1) experimental; urgency=low
-
-  *
-
- -- Andreas Beckmann <debian@abeckmann.de>  Fri, 23 Nov 2012 18:05:13 +0100
-
-nvidia-graphics-drivers (310.14-1+exp1) experimental; urgency=low
-
-  * Merge changes from 304.60-1.
-  * Merge proposed NEW packages from 304.60-2.
-    - The libxvmcnvidia1 package is empty in experimental because the library
-      it should contain was just removed upstream in 310.14. It will gain
-      some content once 304.60-2 gets uploaded to unstable.
-
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Oct 2012 20:25:47 +0200
 
 nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
@@ -122,16 +137,6 @@ nvidia-graphics-drivers (304.64-1) unstable; urgency=low
     legacy-abcxx) that shipped the script.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 07 Nov 2012 10:14:11 +0100
-
-nvidia-graphics-drivers (304.60-2) UNRELEASED; urgency=low
-
-  * Add libxvmcnvidia1 package for the libXvMCNVIDIA*.so.1 library that was
-    previously included in libgl1-nvidia-glx. The libgl1-nvidia-glx package
-    was split in order to remove the libxvmc1 dependency and make it multiarch
-    co-installable.  (Closes: #676723, #685054, #686033, #688714)
-  * nvidia-cuda-proxy: New package for nvidia-cuda-proxy-{control,server}.
-
- -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Oct 2012 19:15:49 +0200
 
 nvidia-graphics-drivers (304.60-1) unstable; urgency=low
 
