@@ -7,6 +7,7 @@ nvidia-graphics-drivers (310.19-1) UNRELEASED; urgency=low
       displays. See the "X Config Options" appendix of the README for details.
   * Merge changes from 304.64-4.
   * Drop kernel-3.7.patch, fixed upstream.
+  * nvidia-cuda-proxy: New package for nvidia-cuda-proxy-{control,server}.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 23 Nov 2012 15:22:46 +0100
 
