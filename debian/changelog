@@ -1,11 +1,26 @@
-nvidia-graphics-drivers (310.19-0+exp1) experimental; urgency=low
+nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 
   * New upstream release 310.19 (2012-11-16).
   * New upstream release 304 series.
     - Added a new X configuration option, "UseHotplugEvents", to allow the
       suppression of RandR events when adding or removing non-DisplayPort
       displays. See the "X Config Options" appendix of the README for details.
-  * Merge changes from 304.64-2.
+  * Merge changes from 304.64-4.
+  * Drop kernel-3.7.patch, fixed upstream.
+  * Fix debian/module/debian/kernel-version to cope with $KSRC/linux/version.h
+    being moved to $KSRC/include/generated/uapi/linux/version.h in Linux 3.7.
+    (Closes: #696570)
+  * nvidia-cuda-proxy: New package for nvidia-cuda-proxy-{control,server}.
+  * libxvmcnvidia1: Drop package, the library was removed by upstream as it is
+    only for legacy GPUs supported by the legacy-304xx driver.
+  * nvidia-libopencl1: Prefer nvidia-opencl-icd over opencl-icd.
+    (Closes: #695883)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 10 Jan 2013 13:25:30 +0100
+
+nvidia-graphics-drivers (310.19-0+exp1) experimental; urgency=low
+
+  *
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 23 Nov 2012 18:05:13 +0100
 
@@ -51,6 +66,31 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
+
+nvidia-graphics-drivers (304.64-5) UNRELEASED; urgency=low
+
+  * Fix debian/module/debian/kernel-version to cope with $KSRC/linux/version.h
+    being moved to $KSRC/include/generated/uapi/linux/version.h in Linux 3.7.
+    (Closes: #696570)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 10 Jan 2013 12:06:33 +0100
+
+nvidia-graphics-drivers (304.64-4) unstable; urgency=low
+
+  * nvidia-detect: Fix detection of Debian 7.0 (wheezy).  (Closes: #697282)
+  * kernel-3.7.patch: New patch to fix compilation with Linux 3.7 (which
+    replaced VM_RESERVED by VM_DONTEXPAND | VM_DONTDUMP).  (Closes: #697061)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 08 Jan 2013 11:44:34 +0100
+
+nvidia-graphics-drivers (304.64-3) unstable; urgency=low
+
+  * Add libxvmcnvidia1 package for the libXvMCNVIDIA*.so.1 library that was
+    previously included in libgl1-nvidia-glx. The libgl1-nvidia-glx package
+    was split in order to remove the libxvmc1 dependency and make it multiarch
+    co-installable.  (Closes: #676723, #685054, #686033, #688714)
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 20 Dec 2012 19:35:54 +0100
 
 nvidia-graphics-drivers (304.64-2) unstable; urgency=low
 
@@ -418,7 +458,7 @@ nvidia-graphics-drivers (304.22-1) experimental; urgency=low
   * Update nv-readme.ids.
   * Update symbols control files.
   * Update lintian overrides.
-  * Work around dpkg-gencontrol bug #659814. 
+  * Work around dpkg-gencontrol bug #659814.
   * Convert *-ia32 into transitional packages due to ia32-libs transition:
     - $pkg:i386 Provides: $pkg-i386
     - $pkg-ia32 Recommends: $pkg-i386
@@ -865,7 +905,7 @@ nvidia-graphics-drivers (290.06-1) experimental; urgency=low
 nvidia-graphics-drivers (290.03-1) experimental; urgency=low
 
   * New upstream beta 290.03 (2011-10-21).
-    - Fixed a bug that prevented the driver from loading on some systems with 
+    - Fixed a bug that prevented the driver from loading on some systems with
       integrated graphics.
     - Fixed issues in VDPAU that prevented allocating and displaying extremely
       large VdpOutputSurfaces.
@@ -1453,7 +1493,7 @@ nvidia-graphics-drivers (270.30-1) experimental; urgency=low
       moved to /proc/driver/nvidia/gpus/0..N/information
     - Added new shared library: libnvidia-ml.so.
       NVML provides programmatic access to static information and monitoring
-      data for NVIDIA GPUs, as well as limited managment capabilities. It is 
+      data for NVIDIA GPUs, as well as limited managment capabilities. It is
       intended for use with Tesla compute products.
       See web-based documentation and associated nvml.h header for more info.
     - Added a new X configuration option "3DVisionDisplayType" to specify
