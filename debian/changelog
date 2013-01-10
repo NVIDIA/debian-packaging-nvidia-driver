@@ -5,8 +5,6 @@ nvidia-graphics-drivers (304.60-2) UNRELEASED; urgency=low
     was split in order to remove the libxvmc1 dependency and make it multiarch
     co-installable.  (Closes: #676723, #685054, #686033, #688714)
   * nvidia-cuda-proxy: New package for nvidia-cuda-proxy-{control,server}.
-  * libgl1-nvidia-glx-i386:i386: New M-A: foreign helper package that can be
-    recommended by libgl1-nvidia-glx-ia32:amd64.  (Closes: #687506)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Sat, 20 Oct 2012 19:15:49 +0200
 
