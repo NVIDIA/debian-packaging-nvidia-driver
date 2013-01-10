@@ -8,6 +8,8 @@ nvidia-graphics-drivers (310.19-1) UNRELEASED; urgency=low
   * Merge changes from 304.64-4.
   * Drop kernel-3.7.patch, fixed upstream.
   * nvidia-cuda-proxy: New package for nvidia-cuda-proxy-{control,server}.
+  * libxvmcnvidia1: Drop package, the library was removed by upstream as it is
+    only for legacy GPUs supported by the legacy-304xx driver.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 23 Nov 2012 15:22:46 +0100
 

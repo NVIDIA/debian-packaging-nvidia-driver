@@ -26,7 +26,6 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
- libxvmcnvidia1 (= ${binary:Version}),
  xserver-xorg-video-nvidia${nvidia:Legacy} (= ${binary:Version}),
  nvidia-vdpau-driver (= ${binary:Version}),
  nvidia-alternative${nvidia:Legacy} (= ${binary:Version}),
@@ -130,7 +129,6 @@ Depends:
 Recommends:
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
  | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
- libxvmcnvidia1,
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
@@ -168,27 +166,6 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  See the description of the nvidia-glx${nvidia:Legacy} package
  or /usr/share/doc/libgl1-nvidia${nvidia:Legacy}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
-
-Package: libxvmcnvidia1
-Architecture: i386 amd64
-Multi-Arch: same
-Pre-Depends:
- nvidia-installer-cleanup,
- ${misc:Pre-Depends}
-Depends:
- nvidia-alternative${nvidia:Legacy},
- libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Breaks:
- libgl1-nvidia-glx (<< 304.64-3),
-Replaces:
- libgl1-nvidia-glx (<< 304.64-3),
-Description: NVIDIA binary XvMC library${nvidia:LegacyDesc}
- These binary library provides the NVIDIA XvMC implementation which supports
- GeForce 6 series and GeForce 7 series graphics cards.
- .
- See /usr/share/doc/libgl1-nvidia${nvidia:Legacy}-glx/README.txt.gz
- for instructions how to enable XvMC acceleration.
 
 Package: libgl1-nvidia-glx-ia32
 Section: non-free/oldlibs
