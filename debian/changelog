@@ -10,6 +10,8 @@ nvidia-graphics-drivers (310.19-1) UNRELEASED; urgency=low
   * nvidia-cuda-proxy: New package for nvidia-cuda-proxy-{control,server}.
   * libxvmcnvidia1: Drop package, the library was removed by upstream as it is
     only for legacy GPUs supported by the legacy-304xx driver.
+  * nvidia-libopencl1: Prefer nvidia-opencl-icd over opencl-icd.
+    (Closes: #695883)
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 23 Nov 2012 15:22:46 +0100
 

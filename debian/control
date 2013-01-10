@@ -612,7 +612,7 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- opencl-icd | nvidia-opencl-icd,
+ nvidia-opencl-icd | opencl-icd,
 Provides:
  libopencl1,
  nvidia-libopencl1-i386 [i386],
