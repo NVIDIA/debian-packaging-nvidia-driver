@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (310.19-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 
   * New upstream release 310.19 (2012-11-16).
   * New upstream release 304 series.
@@ -7,13 +7,16 @@ nvidia-graphics-drivers (310.19-1) UNRELEASED; urgency=low
       displays. See the "X Config Options" appendix of the README for details.
   * Merge changes from 304.64-4.
   * Drop kernel-3.7.patch, fixed upstream.
+  * Fix debian/module/debian/kernel-version to cope with $KSRC/linux/version.h
+    being moved to $KSRC/include/generated/uapi/linux/version.h in Linux 3.7.
+    (Closes: #696570)
   * nvidia-cuda-proxy: New package for nvidia-cuda-proxy-{control,server}.
   * libxvmcnvidia1: Drop package, the library was removed by upstream as it is
     only for legacy GPUs supported by the legacy-304xx driver.
   * nvidia-libopencl1: Prefer nvidia-opencl-icd over opencl-icd.
     (Closes: #695883)
 
- -- Andreas Beckmann <debian@abeckmann.de>  Fri, 23 Nov 2012 15:22:46 +0100
+ -- Andreas Beckmann <debian@abeckmann.de>  Thu, 10 Jan 2013 13:25:30 +0100
 
 nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
