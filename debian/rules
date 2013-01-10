@@ -82,8 +82,8 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 	test -f NVIDIA-Linux-amd64/README.txt || \
 		mv NVIDIA-Linux-amd64/usr/share/doc/README.txt NVIDIA-Linux-amd64/README.txt 2>/dev/null || \
 		mv NVIDIA-Linux-amd64/usr/share/doc/README NVIDIA-Linux-amd64/README.txt
-	test -f NVIDIA-Linux/NVIDIA_Changelog || \
-		mv NVIDIA-Linux/usr/share/doc/NVIDIA_Changelog NVIDIA-Linux/
+	test -f NVIDIA-Linux-amd64/NVIDIA_Changelog || \
+		mv NVIDIA-Linux-amd64/usr/share/doc/NVIDIA_Changelog NVIDIA-Linux-amd64/
 	test -d NVIDIA-Linux-i386/kernel || \
 		mv NVIDIA-Linux-i386/usr/src/nv NVIDIA-Linux-i386/kernel
 	test -d NVIDIA-Linux-amd64/kernel || \
@@ -158,6 +158,8 @@ override_dh_auto_install: install-into-tmp build-kernel-source-tree build-kernel
 install-into-tmp:
 	# "Install" into debian/tmp.
 	cp -al NVIDIA-Linux/ debian/tmp
+	rm -f debian/tmp/NVIDIA_Changelog
+	cp -al NVIDIA-Linux-amd64/NVIDIA_Changelog debian/tmp/
 
 	# Create xorg.conf.sample
 	test ! -f debian/tmp/usr/share/doc/XF86Config.sample || \
