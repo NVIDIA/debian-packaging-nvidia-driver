@@ -531,6 +531,18 @@ Description: NVIDIA CUDA nvcuvid runtime library
  .
  This package contains the nvcuvid runtime library.
 
+Package: libnvidia-encode1
+Architecture: i386 amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA nvidia-encode runtime library
+ This could be NVENC, but is currently undocumented.
+ .
+ This package contains the nvidia-encode runtime library.
+
 Package: libnvidia-ml1
 Architecture: i386 amd64
 Multi-Arch: same
