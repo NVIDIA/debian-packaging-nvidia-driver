@@ -27,6 +27,7 @@ nvidia-graphics-drivers (313.09-1) UNRELEASED; urgency=low
     - Fixed a potential X server crash during initialization, when a 
       graphics card with a TV connector has no TV connected.
   * Update symbols control files.
+  * Update lintian overrides.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 10 Jan 2013 14:55:42 +0100
 
