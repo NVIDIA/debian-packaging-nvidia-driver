@@ -63,6 +63,7 @@ nvidia-graphics-drivers (313.18-1) UNRELEASED; urgency=low
       0.27.
     - Fixed a potential X server crash during initialization, when a 
       graphics card with a TV connector has no TV connected.
+  * Update nv-readme.ids.
   * Update symbols control files.
   * Update lintian overrides.
   * libnvidia-encode1: New package for libnvidia-encode.so*.
