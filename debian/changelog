@@ -66,7 +66,6 @@ nvidia-graphics-drivers (313.18-1) UNRELEASED; urgency=low
   * Update nv-readme.ids.
   * Update symbols control files.
   * Update lintian overrides.
-  * libnvidia-encode1: New package for libnvidia-encode.so*.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 10 Jan 2013 14:55:42 +0100
 
