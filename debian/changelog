@@ -66,6 +66,7 @@ nvidia-graphics-drivers (313.18-1) experimental; urgency=low
   * Update nv-readme.ids.
   * Update symbols control files.
   * Update lintian overrides.
+  * Add xorg-video-abi-14 as alternative dependency.
   * nvidia-detect: Add PCI ID list for the 304.64 driver in wheezy.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 16 Jan 2013 21:07:03 +0100
