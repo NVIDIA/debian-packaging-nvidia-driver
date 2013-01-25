@@ -6,8 +6,6 @@ nvidia-graphics-drivers (310.32-1) UNRELEASED; urgency=low
       caused the latter to be incorrectly assigned to the framelock group.
     - Updated the reporting of HDMI 3D framerates and pixel clocks to be
       more consistent with how they are reported by HDMI 3D displays.
-    - Fixed a bug that sometimes prevented rotation controls in the nvidia-
-      settings control panel from working after changing resolutions.
     - Fixed a bug that could cause applications using GL_NV_vdpau_interop
       to crash during modeswitches.
     - Fixed a regression that could cause OpenGL applications to crash
@@ -24,9 +22,6 @@ nvidia-graphics-drivers (310.32-1) UNRELEASED; urgency=low
     - Renamed VGX products to GRID products in the "Supported NVIDIA GPU
       Products" list.
     - Added support for X.org xserver ABI 14 (xorg-server 1.14).
-    - Fixed a bug in nvidia-settings that could cause the wrong
-      resolution to be set in basic mode for setups based on one
-      display per X screen.
     - Fixed libnvidia-encode.so library dependency by linking it with
       libnvcuvid.so.1 instead of libnvcuvid.so while creating it.
     - Improved performance of OpenGL framebuffer object binds with Xinerama
