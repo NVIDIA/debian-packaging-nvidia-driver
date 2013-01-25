@@ -44,6 +44,7 @@ nvidia-graphics-drivers (310.32-1) UNRELEASED; urgency=low
     - Fixed a potential X server crash during initialization, when a 
       graphics card with a TV connector has no TV connected.
   * Restrict watch file to releases from the 310.xx long lived branch.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 25 Jan 2013 18:13:28 +0100
 
