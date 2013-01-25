@@ -1,6 +1,54 @@
+nvidia-graphics-drivers (310.32-1) UNRELEASED; urgency=low
+
+  * New upstream long lived branch release 310.32 (2013-01-21).
+    - Fixed a bug when enabling framelock between displays connected to
+      the same GPU as other displays with different refresh rates, which
+      caused the latter to be incorrectly assigned to the framelock group.
+    - Updated the reporting of HDMI 3D framerates and pixel clocks to be
+      more consistent with how they are reported by HDMI 3D displays.
+    - Fixed a bug that sometimes prevented rotation controls in the nvidia-
+      settings control panel from working after changing resolutions.
+    - Fixed a bug that could cause applications using GL_NV_vdpau_interop
+      to crash during modeswitches.
+    - Fixed a regression that could cause OpenGL applications to crash
+      while compiling shaders.
+    - Added a kernel module parameter, "NVreg_EnablePCIeGen3", which can be
+      used to enable PCIe gen 3 when possible. Note that on many systems
+      where the NVIDIA driver does not allow PCIe gen 3 by default,
+      stability problems can be expected when this option is enabled: users
+      should do so at their own risk.
+    - Fixed a VDPAU bug that could cause the X server to hang when decoding
+      some corrupted video streams.
+    - Added support for the following GPUs: Quadro K600, Quadro K2000,
+      Quadro K2000D, Quadro K4000, GeForce GTX 680MX, Tesla K20Xm.
+    - Renamed VGX products to GRID products in the "Supported NVIDIA GPU
+      Products" list.
+    - Added support for X.org xserver ABI 14 (xorg-server 1.14).
+    - Fixed a bug in nvidia-settings that could cause the wrong
+      resolution to be set in basic mode for setups based on one
+      display per X screen.
+    - Fixed libnvidia-encode.so library dependency by linking it with
+      libnvcuvid.so.1 instead of libnvcuvid.so while creating it.
+    - Improved performance of OpenGL framebuffer object binds with Xinerama
+      enabled by 2000-3000% when the application's windows do not span screen
+      boundaries.
+    - Fix performance issues when using some versions of HyperMesh with Quadro
+      GPUs.
+  * New upstream release 304 series.
+    - Fixed a bug that could cause the X server to crash when performing
+      an RandR 1.0 rotation (e.g., `xrandr --orientation left`) after
+      unplugging the last connected monitor.
+    - Fixed font rendering performance and corruption problems on X servers with
+      backported support for the new glyph cache functionality added to Pixman
+      0.27.
+    - Fixed a potential X server crash during initialization, when a 
+      graphics card with a TV connector has no TV connected.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 25 Jan 2013 18:13:28 +0100
+
 nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 
-  * New upstream release 310.19 (2012-11-16).
+  * New upstream release 310.19 (2012-11-13).
   * New upstream release 304 series.
     - Added a new X configuration option, "UseHotplugEvents", to allow the
       suppression of RandR events when adding or removing non-DisplayPort
@@ -21,6 +69,9 @@ nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
   * New upstream beta 310.14 (2012-10-15).
+    - Implemented workarounds for two Adobe Flash bugs by applying libvdpau
+      commit ca9e637c61e80145f0625a590c91429db67d0a40 to the version of libvdpau
+      shipped with the NVIDIA driver.
     - Fixed an issue which affected the performance of moving windows of VDPAU
       applications when run in some composite managers.
     - Added unofficial GLX protocol support (i.e., for GLX indirect rendering)
