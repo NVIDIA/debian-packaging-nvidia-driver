@@ -56,8 +56,9 @@ nvidia-graphics-drivers (304.64-5) UNRELEASED; urgency=low
   * Fix debian/module/debian/kernel-version to cope with $KSRC/linux/version.h
     being moved to $KSRC/include/generated/uapi/linux/version.h in Linux 3.7.
     (Closes: #696570)
+  * Update my email address and remove DMUA.
 
- -- Andreas Beckmann <debian@abeckmann.de>  Thu, 10 Jan 2013 12:06:33 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 25 Jan 2013 17:11:27 +0100
 
 nvidia-graphics-drivers (304.64-4) unstable; urgency=low
 
