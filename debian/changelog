@@ -18,6 +18,7 @@ nvidia-graphics-drivers (304.84-1) UNRELEASED; urgency=low
       suppression of RandR events when adding or removing non-DisplayPort
       displays. See the "X Config Options" appendix of the README for details.
   * Add xorg-video-abi-14 as alternative dependency.
+  * kernel-3.7.patch: Remove, fixed upstream.
   * Fix debian/module/debian/kernel-version to cope with $KSRC/linux/version.h
     being moved to $KSRC/include/generated/uapi/linux/version.h in Linux 3.7.
     (Closes: #696570)
