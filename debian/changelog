@@ -1,5 +1,15 @@
-nvidia-graphics-drivers (310.32-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (310.40-1) UNRELEASED; urgency=low
 
+  * New upstream long lived branch release 310.40 (2013-03-08).
+    - Reduced the amount of time needed to establish framelock in some
+      stereo configurations with many monitors.
+    - Added support for the following GPUs: GeForce G205M, GeForce GT 240M LE,
+      GeForce 405M, GeForce 610, GeForce 615, GeForce 620M, GeForce GT 625M,
+      GeForce GT 625 (OEM), GeForce GT 635, GeForce 705M, GeForce 710M,
+      GeForce GT 710M, GeForce GT 720A, GeForce GT 730M, Tesla X2070,
+      Tesla S2050, Tesla K20s.
+    - Fixed a bug where glXSwapIntervalEXT failed to set a swap interval
+      value of zero in certain situations.
   * New upstream long lived branch release 310.32 (2013-01-21).
     - Fixed a bug when enabling framelock between displays connected to
       the same GPU as other displays with different refresh rates, which
@@ -42,7 +52,7 @@ nvidia-graphics-drivers (310.32-1) UNRELEASED; urgency=low
   * Update nv-readme.ids.
   * Add xorg-video-abi-14 as alternative dependency.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 25 Jan 2013 18:13:28 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Mar 2013 17:57:05 +0100
 
 nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 
