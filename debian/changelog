@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (313.26-1) UNRELEASED; urgency=low
+
+  * New upstream short lived branch release 313.26 (2013-03-05).
+    - Added support for the following GPU: GeForce GTX TITAN.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Mar 2013 18:15:08 +0100
+
 nvidia-graphics-drivers (313.18-2) experimental; urgency=low
 
   * Update my email address and remove DMUA.
