@@ -1,12 +1,29 @@
-nvidia-graphics-drivers (304.64-5) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.84-1) UNRELEASED; urgency=low
 
+  * New upstream long lived branch release 304.84 (2013-03-04).
+    - Improved compatibility with recent Linux kernels.
+    - Fixed a bug that could lead to rendering corruption after an X
+      server generation (i.e., leaving an X server running after all
+      of its clients have exited).
+    - Fixed a bug that could cause the X server to crash when performing
+      an RandR 1.0 rotation (e.g., `xrandr --orientation left`) after
+      unplugging the last connected monitor.
+    - Added support for X.org xserver ABI 14 (xorg-server 1.14).
+    - Fixed font rendering performance and corruption problems on X servers with
+      backported support for the new glyph cache functionality added to Pixman
+      0.27.
+    - Fixed a potential X server crash during initialization, when a 
+      graphics card with a TV connector has no TV connected.
+    - Added a new X configuration option, "UseHotplugEvents", to allow the
+      suppression of RandR events when adding or removing non-DisplayPort
+      displays. See the "X Config Options" appendix of the README for details.
   * Fix debian/module/debian/kernel-version to cope with $KSRC/linux/version.h
     being moved to $KSRC/include/generated/uapi/linux/version.h in Linux 3.7.
     (Closes: #696570)
   * nvidia-vdpau-driver: Move to Section: non-free/video.  (See #700666)
   * Update my email address and remove DMUA.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 25 Jan 2013 17:11:27 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Mar 2013 12:47:53 +0100
 
 nvidia-graphics-drivers (304.64-4) unstable; urgency=low
 
