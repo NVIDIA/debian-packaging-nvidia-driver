@@ -23,6 +23,9 @@ nvidia-graphics-drivers (304.84-1) unstable; urgency=low
     being moved to $KSRC/include/generated/uapi/linux/version.h in Linux 3.7.
     (Closes: #696570)
   * nvidia-vdpau-driver: Move to Section: non-free/video.  (See #700666)
+  * README.alternatives: Document to run
+    'dpkg-reconfigure glx-alternative-nvidia'
+    after running 'update-alternatives --config nvidia'.  (See #702782)
   * Update my email address and remove DMUA.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Mar 2013 08:55:25 +0100
