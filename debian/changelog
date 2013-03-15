@@ -4,7 +4,7 @@ nvidia-graphics-drivers (304.84-1) unstable; urgency=low
     - Improved compatibility with recent Linux kernels.
     - Fixed a bug that could lead to rendering corruption after an X
       server generation (i.e., leaving an X server running after all
-      of its clients have exited).  (Closes: #700121, #696839)
+      of its clients have exited).  (Closes: #700121, #696839, #702918)
     - Fixed a bug that could cause the X server to crash when performing
       an RandR 1.0 rotation (e.g., `xrandr --orientation left`) after
       unplugging the last connected monitor.
@@ -34,7 +34,7 @@ nvidia-graphics-drivers (304.84-1) unstable; urgency=low
     module source that is under a non-free license from NVIDIA.
   * Update my email address and remove DMUA.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Mar 2013 08:55:25 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 15 Mar 2013 11:23:39 +0100
 
 nvidia-graphics-drivers (304.64-4) unstable; urgency=low
 
