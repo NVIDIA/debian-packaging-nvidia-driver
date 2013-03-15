@@ -29,6 +29,8 @@ nvidia-graphics-drivers (304.84-1) unstable; urgency=low
   * Add copyright information to the nvidia-detect script originally written
     by Filipus Klutiero for the wiki page.
   * patch-3.0-rt-nvidia.patch: Remove, disabled since 304.30-2.
+  * Put my patches into the public domain, they get applied to the kernel
+    module source that is under a non-free license from NVIDIA.
   * Update my email address and remove DMUA.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Mar 2013 08:55:25 +0100
