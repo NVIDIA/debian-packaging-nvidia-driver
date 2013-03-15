@@ -26,6 +26,7 @@ nvidia-graphics-drivers (304.84-1) unstable; urgency=low
   * README.alternatives: Document to run
     'dpkg-reconfigure glx-alternative-nvidia'
     after running 'update-alternatives --config nvidia'.  (See #702782)
+  * README.Debian: Add information about reporting upstream bugs to NVIDIA.
   * Add copyright information to the nvidia-detect script originally written
     by Filipus Klutiero for the wiki page.
   * patch-3.0-rt-nvidia.patch: Remove, disabled since 304.30-2.
