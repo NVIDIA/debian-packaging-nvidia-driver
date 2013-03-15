@@ -23,6 +23,11 @@ Copyright: 2001-2010 Randall Donald <rdonald@debian.org>
            Based on packages by Christopher Cheney.
 License: GPL-2.0+
 
+Files: debian/detect/nvidia-detect.in
+Copyright: © 2008-2011 Filipus Klutiero <chealer@gmail.com>
+           © 2011-2013 Andreas Beckmann <anbe@debian.org>
+License: GPL-2.0+
+
 License: GPL-2.0+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
