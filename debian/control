@@ -295,6 +295,7 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  for a complete list of supported GPUs and PCI IDs.
 
 Package: nvidia-vdpau-driver
+Section: non-free/video
 Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:

@@ -85,13 +85,57 @@ nvidia-graphics-drivers (313.18-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 16 Jan 2013 21:07:03 +0100
 
+nvidia-graphics-drivers (310.40-1) UNRELEASED; urgency=low
+
+  * New upstream long lived branch release 310.40 (2013-03-08).
+    - Reduced the amount of time needed to establish framelock in some
+      stereo configurations with many monitors.
+    - Added support for the following GPUs: GeForce G205M, GeForce GT 240M LE,
+      GeForce 405M, GeForce 610, GeForce 615, GeForce 620M, GeForce GT 625M,
+      GeForce GT 625 (OEM), GeForce GT 635, GeForce 705M, GeForce 710M,
+      GeForce GT 710M, GeForce GT 720A, GeForce GT 730M, Tesla X2070,
+      Tesla S2050, Tesla K20s.
+    - Fixed a bug where glXSwapIntervalEXT failed to set a swap interval
+      value of zero in certain situations.
+  * New upstream long lived branch release 310.32 (2013-01-21).
+    - Fixed a bug when enabling framelock between displays connected to
+      the same GPU as other displays with different refresh rates, which
+      caused the latter to be incorrectly assigned to the framelock group.
+    - Updated the reporting of HDMI 3D framerates and pixel clocks to be
+      more consistent with how they are reported by HDMI 3D displays.
+    - Fixed a bug that could cause applications using GL_NV_vdpau_interop
+      to crash during modeswitches.
+    - Fixed a regression that could cause OpenGL applications to crash
+      while compiling shaders.
+    - Added a kernel module parameter, "NVreg_EnablePCIeGen3", which can be
+      used to enable PCIe gen 3 when possible. Note that on many systems
+      where the NVIDIA driver does not allow PCIe gen 3 by default,
+      stability problems can be expected when this option is enabled: users
+      should do so at their own risk.
+    - Fixed a VDPAU bug that could cause the X server to hang when decoding
+      some corrupted video streams.
+    - Added support for the following GPUs: Quadro K600, Quadro K2000,
+      Quadro K2000D, Quadro K4000, GeForce GTX 680MX, Tesla K20Xm.
+    - Renamed VGX products to GRID products in the "Supported NVIDIA GPU
+      Products" list.
+    - Added support for X.org xserver ABI 14 (xorg-server 1.14).
+    - Fixed libnvidia-encode.so library dependency by linking it with
+      libnvcuvid.so.1 instead of libnvcuvid.so while creating it.
+    - Improved performance of OpenGL framebuffer object binds with Xinerama
+      enabled by 2000-3000% when the application's windows do not span screen
+      boundaries.
+    - Fix performance issues when using some versions of HyperMesh with Quadro
+      GPUs.
+  * Merge changes from 304.84-1.
+  * Restrict watch file to releases from the 310.xx long lived branch.
+  * Update nv-readme.ids.
+  * Add xorg-video-abi-14 as alternative dependency.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Mar 2013 17:57:05 +0100
+
 nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 
-  * New upstream release 310.19 (2012-11-16).
-  * New upstream release 304 series.
-    - Added a new X configuration option, "UseHotplugEvents", to allow the
-      suppression of RandR events when adding or removing non-DisplayPort
-      displays. See the "X Config Options" appendix of the README for details.
+  * New upstream release 310.19 (2012-11-13).
   * Merge changes from 304.64-4.
   * Drop kernel-3.7.patch, fixed upstream.
   * Fix debian/module/debian/kernel-version to cope with $KSRC/linux/version.h
@@ -108,6 +152,9 @@ nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
   * New upstream beta 310.14 (2012-10-15).
+    - Implemented workarounds for two Adobe Flash bugs by applying libvdpau
+      commit ca9e637c61e80145f0625a590c91429db67d0a40 to the version of libvdpau
+      shipped with the NVIDIA driver.
     - Fixed an issue which affected the performance of moving windows of VDPAU
       applications when run in some composite managers.
     - Added unofficial GLX protocol support (i.e., for GLX indirect rendering)
@@ -138,14 +185,43 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
-nvidia-graphics-drivers (304.64-5) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.84-1) unstable; urgency=low
 
+  * New upstream legacy 304xx branch release 304.84 (2013-03-04).
+    - Improved compatibility with recent Linux kernels.
+    - Fixed a bug that could lead to rendering corruption after an X
+      server generation (i.e., leaving an X server running after all
+      of its clients have exited).  (Closes: #700121, #696839, #702918)
+    - Fixed a bug that could cause the X server to crash when performing
+      an RandR 1.0 rotation (e.g., `xrandr --orientation left`) after
+      unplugging the last connected monitor.
+    - Added support for X.org xserver ABI 14 (xorg-server 1.14).
+    - Fixed font rendering performance and corruption problems on X servers with
+      backported support for the new glyph cache functionality added to Pixman
+      0.27.
+    - Fixed a potential X server crash during initialization, when a 
+      graphics card with a TV connector has no TV connected.
+    - Added a new X configuration option, "UseHotplugEvents", to allow the
+      suppression of RandR events when adding or removing non-DisplayPort
+      displays. See the "X Config Options" appendix of the README for details.
+  * Add xorg-video-abi-14 as alternative dependency.
+  * kernel-3.7.patch: Remove, fixed upstream.
   * Fix debian/module/debian/kernel-version to cope with $KSRC/linux/version.h
     being moved to $KSRC/include/generated/uapi/linux/version.h in Linux 3.7.
     (Closes: #696570)
+  * nvidia-vdpau-driver: Move to Section: non-free/video.  (See #700666)
+  * README.alternatives: Document to run
+    'dpkg-reconfigure glx-alternative-nvidia'
+    after running 'update-alternatives --config nvidia'.  (See #702782)
+  * README.Debian: Add information about reporting upstream bugs to NVIDIA.
+  * Add copyright information to the nvidia-detect script originally written
+    by Filipus Klutiero for the wiki page.
+  * patch-3.0-rt-nvidia.patch: Remove, disabled since 304.30-2.
+  * Put my patches into the public domain, they get applied to the kernel
+    module source that is under a non-free license from NVIDIA.
   * Update my email address and remove DMUA.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 25 Jan 2013 17:11:27 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 15 Mar 2013 11:23:39 +0100
 
 nvidia-graphics-drivers (304.64-4) unstable; urgency=low
 
