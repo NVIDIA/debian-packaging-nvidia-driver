@@ -2,6 +2,7 @@ nvidia-graphics-drivers (313.26-1) UNRELEASED; urgency=low
 
   * New upstream short lived branch release 313.26 (2013-03-05).
     - Added support for the following GPU: GeForce GTX TITAN.
+  * Merge changes from 304.84-1 and 310.40 (UNRELEASED).
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Mar 2013 18:15:08 +0100
 
@@ -37,46 +38,7 @@ nvidia-graphics-drivers (313.18-1) experimental; urgency=low
     - Added support for the GLX_EXT_buffer_age extension.
     - Improved the performance of glDrawPixels() by up to 450% when the pixel
       data is of type GL_BYTE.
-  * New upstream release 310 series.
-    - Fixed a bug when enabling framelock between displays connected to
-      the same GPU as other displays with different refresh rates, which
-      caused the latter to be incorrectly assigned to the framelock group.
-    - Updated the reporting of HDMI 3D framerates and pixel clocks to be
-      more consistent with how they are reported by HDMI 3D displays.
-    - Fixed a bug that sometimes prevented rotation controls in the nvidia-
-      settings control panel from working after changing resolutions.
-    - Fixed a bug that could cause applications using GL_NV_vdpau_interop
-      to crash during modeswitches.
-    - Fixed a regression that could cause OpenGL applications to crash
-      while compiling shaders.
-    - Added a kernel module parameter, "NVreg_EnablePCIeGen3", which can be
-      used to enable PCIe gen 3 when possible. Note that on many systems
-      where the NVIDIA driver does not allow PCIe gen 3 by default,
-      stability problems can be expected when this option is enabled: users
-      should do so at their own risk.
-    - Fixed a VDPAU bug that could cause the X server to hang when decoding
-      some corrupted video streams.
-    - Added support for the following GPUs: Quadro K600, Quadro K2000,
-      Quadro K2000D, Quadro K4000, GeForce GTX 680MX, Tesla K20Xm.
-    - Renamed VGX products to GRID products in the "Supported NVIDIA GPU
-      Products" list.
-    - Added support for X.org xserver ABI 14 (xorg-server 1.14).
-    - Fixed libnvidia-encode.so library dependency by linking it with
-      libnvcuvid.so.1 instead of libnvcuvid.so while creating it.
-    - Improved performance of OpenGL framebuffer object binds with Xinerama
-      enabled by 2000-3000% when the application's windows do not span screen
-      boundaries.
-    - Fix performance issues when using some versions of HyperMesh with Quadro
-      GPUs.
-  * New upstream release 304 series.
-    - Fixed a bug that could cause the X server to crash when performing
-      an RandR 1.0 rotation (e.g., `xrandr --orientation left`) after
-      unplugging the last connected monitor.
-    - Fixed font rendering performance and corruption problems on X servers with
-      backported support for the new glyph cache functionality added to Pixman
-      0.27.
-    - Fixed a potential X server crash during initialization, when a 
-      graphics card with a TV connector has no TV connected.
+  * Merge changes from 310.32 (UNRELEASED).
   * Update nv-readme.ids.
   * Update symbols control files.
   * Update lintian overrides.
