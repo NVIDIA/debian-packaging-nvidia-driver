@@ -4,7 +4,10 @@ Short summary about selecting a glx implementation
 To switch between the current and legacy NVIDIA drivers, use
 
     update-alternatives --config nvidia
+    dpkg-reconfigure glx-alternative-nvidia
 
+(The second command ensures the changes are propagated to the glx
+alternative.)
 
 To switch between the GLX implementation from MESA, NVIDIA and AMD(fglrx),
 use

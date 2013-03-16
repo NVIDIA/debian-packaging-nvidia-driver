@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 310.14, 304.64, 295.75, 173.14.36, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 313.26, 310.40, 304.84, 295.75, 173.14.37, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>

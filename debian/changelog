@@ -110,14 +110,43 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
-nvidia-graphics-drivers (304.64-5) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.84-1) unstable; urgency=low
 
+  * New upstream legacy 304xx branch release 304.84 (2013-03-04).
+    - Improved compatibility with recent Linux kernels.
+    - Fixed a bug that could lead to rendering corruption after an X
+      server generation (i.e., leaving an X server running after all
+      of its clients have exited).  (Closes: #700121, #696839, #702918)
+    - Fixed a bug that could cause the X server to crash when performing
+      an RandR 1.0 rotation (e.g., `xrandr --orientation left`) after
+      unplugging the last connected monitor.
+    - Added support for X.org xserver ABI 14 (xorg-server 1.14).
+    - Fixed font rendering performance and corruption problems on X servers with
+      backported support for the new glyph cache functionality added to Pixman
+      0.27.
+    - Fixed a potential X server crash during initialization, when a 
+      graphics card with a TV connector has no TV connected.
+    - Added a new X configuration option, "UseHotplugEvents", to allow the
+      suppression of RandR events when adding or removing non-DisplayPort
+      displays. See the "X Config Options" appendix of the README for details.
+  * Add xorg-video-abi-14 as alternative dependency.
+  * kernel-3.7.patch: Remove, fixed upstream.
   * Fix debian/module/debian/kernel-version to cope with $KSRC/linux/version.h
     being moved to $KSRC/include/generated/uapi/linux/version.h in Linux 3.7.
     (Closes: #696570)
+  * nvidia-vdpau-driver: Move to Section: non-free/video.  (See #700666)
+  * README.alternatives: Document to run
+    'dpkg-reconfigure glx-alternative-nvidia'
+    after running 'update-alternatives --config nvidia'.  (See #702782)
+  * README.Debian: Add information about reporting upstream bugs to NVIDIA.
+  * Add copyright information to the nvidia-detect script originally written
+    by Filipus Klutiero for the wiki page.
+  * patch-3.0-rt-nvidia.patch: Remove, disabled since 304.30-2.
+  * Put my patches into the public domain, they get applied to the kernel
+    module source that is under a non-free license from NVIDIA.
   * Update my email address and remove DMUA.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 25 Jan 2013 17:11:27 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 15 Mar 2013 11:23:39 +0100
 
 nvidia-graphics-drivers (304.64-4) unstable; urgency=low
 

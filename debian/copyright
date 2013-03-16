@@ -21,27 +21,40 @@ Copyright: 2001-2010 Randall Donald <rdonald@debian.org>
            2009-2013 Andreas Beckmann <anbe@debian.org>
            2010 Russ Allbery <rra@debian.org>
            Based on packages by Christopher Cheney.
-License: GPL-2+
- This program is free software; you can redistribute it
- and/or modify it under the terms of the GNU General Public
- License as published by the Free Software Foundation; either
- version 2 of the License, or (at your option) any later
- version.
+License: GPL-2.0+
+
+Files: debian/detect/nvidia-detect.in
+Copyright: © 2008-2011 Filipus Klutiero <chealer@gmail.com>
+           © 2011-2013 Andreas Beckmann <anbe@debian.org>
+License: GPL-2.0+
+
+Files: debian/modules/debian/patches/*
+Copyright: no copyright notice, see License
+License: anbe-public-domain
+ The authors hereby relinquish any claim to any copyright that they may
+ have in this work, whether granted under contract or by operation of law
+ or international treaty, and hereby commit to the public, at large, that
+ they shall not, at any time in the future, seek to enforce any copyright
+ in this work against any person or entity, or prevent any person or
+ entity from copying, publishing, distributing or creating derivative
+ works of this work.
+
+License: GPL-2.0+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
  .
- This program is distributed in the hope that it will be
- useful, but WITHOUT ANY WARRANTY; without even the implied
- warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
- PURPOSE.  See the GNU General Public License for more
- details.
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
  .
- You should have received a copy of the GNU General Public
- License along with this package; if not, write to the Free
- Software Foundation, Inc., 51 Franklin St, Fifth Floor,
- Boston, MA  02110-1301 USA
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
  .
- On Debian systems, the full text of the GNU General Public
- License version 2 can be found in the file
- `/usr/share/common-licenses/GPL-2'.
+ On Debian systems, the complete text of the GNU General Public
+ License version 2 can be found in "/usr/share/common-licenses/GPL-2".
 
 License: NVIDIA-graphics-drivers
  License For Customer Use of NVIDIA Software
