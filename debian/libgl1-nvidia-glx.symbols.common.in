@@ -1406,6 +1406,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glRenderbufferStorageMultisample@Base 180
  glRenderbufferStorageMultisampleCoverageNV@Base 1.0.9746
  glRenderbufferStorageMultisampleEXT@Base 1.0.9625
+ glRenderbufferStorageMultisampleNV@Base 313.26
  glRequestResidentProgramsNV@Base 1.0.4349
  glResetHistogram@Base 1.0.4349
  glResetMinmax@Base 1.0.4349
