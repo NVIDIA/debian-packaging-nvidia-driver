@@ -39,15 +39,7 @@ nvidia-graphics-drivers (310.40-1) UNRELEASED; urgency=low
       boundaries.
     - Fix performance issues when using some versions of HyperMesh with Quadro
       GPUs.
-  * New upstream release 304 series.
-    - Fixed a bug that could cause the X server to crash when performing
-      an RandR 1.0 rotation (e.g., `xrandr --orientation left`) after
-      unplugging the last connected monitor.
-    - Fixed font rendering performance and corruption problems on X servers with
-      backported support for the new glyph cache functionality added to Pixman
-      0.27.
-    - Fixed a potential X server crash during initialization, when a 
-      graphics card with a TV connector has no TV connected.
+  * Merge changes from 304.81-1.
   * Restrict watch file to releases from the 310.xx long lived branch.
   * Update nv-readme.ids.
   * Add xorg-video-abi-14 as alternative dependency.
@@ -57,10 +49,6 @@ nvidia-graphics-drivers (310.40-1) UNRELEASED; urgency=low
 nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 
   * New upstream release 310.19 (2012-11-13).
-  * New upstream release 304 series.
-    - Added a new X configuration option, "UseHotplugEvents", to allow the
-      suppression of RandR events when adding or removing non-DisplayPort
-      displays. See the "X Config Options" appendix of the README for details.
   * Merge changes from 304.64-4.
   * Drop kernel-3.7.patch, fixed upstream.
   * Fix debian/module/debian/kernel-version to cope with $KSRC/linux/version.h
