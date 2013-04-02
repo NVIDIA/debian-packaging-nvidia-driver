@@ -1,3 +1,17 @@
+nvidia-graphics-drivers (304.88-1) unstable; urgency=low
+
+  * New upstream legacy 304xx branch release 304.88 (2013-04-02).
+    - Fixed CVE-2013-0131: NVIDIA UNIX GPU Driver ARGB Cursor Buffer
+      Overflow in "NoScanout" Mode.  This buffer overflow, which occurred
+      when an X client installed a large ARGB cursor on an X server
+      running in NoScanout mode, could cause a denial of service (e.g.,
+      an X server segmentation fault), or could be exploited to achieve
+      arbitrary code execution.  (Closes: #704547)
+      For more details, see:
+      http://nvidia.custhelp.com/app/answers/detail/a_id/3290
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 02 Apr 2013 22:43:31 +0200
+
 nvidia-graphics-drivers (304.84-1) unstable; urgency=low
 
   * New upstream legacy 304xx branch release 304.84 (2013-03-04).
