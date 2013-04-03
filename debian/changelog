@@ -9,6 +9,7 @@ nvidia-graphics-drivers (304.88-1) unstable; urgency=low
       arbitrary code execution.  (Closes: #704547)
       For more details, see:
       http://nvidia.custhelp.com/app/answers/detail/a_id/3290
+    * Fixes display turned off on VT text consoles.  (Closes: #703313)
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 02 Apr 2013 22:43:31 +0200
 
