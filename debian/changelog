@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (313.30-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (313.30-1) experimental; urgency=low
 
   * New upstream short lived branch release 313.30 (2013-04-02).
     * Fixed CVE-2013-0131: NVIDIA UNIX GPU Driver ARGB Cursor Buffer
@@ -11,7 +11,7 @@ nvidia-graphics-drivers (313.30-1) UNRELEASED; urgency=low
       http://nvidia.custhelp.com/app/answers/detail/a_id/3290
   * Merge changes from 304.88-1 and 310.44 (UNRELEASED).
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 05 Apr 2013 03:38:14 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 05 Apr 2013 03:57:30 +0200
 
 nvidia-graphics-drivers (313.26-1) experimental; urgency=low
 
