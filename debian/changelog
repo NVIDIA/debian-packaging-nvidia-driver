@@ -49,8 +49,17 @@ nvidia-graphics-drivers (313.18-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 16 Jan 2013 21:07:03 +0100
 
-nvidia-graphics-drivers (310.40-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (310.44-1) UNRELEASED; urgency=low
 
+  * New upstream long lived branch release 310.44 (2013-04-02).
+    * Fixed CVE-2013-0131: NVIDIA UNIX GPU Driver ARGB Cursor Buffer
+      Overflow in "NoScanout" Mode.  This buffer overflow, which occurred
+      when an X client installed a large ARGB cursor on an X server
+      running in NoScanout mode, could cause a denial of service (e.g.,
+      an X server segmentation fault), or could be exploited to achieve
+      arbitrary code execution.
+      For more details, see:
+      http://nvidia.custhelp.com/app/answers/detail/a_id/3290
   * New upstream long lived branch release 310.40 (2013-03-08).
     - Reduced the amount of time needed to establish framelock in some
       stereo configurations with many monitors.
@@ -95,7 +104,7 @@ nvidia-graphics-drivers (310.40-1) UNRELEASED; urgency=low
   * Update nv-readme.ids.
   * Add xorg-video-abi-14 as alternative dependency.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Mar 2013 17:57:05 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 05 Apr 2013 02:41:13 +0200
 
 nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 
@@ -148,6 +157,27 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
+
+nvidia-graphics-drivers (304.88-2) UNRELEASED; urgency=low
+
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 03 Apr 2013 11:21:46 +0200
+
+nvidia-graphics-drivers (304.88-1) unstable; urgency=low
+
+  * New upstream legacy 304xx branch release 304.88 (2013-04-02).
+    - Fixed CVE-2013-0131: NVIDIA UNIX GPU Driver ARGB Cursor Buffer
+      Overflow in "NoScanout" Mode.  This buffer overflow, which occurred
+      when an X client installed a large ARGB cursor on an X server
+      running in NoScanout mode, could cause a denial of service (e.g.,
+      an X server segmentation fault), or could be exploited to achieve
+      arbitrary code execution.  (Closes: #704547)
+      For more details, see:
+      http://nvidia.custhelp.com/app/answers/detail/a_id/3290
+    * Fixes display turned off on VT text consoles.  (Closes: #703313)
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 02 Apr 2013 22:43:31 +0200
 
 nvidia-graphics-drivers (304.84-1) unstable; urgency=low
 
