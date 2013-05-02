@@ -424,6 +424,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
+ nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
