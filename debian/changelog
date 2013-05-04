@@ -8,6 +8,7 @@ nvidia-graphics-drivers (304.88-3) UNRELEASED; urgency=low
   * Drop transitional packages.  (Closes: #687506)
   * Drop Conflicts/Breaks/Replaces against packages predating wheezy.
   * Drop cleanup code targeting squeeze and wheezy from maintainer scripts.
+  * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 04 May 2013 21:53:05 +0200
 
