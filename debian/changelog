@@ -5,7 +5,7 @@ nvidia-graphics-drivers (304.88-3) UNRELEASED; urgency=low
     (Closes: #688753)
   * Use canonical Vcs-* URLs.
   * Bump Standards-Version to 3.9.4. No changes needed. 
-  * Drop transitional packages.
+  * Drop transitional packages.  (Closes: #687506)
   * Drop Conflicts/Breaks/Replaces against packages predating wheezy.
   * Drop cleanup code targeting squeeze and wheezy from maintainer scripts.
 
@@ -15,7 +15,7 @@ nvidia-graphics-drivers (304.88-2) unstable; urgency=low
 
   * Update lintian overrides.
   * libcuda1: Add missing Depends: nvidia-support. Postinst may fail if
-    nvidia-support is unpacked, but not configured.
+    nvidia-support is unpacked, but not configured.  (Closes: #675430)
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 02 May 2013 12:20:20 +0200
 
