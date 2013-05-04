@@ -234,6 +234,8 @@ Depends:
 Breaks:
  nvidia-glx${nvidia:Legacy} (<< 275.09.07-2),
  libgl1-nvidia${nvidia:Legacy}-glx (<< 275.09.07-2),
+ nvidia-settings (<< 304.88-2),
+ nvidia-settings-legacy-173xx (<< 173.14.37),
 Description: allows the selection of NVIDIA as GLX provider
  .
  In setups with several NVIDIA driver versions installed (e.g. current and
