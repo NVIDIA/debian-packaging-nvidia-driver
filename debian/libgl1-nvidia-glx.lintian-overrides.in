@@ -1,7 +1,8 @@
 # The NVIDIA license does not allow any form of modification.
+[i386]: binary-file-built-without-LFS-support
+shlib-calls-exit
 [i386]: shlib-with-non-pic-code
 spelling-error-in-binary
-shlib-calls-exit
 hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
