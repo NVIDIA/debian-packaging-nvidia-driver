@@ -191,6 +191,8 @@ Depends:
  libgl1-nvidia-alternatives (>= 275.09.07-4),
  libglx-nvidia-alternatives (>= 275.09.07-4),
  ${misc:Depends}
+Conflicts:
+ libgl1-nvidia-alternatives-ia32,
 Breaks:
  nvidia-glx${nvidia:Legacy} (<< 275.09.07-2),
  libgl1-nvidia${nvidia:Legacy}-glx (<< 275.09.07-2),
@@ -556,28 +558,6 @@ Description: transition libGL.so* diversions to glx-alternative-nvidia
  alternatives by glx-alternative-mesa.
  .
  This package can be safely removed from the system once nothing depends on it.
-
-Package: libgl1-nvidia-alternatives-ia32
-Priority: extra
-Architecture: amd64
-Pre-Depends:
- libc6-i386 (>= 2.9-18),
- nvidia-installer-cleanup,
-Depends:
- dpkg (>= 1.15),
- ${misc:Depends}
-Conflicts:
- fglrx-glx-ia32,
-Breaks:
- nvidia-glx-ia32 (<< 195.36.31-2),
- libgl1-nvidia-glx-ia32 (<< 195.36.31-2),
- nvidia-glx-legacy-71xx-ia32 (<< 71.86.14),
- nvidia-glx-legacy-96xx-ia32 (<< 96.43.18),
- nvidia-glx-legacy-173xx-ia32 (<< 173.14.27),
-Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
- Diverts the free libGL.so (32-bit) implementation (MESA) and introduces
- alternatives to simplify plugging in accelerated implementations from GPU
- vendors.  Handles both libGL.so.1 and libGL.so.
 
 Package: libglx-nvidia-alternatives
 Section: non-free/oldlibs
