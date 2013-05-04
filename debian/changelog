@@ -2,6 +2,7 @@ nvidia-graphics-drivers (304.88-3) UNRELEASED; urgency=low
 
   * nvidia-alternative: Add slave alternatives for nvidia-settings.
     (Closes: #688753)
+  * Use canonical Vcs-* URLs.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 04 May 2013 21:53:05 +0200
 
