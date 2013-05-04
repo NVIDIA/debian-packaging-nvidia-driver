@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (304.88-3) UNRELEASED; urgency=low
 
+  * nvidia-cuda-proxy: New package for nvidia-cuda-proxy-{control,server}.
   * nvidia-alternative: Add slave alternatives for nvidia-settings.
     (Closes: #688753)
   * Use canonical Vcs-* URLs.
