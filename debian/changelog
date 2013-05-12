@@ -1,6 +1,9 @@
 nvidia-graphics-drivers (304.88-3) UNRELEASED; urgency=low
 
   * nvidia-cuda-proxy: New package for nvidia-cuda-proxy-{control,server}.
+  * nvidia-kernel-source: rules: Use placeholder substitution for the source
+    package name. src:nvidia-graphics-modules rewrites control, s.t. this
+    cannot be parsed correctly for inserting into Built-Using.
   * nvidia-alternative: Add slave alternatives for nvidia-settings.
     (Closes: #688753)
   * Use canonical Vcs-* URLs.
