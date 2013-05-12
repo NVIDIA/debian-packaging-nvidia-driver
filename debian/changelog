@@ -6,6 +6,7 @@ nvidia-graphics-drivers (304.88-3) UNRELEASED; urgency=low
     cannot be parsed correctly for inserting into Built-Using.
   * nvidia-alternative: Add slave alternatives for nvidia-settings.
     (Closes: #688753)
+  * Recommend nvidia-settings (>= MAJOR). 
   * Use canonical Vcs-* URLs.
   * Bump Standards-Version to 3.9.4. No changes needed. 
   * Drop transitional packages.  (Closes: #687506)

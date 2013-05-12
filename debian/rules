@@ -15,8 +15,9 @@ XORG_ABI_LIST		?=
 XORG_BOUND		?=
 MULTIARCH		?=
 BACKPORT		?=
-NVIDIA_SETTINGS		?= nvidia-settings
+NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
 version			 = $(NVIDIA_RELEASE)
+version_major		 = $(firstword $(subst ., ,$(version)))
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 perfkit			 =
@@ -283,7 +284,7 @@ override_dh_builddeb:
 %:: %.in debian/rules debian/rules.defs
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
-	-e 's{#MAJOR#}{$(firstword $(subst ., ,$(version)))}g;' \
+	-e 's{#MAJOR#}{$(version_major)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
