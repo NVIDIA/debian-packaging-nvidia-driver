@@ -1,5 +1,11 @@
-nvidia-graphics-drivers (310.44-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
 
+  * New upstream long lived branch beta/release 310.51 (2013-05-??).
+    - Fixed a bug where RRGetCrtcInfo could report incorrect size
+      information when an RandR output has a custom ViewPortIn.
+    - Fixed a regression that could cause an X server crash when performing
+      a modeset (e.g. changing resolutions, transformation settings, or
+      display layout) when some connected display devices are disabled.
   * New upstream long lived branch release 310.44 (2013-04-02).
     * Fixed CVE-2013-0131: NVIDIA UNIX GPU Driver ARGB Cursor Buffer
       Overflow in "NoScanout" Mode.  This buffer overflow, which occurred
@@ -53,7 +59,7 @@ nvidia-graphics-drivers (310.44-1) UNRELEASED; urgency=low
   * Update nv-readme.ids.
   * Add xorg-video-abi-14 as alternative dependency.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 05 Apr 2013 02:41:13 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 01:34:30 +0200
 
 nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 
