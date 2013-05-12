@@ -121,6 +121,8 @@ Conflicts:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
  nvidia-glx${nvidia:Legacy}-ia32,
  libgl1-nvidia-glx-ia32-any,
+Breaks:
+ Breaks: ia32-libs (<< 1:0),
 Replaces:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
  nvidia-glx${nvidia:Legacy}-ia32,
