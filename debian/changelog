@@ -48,7 +48,7 @@ nvidia-graphics-drivers (310.44-1) UNRELEASED; urgency=low
       boundaries.
     - Fix performance issues when using some versions of HyperMesh with Quadro
       GPUs.
-  * Merge changes from 304.81-1.
+  * Merge changes from 304.88-3.
   * Restrict watch file to releases from the 310.xx long lived branch.
   * Update nv-readme.ids.
   * Add xorg-video-abi-14 as alternative dependency.
@@ -107,11 +107,39 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
-nvidia-graphics-drivers (304.88-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.88-3) unstable; urgency=low
 
+  * nvidia-cuda-proxy: New package for nvidia-cuda-proxy-{control,server}.
+  * nvidia-kernel-source: rules: Use placeholder substitution for the source
+    package name. src:nvidia-graphics-modules rewrites control, s.t. this
+    cannot be parsed correctly for inserting into Built-Using.
+  * nvidia-alternative: Add slave alternatives for nvidia-settings.
+    (Closes: #688753)
+  * Recommend nvidia-settings (>= MAJOR). 
+  * Use canonical Vcs-* URLs.
+  * Bump Standards-Version to 3.9.4. No changes needed. 
+  * Drop transitional packages.  (Closes: #687506)
+  * Drop Conflicts/Breaks/Replaces against packages predating wheezy.
+  * Drop cleanup code targeting squeeze and wheezy from maintainer scripts.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 03 Apr 2013 11:21:46 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 12 May 2013 23:44:53 +0200
+
+nvidia-graphics-drivers (304.88-2) unstable; urgency=low
+
+  * Update lintian overrides.
+  * libcuda1: Add missing Depends: nvidia-support. Postinst may fail if
+    nvidia-support is unpacked, but not configured.  (Closes: #675430)
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 02 May 2013 12:20:20 +0200
+
+nvidia-graphics-drivers (304.88-1+deb7u1) wheezy; urgency=low
+
+  * Update lintian overrides.
+  * libcuda1: Add missing Depends: nvidia-support. Postinst may fail if
+    nvidia-support is unpacked, but not configured.  (Closes: #675430)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 12 May 2013 14:31:45 +0200
 
 nvidia-graphics-drivers (304.88-1) unstable; urgency=low
 

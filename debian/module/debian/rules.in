@@ -35,7 +35,7 @@ configure-stamp:
 	fi
 ifneq (,$(wildcard makefile))
 	@echo "ERROR: unclean build directory from older version found"
-	@echo "   Please run: module-assistant clean nvidia"
+	@echo "   Please run: module-assistant clean nvidia-kernel#LEGACY#"
 	@exit 1
 endif
 ifneq (,$(MA_SOURCE_PKG))
@@ -83,7 +83,7 @@ binary-arch: build-stamp
 	dh_installdeb
 	dh_gencontrol -- -v`cat debian/VERSION` \
 		-V'built:using:kernel=$(call get_built_using,linux-headers-$(KVERS))' \
-		-V'built:using:nvidia=$(call get_built_using,$(shell dpkg-parsechangelog | sed -nr '/^Source:/s/Source: //p')-source)'
+		-V'built:using:nvidia=$(call get_built_using,nvidia-kernel#LEGACY#-source)'
 	dh_md5sums
 	dh_builddeb --destdir=$(KPKG_DEST_DIR)
 
