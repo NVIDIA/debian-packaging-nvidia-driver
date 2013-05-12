@@ -20,6 +20,14 @@ nvidia-graphics-drivers (304.88-2) unstable; urgency=low
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 02 May 2013 12:20:20 +0200
 
+nvidia-graphics-drivers (304.88-1+deb7u1) wheezy; urgency=low
+
+  * Update lintian overrides.
+  * libcuda1: Add missing Depends: nvidia-support. Postinst may fail if
+    nvidia-support is unpacked, but not configured.  (Closes: #675430)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 12 May 2013 14:31:45 +0200
+
 nvidia-graphics-drivers (304.88-1) unstable; urgency=low
 
   * New upstream legacy 304xx branch release 304.88 (2013-04-02).
