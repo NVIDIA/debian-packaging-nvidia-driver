@@ -88,6 +88,7 @@ nvidia-graphics-drivers (319.17-1) UNRELEASED; urgency=low
   * Update nv-readme.ids.
   * Update symbols control files.
   * Refresh use-nv-kernel.o.ARCH.patch. Remove frequently changing context.
+  * nvidia-glx: Ship nvidia-persistenced.
   * nvidia-cuda-proxy-* was renamed to nvidia-cuda-mps-*.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 02:52:47 +0200
