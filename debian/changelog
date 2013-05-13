@@ -1,3 +1,93 @@
+nvidia-graphics-drivers (319.17-1) UNRELEASED; urgency=low
+
+  * New upstream long lived branch release 319.17 (2013-05-02).
+    - Fixed a regression that caused multiple BUG messages to be printed in
+      the kernel log on SMP systems.
+    - Fixed a bug that could cause the X server to crash when repeatedly
+      enabling and disabling displays.
+    - Added support for the following GPUs: GeForce GT 720M, GeForce GT 735M,
+      GeForce GT 740M, GeForce GT 745M, GeForce GT 750M, GeForce GTX 760M,
+      GeForce GTX 765M, GeForce GTX 770M, GeForce GTX 775M, GeForce GTX 780M.
+    - Added nvidia-persistenced, a daemon utility, to the driver package.
+      nvidia-persistenced can be installed to run on system startup or
+      manually run to allow the NVIDIA kernel module to keep persistent driver
+      state allocated when no other user-space NVIDIA driver components are
+      running.  This can improve startup time for other user-space NVIDIA
+      driver components.
+  * New upstream beta 319.12 (2013-04-09).
+    - Added initial support for restoration of efifb consoles on UEFI
+      systems where the primary display is driven over VGA or TMDS (e.g.
+      DVI, HDMI, or LVDS).
+    - Added support for the xorg.conf Monitor section options "Ignore",
+      "Enable", "Primary", and "Rotate".  For example, to rotate a monitor
+      identified by a specific EDID hash, one could add the following to
+      /etc/X11/xorg.conf or a file in /etc/X11/xorg.conf.d:
+        Section "Monitor"
+          Identifier "DPY-EDID-ee6cecc0-fa46-0c33-94e0-274313f9e7eb"
+          Option "Rotate" "left"
+        EndSection
+      See the README and the xorg.conf(5) man page for more information.
+    - Added an Underscan feature in the nvidia-settings X Server
+      Display Configuration page which allows the configuration of an
+      underscan border around the ViewPortOut.  This feature was
+      formerly known as Overscan Compensation.
+    - Added support for the following GPU: GeForce GTX 650 Ti BOOST.
+    - Added support for application profiles to the NVIDIA client-side GLX
+      implementation. See the "Application Profiles" chapter of the README for
+      more information.
+    - Added the "PanningTrackingArea" and "PanningBorder" MetaMode attributes.
+    - Added support for RandR 1.3 panning.
+    - Improved performance when the Accel option is disabled.
+    - Added initial support for RandR 1.4 Provider objects with the Source
+      Output capability, which can be used to render the desktop on an NVIDIA
+      GPU and display it on an output connected to a provider with the Sink
+      Output capability, such as an Intel integrated graphics device or a
+      DisplayLink USB-to-VGA adapter.  See the README for details.
+    - Added nvidia-modprobe, a setuid root utility, to the driver package.
+      nvidia-modprobe can be used by user-space NVIDIA driver components
+      to make sure the NVIDIA kernel module is loaded and that the
+      NVIDIA character device files are present.  When possible,
+      it is recommended to use Linux distribution native mechanisms
+      for managing kernel module loading and device file creation.
+      This utility is provided as a fallback to work out-of-the-box in
+      a distribution-independent way.
+    - Fixed a memory leak that occurred when destroying a GLX window
+      but not its associated X window.
+    - Improved the performance of modesets in cases where the mode
+      timings remained the same, but other parameters of the mode
+      configuration, such as the ViewPort or panning domain, changed.
+    - Fixed an issue with RENDER convolution filters.  The driver will
+      no longer normalize filter kernels before accelerating them.
+    - Improved debuggability of the NVIDIA OpenGL libraries by
+      including proper stack unwinding information on all supported
+      architectures.
+    - Updated the dkms.conf file and the makefile for the NVIDIA Linux
+      kernel module to allow DKMS installations on systems with separate
+      source and output directories.
+    - Fixed a bug that caused RENDER Pictures to be sampled
+      incorrectly when using nearest filtering in some cases.
+    - Added support for the RandR "Border" and "BorderDimensions" Output
+      properties, which can be used to configure the ViewPortOut of an
+      RandR output.  This is functionally equivalent to the "ViewPortOut"
+      MetaMode token.
+    - Fixed a bug where RRGetCrtcInfo could report incorrect size
+      information when an RandR output has a custom ViewPortIn.
+    - Further improve performance of some versions of HyperMesh with
+      Quadro GPUs.
+    - Added support for dynamic mode management through RandR, e.g. via
+      the --newmode, --rmmode, and --delmode options in xrandr(1).
+    - Increased the number of pages that are shareable across multiple
+      processes in the x86 build of libnvidia-glcore.so, by reducing its
+      R_386_PC32 relocation count.
+    - Fixed a bug that caused XVideo applications to receive BadAlloc errors
+      after VT switches and mode switches that occurred while a composite
+      manager was running.
+    - Removed the X driver's support for "CursorShadow".
+    - Switched .run package compression from gzip to xz.  This provides a
+      higher level of compression.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 02:52:47 +0200
+
 nvidia-graphics-drivers (313.30-2) experimental; urgency=low
 
   * Merge changes from 304.88-3 and 310.51 (UNRELEASED).
