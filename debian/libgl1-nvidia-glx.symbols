@@ -1,9 +1,11 @@
 #include "libgl1-nvidia-glx.symbols.common"
 libnvidia-cfg.so.1 #PACKAGE# #MINVER#
+ nvCfgAttachPciDevice@Base 319
  nvCfgCloseAllGSyncDevices@Base 304.30
  nvCfgCloseAllPciDevices@Base 180.35
  nvCfgCloseDevice@Base 1.0.8174
  nvCfgDebug@Base 180
+ nvCfgDetachDevice@Base 319
  nvCfgFlashGSyncDevice@Base 304.30
  nvCfgGetDevices@Base 1.0.8174
  nvCfgGetDisplayDevices@Base 1.0.8174

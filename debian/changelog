@@ -86,6 +86,7 @@ nvidia-graphics-drivers (319.17-1) UNRELEASED; urgency=low
     - Switched .run package compression from gzip to xz.  This provides a
       higher level of compression.
   * Update nv-readme.ids.
+  * Update symbols control files.
   * Refresh use-nv-kernel.o.ARCH.patch. Remove frequently changing context.
   * nvidia-cuda-proxy-* was renamed to nvidia-cuda-mps-*.
 

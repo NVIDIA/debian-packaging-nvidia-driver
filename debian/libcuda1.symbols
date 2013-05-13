@@ -24,6 +24,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuCtxGetDevice@Base 177
  cuCtxGetLimit@Base 256
  cuCtxGetSharedMemConfig@Base 295.33
+ cuCtxGetStreamPriorityRange@Base 319
  cuCtxPopCurrent@Base 177
  cuCtxPopCurrent_v2@Base 270
  cuCtxPushCurrent@Base 177
@@ -93,6 +94,11 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuLaunchGrid@Base 169
  cuLaunchGridAsync@Base 169
  cuLaunchKernel@Base 270
+ cuLinkAddData@Base 319
+ cuLinkAddFile@Base 319
+ cuLinkComplete@Base 319
+ cuLinkCreate@Base 319
+ cuLinkDestroy@Base 319
  cuMemAlloc@Base 169
  cuMemAllocHost@Base 169
  cuMemAllocHost_v2@Base 260
@@ -198,8 +204,11 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuProfilerStop@Base 270
  cuStreamAddCallback@Base 304
  cuStreamCreate@Base 169
+ cuStreamCreateWithPriority@Base 319
  cuStreamDestroy@Base 169
  cuStreamDestroy_v2@Base 270
+ cuStreamGetFlags@Base 319
+ cuStreamGetPriority@Base 319
  cuStreamQuery@Base 169
  cuStreamSynchronize@Base 169
  cuStreamWaitEvent@Base 260

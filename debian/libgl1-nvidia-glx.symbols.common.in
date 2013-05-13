@@ -201,6 +201,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glCompressedTexImage2DARB@Base 1.0.4349
  glCompressedTexImage3D@Base 1.0.4349
  glCompressedTexImage3DARB@Base 1.0.4349
+ glCompressedTexImage3DNV@Base 319
 #MISSING: 313.18# glCompressedTexImage3DOES@Base 270
  glCompressedTexSubImage1D@Base 1.0.4349
  glCompressedTexSubImage1DARB@Base 1.0.4349
@@ -208,6 +209,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glCompressedTexSubImage2DARB@Base 1.0.4349
  glCompressedTexSubImage3D@Base 1.0.4349
  glCompressedTexSubImage3DARB@Base 1.0.4349
+ glCompressedTexSubImage3DNV@Base 319
 #MISSING: 313.18# glCompressedTexSubImage3DOES@Base 270
  glCompressedTextureImage1DEXT@Base 180
  glCompressedTextureImage2DEXT@Base 180
@@ -241,6 +243,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glCopyTexSubImage2D@Base 1.0.4349
  glCopyTexSubImage3D@Base 1.0.4349
  glCopyTexSubImage3DEXT@Base 1.0.4349
+ glCopyTexSubImage3DNV@Base 319
 #MISSING: 313.18# glCopyTexSubImage3DOES@Base 270
  glCopyTextureImage1DEXT@Base 180
  glCopyTextureImage2DEXT@Base 180
@@ -447,6 +450,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glFramebufferTextureLayer@Base 180
  glFramebufferTextureLayerARB@Base 180
  glFramebufferTextureLayerEXT@Base 1.0.9746
+ glFramebufferTextureLayerNV@Base 319
  glFrontFace@Base 1.0.4349
  glFrustum@Base 1.0.4349
  glFrustumf@Base 302
@@ -714,7 +718,9 @@ libGL.so.1 #PACKAGE# #MINVER#
  glGetTexImage@Base 1.0.4349
  glGetTexImageNV@Base 270
  glGetTexLevelParameterfv@Base 1.0.4349
+ glGetTexLevelParameterfvNV@Base 319
  glGetTexLevelParameteriv@Base 1.0.4349
+ glGetTexLevelParameterivNV@Base 319
  glGetTexParameterIiv@Base 180
  glGetTexParameterIivEXT@Base 1.0.9746
  glGetTexParameterIuiv@Base 180
@@ -1571,6 +1577,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTexImage3DEXT@Base 1.0.4349
  glTexImage3DMultisample@Base 190.18.05
  glTexImage3DMultisampleCoverageNV@Base 256
+ glTexImage3DNV@Base 319
 #MISSING: 313.18# glTexImage3DOES@Base 270
  glTexParameterIiv@Base 180
  glTexParameterIivEXT@Base 1.0.9746
@@ -1595,6 +1602,7 @@ libGL.so.1 #PACKAGE# #MINVER#
  glTexSubImage2D@Base 1.0.4349
  glTexSubImage3D@Base 1.0.4349
  glTexSubImage3DEXT@Base 1.0.4349
+ glTexSubImage3DNV@Base 319
 #MISSING: 313.18# glTexSubImage3DOES@Base 270
  glTextureBarrierNV@Base 190.18.05
  glTextureBufferEXT@Base 180
