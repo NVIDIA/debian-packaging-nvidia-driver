@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (313.30-2) UNRELEASED; urgency=low
 
   * Merge changes from 304.88-3 and 310.51 (UNRELEASED).
+  * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 02:14:04 +0200
 
