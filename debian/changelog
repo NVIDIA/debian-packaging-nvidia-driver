@@ -92,6 +92,7 @@ nvidia-graphics-drivers (319.17-1) UNRELEASED; urgency=low
   * nvidia-kernel-{source,dkms}: Provide dummy conftest/patches.h, too.
   * Rename package nvidia-cuda-proxy to nvidia-cuda-mps: Upstream has renamed
     the programs nvidia-cuda-proxy-* to nvidia-cuda-mps-*.
+  * Rename metapackage nvidia-glx to nvidia-driver. Add transitional package.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 02:52:47 +0200
 

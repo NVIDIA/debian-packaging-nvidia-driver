@@ -18,6 +18,16 @@ Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
 Package: nvidia-glx
+Section: non-free/oldlibs
+Priority: extra
+Architecture: i386 amd64
+Depends:
+ nvidia-driver,
+ ${misc:Depends}
+Description: transition to nvidia-driver
+ This is a dummy transitional package to aid switching to nvidia-driver.
+
+Package: nvidia-driver
 Section: non-free/x11
 Architecture: i386 amd64
 Pre-Depends:
@@ -40,6 +50,10 @@ Suggests:
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:
  nvidia-glx-any,
+Breaks:
+ nvidia-glx (<< 319),
+Replaces:
+ nvidia-glx (<< 319),
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
  .
  This metapackage depends on the NVIDIA binary driver and libraries
