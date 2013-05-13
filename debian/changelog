@@ -90,7 +90,8 @@ nvidia-graphics-drivers (319.17-1) UNRELEASED; urgency=low
   * Refresh use-nv-kernel.o.ARCH.patch. Remove frequently changing context.
   * nvidia-glx: Ship nvidia-persistenced.
   * nvidia-kernel-{source,dkms}: Provide dummy conftest/patches.h, too.
-  * nvidia-cuda-proxy-* was renamed to nvidia-cuda-mps-*.
+  * Rename package nvidia-cuda-proxy to nvidia-cuda-mps: Upstream has renamed
+    the programs nvidia-cuda-proxy-* to nvidia-cuda-mps-*.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 02:52:47 +0200
 
