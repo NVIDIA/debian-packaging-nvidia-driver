@@ -5,15 +5,15 @@ Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Uploaders:
  Russ Allbery <rra@debian.org>,
  Andreas Beckmann <anbe@debian.org>,
-Vcs-Svn: svn://svn.debian.org/svn/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
-Vcs-Browser: http://svn.debian.org/wsvn/pkg-nvidia/packages/nvidia-graphics-drivers/
+Vcs-Svn: svn://anonscm.debian.org/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
+Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
  debhelper (>= 9),
  bzip2,
  dkms (>= 2.1.1.1),
  libxext6,
  quilt,
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
@@ -79,15 +79,6 @@ Suggests:
 Provides:
  xserver-xorg-video-nvidia-any,
  ${nvidia:xorgProvides},
-Breaks:
- nvidia-glx (<< 275.09.07-2),
- nvidia-glx-legacy (<< 71.86.14-3),
- nvidia-glx-legacy-71xx (<< 71.86.14-3),
- nvidia-glx-legacy-96xx (<< 96.43.19-2),
- nvidia-glx-legacy-173xx (<< 173.14.30-2),
- fglrx-driver (<< 1:11-6-~),
-Replaces:
- nvidia-glx${nvidia:Legacy} (<< 275.09.07-2),
 Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  .
  These binary drivers provide optimized hardware acceleration of
@@ -103,17 +94,6 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  .
  See /usr/share/doc/nvidia-glx${nvidia:Legacy}/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
-
-Package: nvidia-glx-ia32
-Section: non-free/oldlibs
-Priority: extra
-Architecture: amd64
-Depends:
- libgl1-nvidia${nvidia:Legacy}-glx-ia32,
- ${misc:Depends}
-Description: NVIDIA 32-bit libraries${nvidia:LegacyDesc} (transitional package)
- This is a dummy package to aid switching to
- libgl1-nvidia${nvidia:Legacy}-glx-ia32.
 
 Package: libgl1-nvidia-glx
 Architecture: i386 amd64
@@ -135,28 +115,14 @@ Provides:
  libgl1-nvidia${nvidia:Legacy}-glx-i386 [i386],
  libgl1-nvidia-glx-any,
 Conflicts:
- libgl1-nvidia${nvidia:Legacy}-dev,
- nvidia-glx${nvidia:Legacy}-dev,
- libgl1-nvidia${nvidia:Legacy}-glx-ia32 [i386],
+ libgl1-nvidia${nvidia:Legacy}-glx-ia32,
+ nvidia-glx${nvidia:Legacy}-ia32,
+ libgl1-nvidia-glx-ia32-any,
 Breaks:
- libgl1-nvidia${nvidia:Legacy}-glx-ia32 (<< ${nvidia:Version}) [amd64],
- nvidia-glx (<< 275.09.07-3),
- nvidia-glx-legacy (<< 71.86.14-3),
- nvidia-glx-legacy-71xx (<< 71.86.14-3),
- nvidia-glx-legacy-96xx (<< 96.43.19-2),
- nvidia-glx-legacy-173xx (<< 173.14.30-2),
-# libgl1-nvidia-glx (<< 275.09.07-3),
- libgl1-nvidia-legacy-71xx-glx (<< 71.86.14-3),
- libgl1-nvidia-legacy-96xx-glx (<< 96.43.19-2),
- libgl1-nvidia-legacy-173xx-glx (<< 173.14.30-2),
- fglrx-glx (<< 1:11-6-~),
- ia32-libs (<< 1:0) [i386],
- nvidia-settings (<< 304),
- nvidia-settings-legacy-173xx,
+ ia32-libs (<< 1:0),
 Replaces:
- nvidia-glx${nvidia:Legacy} (<< 195.36.31),
- libgl1-nvidia${nvidia:Legacy}-dev,
- nvidia-glx${nvidia:Legacy}-dev,
+ libgl1-nvidia${nvidia:Legacy}-glx-ia32,
+ nvidia-glx${nvidia:Legacy}-ia32,
 Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  .
  These binary libraries provide optimized hardware acceleration of
@@ -166,50 +132,19 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  or /usr/share/doc/libgl1-nvidia${nvidia:Legacy}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-Package: libgl1-nvidia-glx-ia32
-Section: non-free/oldlibs
-Priority: extra
-Architecture: amd64
-Pre-Depends:
- libc6-i386 (>= 2.9-18),
- nvidia-installer-cleanup,
-Depends:
- libgl1-nvidia-alternatives-ia32,
- ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- libgl1-nvidia${nvidia:Legacy}-glx-i386,
-Conflicts:
- libgl1-nvidia-glx-ia32,
- libgl1-nvidia-glx-ia32-any,
- fglrx-glx-ia32,
- nvidia-glx-ia32 (<< 195.36.31),
- nvidia-glx-legacy-ia32,
- nvidia-glx-legacy-71xx-ia32,
- nvidia-glx-legacy-96xx-ia32,
- nvidia-glx-legacy-173xx-ia32,
-Breaks:
- libgl1-nvidia${nvidia:Legacy}-glx (<< ${nvidia:Version}),
-Replaces:
- nvidia-glx${nvidia:Legacy}-ia32 (<< 195.36.31),
-Description: please switch to multiarch libgl1-nvidia${nvidia:Legacy}-glx:i386
- .
- This is an empty transitional package to aid switching to multiarch.
- .
- Run the following commands to install the multiarch library:
- * dpkg --add-architecture i386 ; apt-get update
- * apt-get install libgl1-nvidia${nvidia:Legacy}-glx:i386
-
 Package: nvidia-alternative
 Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  glx-alternative-nvidia (>= 0.2),
- libgl1-nvidia-alternatives (>= 275.09.07-4),
- libglx-nvidia-alternatives (>= 275.09.07-4),
  ${misc:Depends}
+Conflicts:
+ libgl1-nvidia-alternatives,
+ libglx-nvidia-alternatives,
+ libgl1-nvidia-alternatives-ia32,
 Breaks:
- nvidia-glx${nvidia:Legacy} (<< 275.09.07-2),
- libgl1-nvidia${nvidia:Legacy}-glx (<< 275.09.07-2),
+ nvidia-settings (<< 304.88-2),
+ nvidia-settings-legacy-173xx (<< 173.14.37),
 Description: allows the selection of NVIDIA as GLX provider
  .
  In setups with several NVIDIA driver versions installed (e.g. current and
@@ -313,23 +248,13 @@ Suggests:
 Enhances:
  libvdpau1,
 Provides:
- nvidia-vdpau-driver-i386 [i386],
  vdpau-driver,
 Conflicts:
- nvidia-libvdpau,
- nvidia-libvdpau-dev,
- nvidia-libvdpau1,
- nvidia-libvdpau1-driver,
- nvidia-vdpau-driver-ia32 [i386],
+ nvidia-vdpau-driver-ia32,
 Breaks:
  libvdpau1 (<< 0.4.1-3),
- nvidia-glx (<< 180.51),
 Replaces:
- nvidia-glx (<< 180.51),
- nvidia-libvdpau,
- nvidia-libvdpau-dev,
- nvidia-libvdpau1,
- nvidia-libvdpau1-driver,
+ nvidia-vdpau-driver-ia32,
 Description: NVIDIA vdpau driver
  .
  These libraries provide the Video Decode and Presentation API for Unix.
@@ -345,37 +270,6 @@ Description: NVIDIA vdpau driver
  nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
  This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
-
-Package: nvidia-vdpau-driver-ia32
-Section: non-free/oldlibs
-Priority: extra
-Architecture: amd64
-Pre-Depends:
- libc6-i386 (>= 2.9-18),
- nvidia-installer-cleanup,
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- nvidia-vdpau-driver-i386,
-Conflicts:
- nvidia-libvdpau,
- nvidia-libvdpau1,
- nvidia-libvdpau1-ia32,
- nvidia-libvdpau1-driver-ia32,
-Breaks:
- nvidia-glx (<< 180.51),
-Replaces:
- nvidia-glx (<< 180.51),
- nvidia-libvdpau,
- nvidia-libvdpau1,
- nvidia-libvdpau1-ia32,
- nvidia-libvdpau1-driver-ia32,
-Description: please switch to multiarch nvidia-vdpau-driver:i386
- This is an empty transitional package to aid switching to multiarch.
- .
- Run the following commands to install the multiarch library:
- * dpkg --add-architecture i386 ; apt-get update
- * apt-get install nvidia-vdpau-driver:i386
 
 Package: nvidia-smi
 Section: non-free/utils
@@ -416,6 +310,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
+ nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
@@ -424,15 +319,10 @@ Recommends:
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
-Provides:
- libcuda1-i386 [i386],
 Conflicts:
- libcuda1-dev,
- libcuda1-ia32 [i386],
+ libcuda1-ia32,
 Replaces:
- nvidia-glx (<< 185.18.14-2),
- nvidia-glx-dev (<< 185.18.14-2),
- libcuda1-dev,
+ libcuda1-ia32,
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library
  .
@@ -450,26 +340,6 @@ Description: NVIDIA CUDA runtime library
  for building the kernel module required by this package.
  This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
 
-Package: libcuda1-ia32
-Section: non-free/oldlibs
-Priority: extra
-Architecture: amd64
-Pre-Depends:
- libc6-i386 (>= 2.9-18),
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- libcuda1-i386,
-Replaces:
- nvidia-glx-ia32 (<< 185.18.14-2),
-Homepage: http://www.nvidia.com/CUDA
-Description: please switch to multiarch libcuda1:i386
- This is an empty transitional package to aid switching to multiarch.
- .
- Run the following commands to install the multiarch library:
- * dpkg --add-architecture i386 ; apt-get update
- * apt-get install libcuda1:i386
-
 Package: libnvidia-compiler
 Architecture: i386 amd64
 Multi-Arch: same
@@ -477,40 +347,16 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-compiler-i386 [i386],
 Conflicts:
- libnvidia-compiler1,
- libnvidia-compiler-ia32 [i386],
+ libnvidia-compiler-ia32,
 Replaces:
- libnvidia-compiler1,
+ libnvidia-compiler-ia32,
 Description: NVIDIA runtime compiler library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
  general purpose computation.
  .
  This package contains the runtime compiler library.
-
-Package: libnvidia-compiler-ia32
-Section: non-free/oldlibs
-Priority: extra
-Architecture: amd64
-Pre-Depends:
- libc6-i386 (>= 2.9-18),
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- libnvidia-compiler-i386,
-Conflicts:
- libnvidia-compiler1-ia32,
-Replaces:
- libnvidia-compiler1-ia32,
-Description: please switch to multiarch libnvidia-compiler:i386
- This is an empty transitional package to aid switching to multiarch.
- .
- Run the following commands to install the multiarch library:
- * dpkg --add-architecture i386 ; apt-get update
- * apt-get install libnvidia-compiler:i386
 
 Package: libnvcuvid1
 Architecture: i386 amd64
@@ -589,10 +435,11 @@ Depends:
 Enhances:
  libopencl1,
 Conflicts:
- nvidia-opencl-icd-ia32 [i386],
+ nvidia-opencl-icd-ia32,
+Replaces:
+ nvidia-opencl-icd-ia32,
 Provides:
  opencl-icd,
- nvidia-opencl-icd-i386 [i386],
 Description: NVIDIA OpenCL ICD
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -600,21 +447,6 @@ Description: NVIDIA OpenCL ICD
  .
  This metapackage provides the NVIDIA installable client driver (ICD) for
  OpenCL.
-
-Package: nvidia-opencl-icd-ia32
-Section: non-free/oldlibs
-Priority: extra
-Architecture: amd64
-Depends:
- ${misc:Depends}
-Recommends:
- nvidia-opencl-icd-i386,
-Description: please switch to multiarch nvidia-opencl-icd:i386
- This is an empty transitional package to aid switching to multiarch.
- .
- Run the following commands to install the multiarch library:
- * dpkg --add-architecture i386 ; apt-get update
- * apt-get install nvidia-opencl-icd:i386
 
 Package: nvidia-libopencl1
 Architecture: i386 amd64
@@ -627,14 +459,12 @@ Recommends:
  nvidia-opencl-icd | opencl-icd,
 Provides:
  libopencl1,
- nvidia-libopencl1-i386 [i386],
 Conflicts:
  libopencl1,
- nvidia-libopencl1-dev,
- nvidia-libopencl1-ia32 [i386],
+ nvidia-libopencl1-ia32,
 Replaces:
  libopencl1,
- nvidia-libopencl1-dev,
+ nvidia-libopencl1-ia32,
 Description: NVIDIA OpenCL library
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -642,91 +472,6 @@ Description: NVIDIA OpenCL library
  .
  This package contains the installable client driver loader (ICD Loader)
  library provided by NVIDIA.
-
-Package: nvidia-libopencl1-ia32
-Section: non-free/oldlibs
-Priority: extra
-Architecture: amd64
-Pre-Depends:
- libc6-i386 (>= 2.9-18),
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- nvidia-libopencl1-i386,
-Description: please switch to multiarch nvidia-libopencl1:i386
- This is an empty transitional package to aid switching to multiarch.
- .
- Run the following commands to install the multiarch library:
- * dpkg --add-architecture i386 ; apt-get update
- * apt-get install nvidia-libopencl1:i386
-
-Package: libgl1-nvidia-alternatives
-Section: non-free/oldlibs
-Architecture: i386 amd64
-Depends:
- glx-alternative-mesa,
- glx-alternative-nvidia,
- ${misc:Depends}
-Breaks:
- nvidia-glx (<< 195.36.31-2),
- nvidia-glx-dev (<< 195.36.31-2),
- libgl1-nvidia-glx (<< 275.09.07-2),
- nvidia-glx-legacy-71xx (<< 71.86.14),
- nvidia-glx-legacy-71xx-dev (<< 71.86.14),
- libgl1-nvidia-legacy-71xx-glx (<< 71.86.14-3),
- nvidia-glx-legacy-96xx (<< 96.43.18),
- nvidia-glx-legacy-96xx-dev (<< 96.43.18),
- libgl1-nvidia-legacy-96xx-glx (<< 96.43.19-2),
- nvidia-glx-legacy-173xx (<< 173.14.27),
- nvidia-glx-legacy-173xx-dev (<< 173.14.27),
- libgl1-nvidia-legacy-173xx-glx (<< 173.14.30-2),
-Description: transition libGL.so* diversions to glx-alternative-nvidia
- This is a transitional package aiding the upgrade to glx-alternative-nvidia.
- The libGL.so* diversions are now handled by glx-diversions and the
- alternatives by glx-alternative-mesa.
- .
- This package can be safely removed from the system once nothing depends on it.
-
-Package: libgl1-nvidia-alternatives-ia32
-Priority: extra
-Architecture: amd64
-Pre-Depends:
- libc6-i386 (>= 2.9-18),
- nvidia-installer-cleanup,
-Depends:
- dpkg (>= 1.15),
- ${misc:Depends}
-Conflicts:
- fglrx-glx-ia32,
-Breaks:
- nvidia-glx-ia32 (<< 195.36.31-2),
- libgl1-nvidia-glx-ia32 (<< 195.36.31-2),
- nvidia-glx-legacy-71xx-ia32 (<< 71.86.14),
- nvidia-glx-legacy-96xx-ia32 (<< 96.43.18),
- nvidia-glx-legacy-173xx-ia32 (<< 173.14.27),
-Description: simplifies replacing MESA libGL with GPU vendor libraries (32-bit)
- Diverts the free libGL.so (32-bit) implementation (MESA) and introduces
- alternatives to simplify plugging in accelerated implementations from GPU
- vendors.  Handles both libGL.so.1 and libGL.so.
-
-Package: libglx-nvidia-alternatives
-Section: non-free/oldlibs
-Architecture: i386 amd64
-Depends:
- glx-alternative-mesa,
- glx-alternative-nvidia,
- ${misc:Depends}
-Breaks:
- nvidia-glx (<< 275.09.07-2),
- nvidia-glx-legacy-71xx (<< 71.86.14-3),
- nvidia-glx-legacy-96xx (<< 96.43.19-2),
- nvidia-glx-legacy-173xx (<< 173.14.30-2),
-Description: transition libgl.so diversions to glx-alternative-nvidia
- This is a transitional package aiding the upgrade to glx-alternative-nvidia.
- The libglx.so diversions are now handled by glx-diversions and the
- alternatives by glx-alternative-mesa.
- .
- This package can be safely removed from the system once nothing depends on it.
 
 Package: nvidia-detect
 Section: non-free/x11
