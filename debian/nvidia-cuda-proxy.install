@@ -1,2 +1,2 @@
-nvidia-cuda-proxy-control	usr/bin/
-nvidia-cuda-proxy-server	usr/sbin/
+nvidia-cuda-mps-control	usr/bin/
+nvidia-cuda-mps-server	usr/sbin/
