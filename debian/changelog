@@ -85,6 +85,7 @@ nvidia-graphics-drivers (319.17-1) UNRELEASED; urgency=low
     - Removed the X driver's support for "CursorShadow".
     - Switched .run package compression from gzip to xz.  This provides a
       higher level of compression.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 02:52:47 +0200
 
