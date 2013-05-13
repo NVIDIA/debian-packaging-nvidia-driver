@@ -143,7 +143,7 @@ Conflicts:
  libglx-nvidia-alternatives,
  libgl1-nvidia-alternatives-ia32,
 Breaks:
- nvidia-settings (<< 304.88-2),
+ nvidia-settings (<< 313.30),
  nvidia-settings-legacy-173xx (<< 173.14.37),
 Description: allows the selection of NVIDIA as GLX provider
  .
