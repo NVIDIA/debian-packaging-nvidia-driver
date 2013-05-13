@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (319.17-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (319.17-1) experimental; urgency=low
 
   * New upstream long lived branch release 319.17 (2013-05-02).
     - Fixed a regression that caused multiple BUG messages to be printed in
@@ -97,7 +97,7 @@ nvidia-graphics-drivers (319.17-1) UNRELEASED; urgency=low
     - Implement check for drm/drmP.h (319.12).
     - Implement new conftest.sh function drm_available (319.12).
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 02:52:47 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 14 May 2013 01:12:20 +0200
 
 nvidia-graphics-drivers (313.30-2) experimental; urgency=low
 
