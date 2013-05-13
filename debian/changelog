@@ -93,6 +93,9 @@ nvidia-graphics-drivers (319.17-1) UNRELEASED; urgency=low
   * Rename package nvidia-cuda-proxy to nvidia-cuda-mps: Upstream has renamed
     the programs nvidia-cuda-proxy-* to nvidia-cuda-mps-*.
   * Rename metapackage nvidia-glx to nvidia-driver. Add transitional package.
+  * conftest.h:
+    - Implement check for drm/drmP.h (319.12).
+    - Implement new conftest.sh function drm_available (319.12).
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 02:52:47 +0200
 
