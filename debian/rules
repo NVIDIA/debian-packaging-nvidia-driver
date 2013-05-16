@@ -332,23 +332,6 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 
 ############################################################################
 
-prepare-squeeze-backport:
-	echo 8 > debian/compat
-	sed -i 	-e '/^MULTIARCH/ s/^/#/; s/yes/no/' \
-		-e '/^#BACKPORT/ s/^#//' \
-		debian/rules.defs
-	sed -i -e 's/debhelper (>= .*)/debhelper (>= 8)/' \
-	       -e '/^Multi-Arch:/ d' \
-	       -e 's/0.4.1-3/0.4/' \
-	       debian/control
-	sed -i -e '/^package-contains-empty-directory usr\/lib\/tls\// s/^/#/' \
-		debian/libgl1-nvidia-glx.lintian-overrides.in
-	debchange --bpo "Disable multiarch build."
-	debchange -a "Reduce Build-Depends: debhelper and compat level to 8."
-	debchange -a "Note: Please report bugs found in this backported package to the Debian BTS, not the backports mailing list."
-
-############################################################################
-
 PASV	?= --pasv
 
 .PHONY: get-orig-source
