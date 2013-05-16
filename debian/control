@@ -308,21 +308,26 @@ Description: NVIDIA System Management Interface
  system state and diagnostic information for the NVIDIA Tesla Visual
  Computing Systems.
 
-Package: nvidia-cuda-proxy
+Package: nvidia-cuda-mps
 Section: non-free/utils
 Architecture: i386 amd64
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA CUDA Proxy
+Conflicts:
+ nvidia-cuda-proxy,
+Replaces:
+ nvidia-cuda-proxy,
+Description: NVIDIA CUDA Multi Process Service (MPS)
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
  general purpose computation.
  .
- CUDA proxy is a feature that allows multiple CUDA processes to share a single
- GPU context.  The proxy mode should be transparent to CUDA programs.
+ CUDA MPS is a feature that allows multiple CUDA processes to share a single
+ GPU context. CUDA MPS should be transparent to CUDA programs.
  .
- Proxy mode requires a device that supports Unified Virtual Address (UVA).
- Pre-CUDA 4.0 APIs are not supported under proxy mode.
+ CUDA MPS requires a device that supports Unified Virtual Address (UVA) and
+ has compute capability SM 3.5 or higher.
+ Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
 
 Package: libcuda1
 Architecture: i386 amd64
@@ -337,10 +342,12 @@ Recommends:
  | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
  nvidia-smi,
 Suggests:
+ nvidia-cuda-mps,
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Conflicts:
  libcuda1-ia32,
+ nvidia-cuda-proxy,
 Replaces:
  libcuda1-ia32,
 Homepage: http://www.nvidia.com/CUDA
