@@ -17,6 +17,7 @@ nvidia-graphics-drivers (319.23-1) UNRELEASED; urgency=low
     - Added support in VDPAU for 4k resolution MPEG-1/2 and H.264 video
       decoding, up to 4032x4048 for MPEG-1/2 and 4032x4080 for H.264,
       and up to 65536 macroblocks for both.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 26 May 2013 17:37:21 +0200
 
