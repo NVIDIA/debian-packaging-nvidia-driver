@@ -1,3 +1,25 @@
+nvidia-graphics-drivers (319.23-1) UNRELEASED; urgency=low
+
+  * New upstream long lived branch release 319.23 (2013-05-23).
+    - Fixed a regression that could cause X to crash when querying GPU
+      information through NV-CONTROL on multi-GPU systems where some
+      GPUs failed to be initialized for X.
+    - Fixed a bug that could cause X to crash when using Vertex
+      Buffer Objects (VBOs) with indirect rendering.
+    - Fixed RandR panning reporting when the current MetaMode is smaller
+      than the X screen.
+    - Added support for the following GPUs: GeForce GTX 760, GeForce GTX 770,
+      GeForce GTX 780.
+    - Added the "ForceCompositionPipeline" and "ForceFullCompositionPipeline"
+      MetaMode options.  See the README for details.
+    - Added support for HDMI 4K resolutions. Using a 4K resolution with an
+      HDMI display requires a Kepler or later GPU.
+    - Added support in VDPAU for 4k resolution MPEG-1/2 and H.264 video
+      decoding, up to 4032x4048 for MPEG-1/2 and 4032x4080 for H.264,
+      and up to 65536 macroblocks for both.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 26 May 2013 17:37:21 +0200
+
 nvidia-graphics-drivers (319.17-1) experimental; urgency=low
 
   * New upstream long lived branch release 319.17 (2013-05-02).
