@@ -1,5 +1,34 @@
-nvidia-graphics-drivers (319.23-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (319.32-1) UNRELEASED; urgency=low
 
+  * New upstream long lived branch release 319.32 (2013-06-25).
+    - Fixed a bug that could cause the X server to crash after power-cycling
+      displays connected behind a DisplayPort 1.2 Multi-Stream Transport hub.
+    - Updated the application profile syntax to allow for multiple patterns
+      within a single rule. See the README for details.
+    - Fixed a bug that caused OpenGL programs to crash when the __GL_DOOM3
+      environment variable was set.
+    - Updated the NVIDIA driver to avoid calling fork(2) to execute the
+      nvidia-modprobe utility when not needed.
+    - Improved the error reporting of the nvidia-persistenced utility.
+    - Fixed a bug that could cause Altair HyperView to hang when rendering
+      animations with tensors.
+    - Fixed a performance regression in MEDINA 8.2.
+    - Fixed a bug that caused the OpenGL driver to hang sometimes when running
+      the SpeedTree Modeler application.
+    - Fixed a bug that could cause an OpenGL application to crash if it creates
+      and destroys multiple threads.
+    - Fixed a bug that caused corrupted window content in some cases when
+      moving GLX windows with antialiasing enabled.
+    - Fixed a bug that caused DisplayPort devices that failed link training to
+      be reported as connected rather than disconnected.
+    - Fixed a regression that could cause a DisplayPort device that was
+      connected to one connector to turn off when a DisplayPort device on a
+      different connector was connected or disconnected.
+    - Added support for the following GPU: GeForce 720M.
+    - On Kepler-based GPUs, improved the appearance of the tearing that occurs
+      when using RandR 1.4's Source Output capability.  While tearing is still
+      expected, the tears should now appear as horizontal lines rather than more
+      noticeable checkerboard or triangular shapes.
   * New upstream long lived branch release 319.23 (2013-05-23).
     - Fixed a regression that could cause X to crash when querying GPU
       information through NV-CONTROL on multi-GPU systems where some
@@ -20,7 +49,7 @@ nvidia-graphics-drivers (319.23-1) UNRELEASED; urgency=low
   * Update nv-readme.ids.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 26 May 2013 17:37:21 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Jul 2013 12:19:04 +0200
 
 nvidia-graphics-drivers (319.17-1) experimental; urgency=low
 
