@@ -7,6 +7,7 @@ nvidia-graphics-drivers (304.88-4) UNRELEASED; urgency=low
   * Drop support for backporting to squeeze.
   * Rename metapackage nvidia-glx to nvidia-driver. Add transitional package.
   * Use new '${nvidia}' substvar instead of 'nvidia${nvidia-legacy}'.
+  * NEWS: Drop news items concerning upgrades to squeeze.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 01:54:19 +0200
 
