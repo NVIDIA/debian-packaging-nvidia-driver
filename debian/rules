@@ -18,6 +18,7 @@ BACKPORT		?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
+nvidia			 = nvidia$(legacy)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 perfkit			 =
@@ -256,6 +257,7 @@ override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' \
 		-V'nvidia:xorgDepends=$(xorg_depends)' \
 		-V'nvidia:xorgProvides=$(xorg_provides)' \
+		-V'nvidia=$(nvidia)' \
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
 		-V'nvidia:Perfkit=$(perfkit)' \
@@ -285,6 +287,7 @@ override_dh_builddeb:
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
 	-e 's{#MAJOR#}{$(version_major)}g;' \
+	-e 's{#NVIDIA#}{$(nvidia)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \

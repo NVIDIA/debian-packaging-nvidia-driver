@@ -28,7 +28,7 @@ KERNEL MODULE INSTRUCTIONS:
     corresponding linux-headers-KVERS package.
   * Run this command every time your kernel or the driver was updated:
 
-        module-assistant auto-install nvidia#LEGACY#
+        module-assistant auto-install #NVIDIA#
 
   * For more information on module-assistant, see its man page and package
     documentation.
@@ -171,7 +171,7 @@ video. You can do this with:
         adduser username video
 
 Also note for AGP issues and further information please see the NVIDIA
-README file (README.gz) in the nvidia-glx#LEGACY# package
+README file (README.gz) in the #NVIDIA#-driver package.
 
 An old nvidia.ko might be already loaded (run 'lsmod' to check) so
 do 'rmmod nvidia' to remove the module from memory.
