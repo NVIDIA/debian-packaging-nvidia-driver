@@ -93,11 +93,12 @@ License: NVIDIA-graphics-drivers
  the following non-exclusive, non-transferable right to use the
  SOFTWARE, with the following limitations:
  .
- 2.1.1  Rights.  Customer may install and use one copy of the SOFTWARE
- on a single computer, and except for making one back-up copy of
- the Software, may not otherwise copy the SOFTWARE.  This LICENSE
- of SOFTWARE may not be shared or used concurrently on different
- computers.
+ 2.1.1  Rights.  Customer may install and use multiple copies of the
+ SOFTWARE on a shared computer or concurrently on different computers,
+ and make multiple back-up copies of the SOFTWARE, solely for Customer's
+ use within Customer's Enterprise. "Enterprise" shall mean individual use
+ by Customer or any legal entity (such as a corporation or university)
+ and the subsidiaries it owns by more than fifty percent (50%).
  .
  2.1.2  Linux/FreeBSD Exception.  Notwithstanding the foregoing terms
  of Section 2.1.1, SOFTWARE designed exclusively for use on the Linux or

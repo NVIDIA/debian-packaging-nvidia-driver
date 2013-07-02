@@ -48,6 +48,7 @@ nvidia-graphics-drivers (319.32-1) UNRELEASED; urgency=low
       and up to 65536 macroblocks for both.
   * Update nv-readme.ids.
   * Update lintian overrides.
+  * Update debian/copyright: Upstream license has changed §2.1.1.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Jul 2013 12:19:04 +0200
 
