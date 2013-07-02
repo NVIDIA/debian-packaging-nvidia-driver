@@ -5,6 +5,7 @@ nvidia-graphics-drivers (304.88-4) UNRELEASED; urgency=low
     the programs nvidia-cuda-proxy-* to nvidia-cuda-mps-* in release 319.xx.
   * libcuda1: Add Suggests: nvidia-cuda-mps.
   * Drop support for backporting to squeeze.
+  * Rename metapackage nvidia-glx to nvidia-driver. Add transitional package.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 01:54:19 +0200
 
