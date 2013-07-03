@@ -90,6 +90,8 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 		mv NVIDIA-Linux-i386/usr/src/nv NVIDIA-Linux-i386/kernel
 	test -d NVIDIA-Linux-amd64/kernel || \
 		mv NVIDIA-Linux-amd64/usr/src/nv NVIDIA-Linux-amd64/kernel
+	gunzip NVIDIA-Linux-i386/*.1.gz
+	gunzip NVIDIA-Linux-amd64/*.1.gz
 	ls -al
 	touch $@
 
