@@ -92,6 +92,7 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 		mv NVIDIA-Linux-amd64/usr/src/nv NVIDIA-Linux-amd64/kernel
 	gunzip NVIDIA-Linux-i386/*.1.gz
 	gunzip NVIDIA-Linux-amd64/*.1.gz
+	QUILT_PATCHES=debian/patches-manual quilt --quiltrc /dev/null push -a || test $$? = 2
 	ls -al
 	touch $@
 
@@ -139,6 +140,7 @@ binary binary-arch binary-indep build clean install:
 	dh $@ --with dkms
 
 override_dh_auto_clean:
+	rm -fr .pc
 	rm -f NVIDIA-Linux-i386 NVIDIA-Linux-amd64 NVIDIA-Linux
 	rm -fr $(dirname_x86) $(dirname_x86_64)
 	rm -fr debian/temp
