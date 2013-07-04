@@ -45,9 +45,9 @@ Suggests:
 Provides:
  nvidia-glx-any,
 Breaks:
- nvidia-glx (<< 304.88-4),
+ nvidia-glx${nvidia:Legacy} (<< 304.88-4),
 Replaces:
- nvidia-glx (<< 304.88-4),
+ nvidia-glx${nvidia:Legacy} (<< 304.88-4),
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
  .
  This metapackage depends on the NVIDIA binary driver and libraries
