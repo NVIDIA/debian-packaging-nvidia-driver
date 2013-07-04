@@ -1,3 +1,4 @@
+#Source: nvidia-graphics-drivers${nvidia:Legacy}
 Source: nvidia-graphics-drivers
 Section: non-free/libs
 Priority: optional
@@ -198,6 +199,7 @@ Description: allows the selection of NVIDIA as GLX provider
  In order to install the NVIDIA driver and libraries, install the
  ${nvidia}-driver package instead.
 
+#Package: nvidia-kernel${nvidia:Legacy}-dkms
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
@@ -235,6 +237,7 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  See /usr/share/doc/nvidia-kernel${nvidia:Legacy}-dkms/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
+#Package: nvidia-kernel${nvidia:Legacy}-source
 Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64
