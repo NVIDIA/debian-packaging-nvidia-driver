@@ -25,8 +25,10 @@ perfkit			 =
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
 filename_x86		 = $(NVIDIA_FILENAME_X86)
 filename_x86_64		 = $(NVIDIA_FILENAME_X86_64)
+filename_armhf		 = $(NVIDIA_FILENAME_armhf)
 dirname_x86		 = $(NVIDIA_DIRNAME_X86)
 dirname_x86_64		 = $(NVIDIA_DIRNAME_X86_64)
+dirname_armhf		 = $(NVIDIA_DIRNAME_armhf)
 
 # system libdir
 libdir			 = usr/lib$(if $(MULTIARCH),/$(DEB_HOST_MULTIARCH))
@@ -71,13 +73,15 @@ autogen: $(AUTOGEN)
 prepare: autogen unpack-stamp nvidia.ids compare-copyright-license
 
 
-unpack-stamp: ${filename_x86} ${filename_x86_64}
+unpack-stamp: ${filename_x86} ${filename_x86_64} ${filename_armhf}
 	dh_testdir
 	# extract both so we can fetch the kernel object code for both arches
 	sh ${filename_x86} --extract-only
 	sh ${filename_x86_64} --extract-only
+	sh ${filename_armhf} --extract-only
 	ln -s ${dirname_x86} NVIDIA-Linux-i386
 	ln -s ${dirname_x86_64} NVIDIA-Linux-amd64
+	ln -s ${dirname_armhf} NVIDIA-Linux-armhf
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
 	test -f NVIDIA-Linux-i386/README.txt || \
 		mv NVIDIA-Linux-i386/usr/share/doc/README.txt NVIDIA-Linux-i386/README.txt 2>/dev/null || \
@@ -93,6 +97,7 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 		mv NVIDIA-Linux-amd64/usr/src/nv NVIDIA-Linux-amd64/kernel
 	gunzip NVIDIA-Linux-i386/*.1.gz
 	gunzip NVIDIA-Linux-amd64/*.1.gz
+	gunzip NVIDIA-Linux-armhf/*.1.gz
 	QUILT_PATCHES=debian/patches-manual quilt --quiltrc /dev/null push -a || test $$? = 2
 	ls -al
 	touch $@
@@ -196,6 +201,8 @@ build-kernel-source-tree: install-into-tmp
 	    $(module_source)/nv-kernel.o.i386
 	cp -a NVIDIA-Linux-amd64/kernel/nv-kernel.o \
 	    $(module_source)/nv-kernel.o.x86_64
+	cp -a NVIDIA-Linux-armhf/kernel/nv-kernel.o \
+	    $(module_source)/nv-kernel.o.armhf
 	rm -f $(module_source)/nv-kernel.o
 
 	# Install a debian/ tree and new conftest files that work purely
