@@ -3,3 +3,4 @@
 hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
+spelling-error-in-binary
