@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (319.32-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (319.32-1) experimental; urgency=low
 
   * New upstream long lived branch release 319.32 (2013-06-25).
     - Fixed a bug that could cause the X server to crash after power-cycling
@@ -54,7 +54,7 @@ nvidia-graphics-drivers (319.32-1) UNRELEASED; urgency=low
   * debian/control: Enable building for armhf.
   * Merge changes from 304.88-4.  (Closes: #710366)
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Jul 2013 12:19:04 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 04 Jul 2013 23:19:13 +0200
 
 nvidia-graphics-drivers (319.17-1) experimental; urgency=low
 
