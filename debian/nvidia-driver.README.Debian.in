@@ -121,6 +121,6 @@ In short:
   (otherwise removal will fail), ignore errors
 - remove the driver installed from the *.run file: nvidia-installer --uninstall
 - remove all nvidia.ko still found under /lib/modules
-- reinstall the Debian nvidia-glx packages
+- reinstall the Debian nvidia-driver package
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 29 Nov 2010 10:19:36 +0100
