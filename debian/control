@@ -1,3 +1,4 @@
+#Source: nvidia-graphics-drivers${nvidia:Legacy}
 Source: nvidia-graphics-drivers
 Section: non-free/libs
 Priority: optional
@@ -17,16 +18,7 @@ Standards-Version: 3.9.4
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
-Package: nvidia-glx
-Section: non-free/oldlibs
-Priority: extra
-Architecture: i386 amd64
-Depends:
- nvidia-driver,
- ${misc:Depends}
-Description: transition to nvidia-driver
- This is a dummy transitional package to aid switching to nvidia-driver.
-
+#Package: ${nvidia}-driver
 Package: nvidia-driver
 Section: non-free/x11
 Architecture: i386 amd64
@@ -34,8 +26,8 @@ Pre-Depends:
  dpkg (>= 1.15.7.2),
  nvidia-installer-cleanup,
 Depends:
- libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
- xserver-xorg-video-nvidia${nvidia:Legacy} (= ${binary:Version}),
+ libgl1-${nvidia}-glx (= ${binary:Version}),
+ xserver-xorg-video-${nvidia} (= ${binary:Version}),
  nvidia-vdpau-driver (= ${binary:Version}),
  nvidia-alternative${nvidia:Legacy} (= ${binary:Version}),
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
@@ -44,16 +36,16 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia-settings},
- libgl1-nvidia${nvidia:Legacy}-glx-i386 [amd64],
+ libgl1-${nvidia}-glx-i386 [amd64],
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:
  nvidia-glx-any,
 Breaks:
- nvidia-glx (<< 319),
+ nvidia-glx${nvidia:Legacy} (<< 319),
 Replaces:
- nvidia-glx (<< 319),
+ nvidia-glx${nvidia:Legacy} (<< 319),
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
  .
  This metapackage depends on the NVIDIA binary driver and libraries
@@ -68,21 +60,35 @@ Description: NVIDIA metapackage${nvidia:LegacyDesc}
  .
  ${nvidia:Models}
  .
- See /usr/share/doc/nvidia-glx${nvidia:Legacy}/README.txt.gz
+ See /usr/share/doc/${nvidia}-driver/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
+#Package: nvidia-glx${nvidia:Legacy}
+Package: nvidia-glx
+Section: non-free/oldlibs
+Priority: extra
+Architecture: i386 amd64
+Depends:
+ ${nvidia}-driver,
+ ${misc:Depends}
+Description: transition to ${nvidia}-driver
+ This is a dummy transitional package to aid switching to
+ ${nvidia}-driver.
+
+#Package: xserver-xorg-video-${nvidia}
 Package: xserver-xorg-video-nvidia
 Section: non-free/x11
 Architecture: i386 amd64
 Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
- libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
+ libgl1-${nvidia}-glx (= ${binary:Version}),
  nvidia-alternative${nvidia:Legacy} (= ${binary:Version}),
  nvidia-support (>= 20120630),
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
+ ${nvidia}-driver (>= ${nvidia:Version}),
  nvidia-vdpau-driver (>= ${nvidia:Version}),
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
  | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
@@ -106,9 +112,10 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  .
  ${nvidia:Models}
  .
- See /usr/share/doc/nvidia-glx${nvidia:Legacy}/README.txt.gz
+ See /usr/share/doc/${nvidia}-driver/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
+#Package: libgl1-${nvidia}-glx
 Package: libgl1-nvidia-glx
 Architecture: i386 amd64
 Multi-Arch: same
@@ -126,7 +133,7 @@ Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Provides:
- libgl1-nvidia${nvidia:Legacy}-glx-i386 [i386],
+ libgl1-${nvidia}-glx-i386 [i386],
  libgl1-nvidia-glx-any,
 Conflicts:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
@@ -142,10 +149,11 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  .
- See the description of the nvidia-glx${nvidia:Legacy} package
- or /usr/share/doc/libgl1-nvidia${nvidia:Legacy}-glx/README.txt.gz
+ See the description of the ${nvidia}-driver package
+ or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
+#Package: nvidia-alternative${nvidia:Legacy}
 Package: nvidia-alternative
 Architecture: i386 amd64
 Multi-Arch: foreign
@@ -157,7 +165,7 @@ Conflicts:
  libglx-nvidia-alternatives,
  libgl1-nvidia-alternatives-ia32,
 Breaks:
- nvidia-settings (<< 304.88-2),
+ nvidia-settings (<< 313.30),
  nvidia-settings-legacy-173xx (<< 173.14.37),
 Description: allows the selection of NVIDIA as GLX provider
  .
@@ -169,8 +177,9 @@ Description: allows the selection of NVIDIA as GLX provider
  .
  This package does not depend on the corresponding NVIDIA libraries.
  In order to install the NVIDIA driver and libraries, install the
- nvidia-glx${nvidia:Legacy} package instead.
+ ${nvidia}-driver package instead.
 
+#Package: nvidia-kernel${nvidia:Legacy}-dkms
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
@@ -182,7 +191,7 @@ Depends:
  nvidia-kernel-common (>= 20110213),
  ${misc:Depends}
 Recommends:
- nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}),
+ ${nvidia}-driver (>= ${nvidia:Version}),
 Provides:
  nvidia-kernel-dkms,
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
@@ -193,7 +202,7 @@ Breaks:
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  .
  This package builds the NVIDIA Xorg binary kernel module needed by
- nvidia-glx${nvidia:Legacy}, using DKMS.
+ ${nvidia}-driver, using DKMS.
  Provided that you have the kernel header packages installed, the kernel
  module will be built for your running kernel and automatically rebuilt for
  any new kernel headers that are installed.
@@ -208,6 +217,7 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  See /usr/share/doc/nvidia-kernel${nvidia:Legacy}-dkms/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
+#Package: nvidia-kernel${nvidia:Legacy}-source
 Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64
@@ -220,13 +230,13 @@ Recommends:
  module-assistant | kernel-package,
  nvidia-kernel-common,
 Suggests:
- nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}),
+ ${nvidia}-driver (>= ${nvidia:Version}),
 Breaks:
  make (= 3.82-1),
 Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  .
  This package provides the source for the NVIDIA Xorg binary kernel module
- needed by nvidia-glx${nvidia:Legacy} in a form suitable
+ needed by ${nvidia}-driver in a form suitable
  for use by module-assistant or kernel-package.
  .
  The NVIDIA binary drivers provide optimized hardware acceleration of
@@ -336,12 +346,16 @@ Recommends:
  | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
  nvidia-smi,
 Suggests:
+ nvidia-cuda-mps,
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
 Conflicts:
  libcuda1-ia32,
+ nvidia-cuda-proxy,
 Replaces:
  libcuda1-ia32,
+Provides:
+ libcuda-5.0-1,
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library
  .
@@ -501,6 +515,6 @@ Depends:
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-glx, nvidia-glx-legacy-173xx or nvidia-glx-legacy-96xx) for
+ (nvidia-driver, nvidia-legacy-173xx-driver or nvidia-legacy-96xx-driver) for
  installation.
 

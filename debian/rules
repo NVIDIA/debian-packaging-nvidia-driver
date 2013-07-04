@@ -18,6 +18,7 @@ BACKPORT		?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
+nvidia			 = nvidia$(legacy)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 perfkit			 =
@@ -32,16 +33,22 @@ libdir			 = usr/lib$(if $(MULTIARCH),/$(DEB_HOST_MULTIARCH))
 # nvidia specific directory below $(libdir)
 nvidia_private		 = nvidia$(if $(legacy),/$(patsubst -%,%,$(legacy)),/current)
 
-CONTROL_PREFIXES = nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
+CONTROL_PREFIXES	 = nvidia-driver nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
+RENAME_nvidia-glx		 = nvidia-glx$(legacy)
+RENAME_nvidia-kernel		 = nvidia-kernel$(legacy)
+RENAME_nvidia-alternative	 = nvidia-alternative$(legacy)
+renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
+CONTROL_PREFIXES_RENAMED = $(foreach p,$(CONTROL_PREFIXES),$(call renamed_prefix,$p))
+
+# $1=file, $2=prefix
+applyprefixrename	 = $(patsubst debian/$2%,debian/$(call renamed_prefix,$2)%,$1)
+# $1=file, $2=prefixlist
+applyprefixrenamelist	 = $(if $2,$(call applyprefixrenamelist,$(call applyprefixrename,$1,$(firstword $2)),$(wordlist 2,$(words $2),$2)),$1)
+
 ALL_CONTROL	:= $(wildcard $(patsubst %,debian/%*,$(CONTROL_PREFIXES)))
-LEGACY_CONTROL	:= $(wildcard $(patsubst %,debian/%$(legacy)*,$(CONTROL_PREFIXES)))
+LEGACY_CONTROL	:= $(wildcard $(patsubst %,debian/%*,$(CONTROL_PREFIXES_RENAMED)))
 RENAME_CONTROL	 = $(filter-out $(LEGACY_CONTROL),$(ALL_CONTROL))
-RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
-			$(patsubst debian/libgl1-nvidia%,debian/libgl1-nvidia$(legacy)%,\
-			$(patsubst debian/nvidia-kernel%,debian/nvidia-kernel$(legacy)%,\
-			$(patsubst debian/nvidia-alternative%,debian/nvidia-alternative$(legacy)%,\
-			$(patsubst debian/xserver-xorg-video-nvidia%,debian/xserver-xorg-video-nvidia$(legacy)%,\
-				$(RENAME_CONTROL))))))
+RENAMED_CONTROL	 = $(foreach f,$(RENAME_CONTROL),$(call applyprefixrenamelist,$f,$(CONTROL_PREFIXES)))
 TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in debian/detect/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/module/debian/changelog
@@ -55,13 +62,8 @@ dkms_source	 = debian/nvidia-kernel$(legacy)-dkms/usr/src/nvidia-$(version)
 
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
-xorg_depends	+= $(if $(BACKPORT), xserver-xorg-core (<< 2:1.7.7) |)
 xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND)
 xorg_provides	 = xorg-driver-video
-xorg_provides	+= $(if $(filter-out squeeze,$(BACKPORT)), $(comma) xserver-xorg-video-6)
-
-# sanity checks
-$(if $(and $(BACKPORT),$(MULTIARCH)),$(error Oops, backports do not support multiarch.))
 
 
 .PHONY: autogen prepare
@@ -89,6 +91,9 @@ unpack-stamp: ${filename_x86} ${filename_x86_64}
 		mv NVIDIA-Linux-i386/usr/src/nv NVIDIA-Linux-i386/kernel
 	test -d NVIDIA-Linux-amd64/kernel || \
 		mv NVIDIA-Linux-amd64/usr/src/nv NVIDIA-Linux-amd64/kernel
+	gunzip NVIDIA-Linux-i386/*.1.gz
+	gunzip NVIDIA-Linux-amd64/*.1.gz
+	QUILT_PATCHES=debian/patches-manual quilt --quiltrc /dev/null push -a || test $$? = 2
 	ls -al
 	touch $@
 
@@ -136,6 +141,7 @@ binary binary-arch binary-indep build clean install:
 	dh $@ --with dkms
 
 override_dh_auto_clean:
+	rm -fr .pc
 	rm -f NVIDIA-Linux-i386 NVIDIA-Linux-amd64 NVIDIA-Linux
 	rm -fr $(dirname_x86) $(dirname_x86_64)
 	rm -fr debian/temp
@@ -256,6 +262,7 @@ override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' \
 		-V'nvidia:xorgDepends=$(xorg_depends)' \
 		-V'nvidia:xorgProvides=$(xorg_provides)' \
+		-V'nvidia=$(nvidia)' \
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
 		-V'nvidia:Perfkit=$(perfkit)' \
@@ -285,6 +292,7 @@ override_dh_builddeb:
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
 	-e 's{#MAJOR#}{$(version_major)}g;' \
+	-e 's{#NVIDIA#}{$(nvidia)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
@@ -297,11 +305,11 @@ debian/module/debian/changelog: debian/changelog
 
 # Renaming control files for legacy packaging
 define rename-template
-$1$$(legacy)%: $1%
+$2%: $1%
 	cp -a $$< $$@
 endef
 ifneq (,$(legacy))
-$(foreach p,$(CONTROL_PREFIXES),$(eval $(call rename-template,$p)))
+$(foreach p,$(CONTROL_PREFIXES),$(eval $(call rename-template,$p,$(call renamed_prefix,$p))))
 endif
 
 ############################################################################
@@ -329,23 +337,6 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 	while read id ; do \
 		grep ^$$id pci.ids.nvidia || echo $$id ; \
 	done > $@
-
-############################################################################
-
-prepare-squeeze-backport:
-	echo 8 > debian/compat
-	sed -i 	-e '/^MULTIARCH/ s/^/#/; s/yes/no/' \
-		-e '/^#BACKPORT/ s/^#//' \
-		debian/rules.defs
-	sed -i -e 's/debhelper (>= .*)/debhelper (>= 8)/' \
-	       -e '/^Multi-Arch:/ d' \
-	       -e 's/0.4.1-3/0.4/' \
-	       debian/control
-	sed -i -e '/^package-contains-empty-directory usr\/lib\/tls\// s/^/#/' \
-		debian/libgl1-nvidia-glx.lintian-overrides.in
-	debchange --bpo "Disable multiarch build."
-	debchange -a "Reduce Build-Depends: debhelper and compat level to 8."
-	debchange -a "Note: Please report bugs found in this backported package to the Debian BTS, not the backports mailing list."
 
 ############################################################################
 

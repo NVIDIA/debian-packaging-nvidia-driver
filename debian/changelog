@@ -50,6 +50,7 @@ nvidia-graphics-drivers (319.32-1) UNRELEASED; urgency=low
   * Update lintian overrides.
   * Update debian/copyright: Upstream license has changed §2.1.1.
   * debian/{rules,watch}: Add armhf driver to generated .orig.tar.gz.
+  * Merge changes from 304.88-4.  (Closes: #710366)
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Jul 2013 12:19:04 +0200
 
@@ -153,6 +154,13 @@ nvidia-graphics-drivers (319.17-1) experimental; urgency=low
     - Implement new conftest.sh function drm_available (319.12).
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 14 May 2013 01:12:20 +0200
+
+nvidia-graphics-drivers (313.30-3) UNRELEASED; urgency=low
+
+  * Restrict watch file to releases from the 313.xx short lived branch.
+  * Merge changes from 304.88-4 and 310.51 (UNRELEASED).
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 03:27:40 +0200
 
 nvidia-graphics-drivers (313.30-2) experimental; urgency=low
 
@@ -283,10 +291,9 @@ nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
       boundaries.
     - Fix performance issues when using some versions of HyperMesh with Quadro
       GPUs.
-  * Merge changes from 304.88-3.
+  * Merge changes from 304.88-4.
   * Restrict watch file to releases from the 310.xx long lived branch.
   * Update nv-readme.ids.
-  * Add xorg-video-abi-14 as alternative dependency.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 01:34:30 +0200
 
@@ -341,6 +348,24 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
+
+nvidia-graphics-drivers (304.88-4) unstable; urgency=low
+
+  * Rename metapackage nvidia-glx to nvidia-driver. Add transitional package.
+  * Use new '${nvidia}' substvar instead of 'nvidia${nvidia:Legacy}'.
+  * debian/rules: Generalize control file renaming for legacy builds.
+  * Rename package nvidia-cuda-proxy to nvidia-cuda-mps: Upstream has renamed
+    the programs nvidia-cuda-proxy-* to nvidia-cuda-mps-* in release 319.xx.
+  * libcuda1: Add Suggests: nvidia-cuda-mps.
+  * libcuda1: Add Provides: libcuda-5.0-1.
+  * nvidia-libopencl1: Prefer nvidia-opencl-icd over opencl-icd.
+  * Drop support for backporting to squeeze.
+  * NEWS: Drop news items concerning upgrades to squeeze.
+  * debian/rules: Apply patches from debian/patches-manual/ after unpacking.
+  * man-fixes-nvidia-smi.patch: New patch, fix hyphen vs. minus sign,
+    wrapping, and spelling in nvidia-smi manpage.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 04 Jul 2013 17:32:45 +0200
 
 nvidia-graphics-drivers (304.88-3) unstable; urgency=low
 
