@@ -21,7 +21,7 @@ XS-Autobuild: yes
 #Package: ${nvidia}-driver
 Package: nvidia-driver
 Section: non-free/x11
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Pre-Depends:
  dpkg (>= 1.15.7.2),
  nvidia-installer-cleanup,
@@ -78,7 +78,7 @@ Description: transition to ${nvidia}-driver
 #Package: xserver-xorg-video-${nvidia}
 Package: xserver-xorg-video-nvidia
 Section: non-free/x11
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
@@ -117,7 +117,7 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
 
 #Package: libgl1-${nvidia}-glx
 Package: libgl1-nvidia-glx
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
@@ -155,7 +155,7 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
 
 #Package: nvidia-alternative${nvidia:Legacy}
 Package: nvidia-alternative
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
  glx-alternative-nvidia (>= 0.2),
@@ -182,7 +182,7 @@ Description: allows the selection of NVIDIA as GLX provider
 #Package: nvidia-kernel${nvidia:Legacy}-dkms
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Pre-Depends:
  nvidia-installer-cleanup,
@@ -220,7 +220,7 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
 #Package: nvidia-kernel${nvidia:Legacy}-source
 Package: nvidia-kernel-source
 Section: non-free/kernel
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Depends:
  debhelper (>= 8),
  make,
@@ -255,7 +255,7 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
 
 Package: nvidia-vdpau-driver
 Section: non-free/video
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
@@ -297,7 +297,7 @@ Description: NVIDIA vdpau driver
 
 Package: nvidia-smi
 Section: non-free/utils
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Depends:
  libnvidia-ml1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
@@ -314,7 +314,7 @@ Description: NVIDIA System Management Interface
 
 Package: nvidia-cuda-mps
 Section: non-free/utils
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
@@ -334,7 +334,7 @@ Description: NVIDIA CUDA Multi Process Service (MPS)
  Pre-CUDA 4.0 APIs are not supported under CUDA MPS.
 
 Package: libcuda1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -374,7 +374,7 @@ Description: NVIDIA CUDA runtime library
  This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
 
 Package: libnvidia-compiler
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -392,7 +392,7 @@ Description: NVIDIA runtime compiler library
  This package contains the runtime compiler library.
 
 Package: libnvcuvid1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -411,7 +411,7 @@ Description: NVIDIA CUDA nvcuvid runtime library
  This package contains the nvcuvid runtime library.
 
 Package: libnvidia-encode1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -423,7 +423,7 @@ Description: NVIDIA nvidia-encode runtime library
  This package contains the nvidia-encode runtime library.
 
 Package: libnvidia-ml1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -439,7 +439,7 @@ Description: NVIDIA management library (NVML) runtime library
  This package contains the nvidia-ml runtime library.
 
 Package: nvidia-opencl-common
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
@@ -456,7 +456,7 @@ Description: NVIDIA OpenCL driver
  driver (ICD) for OpenCL.
 
 Package: nvidia-opencl-icd
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -482,7 +482,7 @@ Description: NVIDIA OpenCL ICD
  OpenCL.
 
 Package: nvidia-libopencl1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
