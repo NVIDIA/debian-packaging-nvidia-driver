@@ -23,7 +23,7 @@ NVIDIA provides accelerated OpenGL libraries libGL.so.* which are shipped
 in the libgl1-nvidia-glx (or a corresponding libgl1-nvidia-legacy*-glx)
 package.  Also, NVIDIA provides its own libglx.so module for X.org which
 is shipped along with X.org driver nvidia_drv.so in the
-xserver-xorg-video-nvidia (or xserver-xorg-video-nvidia-glx-legacy*)
+xserver-xorg-video-nvidia (or xserver-xorg-video-nvidia-legacy*)
 package.  Furthermore NVIDIA maintains several legacy driver releases that
 support older GPUs and ship files with the same names (but of course they
 may not be mixed between different versions).
