@@ -7,6 +7,7 @@ nvidia-graphics-drivers (304.88-4) UNRELEASED; urgency=low
   * Drop support for backporting to squeeze.
   * Rename metapackage nvidia-glx to nvidia-driver. Add transitional package.
   * Use new '${nvidia}' substvar instead of 'nvidia${nvidia:Legacy}'.
+  * debian/rules: Generalize control file renaming for legacy builds.
   * NEWS: Drop news items concerning upgrades to squeeze.
   * debian/rules: Apply patches from debian/patches-manual/ after unpacking.
   * man-fixes-nvidia-smi.patch: New patch, fix hyphen vs. minus sign,
