@@ -43,9 +43,9 @@ Suggests:
 Provides:
  nvidia-glx-any,
 Breaks:
- nvidia-glx (<< 310.51),
+ nvidia-glx${nvidia:Legacy} (<< 310.51),
 Replaces:
- nvidia-glx (<< 310.51),
+ nvidia-glx${nvidia:Legacy} (<< 310.51),
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
  .
  This metapackage depends on the NVIDIA binary driver and libraries
