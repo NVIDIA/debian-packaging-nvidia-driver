@@ -1,3 +1,62 @@
+nvidia-graphics-drivers (325.08-1) UNRELEASED; urgency=low
+
+  * New upstream short lived branch release 325.08 (2013-07-01).
+    - Fixed a bug that could cause display flickering after setting some
+      scaling configurations.
+    - Changed the default PCIe interrupt delivery method from virtual-wire
+      to MSI. Note that if the NVIDIA Linux driver fails to initialize
+      with an error indicating that it is not receiving interrupts,  MSI 
+      can be disabled by setting the module parameter "NVreg_EnableMSI=0"
+      when loading the NVIDIA kernel module.
+    - Removed support for Linux 2.4 kernels. The NVIDIA Linux driver now
+      requires Linux 2.6.9 or later.
+    - Fixed a bug that prevented the creation of a mode via RandR with the
+      same name as a previously created mode, even after the previous mode
+      had been deleted.
+    - Fixed a bug that could cause OpenGL applications that use Frame Buffer
+      Objects (FBOs) to crash following a mode switch (e.g. changing the
+      resolution of a display or transforming it).
+    - Fixed a memory leak that could be triggered by unloading libGL before
+      destroying all GLX contexts.
+    - Fixed a bug that could cause color correction settings to be applied to
+      the wrong display when multiple displays are unplugged and then plugged
+      back in again.
+    - Fixed a bug that could cause a spurious error message about a missing
+      NV-GLX extension when performing indirect rendering from a GLX client
+      with the NVIDIA client-side OpenGL libraries to a non-NVIDIA GLX server.
+    - Fixed an OpenGL bug that prevented conditional rendering from the
+      NV_conditional_render extension from correctly affecting CopyPixels.
+    - Improved the rendering performance of complex gradients.
+    - Fixed an X driver bug where the RandR CRTC panning area and tracking
+      area were not getting clamped to the current X screen size when
+      the RandR CRTC transitioned from disabled to enabled.
+    - Fixed an X driver bug where successful RandR X_RRSetScreenConfig
+      requests would update the server's RandR 'lastSetTime' too far,
+      potentially causing subsequent RandR requests to be unnecessarily
+      rejected.
+    - Fixed an X driver bug that caused GPUs to become inaccessible via
+      the NV-CONTROL X extension when no corresponding X screens could be
+      initialized.
+    - Generate a BadMatch error when applications attempt to create GLX
+      pixmaps using glXCreatePixmap() or glXCreateGLXPixmapWithConfigSGIX()
+      and the pixmap's depth doesn't match that of the specified GLXFBConfig.
+    - Honor a GPU UUID as the GPU qualifier for X configuration options that
+      allow GPU qualifiers (e.g. "MetaModes").
+    - Report GPU UUIDs in the X log when verbose logging is enabled in the
+      X server.
+    - Enabled conformant glBlitFrameBuffer() scissor test behavior by
+      default. A driver-provided application profile enables the previous
+      non-conformant behavior for applications that load libcogl, to work
+      around a bug in older versions of libcogl.
+      Application profiles can be added to enable the non-conformant behavior
+      for other applications that depend upon it. See the "Known Issues"
+      section of the README for more details.
+  * New upstream release 319 series.
+    - Fixed a bug that caused the X server to crash when querying the current
+      mode of disabled displays.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 04 Jul 2013 15:20:32 +0200
+
 nvidia-graphics-drivers (319.32-1) experimental; urgency=low
 
   * New upstream long lived branch release 319.32 (2013-06-25).
