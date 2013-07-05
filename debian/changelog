@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (319.32-2) UNRELEASED; urgency=low
+
+  * Fix armhf build.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 05 Jul 2013 22:36:53 +0000
+
 nvidia-graphics-drivers (319.32-1) experimental; urgency=low
 
   * New upstream long lived branch release 319.32 (2013-06-25).

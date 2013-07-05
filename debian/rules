@@ -148,7 +148,9 @@ binary binary-arch binary-indep build clean install:
 override_dh_auto_clean:
 	rm -fr .pc
 	rm -f NVIDIA-Linux-i386 NVIDIA-Linux-amd64 NVIDIA-Linux
+	rm -f NVIDIA-Linux-armhf
 	rm -fr $(dirname_x86) $(dirname_x86_64)
+	rm -fr $(dirname_armhf)
 	rm -fr debian/temp
 	rm -fr kernel-source-tree
 	rm -f nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
