@@ -10,7 +10,7 @@ Vcs-Svn: svn://anonscm.debian.org/pkg-nvidia/packages/nvidia-graphics-drivers/tr
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
  debhelper (>= 9),
- bzip2,
+ xz-utils,
  dkms (>= 2.1.1.1),
  libxext6,
  libxvmc1,
@@ -245,6 +245,7 @@ Depends:
  debhelper (>= 8),
  make,
  quilt (>= 0.46-7~),
+ xz-utils,
  ${misc:Depends}
 Recommends:
  module-assistant | kernel-package,
@@ -252,6 +253,7 @@ Recommends:
 Suggests:
  ${nvidia}-driver (>= ${nvidia:Version}),
 Breaks:
+ module-assistant (<< 0.11.6~),
  make (= 3.82-1),
 Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  .
