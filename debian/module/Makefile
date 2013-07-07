@@ -8,6 +8,9 @@
 
 SHELL=/bin/sh
 
+# avoid ld.gold, see #626279
+LD=ld.bfd
+
 .SUFFIXES:
 
 ifndef LINUXDIR
