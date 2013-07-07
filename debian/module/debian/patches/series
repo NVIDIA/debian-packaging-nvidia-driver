@@ -1,3 +1,4 @@
+avoid-ld.gold.patch
 use-nv-kernel-ARCH.o_shipped.patch
 conditionally-include-linux_version.h.patch
 fix-typos.patch
