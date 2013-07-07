@@ -2,9 +2,9 @@
 
 #
 # By default, the build is done against the running linux kernel source.
-# To build against a different kernel source tree, set LINUXDIR:
+# To build against a different kernel source tree, set SYSSRC:
 #
-#    make LINUXDIR=/path/to/kernel/source
+#    make SYSSRC=/path/to/kernel/source
 
 SHELL=/bin/sh
 
@@ -13,12 +13,9 @@ LD=ld.bfd
 
 .SUFFIXES:
 
-ifndef LINUXDIR
+ifndef SYSSRC
 RUNNING_REL := $(shell uname -r)
-
-LINUXDIR := $(shell if [ -e /lib/modules/$(RUNNING_REL)/source ]; then \
-		 echo /lib/modules/$(RUNNING_REL)/source; \
-		 else echo /lib/modules/$(RUNNING_REL)/build; fi)
+SYSSRC := $(firstword $(wildcard /lib/modules/$(RUNNING_REL)/source /lib/modules/$(RUNNING_REL)/build))
 endif
 
 ifndef O
@@ -52,7 +49,7 @@ endif
 all: modules
 
 modules: includes
-	+make -C $(LINUXDIR) $(GETCONFIG) M=`/bin/pwd` modules
+	+$(MAKE) -C $(SYSSRC) M=$(PWD) modules
 
 clean cleandir:
 	rm -rf $(CLEANFILES)
@@ -61,7 +58,7 @@ $(MODULE_LIST)::
 	make modules
 
 install:
-	make -C $(LINUXDIR) $(GETCONFIG) M=`/bin/pwd` modules_install
+	$(MAKE) -C $(SYSSRC) M=$(PWD) modules_install
 
 else
 
