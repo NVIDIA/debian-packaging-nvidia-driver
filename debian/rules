@@ -194,9 +194,9 @@ build-kernel-source-tree: install-into-tmp
 	# name matching *.o to prevent accidental deletion by some clean
 	# target.
 	cp -a NVIDIA-Linux-i386/kernel/nv-kernel.o \
-	    $(module_source)/nv-kernel.o.i386
+	    $(module_source)/nv-kernel-i386.o_shipped
 	cp -a NVIDIA-Linux-amd64/kernel/nv-kernel.o \
-	    $(module_source)/nv-kernel.o.x86_64
+	    $(module_source)/nv-kernel-amd64.o_shipped
 	rm -f $(module_source)/nv-kernel.o
 
 	# Install a debian/ tree and new conftest files that work purely
