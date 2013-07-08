@@ -180,10 +180,13 @@ build-kernel-source-tree: install-into-tmp
 	# binary packages.
 	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
 
-	# We don't want these makefiles that don't work with kbuild.
-	rm $(module_source)/makefile
-	rm $(module_source)/Makefile.nvidia
-	mv $(module_source)/Makefile.kbuild $(module_source)/Kbuild
+	# We only want Kbuild.
+	rm -f $(module_source)/makefile
+	rm -f $(module_source)/Makefile.nvidia
+	test ! -f $(module_source)/Makefile.kbuild || \
+		mv $(module_source)/Makefile.kbuild $(module_source)/Kbuild
+	test ! -f $(module_source)/Makefile || \
+		mv $(module_source)/Makefile $(module_source)/Kbuild
 
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
