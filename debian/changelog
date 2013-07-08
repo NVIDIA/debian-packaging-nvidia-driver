@@ -2,6 +2,7 @@ nvidia-graphics-drivers (304.88-5) UNRELEASED; urgency=low
 
   * nvidia-kernel-source: Compress source tarball with xz. Update B-D, Depends
     accordingly and Break older module-assistant versions.
+  * conftest.h: Add ARM support.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 06 Jul 2013 20:33:50 +0200
 
