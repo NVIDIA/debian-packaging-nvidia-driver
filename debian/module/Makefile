@@ -8,14 +8,28 @@ ifneq ($(KERNELRELEASE),)
 $(error Running inside Kbuild should not use the Makefile)
 endif
 
-ifndef SYSSRC
-RUNNING_REL := $(shell uname -r)
-SYSSRC := /lib/modules/$(RUNNING_REL)/build
+ifdef SYSSRC
+ KERNEL_SOURCES	 = $(SYSSRC)
+else
+ KERNEL_UNAME	:= $(shell uname -r)
+ KERNEL_SOURCES	 = /lib/modules/$(KERNEL_UNAME)/build
 endif
+
+ifndef NV_VERBOSE
+ ifneq ($(strip $(QUIET)),1)
+ NV_VERBOSE=1
+ else
+ NV_VERBOSE=0
+ endif
+endif
+
+KBUILD_PARAMS += KBUILD_VERBOSE=$(NV_VERBOSE)
+KBUILD_PARAMS += -C $(KERNEL_SOURCES) M=$(PWD)
+
 
 default: modules
 .PHONY: default
 
 # hand over to kbuild
 %::
-	$(MAKE) -C $(SYSSRC) M=$(PWD) $@
+	$(MAKE) $(KBUILD_PARAMS) $@
