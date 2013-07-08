@@ -9,5 +9,5 @@ DEST_MODULE_LOCATION[0]="/updates/dkms"
 AUTOINSTALL=yes
 
 MAKE[0]="env CCACHE_DISABLE=1 \
-    make -C . SYSSRC=${kernel_source_dir} KVERREL=${kernelver}"
-CLEAN="make -C . SYSSRC=${kernel_source_dir} KVERREL=${kernelver} clean"
+    make -C . SYSSRC=${kernel_source_dir}"
+CLEAN="make -C . SYSSRC=${kernel_source_dir} clean"
