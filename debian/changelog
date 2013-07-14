@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.88-5) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.88-5) unstable; urgency=low
 
   * nvidia-kernel-source: Compress source tarball with xz. Update B-D, Depends
     accordingly and Break older module-assistant versions.
@@ -22,8 +22,9 @@ nvidia-graphics-drivers (304.88-5) UNRELEASED; urgency=low
     nvidia:kmod:Description for declaring kernel module relationships.
   * Change the generic nvidia-kernel-{dkms,source} name to insert a legacy
     part after 'nvidia' instead of after 'kernel'.
+  * Add support for renaming the kernel module to include a "legacy" part.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 06 Jul 2013 20:33:50 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 14 Jul 2013 23:09:04 +0200
 
 nvidia-graphics-drivers (304.88-4) unstable; urgency=low
 
