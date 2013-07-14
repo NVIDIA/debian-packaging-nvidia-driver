@@ -5,6 +5,18 @@ nvidia-graphics-drivers (304.88-5) UNRELEASED; urgency=low
   * conftest.h: Add ARM support.
   * Do not install nvidia-libopencl1.symbols in favor of redirecting to the
     virtual libopencl1 via nvidia-libopencl1.shlibs.
+  * debian/rules: Generic handling of architecture lists, unpacking, renaming,
+    and blob dependencies.
+  * Convert module build system to use a more Kbuild friendly way.
+    - Turn debian/module/Makefile into a minimal wrapper.
+    - Rename Nvidia's Makefile.kbuild to Kbuild.
+    - Use SYSSRC (Nvidia's variable name) as kernel header override.
+    - Disable silent build.
+  * avoid-ld.gold.patch: Updated.
+  * use-nv-kernel.o.ARCH.patch: Renamed to ...
+  * use-nv-kernel-ARCH.o_shipped.patch: ... and updated.
+  * not-silent.patch: New.
+  * linux3.patch: Removed, obsolete.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 06 Jul 2013 20:33:50 +0200
 
