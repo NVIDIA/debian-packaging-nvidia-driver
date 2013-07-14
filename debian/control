@@ -11,7 +11,7 @@ Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphic
 Build-Depends:
  debhelper (>= 9),
  xz-utils,
- dkms (>= 2.1.1.1),
+ dkms,
  libxext6,
  libxvmc1,
  quilt,
@@ -195,7 +195,7 @@ Multi-Arch: foreign
 Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
- dkms (>= 2.1),
+ dkms,
  nvidia-kernel-common (>= 20110213),
  ${misc:Depends}
 Recommends:
