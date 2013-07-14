@@ -32,8 +32,7 @@ Depends:
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  nvidia-vdpau-driver (= ${binary:Version}),
  nvidia-alternative${nvidia:Legacy} (= ${binary:Version}),
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia:kmod:binary},
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -88,8 +87,7 @@ Depends:
 Recommends:
  ${nvidia}-driver (>= ${nvidia:Version}),
  nvidia-vdpau-driver (>= ${nvidia:Version}),
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia:kmod:binary},
  ${nvidia-settings},
 Suggests:
  ${nvidia:kmod:source},
@@ -121,8 +119,7 @@ Depends:
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia:kmod:binary},
  libxvmcnvidia1,
 Suggests:
  ${nvidia:kmod:source},
@@ -277,8 +274,7 @@ Depends:
  libvdpau1,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia:kmod:binary},
 Suggests:
  ${nvidia:kmod:source},
 Enhances:
@@ -311,8 +307,7 @@ Depends:
  libnvidia-ml1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia:kmod:binary},
 Suggests:
  ${nvidia:kmod:source},
 Description: NVIDIA System Management Interface
@@ -350,8 +345,7 @@ Depends:
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia:kmod:binary},
  nvidia-smi,
 Suggests:
  nvidia-cuda-mps,

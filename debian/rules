@@ -265,6 +265,7 @@ override_dh_gencontrol:
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
 		-V'nvidia:Perfkit=$(perfkit)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
+		-V'nvidia:kmod:binary=nvidia-kernel$${nvidia:Legacy}-dkms (= $${binary:Version}) | nvidia-kernel-$${nvidia:Version}$${nvidia:Perfkit}' \
 		-V'nvidia:kmod:source=nvidia-kernel$${nvidia:Legacy}-dkms (>= $${nvidia:Version}) | nvidia-kernel$${nvidia:Legacy}-source (>= $${nvidia:Version})' \
 		-Vnvidia:kmod:Description="`cat debian/control.kmod`" \
 		-Vnvidia:Models="`cat debian/control.models`"
