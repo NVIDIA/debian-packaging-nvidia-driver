@@ -19,6 +19,8 @@ nvidia-graphics-drivers (304.88-5) UNRELEASED; urgency=low
   * linux3.patch: Removed, obsolete.
   * Add new substvars nvidia:kmod:source, nvidia:kmod:binary,
     nvidia:kmod:Description for declaring kernel module relationships.
+  * Change the generic nvidia-kernel-{dkms,source} name to insert a legacy
+    part after 'nvidia' instead of after 'kernel'.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 06 Jul 2013 20:33:50 +0200
 

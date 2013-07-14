@@ -37,7 +37,6 @@ nvidia_private		 = nvidia$(if $(legacy),/$(patsubst -%,%,$(legacy)),/current)
 
 CONTROL_PREFIXES	 = nvidia-driver nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
 RENAME_nvidia-glx		 = nvidia-glx$(legacy)
-RENAME_nvidia-kernel		 = nvidia-kernel$(legacy)
 RENAME_nvidia-alternative	 = nvidia-alternative$(legacy)
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
 CONTROL_PREFIXES_RENAMED = $(foreach p,$(CONTROL_PREFIXES),$(call renamed_prefix,$p))
@@ -58,9 +57,9 @@ AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOKEEP	 = debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
-module_source	 = debian/nvidia-kernel$(legacy)-source/usr/src/modules/nvidia-kernel$(legacy)
+module_source	 = debian/$(nvidia)-kernel-source/usr/src/modules/$(nvidia)-kernel
 module_txz	 = $(subst /modules/,/,$(module_source)).tar.xz
-dkms_source	 = debian/nvidia-kernel$(legacy)-dkms/usr/src/nvidia-$(version)
+dkms_source	 = debian/$(nvidia)-kernel-dkms/usr/src/nvidia-$(version)
 
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
@@ -265,8 +264,8 @@ override_dh_gencontrol:
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
 		-V'nvidia:Perfkit=$(perfkit)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
-		-V'nvidia:kmod:binary=nvidia-kernel$${nvidia:Legacy}-dkms (= $${binary:Version}) | nvidia-kernel-$${nvidia:Version}$${nvidia:Perfkit}' \
-		-V'nvidia:kmod:source=nvidia-kernel$${nvidia:Legacy}-dkms (>= $${nvidia:Version}) | nvidia-kernel$${nvidia:Legacy}-source (>= $${nvidia:Version})' \
+		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | nvidia-kernel-$${nvidia:Version}$${nvidia:Perfkit}' \
+		-V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
 		-Vnvidia:kmod:Description="`cat debian/control.kmod`" \
 		-Vnvidia:Models="`cat debian/control.models`"
 
