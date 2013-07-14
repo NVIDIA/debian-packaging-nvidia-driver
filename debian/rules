@@ -186,6 +186,7 @@ build-kernel-source-tree: install-into-tmp
 		mv $(module_source)/Makefile.kbuild $(module_source)/Kbuild
 	test ! -f $(module_source)/Makefile || \
 		mv $(module_source)/Makefile $(module_source)/Kbuild
+	mv $(module_source)/conftest.sh $(module_source)/conftest_nvidia.sh
 
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
@@ -204,6 +205,7 @@ build-kernel-source-tree: install-into-tmp
 	chmod -R a-sx,u=rwX,go=rX $(module_source)/../..
 	chmod a+x $(module_source)/debian/rules
 	chmod a+x $(module_source)/conftest.sh
+	chmod a+x $(module_source)/conftest_nvidia.sh
 
 	# Build the tarball.
 	tar cfJ $(module_txz) \
