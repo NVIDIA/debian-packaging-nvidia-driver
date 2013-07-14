@@ -1,3 +1,4 @@
+rename-module.patch
 not-silent.patch
 avoid-ld.gold.patch
 use-nv-kernel-ARCH.o_shipped.patch
