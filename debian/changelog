@@ -11,8 +11,8 @@ nvidia-graphics-drivers (304.88-5) unstable; urgency=low
     and blob dependencies.
   * Convert module build system to use a more Kbuild friendly way.
     - Turn debian/module/Makefile into a minimal wrapper.
-    - Rename Nvidia's Makefile.kbuild to Kbuild.
-    - Use SYSSRC (Nvidia's variable name) as kernel header override.
+    - Rename NVIDIA's Makefile.kbuild to Kbuild.
+    - Use SYSSRC (NVIDIA's variable name) as kernel header override.
     - Disable silent build.
   * avoid-ld.gold.patch: Updated.
   * use-nv-kernel.o.ARCH.patch: Renamed to ...
@@ -25,7 +25,7 @@ nvidia-graphics-drivers (304.88-5) unstable; urgency=low
     part after 'nvidia' instead of after 'kernel'.
   * Add support for renaming the kernel module to include a "legacy" part.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 14 Jul 2013 23:09:04 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 15 Jul 2013 09:29:44 +0200
 
 nvidia-graphics-drivers (304.88-4) unstable; urgency=low
 

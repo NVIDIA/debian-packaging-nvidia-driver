@@ -153,7 +153,7 @@ installed:
      cd <YOUR BUILD LOCATION>    (e.g. /usr/src)
      dpkg -i #NVIDIA#-kernel-KVER*.deb
 
-Notes for method #2:
+Notes for method #4:
 
 - It is advised not to clean the kernel source tree between
 "make-kpkg kernel_image" and "make-kpkg modules_image".
