@@ -1,9 +1,9 @@
 Author: Andreas Beckmann <debian@abeckmann.de>
-Description: Select the correct nv-kernel.o for the target architecture
- The Debian nvidia-kernel-source package supports building both i386 and
- amd64 kernels from one source by including both binary objects. This patch
- makes the build system select the correct one depending on the kernel
- architecture the module is built for.
+Description: Select the correct nv-kernel.o blob for the target architecture
+ The Debian nvidia-kernel-source package supports building for both i386 and
+ amd64 kernels (on i386) from one source by including both binary objects.
+ This patch makes the build system select the correct one depending on the
+ kernel architecture the module is built for.
 
 --- a/Kbuild
 +++ b/Kbuild
