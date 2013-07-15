@@ -4,6 +4,7 @@ nvidia-graphics-drivers (304.88-5) unstable; urgency=low
     accordingly and Break older module-assistant versions.
   * conftest.h: Add ARM support.
   * nvidia-detect: Add support for jessie and 304xx legacy driver series.
+  * debian/control: Drop dependency versioning if satisfied in oldstable.
   * Do not install nvidia-libopencl1.symbols in favor of redirecting to the
     virtual libopencl1 via nvidia-libopencl1.shlibs.
   * debian/rules: Generic handling of architecture lists, unpacking, renaming,

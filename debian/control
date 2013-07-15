@@ -24,7 +24,6 @@ Package: nvidia-driver
 Section: non-free/x11
 Architecture: i386 amd64
 Pre-Depends:
- dpkg (>= 1.15.7.2),
  nvidia-installer-cleanup,
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
@@ -232,7 +231,7 @@ Architecture: i386 amd64
 Depends:
  debhelper (>= 8),
  make,
- quilt (>= 0.46-7~),
+ quilt,
  xz-utils,
  ${misc:Depends}
 Recommends:
