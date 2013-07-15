@@ -47,9 +47,6 @@ Building and Uploading
     building the kernel modules, which you can do without having an NVIDIA
     card.
 
-    For uploads that have to go through the NEW queue because of added or
-    renamed binary packages, an upload of amd64 first is recommended.
-
  -- Russ Allbery <rra@debian.org>, Tue,  6 Apr 2010 23:36:07 -0700
 
 

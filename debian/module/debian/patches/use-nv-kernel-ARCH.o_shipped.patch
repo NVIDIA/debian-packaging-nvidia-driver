@@ -1,4 +1,4 @@
-Author: Andreas Beckmann <debian@abeckmann.de>
+Author: Andreas Beckmann <anbe@debian.org>
 Description: Select the correct nv-kernel.o blob for the target architecture
  The Debian nvidia-kernel-source package supports building for both i386 and
  amd64 kernels (on i386) from one source by including both binary objects.
