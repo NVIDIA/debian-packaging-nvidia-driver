@@ -158,7 +158,7 @@ Package: nvidia-alternative
 Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
- glx-alternative-nvidia (>= 0.2),
+ glx-alternative-nvidia (>= 0.3.90),
  ${misc:Depends}
 Conflicts:
  libgl1-nvidia-alternatives,

@@ -2,7 +2,7 @@
 set -e
 
 
-TRIPLETS="/ /i386-linux-gnu/ /x86_64-linux-gnu/"
+TRIPLETS="/ /i386-linux-gnu/ /x86_64-linux-gnu/ /arm-linux-gnueabihf/"
 
 add_slave()
 {
