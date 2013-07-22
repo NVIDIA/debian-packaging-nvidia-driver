@@ -1,5 +1,5 @@
 Author: Andreas Beckmann <anbe@debian.org>
-Description: disable silent commands in NVIDIA's Makefile.kbuild
+Description: make silent commands in NVIDIA's Makefile.kbuild verbose
 
 --- a/Kbuild
 +++ b/Kbuild
