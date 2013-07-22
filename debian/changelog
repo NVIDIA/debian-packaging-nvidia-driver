@@ -2,6 +2,7 @@ nvidia-graphics-drivers (304.88-6) unstable; urgency=low
 
   * kernel-3.10-{i2c,procfs}.patch: New patches to fix compilation with
     Linux 3.10.  (Closes: #717311, #717361, #714981)
+  * Documentation updates.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 22 Jul 2013 12:52:11 +0200
 
