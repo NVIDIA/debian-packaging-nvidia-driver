@@ -21,6 +21,7 @@ version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
 nvidia			 = nvidia$(legacy)
 module			 = $(nvidia)
+current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 perfkit			 =
@@ -34,8 +35,8 @@ ARCH_DEPS_i386		?= amd64
 
 # system libdir
 libdir			 = usr/lib$(if $(MULTIARCH),/$(DEB_HOST_MULTIARCH))
-# nvidia specific directory below $(libdir)
-nvidia_private		 = nvidia$(if $(legacy),/$(patsubst -%,%,$(legacy)),/current)
+# nvidia version specific directory below $(libdir)
+nvidia_private		 = nvidia/$(current)
 
 CONTROL_PREFIXES	 = nvidia-driver nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
 RENAME_nvidia-glx		 = nvidia-glx$(legacy)
