@@ -1,4 +1,4 @@
-libOpenCL.so.1 #PACKAGE# #MINVER#
+libOpenCL.so.1 libopencl1, libopencl-1.1-1
  clBuildProgram@Base 195
  clCreateBuffer@Base 195
  clCreateCommandQueue@Base 195

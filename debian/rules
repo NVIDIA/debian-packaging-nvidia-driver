@@ -253,9 +253,6 @@ override_dh_makeshlibs:
 	# Remove libGL.so from symbols files in order not to override our special shlibs files.
 	test ! -f debian/libgl1-nvidia$(legacy)-glx/DEBIAN/symbols || \
 		sed -i -e '/^libGL\.so/,/^lib/{/^libGL\.so\|^ /d}' debian/libgl1-nvidia$(legacy)-glx/DEBIAN/symbols
-	# Remove libOpenCL.so.1 symbols file in order not to override our special shlibs file.
-	test ! -f debian/nvidia-libopencl1/DEBIAN/symbols || \
-		rm -f debian/nvidia-libopencl1/DEBIAN/symbols
 
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir)/$(nvidia_private):$(LD_LIBRARY_PATH) dh_shlibdeps
