@@ -285,9 +285,6 @@ override_dh_gencontrol:
 # in a way other than unzipping of compressed files.
 override_dh_strip:
 
-override_dh_builddeb:
-	dh_builddeb -- -Zxz
-
 ############################################################################
 
 # Generating control files
