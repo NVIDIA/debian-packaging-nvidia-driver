@@ -14,6 +14,7 @@ nvidia-graphics-drivers (304.88-7) UNRELEASED; urgency=low
     generate a Depends: libopencl1, libopencl-1.1-1.
   * nvidia-libopencl1.shlibs: Removed in favor of doing the same in .symbols.
   * Don't explicitly request xz compression - dpkg 1.17 does this by default.
+  * Drop empty Description paragraphs that worked around dpkg bug #680871.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 23 Jul 2013 02:56:45 +0200
 

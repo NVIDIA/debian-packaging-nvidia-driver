@@ -46,7 +46,6 @@ Breaks:
 Replaces:
  nvidia-glx${nvidia:Legacy} (<< 304.88-4),
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
- .
  This metapackage depends on the NVIDIA binary driver and libraries
  that provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
@@ -94,7 +93,6 @@ Provides:
  xserver-xorg-video-nvidia-any,
  ${nvidia:xorgProvides},
 Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
- .
  These binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
@@ -135,7 +133,6 @@ Replaces:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
  nvidia-glx${nvidia:Legacy}-ia32,
 Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
- .
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  .
@@ -177,7 +174,6 @@ Breaks:
 Provides:
  ${nvidia-alternative}--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider
- .
  In setups with several NVIDIA driver versions installed (e.g. current and
  legacy) this metapackage registers an alternative to allow easy switching
  between the different versions.
@@ -210,7 +206,6 @@ Conflicts:
 Breaks:
  make (= 3.82-1),
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
- .
  This package builds the NVIDIA Xorg binary kernel module needed by
  ${nvidia}-driver, using DKMS.
  Provided that you have the kernel header packages installed, the kernel
@@ -247,7 +242,6 @@ Breaks:
  module-assistant (<< 0.11.6~),
  make (= 3.82-1),
 Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
- .
  This package provides the source for the NVIDIA Xorg binary kernel module
  needed by ${nvidia}-driver in a form suitable
  for use by module-assistant or kernel-package.
@@ -291,7 +285,6 @@ Breaks:
 Replaces:
  nvidia-vdpau-driver-ia32,
 Description: NVIDIA vdpau driver
- .
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
  graphics cards.
@@ -362,7 +355,6 @@ Provides:
  libcuda-5.0-1,
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library
- .
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
  general purpose computation.
