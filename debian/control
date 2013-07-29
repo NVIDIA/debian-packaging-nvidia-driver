@@ -477,6 +477,8 @@ Provides:
 Conflicts:
  libopencl1,
  nvidia-libopencl1-ia32,
+Breaks:
+ nvidia-opencl-dev (<= 5.0.35-6),
 Replaces:
  libopencl1,
  nvidia-libopencl1-ia32,
