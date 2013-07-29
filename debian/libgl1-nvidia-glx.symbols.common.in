@@ -1,4 +1,4 @@
-libGL.so.1 #PACKAGE# #MINVER#
+libGL.so.1 libgl1-mesa-glx | libgl1
  glAccum@Base 1.0.4349
  glActiveProgramEXT@Base 190
  glActiveShaderProgram@Base 260

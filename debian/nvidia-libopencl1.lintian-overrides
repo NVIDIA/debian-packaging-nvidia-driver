@@ -10,7 +10,3 @@ package-name-doesnt-match-sonames libOpenCL1
 
 # A single symbolic link does not justify the creation of a new package.
 non-dev-pkg-with-shlib-symlink
-
-# There is no symbols file in favor of a shlibs file redirecting the
-# dependency to the virtual libopencl1 package.
-no-symbols-control-file

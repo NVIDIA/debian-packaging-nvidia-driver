@@ -13,6 +13,9 @@ nvidia-graphics-drivers (304.88-7) UNRELEASED; urgency=low
   * nvidia-libopencl1.symbols: Change the dependency template to always
     generate a Depends: libopencl1, libopencl-1.1-1.
   * nvidia-libopencl1.shlibs: Removed in favor of doing the same in .symbols.
+  * libgl1-nvidia-glx.symbols: Change the dependency template to always
+    generate a Depends: libgl1-mesa-glx | libgl1 and stop manipulating the
+    .shlibs.
   * Don't explicitly request xz compression - dpkg 1.17 does this by default.
   * Drop empty Description paragraphs that worked around dpkg bug #680871.
 
