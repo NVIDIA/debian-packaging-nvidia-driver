@@ -10,8 +10,8 @@ Vcs-Svn: svn://anonscm.debian.org/pkg-nvidia/packages/nvidia-graphics-drivers/tr
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
  debhelper (>= 9),
- bzip2,
- dkms (>= 2.1.1.1),
+ xz-utils,
+ dkms,
  libxext6,
  quilt,
 Standards-Version: 3.9.4
@@ -23,23 +23,20 @@ Package: nvidia-driver
 Section: non-free/x11
 Architecture: i386 amd64
 Pre-Depends:
- dpkg (>= 1.15.7.2),
  nvidia-installer-cleanup,
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  nvidia-vdpau-driver (= ${binary:Version}),
- nvidia-alternative${nvidia:Legacy} (= ${binary:Version}),
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia:kmod:binary},
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia-settings},
  libgl1-${nvidia}-glx-i386 [amd64],
 Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+ ${nvidia:kmod:source},
 Provides:
  nvidia-glx-any,
 Breaks:
@@ -47,16 +44,12 @@ Breaks:
 Replaces:
  nvidia-glx${nvidia:Legacy} (<< 310.51),
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
- .
  This metapackage depends on the NVIDIA binary driver and libraries
  that provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
  .
- Please see the nvidia-kernel${nvidia:Legacy}-dkms or
- nvidia-kernel${nvidia:Legacy}-source packages
- for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
+ ${nvidia:kmod:Description}
  .
  ${nvidia:Models}
  .
@@ -83,32 +76,26 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
- nvidia-alternative${nvidia:Legacy} (= ${binary:Version}),
+ ${nvidia-alternative} (= ${binary:Version}),
  nvidia-support (>= 20120630),
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia}-driver (>= ${nvidia:Version}),
  nvidia-vdpau-driver (>= ${nvidia:Version}),
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia:kmod:binary},
  ${nvidia-settings},
 Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+ ${nvidia:kmod:source},
 Provides:
  xserver-xorg-video-nvidia-any,
  ${nvidia:xorgProvides},
 Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
- .
  These binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
  .
- Please see the nvidia-kernel${nvidia:Legacy}-dkms or
- nvidia-kernel${nvidia:Legacy}-source packages
- for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
+ ${nvidia:kmod:Description}
  .
  ${nvidia:Models}
  .
@@ -123,15 +110,13 @@ Pre-Depends:
  nvidia-installer-cleanup,
  ${misc:Pre-Depends}
 Depends:
- nvidia-alternative${nvidia:Legacy},
+ ${nvidia-alternative},
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia:kmod:binary},
 Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+ ${nvidia:kmod:source},
 Provides:
  libgl1-${nvidia}-glx-i386 [i386],
  libgl1-nvidia-glx-any,
@@ -145,7 +130,6 @@ Replaces:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
  nvidia-glx${nvidia:Legacy}-ia32,
 Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
- .
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  .
@@ -153,7 +137,7 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-#Package: nvidia-alternative${nvidia:Legacy}
+#Package: ${nvidia-alternative}
 Package: nvidia-alternative
 Architecture: i386 amd64
 Multi-Arch: foreign
@@ -167,8 +151,9 @@ Conflicts:
 Breaks:
  nvidia-settings (<< 304.88-2),
  nvidia-settings-legacy-173xx (<< 173.14.37),
+Provides:
+ ${nvidia-alternative}--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider
- .
  In setups with several NVIDIA driver versions installed (e.g. current and
  legacy) this metapackage registers an alternative to allow easy switching
  between the different versions.
@@ -179,7 +164,7 @@ Description: allows the selection of NVIDIA as GLX provider
  In order to install the NVIDIA driver and libraries, install the
  ${nvidia}-driver package instead.
 
-#Package: nvidia-kernel${nvidia:Legacy}-dkms
+#Package: ${nvidia}-kernel-dkms
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
 Architecture: i386 amd64
@@ -187,8 +172,9 @@ Multi-Arch: foreign
 Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
- dkms (>= 2.1),
+ dkms,
  nvidia-kernel-common (>= 20110213),
+ ${nvidia-alternative}--kmod-alias,
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver (>= ${nvidia:Version}),
@@ -200,7 +186,6 @@ Conflicts:
 Breaks:
  make (= 3.82-1),
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
- .
  This package builds the NVIDIA Xorg binary kernel module needed by
  ${nvidia}-driver, using DKMS.
  Provided that you have the kernel header packages installed, the kernel
@@ -214,27 +199,29 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  .
  ${nvidia:Models}
  .
- See /usr/share/doc/nvidia-kernel${nvidia:Legacy}-dkms/README.txt.gz
+ See /usr/share/doc/${nvidia}-kernel-dkms/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
-#Package: nvidia-kernel${nvidia:Legacy}-source
+#Package: ${nvidia}-kernel-source
 Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64
 Depends:
  debhelper (>= 8),
  make,
- quilt (>= 0.46-7~),
+ quilt,
+ xz-utils,
  ${misc:Depends}
 Recommends:
  module-assistant | kernel-package,
  nvidia-kernel-common,
+ ${nvidia-alternative}--kmod-alias,
 Suggests:
  ${nvidia}-driver (>= ${nvidia:Version}),
 Breaks:
+ module-assistant (<< 0.11.6~),
  make (= 3.82-1),
 Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
- .
  This package provides the source for the NVIDIA Xorg binary kernel module
  needed by ${nvidia}-driver in a form suitable
  for use by module-assistant or kernel-package.
@@ -244,13 +231,13 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  using NVIDIA chip sets.  AGP, PCIe, SLI, TV-out and flat panel displays
  are also supported.
  .
- PLEASE read /usr/share/doc/nvidia-kernel${nvidia:Legacy}-source/README.Debian.gz
+ PLEASE read /usr/share/doc/${nvidia}-kernel-source/README.Debian.gz
  for building information.  If you want the kernel module to be automatically
- installed via DKMS, install nvidia-kernel${nvidia:Legacy}-dkms instead.
+ installed via DKMS, install ${nvidia}-kernel-dkms instead.
  .
  ${nvidia:Models}
  .
- See /usr/share/doc/nvidia-kernel${nvidia:Legacy}-source/README.txt.gz
+ See /usr/share/doc/${nvidia}-kernel-source/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
 Package: nvidia-vdpau-driver
@@ -264,11 +251,9 @@ Depends:
  libvdpau1,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia:kmod:binary},
 Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+ ${nvidia:kmod:source},
 Enhances:
  libvdpau1,
 Provides:
@@ -280,7 +265,6 @@ Breaks:
 Replaces:
  nvidia-vdpau-driver-ia32,
 Description: NVIDIA vdpau driver
- .
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
  graphics cards.
@@ -290,10 +274,7 @@ Description: NVIDIA vdpau driver
  See /usr/share/doc/nvidia-vdpau-driver/README.txt.gz
  for more information.
  .
- Please see the nvidia-kernel${nvidia:Legacy}-dkms or
- nvidia-kernel${nvidia:Legacy}-source packages
- for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
+ ${nvidia:kmod:Description}
 
 Package: nvidia-smi
 Section: non-free/utils
@@ -302,11 +283,9 @@ Depends:
  libnvidia-ml1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia:kmod:binary},
 Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+ ${nvidia:kmod:source},
 Description: NVIDIA System Management Interface
  The NVIDIA System Management Interface "nvidia-smi" program provides
  system state and diagnostic information for the NVIDIA Tesla Visual
@@ -342,13 +321,11 @@ Depends:
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia:kmod:binary},
  nvidia-smi,
 Suggests:
  nvidia-cuda-mps,
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+ ${nvidia:kmod:source},
 Conflicts:
  libcuda1-ia32,
  nvidia-cuda-proxy,
@@ -358,7 +335,6 @@ Provides:
  libcuda-5.0-1,
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library
- .
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
  general purpose computation.
@@ -368,10 +344,7 @@ Description: NVIDIA CUDA runtime library
  Supported NVIDIA devices include GPUs starting from GeForce 8 and Quadro FX
  series, as well as the Tesla computing processors.
  .
- Please see the nvidia-kernel${nvidia:Legacy}-dkms or
- nvidia-kernel${nvidia:Legacy}-source packages
- for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
+ ${nvidia:kmod:Description}
 
 Package: libnvidia-compiler
 Architecture: i386 amd64
@@ -466,8 +439,8 @@ Description: NVIDIA OpenCL ICD
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
  .
- This metapackage provides the NVIDIA installable client driver (ICD) for
- OpenCL.
+ This package provides the NVIDIA installable client driver (ICD) for OpenCL
+ which supports NVIDIA GPUs.
 
 Package: nvidia-libopencl1
 Architecture: i386 amd64
@@ -480,19 +453,27 @@ Recommends:
  nvidia-opencl-icd | opencl-icd,
 Provides:
  libopencl1,
+ libopencl-1.1-1,
 Conflicts:
  libopencl1,
  nvidia-libopencl1-ia32,
+Breaks:
+ nvidia-opencl-dev (<= 5.0.35-6),
 Replaces:
  libopencl1,
  nvidia-libopencl1-ia32,
-Description: NVIDIA OpenCL library
+Description: NVIDIA OpenCL ICD Loader library
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
  .
- This package contains the installable client driver loader (ICD Loader)
- library provided by NVIDIA.
+ The OpenCL installable client driver loader (ICD Loader) acts as a dispatcher
+ between an OpenCL application and one (or more) installable client drivers
+ (ICD) that can be from any vendor. At least one ICD (and the corresponding
+ hardware) is required to run OpenCL applications.
+ .
+ This package contains the ICD Loader library provided by NVIDIA. This library
+ supports OpenCL 1.1 only.
 
 Package: nvidia-detect
 Section: non-free/x11

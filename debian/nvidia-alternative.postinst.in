@@ -50,6 +50,7 @@ if [ "$1" = "triggered" ]; then
 		$(add_slave /usr/lib/nvidia/libglx.so libglx.so /usr/lib/#PRIVATE#/libglx.so)
 		$(add_slave /usr/lib/nvidia/nvidia_drv.so nvidia_drv.so /usr/lib/#PRIVATE#/nvidia_drv.so)
 		$(add_slave /usr/lib/nvidia/nvidia-bug-report.sh nvidia-bug-report.sh /usr/lib/#PRIVATE#/nvidia-bug-report.sh)
+		$(add_slave /etc/modprobe.d/nvidia.conf nvidia-modprobe.conf /etc/nvidia/#NVIDIA#-modprobe.conf)
 		$(add_slave /usr/bin/nvidia-settings nvidia-settings /usr/lib/#PRIVATE#/nvidia-settings)
 		$(add_slave /usr/bin/nv-control-dpy nv-control-dpy /usr/lib/#PRIVATE#/nv-control-dpy)
 		$(add_slave /usr/share/applications/nvidia-settings.desktop nvidia-settings.desktop /usr/lib/#PRIVATE#/nvidia-settings.desktop)
@@ -70,7 +71,7 @@ fi
 if [ "$1" = "configure" ]; then
 
 	# activate our trigger
-	dpkg-trigger register-nvidia-alternative#LEGACY#
+	dpkg-trigger register-#NVIDIA_ALTERNATIVE#
 
 fi
 

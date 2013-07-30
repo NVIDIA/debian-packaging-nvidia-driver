@@ -96,6 +96,11 @@ then
 	VERSIONS[295]=295.59
 fi
 
+if grep -q -i $NVGA $IDLISTDIR/nvidia-304.ids
+then
+	VERSIONS[304]=304.88
+fi
+
 if grep -q -i $NVGA $IDLISTDIR/nvidia.ids
 then
        	# 999 means current
@@ -158,7 +163,7 @@ fi
 		fi;
 	elif grep -q "wheezy\|^7" /etc/debian_version;
 	then
-		if [[ -n ${VERSIONS[999]} ]]; then
+		if [[ -n ${VERSIONS[304]} ]]; then
 			if [[ -n ${VERSIONS[173]} ]]; then
 				if [[ -n ${VERSIONS[96]} ]]; then
 				       	echo "Your card is supported by all driver versions.";
@@ -178,6 +183,35 @@ fi
 		else
 			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite.";
 		fi;
+	elif grep -q "jessie\|^8" /etc/debian_version
+	then
+		if [[ -n ${VERSIONS[999]} ]]; then
+			if [[ -n ${VERSIONS[304]} ]]; then
+				if [[ -n ${VERSIONS[173]} ]]; then
+					if [[ -n ${VERSIONS[96]} ]]; then
+				       		echo "Your card is supported by all driver versions."
+					else
+						echo "Your card is supported by the default drivers and version 304 and version 173."
+					fi
+				else
+					echo "Your card is supported by the default drivers and version 304."
+				fi
+			else
+				echo "Your card is supported by the default drivers."
+			fi
+			PACKAGE="nvidia-driver"
+		elif [[ -n ${VERSIONS[304]} ]]; then
+			echo "Your card is only supported up to the 304 legacy drivers series."
+			PACKAGE="nvidia-legacy-304xx-driver"
+		elif [[ -n ${VERSIONS[173]} ]]; then
+			echo "Your card is only supported up to the 173.14 legacy drivers series."
+			PACKAGE="nvidia-legacy-173xx-driver"
+		elif [[ -n ${VERSIONS[96]} ]]; then
+			echo "Your card is only supported up to the 96.43 legacy drivers series."
+			PACKAGE="nvidia-legacy-96xx-driver"
+		else
+			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite."
+		fi
 	elif grep -q "^4" /etc/debian_version;
 	then
 		echo "Uh oh. You are running Etch, which is no longer supported.";

@@ -1,0 +1,109 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: make silent commands in NVIDIA's Makefile.kbuild verbose
+
+--- a/Kbuild
++++ b/Kbuild
+@@ -183,16 +183,16 @@
+ #
+ 
+ $(obj)/$(CORE_OBJS):
+-	@cp $(src)/$(CORE_OBJS) $(obj)/$(CORE_OBJS)
++	$(NVQ)cp $(src)/$(CORE_OBJS) $(obj)/$(CORE_OBJS)
+ 
+ $(obj)/$(VERSION_HEADER):
+-	@echo \#define NV_COMPILER \"`$(CC) -v 2>&1 | tail -n 1`\" > $@
++	$(NVQ)echo \#define NV_COMPILER \"`$(CC) -v 2>&1 | tail -n 1`\" > $@
+ 
+ $(obj)/conftest.h: $(src)/conftest.sh
+-	@if ! $(CONFTEST) compile_tests $(COMPILE_TESTS); then exit 1; fi
++	$(NVQ)$(CONFTEST) compile_tests $(COMPILE_TESTS)
+ 
+ $(obj)/patches.h:
+-	@if ! $(CONFTEST) patch_check; then exit 1; fi
++	$(NVQ)$(CONFTEST) patch_check
+ 
+ RESMAN_GLUE_TARGETS = $(addprefix $(obj)/,$(RESMAN_GLUE_OBJS))
+ 
+@@ -223,16 +223,16 @@
+ .PHONY: suser-sanity-check rmmod-sanity-check build-sanity-checks
+ 
+ suser-sanity-check:
+-	@if ! $(CONFTEST) suser_sanity_check; then exit 1; fi
++	$(NVQ)$(CONFTEST) suser_sanity_check
+ 
+ rmmod-sanity-check:
+-	@if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
++	$(NVQ)$(CONFTEST) rmmod_sanity_check
+ 
+ build-sanity-checks:
+-	@if ! $(CONFTEST) cc_version_check 		full_output; then exit 1; fi
+-	@if ! $(CONFTEST) rivafb_sanity_check 	full_output; then exit 1; fi
+-	@if ! $(CONFTEST) nvidiafb_sanity_check full_output; then exit 1; fi
+-	@if ! $(CONFTEST) xen_sanity_check 		full_output; then exit 1; fi
++	$(NVQ)$(CONFTEST) cc_version_check 		full_output
++	$(NVQ)$(CONFTEST) rivafb_sanity_check 	full_output
++	$(NVQ)$(CONFTEST) nvidiafb_sanity_check full_output
++	$(NVQ)$(CONFTEST) xen_sanity_check 		full_output
+ 
+ #
+ # Build the NVIDIA kernel module using Linux KBUILD. This target is used by
+@@ -240,10 +240,10 @@
+ #
+ 
+ module: build-sanity-checks
+-	@echo "NVIDIA: calling KBUILD..."; \
+-	 $(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules; \
+-	echo "NVIDIA: left KBUILD."; \
+-	if ! [ -f $(MODULE_OBJECT) ]; then \
++	@echo "NVIDIA: calling KBUILD..."
++	$(NVQ)$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules
++	@echo "NVIDIA: left KBUILD."
++	$(NVQ)if ! [ -f $(MODULE_OBJECT) ]; then \
+ 	 echo "$(MODULE_OBJECT) failed to build!"; \
+ 	 exit 1; \
+ 	fi
+@@ -254,7 +254,7 @@
+ #
+ 
+ module-install: suser-sanity-check module
+-	@mkdir -p $(MODULE_ROOT)/video; \
++	$(NVQ)mkdir -p $(MODULE_ROOT)/video; \
+ 	install -m 0664 -o root -g root $(MODULE_OBJECT) $(MODULE_ROOT)/video; \
+ 	PATH="$(PATH):/bin:/sbin" depmod -ae;
+ 
+@@ -264,7 +264,7 @@
+ #
+ 
+ package-install: module-install rmmod-sanity-check
+-	@PATH="$(PATH):/bin:/sbin" modprobe $(MODULE_NAME) && \
++	$(NVQ)PATH="$(PATH):/bin:/sbin" modprobe $(MODULE_NAME) && \
+ 	echo "$(MODULE_OBJECT) installed successfully.";
+ 
+ #
+@@ -276,19 +276,19 @@
+ #
+ 
+ $(KERNEL_GLUE_NAME): module
+-	@$(LD) $(EXTRA_LDFLAGS) -r -o $(KERNEL_GLUE_NAME) $(KERNEL_GLUE_OBJS)
++	$(NVQ)$(LD) $(EXTRA_LDFLAGS) -r -o $(KERNEL_GLUE_NAME) $(KERNEL_GLUE_OBJS)
+ 
+ #
+ # Support hack, KBUILD isn't prepared to clean up after external modules.
+ #
+ 
+ clean:
+-	@$(RM) -f $(RESMAN_GLUE_OBJS) $(KERNEL_GLUE_OBJS)
+-	@$(RM) -f build-in.o nv-linux.o *.d .*.{cmd,flags}
+-	@$(RM) -f $(MODULE_NAME).{o,ko,mod.{o,c}} $(VERSION_HEADER) *~
+-	@$(RM) -f patches.h
+-	@$(RM) -f conftest*.c conftest.h
+-	@$(RM) -rf Modules.symvers .tmp_versions
++	$(NVQ)$(RM) -f $(RESMAN_GLUE_OBJS) $(KERNEL_GLUE_OBJS)
++	$(NVQ)$(RM) -f build-in.o nv-linux.o *.d .*.{cmd,flags}
++	$(NVQ)$(RM) -f $(MODULE_NAME).{o,ko,mod.{o,c}} $(VERSION_HEADER) *~
++	$(NVQ)$(RM) -f patches.h
++	$(NVQ)$(RM) -f conftest*.c conftest.h
++	$(NVQ)$(RM) -rf Modules.symvers .tmp_versions
+ 
+ #
+ # This target just prints the kernel module filename (for use by the
