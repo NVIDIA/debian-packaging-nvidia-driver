@@ -10,10 +10,15 @@ To switch between the current and legacy NVIDIA drivers, use
 alternative.)
 
 To switch between the GLX implementation from MESA, NVIDIA and AMD(fglrx),
-use
+use the command
 
     update-alternatives --config glx
 
+followed by
+
+    update-initramfs -u
+
+to rebuild the initrd with a possibly changed kernel module blacklist.
 
 
 Detailed description of the diversions/alternatives for libGL.so.1 etc.

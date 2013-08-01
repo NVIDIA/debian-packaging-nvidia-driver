@@ -8,12 +8,11 @@ hardening-no-relro
 hardening-no-stackprotector
 
 # Packages built against the NVIDIA libGL should declare dependencies on
-# the free version for Debian's purposes.  Therefore we use a special
-# combination of shlibs files (for libGL.so.1) and symbols files (for all
-# other libraries).
-shlibs-declares-dependency-on-other-package libgl1-mesa-glx | libgl1
+# the free version for Debian's purposes.
+symbols-declares-dependency-on-other-package libgl1-mesa-glx
+symbols-declares-dependency-on-other-package libgl1
 
-# This package is a strange special case since it overrides standard
-# libraries and diverts them, so the package name won't ever be able to
+# This package is a strange special case since it provides an alternative
+# implementation of libGL.so.1, so the package name won't ever be able to
 # match the library names it provides.
 package-name-doesnt-match-sonames

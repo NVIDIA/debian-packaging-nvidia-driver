@@ -80,7 +80,7 @@ nvidia-graphics-drivers (313.18-1) experimental; urgency=low
 
 nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
 
-  * New upstream long lived branch beta/release 310.51 (2013-05-??).
+  * New upstream long lived branch release 310.51 (2013-05-07).
     - Fixed a bug where RRGetCrtcInfo could report incorrect size
       information when an RandR output has a custom ViewPortIn.
     - Fixed a regression that could cause an X server crash when performing
@@ -134,9 +134,10 @@ nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
       boundaries.
     - Fix performance issues when using some versions of HyperMesh with Quadro
       GPUs.
-  * Merge changes from 304.88-4.
+  * Merge changes from 304.88-7.
   * Restrict watch file to releases from the 310.xx long lived branch.
   * Update nv-readme.ids.
+  * Refresh patches.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 01:34:30 +0200
 
@@ -191,6 +192,68 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
+
+nvidia-graphics-drivers (304.88-7) UNRELEASED; urgency=low
+
+  * Add new substvars ${nvidia-alternative}, #NVIDIA_ALTERNATIVE#.
+  * Rename the kernel module to nvidia-current.ko.
+  * nvidia-alternative: Add /etc/nvidia/nvidia-modprobe.conf (with the nvidia
+    alias) and a slave alternative /etc/modprobe.d/nvidia.conf to the nvidia
+    alternative.  (Closes: #685648)
+  * nvidia-alternative: Provides: ${nvidia-alternative}--kmod-alias.
+  * nvidia-kernel-dkms, nvidia-kernel-#KVERS#: Depend on
+    ${nvidia-alternative}--kmod-alias.
+  * nvidia-libopencl1: Provide virtual package libopencl-1.1-1 and update
+    description.
+  * nvidia-libopencl1.symbols: Change the dependency template to always
+    generate a Depends: libopencl1, libopencl-1.1-1.
+  * nvidia-libopencl1.shlibs: Removed in favor of doing the same in .symbols.
+  * nvidia-libopencl1.links: Stop shipping libOpenCL.so, will be moved to
+    nvidia-opencl-dev.
+  * libgl1-nvidia-glx.symbols: Change the dependency template to always
+    generate a Depends: libgl1-mesa-glx | libgl1 and stop manipulating the
+    .shlibs.
+  * Don't explicitly request xz compression - dpkg 1.17 does this by default.
+  * Drop empty Description paragraphs that worked around dpkg bug #680871.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 23 Jul 2013 02:56:45 +0200
+
+nvidia-graphics-drivers (304.88-6) unstable; urgency=low
+
+  * kernel-3.10-{i2c,procfs}.patch: New patches to fix compilation with
+    Linux 3.10.  (Closes: #717311, #717361, #714981)
+  * Documentation updates.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 22 Jul 2013 12:52:11 +0200
+
+nvidia-graphics-drivers (304.88-5) unstable; urgency=low
+
+  * nvidia-kernel-source: Compress source tarball with xz. Update B-D, Depends
+    accordingly and Break older module-assistant versions.
+  * conftest.h: Add ARM support.
+  * nvidia-detect: Add support for jessie and 304xx legacy driver series.
+  * debian/control: Drop dependency versioning if satisfied in oldstable.
+  * Do not install nvidia-libopencl1.symbols in favor of redirecting to the
+    virtual libopencl1 via nvidia-libopencl1.shlibs.
+  * debian/rules: Generic handling of architecture lists, unpacking, renaming,
+    and blob dependencies.
+  * Convert module build system to use a more Kbuild friendly way.
+    - Turn debian/module/Makefile into a minimal wrapper.
+    - Rename NVIDIA's Makefile.kbuild to Kbuild.
+    - Use SYSSRC (NVIDIA's variable name) as kernel header override.
+    - Disable silent build.
+  * avoid-ld.gold.patch: Updated.
+  * use-nv-kernel.o.ARCH.patch: Renamed to ...
+  * use-nv-kernel-ARCH.o_shipped.patch: ... and updated.
+  * not-silent.patch: New.
+  * linux3.patch: Removed, obsolete.
+  * Add new substvars nvidia:kmod:source, nvidia:kmod:binary,
+    nvidia:kmod:Description for declaring kernel module relationships.
+  * Change the generic nvidia-kernel-{dkms,source} name to insert a legacy
+    part after 'nvidia' instead of after 'kernel'.
+  * Add support for renaming the kernel module to include a "legacy" part.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 15 Jul 2013 09:29:44 +0200
 
 nvidia-graphics-drivers (304.88-4) unstable; urgency=low
 

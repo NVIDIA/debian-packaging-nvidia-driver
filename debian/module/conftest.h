@@ -4,6 +4,15 @@
 #include <linux/version.h>
 #endif
 
+#if !defined(IS_ENABLED) && LINUX_VERSION_CODE < KERNEL_VERSION(3,1,0)
+#define __ARG_PLACEHOLDER_1 0,
+#define config_enabled(cfg) _config_enabled(cfg)
+#define _config_enabled(value) __config_enabled(__ARG_PLACEHOLDER_##value)
+#define __config_enabled(arg1_or_junk) ___config_enabled(arg1_or_junk 1, 0)
+#define ___config_enabled(__ignored, val, ...) val
+#define IS_ENABLED(option) (config_enabled(option) || config_enabled(option##_MODULE))
+#endif
+
 /* Implement conftest.sh function remap_page_range */
 #if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,11)
  #if LINUX_VERSION_CODE < KERNEL_VERSION(2,5,0)
@@ -18,29 +27,32 @@
 #endif
 
 /* Implement conftest.sh function set_memory_uc */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25) && IS_ENABLED(CONFIG_X86)
  #define NV_SET_MEMORY_UC_PRESENT
 #else
  #undef NV_SET_MEMORY_UC_PRESENT
 #endif
 
 /* Implement conftest.sh function set_memory_array_uc */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,28)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,28) && IS_ENABLED(CONFIG_X86)
  #define NV_SET_MEMORY_ARRAY_UC_PRESENT
 #else
  #undef NV_SET_MEMORY_ARRAY_UC_PRESENT
 #endif
 
 /* Implement conftest.sh function set_pages_uc */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25) && IS_ENABLED(CONFIG_X86)
  #define NV_SET_PAGES_UC_PRESENT
 #else
  #undef NV_SET_PAGES_UC_PRESENT
 #endif
 
 /* Implement conftest.sh function outer_flush_all */
-// ARM only
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,34) && IS_ENABLED(CONFIG_ARM)
+ #define NV_OUTER_FLUSH_ALL_PRESENT
+#else
  #undef NV_OUTER_FLUSH_ALL_PRESENT
+#endif
 
 /* Implement conftest.sh function change_page_attr */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,4,20) && \
@@ -240,7 +252,7 @@
 #endif
 
 /* Implement conftest.sh function ioremap_cache */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25) && IS_ENABLED(CONFIG_X86)
  #define NV_IOREMAP_CACHE_PRESENT
 #else
  #undef NV_IOREMAP_CACHE_PRESENT
