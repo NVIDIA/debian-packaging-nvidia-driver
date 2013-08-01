@@ -61,17 +61,17 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
 +	$(NVQ)if ! [ -f $(MODULE_OBJECT) ]; then \
  	 echo "$(MODULE_OBJECT) failed to build!"; \
  	 exit 1; \
- 	fi
-@@ -254,7 +254,7 @@
+ 	elif [ -f split-object-file.sh ]; then \
+@@ -256,7 +256,7 @@
  #
  
  module-install: suser-sanity-check module
 -	@mkdir -p $(MODULE_ROOT)/video; \
 +	$(NVQ)mkdir -p $(MODULE_ROOT)/video; \
  	install -m 0664 -o root -g root $(MODULE_OBJECT) $(MODULE_ROOT)/video; \
- 	PATH="$(PATH):/bin:/sbin" depmod -ae;
+ 	PATH="$(PATH):/bin:/sbin" depmod -a
  
-@@ -264,7 +264,7 @@
+@@ -266,7 +266,7 @@
  #
  
  package-install: module-install rmmod-sanity-check
@@ -80,7 +80,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	echo "$(MODULE_OBJECT) installed successfully.";
  
  #
-@@ -276,19 +276,19 @@
+@@ -278,19 +278,19 @@
  #
  
  $(KERNEL_GLUE_NAME): module
@@ -94,13 +94,13 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  clean:
 -	@$(RM) -f $(RESMAN_GLUE_OBJS) $(KERNEL_GLUE_OBJS)
 -	@$(RM) -f build-in.o nv-linux.o *.d .*.{cmd,flags}
--	@$(RM) -f $(MODULE_NAME).{o,ko,mod.{o,c}} $(VERSION_HEADER) *~
+-	@$(RM) -f $(MODULE_NAME).{o,ko{,.dbg},mod.{o,c}} $(VERSION_HEADER) *~
 -	@$(RM) -f patches.h
 -	@$(RM) -f conftest*.c conftest.h
 -	@$(RM) -rf Modules.symvers .tmp_versions
 +	$(NVQ)$(RM) -f $(RESMAN_GLUE_OBJS) $(KERNEL_GLUE_OBJS)
 +	$(NVQ)$(RM) -f build-in.o nv-linux.o *.d .*.{cmd,flags}
-+	$(NVQ)$(RM) -f $(MODULE_NAME).{o,ko,mod.{o,c}} $(VERSION_HEADER) *~
++	$(NVQ)$(RM) -f $(MODULE_NAME).{o,ko{,.dbg},mod.{o,c}} $(VERSION_HEADER) *~
 +	$(NVQ)$(RM) -f patches.h
 +	$(NVQ)$(RM) -f conftest*.c conftest.h
 +	$(NVQ)$(RM) -rf Modules.symvers .tmp_versions

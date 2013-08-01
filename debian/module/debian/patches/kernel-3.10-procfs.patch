@@ -1,11 +1,20 @@
-Author: Andreas Beckmann <anbe@debian.org>
+From 4ba57b4085f02cff91a029919fa1dc4418584e2e Mon Sep 17 00:00:00 2001
+From: Andreas Beckmann <anbe@debian.org>
+Date: Mon, 22 Jul 2013 12:48:15 +0200
+Subject: [PATCH] adjust for kernel 3.10 procfs interface changes
+
+based on the archlinux patch (author unknown)
+restored backward compatibility by wrapping all changes with
+KERNEL_VERSION(3,10,0) checks
+
 Bug-Debian: http://bugs.debian.org/717361
 Origin: other, https://projects.archlinux.org/svntogit/packages.git/plain/trunk/nvidia-linux-3.10.patch?h=packages/nvidia-304xx&id=787962153c92600e8a6d0756f026e6c9a87e48f8
-Description: adjust for kernel 3.10 procfs interface changes
- based on the archlinux patch (author unknown)
- restored backward compatibility by wrapping all changes with
- KERNEL_VERSION(3,10,0) checks
+---
+ nv-procfs.c |  313 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 313 insertions(+)
 
+diff --git a/nv-procfs.c b/nv-procfs.c
+index 0bb30a2..904c06c 100644
 --- a/nv-procfs.c
 +++ b/nv-procfs.c
 @@ -60,6 +60,7 @@ static char nv_registry_keys[NV_MAX_REGISTRY_KEYS_LENGTH];
@@ -147,7 +156,7 @@ Description: adjust for kernel 3.10 procfs interface changes
                             vbios_rev4, vbios_rev5);
          }
      }
-@@ -182,12 +243,23 @@ nv_procfs_read_gpu_info(
+@@ -180,12 +241,23 @@ nv_procfs_read_gpu_info(
          type = "PCI-E";
      else
          type = "PCI";
@@ -171,7 +180,7 @@ Description: adjust for kernel 3.10 procfs interface changes
                     nv->domain, nv->bus, nv->slot, PCI_FUNC(dev->devfn));
  #if defined(DEBUG)
      do
-@@ -195,7 +267,11 @@ nv_procfs_read_gpu_info(
+@@ -193,7 +265,11 @@ nv_procfs_read_gpu_info(
          int j;
          for (j = 0; j < NV_GPU_NUM_BARS; j++)
          {
@@ -183,7 +192,7 @@ Description: adjust for kernel 3.10 procfs interface changes
                             j, nv->bars[j].address, (nv->bars[j].size >> 20));
          }
      } while (0);
-@@ -203,10 +279,35 @@ nv_procfs_read_gpu_info(
+@@ -201,10 +277,35 @@ nv_procfs_read_gpu_info(
  
      NV_KMEM_CACHE_FREE_STACK(sp);
  
@@ -219,7 +228,7 @@ Description: adjust for kernel 3.10 procfs interface changes
  nv_procfs_read_version(
      char  *page,
      char **start,
-@@ -214,8 +315,14 @@ nv_procfs_read_version(
+@@ -212,8 +313,14 @@ nv_procfs_read_version(
      int    count,
      int   *eof,
      void  *data
@@ -234,7 +243,7 @@ Description: adjust for kernel 3.10 procfs interface changes
      int len = 0;
      *eof = 1;
  
-@@ -223,8 +330,34 @@ nv_procfs_read_version(
+@@ -221,8 +328,43 @@ nv_procfs_read_version(
      len += sprintf(page+len, "GCC version:  %s\n", NV_COMPILER);
  
      return len;
@@ -266,13 +275,6 @@ Description: adjust for kernel 3.10 procfs interface changes
 +};
 +#endif
 +
- static struct pci_dev *nv_get_agp_device_by_class(unsigned int class)
- {
-     struct pci_dev *dev, *fdev;
-@@ -422,6 +555,15 @@ nv_procfs_read_agp_status(
-     return len;
- }
- 
 +#if LINUX_VERSION_CODE < KERNEL_VERSION(3,10,0)
 +#else
 +static int
@@ -285,7 +287,7 @@ Description: adjust for kernel 3.10 procfs interface changes
  static int
  nv_procfs_open_registry(
      struct inode *inode,
-@@ -432,7 +574,11 @@ nv_procfs_open_registry(
+@@ -233,7 +375,11 @@ nv_procfs_open_registry(
      nv_stack_t *sp = NULL;
  
      if (0 == (file->f_mode & FMODE_WRITE))
@@ -297,7 +299,7 @@ Description: adjust for kernel 3.10 procfs interface changes
  
      nvfp = nv_alloc_file_private();
      if (nvfp == NULL)
-@@ -481,6 +627,12 @@ nv_procfs_close_registry(
+@@ -282,6 +428,12 @@ nv_procfs_close_registry(
      RM_STATUS rm_status;
      int rc = 0;
  
@@ -310,7 +312,7 @@ Description: adjust for kernel 3.10 procfs interface changes
      nvfp = NV_GET_FILE_PRIVATE(file);
      if (nvfp == NULL)
          return 0;
-@@ -545,12 +697,15 @@ done:
+@@ -346,12 +498,15 @@ done:
      return rc;
  }
  
@@ -326,7 +328,7 @@ Description: adjust for kernel 3.10 procfs interface changes
  nv_procfs_read_params(
      char  *page,
      char **start,
-@@ -558,26 +713,73 @@ nv_procfs_read_params(
+@@ -359,26 +514,73 @@ nv_procfs_read_params(
      int    count,
      int   *eof,
      void  *data
@@ -380,7 +382,7 @@ Description: adjust for kernel 3.10 procfs interface changes
 +nv_procfs_open_params(
 +    struct inode *inode,
 +    struct file *file
-+)    
++)
 +{
 +    return single_open(file, nv_procfs_show_params, NULL);
  }
@@ -400,7 +402,7 @@ Description: adjust for kernel 3.10 procfs interface changes
  nv_procfs_read_registry(
      char  *page,
      char **start,
-@@ -585,9 +787,18 @@ nv_procfs_read_registry(
+@@ -386,9 +588,18 @@ nv_procfs_read_registry(
      int    count,
      int   *eof,
      void  *data
@@ -419,7 +421,7 @@ Description: adjust for kernel 3.10 procfs interface changes
      nv_linux_state_t *nvl = NULL;
      char *registry_keys;
  
-@@ -596,16 +807,33 @@ nv_procfs_read_registry(
+@@ -397,16 +608,33 @@ nv_procfs_read_registry(
      registry_keys = ((nvl != NULL) ?
              nvl->registry_keys : nv_registry_keys);
  
@@ -453,7 +455,7 @@ Description: adjust for kernel 3.10 procfs interface changes
  )
  {
      int status = 0;
-@@ -637,17 +865,37 @@ nv_procfs_write_registry(
+@@ -438,17 +666,37 @@ nv_procfs_write_registry(
      }
      else
      {
@@ -491,7 +493,7 @@ Description: adjust for kernel 3.10 procfs interface changes
  nv_procfs_read_text_file(
      char  *page,
      char **start,
-@@ -655,12 +903,43 @@ nv_procfs_read_text_file(
+@@ -456,12 +704,43 @@ nv_procfs_read_text_file(
      int    count,
      int   *eof,
      void  *data
@@ -535,7 +537,7 @@ Description: adjust for kernel 3.10 procfs interface changes
  static void
  nv_procfs_add_text_file(
      struct proc_dir_entry *parent,
-@@ -668,10 +947,15 @@ nv_procfs_add_text_file(
+@@ -469,10 +748,15 @@ nv_procfs_add_text_file(
      const char *text
  )
  {
@@ -551,7 +553,7 @@ Description: adjust for kernel 3.10 procfs interface changes
  static void nv_procfs_unregister_all(struct proc_dir_entry *entry)
  {
      while (entry)
-@@ -686,6 +970,7 @@ static void nv_procfs_unregister_all(struct proc_dir_entry *entry)
+@@ -487,6 +771,7 @@ static void nv_procfs_unregister_all(struct proc_dir_entry *entry)
      }
  }
  #endif
@@ -559,7 +561,7 @@ Description: adjust for kernel 3.10 procfs interface changes
  
  void nv_procfs_add_warning(
      const char *filename,
-@@ -713,11 +998,16 @@ int nv_register_procfs(void)
+@@ -513,11 +798,16 @@ int nv_register_procfs(void)
      if (!proc_nvidia)
          goto failed;
  
@@ -576,7 +578,7 @@ Description: adjust for kernel 3.10 procfs interface changes
      /*
       * entry->proc_fops originally points to a constant
       * structure, so to add more methods for the
-@@ -733,6 +1023,9 @@ int nv_register_procfs(void)
+@@ -533,6 +823,9 @@ int nv_register_procfs(void)
          nv_procfs_read_registry,
          nv_procfs_write_registry,
          &nv_procfs_registry_fops, NULL);
@@ -586,7 +588,7 @@ Description: adjust for kernel 3.10 procfs interface changes
      if (!entry)
          goto failed;
  
-@@ -753,8 +1046,12 @@ int nv_register_procfs(void)
+@@ -553,8 +846,12 @@ int nv_register_procfs(void)
  
      nv_procfs_add_text_file(proc_nvidia_patches, "README", __README_patches);
  
@@ -599,7 +601,7 @@ Description: adjust for kernel 3.10 procfs interface changes
      if (!entry)
          goto failed;
  
-@@ -771,18 +1068,27 @@ int nv_register_procfs(void)
+@@ -571,15 +868,23 @@ int nv_register_procfs(void)
          if (!proc_nvidia_gpu)
              goto failed;
  
@@ -622,18 +624,8 @@ Description: adjust for kernel 3.10 procfs interface changes
 +#endif
          if (!entry)
              goto failed;
- 
-+#if LINUX_VERSION_CODE < KERNEL_VERSION(3,10,0)
-         if (nv_find_pci_capability(nvl->dev, PCI_CAP_ID_AGP))
-         {
-             proc_nvidia_agp = NV_CREATE_PROC_DIR("agp", proc_nvidia);
-@@ -804,12 +1110,17 @@ int nv_register_procfs(void)
-             if (!entry)
-                 goto failed;
-         }
-+#endif
      }
- #endif
+@@ -587,7 +892,11 @@ int nv_register_procfs(void)
      return 0;
  #if defined(CONFIG_PROC_FS)
  failed:
@@ -645,7 +637,7 @@ Description: adjust for kernel 3.10 procfs interface changes
      return -1;
  #endif
  }
-@@ -817,6 +1128,10 @@ failed:
+@@ -595,6 +904,10 @@ failed:
  void nv_unregister_procfs(void)
  {
  #if defined(CONFIG_PROC_FS)
@@ -656,3 +648,6 @@ Description: adjust for kernel 3.10 procfs interface changes
 +#endif
  #endif
  }
+-- 
+1.7.10.4
+

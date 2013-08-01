@@ -57,6 +57,7 @@ nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
   * Merge changes from 304.88-7.
   * Restrict watch file to releases from the 310.xx long lived branch.
   * Update nv-readme.ids.
+  * Refresh patches.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 01:34:30 +0200
 
