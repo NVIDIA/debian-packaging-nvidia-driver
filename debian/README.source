@@ -2,8 +2,7 @@ Importing a New Upstream Release
 
     The *.orig.tar.gz file for nvidia-graphics-drivers contains just a
     directory named nvidia-graphics-drivers-<version> containing the
-    upstream pkg0.run file for i386 and the pkg2.run file for amd64.
-    (Only the .pkg2.run file includes the ia32 libraries.)
+    upstream .run files for amd64, i386, and maybe armhf.
     Everything else comes from the Subversion repository for the package.
 
     Use the following steps to update to a new upstream release:
@@ -21,8 +20,7 @@ Importing a New Upstream Release
           debian/rules get-orig-source
 
       Alternatively do it manually:
-      - Download the pkg0.run file for i386 and the pkg2.run file for
-        amd64 from upstream.
+      - Download the .run files for i386 and amd64 from upstream.
       - mkdir nvidia-graphics-drivers-<version>.orig and place package files
         in that directory.  Make them executable.  Then, create the orig
         tarball with:
@@ -39,26 +37,15 @@ Importing a New Upstream Release
 
 Building and Uploading
 
-    At present, the package is not automatically built by the buildds.
-    Only i386 and amd64 are supported as Debian architectures.  A
-    maintainer uploading new packages needs to do the builds on both
-    architectures.
-
     The easiest way to do this is to pick the architecture on which one
     can easily build and test (either i386 or amd64) and ensure the
     package is working there.  Then, do a final package build for upload.
-    This will, among other things, create a source package.  Copy that
-    source package to a system of the other architecture, unpack it with
-    dpkg-source -x, and then do a binary-only build with debuild -B (or
-    the equivalent with pbuilder or sbuild).  Note that you don't need an
+    Note that you don't need an
     NVIDIA card on the system where you're doing the build, but of course
     ideally you want to test on all architectures before upload.  Most
     problems (at least of the kind that can be fixed in Debian) come from
     building the kernel modules, which you can do without having an NVIDIA
     card.
-
-    For uploads that have to go through the NEW queue because of added or
-    renamed binary packages, an upload of amd64 first is recommended.
 
  -- Russ Allbery <rra@debian.org>, Tue,  6 Apr 2010 23:36:07 -0700
 
