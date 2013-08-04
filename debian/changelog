@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (325.08-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (325.08-1) experimental; urgency=low
 
   * New upstream short lived branch release 325.08 (2013-07-01).
     - Fixed a bug that could cause display flickering after setting some
@@ -59,7 +59,7 @@ nvidia-graphics-drivers (325.08-1) UNRELEASED; urgency=low
   * Update lintian overrides.
   * nvidia-detect [armhf]: Don't ship PCI ID lists for legacy drivers.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 04 Jul 2013 15:20:32 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 04 Aug 2013 14:17:50 +0200
 
 nvidia-graphics-drivers (319.32-2) experimental; urgency=low
 
