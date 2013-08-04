@@ -1,4 +1,4 @@
-From 4ba57b4085f02cff91a029919fa1dc4418584e2e Mon Sep 17 00:00:00 2001
+From a9722f2add7f59a38cbfded7a6b0c391924979d9 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Mon, 22 Jul 2013 12:48:15 +0200
 Subject: [PATCH] adjust for kernel 3.10 procfs interface changes
@@ -14,7 +14,7 @@ Origin: other, https://projects.archlinux.org/svntogit/packages.git/plain/trunk/
  1 file changed, 313 insertions(+)
 
 diff --git a/nv-procfs.c b/nv-procfs.c
-index 0bb30a2..904c06c 100644
+index 5853ec8..97d3c09 100644
 --- a/nv-procfs.c
 +++ b/nv-procfs.c
 @@ -60,6 +60,7 @@ static char nv_registry_keys[NV_MAX_REGISTRY_KEYS_LENGTH];
@@ -157,7 +157,7 @@ index 0bb30a2..904c06c 100644
          }
      }
 @@ -180,12 +241,23 @@ nv_procfs_read_gpu_info(
-         type = "PCI-E";
+         type = "PCIe";
      else
          type = "PCI";
 +#if LINUX_VERSION_CODE < KERNEL_VERSION(3,10,0)
@@ -328,7 +328,7 @@ index 0bb30a2..904c06c 100644
  nv_procfs_read_params(
      char  *page,
      char **start,
-@@ -359,26 +514,73 @@ nv_procfs_read_params(
+@@ -359,25 +514,72 @@ nv_procfs_read_params(
      int    count,
      int   *eof,
      void  *data
@@ -368,7 +368,6 @@ index 0bb30a2..904c06c 100644
 +    seq_printf(m, "RmMsg: \"%s\"\n",
 +#endif
                  (NVreg_RmMsg != NULL) ? NVreg_RmMsg : "");
- 
 +#if LINUX_VERSION_CODE < KERNEL_VERSION(3,10,0)
      return len;
 +#else
@@ -402,7 +401,7 @@ index 0bb30a2..904c06c 100644
  nv_procfs_read_registry(
      char  *page,
      char **start,
-@@ -386,9 +588,18 @@ nv_procfs_read_registry(
+@@ -385,9 +587,18 @@ nv_procfs_read_registry(
      int    count,
      int   *eof,
      void  *data
@@ -421,7 +420,7 @@ index 0bb30a2..904c06c 100644
      nv_linux_state_t *nvl = NULL;
      char *registry_keys;
  
-@@ -397,16 +608,33 @@ nv_procfs_read_registry(
+@@ -396,16 +607,33 @@ nv_procfs_read_registry(
      registry_keys = ((nvl != NULL) ?
              nvl->registry_keys : nv_registry_keys);
  
@@ -455,7 +454,7 @@ index 0bb30a2..904c06c 100644
  )
  {
      int status = 0;
-@@ -438,17 +666,37 @@ nv_procfs_write_registry(
+@@ -437,17 +665,37 @@ nv_procfs_write_registry(
      }
      else
      {
@@ -493,7 +492,7 @@ index 0bb30a2..904c06c 100644
  nv_procfs_read_text_file(
      char  *page,
      char **start,
-@@ -456,12 +704,43 @@ nv_procfs_read_text_file(
+@@ -455,12 +703,43 @@ nv_procfs_read_text_file(
      int    count,
      int   *eof,
      void  *data
@@ -537,7 +536,7 @@ index 0bb30a2..904c06c 100644
  static void
  nv_procfs_add_text_file(
      struct proc_dir_entry *parent,
-@@ -469,10 +748,15 @@ nv_procfs_add_text_file(
+@@ -468,10 +747,15 @@ nv_procfs_add_text_file(
      const char *text
  )
  {
@@ -553,7 +552,7 @@ index 0bb30a2..904c06c 100644
  static void nv_procfs_unregister_all(struct proc_dir_entry *entry)
  {
      while (entry)
-@@ -487,6 +771,7 @@ static void nv_procfs_unregister_all(struct proc_dir_entry *entry)
+@@ -486,6 +770,7 @@ static void nv_procfs_unregister_all(struct proc_dir_entry *entry)
      }
  }
  #endif
@@ -561,7 +560,7 @@ index 0bb30a2..904c06c 100644
  
  void nv_procfs_add_warning(
      const char *filename,
-@@ -513,11 +798,16 @@ int nv_register_procfs(void)
+@@ -512,11 +797,16 @@ int nv_register_procfs(void)
      if (!proc_nvidia)
          goto failed;
  
@@ -578,7 +577,7 @@ index 0bb30a2..904c06c 100644
      /*
       * entry->proc_fops originally points to a constant
       * structure, so to add more methods for the
-@@ -533,6 +823,9 @@ int nv_register_procfs(void)
+@@ -532,6 +822,9 @@ int nv_register_procfs(void)
          nv_procfs_read_registry,
          nv_procfs_write_registry,
          &nv_procfs_registry_fops, NULL);
@@ -588,7 +587,7 @@ index 0bb30a2..904c06c 100644
      if (!entry)
          goto failed;
  
-@@ -553,8 +846,12 @@ int nv_register_procfs(void)
+@@ -552,8 +845,12 @@ int nv_register_procfs(void)
  
      nv_procfs_add_text_file(proc_nvidia_patches, "README", __README_patches);
  
@@ -601,7 +600,7 @@ index 0bb30a2..904c06c 100644
      if (!entry)
          goto failed;
  
-@@ -571,15 +868,23 @@ int nv_register_procfs(void)
+@@ -570,15 +867,23 @@ int nv_register_procfs(void)
          if (!proc_nvidia_gpu)
              goto failed;
  
@@ -625,7 +624,7 @@ index 0bb30a2..904c06c 100644
          if (!entry)
              goto failed;
      }
-@@ -587,7 +892,11 @@ int nv_register_procfs(void)
+@@ -586,7 +891,11 @@ int nv_register_procfs(void)
      return 0;
  #if defined(CONFIG_PROC_FS)
  failed:
@@ -637,7 +636,7 @@ index 0bb30a2..904c06c 100644
      return -1;
  #endif
  }
-@@ -595,6 +904,10 @@ failed:
+@@ -594,6 +903,10 @@ failed:
  void nv_unregister_procfs(void)
  {
  #if defined(CONFIG_PROC_FS)
