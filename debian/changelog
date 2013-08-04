@@ -20,7 +20,6 @@ nvidia-graphics-drivers (304.88-7) UNRELEASED; urgency=low
     .shlibs.
   * Don't explicitly request xz compression - dpkg 1.17 does this by default.
   * Drop empty Description paragraphs that worked around dpkg bug #680871.
-  * Add support architecture specific series files in patches-manual.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 23 Jul 2013 02:56:45 +0200
 
