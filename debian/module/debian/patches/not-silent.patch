@@ -1,0 +1,123 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: make silent commands in NVIDIA's Makefile.kbuild verbose
+
+--- a/Kbuild
++++ b/Kbuild
+@@ -195,10 +195,10 @@
+ #
+ 
+ $(obj)/$(CORE_OBJS):
+-	@cp $(src)/$(CORE_OBJS) $(obj)/$(CORE_OBJS)
++	$(NVQ)cp $(src)/$(CORE_OBJS) $(obj)/$(CORE_OBJS)
+ 
+ $(obj)/$(VERSION_HEADER):
+-	@echo \#define NV_COMPILER \"`$(CC) -v 2>&1 | tail -n 1`\" > $@
++	$(NVQ)echo \#define NV_COMPILER \"`$(CC) -v 2>&1 | tail -n 1`\" > $@
+ 
+ CONFTEST_COMPILE_TEST_HEADERS := $(obj)/conftest/macros.h \
+ $(obj)/conftest/functions.h $(obj)/conftest/symbols.h $(obj)/conftest/types.h \
+@@ -212,10 +212,10 @@
+ $(obj)/conftest/headers.h: build-sanity-checks
+ 
+ conftest-compile-test: $(src)/conftest.sh
+-	@if ! $(CONFTEST) compile_tests $(COMPILE_TESTS); then exit 1; fi
++	$(NVQ)$(CONFTEST) compile_tests $(COMPILE_TESTS)
+ 
+ $(obj)/conftest/patches.h:
+-	@if ! $(CONFTEST) patch_check; then exit 1; fi
++	$(NVQ)$(CONFTEST) patch_check
+ 
+ RESMAN_GLUE_TARGETS = $(addprefix $(obj)/,$(RESMAN_GLUE_OBJS))
+ 
+@@ -244,16 +244,16 @@
+ #
+ 
+ suser-sanity-check:
+-	@if ! $(CONFTEST) suser_sanity_check; then exit 1; fi
++	$(NVQ)$(CONFTEST) suser_sanity_check
+ 
+ rmmod-sanity-check:
+-	@if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
++	$(NVQ)$(CONFTEST) rmmod_sanity_check
+ 
+ build-sanity-checks:
+-	@if ! $(CONFTEST) cc_version_check 		full_output; then exit 1; fi
+-	@if ! $(CONFTEST) rivafb_sanity_check 	full_output; then exit 1; fi
+-	@if ! $(CONFTEST) nvidiafb_sanity_check full_output; then exit 1; fi
+-	@if ! $(CONFTEST) xen_sanity_check 		full_output; then exit 1; fi
++	$(NVQ)$(CONFTEST) cc_version_check 		full_output
++	$(NVQ)$(CONFTEST) rivafb_sanity_check 	full_output
++	$(NVQ)$(CONFTEST) nvidiafb_sanity_check full_output
++	$(NVQ)$(CONFTEST) xen_sanity_check 		full_output
+ 
+ #
+ # Build the NVIDIA kernel module using Linux KBUILD. This target is used by
+@@ -261,10 +261,10 @@
+ #
+ 
+ module: build-sanity-checks
+-	@echo "NVIDIA: calling KBUILD..."; \
+-	 $(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules; \
+-	echo "NVIDIA: left KBUILD."; \
+-	if ! [ -f $(MODULE_OBJECT) ]; then \
++	@echo "NVIDIA: calling KBUILD..."
++	$(NVQ)$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules
++	@echo "NVIDIA: left KBUILD."
++	$(NVQ)if ! [ -f $(MODULE_OBJECT) ]; then \
+ 	 echo "$(MODULE_OBJECT) failed to build!"; \
+ 	 exit 1; \
+ 	elif [ -f split-object-file.sh ]; then \
+@@ -276,7 +276,7 @@
+ #
+ 
+ module-sign: module
+-	@if [ -z "$(MODSECKEY)" ] || [ -z "$(MODPUBKEY)" ]; then \
++	$(NVQ)if [ -z "$(MODSECKEY)" ] || [ -z "$(MODPUBKEY)" ]; then \
+ 	 echo "ERROR: MODSECKEY and MODPUBKEY must be set to sign modules!"; \
+ 	 exit 1; \
+ 	elif ! [ -f "$(MODSECKEY)" ]; then \
+@@ -308,7 +308,7 @@
+ #
+ 
+ module-install: suser-sanity-check module
+-	@mkdir -p $(MODULE_ROOT)/video; \
++	$(NVQ)mkdir -p $(MODULE_ROOT)/video; \
+ 	install -m 0664 -o root -g root $(MODULE_OBJECT) $(MODULE_ROOT)/video; \
+ 	PATH="$(PATH):/bin:/sbin" depmod -a
+ 
+@@ -318,7 +318,7 @@
+ #
+ 
+ package-install: module-install rmmod-sanity-check
+-	@PATH="$(PATH):/bin:/sbin" modprobe $(MODULE_NAME) && \
++	$(NVQ)PATH="$(PATH):/bin:/sbin" modprobe $(MODULE_NAME) && \
+ 	echo "$(MODULE_OBJECT) installed successfully.";
+ 
+ #
+@@ -330,19 +330,19 @@
+ #
+ 
+ $(KERNEL_GLUE_NAME): module
+-	@$(LD) $(EXTRA_LDFLAGS) -r -o $(KERNEL_GLUE_NAME) $(KERNEL_GLUE_OBJS)
++	$(NVQ)$(LD) $(EXTRA_LDFLAGS) -r -o $(KERNEL_GLUE_NAME) $(KERNEL_GLUE_OBJS)
+ 
+ #
+ # Support hack, KBUILD isn't prepared to clean up after external modules.
+ #
+ 
+ clean:
+-	@$(RM) -f $(RESMAN_GLUE_OBJS) $(KERNEL_GLUE_OBJS)
+-	@$(RM) -f build-in.o nv-linux.o *.d .*.{cmd,flags}
+-	@$(RM) -f $(MODULE_NAME).{o,ko{,.dbg},mod.{o,c}} $(VERSION_HEADER) *~
+-	@$(RM) -f conftest*.c conftest.h
+-	@$(RM) -rf conftest
+-	@$(RM) -rf Modules.symvers .tmp_versions
++	$(NVQ)$(RM) -f $(RESMAN_GLUE_OBJS) $(KERNEL_GLUE_OBJS)
++	$(NVQ)$(RM) -f build-in.o nv-linux.o *.d .*.{cmd,flags}
++	$(NVQ)$(RM) -f $(MODULE_NAME).{o,ko{,.dbg},mod.{o,c}} $(VERSION_HEADER) *~
++	$(NVQ)$(RM) -f conftest*.c conftest.h
++	$(NVQ)$(RM) -rf conftest
++	$(NVQ)$(RM) -rf Modules.symvers .tmp_versions
+ 
+ #
+ # This target just prints the kernel module filename (for use by the

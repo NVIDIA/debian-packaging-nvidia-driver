@@ -1,5 +1,6 @@
-interest register-nvidia-alternative#LEGACY#
+interest register-#NVIDIA_ALTERNATIVE#
 
 interest /usr/lib/#PRIVATE#
 interest /usr/lib/i386-linux-gnu/#PRIVATE#
 interest /usr/lib/x86_64-linux-gnu/#PRIVATE#
+interest /usr/lib/arm-linux-gnueabihf/#PRIVATE#

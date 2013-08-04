@@ -16,29 +16,33 @@ XORG_BOUND		?=
 MULTIARCH		?=
 BACKPORT		?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
+NVIDIA_ALTERNATIVE	?= nvidia$(legacy)-alternative
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
 nvidia			 = nvidia$(legacy)
+module			 = nvidia-$(current)
+current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 perfkit			 =
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
-filename_x86		 = $(NVIDIA_FILENAME_X86)
-filename_x86_64		 = $(NVIDIA_FILENAME_X86_64)
+filename_i386		 = $(NVIDIA_FILENAME_X86)
+filename_amd64		 = $(NVIDIA_FILENAME_X86_64)
 filename_armhf		 = $(NVIDIA_FILENAME_armhf)
-dirname_x86		 = $(NVIDIA_DIRNAME_X86)
-dirname_x86_64		 = $(NVIDIA_DIRNAME_X86_64)
+dirname_i386		 = $(NVIDIA_DIRNAME_X86)
+dirname_amd64		 = $(NVIDIA_DIRNAME_X86_64)
 dirname_armhf		 = $(NVIDIA_DIRNAME_armhf)
+ARCH_LIST		?= i386 amd64
+ARCH_DEPS_i386		?= amd64
 
 # system libdir
 libdir			 = usr/lib$(if $(MULTIARCH),/$(DEB_HOST_MULTIARCH))
-# nvidia specific directory below $(libdir)
-nvidia_private		 = nvidia$(if $(legacy),/$(patsubst -%,%,$(legacy)),/current)
+# nvidia version specific directory below $(libdir)
+nvidia_private		 = nvidia/$(current)
 
-CONTROL_PREFIXES	 = nvidia-driver nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
+CONTROL_PREFIXES	 = nvidia-driver nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia nvidia-modprobe
 RENAME_nvidia-glx		 = nvidia-glx$(legacy)
-RENAME_nvidia-kernel		 = nvidia-kernel$(legacy)
-RENAME_nvidia-alternative	 = nvidia-alternative$(legacy)
+RENAME_nvidia-alternative	 = $(NVIDIA_ALTERNATIVE)
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
 CONTROL_PREFIXES_RENAMED = $(foreach p,$(CONTROL_PREFIXES),$(call renamed_prefix,$p))
 
@@ -51,16 +55,16 @@ ALL_CONTROL	:= $(wildcard $(patsubst %,debian/%*,$(CONTROL_PREFIXES)))
 LEGACY_CONTROL	:= $(wildcard $(patsubst %,debian/%*,$(CONTROL_PREFIXES_RENAMED)))
 RENAME_CONTROL	 = $(filter-out $(LEGACY_CONTROL),$(ALL_CONTROL))
 RENAMED_CONTROL	 = $(foreach f,$(RENAME_CONTROL),$(call applyprefixrenamelist,$f,$(CONTROL_PREFIXES)))
-TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in debian/detect/*.in)
+TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in debian/module/debian/patches/*.in debian/detect/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOKEEP	 = debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
-module_source	 = debian/nvidia-kernel$(legacy)-source/usr/src/modules/nvidia-kernel$(legacy)
-module_tbz	 = $(subst /modules/,/,$(module_source)).tar.bz2
-dkms_source	 = debian/nvidia-kernel$(legacy)-dkms/usr/src/nvidia-$(version)
+module_source	 = debian/$(nvidia)-kernel-source/usr/src/modules/$(nvidia)-kernel
+module_txz	 = $(subst /modules/,/,$(module_source)).tar.xz
+dkms_source	 = debian/$(nvidia)-kernel-dkms/usr/src/$(module)-$(version)
 
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
@@ -72,32 +76,22 @@ xorg_provides	 = xorg-driver-video
 autogen: $(AUTOGEN)
 prepare: autogen unpack-stamp nvidia.ids compare-copyright-license
 
+NVIDIA-Linux-%:
+	sh ${filename_$*} --extract-only
+	ln -s ${dirname_$*} $@
+	test -f $@/README.txt || \
+		mv $@/usr/share/doc/README.txt $@/README.txt 2>/dev/null || \
+		mv $@/usr/share/doc/README $@/README.txt
+	test -f $@/NVIDIA_Changelog || \
+		mv $@/usr/share/doc/NVIDIA_Changelog $@/
+	test -d $@/kernel || \
+		mv $@/usr/src/nv $@/kernel
+	-gunzip $@/*.1.gz
 
-unpack-stamp: ${filename_x86} ${filename_x86_64} ${filename_armhf}
+# Unpack all architectures, we may need files from all of them.
+unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
 	dh_testdir
-	# extract both so we can fetch the kernel object code for both arches
-	sh ${filename_x86} --extract-only
-	sh ${filename_x86_64} --extract-only
-	sh ${filename_armhf} --extract-only
-	ln -s ${dirname_x86} NVIDIA-Linux-i386
-	ln -s ${dirname_x86_64} NVIDIA-Linux-amd64
-	ln -s ${dirname_armhf} NVIDIA-Linux-armhf
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
-	test -f NVIDIA-Linux-i386/README.txt || \
-		mv NVIDIA-Linux-i386/usr/share/doc/README.txt NVIDIA-Linux-i386/README.txt 2>/dev/null || \
-		mv NVIDIA-Linux-i386/usr/share/doc/README NVIDIA-Linux-i386/README.txt
-	test -f NVIDIA-Linux-amd64/README.txt || \
-		mv NVIDIA-Linux-amd64/usr/share/doc/README.txt NVIDIA-Linux-amd64/README.txt 2>/dev/null || \
-		mv NVIDIA-Linux-amd64/usr/share/doc/README NVIDIA-Linux-amd64/README.txt
-	test -f NVIDIA-Linux-amd64/NVIDIA_Changelog || \
-		mv NVIDIA-Linux-amd64/usr/share/doc/NVIDIA_Changelog NVIDIA-Linux-amd64/
-	test -d NVIDIA-Linux-i386/kernel || \
-		mv NVIDIA-Linux-i386/usr/src/nv NVIDIA-Linux-i386/kernel
-	test -d NVIDIA-Linux-amd64/kernel || \
-		mv NVIDIA-Linux-amd64/usr/src/nv NVIDIA-Linux-amd64/kernel
-	gunzip NVIDIA-Linux-i386/*.1.gz
-	gunzip NVIDIA-Linux-amd64/*.1.gz
-	gunzip NVIDIA-Linux-armhf/*.1.gz
 	QUILT_PATCHES=debian/patches-manual quilt --quiltrc /dev/null push -a || test $$? = 2
 	ls -al
 	touch $@
@@ -147,8 +141,8 @@ binary binary-arch binary-indep build clean install:
 
 override_dh_auto_clean:
 	rm -fr .pc
-	rm -f NVIDIA-Linux-i386 NVIDIA-Linux-amd64 NVIDIA-Linux
-	rm -fr $(dirname_x86) $(dirname_x86_64)
+	rm -f NVIDIA-Linux
+	rm -fr $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(dirname_$a))
 	rm -fr debian/temp
 	rm -fr kernel-source-tree
 	rm -f nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
@@ -190,20 +184,19 @@ build-kernel-source-tree: install-into-tmp
 	# binary packages.
 	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
 
-	# We don't want these makefiles that don't work with kbuild.
-	rm $(module_source)/makefile
-	rm $(module_source)/Makefile.nvidia
+	# We only want Kbuild.
+	rm -f $(module_source)/makefile
+	rm -f $(module_source)/Makefile.nvidia
+	test ! -f $(module_source)/Makefile.kbuild || \
+		mv $(module_source)/Makefile.kbuild $(module_source)/Kbuild
+	test ! -f $(module_source)/Makefile || \
+		mv $(module_source)/Makefile $(module_source)/Kbuild
+	mv $(module_source)/conftest.sh $(module_source)/conftest_nvidia.sh
 
-	# We want both 32 and 64 bit versions of nv-kernel.o.  Do not use a
-	# name matching *.o to prevent accidental deletion by some clean
-	# target.
-	cp -a NVIDIA-Linux-i386/kernel/nv-kernel.o \
-	    $(module_source)/nv-kernel.o.i386
-	cp -a NVIDIA-Linux-amd64/kernel/nv-kernel.o \
-	    $(module_source)/nv-kernel.o.x86_64
-	cp -a NVIDIA-Linux-armhf/kernel/nv-kernel.o \
-	    $(module_source)/nv-kernel.o.armhf
+	# We may need nv-kernel.o for several architectures to accomodate
+	# all kernel flavors. Use Kbuild-compatible names.
 	rm -f $(module_source)/nv-kernel.o
+	$(foreach a,$(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)),cp -a NVIDIA-Linux-$a/kernel/nv-kernel.o $(module_source)/nv-kernel-$a.o_shipped ;)
 
 	# Install a debian/ tree and new conftest files that work purely
 	# with kbuild and don't require root into the module package.
@@ -217,12 +210,13 @@ build-kernel-source-tree: install-into-tmp
 	chmod -R a-sx,u=rwX,go=rX $(module_source)/../..
 	chmod a+x $(module_source)/debian/rules
 	chmod a+x $(module_source)/conftest.sh
+	chmod a+x $(module_source)/conftest_nvidia.sh
 
 	# Build the tarball.
-	tar cfj $(module_tbz) \
+	tar cfJ $(module_txz) \
 	    --owner=root --group=src -C $(module_source)/../.. \
 	    --exclude '*.in' --exclude '.svn' modules
-	tar tfvj $(module_tbz)
+	tar tfvJ $(module_txz)
 
 build-kernel-dkms-tree: build-kernel-source-tree
 	# Use the nvidia-kernel-source source to create the DKMS tree.
@@ -255,12 +249,6 @@ override_dh_bugfiles:
 
 override_dh_makeshlibs:
 	dh_makeshlibs -Xvdpau/libvdpau_nvidia.so -Xtls/libnvidia-tls.so
-	# Redirect shlibs for libGL.so.1 to libgl1-mesa-glx | libgl1.
-	test ! -f debian/libgl1-nvidia$(legacy)-glx/DEBIAN/shlibs || \
-		sed -i -e '/^libGL 1 /s/.*/libGL 1 libgl1-mesa-glx | libgl1/' debian/libgl1-nvidia$(legacy)-glx/DEBIAN/shlibs
-	# Remove libGL.so from symbols files in order not to override our special shlibs files.
-	test ! -f debian/libgl1-nvidia$(legacy)-glx/DEBIAN/symbols || \
-		sed -i -e '/^libGL\.so/,/^lib/{/^libGL\.so\|^ /d}' debian/libgl1-nvidia$(legacy)-glx/DEBIAN/symbols
 
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir)/$(nvidia_private):$(LD_LIBRARY_PATH) dh_shlibdeps
@@ -273,7 +261,11 @@ override_dh_gencontrol:
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
 		-V'nvidia:Perfkit=$(perfkit)' \
+		-V'nvidia-alternative=$(NVIDIA_ALTERNATIVE)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
+		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | nvidia-kernel-$${nvidia:Version}$${nvidia:Perfkit}' \
+		-V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
+		-Vnvidia:kmod:Description="`cat debian/control.kmod`" \
 		-Vnvidia:Models="`cat debian/control.models`"
 
 # Do not run dh_strip here.  The NVIDIA license says:
@@ -289,9 +281,6 @@ override_dh_gencontrol:
 # in a way other than unzipping of compressed files.
 override_dh_strip:
 
-override_dh_builddeb:
-	dh_builddeb -- -Zxz
-
 ############################################################################
 
 # Generating control files
@@ -301,13 +290,15 @@ override_dh_builddeb:
 	-e 's{#MAJOR#}{$(version_major)}g;' \
 	-e 's{#NVIDIA#}{$(nvidia)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
+	-e 's{#MODULE#}{$(module)}g;' \
+	-e 's{#NVIDIA_ALTERNATIVE#}{$(NVIDIA_ALTERNATIVE)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog
-	sed '1s/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@
+	sed '1s/^nvidia-graphics-drivers$(legacy)/$(nvidia)-kernel/g' $< > $@
 
 
 # Renaming control files for legacy packaging
@@ -357,7 +348,7 @@ get-orig-source:
 	ln -v ../.cache/*-$(version)-*.run get-orig-source/ 2>/dev/null || true
 	uscan --no-symlink --download-current-version $(PASV) \
 	    --watchfile debian/watch --destdir get-orig-source
-	test $$(ls get-orig-source/* | wc -l) = 3  # we need exactly 3 downloaded files
+	test $$(ls get-orig-source/* | wc -l) = $(words $(ARCH_LIST))  # we need one file per architecture
 	@set -e -x ; \
 	    cd get-orig-source ; \
 	    newversion=$$(ls *-x86-*.run | sed -e 's/.*-\([0-9.]*\)\(-.*\)\?\.run/\1/') ; \

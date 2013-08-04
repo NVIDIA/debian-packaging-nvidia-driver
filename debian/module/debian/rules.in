@@ -33,23 +33,6 @@ configure-stamp:
 	    echo 'No version in $(KSRC)/include/linux/version.h' >&2; \
 	    exit 1; \
 	fi
-ifneq (,$(wildcard makefile))
-	@echo "ERROR: unclean build directory from older version found"
-	@echo "   Please run: module-assistant clean nvidia-kernel#LEGACY#"
-	@exit 1
-endif
-ifneq (,$(MA_SOURCE_PKG))
-# module-assistant extracts the current source over any existing old build
-# directory which may cause all sorts of strange build failures after
-# updates, so create a stamp file (but don't remove it in the clean target)
-# and try to catch this problem
-	test -f debian/m-a.stamp || cp debian/changelog debian/m-a.stamp
-	@if ! cmp -s debian/changelog debian/m-a.stamp ; then \
-		echo "ERROR: build directory from older version found" ; \
-		echo "   Please run: module-assistant clean $(MA_SOURCE_PKG:-source=)" ; \
-		exit 1 ; \
-	fi
-endif
 	sh debian/prep-modules $(KSRC)
 	sed 's/#KVERS#/$(KVERS)/g' debian/install.template > debian/install
 	touch $@
@@ -60,7 +43,7 @@ build-indep:
 build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
-	$(MAKE) LINUXDIR=$(KSRC)
+	$(MAKE) SYSSRC=$(KSRC)
 	touch $@
 
 get_built_using	?= $(filter-out (=),$(shell dpkg-query -f='$${source:Package} (=$${source:Version})' -W $1))
@@ -83,7 +66,7 @@ binary-arch: build-stamp
 	dh_installdeb
 	dh_gencontrol -- -v`cat debian/VERSION` \
 		-V'built:using:kernel=$(call get_built_using,linux-headers-$(KVERS))' \
-		-V'built:using:nvidia=$(call get_built_using,nvidia-kernel#LEGACY#-source)'
+		-V'built:using:nvidia=$(call get_built_using,#NVIDIA#-kernel-source)'
 	dh_md5sums
 	dh_builddeb --destdir=$(KPKG_DEST_DIR)
 
@@ -91,7 +74,7 @@ clean:
 	test -f debian/control || cp debian/control.template debian/control
 	dh_testdir
 	dh_testroot
-	$(MAKE) LINUXDIR=$(KSRC) $(KPKG_EXTRAV_ARG) clean
+	$(MAKE) SYSSRC=$(KSRC) $(KPKG_EXTRAV_ARG) clean
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
 	dh_clean debian/control debian/install
 

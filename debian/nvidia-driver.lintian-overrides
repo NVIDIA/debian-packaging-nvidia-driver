@@ -1,4 +1,4 @@
 # The NVIDIA license does not allow any form of modification.
+[!amd64]: binary-file-built-without-LFS-support
 hardening-no-relro usr/bin/nvidia-persistenced
 hardening-no-fortify-functions
-[i386]: binary-file-built-without-LFS-support
