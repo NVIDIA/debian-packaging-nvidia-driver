@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (325.15-1) UNRELEASED; urgency=low
+
+  * New upstream short lived branch release 325.15 (2013-08-05).
+    <missing upstream changelog>
+  * Update nv-readme.ids.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 07 Aug 2013 11:14:43 +0200
+
 nvidia-graphics-drivers (325.08-1) experimental; urgency=low
 
   * New upstream short lived branch release 325.08 (2013-07-01).
