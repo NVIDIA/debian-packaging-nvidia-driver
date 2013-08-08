@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (325.15-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (325.15-1) experimental; urgency=low
 
   * New upstream short lived branch release 325.15 (2013-08-05).
   * New upstream release 319 series.
@@ -26,7 +26,7 @@ nvidia-graphics-drivers (325.15-1) UNRELEASED; urgency=low
     internal name as "nvidia".  (Closes: #718774)
   * nvidia{,-legacy-*}-kernel-dkms are now co-installable.  (Closes: #685617)
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 07 Aug 2013 11:14:43 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 08 Aug 2013 10:50:53 +0200
 
 nvidia-graphics-drivers (325.08-1) experimental; urgency=low
 
