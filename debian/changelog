@@ -1,7 +1,21 @@
 nvidia-graphics-drivers (325.15-1) UNRELEASED; urgency=low
 
   * New upstream short lived branch release 325.15 (2013-08-05).
-    <missing upstream changelog>
+  * New upstream release 319 series.
+    - Fixed a bug that caused applications using CUDA-GL interop to crash
+      when run on X servers with Xinerama enabled.
+    - Fixed a bug that could prevent some double-bit ECC errors from being
+      properly reported.
+    - Fixed a bug which could cause a blank screen when changing house sync
+      settings on Quadro Kepler GPUs with Quadro Sync boards.
+    - Fixed a bug that prevented nested loops with identical loop conditions
+      in GLSL shaders from terminating correctly. This could cause hangs in
+      applications such as Exa PowerVIZ.
+    - Added support for the following GPUs: GeForce GT 625, GRID K340,
+      GRID K350, NVS 315, Quadro K500M.
+    - Fixed a bug that resulted in corrupt texels when a previously empty
+      texture image was specified with glXBindTexImageEXT. In GNOME 3, this
+      caused gnome-screenshot to produce garbled window screenshots.
   * Update nv-readme.ids.
   * conftest.h: Implement new conftest.sh functions proc_create_data (325.15),
       pde_data (325.15), proc_remove (325.15), dom0_kernel_present (325.08),
@@ -82,8 +96,9 @@ nvidia-graphics-drivers (319.32-2) experimental; urgency=low
   * Update lintian overrides for armhf.
   * nvidia-alternative: Add support for arm-linux-gnueabihf, bump required
     glx-alternative-nvidia version.
-  * Merge changes from 304.88-7.
+  * Merge changes from 304.88-5 and 304.88-6.
     Fixes kernel module building for kernel 3.10.  (Closes: #717184)
+  * Merge changes from 304.88-7 (UNRELEASED).
   * Refresh patches.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 01 Aug 2013 12:48:50 +0200
@@ -114,7 +129,7 @@ nvidia-graphics-drivers (319.32-1) experimental; urgency=low
     - Fixed a regression that could cause a DisplayPort device that was
       connected to one connector to turn off when a DisplayPort device on a
       different connector was connected or disconnected.
-    - Added support for the following GPU: GeForce 720M.
+    - Added support for the following GPUs: GeForce 710A, GeForce 720M.
     - On Kepler-based GPUs, improved the appearance of the tearing that occurs
       when using RandR 1.4's Source Output capability.  While tearing is still
       expected, the tears should now appear as horizontal lines rather than more
