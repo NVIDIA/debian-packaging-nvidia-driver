@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 313.26, 310.40, 304.84, 295.75, 173.14.37, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 325.15, 319.32, 313.30, 310.51, 304.88, 295.75, 173.14.37, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -11,6 +11,21 @@
 #define __config_enabled(arg1_or_junk) ___config_enabled(arg1_or_junk 1, 0)
 #define ___config_enabled(__ignored, val, ...) val
 #define IS_ENABLED(option) (config_enabled(option) || config_enabled(option##_MODULE))
+#endif
+
+/* Implement conftest.sh function nvidiafb_sanity_check */
+#if IS_ENABLED(CONFIG_FB_NVIDIA)
+#warning "The nvidia module is incompatible with nvidiafb!"
+#endif
+
+/* Implement conftest.sh function xen_sanity_check */
+#if IS_ENABLED(CONFIG_XEN) && ! IS_ENABLED(CONFIG_PARAVIRT)
+#warning "Xen kernels are not supported!"
+#endif
+
+/* Implement conftest.sh function preempt_rt_sanity_check */
+#if IS_ENABLED(CONFIG_PREEMPT_RT) || IS_ENABLED(CONFIG_PREEMPT_RT_FULL)
+#warning "PREEMPT_RT kernels are not supported!"
 #endif
 
 /* Implement conftest.sh function remap_page_range */
@@ -338,11 +353,39 @@
  #undef NV_EFI_ENABLED_PRESENT
 #endif
 
+/* Implement conftest.sh function dom0_kernel_present */
+#if 0
+ #define NV_DOM0_KERNEL_PRESENT
+#else
+ #undef NV_DOM0_KERNEL_PRESENT
+#endif
+
 /* Implement conftest.sh function drm_available */
 #if 0
  #define NV_DRM_AVAILABLE
 #else
  #undef NV_DRM_AVAILABLE
+#endif
+
+/* Implement conftest.sh function proc_create_data */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,26)
+ #define NV_PROC_CREATE_DATA_PRESENT
+#else
+ #undef NV_PROC_CREATE_DATA_PRESENT
+#endif
+
+/* Implement conftest.sh function pde_data */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,10,0)
+ #define NV_PDE_DATA_PRESENT
+#else
+ #undef NV_PDE_DATA_PRESENT
+#endif
+
+/* Implement conftest.sh function proc_remove */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,10,0)
+ #define NV_PROC_REMOVE_PRESENT
+#else
+ #undef NV_PROC_REMOVE_PRESENT
 #endif
 
 /* Implement conftest.sh function sg_init_table */

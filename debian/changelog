@@ -3,6 +3,10 @@ nvidia-graphics-drivers (325.15-1) UNRELEASED; urgency=low
   * New upstream short lived branch release 325.15 (2013-08-05).
     <missing upstream changelog>
   * Update nv-readme.ids.
+  * conftest.h: Implement new conftest.sh functions proc_create_data (325.15),
+      pde_data (325.15), proc_remove (325.15), dom0_kernel_present (325.08),
+      nvidiafb_sanity_check (1.0-8174), xen_sanity_check (1.0-9746, 177.76),
+      preempt_rt_sanity_check (325.08).
   * kernel-3.10-{i2c,procfs}.patch: Remove. Fixed upstream.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 07 Aug 2013 11:14:43 +0200
