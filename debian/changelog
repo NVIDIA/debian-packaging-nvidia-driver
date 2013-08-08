@@ -8,6 +8,8 @@ nvidia-graphics-drivers (325.15-1) UNRELEASED; urgency=low
       nvidiafb_sanity_check (1.0-8174), xen_sanity_check (1.0-9746, 177.76),
       preempt_rt_sanity_check (325.08).
   * kernel-3.10-{i2c,procfs}.patch: Remove. Fixed upstream.
+  * Use a different approach to rename the kernel module that preserves its
+    internal name as "nvidia".  (Closes: #718774)
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 07 Aug 2013 11:14:43 +0200
 
