@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (325.15-2) UNRELEASED; urgency=low
+
+  * kernel-3.11.patch: New patch to fix compilation with Linux 3.11-rc.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Aug 2013 00:59:24 +0200
+
 nvidia-graphics-drivers (325.15-1) experimental; urgency=low
 
   * New upstream short lived branch release 325.15 (2013-08-05).
