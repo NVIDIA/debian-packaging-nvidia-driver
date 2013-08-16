@@ -5,3 +5,4 @@ conditionally-include-linux_version.h.patch
 fix-typos.patch
 kernel-3.10-procfs.patch
 kernel-3.10-i2c.patch
+kernel-3.11.patch

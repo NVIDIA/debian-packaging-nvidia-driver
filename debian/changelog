@@ -30,6 +30,7 @@ nvidia-graphics-drivers (304.88-7) UNRELEASED; urgency=low
     - Implement conftest.sh sanity checks (only emit warning)
       nvidiafb_sanity_check (1.0-8174), xen_sanity_check (1.0-9746, 177.76),
       preempt_rt_sanity_check (325.08).
+  * kernel-3.11.patch: New patch to fix compilation with Linux 3.11-rc.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 23 Jul 2013 02:56:45 +0200
 
