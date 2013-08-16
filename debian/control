@@ -199,10 +199,7 @@ Depends:
 Recommends:
  ${nvidia}-driver (>= ${nvidia:Version}),
 Provides:
- nvidia-kernel-dkms,
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
-Conflicts:
- nvidia-kernel-dkms,
 Breaks:
  make (= 3.82-1),
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}

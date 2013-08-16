@@ -3,6 +3,7 @@ nvidia-graphics-drivers (304.88-7) UNRELEASED; urgency=low
   * Add new substvars ${nvidia-alternative}, #NVIDIA_ALTERNATIVE#.
   * Rename the kernel module to nvidia-current.ko but retain its internal name
     as 'nvidia'.
+  * nvidia{,-legacy-*}-kernel-dkms are now co-installable.  (Closes: #685617)
   * nvidia-alternative: Add /etc/nvidia/nvidia-modprobe.conf (with the nvidia
     alias) and a slave alternative /etc/modprobe.d/nvidia.conf to the nvidia
     alternative.  (Closes: #685648)
