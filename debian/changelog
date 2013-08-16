@@ -20,6 +20,9 @@ nvidia-graphics-drivers (304.88-7) UNRELEASED; urgency=low
     .shlibs.
   * Don't explicitly request xz compression - dpkg 1.17 does this by default.
   * Drop empty Description paragraphs that worked around dpkg bug #680871.
+  * conftest.h:
+    - Implement check for drm/drmP.h (319.12).
+    - Implement new conftest.sh function drm_available (319.12).
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 23 Jul 2013 02:56:45 +0200
 

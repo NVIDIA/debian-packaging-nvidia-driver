@@ -338,6 +338,13 @@
  #undef NV_EFI_ENABLED_PRESENT
 #endif
 
+/* Implement conftest.sh function drm_available */
+#if 0
+ #define NV_DRM_AVAILABLE
+#else
+ #undef NV_DRM_AVAILABLE
+#endif
+
 /* Implement conftest.sh function sg_init_table */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,24)
  #define NV_SG_INIT_TABLE_PRESENT
@@ -357,6 +364,13 @@
  #define NV_LINUX_CRED_H_PRESENT
 #else
  #undef NV_LINUX_CRED_H_PRESENT
+#endif
+
+/* Check for drm/drmP.h */
+#if 1
+ #define NV_DRM_DRMP_H_PRESENT
+#else
+ #undef NV_DRM_DRMP_H_PRESENT
 #endif
 
 /* Check for generated/autoconf.h */
