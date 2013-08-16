@@ -71,37 +71,37 @@ fi
 
 IDLISTDIR=/usr/share/nvidia
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-71xx.ids
+if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-71xx.ids 2>/dev/null
 then
 	VERSIONS[71]=71.86
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-96xx.ids
+if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-96xx.ids 2>/dev/null
 then
 	VERSIONS[96]=96.43
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-173xx.ids
+if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-173xx.ids 2>/dev/null
 then
 	VERSIONS[173]=173.14
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-195.ids
+if grep -q -i $NVGA $IDLISTDIR/nvidia-195.ids 2>/dev/null
 then
 	VERSIONS[195]=195.36.24
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-295.ids
+if grep -q -i $NVGA $IDLISTDIR/nvidia-295.ids 2>/dev/null
 then
 	VERSIONS[295]=295.59
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-304.ids
+if grep -q -i $NVGA $IDLISTDIR/nvidia-304.ids 2>/dev/null
 then
 	VERSIONS[304]=304.88
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia.ids
+if grep -q -i $NVGA $IDLISTDIR/nvidia.ids 2>/dev/null
 then
        	# 999 means current
 	VERSIONS[999]=$LATEST
