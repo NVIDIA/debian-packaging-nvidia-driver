@@ -22,7 +22,12 @@ nvidia-graphics-drivers (304.88-7) UNRELEASED; urgency=low
   * Drop empty Description paragraphs that worked around dpkg bug #680871.
   * conftest.h:
     - Implement check for drm/drmP.h (319.12).
-    - Implement new conftest.sh function drm_available (319.12).
+    - Implement new conftest.sh functions drm_available (319.12),
+      dom0_kernel_present (325.08),
+      proc_create_data, pde_data, proc_remove (304.108, 325.15).
+    - Implement conftest.sh sanity checks (only emit warning)
+      nvidiafb_sanity_check (1.0-8174), xen_sanity_check (1.0-9746, 177.76),
+      preempt_rt_sanity_check (325.08).
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 23 Jul 2013 02:56:45 +0200
 
