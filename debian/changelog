@@ -13,7 +13,8 @@ nvidia-graphics-drivers (304.88-7) UNRELEASED; urgency=low
   * nvidia-libopencl1: Provide virtual package libopencl-1.1-1 and update
     description.
   * nvidia-libopencl1.symbols: Change the dependency template to always
-    generate a Depends: libopencl1, libopencl-1.1-1.
+    generate a Depends: ocl-icd-libopencl1 | libopencl1, libopencl-1.1-1.
+    (Closes: #717606)
   * nvidia-libopencl1.shlibs: Removed in favor of doing the same in .symbols.
   * nvidia-libopencl1.links: Stop shipping libOpenCL.so, will be moved to
     nvidia-opencl-dev.
