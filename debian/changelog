@@ -20,6 +20,8 @@ nvidia-graphics-drivers (304.88-7) UNRELEASED; urgency=low
   * libgl1-nvidia-glx.symbols: Change the dependency template to always
     generate a Depends: libgl1-mesa-glx | libgl1 and stop manipulating the
     .shlibs.
+  * libgl1-nvidia-glx:i386: Check for problematic stray /usr/lib32/libGL.so*
+    via Depends: nvidia-installer-cleanup (>= 20130816).  (Closes: #719915)
   * Don't explicitly request xz compression - dpkg 1.17 does this by default.
   * Drop empty Description paragraphs that worked around dpkg bug #680871.
   * conftest.h:

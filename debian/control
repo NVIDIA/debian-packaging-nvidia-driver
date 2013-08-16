@@ -113,6 +113,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia-alternative},
+ nvidia-installer-cleanup (>= 20130816) [i386],
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
