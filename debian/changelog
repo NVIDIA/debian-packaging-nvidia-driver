@@ -18,6 +18,9 @@ nvidia-graphics-drivers (304.88-7) UNRELEASED; urgency=low
   * nvidia-libopencl1.shlibs: Removed in favor of doing the same in .symbols.
   * nvidia-libopencl1.links: Stop shipping libOpenCL.so, will be moved to
     nvidia-opencl-dev.
+  * nvidia-opencl-icd: Depend on 
+      ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1
+    for more deterministic libopencl1 installation.  (Closes: #695883)
   * libgl1-nvidia-glx.symbols: Change the dependency template to always
     generate a Depends: libgl1-mesa-glx | libgl1 and stop manipulating the
     .shlibs.

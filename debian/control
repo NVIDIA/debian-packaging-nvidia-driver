@@ -441,7 +441,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  nvidia-opencl-common (= ${binary:Version}),
- libopencl1,
+ ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1,
  libnvidia-compiler (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Enhances:
