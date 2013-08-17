@@ -1,5 +1,5 @@
-kernel-3.10-procfs.patch
 kernel-3.10-i2c.patch
+kernel-3.10-procfs.patch
 kernel-3.11.patch
 not-silent.patch
 avoid-ld.gold.patch

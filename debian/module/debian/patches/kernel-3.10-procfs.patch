@@ -1,7 +1,14 @@
-Author: Andreas Beckmann <anbe@debian.org>
+From 042cc94bd148ede220ac563df2021f9f7882d72f Mon Sep 17 00:00:00 2001
+From: Andreas Beckmann <anbe@debian.org>
+Date: Sat, 17 Aug 2013 15:53:24 +0200
+Subject: [PATCH] adjust for kernel 3.10 procfs interface changes
+
+backported from 304.108
+
 Bug-Debian: http://bugs.debian.org/717361
-Description: adjust for kernel 3.10 procfs interface changes
- backported from 304.108
+---
+ nv-procfs.c |  379 ++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 190 insertions(+), 189 deletions(-)
 
 diff --git a/nv-procfs.c b/nv-procfs.c
 index 3e05ef5..7a9fb70 100644
@@ -750,3 +757,6 @@ index 3e05ef5..7a9fb70 100644
              if (!entry)
                  goto failed;
          }
+-- 
+1.7.10.4
+
