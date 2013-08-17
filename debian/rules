@@ -334,6 +334,11 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 		grep ^$$id pci.ids.nvidia || echo $$id ; \
 	done > $@
 
+# only invoked manually
+file-lists: $(patsubst %,debian/files_$(NVIDIA_RELEASE)_%,$(ARCH_LIST))
+debian/files_$(NVIDIA_RELEASE)_%: NVIDIA-Linux-%
+	(cd $< && find .) | sed 's/$(NVIDIA_RELEASE)/VERSION/g' | sort > $@
+
 ############################################################################
 
 PASV	?= --pasv

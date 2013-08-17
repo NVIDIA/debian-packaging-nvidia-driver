@@ -44,6 +44,7 @@ build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
 	$(MAKE) SYSSRC=$(KSRC)
+	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
 	touch $@
 
 get_built_using	?= $(filter-out (=),$(shell dpkg-query -f='$${source:Package} (=$${source:Version})' -W $1))

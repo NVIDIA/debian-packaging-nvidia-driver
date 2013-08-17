@@ -111,6 +111,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia-alternative},
+ nvidia-installer-cleanup (>= 20130816) [i386],
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -179,10 +180,7 @@ Depends:
 Recommends:
  ${nvidia}-driver (>= ${nvidia:Version}),
 Provides:
- nvidia-kernel-dkms,
  nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
-Conflicts:
- nvidia-kernel-dkms,
 Breaks:
  make (= 3.82-1),
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
@@ -423,7 +421,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  nvidia-opencl-common (= ${binary:Version}),
- libopencl1,
+ ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1,
  libnvidia-compiler (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Enhances:
