@@ -1,4 +1,4 @@
-Description: fix module build for kernel 3.11
+Description: fix module build for Linux 3.11
 Author: Milos_SD
 Origin: other, https://devtalk.nvidia.com/default/topic/549532/linux/linux-3-10-solved-3-11-solved-incompatibility-in-function-lsquo-nv_i2c_del_adapter-rsquo-error/2/
 

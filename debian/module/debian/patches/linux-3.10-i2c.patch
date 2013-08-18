@@ -1,7 +1,7 @@
-From cce3ab918b5d168bd96ee763cc04ba3518fc24fc Mon Sep 17 00:00:00 2001
+From d2b47404a12b763481660b942cef392ff803af1f Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sat, 17 Aug 2013 15:47:01 +0200
-Subject: [PATCH] adjust for kernel 3.10 i2c interface changes
+Subject: [PATCH] adjust for Linux 3.10 i2c interface changes
 
 backported from 304.108
 
