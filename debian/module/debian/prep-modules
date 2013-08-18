@@ -74,6 +74,10 @@ else
         | sed -e 's/.*source-\([^ ]*\) (\([^)]*\)).*/\2/'`
 fi
 
+# Sanitize.
+nvidia_kvers="$(echo "$nvidia_kvers" | tr _ -)"
+nvidia_kdrev="$(echo "$nvidia_kdrev" | tr _ -)"
+
 # Generate the control file from the template.
 
 sed "s/#KVERS#/${nvidia_kvers}/g" debian/control.template > debian/control

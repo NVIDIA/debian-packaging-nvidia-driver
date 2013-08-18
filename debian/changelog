@@ -4,6 +4,9 @@ nvidia-graphics-drivers (304.108-1) UNRELEASED; urgency=low
     * Add support for Linux 3.10.
   * Rename patches.
   * linux-3.10-{i2c,procfs}.patch: Remove, fixed upstream.
+  * debian/module/debian/prep-modules: Sanitize the kernel version. Replace
+    underscores (may occur in custom kernels) with dashes to be eligible for
+    package names and versions.  (Closes: #710891)
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 18 Aug 2013 20:03:11 +0200
 
