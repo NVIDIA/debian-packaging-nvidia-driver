@@ -1,5 +1,3 @@
-linux-3.10-i2c.patch
-linux-3.10-procfs.patch
 linux-3.11.patch
 not-silent.patch
 avoid-ld.gold.patch

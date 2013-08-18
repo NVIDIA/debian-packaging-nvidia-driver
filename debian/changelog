@@ -2,6 +2,8 @@ nvidia-graphics-drivers (304.108-1) UNRELEASED; urgency=low
 
   * New upstream legacy 304xx branch release 304.108 (2013-08-08).
     * Add support for Linux 3.10.
+  * Rename patches.
+  * linux-3.10-{i2c,procfs}.patch: Remove, fixed upstream.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 18 Aug 2013 20:03:11 +0200
 
