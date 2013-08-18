@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (304.108-1) UNRELEASED; urgency=low
+
+  * New upstream legacy 304xx branch release 304.108 (2013-08-08).
+    * Add support for Linux 3.10.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 18 Aug 2013 20:03:11 +0200
+
 nvidia-graphics-drivers (304.88-7) unstable; urgency=low
 
   * Add new substvars ${nvidia-alternative}, #NVIDIA_ALTERNATIVE#.
