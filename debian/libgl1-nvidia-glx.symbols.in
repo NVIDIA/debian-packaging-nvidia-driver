@@ -2170,3 +2170,24 @@ libnvidia-glcore.so.#VERSION# #PACKAGE# #MINVER#
  (regex)"^_nv\d*glcore@Base$" 0
 libnvidia-tls.so.#VERSION# #PACKAGE# #MINVER#
  (regex)"^_nv\d*tls@Base$" 0
+libnvidia-cfg.so.1 #PACKAGE# #MINVER#
+ nvCfgCloseAllGSyncDevices@Base 304.30
+ nvCfgCloseAllPciDevices@Base 180.35
+ nvCfgCloseDevice@Base 1.0.8174
+ nvCfgDebug@Base 180
+ nvCfgFlashGSyncDevice@Base 304.30
+ nvCfgGetDevices@Base 1.0.8174
+ nvCfgGetDisplayDevices@Base 1.0.8174
+ nvCfgGetEDID@Base 1.0.8174
+ nvCfgGetEDIDData@Base 1.0.8174
+ nvCfgGetGSyncDeviceFirmwareVersion@Base 304.30
+ nvCfgGetGSyncDeviceType@Base 304.30
+ nvCfgGetNumCRTCs@Base 1.0.8174
+ nvCfgGetPciDevices@Base 180.35
+ nvCfgGetProductName@Base 1.0.8174
+ nvCfgGetSupportedDisplayDevices@Base 180
+ nvCfgGetTeslaSerialNumbers@Base 185.18
+ nvCfgOpenAllGSyncDevices@Base 304.30
+ nvCfgOpenAllPciDevices@Base 180.35
+ nvCfgOpenDevice@Base 1.0.8174
+ nvCfgOpenPciDevice@Base 180.35
