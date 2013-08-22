@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.108-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.108-1) unstable; urgency=low
 
   * New upstream legacy 304xx branch release 304.108 (2013-08-08).
     * Add support for Linux 3.10.
@@ -8,7 +8,7 @@ nvidia-graphics-drivers (304.108-1) UNRELEASED; urgency=low
     underscores (may occur in custom kernels) with dashes to be eligible for
     package names and versions.  (Closes: #710891)
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 18 Aug 2013 20:03:11 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 22 Aug 2013 03:03:09 +0200
 
 nvidia-graphics-drivers (304.88-7) unstable; urgency=low
 
