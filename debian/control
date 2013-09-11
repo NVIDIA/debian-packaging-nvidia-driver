@@ -13,7 +13,6 @@ Build-Depends:
  xz-utils,
  dkms,
  libxext6,
- libxvmc1,
  quilt,
 Standards-Version: 3.9.4
 Homepage: http://www.nvidia.com
@@ -27,7 +26,6 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
- libxvmcnvidia1 (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  nvidia-vdpau-driver (= ${binary:Version}),
  ${nvidia-alternative} (= ${binary:Version}),
@@ -118,7 +116,6 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
- libxvmcnvidia1,
 Suggests:
  ${nvidia:kmod:source},
 Provides:
@@ -140,23 +137,6 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  See the description of the ${nvidia}-driver package
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
-
-Package: libxvmcnvidia1
-Architecture: i386 amd64
-Multi-Arch: same
-Pre-Depends:
- nvidia-installer-cleanup,
- ${misc:Pre-Depends}
-Depends:
- ${nvidia-alternative},
- libgl1-${nvidia}-glx (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA binary XvMC library${nvidia:LegacyDesc}
- These binary library provides the NVIDIA XvMC implementation which supports
- GeForce 6 series and GeForce 7 series graphics cards.
- .
- See /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
- for instructions how to enable XvMC acceleration.
 
 #Package: ${nvidia-alternative}
 Package: nvidia-alternative
