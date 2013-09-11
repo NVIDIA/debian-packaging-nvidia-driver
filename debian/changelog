@@ -4,6 +4,8 @@ nvidia-graphics-drivers (304.108-2) UNRELEASED; urgency=low
     src:nvidia-graphics-drivers-legacy-304xx.
   * libgl1-nvidia-glx (<< 310) and libgl1-nvidia-legacy-304xx-glx are not
     co-installable due to libnvidia-tls.so.304.108.  (Closes: #722288)
+  * Change the virtual package name providing the kernel module to follow the
+    renamed module.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Sep 2013 03:52:00 +0200
 
