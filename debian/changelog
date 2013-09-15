@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (304.108-3) UNRELEASED; urgency=low
+
+  * Rework patching after unpack: rename
+      debian/patches-manual => debian/patches, series => series-postunpack.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Sep 2013 12:15:30 +0200
+
 nvidia-graphics-drivers (304.108-2) unstable; urgency=low
 
   * Stop building libxvmcnvidia1 package, now built from
