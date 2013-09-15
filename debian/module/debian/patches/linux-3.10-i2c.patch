@@ -1,0 +1,49 @@
+From d2b47404a12b763481660b942cef392ff803af1f Mon Sep 17 00:00:00 2001
+From: Andreas Beckmann <anbe@debian.org>
+Date: Sat, 17 Aug 2013 15:47:01 +0200
+Subject: [PATCH] adjust for Linux 3.10 i2c interface changes
+
+backported from 304.108
+
+Bug-Debian: http://bugs.debian.org/717361
+---
+ nv-i2c.c |   15 ++++-----------
+ 1 file changed, 4 insertions(+), 11 deletions(-)
+
+diff --git a/nv-i2c.c b/nv-i2c.c
+index a702506..2aa0b77 100644
+--- a/nv-i2c.c
++++ b/nv-i2c.c
+@@ -311,8 +311,6 @@ void* NV_API_CALL nv_i2c_add_adapter(nv_state_t *nv, NvU32 port)
+ BOOL NV_API_CALL nv_i2c_del_adapter(nv_state_t *nv, void *data)
+ {
+     struct i2c_adapter *pI2cAdapter = (struct i2c_adapter *)data;
+-    int osstatus = 0;
+-    BOOL wasReleased = FALSE;
+ 
+ #if defined(KERNEL_2_4)
+     if (!NV_WEAK_SYMBOL_PRESENT(i2c_add_adapter))
+@@ -323,16 +321,11 @@ BOOL NV_API_CALL nv_i2c_del_adapter(nv_state_t *nv, void *data)
+ 
+     if (!pI2cAdapter) return FALSE;
+ 
+-    // attempt release with the OS
+-    osstatus = i2c_del_adapter(pI2cAdapter);
+-
+-    if (!osstatus)
+-    {
+-        os_free_mem(pI2cAdapter);
+-        wasReleased = TRUE;
+-    }
++    // release with the OS
++    i2c_del_adapter(pI2cAdapter);
++    os_free_mem(pI2cAdapter);
+ 
+-    return wasReleased;
++    return TRUE;
+ }
+ 
+ #else // (defined(CONFIG_I2C) || defined(CONFIG_I2C_MODULE))
+-- 
+1.7.10.4
+

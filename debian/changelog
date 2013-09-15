@@ -1,7 +1,7 @@
 nvidia-graphics-drivers (313.30-3) UNRELEASED; urgency=low
 
   * Restrict watch file to releases from the 313.xx short lived branch.
-  * Merge changes from 304.88-4 and 310.51 (UNRELEASED).
+  * Merge changes from 304.108-2 and 310.51 (UNRELEASED).
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 03:27:40 +0200
 
@@ -134,7 +134,7 @@ nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
       boundaries.
     - Fix performance issues when using some versions of HyperMesh with Quadro
       GPUs.
-  * Merge changes from 304.88-7.
+  * Merge changes from 304.108-2.
   * Restrict watch file to releases from the 310.xx long lived branch.
   * Update nv-readme.ids.
   * Refresh patches.
@@ -193,30 +193,73 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
-nvidia-graphics-drivers (304.88-7) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.108-2) unstable; urgency=low
+
+  * Stop building libxvmcnvidia1 package, now built from
+    src:nvidia-graphics-drivers-legacy-304xx.
+  * libgl1-nvidia-glx (<< 310) and libgl1-nvidia-legacy-304xx-glx are not
+    co-installable due to libnvidia-tls.so.304.108.  (Closes: #722288)
+  * Change the virtual package name providing the kernel module to follow the
+    renamed module.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Sep 2013 05:37:09 +0200
+
+nvidia-graphics-drivers (304.108-1) unstable; urgency=low
+
+  * New upstream legacy 304xx branch release 304.108 (2013-08-08).
+    * Add support for Linux 3.10.
+  * Rename patches.
+  * linux-3.10-{i2c,procfs}.patch: Remove, fixed upstream.
+  * debian/module/debian/prep-modules: Sanitize the kernel version. Replace
+    underscores (may occur in custom kernels) with dashes to be eligible for
+    package names and versions.  (Closes: #710891)
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 22 Aug 2013 03:03:09 +0200
+
+nvidia-graphics-drivers (304.88-7) unstable; urgency=low
 
   * Add new substvars ${nvidia-alternative}, #NVIDIA_ALTERNATIVE#.
-  * Rename the kernel module to nvidia-current.ko.
-  * nvidia-alternative: Add /etc/nvidia/nvidia-modprobe.conf (with the nvidia
-    alias) and a slave alternative /etc/modprobe.d/nvidia.conf to the nvidia
-    alternative.  (Closes: #685648)
-  * nvidia-alternative: Provides: ${nvidia-alternative}--kmod-alias.
+  * Rename the kernel module to nvidia-current.ko but retain its internal name
+    as 'nvidia'.
+  * nvidia{,-legacy-*}-kernel-dkms are now co-installable.  (Closes: #685617)
+  * nvidia-alternative:
+    - Add /etc/nvidia/nvidia-modprobe.conf (with the nvidia alias) and a slave
+      alternative /etc/modprobe.d/nvidia.conf to the nvidia alternative.
+      (Closes: #685648)
+    - Provides: ${nvidia-alternative}--kmod-alias.
   * nvidia-kernel-dkms, nvidia-kernel-#KVERS#: Depend on
     ${nvidia-alternative}--kmod-alias.
   * nvidia-libopencl1: Provide virtual package libopencl-1.1-1 and update
     description.
   * nvidia-libopencl1.symbols: Change the dependency template to always
-    generate a Depends: libopencl1, libopencl-1.1-1.
+    generate a Depends: ocl-icd-libopencl1 | libopencl1, libopencl-1.1-1.
+    (Closes: #717606)
   * nvidia-libopencl1.shlibs: Removed in favor of doing the same in .symbols.
   * nvidia-libopencl1.links: Stop shipping libOpenCL.so, will be moved to
     nvidia-opencl-dev.
+  * nvidia-opencl-icd: Depend on 
+      ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1
+    for more deterministic libopencl1 installation.  (Closes: #695883)
   * libgl1-nvidia-glx.symbols: Change the dependency template to always
     generate a Depends: libgl1-mesa-glx | libgl1 and stop manipulating the
     .shlibs.
+  * libgl1-nvidia-glx:i386: Check for problematic stray /usr/lib32/libGL.so*
+    via Depends: nvidia-installer-cleanup (>= 20130816).  (Closes: #719915)
   * Don't explicitly request xz compression - dpkg 1.17 does this by default.
   * Drop empty Description paragraphs that worked around dpkg bug #680871.
+  * conftest.h:
+    - Implement check for drm/drmP.h (319.12).
+    - Implement new conftest.sh functions drm_available (319.12),
+      dom0_kernel_present (325.08),
+      proc_create_data, pde_data, proc_remove (304.108, 325.15).
+    - Implement conftest.sh sanity checks (only emit warning)
+      nvidiafb_sanity_check (1.0-8174), xen_sanity_check (1.0-9746, 177.76),
+      preempt_rt_sanity_check (325.08).
+  * kernel-3.10-{i2c,procfs}.patch: Replace with patches backported from
+    304.108.
+  * kernel-3.11.patch: New patch to fix compilation with Linux 3.11-rc.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 23 Jul 2013 02:56:45 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 17 Aug 2013 14:41:44 +0200
 
 nvidia-graphics-drivers (304.88-6) unstable; urgency=low
 
