@@ -9,7 +9,7 @@ Homepage: http://www.nvidia.com/
 
 Package: #NVIDIA#-kernel-#KVERS#
 Architecture: i386 amd64
-Provides: nvidia-kernel-#VERSION#
+Provides: #NVIDIA#-kernel-#VERSION#
 Depends:
  nvidia-kernel-common (>= 20110213),
  #NVIDIA_ALTERNATIVE#--kmod-alias,

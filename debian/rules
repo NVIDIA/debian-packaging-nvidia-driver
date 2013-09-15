@@ -92,20 +92,9 @@ NVIDIA-Linux-%:
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
 	dh_testdir
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
-	QUILT_PATCHES=debian/patches-manual quilt --quiltrc /dev/null push -a || test $$? = 2
+	QUILT_PATCHES=debian/patches QUILT_SERIES=series-postunpack quilt --quiltrc /dev/null push -a || test $$? = 2
 	ls -al
 	touch $@
-
-nv-kernel.ids: unpack-stamp
-	sh debian/extract-pci-ids.sh NVIDIA-Linux/kernel/nv-kernel.o \
-		| tr a-f A-F | sort -u > $@
-	test -s $@ || cp debian/$@ $@
-	@set -e -x ; \
-	if ! cmp -s debian/$@ $@ ; then \
-		diff -u debian/$@ $@ || true ; \
-		: "*** Supported PCI IDs have changed. See diff above. Aborting. ***"; \
-		exit 1 ; \
-	fi
 
 nv-readme.ids: unpack-stamp
 	sed	-e '0,/A. Supported\|APPENDIX A: SUPPORTED/d' \
@@ -204,7 +193,7 @@ build-kernel-source-tree: install-into-tmp
 	cp -a debian/copyright $(module_source)/debian/
 	cp -a debian/bug-script $(module_source)/debian/
 	cp -a debian/bug-control $(module_source)/debian/
-	echo "Submit-As: nvidia-kernel$(legacy)-source" >> $(module_source)/debian/bug-control
+	echo "Submit-As: $(nvidia)-kernel-source" >> $(module_source)/debian/bug-control
 
 	# Fix permissions.
 	chmod -R a-sx,u=rwX,go=rX $(module_source)/../..
@@ -263,7 +252,7 @@ override_dh_gencontrol:
 		-V'nvidia:Perfkit=$(perfkit)' \
 		-V'nvidia-alternative=$(NVIDIA_ALTERNATIVE)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
-		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | nvidia-kernel-$${nvidia:Version}$${nvidia:Perfkit}' \
+		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}$${nvidia:Perfkit}' \
 		-V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
 		-Vnvidia:kmod:Description="`cat debian/control.kmod`" \
 		-Vnvidia:Models="`cat debian/control.models`"
@@ -335,6 +324,11 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 	while read id ; do \
 		grep ^$$id pci.ids.nvidia || echo $$id ; \
 	done > $@
+
+# only invoked manually
+file-lists: $(patsubst %,debian/files_$(NVIDIA_RELEASE)_%,$(ARCH_LIST))
+debian/files_$(NVIDIA_RELEASE)_%: NVIDIA-Linux-%
+	(cd $< && find .) | sed 's/$(NVIDIA_RELEASE)/VERSION/g' | sort > $@
 
 ############################################################################
 

@@ -1,0 +1,18 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: fix module build for Linux 3.11
+ based on NVIDIA's fix in 173.14.38
+
+--- a/nv-linux.h
++++ b/nv-linux.h
+@@ -1028,7 +1028,11 @@
+ #endif
+ 
+ #if !defined(NV_VMWARE)
++#if defined(NV_GET_NUM_PHYSPAGES_PRESENT)
++#define NV_NUM_PHYSPAGES                get_num_physpages()
++#else
+ #define NV_NUM_PHYSPAGES                num_physpages
++#endif
+ #define NV_GET_CURRENT_PROCESS()        current->tgid
+ #define NV_IN_ATOMIC()                  in_atomic()
+ #define NV_LOCAL_BH_DISABLE()           local_bh_disable()

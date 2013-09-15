@@ -7,3 +7,6 @@ hardening-no-stackprotector
 
 # There are multiple vendors providing this library.
 package-name-doesnt-match-sonames libOpenCL1
+
+# The free libOpenCL.so.1 library is preferred.
+symbols-declares-dependency-on-other-package ocl-icd-libopencl1
