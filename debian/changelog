@@ -28,6 +28,7 @@ nvidia-graphics-drivers (319.49-1) UNRELEASED; urgency=low
   * Update nv-readme.ids.
   * linux-3.10-{i2c,procfs}.patch: Remove. Fixed upstream.
   * libnvidia-ifr1: New package for NvIFROpenGL (libnvidia-ifr.so.1).
+  * VDPAU is now available on armhf, too.
   * nvidia-detect [armhf]: Don't ship PCI ID lists for legacy drivers.
   * Restrict watch file to releases from the 319.xx long lived branch.
   * Merge changes from 304.108-3 and 313.30-3 (UNRELEASED).
