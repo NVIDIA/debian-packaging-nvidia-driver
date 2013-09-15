@@ -174,9 +174,6 @@ fi
 				echo "Your card is supported by the default drivers.";
 			fi;
 			PACKAGE="nvidia-glx"
-		elif [[ -n ${VERSIONS[304]} ]]; then
-			echo "Your card is only supported up to the 304 legacy drivers series.";
-			PACKAGE="nvidia-glx-legacy-304xx"
 		elif [[ -n ${VERSIONS[173]} ]]; then
 			echo "Your card is only supported up to the 173.14 legacy drivers series.";
 			PACKAGE="nvidia-glx-legacy-173xx"
