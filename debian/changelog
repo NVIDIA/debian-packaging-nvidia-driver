@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (325.15-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (325.15-2) experimental; urgency=low
 
   * Merge changes from 304.108-3 and 313.49 (UNRELEASED).
     - linux-3.11.patch: New patch to fix compilation with Linux 3.11.
@@ -6,7 +6,7 @@ nvidia-graphics-drivers (325.15-2) UNRELEASED; urgency=low
   * Note: Some features from 313.49 are not yet in 325.15.
   * Do not build libnvidia-ifr1, yet.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Aug 2013 00:59:24 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Sep 2013 16:01:23 +0200
 
 nvidia-graphics-drivers (325.15-1) experimental; urgency=low
 
