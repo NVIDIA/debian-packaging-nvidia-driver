@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 325.15, 319.32, 313.30, 310.51, 304.88, 295.75, 173.14.37, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 325.15, 319.49, 313.30, 310.51, 304.108, 295.75, 173.14.38, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -386,6 +386,13 @@
  #define NV_PROC_REMOVE_PRESENT
 #else
  #undef NV_PROC_REMOVE_PRESENT
+#endif
+
+/* Implement conftest.sh function get_num_physpages */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,11,0)
+ #define NV_GET_NUM_PHYSPAGES_PRESENT
+#else
+ #undef NV_GET_NUM_PHYSPAGES_PRESENT
 #endif
 
 /* Implement conftest.sh function sg_init_table */

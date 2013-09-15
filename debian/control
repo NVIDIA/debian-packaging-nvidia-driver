@@ -111,6 +111,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia-alternative},
+ nvidia-installer-cleanup (>= 20130816) [i386],
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -142,14 +143,14 @@ Package: nvidia-alternative
 Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
- glx-alternative-nvidia (>= 0.3.90),
+ glx-alternative-nvidia (>= 0.4),
  ${misc:Depends}
 Conflicts:
  libgl1-nvidia-alternatives,
  libglx-nvidia-alternatives,
  libgl1-nvidia-alternatives-ia32,
 Breaks:
- nvidia-settings (<< 313.30),
+ nvidia-settings (<< 319.49),
  nvidia-settings-legacy-173xx (<< 173.14.37),
 Provides:
  ${nvidia-alternative}--kmod-alias,
@@ -179,7 +180,7 @@ Depends:
 Recommends:
  ${nvidia}-driver (>= ${nvidia:Version}),
 Provides:
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia}-kernel-${nvidia:Version}${nvidia:Perfkit},
 Breaks:
  make (= 3.82-1),
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
@@ -239,7 +240,7 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
 
 Package: nvidia-vdpau-driver
 Section: non-free/video
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
@@ -392,6 +393,21 @@ Description: NVIDIA nvidia-encode runtime library
  .
  This package contains the nvidia-encode runtime library.
 
+Package: libnvidia-ifr1
+Architecture: i386 amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA OpenGL-based Inband Frame Readback runtime library
+ The NVIDIA OpenGL-based Inband Frame Readback (NvIFROpenGL) library provides
+ a high performance, low latency interface to capture and optionally encode an
+ individual OpenGL framebuffer. NvIFROpenGL captures pixels rendered by OpenGL
+ only and is ideally suited to application capture and remoting.
+ .
+ This package contains the NvIFROpenGL runtime library.
+
 Package: libnvidia-ml1
 Architecture: i386 amd64 armhf
 Multi-Arch: same
@@ -432,7 +448,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  nvidia-opencl-common (= ${binary:Version}),
- libopencl1,
+ ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1,
  libnvidia-compiler (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Enhances:

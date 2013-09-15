@@ -56,7 +56,7 @@ binary-arch: build-stamp
 	dh_testroot
 	dh_installdirs
 	dh_install
-	dh_installdocs $(wildcard debian/changelog.nvidia-kernel*-source*)
+	dh_installdocs $(wildcard debian/changelog.nvidia*-kernel*-source*)
 	dh_installchangelogs NVIDIA_Changelog
 	dh_installmodules
 	dh_bugfiles
