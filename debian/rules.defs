@@ -1,6 +1,6 @@
 # If needed, set to the major part of the upstream version number.
 #NVIDIA_LEGACY		 =
-#WATCH_VERSION		 =
+WATCH_VERSION		 = 319
 NVIDIA_SETTINGS		 = nvidia-settings (>= $(version_major))
 
 XORG_ABI_LIST		 = 14 13 12 11 10 8 6.0

@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (319.32-3) UNRELEASED; urgency=low
 
   * nvidia-detect [armhf]: Don't ship PCI ID lists for legacy drivers.
+  * Restrict watch file to releases from the 319.xx long lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Aug 2013 11:31:47 +0200
 
