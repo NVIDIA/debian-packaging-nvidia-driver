@@ -4,6 +4,7 @@ nvidia-graphics-drivers (325.15-2) UNRELEASED; urgency=low
     - linux-3.11.patch: New patch to fix compilation with Linux 3.11.
       (Closes: #722894)
   * Note: Some features from 313.49 are not yet in 325.15.
+  * Do not build libnvidia-ifr1, yet.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Aug 2013 00:59:24 +0200
 
