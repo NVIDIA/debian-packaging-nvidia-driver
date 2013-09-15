@@ -2,9 +2,9 @@ nvidia-graphics-drivers (310.14-1) unstable; urgency=low
 
   LEGACY GPUs: If you have a GeForce 6xxx, GeForce Go 6xxx, GeForce 7xxx,
   GeForce Go 7xxx, Quadro NVS 110/120/210/285/440, Quadro FX 350/540/550/560,
-  Quadro FX 1400/Go1400/1500/2500/3400/3450/3500/4000/4400/4500/5500, i.e.,
-  any GPU based on the NV40/NV41/NV42/NV43/NV44/NV45, C51/C61/C67/C68/C73, or
-  G70/G71/G72/G73 chips or a variant thereof,
+  Quadro FX 1400/Go1400/1500/2500/3400/3450/3500/4000/4500/5500, nforce 4xx,
+  nforce 6xx, i.e., any GPU based on the NV40/NV41/NV42/NV43/NV44,
+  C51/C61/C67/C68/C73, or G70/G71/G72/G73 chips or a variant thereof,
   DO NOT INSTALL THIS RELEASE!!!
   Use the nvidia-legacy-304xx-driver, nvidia-legacy-304xx-kernel-dkms
   packages instead.
