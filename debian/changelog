@@ -4,6 +4,7 @@ nvidia-graphics-drivers (304.108-3) UNRELEASED; urgency=low
       debian/patches-manual => debian/patches, series => series-postunpack.
   * conftest.h:
     - Implement new conftest.sh function get_num_physpages (173.14.38).
+  * linux-3.11.patch: Redone, based on 173.14.38.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Sep 2013 12:15:30 +0200
 
