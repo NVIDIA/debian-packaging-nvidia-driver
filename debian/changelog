@@ -41,8 +41,9 @@ nvidia-graphics-drivers (319.32-2) experimental; urgency=low
   * Update lintian overrides for armhf.
   * nvidia-alternative: Add support for arm-linux-gnueabihf, bump required
     glx-alternative-nvidia version.
-  * Merge changes from 304.88-7.
+  * Merge changes from 304.88-5 and 304.88-6.
     Fixes kernel module building for kernel 3.10.  (Closes: #717184)
+  * Merge changes from 304.88-7 (UNRELEASED).
   * Refresh patches.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 01 Aug 2013 12:48:50 +0200
