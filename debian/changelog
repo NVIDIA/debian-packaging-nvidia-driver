@@ -1,9 +1,34 @@
-nvidia-graphics-drivers (319.32-3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (319.49-1) UNRELEASED; urgency=low
 
+  * New upstream long lived branch release 319.49 (2013-08-20).
+    - Fixed a bug that caused DisplayPort monitors connected to Quadro FX 3800,
+      4800, or 5800 to remain off after DPMS.
+    - Added the NVIDIA OpenGL-based Inband Frame Readback (NvIFROpenGL) library
+      to the Linux driver package. This library provides a high performance,
+      low latency interface to capture and optionally encode an individual
+      OpenGL framebuffer. NvIFROpenGL captures pixels rendered by OpenGL only
+      and is ideally suited to application capture and remoting.
+    - Fixed a bug that caused applications using CUDA-GL interop to crash
+      when run on X servers with Xinerama enabled.
+    - Fixed a bug that could prevent some double-bit ECC errors from being
+      properly reported.
+    - Fixed a bug which could cause a blank screen when changing house sync
+      settings on Quadro Kepler GPUs with Quadro Sync boards.
+    - Fixed a bug that prevented nested loops with identical loop conditions
+      in GLSL shaders from terminating correctly. This could cause hangs in
+      applications such as Exa PowerVIZ.
+    - Added support for the following GPUs: GeForce GT 740A, GeForce GT 745A,
+      GeForce GT 755M, GeForce GT 625, GeForce GTX 645, GRID K340, GRID K350,
+      NVS 315, Quadro K500M, Quadro K6000.
+    - Fixed a bug that resulted in corrupt texels when a previously empty
+      texture image was specified with glXBindTexImageEXT. In GNOME 3, this
+      caused gnome-screenshot to produce garbled window screenshots.
+    - Fixed a bug that caused the X server to crash when querying the current
+      mode of disabled displays.
   * nvidia-detect [armhf]: Don't ship PCI ID lists for legacy drivers.
   * Restrict watch file to releases from the 319.xx long lived branch.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Aug 2013 11:31:47 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Sep 2013 10:30:58 +0200
 
 nvidia-graphics-drivers (319.32-2) experimental; urgency=low
 
@@ -43,7 +68,7 @@ nvidia-graphics-drivers (319.32-1) experimental; urgency=low
     - Fixed a regression that could cause a DisplayPort device that was
       connected to one connector to turn off when a DisplayPort device on a
       different connector was connected or disconnected.
-    - Added support for the following GPU: GeForce 720M.
+    - Added support for the following GPUs: GeForce 710A, GeForce 720M.
     - On Kepler-based GPUs, improved the appearance of the tearing that occurs
       when using RandR 1.4's Source Output capability.  While tearing is still
       expected, the tears should now appear as horizontal lines rather than more
