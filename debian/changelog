@@ -26,6 +26,7 @@ nvidia-graphics-drivers (319.49-1) UNRELEASED; urgency=low
     - Fixed a bug that caused the X server to crash when querying the current
       mode of disabled displays.
   * Update nv-readme.ids.
+  * linux-3.10-{i2c,procfs}.patch: Remove. Fixed upstream.
   * nvidia-detect [armhf]: Don't ship PCI ID lists for legacy drivers.
   * Restrict watch file to releases from the 319.xx long lived branch.
 
