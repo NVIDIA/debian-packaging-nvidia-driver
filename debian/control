@@ -393,6 +393,21 @@ Description: NVIDIA nvidia-encode runtime library
  .
  This package contains the nvidia-encode runtime library.
 
+Package: libnvidia-ifr1
+Architecture: i386 amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA OpenGL-based Inband Frame Readback runtime library
+ The NVIDIA OpenGL-based Inband Frame Readback (NvIFROpenGL) library provides
+ a high performance, low latency interface to capture and optionally encode an
+ individual OpenGL framebuffer. NvIFROpenGL captures pixels rendered by OpenGL
+ only and is ideally suited to application capture and remoting.
+ .
+ This package contains the NvIFROpenGL runtime library.
+
 Package: libnvidia-ml1
 Architecture: i386 amd64 armhf
 Multi-Arch: same
