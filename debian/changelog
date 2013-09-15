@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
 
-  * New upstream long lived branch release 310.51 (2013-05-07).
+  * New upstream long lived branch release 310.51 (2013-05-08).
     - Fixed a bug where RRGetCrtcInfo could report incorrect size
       information when an RandR output has a custom ViewPortIn.
     - Fixed a regression that could cause an X server crash when performing
@@ -54,7 +54,7 @@ nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
       boundaries.
     - Fix performance issues when using some versions of HyperMesh with Quadro
       GPUs.
-  * Merge changes from 304.108-2.
+  * Merge changes from 304.108-3.
   * Restrict watch file to releases from the 310.xx long lived branch.
   * Update nv-readme.ids.
   * Refresh patches.
@@ -112,6 +112,16 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
+
+nvidia-graphics-drivers (304.108-3) unstable; urgency=low
+
+  * Rework patching after unpack: rename
+      debian/patches-manual => debian/patches, series => series-postunpack.
+  * conftest.h:
+    - Implement new conftest.sh function get_num_physpages (173.14.38).
+  * linux-3.11.patch: Redone, based on 173.14.38.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Sep 2013 13:06:17 +0200
 
 nvidia-graphics-drivers (304.108-2) unstable; urgency=low
 
