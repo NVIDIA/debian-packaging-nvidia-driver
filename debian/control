@@ -122,11 +122,11 @@ Provides:
  libgl1-${nvidia}-glx-i386 [i386],
  libgl1-nvidia-glx-any,
 Conflicts:
+ libgl1-nvidia-legacy-304xx-glx (>= ${nvidia:Version}),
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
  nvidia-glx${nvidia:Legacy}-ia32,
  libgl1-nvidia-glx-ia32-any,
 Breaks:
- libgl1-nvidia-legacy-304xx-glx (>= ${nvidia:Version}),
  ia32-libs (<< 1:0),
 Replaces:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
