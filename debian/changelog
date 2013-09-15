@@ -25,6 +25,7 @@ nvidia-graphics-drivers (319.49-1) UNRELEASED; urgency=low
       caused gnome-screenshot to produce garbled window screenshots.
     - Fixed a bug that caused the X server to crash when querying the current
       mode of disabled displays.
+  * Update nv-readme.ids.
   * nvidia-detect [armhf]: Don't ship PCI ID lists for legacy drivers.
   * Restrict watch file to releases from the 319.xx long lived branch.
 
