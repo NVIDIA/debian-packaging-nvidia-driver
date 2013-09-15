@@ -18,7 +18,7 @@ nvidia-graphics-drivers (177.80-1) unstable; urgency=low
   Quadro NVS 280 PCI, Quadro NVS 280 PCI-E, i.e., any GPU based on the
   NV30/NV31/NV34/NV35/NV36/NV37/NV38 chips or a variant thereof,
   DO NOT INSTALL THIS RELEASE!!!
-  Use the nvidia-legacy-173xx-driver, nvidia-kernel-legacy-173xx-source
+  Use the nvidia-legacy-173xx-driver, nvidia-legacy-173xx-kernel-source
   packages instead.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 02 Jun 2010 09:06:26 +0200
@@ -30,7 +30,7 @@ nvidia-graphics-drivers (1.0.9746-1) unstable; urgency=low
   Quadro NVS, Quadro NVS 50 PCI, Quadro NVS 280 SD AGP 8x, i.e., any GPU
   based on the NV11/NV17/NV18/NV20/NV25/NV28 chips or a variant thereof,
   DO NOT INSTALL THIS RELEASE!!!
-  Use the nvidia-legacy-96xx-driver, nvidia-kernel-legacy-96xx-source
+  Use the nvidia-legacy-96xx-driver, nvidia-legacy-96xx-kernel-source
   packages instead.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 02 Jun 2010 09:06:26 +0200

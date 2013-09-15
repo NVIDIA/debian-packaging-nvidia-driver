@@ -54,7 +54,7 @@ nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
       boundaries.
     - Fix performance issues when using some versions of HyperMesh with Quadro
       GPUs.
-  * Merge changes from 304.88-7.
+  * Merge changes from 304.108-2.
   * Restrict watch file to releases from the 310.xx long lived branch.
   * Update nv-readme.ids.
   * Refresh patches.
@@ -113,16 +113,40 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
+nvidia-graphics-drivers (304.108-2) unstable; urgency=low
+
+  * Stop building libxvmcnvidia1 package, now built from
+    src:nvidia-graphics-drivers-legacy-304xx.
+  * libgl1-nvidia-glx (<< 310) and libgl1-nvidia-legacy-304xx-glx are not
+    co-installable due to libnvidia-tls.so.304.108.  (Closes: #722288)
+  * Change the virtual package name providing the kernel module to follow the
+    renamed module.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Sep 2013 05:37:09 +0200
+
+nvidia-graphics-drivers (304.108-1) unstable; urgency=low
+
+  * New upstream legacy 304xx branch release 304.108 (2013-08-08).
+    * Add support for Linux 3.10.
+  * Rename patches.
+  * linux-3.10-{i2c,procfs}.patch: Remove, fixed upstream.
+  * debian/module/debian/prep-modules: Sanitize the kernel version. Replace
+    underscores (may occur in custom kernels) with dashes to be eligible for
+    package names and versions.  (Closes: #710891)
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 22 Aug 2013 03:03:09 +0200
+
 nvidia-graphics-drivers (304.88-7) unstable; urgency=low
 
   * Add new substvars ${nvidia-alternative}, #NVIDIA_ALTERNATIVE#.
   * Rename the kernel module to nvidia-current.ko but retain its internal name
     as 'nvidia'.
   * nvidia{,-legacy-*}-kernel-dkms are now co-installable.  (Closes: #685617)
-  * nvidia-alternative: Add /etc/nvidia/nvidia-modprobe.conf (with the nvidia
-    alias) and a slave alternative /etc/modprobe.d/nvidia.conf to the nvidia
-    alternative.  (Closes: #685648)
-  * nvidia-alternative: Provides: ${nvidia-alternative}--kmod-alias.
+  * nvidia-alternative:
+    - Add /etc/nvidia/nvidia-modprobe.conf (with the nvidia alias) and a slave
+      alternative /etc/modprobe.d/nvidia.conf to the nvidia alternative.
+      (Closes: #685648)
+    - Provides: ${nvidia-alternative}--kmod-alias.
   * nvidia-kernel-dkms, nvidia-kernel-#KVERS#: Depend on
     ${nvidia-alternative}--kmod-alias.
   * nvidia-libopencl1: Provide virtual package libopencl-1.1-1 and update
