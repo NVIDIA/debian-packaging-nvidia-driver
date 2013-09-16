@@ -1,11 +1,11 @@
-nvidia-graphics-drivers (304.108-4) UNRELEASED; urgency=low
+nvidia-graphics-drivers (304.108-4) unstable; urgency=low
 
   * Make libgl1-nvidia-glx-i386:i386 a real package depending on
     libgl1-nvidia-glx:i386 and set M-A: foreign, s.t. the Recommends in
     libgl1-nvidia-glx:amd64 actually works.  (Closes: #720058)
   * bug-script: List the renamed nvidia*.ko modules, too.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 16 Sep 2013 13:17:52 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 16 Sep 2013 14:19:54 +0200
 
 nvidia-graphics-drivers (304.108-3) unstable; urgency=low
 
