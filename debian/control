@@ -119,7 +119,6 @@ Recommends:
 Suggests:
  ${nvidia:kmod:source},
 Provides:
- libgl1-${nvidia}-glx-i386 [i386],
  libgl1-nvidia-glx-any,
 Conflicts:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
@@ -138,12 +137,24 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
+#Package: libgl1-${nvidia}-glx-i386
+Package: libgl1-nvidia-glx-i386
+Architecture: i386
+Multi-Arch: foreign
+Depends:
+ libgl1-${nvidia}-glx,
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
+ This metapackage helps the automatic installation of the 32-bit NVIDIA
+ OpenGL libraries when installing libgl1-${nvidia}-glx
+ on amd64 with foreign architecture i386 enabled.
+
 #Package: ${nvidia-alternative}
 Package: nvidia-alternative
 Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
- glx-alternative-nvidia (>= 0.2),
+ glx-alternative-nvidia (>= 0.4),
  ${misc:Depends}
 Conflicts:
  libgl1-nvidia-alternatives,
