@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (310.51-1) unstable; urgency=low
 
   * New upstream long lived branch release 310.51 (2013-05-08).
     - Fixed a bug where RRGetCrtcInfo could report incorrect size
@@ -58,8 +58,9 @@ nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
   * Restrict watch file to releases from the 310.xx long lived branch.
   * Update nv-readme.ids.
   * Refresh patches.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 01:34:30 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 18 Oct 2013 03:50:09 +0200
 
 nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 
