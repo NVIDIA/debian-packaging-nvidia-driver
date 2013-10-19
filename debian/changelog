@@ -1,9 +1,10 @@
-nvidia-graphics-drivers (313.30-3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (313.30-3) unstable; urgency=low
 
   * Restrict watch file to releases from the 313.xx short lived branch.
   * Merge changes from 304.108-4 and 310.51-1.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 03:27:40 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Oct 2013 00:16:22 +0200
 
 nvidia-graphics-drivers (313.30-2) experimental; urgency=low
 
