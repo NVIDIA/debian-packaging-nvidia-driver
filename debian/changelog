@@ -36,6 +36,7 @@ nvidia-graphics-drivers (319.60-1) UNRELEASED; urgency=low
     - Fixed a bug that caused the X server to crash when querying the current
       mode of disabled displays.
   * Update nv-readme.ids.
+  * Update symbols control files.
   * linux-3.10-{i2c,procfs}.patch: Remove. Fixed upstream.
   * libnvidia-ifr1: New package for NvIFROpenGL (libnvidia-ifr.so.1).
   * VDPAU is now available on armhf, too.
