@@ -38,6 +38,7 @@ nvidia-graphics-drivers (319.60-1) UNRELEASED; urgency=low
   * Update nv-readme.ids.
   * Update symbols control files.
   * linux-3.10-{i2c,procfs}.patch: Remove. Fixed upstream.
+  * man-fixes-nvidia-smi.patch: Updated for newly added hyphens.
   * libnvidia-ifr1: New package for NvIFROpenGL (libnvidia-ifr.so.1).
   * VDPAU is now available on armhf, too.
   * nvidia-detect [armhf]: Don't ship PCI ID lists for legacy drivers.
