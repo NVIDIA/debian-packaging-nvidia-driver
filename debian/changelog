@@ -1,5 +1,15 @@
-nvidia-graphics-drivers (319.49-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (319.60-1) UNRELEASED; urgency=low
 
+  * New upstream long lived branch release 319.60 (2013-10-01).
+    - Fixed a bug that could cause OpenGL applications to crash during the
+      initialization of new threads.
+    - Fixed a bug that caused the GPU and Memory clock frequencies for some
+      PowerMizer performance levels on Kepler boards to be reported incorrectly
+      in the nvidia-settings control panel.
+    - Fixed a bug that caused the X server to fail to start on certain laptops
+      when the boot display was on an external DisplayPort monitor, for example
+      if the laptop was booted while the lid was closed.
+    - Added support for the following GPU: GeForce GTX 760 Ti OEM.
   * New upstream long lived branch release 319.49 (2013-08-20).
     - Fixed a bug that caused DisplayPort monitors connected to Quadro FX 3800,
       4800, or 5800 to remain off after DPMS.
@@ -33,7 +43,7 @@ nvidia-graphics-drivers (319.49-1) UNRELEASED; urgency=low
   * Restrict watch file to releases from the 319.xx long lived branch.
   * Merge changes from 304.108-4 and 313.30-3.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Sep 2013 10:30:58 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Oct 2013 01:17:34 +0200
 
 nvidia-graphics-drivers (319.32-2) experimental; urgency=low
 
