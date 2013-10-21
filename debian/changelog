@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (325.15-4) UNRELEASED; urgency=low
+
+  * Merge changes from 304.108-4 and 319.60-1.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 21 Oct 2013 11:15:53 +0200
+
 nvidia-graphics-drivers (325.15-3) experimental; urgency=low
 
   * Enable building the new libnvidia-ifr1 package.
@@ -95,8 +101,18 @@ nvidia-graphics-drivers (325.08-1) experimental; urgency=low
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 04 Aug 2013 14:17:50 +0200
 
-nvidia-graphics-drivers (319.49-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (319.60-1) unstable; urgency=low
 
+  * New upstream long lived branch release 319.60 (2013-10-01).
+    - Fixed a bug that could cause OpenGL applications to crash during the
+      initialization of new threads.
+    - Fixed a bug that caused the GPU and Memory clock frequencies for some
+      PowerMizer performance levels on Kepler boards to be reported incorrectly
+      in the nvidia-settings control panel.
+    - Fixed a bug that caused the X server to fail to start on certain laptops
+      when the boot display was on an external DisplayPort monitor, for example
+      if the laptop was booted while the lid was closed.
+    - Added support for the following GPU: GeForce GTX 760 Ti OEM.
   * New upstream long lived branch release 319.49 (2013-08-20).
     - Fixed a bug that caused DisplayPort monitors connected to Quadro FX 3800,
       4800, or 5800 to remain off after DPMS.
@@ -123,14 +139,17 @@ nvidia-graphics-drivers (319.49-1) UNRELEASED; urgency=low
     - Fixed a bug that caused the X server to crash when querying the current
       mode of disabled displays.
   * Update nv-readme.ids.
+  * Update symbols control files.
   * linux-3.10-{i2c,procfs}.patch: Remove. Fixed upstream.
+  * man-fixes-nvidia-smi.patch: Updated for newly added hyphens.
   * libnvidia-ifr1: New package for NvIFROpenGL (libnvidia-ifr.so.1).
   * VDPAU is now available on armhf, too.
   * nvidia-detect [armhf]: Don't ship PCI ID lists for legacy drivers.
   * Restrict watch file to releases from the 319.xx long lived branch.
-  * Merge changes from 304.108-3 and 313.30-3 (UNRELEASED).
+  * Merge changes from 304.108-4 and 313.30-3.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Sep 2013 10:30:58 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 21 Oct 2013 10:55:26 +0200
 
 nvidia-graphics-drivers (319.32-2) experimental; urgency=low
 
@@ -304,12 +323,13 @@ nvidia-graphics-drivers (319.17-1) experimental; urgency=low
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 14 May 2013 01:12:20 +0200
 
-nvidia-graphics-drivers (313.30-3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (313.30-3) unstable; urgency=low
 
   * Restrict watch file to releases from the 313.xx short lived branch.
-  * Merge changes from 304.108-3 and 310.51 (UNRELEASED).
+  * Merge changes from 304.108-4 and 310.51-1.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 03:27:40 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 20 Oct 2013 00:16:22 +0200
 
 nvidia-graphics-drivers (313.30-2) experimental; urgency=low
 
@@ -384,7 +404,7 @@ nvidia-graphics-drivers (313.18-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 16 Jan 2013 21:07:03 +0100
 
-nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (310.51-1) unstable; urgency=low
 
   * New upstream long lived branch release 310.51 (2013-05-08).
     - Fixed a bug where RRGetCrtcInfo could report incorrect size
@@ -440,12 +460,13 @@ nvidia-graphics-drivers (310.51-1) UNRELEASED; urgency=low
       boundaries.
     - Fix performance issues when using some versions of HyperMesh with Quadro
       GPUs.
-  * Merge changes from 304.108-3.
+  * Merge changes from 304.108-4.
   * Restrict watch file to releases from the 310.xx long lived branch.
   * Update nv-readme.ids.
   * Refresh patches.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 13 May 2013 01:34:30 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 18 Oct 2013 03:50:09 +0200
 
 nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 
@@ -499,6 +520,15 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
+nvidia-graphics-drivers (304.108-4) unstable; urgency=low
+
+  * Make libgl1-nvidia-glx-i386:i386 a real package depending on
+    libgl1-nvidia-glx:i386 and set M-A: foreign, s.t. the Recommends in
+    libgl1-nvidia-glx:amd64 actually works.  (Closes: #720058)
+  * bug-script: List the renamed nvidia*.ko modules, too.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 16 Sep 2013 14:19:54 +0200
+
 nvidia-graphics-drivers (304.108-3) unstable; urgency=low
 
   * Rework patching after unpack: rename
@@ -506,8 +536,9 @@ nvidia-graphics-drivers (304.108-3) unstable; urgency=low
   * conftest.h:
     - Implement new conftest.sh function get_num_physpages (173.14.38).
   * linux-3.11.patch: Redone, based on 173.14.38.
+  * Bump glx-alternative-nvidia dependency to 0.4.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Sep 2013 13:06:17 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Sep 2013 16:36:24 +0200
 
 nvidia-graphics-drivers (304.108-2) unstable; urgency=low
 
