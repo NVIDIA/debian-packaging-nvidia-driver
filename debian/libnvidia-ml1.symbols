@@ -1,7 +1,6 @@
 libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceClearAccountingPids@Base 319
  nvmlDeviceClearEccErrorCounts@Base 270
- nvmlDeviceGetAPIRestriction@Base 319.60
  nvmlDeviceGetAccountingBufferSize@Base 319
  nvmlDeviceGetAccountingMode@Base 319
  nvmlDeviceGetAccountingPids@Base 319
@@ -64,7 +63,6 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceOnSameBoard@Base 295
  nvmlDeviceRegisterEvents@Base 285
  nvmlDeviceResetApplicationsClocks@Base 304.30
- nvmlDeviceSetAPIRestriction@Base 319.60
  nvmlDeviceSetAccountingMode@Base 319
  nvmlDeviceSetApplicationsClocks@Base 304.30
  nvmlDeviceSetComputeMode@Base 270
