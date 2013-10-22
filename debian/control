@@ -27,7 +27,7 @@ Pre-Depends:
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
- nvidia-vdpau-driver (= ${binary:Version}) [!armhf],
+ nvidia-vdpau-driver (= ${binary:Version}),
  ${nvidia-alternative} (= ${binary:Version}),
  ${nvidia:kmod:binary},
  nvidia-support,
@@ -251,7 +251,7 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
 
 Package: nvidia-vdpau-driver
 Section: non-free/video
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,

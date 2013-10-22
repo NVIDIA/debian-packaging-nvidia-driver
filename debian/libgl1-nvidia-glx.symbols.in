@@ -1839,6 +1839,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glVertexArraySecondaryColorOffsetEXT@Base 185
  glVertexArrayTexCoordOffsetEXT@Base 185
  glVertexArrayVertexAttribBindingEXT@Base 310
+ glVertexArrayVertexAttribDivisorEXT@Base 319.60
  glVertexArrayVertexAttribFormatEXT@Base 310
  glVertexArrayVertexAttribIFormatEXT@Base 310
  glVertexArrayVertexAttribIOffsetEXT@Base 185
