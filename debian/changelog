@@ -92,9 +92,6 @@ nvidia-graphics-drivers (325.08-1) experimental; urgency=low
       Application profiles can be added to enable the non-conformant behavior
       for other applications that depend upon it. See the "Known Issues"
       section of the README for more details.
-  * New upstream release 319 series.
-    - Fixed a bug that caused the X server to crash when querying the current
-      mode of disabled displays.
   * Refresh patches.
   * Update symbols control files.
   * Update lintian overrides.
