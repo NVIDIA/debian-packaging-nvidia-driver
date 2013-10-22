@@ -1,3 +1,64 @@
+nvidia-graphics-drivers (331.13-1) UNRELEASED; urgency=low
+
+  * New upstream beta 331.13 (2013-10-04).
+    * Fixed a bug that caused the X server to fail to initialize when
+      DisplayPort 1.2 monitors were assigned to separate X screens on the same
+      GPU.
+    * Fixed a bug that could cause a deadlock when forking from OpenGL
+      programs which use some malloc implementations, such as TCMalloc.
+    * Fixed a bug that prevented Warp & Blend settings from being
+      retained across display configuration changes.
+    * Changed the clipping behavior of the NVIDIA X driver on Trapezoids
+      and Triangles for some RENDER operations to match the behavior in
+      newer versions of Pixman:
+      http://lists.freedesktop.org/archives/pixman/2013-April/002755.html
+    * Fixed a bug in MetaMode tracking that could cause spurious error
+      messages to be printed when attempting to add or delete Metamodes
+      via NV-CONTROL.
+    * Fixed a bug that caused the NVIDIA X driver to attempt to load the
+      X11 "shadow" module unconditionally, even in situations where the
+      driver had no need to use the module. This could result in the
+      printing of spurious error messages, on X servers where the module
+      was not present.
+    * Fixed a bug that prevented display configuration changes made
+      with xvidtune(1) from working correctly.
+    * Fixed a bug that occasionally caused display corruption in GLX
+      applications while changing the display configuration.
+    * Fixed a bug that prevented glReadPixels from working correctly when
+      reading from Pixel Buffer Objects over indirect rendering, when the
+      image width is not a multiple of 4.
+    * Added a new NV-CONTROL attribute, NV_CTRL_BACKLIGHT_BRIGHTNESS,
+      for controlling backlight brightness.
+    * Fixed a bug that caused DisplayPort 1.2 multi-stream devices to stop
+      working if they were unplugged and plugged back in while they were active
+      in the current MetaMode.
+    * Added support for multiple NVIDIA kernel modules. This feature allows
+      users to assign different GPUs in the system to different NVIDIA kernel 
+      modules, potentially reducing the software overhead of coordinating 
+      access to multiple GPUs.
+    * Added support for the EGL API on 32-bit platforms.  Currently, the
+      supported client APIs are OpenGL ES 1.1, 2.0 and 3.0, and the only
+      supported window system backend is X11.
+    * Add a new option, AllowEmptyInitialConfiguration, which allows the X
+      server to start even if no connected display devices are detected at
+      startup.  This option can be enabled by running "sudo nvidia-xconfig
+      --allow-empty-initial-configuration"
+      This option is useful in RandR 1.4 display offload configurations where
+      no display devices are connected to the NVIDIA GPU when the X server is
+      started, but might be connected later.
+    * Added a system memory cache to improve the performance of certain X
+      rendering operations that use software rendering fallbacks.  The X
+      configuration option "SoftwareRenderCacheSize" may be used to configure
+      the size of the cache.
+    * Removed the "DynamicTwinView" X configuration option: dynamic
+      reconfiguration of displays is always possible, and can no longer be
+      disabled.
+  * New upstream release 319 series.
+    - Fixed a bug that prevented SDI output from working when two or more
+      non-SDI displays were being driven by the same GPU.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 21 Oct 2013 02:04:28 +0200
+
 nvidia-graphics-drivers (325.15-4) experimental; urgency=low
 
   * Merge changes from 304.108-4 and 319.60-2.
