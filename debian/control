@@ -27,7 +27,7 @@ Pre-Depends:
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
- nvidia-vdpau-driver (= ${binary:Version}),
+ nvidia-vdpau-driver (= ${binary:Version}) [!armhf],
  ${nvidia-alternative} (= ${binary:Version}),
  ${nvidia:kmod:binary},
  nvidia-support,
