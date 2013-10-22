@@ -43,6 +43,12 @@ nvidia-graphics-drivers (319.60-1) unstable; urgency=low
       caused gnome-screenshot to produce garbled window screenshots.
     - Fixed a bug that caused the X server to crash when querying the current
       mode of disabled displays.
+  * New upstream release 304 series.
+    - Updated the NVIDIA OpenGL driver to write temporary files to $TMPDIR
+      if it is set, instead of unconditionally writing to /tmp.
+    - Updated a fallback of writing temporary files to $HOME/.nvidia to
+      use $HOME/.nv instead, as the latter path is already used for other
+      NVIDIA driver related files.
   * Update nv-readme.ids.
   * Update symbols control files.
   * linux-3.10-{i2c,procfs}.patch: Remove. Fixed upstream.
