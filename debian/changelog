@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (331.13-1) UNRELEASED; urgency=low
 
-  * New upstream beta 331.13 (2013-10-04).
+  * New upstream beta 331.13 (2013-10-04).  (Closes: #727128)
     * Fixed a bug that caused the X server to fail to initialize when
       DisplayPort 1.2 monitors were assigned to separate X screens on the same
       GPU.
@@ -58,6 +58,7 @@ nvidia-graphics-drivers (331.13-1) UNRELEASED; urgency=low
       non-SDI displays were being driven by the same GPU.
   * Refresh patches.
   * Update symbols control files.
+  * Update lintian overrides.
   * nvidia-driver: Ship nvidia-debugdump.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 21 Oct 2013 02:04:28 +0200
