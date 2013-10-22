@@ -21,6 +21,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetDisplayMode@Base 270
  nvmlDeviceGetDriverModel@Base 270
  nvmlDeviceGetEccMode@Base 270
+ nvmlDeviceGetEnforcedPowerLimit@Base 331
  nvmlDeviceGetFanSpeed@Base 270
  nvmlDeviceGetGpuOperationMode@Base 304.48
  nvmlDeviceGetHandleByIndex@Base 270

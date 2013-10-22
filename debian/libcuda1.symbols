@@ -10,6 +10,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuArrayDestroy@Base 169
  cuArrayGetDescriptor@Base 169
  cuArrayGetDescriptor_v2@Base 260
+ cuBinaryFree@Base 331
+ cuCompilePtx@Base 331
  cuCtxAttach@Base 169
  cuCtxCreate@Base 169
  cuCtxCreate_v2@Base 260
@@ -71,6 +73,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGLUnmapBufferObject@Base 169
  cuGLUnmapBufferObjectAsync@Base 190
  cuGLUnregisterBufferObject@Base 169
+ cuGetErrorName@Base 331
+ cuGetErrorString@Base 331
  cuGetExportTable@Base 195.30
  cuGraphicsGLRegisterBuffer@Base 195
  cuGraphicsGLRegisterImage@Base 195
@@ -102,6 +106,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemAlloc@Base 169
  cuMemAllocHost@Base 169
  cuMemAllocHost_v2@Base 260
+ cuMemAllocManaged@Base 331
  cuMemAllocPitch@Base 169
  cuMemAllocPitch_v2@Base 260
  cuMemAlloc_v2@Base 260
@@ -193,16 +198,19 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuModuleLoadDataEx@Base 180
  cuModuleLoadFatBinary@Base 169
  cuModuleUnload@Base 169
+ cuOccMaxActiveBlocksPerMultiprocessor@Base 331
  cuParamSetSize@Base 169
  cuParamSetTexRef@Base 169
  cuParamSetf@Base 169
  cuParamSeti@Base 169
  cuParamSetv@Base 169
  cuPointerGetAttribute@Base 270
+ cuPointerSetAttribute@Base 331
  cuProfilerInitialize@Base 270
  cuProfilerStart@Base 270
  cuProfilerStop@Base 270
  cuStreamAddCallback@Base 304
+ cuStreamAttachManagedMem@Base 331
  cuStreamCreate@Base 169
  cuStreamCreateWithPriority@Base 319
  cuStreamDestroy@Base 169

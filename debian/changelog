@@ -56,6 +56,7 @@ nvidia-graphics-drivers (331.13-1) UNRELEASED; urgency=low
   * New upstream release 319 series.
     - Fixed a bug that prevented SDI output from working when two or more
       non-SDI displays were being driven by the same GPU.
+  * Update symbols control files.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 21 Oct 2013 02:04:28 +0200
 
