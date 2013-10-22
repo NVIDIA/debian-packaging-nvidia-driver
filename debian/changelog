@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (325.15-4) UNRELEASED; urgency=low
 
-  * Merge changes from 304.108-4 and 319.60-1.
+  * Merge changes from 304.108-4 and 319.60-2.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 21 Oct 2013 11:15:53 +0200
 
@@ -100,6 +100,14 @@ nvidia-graphics-drivers (325.08-1) experimental; urgency=low
   * nvidia-detect [armhf]: Don't ship PCI ID lists for legacy drivers.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 04 Aug 2013 14:17:50 +0200
+
+nvidia-graphics-drivers (319.60-2) unstable; urgency=low
+
+  * {libgl1-nvidia-glx,libcuda1}.postinst: Load debconf/confmodule, may be
+    used by /usr/lib/nvidia/check* scripts.  (Closes: #722469)
+  * nvidia-cuda-mps: Symlink manpage as nvidia-cuda-mps-server.8.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 22 Oct 2013 16:34:20 +0200
 
 nvidia-graphics-drivers (319.60-1) unstable; urgency=low
 
