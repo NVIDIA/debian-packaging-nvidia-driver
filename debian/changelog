@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (319.60-2) UNRELEASED; urgency=low
+
+  * {libgl1-nvidia-glx,libcuda1}.postinst: Load debconf/confmodule, may be
+    used by /usr/lib/nvidia/check* scripts.  (Closes: #722469)
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 22 Oct 2013 16:16:47 +0200
+
 nvidia-graphics-drivers (319.60-1) unstable; urgency=low
 
   * New upstream long lived branch release 319.60 (2013-10-01).
