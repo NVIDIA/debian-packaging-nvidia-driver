@@ -1,9 +1,9 @@
 Author: Andreas Beckmann <anbe@debian.org>
 Description: make silent commands in NVIDIA's Makefile.kbuild verbose
 
---- a/Kbuild
-+++ b/Kbuild
-@@ -196,10 +196,10 @@
+--- a/nvidia-modules-common.mk
++++ b/nvidia-modules-common.mk
+@@ -140,10 +140,10 @@
  #
  
  $(obj)/$(CORE_OBJS):
@@ -16,7 +16,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  
  CONFTEST_COMPILE_TEST_HEADERS := $(obj)/conftest/macros.h \
  $(obj)/conftest/functions.h $(obj)/conftest/symbols.h $(obj)/conftest/types.h \
-@@ -211,10 +211,10 @@
+@@ -155,10 +155,10 @@
  $(obj)/conftest.h $(CONFTEST_COMPILE_TEST_HEADERS): conftest-compile-test
  
  conftest-compile-test: $(src)/conftest.sh
@@ -27,9 +27,9 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
 -	@if ! $(CONFTEST) patch_check; then exit 1; fi
 +	$(NVQ)$(CONFTEST) patch_check
  
- RESMAN_GLUE_TARGETS = $(addprefix $(obj)/,$(RESMAN_GLUE_OBJS))
+ MODULE_GLUE_TARGETS = $(addprefix $(obj)/,$(MODULE_GLUE_OBJS))
  
-@@ -243,10 +243,10 @@
+@@ -187,10 +187,10 @@
  #
  
  suser-sanity-check:
@@ -42,7 +42,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  
  BUILD_SANITY_CHECKS = \
  	cc_version_check \
-@@ -257,7 +257,7 @@
+@@ -201,7 +201,7 @@
  	preempt_rt_sanity_check
  
  build-sanity-checks:
@@ -51,31 +51,31 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
  	 exit 1; \
  	 fi; \
-@@ -269,10 +269,10 @@
- #
- 
- module: build-sanity-checks
+@@ -219,10 +219,10 @@
+ define BUILD_MODULE_RULE
+  BUILD_TARGETS += $(1)
+  $(1): build-sanity-checks $(3)
 -	@echo "NVIDIA: calling KBUILD..."; \
--	 $(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules; \
+-	$$(MAKE) "CC=$$(CC)" NV_MODULE_SUFFIX=$$(strip $(2)) $$(KBUILD_PARAMS) modules; \
 -	echo "NVIDIA: left KBUILD."; \
--	if ! [ -f $(MODULE_OBJECT) ]; then \
+-	if ! [ -f $(1) ]; then \
 +	@echo "NVIDIA: calling KBUILD..."
-+	$(NVQ)$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules
++	$$(NVQ)$$(MAKE) "CC=$$(CC)" NV_MODULE_SUFFIX=$$(strip $(2)) $$(KBUILD_PARAMS) modules
 +	@echo "NVIDIA: left KBUILD."
-+	$(NVQ)if ! [ -f $(MODULE_OBJECT) ]; then \
- 	 echo "$(MODULE_OBJECT) failed to build!"; \
++	$$(NVQ)if ! [ -f $(1) ]; then \
+ 	 echo "$(1) failed to build!"; \
  	 exit 1; \
  	elif [ -f split-object-file.sh ]; then \
-@@ -284,7 +284,7 @@
+@@ -257,7 +257,7 @@
  #
  
- module-sign: module
+ module-sign: $(MODULE_OBJECT)
 -	@if [ -z "$(MODSECKEY)" ] || [ -z "$(MODPUBKEY)" ]; then \
 +	$(NVQ)if [ -z "$(MODSECKEY)" ] || [ -z "$(MODPUBKEY)" ]; then \
  	 echo "ERROR: MODSECKEY and MODPUBKEY must be set to sign modules!"; \
  	 exit 1; \
  	elif ! [ -f "$(MODSECKEY)" ]; then \
-@@ -316,7 +316,7 @@
+@@ -289,7 +289,7 @@
  #
  
  module-install: suser-sanity-check module
@@ -84,7 +84,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	install -m 0664 -o root -g root $(MODULE_OBJECT) $(MODULE_ROOT)/video; \
  	PATH="$(PATH):/bin:/sbin" depmod -a
  
-@@ -326,7 +326,7 @@
+@@ -299,7 +299,7 @@
  #
  
  package-install: module-install rmmod-sanity-check
@@ -93,27 +93,27 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	echo "$(MODULE_OBJECT) installed successfully.";
  
  #
-@@ -338,19 +338,19 @@
+@@ -324,19 +324,19 @@
  #
  
- $(KERNEL_GLUE_NAME): module
--	@$(LD) $(EXTRA_LDFLAGS) -r -o $(KERNEL_GLUE_NAME) $(KERNEL_GLUE_OBJS)
-+	$(NVQ)$(LD) $(EXTRA_LDFLAGS) -r -o $(KERNEL_GLUE_NAME) $(KERNEL_GLUE_OBJS)
+ $(KERNEL_GLUE_NAME): $(MODULE_OBJECT)
+-	@$(LD) $(EXTRA_LDFLAGS) $(MODULE_COMMON_SCRIPT) -r -o $(KERNEL_GLUE_NAME) $(KERNEL_GLUE_OBJS)
++	$(NVQ)$(LD) $(EXTRA_LDFLAGS) $(MODULE_COMMON_SCRIPT) -r -o $(KERNEL_GLUE_NAME) $(KERNEL_GLUE_OBJS)
  
  #
  # Support hack, KBUILD isn't prepared to clean up after external modules.
  #
  
  clean:
--	@$(RM) -f $(RESMAN_GLUE_OBJS) $(KERNEL_GLUE_OBJS)
--	@$(RM) -f build-in.o nv-linux.o *.d .*.{cmd,flags}
--	@$(RM) -f $(MODULE_NAME).{o,ko{,.dbg},mod.{o,c}} $(VERSION_HEADER) *~
+-	@$(RM) -f $(MODULE_GLUE_OBJS) $(KERNEL_GLUE_OBJS)
+-	@$(RM) -f build-in.o nv-linux*.o *.d .*.{cmd,flags}
+-	@$(RM) -f $(MODULE_NAME)*.{o,ko{,.dbg},mod.{o,c}} $(VERSION_HEADER) *~
 -	@$(RM) -f conftest*.c conftest.h
 -	@$(RM) -rf conftest
 -	@$(RM) -rf Modules.symvers .tmp_versions
-+	$(NVQ)$(RM) -f $(RESMAN_GLUE_OBJS) $(KERNEL_GLUE_OBJS)
-+	$(NVQ)$(RM) -f build-in.o nv-linux.o *.d .*.{cmd,flags}
-+	$(NVQ)$(RM) -f $(MODULE_NAME).{o,ko{,.dbg},mod.{o,c}} $(VERSION_HEADER) *~
++	$(NVQ)$(RM) -f $(MODULE_GLUE_OBJS) $(KERNEL_GLUE_OBJS)
++	$(NVQ)$(RM) -f build-in.o nv-linux*.o *.d .*.{cmd,flags}
++	$(NVQ)$(RM) -f $(MODULE_NAME)*.{o,ko{,.dbg},mod.{o,c}} $(VERSION_HEADER) *~
 +	$(NVQ)$(RM) -f conftest*.c conftest.h
 +	$(NVQ)$(RM) -rf conftest
 +	$(NVQ)$(RM) -rf Modules.symvers .tmp_versions

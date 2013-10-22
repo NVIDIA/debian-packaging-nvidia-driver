@@ -7,15 +7,18 @@ Description: Select the correct nv-kernel.o blob for the target architecture
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -46,7 +46,10 @@
- CORE_OBJS := nv-kernel.o
- RESMAN_GLUE_OBJS := $(patsubst %.c,%.o,nv.c nv-acpi.c nv-chrdev.c nv-cray.c nv-gvi.c nv-i2c.c nv-mempool.c nv-mlock.c nv-mmap.c nv-p2p.c nv-pat.c nv-procfs.c nv-usermap.c nv-vm.c nv-vtophys.c os-agp.c os-interface.c os-mtrr.c os-registry.c os-smp.c os-usermap.c)
+@@ -78,6 +78,14 @@
+  $(MODULE_NAME)-objs := $(CORE_OBJS) $(MODULE_GLUE_OBJS)
+ endif
  
--$(MODULE_NAME)-objs := $(CORE_OBJS) $(RESMAN_GLUE_OBJS)
-+$(MODULE_NAME)-y		 = $(RESMAN_GLUE_OBJS)
++$(MODULE_NAME)-objs :=
++$(MODULE_NAME)-y		 = $(MODULE_GLUE_OBJS)
++ifneq ($(NV_MODULE_SUFFIX),frontend)
 +$(MODULE_NAME)-$(CONFIG_X86_32)	+= nv-kernel-i386.o_shipped
 +$(MODULE_NAME)-$(CONFIG_X86_64)	+= nv-kernel-amd64.o_shipped
 +$(MODULE_NAME)-$(CONFIG_ARM)	+= nv-kernel-armhf.o_shipped
- 
++endif
++
  #
- # The precompiled kernel module build process requires a separation of the
+ # List of targets to build in case of multiple NVIDIA kernel module builds. 
+ # The actual target is constructed by prefixing nvidia/nvidia- to every
