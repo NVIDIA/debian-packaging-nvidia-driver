@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (325.15-4) experimental; urgency=low
 
   * Merge changes from 304.108-4 and 319.60-2.
+  * Restrict watch file to releases from the 325.xx short lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 22 Oct 2013 17:36:17 +0200
 
