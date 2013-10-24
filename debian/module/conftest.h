@@ -388,6 +388,29 @@
  #undef NV_PROC_REMOVE_PRESENT
 #endif
 
+/* Implement conftest.sh function vma_prio_tree_foreach */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(3,7,0)
+ #define NV_VMA_PRIO_TREE_FOREACH_PRESENT
+#else
+ #undef NV_VMA_PRIO_TREE_FOREACH_PRESENT
+#endif
+
+/* Implement conftest.sh function address_space_init_once */
+// FIXME: check min version
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,38)
+ #define NV_ADDRESS_SPACE_INIT_ONCE_PRESENT
+#else
+ #undef NV_ADDRESS_SPACE_INIT_ONCE_PRESENT
+#endif
+
+/* Implement conftest.sh function vm_operations_struct */
+// FIXME: check min version
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,24)
+ #define NV_VM_OPERATIONS_STRUCT_HAS_FAULT
+#else
+ #undef NV_VM_OPERATIONS_STRUCT_HAS_FAULT
+#endif
+
 /* Implement conftest.sh function get_num_physpages */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3,11,0)
  #define NV_GET_NUM_PHYSPAGES_PRESENT
@@ -475,3 +498,26 @@
 /* Check for linux/nvmap.h */
 // does not (yet) exist in kernel source
  #undef NV_LINUX_NVMAP_H_PRESENT
+
+/* Check for linux/printk.h */
+// FIXME: check min version
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,38)
+ #define NV_LINUX_PRINTK_H_PRESENT
+#else
+ #undef NV_LINUX_PRINTK_H_PRESENT
+#endif
+
+/* Check for linux/ratelimit.h */
+// FIXME: check min version
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,32)
+ #define NV_LINUX_RATELIMIT_H_PRESENT
+#else
+ #undef NV_LINUX_RATELIMIT_H_PRESENT
+#endif
+
+/* Check for linux/prio_tree.h */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(3,7,0)
+ #define NV_LINUX_PRIO_TREE_H_PRESENT
+#else
+ #undef NV_LINUX_PRIO_TREE_H_PRESENT
+#endif

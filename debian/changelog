@@ -60,6 +60,11 @@ nvidia-graphics-drivers (331.13-1) UNRELEASED; urgency=low
   * Update symbols control files.
   * Update lintian overrides.
   * nvidia-driver: Ship nvidia-debugdump.
+  * conftest.h:
+    - Implement checks for linux/printk.h, linux/ratelimit.h,
+      linux/prio_tree.h (331.13).
+    - Implement new conftest.sh functions vma_prio_tree_foreach,
+      address_space_init_once, vm_operations_struct (331.13).
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 21 Oct 2013 02:04:28 +0200
 
