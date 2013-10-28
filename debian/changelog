@@ -11,9 +11,10 @@ nvidia-graphics-drivers (331.17-1) UNRELEASED; urgency=low
       NVIDIA Linux driver package. This kernel module provides support for
       the new Unified Memory feature in an upcoming CUDA release.
   * New upstream release 319 series.
-    * Added support for the following GPUs: Quadro K510M, Quadro K610M,
+    - Added support for the following GPUs: Quadro K510M, Quadro K610M,
       Quadro K1100M, Quadro K2100M, Quadro K3100M, Quadro K4100M,
       Quadro K5100M, GeForce 705A, GeForce GT 730A.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 28 Oct 2013 23:13:02 +0100
 
