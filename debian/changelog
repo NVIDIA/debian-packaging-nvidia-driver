@@ -1,3 +1,22 @@
+nvidia-graphics-drivers (331.17-1) UNRELEASED; urgency=low
+
+  * New upstream beta 331.17 (2013-10-22).
+    - Fixed a bug that prevented configuration files containing application
+      profiles from being loaded when directories were present in the
+      application profile configuration search path.
+    - Deferred initialization of libselinux in the NVIDIA OpenGL driver, in
+      order to avoid a problem where libselinux might not be ready when the
+      NVIDIA libGL shared library is first loaded.
+    - Added nvidia-uvm.ko, the NVIDIA Unified Memory kernel module, to the
+      NVIDIA Linux driver package. This kernel module provides support for
+      the new Unified Memory feature in an upcoming CUDA release.
+  * New upstream release 319 series.
+    * Added support for the following GPUs: Quadro K510M, Quadro K610M,
+      Quadro K1100M, Quadro K2100M, Quadro K3100M, Quadro K4100M,
+      Quadro K5100M, GeForce 705A, GeForce GT 730A.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 28 Oct 2013 23:13:02 +0100
+
 nvidia-graphics-drivers (331.13-1) experimental; urgency=low
 
   * New upstream beta 331.13 (2013-10-04).  (Closes: #727128)
