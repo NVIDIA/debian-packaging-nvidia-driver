@@ -389,8 +389,7 @@
 #endif
 
 /* Implement conftest.sh function vm_operations_struct */
-// FIXME: check min version
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,24)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,23)
  #define NV_VM_OPERATIONS_STRUCT_HAS_FAULT
 #else
  #undef NV_VM_OPERATIONS_STRUCT_HAS_FAULT
@@ -492,16 +491,14 @@
  #undef NV_LINUX_NVMAP_H_PRESENT
 
 /* Check for linux/printk.h */
-// FIXME: check min version
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,38)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,37)
  #define NV_LINUX_PRINTK_H_PRESENT
 #else
  #undef NV_LINUX_PRINTK_H_PRESENT
 #endif
 
 /* Check for linux/ratelimit.h */
-// FIXME: check min version
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,32)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,27)
  #define NV_LINUX_RATELIMIT_H_PRESENT
 #else
  #undef NV_LINUX_RATELIMIT_H_PRESENT
