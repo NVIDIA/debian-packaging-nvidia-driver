@@ -396,6 +396,13 @@
  #undef NV_VM_OPERATIONS_STRUCT_HAS_FAULT
 #endif
 
+/* Implement conftest.sh function task_struct */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,29)
+ #define NV_TASK_STRUCT_HAS_CRED
+#else
+ #undef NV_TASK_STRUCT_HAS_CRED
+#endif
+
 /* Implement conftest.sh function get_num_physpages */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3,11,0)
  #define NV_GET_NUM_PHYSPAGES_PRESENT
