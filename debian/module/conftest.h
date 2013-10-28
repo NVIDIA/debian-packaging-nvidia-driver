@@ -388,21 +388,6 @@
  #undef NV_PROC_REMOVE_PRESENT
 #endif
 
-/* Implement conftest.sh function vma_prio_tree_foreach */
-#if LINUX_VERSION_CODE < KERNEL_VERSION(3,7,0)
- #define NV_VMA_PRIO_TREE_FOREACH_PRESENT
-#else
- #undef NV_VMA_PRIO_TREE_FOREACH_PRESENT
-#endif
-
-/* Implement conftest.sh function address_space_init_once */
-// FIXME: check min version
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,38)
- #define NV_ADDRESS_SPACE_INIT_ONCE_PRESENT
-#else
- #undef NV_ADDRESS_SPACE_INIT_ONCE_PRESENT
-#endif
-
 /* Implement conftest.sh function vm_operations_struct */
 // FIXME: check min version
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,24)

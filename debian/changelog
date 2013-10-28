@@ -16,6 +16,9 @@ nvidia-graphics-drivers (331.17-1) UNRELEASED; urgency=low
       Quadro K5100M, GeForce 705A, GeForce GT 730A.
   * Update nv-readme.ids.
   * not-silent.patch: Refresh.
+  * conftest.h:
+    - Remove obsolete conftest.sh functions vma_prio_tree_foreach,
+      address_space_init_once (added in 331.13, removed in 331.17).
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 28 Oct 2013 23:13:02 +0100
 
