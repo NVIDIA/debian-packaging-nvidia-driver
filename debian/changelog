@@ -7,6 +7,7 @@ nvidia-graphics-drivers (319.60-3) UNRELEASED; urgency=low
     - Implement new conftest.sh functions vm_operations_struct (331.13),
       task_struct (331.17).
   * nvidia-driver: Ship nvidia-debugdump.
+  * nvidia-driver: Ship /usr/share/nvidia/nvidia-application-profiles-$VER-rc.
   * nvidia-driver.examples: Ship nvidia-persistenced init script templates.
   * Bump Standards-Version to 3.9.5. No changes needed.
 
