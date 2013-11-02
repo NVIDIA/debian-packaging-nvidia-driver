@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (319.60-3) UNRELEASED; urgency=low
+nvidia-graphics-drivers (319.60-3) unstable; urgency=low
 
   * linux-3.11.patch: Use patch from NVIDIA.
   * conftest.h:
@@ -11,7 +11,7 @@ nvidia-graphics-drivers (319.60-3) UNRELEASED; urgency=low
   * nvidia-driver.examples: Ship nvidia-persistenced init script templates.
   * Bump Standards-Version to 3.9.5. No changes needed.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 02 Nov 2013 22:38:09 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 03 Nov 2013 00:38:56 +0100
 
 nvidia-graphics-drivers (319.60-2) unstable; urgency=low
 

@@ -89,6 +89,8 @@ NVIDIA-Linux-%:
 	-gunzip $@/*.1.gz
 	test ! -f $@/nvidia-persistenced-init.tar.bz2 || \
 		tar xfvj $@/nvidia-persistenced-init.tar.bz2 -C $@
+	test ! -d $@/nvidia-persistenced-init || \
+		chmod -R a-sx,u=rwX,go=rX $@/nvidia-persistenced-init
 
 # Unpack all architectures, we may need files from all of them.
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
