@@ -87,6 +87,8 @@ NVIDIA-Linux-%:
 	test -d $@/kernel || \
 		mv $@/usr/src/nv $@/kernel
 	-gunzip $@/*.1.gz
+	test ! -f $@/nvidia-persistenced-init.tar.bz2 || \
+		tar xfvj $@/nvidia-persistenced-init.tar.bz2 -C $@
 
 # Unpack all architectures, we may need files from all of them.
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
