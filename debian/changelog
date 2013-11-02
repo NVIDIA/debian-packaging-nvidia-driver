@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (331.17-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (331.17-1) experimental; urgency=low
 
   * New upstream beta 331.17 (2013-10-22).
     - Fixed a bug that prevented configuration files containing application
@@ -22,7 +22,7 @@ nvidia-graphics-drivers (331.17-1) UNRELEASED; urgency=low
     - Implement new conftest.sh function task_struct (331.17).
   * linux-3.11.patch: Use patch from NVIDIA.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 28 Oct 2013 23:13:02 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 02 Nov 2013 22:51:45 +0100
 
 nvidia-graphics-drivers (331.13-1) experimental; urgency=low
 
