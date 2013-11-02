@@ -1,6 +1,11 @@
 nvidia-graphics-drivers (319.60-3) UNRELEASED; urgency=low
 
   * linux-3.11.patch: Use patch from NVIDIA.
+  * conftest.h:
+    - Implement checks for linux/printk.h, linux/ratelimit.h,
+      linux/prio_tree.h (331.13).
+    - Implement new conftest.sh functions vm_operations_struct (331.13),
+      task_struct (331.17).
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 02 Nov 2013 22:38:09 +0100
 

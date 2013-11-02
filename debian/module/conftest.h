@@ -388,6 +388,20 @@
  #undef NV_PROC_REMOVE_PRESENT
 #endif
 
+/* Implement conftest.sh function vm_operations_struct */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,23)
+ #define NV_VM_OPERATIONS_STRUCT_HAS_FAULT
+#else
+ #undef NV_VM_OPERATIONS_STRUCT_HAS_FAULT
+#endif
+
+/* Implement conftest.sh function task_struct */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,29)
+ #define NV_TASK_STRUCT_HAS_CRED
+#else
+ #undef NV_TASK_STRUCT_HAS_CRED
+#endif
+
 /* Implement conftest.sh function get_num_physpages */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3,11,0)
  #define NV_GET_NUM_PHYSPAGES_PRESENT
@@ -475,3 +489,24 @@
 /* Check for linux/nvmap.h */
 // does not (yet) exist in kernel source
  #undef NV_LINUX_NVMAP_H_PRESENT
+
+/* Check for linux/printk.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,37)
+ #define NV_LINUX_PRINTK_H_PRESENT
+#else
+ #undef NV_LINUX_PRINTK_H_PRESENT
+#endif
+
+/* Check for linux/ratelimit.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,27)
+ #define NV_LINUX_RATELIMIT_H_PRESENT
+#else
+ #undef NV_LINUX_RATELIMIT_H_PRESENT
+#endif
+
+/* Check for linux/prio_tree.h */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(3,7,0)
+ #define NV_LINUX_PRIO_TREE_H_PRESENT
+#else
+ #undef NV_LINUX_PRIO_TREE_H_PRESENT
+#endif
