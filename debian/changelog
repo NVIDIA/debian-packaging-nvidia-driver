@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (331.17-2) UNRELEASED; urgency=low
+
+  * Merge changes from 319.60-3.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 03 Nov 2013 01:03:55 +0100
+
 nvidia-graphics-drivers (331.17-1) experimental; urgency=low
 
   * New upstream beta 331.17 (2013-10-22).
@@ -197,6 +203,21 @@ nvidia-graphics-drivers (325.08-1) experimental; urgency=low
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 04 Aug 2013 14:17:50 +0200
 
+nvidia-graphics-drivers (319.60-3) unstable; urgency=low
+
+  * linux-3.11.patch: Use patch from NVIDIA.
+  * conftest.h:
+    - Implement checks for linux/printk.h, linux/ratelimit.h,
+      linux/prio_tree.h (331.13).
+    - Implement new conftest.sh functions vm_operations_struct (331.13),
+      task_struct (331.17).
+  * nvidia-driver: Ship nvidia-debugdump.
+  * nvidia-driver: Ship /usr/share/nvidia/nvidia-application-profiles-$VER-rc.
+  * nvidia-driver.examples: Ship nvidia-persistenced init script templates.
+  * Bump Standards-Version to 3.9.5. No changes needed.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 03 Nov 2013 00:38:56 +0100
+
 nvidia-graphics-drivers (319.60-2) unstable; urgency=low
 
   * {libgl1-nvidia-glx,libcuda1}.postinst: Load debconf/confmodule, may be
@@ -242,6 +263,12 @@ nvidia-graphics-drivers (319.60-1) unstable; urgency=low
       caused gnome-screenshot to produce garbled window screenshots.
     - Fixed a bug that caused the X server to crash when querying the current
       mode of disabled displays.
+  * New upstream release 304 series.
+    - Updated the NVIDIA OpenGL driver to write temporary files to $TMPDIR
+      if it is set, instead of unconditionally writing to /tmp.
+    - Updated a fallback of writing temporary files to $HOME/.nvidia to
+      use $HOME/.nv instead, as the latter path is already used for other
+      NVIDIA driver related files.
   * Update nv-readme.ids.
   * Update symbols control files.
   * linux-3.10-{i2c,procfs}.patch: Remove. Fixed upstream.
@@ -688,7 +715,7 @@ nvidia-graphics-drivers (304.88-7) unstable; urgency=low
   * nvidia-libopencl1.shlibs: Removed in favor of doing the same in .symbols.
   * nvidia-libopencl1.links: Stop shipping libOpenCL.so, will be moved to
     nvidia-opencl-dev.
-  * nvidia-opencl-icd: Depend on 
+  * nvidia-opencl-icd: Depend on
       ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1
     for more deterministic libopencl1 installation.  (Closes: #695883)
   * libgl1-nvidia-glx.symbols: Change the dependency template to always
@@ -775,9 +802,9 @@ nvidia-graphics-drivers (304.88-3) unstable; urgency=low
     cannot be parsed correctly for inserting into Built-Using.
   * nvidia-alternative: Add slave alternatives for nvidia-settings.
     (Closes: #688753)
-  * Recommend nvidia-settings (>= MAJOR). 
+  * Recommend nvidia-settings (>= MAJOR).
   * Use canonical Vcs-* URLs.
-  * Bump Standards-Version to 3.9.4. No changes needed. 
+  * Bump Standards-Version to 3.9.4. No changes needed.
   * Drop transitional packages.  (Closes: #687506)
   * Drop Conflicts/Breaks/Replaces against packages predating wheezy.
   * Drop cleanup code targeting squeeze and wheezy from maintainer scripts.
@@ -830,7 +857,7 @@ nvidia-graphics-drivers (304.84-1) unstable; urgency=low
     - Fixed font rendering performance and corruption problems on X servers with
       backported support for the new glyph cache functionality added to Pixman
       0.27.
-    - Fixed a potential X server crash during initialization, when a 
+    - Fixed a potential X server crash during initialization, when a
       graphics card with a TV connector has no TV connected.
     - Added a new X configuration option, "UseHotplugEvents", to allow the
       suppression of RandR events when adding or removing non-DisplayPort
