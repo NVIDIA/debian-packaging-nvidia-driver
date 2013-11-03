@@ -65,8 +65,8 @@ nvidia-graphics-drivers (331.13-1) experimental; urgency=low
       working if they were unplugged and plugged back in while they were active
       in the current MetaMode.
     * Added support for multiple NVIDIA kernel modules. This feature allows
-      users to assign different GPUs in the system to different NVIDIA kernel 
-      modules, potentially reducing the software overhead of coordinating 
+      users to assign different GPUs in the system to different NVIDIA kernel
+      modules, potentially reducing the software overhead of coordinating
       access to multiple GPUs.
     * Added support for the EGL API on 32-bit platforms.  Currently, the
       supported client APIs are OpenGL ES 1.1, 2.0 and 3.0, and the only
@@ -147,7 +147,7 @@ nvidia-graphics-drivers (325.08-1) experimental; urgency=low
       scaling configurations.
     - Changed the default PCIe interrupt delivery method from virtual-wire
       to MSI. Note that if the NVIDIA Linux driver fails to initialize
-      with an error indicating that it is not receiving interrupts,  MSI 
+      with an error indicating that it is not receiving interrupts, MSI
       can be disabled by setting the module parameter "NVreg_EnableMSI=0"
       when loading the NVIDIA kernel module.
     - Removed support for Linux 2.4 kernels. The NVIDIA Linux driver now
@@ -193,9 +193,6 @@ nvidia-graphics-drivers (325.08-1) experimental; urgency=low
       Application profiles can be added to enable the non-conformant behavior
       for other applications that depend upon it. See the "Known Issues"
       section of the README for more details.
-  * New upstream release 319 series.
-    - Fixed a bug that caused the X server to crash when querying the current
-      mode of disabled displays.
   * Refresh patches.
   * Update symbols control files.
   * Update lintian overrides.
