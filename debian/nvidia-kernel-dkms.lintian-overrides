@@ -3,4 +3,4 @@
 # on i386 so that we can build the kernel module for the amd64 kernel.
 [i386]: binary-from-other-architecture
 unstripped-binary-or-object
-[i386]: spelling-error-in-binary
+spelling-error-in-binary
