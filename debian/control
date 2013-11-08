@@ -422,6 +422,21 @@ Description: NVIDIA OpenGL-based Inband Frame Readback runtime library
  .
  This package contains the NvIFROpenGL runtime library.
 
+Package: libnvidia-fbc1
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
+ The NVIDIA OpenGL-based Framebuffer Capture (NvFBCOpenGL) library provides
+ a high performance, low latency interface to capture and optionally encode an
+ OpenGL framebuffer. NvFBCOpenGL is a private API that is only available to
+ approved partners for use in remote graphics scenarios.
+ .
+ This package contains the NvFBCOpenGL runtime library.
+
 Package: libnvidia-ml1
 Architecture: i386 amd64 armhf
 Multi-Arch: same
