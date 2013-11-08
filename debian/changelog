@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (331.20-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (331.20-2) experimental; urgency=low
 
   * libnvidia-fbc1: New package for NvFBCOpenGL (libnvidia-fbc.so.1).
   * [i386, armhf] lib{egl1,gles1,gles2}-nvidia, libnvidia-eglcore:
@@ -9,7 +9,7 @@ nvidia-graphics-drivers (331.20-2) UNRELEASED; urgency=low
   * Add libcuda1-i386:i386 package that can be recommended from amd64 packages
     that want to make the 32-bit CUDA runtime available.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Nov 2013 20:16:54 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Nov 2013 22:13:05 +0100
 
 nvidia-graphics-drivers (331.20-1) experimental; urgency=low
 
