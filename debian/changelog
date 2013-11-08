@@ -6,6 +6,8 @@ nvidia-graphics-drivers (331.20-2) UNRELEASED; urgency=low
     These packages do not yet utilize the the diversion/alternatives system,
     so you need to add /usr/lib/<triplet>/nvidia/current to LD_LIBRARY_PATH to
     use them.
+  * Add libcuda1-i386:i386 package that can be recommended from amd64 packages
+    that want to make the 32-bit CUDA runtime available.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Nov 2013 20:16:54 +0100
 
