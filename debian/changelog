@@ -1,7 +1,6 @@
 nvidia-graphics-drivers (331.17-2) UNRELEASED; urgency=low
 
   * Merge changes from 319.60-3.
-  * libnvidia-fbc1: New package for NvFBCOpenGL (libnvidia-fbc.so.1).
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 03 Nov 2013 01:03:55 +0100
 
