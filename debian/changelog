@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (331.20-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (331.20-1) experimental; urgency=low
 
   * New upstream long lived branch release 331.20 (2013-11-06).
   * New upstream legacy 304xx branch release 304.116 (2013-11-06).
@@ -17,7 +17,7 @@ nvidia-graphics-drivers (331.20-1) UNRELEASED; urgency=low
   * Update package descriptions.
   * libcuda1: Add Provides: libcuda-5.5-1.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Nov 2013 01:30:00 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Nov 2013 19:54:06 +0100
 
 nvidia-graphics-drivers (331.17-1) experimental; urgency=low
 
