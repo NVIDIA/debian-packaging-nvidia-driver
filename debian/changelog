@@ -9,6 +9,7 @@ nvidia-graphics-drivers (331.20-1) UNRELEASED; urgency=low
       use $HOME/.nv instead, as the latter path is already used for other
       NVIDIA driver related files.
   * linux-3.11.patch: Remove, fixed upstream.
+  * Update symbols control files.
   * Merge changes from 319.60-3.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Nov 2013 01:30:00 +0100

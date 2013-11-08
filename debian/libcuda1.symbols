@@ -262,7 +262,28 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuVDPAUCtxCreate@Base 256
  cuVDPAUCtxCreate_v2@Base 260
  cuVDPAUGetDevice@Base 256
+ cudbgApiAttach@Base 331.20
+ cudbgApiClientPid@Base 331.20
+ cudbgApiClientRevision@Base 331.20
+ cudbgApiDetach@Base 331.20
+ cudbgApiInit@Base 331.20
+ cudbgAttachHandlerAvailable@Base 331.20
+ cudbgDebuggerInitialized@Base 331.20
+ cudbgDetachSuspendedDevicesMask@Base 331.20
+ cudbgEnableIntegratedMemcheck@Base 331.20
+ cudbgEnableLaunchBlocking@Base 331.20
+ cudbgEnablePreemptionDebugging@Base 331.20
  cudbgGetAPI@Base 195
  cudbgGetAPIVersion@Base 195
+ cudbgIpcFlag@Base 331.20
  cudbgMain@Base 304
- gpudbgDebuggerAttached@Base 177
+ cudbgReportDriverApiError@Base 331.20
+ cudbgReportDriverInternalError@Base 331.20
+ cudbgReportedDriverApiErrorCode@Base 331.20
+ cudbgReportedDriverApiErrorFuncNameAddr@Base 331.20
+ cudbgReportedDriverApiErrorFuncNameSize@Base 331.20
+ cudbgReportedDriverInternalErrorCode@Base 331.20
+ cudbgResumeForAttachDetach@Base 331.20
+ cudbgRpcEnabled@Base 331.20
+ cudbgSessionId@Base 331.20
+#MISSING: 331.20# gpudbgDebuggerAttached@Base 177
