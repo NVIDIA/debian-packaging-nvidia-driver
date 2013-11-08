@@ -10,6 +10,8 @@ nvidia-graphics-drivers (331.20-1) UNRELEASED; urgency=low
       NVIDIA driver related files.
   * linux-3.11.patch: Remove, fixed upstream.
   * Update symbols control files.
+  * conftest.h: Implement new conftest.sh functions address_space,
+      address_space_init_once (331.20).
   * Merge changes from 319.60-3.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Nov 2013 01:30:00 +0100
