@@ -345,6 +345,7 @@ Replaces:
  libcuda1-ia32,
 Provides:
  libcuda-5.0-1,
+ libcuda-5.5-1,
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA

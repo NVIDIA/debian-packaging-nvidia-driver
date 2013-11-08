@@ -15,6 +15,7 @@ nvidia-graphics-drivers (331.20-1) UNRELEASED; urgency=low
   * Merge changes from 319.60-3.
   * Update lintian overrides.
   * Update package descriptions.
+  * libcuda1: Add Provides: libcuda-5.5-1.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Nov 2013 01:30:00 +0100
 
