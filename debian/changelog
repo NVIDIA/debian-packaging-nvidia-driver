@@ -1,12 +1,26 @@
-nvidia-graphics-drivers (331.17-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (331.20-1) UNRELEASED; urgency=low
 
+  * New upstream long lived branch release 331.20 (2013-11-06).
+  * New upstream legacy 304xx branch release 304.116 (2013-11-06).
+    - Improved compatibility with recent Linux kernels.
+    - Updated the NVIDIA OpenGL driver to write temporary files to $TMPDIR
+      if it is set, instead of unconditionally writing to /tmp.
+    - Updated a fallback of writing temporary files to $HOME/.nvidia to
+      use $HOME/.nv instead, as the latter path is already used for other
+      NVIDIA driver related files.
   * Merge changes from 319.60-3.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 03 Nov 2013 01:03:55 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Nov 2013 01:30:00 +0100
 
 nvidia-graphics-drivers (331.17-1) experimental; urgency=low
 
   * New upstream beta 331.17 (2013-10-22).
+    - Added support for NVIDIA OpenGL-based Framebuffer Capture (NvFBCOpenGL).
+      This library provides a high performance, low latency interface to
+      capture and optionally encode the composited framebuffer of an X screen.
+      NvFBC and NvIFR are private APIs that are only available to approved
+      partners for use in remote graphics scenarios.  Please contact NVIDIA
+      at GRIDteam@nvidia.com for more information.
     - Fixed a bug that prevented configuration files containing application
       profiles from being loaded when directories were present in the
       application profile configuration search path.
