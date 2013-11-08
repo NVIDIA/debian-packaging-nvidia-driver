@@ -1,6 +1,11 @@
 nvidia-graphics-drivers (331.20-2) UNRELEASED; urgency=low
 
   * libnvidia-fbc1: New package for NvFBCOpenGL (libnvidia-fbc.so.1).
+  * [i386, armhf] lib{egl1,gles1,gles2}-nvidia, libnvidia-eglcore:
+    New packages for EGL, OpenGL|ES 1.x, OpenGL|ES 2.x.
+    These packages do not yet utilize the the diversion/alternatives system,
+    so you need to add /usr/lib/<triplet>/nvidia/current to LD_LIBRARY_PATH to
+    use them.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Nov 2013 20:16:54 +0100
 
