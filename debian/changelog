@@ -13,6 +13,7 @@ nvidia-graphics-drivers (319.72-1) UNRELEASED; urgency=low
     - Updated a fallback of writing temporary files to $HOME/.nvidia to
       use $HOME/.nv instead, as the latter path is already used for other
       NVIDIA driver related files.
+  * Update nv-readme.ids.
   * libcuda1: Add Provides: libcuda-5.5-1.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 09 Nov 2013 02:02:38 +0100
