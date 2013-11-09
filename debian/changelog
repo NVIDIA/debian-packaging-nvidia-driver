@@ -3,7 +3,7 @@ nvidia-graphics-drivers (319.72-1) UNRELEASED; urgency=low
   * New upstream long lived branch release 319.72 (2013-11-06).
     - Added support for the following GPUs: Quadro K510M, Quadro K610M,
       Quadro K1100M, Quadro K2100M, Quadro K3100M, Quadro K4100M,
-      Quadro K5100M, GeForce 705A, GeForce GT 730A.  
+      Quadro K5100M, GeForce 705A, GeForce GT 730A.
     - Fixed a bug that prevented SDI output from working when two or more
       non-SDI displays were being driven by the same GPU.
   * New upstream legacy 304xx branch release 304.116 (2013-11-06).
@@ -15,6 +15,8 @@ nvidia-graphics-drivers (319.72-1) UNRELEASED; urgency=low
       NVIDIA driver related files.
   * Update nv-readme.ids.
   * linux-3.11.patch: Remove, fixed upstream.
+  * conftest.h: Implement new conftest.sh functions address_space,
+    address_space_init_once (331.20).
   * libcuda1: Add Provides: libcuda-5.5-1.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 09 Nov 2013 02:02:38 +0100

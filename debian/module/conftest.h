@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 325.15, 319.49, 313.30, 310.51, 304.108, 295.75, 173.14.38, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 331.20, 325.15, 319.72, 304.116, 295.75, 173.14.38, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -381,6 +381,13 @@
  #undef NV_PDE_DATA_PRESENT
 #endif
 
+/* Implement conftest.sh function get_num_physpages */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,11,0)
+ #define NV_GET_NUM_PHYSPAGES_PRESENT
+#else
+ #undef NV_GET_NUM_PHYSPAGES_PRESENT
+#endif
+
 /* Implement conftest.sh function proc_remove */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3,10,0)
  #define NV_PROC_REMOVE_PRESENT
@@ -402,11 +409,19 @@
  #undef NV_TASK_STRUCT_HAS_CRED
 #endif
 
-/* Implement conftest.sh function get_num_physpages */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,11,0)
- #define NV_GET_NUM_PHYSPAGES_PRESENT
+/* Implement conftest.sh function address_space */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,12) && \
+                LINUX_VERSION_CODE < KERNEL_VERSION(2,6,27)
+ #define NV_ADDRESS_SPACE_HAS_RWLOCK_TREE_LOCK
 #else
- #undef NV_GET_NUM_PHYSPAGES_PRESENT
+ #undef NV_ADDRESS_SPACE_HAS_RWLOCK_TREE_LOCK
+#endif
+
+/* Implement conftest.sh function address_space_init_once */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,38)  /* 2.6.37.3 */
+ #define NV_ADDRESS_SPACE_INIT_ONCE_PRESENT
+#else
+ #undef NV_ADDRESS_SPACE_INIT_ONCE_PRESENT
 #endif
 
 /* Implement conftest.sh function sg_init_table */
