@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (331.20-3) UNRELEASED; urgency=low
+
+  * Merge changes from 319.72-1.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 09 Nov 2013 14:51:51 +0100
+
 nvidia-graphics-drivers (331.20-2) experimental; urgency=low
 
   * libnvidia-fbc1: New package for NvFBCOpenGL (libnvidia-fbc.so.1).
@@ -14,13 +20,6 @@ nvidia-graphics-drivers (331.20-2) experimental; urgency=low
 nvidia-graphics-drivers (331.20-1) experimental; urgency=low
 
   * New upstream long lived branch release 331.20 (2013-11-06).
-  * New upstream legacy 304xx branch release 304.116 (2013-11-06).
-    - Improved compatibility with recent Linux kernels.
-    - Updated the NVIDIA OpenGL driver to write temporary files to $TMPDIR
-      if it is set, instead of unconditionally writing to /tmp.
-    - Updated a fallback of writing temporary files to $HOME/.nvidia to
-      use $HOME/.nv instead, as the latter path is already used for other
-      NVIDIA driver related files.
   * linux-3.11.patch: Remove, fixed upstream.
   * Update symbols control files.
   * conftest.h: Implement new conftest.sh functions address_space,
@@ -50,10 +49,6 @@ nvidia-graphics-drivers (331.17-1) experimental; urgency=low
     - Added nvidia-uvm.ko, the NVIDIA Unified Memory kernel module, to the
       NVIDIA Linux driver package. This kernel module provides support for
       the new Unified Memory feature in an upcoming CUDA release.
-  * New upstream release 319 series.
-    - Added support for the following GPUs: Quadro K510M, Quadro K610M,
-      Quadro K1100M, Quadro K2100M, Quadro K3100M, Quadro K4100M,
-      Quadro K5100M, GeForce 705A, GeForce GT 730A.
   * Update nv-readme.ids.
   * not-silent.patch: Refresh.
   * conftest.h:
@@ -119,9 +114,6 @@ nvidia-graphics-drivers (331.13-1) experimental; urgency=low
     * Removed the "DynamicTwinView" X configuration option: dynamic
       reconfiguration of displays is always possible, and can no longer be
       disabled.
-  * New upstream release 319 series.
-    - Fixed a bug that prevented SDI output from working when two or more
-      non-SDI displays were being driven by the same GPU.
   * Refresh patches.
   * Update symbols control files.
   * Update lintian overrides.
@@ -231,6 +223,31 @@ nvidia-graphics-drivers (325.08-1) experimental; urgency=low
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 04 Aug 2013 14:17:50 +0200
 
+nvidia-graphics-drivers (319.72-1) unstable; urgency=low
+
+  * New upstream long lived branch release 319.72 (2013-11-06).
+    - Added support for the following GPUs: Quadro K510M, Quadro K610M,
+      Quadro K1100M, Quadro K2100M, Quadro K3100M, Quadro K4100M,
+      Quadro K5100M, GeForce 705A, GeForce GT 730A.
+    - Fixed a bug that prevented SDI output from working when two or more
+      non-SDI displays were being driven by the same GPU.
+  * New upstream legacy 304xx branch release 304.116 (2013-11-06).
+    - Improved compatibility with recent Linux kernels.
+    - Updated the NVIDIA OpenGL driver to write temporary files to $TMPDIR
+      if it is set, instead of unconditionally writing to /tmp.
+    - Updated a fallback of writing temporary files to $HOME/.nvidia to
+      use $HOME/.nv instead, as the latter path is already used for other
+      NVIDIA driver related files.
+  * Update nv-readme.ids.
+  * linux-3.11.patch: Remove, fixed upstream.
+  * conftest.h: Implement new conftest.sh functions address_space,
+    address_space_init_once (331.20).
+  * libcuda1: Add Provides: libcuda-5.5-1.
+  * Update package descriptions.
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 09 Nov 2013 14:07:08 +0100
+
 nvidia-graphics-drivers (319.60-3) unstable; urgency=low
 
   * linux-3.11.patch: Use patch from NVIDIA.
@@ -259,9 +276,6 @@ nvidia-graphics-drivers (319.60-1) unstable; urgency=low
   * New upstream long lived branch release 319.60 (2013-10-01).
     - Fixed a bug that could cause OpenGL applications to crash during the
       initialization of new threads.
-    - Fixed a bug that caused the GPU and Memory clock frequencies for some
-      PowerMizer performance levels on Kepler boards to be reported incorrectly
-      in the nvidia-settings control panel.
     - Fixed a bug that caused the X server to fail to start on certain laptops
       when the boot display was on an external DisplayPort monitor, for example
       if the laptop was booted while the lid was closed.
@@ -404,10 +418,6 @@ nvidia-graphics-drivers (319.17-1) experimental; urgency=low
           Option "Rotate" "left"
         EndSection
       See the README and the xorg.conf(5) man page for more information.
-    - Added an Underscan feature in the nvidia-settings X Server
-      Display Configuration page which allows the configuration of an
-      underscan border around the ViewPortOut.  This feature was
-      formerly known as Overscan Compensation.
     - Added support for the following GPU: GeForce GTX 650 Ti BOOST.
     - Added support for application profiles to the NVIDIA client-side GLX
       implementation. See the "Application Profiles" chapter of the README for
