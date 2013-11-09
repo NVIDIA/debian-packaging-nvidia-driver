@@ -51,9 +51,6 @@ nvidia-graphics-drivers (319.60-1) unstable; urgency=low
   * New upstream long lived branch release 319.60 (2013-10-01).
     - Fixed a bug that could cause OpenGL applications to crash during the
       initialization of new threads.
-    - Fixed a bug that caused the GPU and Memory clock frequencies for some
-      PowerMizer performance levels on Kepler boards to be reported incorrectly
-      in the nvidia-settings control panel.
     - Fixed a bug that caused the X server to fail to start on certain laptops
       when the boot display was on an external DisplayPort monitor, for example
       if the laptop was booted while the lid was closed.
@@ -196,10 +193,6 @@ nvidia-graphics-drivers (319.17-1) experimental; urgency=low
           Option "Rotate" "left"
         EndSection
       See the README and the xorg.conf(5) man page for more information.
-    - Added an Underscan feature in the nvidia-settings X Server
-      Display Configuration page which allows the configuration of an
-      underscan border around the ViewPortOut.  This feature was
-      formerly known as Overscan Compensation.
     - Added support for the following GPU: GeForce GTX 650 Ti BOOST.
     - Added support for application profiles to the NVIDIA client-side GLX
       implementation. See the "Application Profiles" chapter of the README for
