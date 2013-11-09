@@ -296,9 +296,12 @@ Recommends:
 Suggests:
  ${nvidia:kmod:source},
 Description: NVIDIA System Management Interface
- The NVIDIA System Management Interface "nvidia-smi" program provides
- system state and diagnostic information for the NVIDIA Tesla Visual
- Computing Systems.
+ The NVIDIA Management Library (NVML) provides a monitoring and management API.
+ The application "nvidia-smi" is the NVIDIA System Management Interface (NVSMI)
+ and provides a command line interface to this functionality.
+ .
+ See the output from the --help command line option for supported models and
+ further information.
 
 Package: nvidia-cuda-mps
 Section: non-free/utils
@@ -381,15 +384,13 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA CUDA nvcuvid runtime library
+Description: NVIDIA CUDA Video Decoder runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
  general purpose computation.
  .
- nvcuvid provides a mechanism for decoding video and exposing the surfaces to
- CUDA, allowing applications to perform custom processing of the video.
- nvcuvid is primarily targeted at transcoding and video-processing
- applications.
+ The NVIDIA CUDA Video Decoder (NVCUVID) library provides an interface to
+ hardware video decoding capabilities on NVIDIA GPUs with CUDA.
  .
  This package contains the nvcuvid runtime library.
 
@@ -400,8 +401,9 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA nvidia-encode runtime library
- This could be NVENC, but is currently undocumented.
+Description: NVENC Video Encoding runtime library
+ The NVENC Video Encoding library provides an interface to video encoder
+ hardware on supported NVIDIA GPUs.
  .
  This package contains the nvidia-encode runtime library.
 
@@ -415,8 +417,8 @@ Depends:
 Description: NVIDIA OpenGL-based Inband Frame Readback runtime library
  The NVIDIA OpenGL-based Inband Frame Readback (NvIFROpenGL) library provides
  a high performance, low latency interface to capture and optionally encode an
- individual OpenGL framebuffer. NvIFROpenGL captures pixels rendered by OpenGL
- only and is ideally suited to application capture and remoting.
+ OpenGL framebuffer. NvIFROpenGL is a private API that is only available to
+ approved partners for use in remote graphics scenarios.
  .
  This package contains the NvIFROpenGL runtime library.
 
@@ -429,10 +431,10 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Breaks:
  nvidia-smi (<< ${nvidia:Version}),
-Description: NVIDIA management library (NVML) runtime library
- NVML provides programmatic access to static information and monitoring
- data for NVIDIA GPUs, as well as limited management capabilities.
- It is intended for use with Tesla compute products.
+Homepage: http://developer.nvidia.com/nvidia-management-library-NVML
+Description: NVIDIA Management Library (NVML) runtime library
+ The NVIDIA Management Library (NVML) provides a monitoring and management API.
+ It provides a direct access to the queries and commands exposed via nvidia-smi.
  .
  This package contains the nvidia-ml runtime library.
 
