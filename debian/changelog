@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (319.72-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (319.72-1) unstable; urgency=low
 
   * New upstream long lived branch release 319.72 (2013-11-06).
     - Added support for the following GPUs: Quadro K510M, Quadro K610M,
@@ -21,7 +21,7 @@ nvidia-graphics-drivers (319.72-1) UNRELEASED; urgency=low
   * Update package descriptions.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 09 Nov 2013 02:02:38 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 09 Nov 2013 14:07:08 +0100
 
 nvidia-graphics-drivers (319.60-3) unstable; urgency=low
 
