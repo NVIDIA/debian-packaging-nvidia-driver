@@ -1,9 +1,9 @@
-nvidia-graphics-drivers (319.72-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (319.72-2) unstable; urgency=low
 
   * Add libcuda1-i386:i386 package that can be recommended from amd64 packages
     that want to make the 32-bit CUDA runtime available.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 29 Nov 2013 20:43:22 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 29 Nov 2013 20:56:59 +0100
 
 nvidia-graphics-drivers (319.72-1) unstable; urgency=low
 
