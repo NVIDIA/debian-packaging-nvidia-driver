@@ -1,3 +1,14 @@
+nvidia-graphics-drivers (319.76-1) UNRELEASED; urgency=low
+
+  * New upstream long lived branch release 319.76 (2013-11-27).
+    - Added support for the following GPUs: GeForce GTX 780 Ti,
+      GeForce GTX 760 (192-bit), GeForce 820M, Tesla K40m, Tesla K40c,
+      Tesla K40st, Tesla K40s.
+  * New upstream legacy release 304 series.
+    - Added support for X.org xserver ABI 15 (xorg-server 1.15).
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 30 Nov 2013 05:41:34 +0100
+
 nvidia-graphics-drivers (319.72-2) unstable; urgency=low
 
   * Add libcuda1-i386:i386 package that can be recommended from amd64 packages
