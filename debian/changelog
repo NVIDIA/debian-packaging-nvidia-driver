@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (319.76-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (319.76-1) unstable; urgency=low
 
   * New upstream long lived branch release 319.76 (2013-11-27).
     - Added support for the following GPUs: GeForce GTX 780 Ti,
@@ -9,7 +9,7 @@ nvidia-graphics-drivers (319.76-1) UNRELEASED; urgency=low
   * Update nv-readme.ids.
   * Add xorg-video-abi-15 as alternative dependency.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 30 Nov 2013 05:41:34 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 01 Dec 2013 13:12:25 +0100
 
 nvidia-graphics-drivers (319.72-2) unstable; urgency=low
 
