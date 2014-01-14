@@ -1,7 +1,31 @@
-/* synchronized with conftest.sh from 313.26, 310.40, 304.84, 295.75, 173.14.37, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 331.20, 325.15, 319.72, 304.116, 295.75, 173.14.38, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
+#endif
+
+#if !defined(IS_ENABLED) && LINUX_VERSION_CODE < KERNEL_VERSION(3,1,0)
+#define __ARG_PLACEHOLDER_1 0,
+#define config_enabled(cfg) _config_enabled(cfg)
+#define _config_enabled(value) __config_enabled(__ARG_PLACEHOLDER_##value)
+#define __config_enabled(arg1_or_junk) ___config_enabled(arg1_or_junk 1, 0)
+#define ___config_enabled(__ignored, val, ...) val
+#define IS_ENABLED(option) (config_enabled(option) || config_enabled(option##_MODULE))
+#endif
+
+/* Implement conftest.sh function nvidiafb_sanity_check */
+#if IS_ENABLED(CONFIG_FB_NVIDIA)
+#warning "The nvidia module is incompatible with nvidiafb!"
+#endif
+
+/* Implement conftest.sh function xen_sanity_check */
+#if IS_ENABLED(CONFIG_XEN) && ! IS_ENABLED(CONFIG_PARAVIRT)
+#warning "Xen kernels are not supported!"
+#endif
+
+/* Implement conftest.sh function preempt_rt_sanity_check */
+#if IS_ENABLED(CONFIG_PREEMPT_RT) || IS_ENABLED(CONFIG_PREEMPT_RT_FULL)
+#warning "PREEMPT_RT kernels are not supported!"
 #endif
 
 /* Implement conftest.sh function remap_page_range */
@@ -18,29 +42,32 @@
 #endif
 
 /* Implement conftest.sh function set_memory_uc */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25) && IS_ENABLED(CONFIG_X86)
  #define NV_SET_MEMORY_UC_PRESENT
 #else
  #undef NV_SET_MEMORY_UC_PRESENT
 #endif
 
 /* Implement conftest.sh function set_memory_array_uc */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,28)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,28) && IS_ENABLED(CONFIG_X86)
  #define NV_SET_MEMORY_ARRAY_UC_PRESENT
 #else
  #undef NV_SET_MEMORY_ARRAY_UC_PRESENT
 #endif
 
 /* Implement conftest.sh function set_pages_uc */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25) && IS_ENABLED(CONFIG_X86)
  #define NV_SET_PAGES_UC_PRESENT
 #else
  #undef NV_SET_PAGES_UC_PRESENT
 #endif
 
 /* Implement conftest.sh function outer_flush_all */
-// ARM only
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,34) && IS_ENABLED(CONFIG_ARM)
+ #define NV_OUTER_FLUSH_ALL_PRESENT
+#else
  #undef NV_OUTER_FLUSH_ALL_PRESENT
+#endif
 
 /* Implement conftest.sh function change_page_attr */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,4,20) && \
@@ -240,7 +267,7 @@
 #endif
 
 /* Implement conftest.sh function ioremap_cache */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25) && IS_ENABLED(CONFIG_X86)
  #define NV_IOREMAP_CACHE_PRESENT
 #else
  #undef NV_IOREMAP_CACHE_PRESENT
@@ -326,6 +353,77 @@
  #undef NV_EFI_ENABLED_PRESENT
 #endif
 
+/* Implement conftest.sh function dom0_kernel_present */
+#if 0
+ #define NV_DOM0_KERNEL_PRESENT
+#else
+ #undef NV_DOM0_KERNEL_PRESENT
+#endif
+
+/* Implement conftest.sh function drm_available */
+#if 0
+ #define NV_DRM_AVAILABLE
+#else
+ #undef NV_DRM_AVAILABLE
+#endif
+
+/* Implement conftest.sh function proc_create_data */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,26)
+ #define NV_PROC_CREATE_DATA_PRESENT
+#else
+ #undef NV_PROC_CREATE_DATA_PRESENT
+#endif
+
+/* Implement conftest.sh function pde_data */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,10,0)
+ #define NV_PDE_DATA_PRESENT
+#else
+ #undef NV_PDE_DATA_PRESENT
+#endif
+
+/* Implement conftest.sh function get_num_physpages */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,11,0)
+ #define NV_GET_NUM_PHYSPAGES_PRESENT
+#else
+ #undef NV_GET_NUM_PHYSPAGES_PRESENT
+#endif
+
+/* Implement conftest.sh function proc_remove */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,10,0)
+ #define NV_PROC_REMOVE_PRESENT
+#else
+ #undef NV_PROC_REMOVE_PRESENT
+#endif
+
+/* Implement conftest.sh function vm_operations_struct */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,23)
+ #define NV_VM_OPERATIONS_STRUCT_HAS_FAULT
+#else
+ #undef NV_VM_OPERATIONS_STRUCT_HAS_FAULT
+#endif
+
+/* Implement conftest.sh function task_struct */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,29)
+ #define NV_TASK_STRUCT_HAS_CRED
+#else
+ #undef NV_TASK_STRUCT_HAS_CRED
+#endif
+
+/* Implement conftest.sh function address_space */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,12) && \
+                LINUX_VERSION_CODE < KERNEL_VERSION(2,6,27)
+ #define NV_ADDRESS_SPACE_HAS_RWLOCK_TREE_LOCK
+#else
+ #undef NV_ADDRESS_SPACE_HAS_RWLOCK_TREE_LOCK
+#endif
+
+/* Implement conftest.sh function address_space_init_once */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,38)  /* 2.6.37.3 */
+ #define NV_ADDRESS_SPACE_INIT_ONCE_PRESENT
+#else
+ #undef NV_ADDRESS_SPACE_INIT_ONCE_PRESENT
+#endif
+
 /* Implement conftest.sh function sg_init_table */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,24)
  #define NV_SG_INIT_TABLE_PRESENT
@@ -345,6 +443,13 @@
  #define NV_LINUX_CRED_H_PRESENT
 #else
  #undef NV_LINUX_CRED_H_PRESENT
+#endif
+
+/* Check for drm/drmP.h */
+#if 1
+ #define NV_DRM_DRMP_H_PRESENT
+#else
+ #undef NV_DRM_DRMP_H_PRESENT
 #endif
 
 /* Check for generated/autoconf.h */
@@ -399,3 +504,24 @@
 /* Check for linux/nvmap.h */
 // does not (yet) exist in kernel source
  #undef NV_LINUX_NVMAP_H_PRESENT
+
+/* Check for linux/printk.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,37)
+ #define NV_LINUX_PRINTK_H_PRESENT
+#else
+ #undef NV_LINUX_PRINTK_H_PRESENT
+#endif
+
+/* Check for linux/ratelimit.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,27)
+ #define NV_LINUX_RATELIMIT_H_PRESENT
+#else
+ #undef NV_LINUX_RATELIMIT_H_PRESENT
+#endif
+
+/* Check for linux/prio_tree.h */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(3,7,0)
+ #define NV_LINUX_PRIO_TREE_H_PRESENT
+#else
+ #undef NV_LINUX_PRIO_TREE_H_PRESENT
+#endif

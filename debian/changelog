@@ -16,6 +16,20 @@ nvidia-graphics-drivers (304.117-1) UNRELEASED; urgency=medium
   * New upstream legacy 304xx branch release 304.108 (2013-08-08).
     * Add support for Linux 3.10.
   * Refresh patches.
+  * conftest.h:
+    - conftest.h: Add ARM support.
+    - Implement check for drm/drmP.h (319.12).
+    - Implement new conftest.sh functions drm_available (319.12),
+      dom0_kernel_present (325.08),
+      proc_create_data, pde_data, proc_remove (304.108, 325.15).
+    - Implement conftest.sh sanity checks (only emit warning)
+      nvidiafb_sanity_check (1.0-8174), xen_sanity_check (1.0-9746, 177.76),
+      preempt_rt_sanity_check (325.08).
+    - Implement new conftest.sh function get_num_physpages (173.14.38).
+    - Implement checks for linux/printk.h, linux/ratelimit.h,
+      linux/prio_tree.h (331.13).
+    - Implement new conftest.sh functions vm_operations_struct (331.13),
+      task_struct (331.17), address_space, address_space_init_once (331.20).
   * Add xorg-video-abi-15 as alternative dependency.
   * Use canonical Vcs-* URLs.
   * Update lintian overrides.
