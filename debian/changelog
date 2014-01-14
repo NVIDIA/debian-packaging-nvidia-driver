@@ -1,3 +1,23 @@
+nvidia-graphics-drivers (304.117-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.117 (2013-12-11).
+    - Added support for X.org xserver ABI 15 (xorg-server 1.15).
+  * New upstream legacy 304xx branch release 304.116 (2013-11-06).
+    - Fixed a security vulnerability in the microcode for microcontrollers
+      that are part of NVIDIA GPUs.  This vulnerability could be exploited
+      to take control of a system, and it is described in greater detail at:
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-5987
+    - Improved compatibility with recent Linux kernels.
+    - Updated the NVIDIA OpenGL driver to write temporary files to $TMPDIR
+      if it is set, instead of unconditionally writing to /tmp.
+    - Updated a fallback of writing temporary files to $HOME/.nvidia to
+      use $HOME/.nv instead, as the latter path is already used for other
+      NVIDIA driver related files.
+  * New upstream legacy 304xx branch release 304.108 (2013-08-08).
+    * Add support for Linux 3.10.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Jan 2014 11:48:57 +0100
+
 nvidia-graphics-drivers (304.88-1+deb7u1) wheezy; urgency=low
 
   * Update lintian overrides.
