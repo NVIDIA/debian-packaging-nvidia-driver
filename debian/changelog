@@ -17,6 +17,7 @@ nvidia-graphics-drivers (304.117-1) UNRELEASED; urgency=medium
     * Add support for Linux 3.10.
   * Refresh patches.
   * Add xorg-video-abi-15 as alternative dependency.
+  * Use canonical Vcs-* URLs.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Jan 2014 11:48:57 +0100
 
