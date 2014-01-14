@@ -2,4 +2,5 @@
 # NVIDIA license) to change in any way.  Both architectures are included
 # so that (on i386) we can build the kernel module for the amd64 kernel.
 [i386]: binary-from-other-architecture
+spelling-error-in-binary
 unstripped-binary-or-object
