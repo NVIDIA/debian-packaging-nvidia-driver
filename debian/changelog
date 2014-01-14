@@ -16,6 +16,7 @@ nvidia-graphics-drivers (304.117-1) UNRELEASED; urgency=medium
   * New upstream legacy 304xx branch release 304.108 (2013-08-08).
     * Add support for Linux 3.10.
   * Refresh patches.
+  * Add xorg-video-abi-15 as alternative dependency.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Jan 2014 11:48:57 +0100
 
