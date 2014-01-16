@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.117-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
 
   * New upstream legacy 304xx branch release 304.117 (2013-12-11).
     - Added support for X.org xserver ABI 15 (xorg-server 1.15).
@@ -31,6 +31,7 @@ nvidia-graphics-drivers (304.117-1) UNRELEASED; urgency=medium
     - Implement new conftest.sh functions vm_operations_struct (331.13),
       task_struct (331.17), address_space, address_space_init_once (331.20).
   * Add xorg-video-abi-15 as alternative dependency.
+  * Merge some bugfixes from sid.
   * Use canonical Vcs-* URLs.
   * {libgl1-nvidia-glx,libcuda1}.postinst: Load debconf/confmodule, may be
     used by /usr/lib/nvidia/check* scripts.  (Closes: #722469)
@@ -39,7 +40,7 @@ nvidia-graphics-drivers (304.117-1) UNRELEASED; urgency=medium
     package names and versions.  (Closes: #710891)
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Jan 2014 11:48:57 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Jan 2014 12:13:05 +0100
 
 nvidia-graphics-drivers (304.88-1+deb7u1) wheezy; urgency=low
 
