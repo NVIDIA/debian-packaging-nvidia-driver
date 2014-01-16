@@ -17,8 +17,8 @@ NOTES ABOUT GLX DRIVER AND OPENGL:
 
 Using the nvidia X driver requires some user modification.
 
-The current X Server 1.7 can autodetect many things, so you probably don't
-have a /etc/X11/xorg.conf at all after a fresh installation of Debian squeeze
+The current X Server 1.12 can autodetect many things, so you probably don't
+have a /etc/X11/xorg.conf at all after a fresh installation of Debian wheezy
 or a newer release.
 
 The NVIDIA driver is not autodetected by Xorg, so you will have to create a
