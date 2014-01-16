@@ -1,8 +1,8 @@
 # The NVIDIA license does not allow any form of modification.
 [!amd64]: binary-file-built-without-LFS-support
+shlib-calls-exit
 [i386]: shlib-with-non-pic-code
 spelling-error-in-binary
-shlib-calls-exit
 hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
@@ -13,8 +13,8 @@ hardening-no-stackprotector
 # other libraries).
 shlibs-declares-dependency-on-other-package libgl1-mesa-glx | libgl1
 
-# This package is a strange special case since it overrides standard
-# libraries and diverts them, so the package name won't ever be able to
+# This package is a strange special case since it provides an alternative
+# implementation of libGL.so.1, so the package name won't ever be able to
 # match the library names it provides.
 package-name-doesnt-match-sonames
 

@@ -1,6 +1,6 @@
 # This is the upstream binary module, which we're not allowed (by the
 # NVIDIA license) to change in any way.  Both architectures are included
-# so that (on i386) we can build the kernel module for the amd64 kernel.
+# on i386 so that we can build the kernel module for the amd64 kernel.
 [i386]: binary-from-other-architecture
-spelling-error-in-binary
 unstripped-binary-or-object
+spelling-error-in-binary

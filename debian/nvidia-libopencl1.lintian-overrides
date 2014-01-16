@@ -1,5 +1,5 @@
 # The NVIDIA license does not allow any form of modification.
-[!amd64]: binary-file-built-without-LFS-support
+[i386]: binary-file-built-without-LFS-support
 shlib-with-executable-stack
 hardening-no-fortify-functions
 hardening-no-relro
