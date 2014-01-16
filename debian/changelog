@@ -37,6 +37,7 @@ nvidia-graphics-drivers (331.38-1) UNRELEASED; urgency=low
     * (Closes: #728743)
   * Merge changes from 319.82-1.
   * Add xorg-video-abi-15 as alternative dependency.  (Closes: #732118)
+  * Update symbols control files.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Jan 2014 18:38:09 +0100
 

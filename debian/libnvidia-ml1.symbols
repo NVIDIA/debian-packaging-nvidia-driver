@@ -7,6 +7,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetAccountingPids@Base 319
  nvmlDeviceGetAccountingStats@Base 319
  nvmlDeviceGetApplicationsClock@Base 304.30
+ nvmlDeviceGetBAR1MemoryInfo@Base 331.38
  nvmlDeviceGetBridgeChipInfo@Base 331.20
  nvmlDeviceGetClockInfo@Base 270
  nvmlDeviceGetComputeMode@Base 270
@@ -40,6 +41,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetMaxPcieLinkWidth@Base 295
  nvmlDeviceGetMemoryErrorCounter@Base 304
  nvmlDeviceGetMemoryInfo@Base 270
+ nvmlDeviceGetMinorNumber@Base 331.38
  nvmlDeviceGetName@Base 270
  nvmlDeviceGetPciInfo@Base 270
  nvmlDeviceGetPciInfo_v2@Base 285
