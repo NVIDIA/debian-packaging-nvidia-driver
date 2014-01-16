@@ -34,6 +34,9 @@ nvidia-graphics-drivers (304.117-1) UNRELEASED; urgency=medium
   * Use canonical Vcs-* URLs.
   * {libgl1-nvidia-glx,libcuda1}.postinst: Load debconf/confmodule, may be
     used by /usr/lib/nvidia/check* scripts.  (Closes: #722469)
+  * debian/module/debian/prep-modules: Sanitize the kernel version. Replace
+    underscores (may occur in custom kernels) with dashes to be eligible for
+    package names and versions.  (Closes: #710891)
   * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Jan 2014 11:48:57 +0100
