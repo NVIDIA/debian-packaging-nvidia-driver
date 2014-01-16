@@ -7,6 +7,7 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
       that are part of NVIDIA GPUs.  This vulnerability could be exploited
       to take control of a system, and it is described in greater detail at:
       http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-5987
+      (Closes: #735271)
     - Improved compatibility with recent Linux kernels.
     - Updated the NVIDIA OpenGL driver to write temporary files to $TMPDIR
       if it is set, instead of unconditionally writing to /tmp.
