@@ -32,6 +32,8 @@ nvidia-graphics-drivers (304.117-1) UNRELEASED; urgency=medium
       task_struct (331.17), address_space, address_space_init_once (331.20).
   * Add xorg-video-abi-15 as alternative dependency.
   * Use canonical Vcs-* URLs.
+  * {libgl1-nvidia-glx,libcuda1}.postinst: Load debconf/confmodule, may be
+    used by /usr/lib/nvidia/check* scripts.  (Closes: #722469)
   * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Jan 2014 11:48:57 +0100
