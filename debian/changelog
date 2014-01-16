@@ -34,7 +34,9 @@ nvidia-graphics-drivers (331.38-1) UNRELEASED; urgency=low
       NV_CTRL_FRAMELOCK_MASTERABLE, NV_CTRL_FRAMELOCK_SLAVEABLE.
       Also, although NV_CTRL_PROBE_DISPLAYS is still operational, the return
       value has been deprecated and should not be used.
-  * Merge changes from 319.72-1.
+    * (Closes: #728743)
+  * Merge changes from 319.82-1.
+  * Add xorg-video-abi-15 as alternative dependency.  (Closes: #732118)
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Jan 2014 18:38:09 +0100
 
@@ -257,6 +259,33 @@ nvidia-graphics-drivers (325.08-1) experimental; urgency=low
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 04 Aug 2013 14:17:50 +0200
 
+nvidia-graphics-drivers (319.82-1) unstable; urgency=low
+
+  * New upstream long lived branch release 319.82 (2014-01-13).
+  * Disable armhf build, missing from upstream release.
+  * libcuda1 [i386]: Add Provides: libcuda-5.0-1-i386, libcuda-5.5-1-i386.
+  * Merge proposed changes from wheezy 304.117-1 update.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Jan 2014 17:38:32 +0100
+
+nvidia-graphics-drivers (319.76-1) unstable; urgency=low
+
+  * New upstream long lived branch release 319.76 (2013-11-27).
+    - Added support for the following GPUs: GeForce GTX 780 Ti,
+      GeForce GTX 760 (192-bit), GeForce 820M, Tesla K40m, Tesla K40c,
+      Tesla K40st, Tesla K40s.
+  * Update nv-readme.ids.
+  * Add xorg-video-abi-15 as alternative dependency.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 01 Dec 2013 13:12:25 +0100
+
+nvidia-graphics-drivers (319.72-2) unstable; urgency=low
+
+  * Add libcuda1-i386:i386 package that can be recommended from amd64 packages
+    that want to make the 32-bit CUDA runtime available.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 29 Nov 2013 20:56:59 +0100
+
 nvidia-graphics-drivers (319.72-1) unstable; urgency=low
 
   * New upstream long lived branch release 319.72 (2013-11-06).
@@ -265,13 +294,6 @@ nvidia-graphics-drivers (319.72-1) unstable; urgency=low
       Quadro K5100M, GeForce 705A, GeForce GT 730A.
     - Fixed a bug that prevented SDI output from working when two or more
       non-SDI displays were being driven by the same GPU.
-  * New upstream legacy 304xx branch release 304.116 (2013-11-06).
-    - Improved compatibility with recent Linux kernels.
-    - Updated the NVIDIA OpenGL driver to write temporary files to $TMPDIR
-      if it is set, instead of unconditionally writing to /tmp.
-    - Updated a fallback of writing temporary files to $HOME/.nvidia to
-      use $HOME/.nv instead, as the latter path is already used for other
-      NVIDIA driver related files.
   * Update nv-readme.ids.
   * linux-3.11.patch: Remove, fixed upstream.
   * conftest.h: Implement new conftest.sh functions address_space,
@@ -716,6 +738,49 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
+
+nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.117 (2013-12-11).
+    - Added support for X.org xserver ABI 15 (xorg-server 1.15).
+  * New upstream legacy 304xx branch release 304.116 (2013-11-06).
+    - Fixed a security vulnerability in the microcode for microcontrollers
+      that are part of NVIDIA GPUs.  This vulnerability could be exploited
+      to take control of a system, and it is described in greater detail at:
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-5987
+      (Closes: #735271)
+    - Improved compatibility with recent Linux kernels.
+    - Updated the NVIDIA OpenGL driver to write temporary files to $TMPDIR
+      if it is set, instead of unconditionally writing to /tmp.
+    - Updated a fallback of writing temporary files to $HOME/.nvidia to
+      use $HOME/.nv instead, as the latter path is already used for other
+      NVIDIA driver related files.
+  * Refresh patches.
+  * conftest.h:
+    - conftest.h: Add ARM support.
+    - Implement check for drm/drmP.h (319.12).
+    - Implement new conftest.sh functions drm_available (319.12),
+      dom0_kernel_present (325.08),
+      proc_create_data, pde_data, proc_remove (304.108, 325.15).
+    - Implement conftest.sh sanity checks (only emit warning)
+      nvidiafb_sanity_check (1.0-8174), xen_sanity_check (1.0-9746, 177.76),
+      preempt_rt_sanity_check (325.08).
+    - Implement new conftest.sh function get_num_physpages (173.14.38).
+    - Implement checks for linux/printk.h, linux/ratelimit.h,
+      linux/prio_tree.h (331.13).
+    - Implement new conftest.sh functions vm_operations_struct (331.13),
+      task_struct (331.17), address_space, address_space_init_once (331.20).
+  * Add xorg-video-abi-15 as alternative dependency.
+  * Merge some bugfixes from sid.
+  * Use canonical Vcs-* URLs.
+  * {libgl1-nvidia-glx,libcuda1}.postinst: Load debconf/confmodule, may be
+    used by /usr/lib/nvidia/check* scripts.  (Closes: #722469)
+  * debian/module/debian/prep-modules: Sanitize the kernel version. Replace
+    underscores (may occur in custom kernels) with dashes to be eligible for
+    package names and versions.  (Closes: #710891)
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Jan 2014 12:13:05 +0100
 
 nvidia-graphics-drivers (304.108-4) unstable; urgency=low
 
