@@ -1,11 +1,11 @@
-nvidia-graphics-drivers (319.82-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (319.82-1) unstable; urgency=low
 
   * New upstream long lived branch release 319.82 (2014-01-13).
   * Disable armhf build, missing from upstream release.
   * libcuda1 [i386]: Add Provides: libcuda-5.0-1-i386, libcuda-5.5-1-i386.
   * Merge proposed changes from wheezy 304.117-1 update.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Jan 2014 17:16:24 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Jan 2014 17:38:32 +0100
 
 nvidia-graphics-drivers (319.76-1) unstable; urgency=low
 
