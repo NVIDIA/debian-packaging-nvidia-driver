@@ -1,8 +1,9 @@
-nvidia-graphics-drivers (319.76-2) UNRELEASED; urgency=low
+nvidia-graphics-drivers (319.81-1) UNRELEASED; urgency=low
 
+  * New upstream long lived branch release 319.82 (2014-01-13).
   * libcuda1 [i386]: Add Provides: libcuda-5.0-1-i386, libcuda-5.5-1-i386.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 02 Dec 2013 13:15:27 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Jan 2014 10:17:37 +0100
 
 nvidia-graphics-drivers (319.76-1) unstable; urgency=low
 
