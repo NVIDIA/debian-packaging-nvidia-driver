@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (331.38-1) UNRELEASED; urgency=low
+nvidia-graphics-drivers (331.38-1) experimental; urgency=low
 
   * New upstream long lived branch release 331.38 (2014-01-13).
     - Fixed a bug that caused the X server to crash if video memory is
@@ -41,7 +41,7 @@ nvidia-graphics-drivers (331.38-1) UNRELEASED; urgency=low
   * Add xorg-video-abi-15 as alternative dependency.  (Closes: #732118)
   * Update symbols control files.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Jan 2014 18:38:09 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 19 Jan 2014 17:30:21 +0100
 
 nvidia-graphics-drivers (331.20-2) experimental; urgency=low
 
