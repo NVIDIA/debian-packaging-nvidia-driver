@@ -34,7 +34,9 @@ nvidia-graphics-drivers (331.38-1) UNRELEASED; urgency=low
       NV_CTRL_FRAMELOCK_MASTERABLE, NV_CTRL_FRAMELOCK_SLAVEABLE.
       Also, although NV_CTRL_PROBE_DISPLAYS is still operational, the return
       value has been deprecated and should not be used.
-    * (Closes: #728743)
+    * Fixed signal mask corruption.  (Closes: #728743)
+  * conftest.h: Implement new conftest.sh functions kbasename,
+    fatal_signal_pending (331.38).
   * Merge changes from 319.82-1.
   * Add xorg-video-abi-15 as alternative dependency.  (Closes: #732118)
   * Update symbols control files.
