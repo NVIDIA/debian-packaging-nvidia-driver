@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (331.38-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (331.38-2) experimental; urgency=medium
 
   * nvidia_3.13_kernel.patch: New patch from Fedora to adapt to ACPI changes
     in Linux 3.13.  (Closes: #735630)
@@ -6,7 +6,7 @@ nvidia-graphics-drivers (331.38-2) UNRELEASED; urgency=medium
     information about wheezy-backports and 96xx not being available in jessie.
     (Closes: 736145)
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Jan 2014 01:31:01 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Jan 2014 10:21:37 +0100
 
 nvidia-graphics-drivers (331.38-1) experimental; urgency=low
 
