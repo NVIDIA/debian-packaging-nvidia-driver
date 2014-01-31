@@ -2,7 +2,7 @@
 # Based on http://wiki.debian.org/NvidiaGraphicsDrivers?action=AttachFile&do=view&target=nvidia-versions.sh
 #
 # Copyright © 2008-2011 Filipus Klutiero <chealer@gmail.com>
-# Copyright © 2011-2013 Andreas Beckmann <anbe@debian.org>
+# Copyright © 2011-2014 Andreas Beckmann <anbe@debian.org>
 #
 # This package is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -168,12 +168,16 @@ fi
 				if [[ -n ${VERSIONS[96]} ]]; then
 				       	echo "Your card is supported by all driver versions.";
 				else
-					echo "Your card is supported by the default drivers and version 173.";
+					echo "Your card is supported by the default drivers and legacy driver series 173.";
 				fi;
 			else
 				echo "Your card is supported by the default drivers.";
 			fi;
 			PACKAGE="nvidia-glx"
+		elif [[ -n ${VERSIONS[999]} ]]; then
+			echo "Your card is only supported by the updated drivers from wheezy-backports."
+			echo "See http://backports.debian.org for instructions how to use backports."
+			PACKAGE="nvidia-driver/wheezy-backports"
 		elif [[ -n ${VERSIONS[173]} ]]; then
 			echo "Your card is only supported up to the 173.14 legacy drivers series.";
 			PACKAGE="nvidia-glx-legacy-173xx"
@@ -188,13 +192,9 @@ fi
 		if [[ -n ${VERSIONS[999]} ]]; then
 			if [[ -n ${VERSIONS[304]} ]]; then
 				if [[ -n ${VERSIONS[173]} ]]; then
-					if [[ -n ${VERSIONS[96]} ]]; then
-				       		echo "Your card is supported by all driver versions."
-					else
-						echo "Your card is supported by the default drivers and version 304 and version 173."
-					fi
+					echo "Your card is supported by the default drivers and legacy driver series 304 and legacy driver series 173.14."
 				else
-					echo "Your card is supported by the default drivers and version 304."
+					echo "Your card is supported by the default drivers and legacy driver series 304."
 				fi
 			else
 				echo "Your card is supported by the default drivers."
@@ -207,8 +207,7 @@ fi
 			echo "Your card is only supported up to the 173.14 legacy drivers series."
 			PACKAGE="nvidia-legacy-173xx-driver"
 		elif [[ -n ${VERSIONS[96]} ]]; then
-			echo "Your card is only supported up to the 96.43 legacy drivers series."
-			PACKAGE="nvidia-legacy-96xx-driver"
+			echo "Uh oh. Your card is only supported by the 96.43 legacy drivers series, which is not in any current Debian suite."
 		else
 			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite."
 		fi
