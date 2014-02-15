@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (304.119-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.119 (2014-01-23).
+    - Fixed a crash when using WebGL in Firefox with a Geforce 6 GPU.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 15 Feb 2014 16:49:54 +0100
+
 nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
 
   * New upstream legacy 304xx branch release 304.117 (2013-12-11).
