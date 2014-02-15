@@ -3,7 +3,7 @@ nvidia-graphics-drivers (319.82-1) unstable; urgency=low
   * New upstream long lived branch release 319.82 (2014-01-13).
   * Disable armhf build, missing from upstream release.
   * libcuda1 [i386]: Add Provides: libcuda-5.0-1-i386, libcuda-5.5-1-i386.
-  * Merge proposed changes from wheezy 304.117-1 update.
+  * Merge changes from wheezy 304.117-1 update.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Jan 2014 17:38:32 +0100
 
@@ -478,6 +478,13 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
+nvidia-graphics-drivers (304.119-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.119 (2014-01-23).
+    - Fixed a crash when using WebGL in Firefox with a Geforce 6 GPU.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 15 Feb 2014 16:49:54 +0100
+
 nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
 
   * New upstream legacy 304xx branch release 304.117 (2013-12-11).
@@ -519,7 +526,7 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
     package names and versions.  (Closes: #710891)
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Jan 2014 12:13:05 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 15 Feb 2014 16:11:02 +0100
 
 nvidia-graphics-drivers (304.108-4) unstable; urgency=low
 
