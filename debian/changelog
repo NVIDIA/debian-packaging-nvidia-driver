@@ -41,7 +41,7 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
     package names and versions.  (Closes: #710891)
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 16 Jan 2014 12:13:05 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 15 Feb 2014 16:11:02 +0100
 
 nvidia-graphics-drivers (304.88-1+deb7u1) wheezy; urgency=low
 
