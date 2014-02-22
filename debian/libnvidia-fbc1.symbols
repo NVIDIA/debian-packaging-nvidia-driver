@@ -1,0 +1,15 @@
+libnvidia-fbc.so.1 #PACKAGE# #MINVER#
+ NvFBCCreateCaptureSession@Base 331.38
+ NvFBCCreateHandle@Base 331.38
+ NvFBCCreateInstance@Base 331.38
+ NvFBCDestroyCaptureSession@Base 331.38
+ NvFBCDestroyHandle@Base 331.38
+ NvFBCGetLastErrorStr@Base 331.38
+ NvFBCGetStatus@Base 331.38
+ NvFBCToCudaGrabFrame@Base 331.38
+ NvFBCToCudaSetUp@Base 331.38
+ NvFBCToH264GetHeader@Base 331.38
+ NvFBCToH264GrabFrame@Base 331.38
+ NvFBCToH264SetUp@Base 331.38
+ NvFBCToSysGrabFrame@Base 331.38
+ NvFBCToSysSetUp@Base 331.38

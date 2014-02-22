@@ -23,6 +23,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glBeginOcclusionQueryNV@Base 1.0.4349
  glBeginQuery@Base 1.0.6106
  glBeginQueryARB@Base 1.0.5328
+ glBeginQueryEXT@Base 331
  glBeginQueryIndexed@Base 256
  glBeginTransformFeedback@Base 180
  glBeginTransformFeedbackNV@Base 1.0.9746
@@ -37,32 +38,41 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glBindBufferOffsetNV@Base 1.0.9746
  glBindBufferRange@Base 180
  glBindBufferRangeNV@Base 1.0.9746
+ glBindBuffersBase@Base 331
+ glBindBuffersRange@Base 331
  glBindFragDataLocation@Base 180
  glBindFragDataLocationEXT@Base 1.0.9746
  glBindFragDataLocationIndexed@Base 256
  glBindFramebuffer@Base 180
  glBindFramebufferEXT@Base 1.0.7664
+ glBindFramebufferOES@Base 325
  glBindImageTexture@Base 285
  glBindImageTextureEXT@Base 195
+ glBindImageTextures@Base 331
  glBindMultiTextureEXT@Base 180
  glBindProgramARB@Base 1.0.4349
  glBindProgramNV@Base 1.0.4349
  glBindProgramPipeline@Base 260
  glBindRenderbuffer@Base 180
  glBindRenderbufferEXT@Base 1.0.7664
+ glBindRenderbufferOES@Base 325
  glBindSampler@Base 256
- glBindStateObjectNV@Base 260
+ glBindSamplers@Base 331
+#MISSING: 331# glBindStateObjectNV@Base 260
  glBindTexture@Base 1.0.4349
  glBindTextureEXT@Base 1.0.4349
+ glBindTextures@Base 331
  glBindTransformFeedback@Base 256
  glBindTransformFeedbackEXT@Base 190.36
  glBindTransformFeedbackNV@Base 165
  glBindVertexArray@Base 180
  glBindVertexArrayOES@Base 270
  glBindVertexBuffer@Base 310
+ glBindVertexBuffers@Base 331
  glBindVideoCaptureStreamBufferNV@Base 190.32
  glBindVideoCaptureStreamTextureNV@Base 190.32
  glBitmap@Base 1.0.4349
+ glBlendBarrierNV@Base 331
  glBlendColor@Base 1.0.4349
  glBlendColorEXT@Base 1.0.4349
  glBlendEquation@Base 1.0.4349
@@ -87,12 +97,14 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glBufferData@Base 1.0.6106
  glBufferDataARB@Base 1.0.4349
  glBufferDataSysmem@Base 280
+ glBufferStorage@Base 331
  glBufferSubData@Base 1.0.6106
  glBufferSubDataARB@Base 1.0.4349
  glCallList@Base 1.0.4349
  glCallLists@Base 1.0.4349
  glCheckFramebufferStatus@Base 180
  glCheckFramebufferStatusEXT@Base 1.0.7664
+ glCheckFramebufferStatusOES@Base 325
  glCheckNamedFramebufferStatusEXT@Base 180
  glClampColor@Base 185.18
  glClampColorARB@Base 1.0.7664
@@ -116,6 +128,8 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glClearNamedBufferDataEXT@Base 310
  glClearNamedBufferSubDataEXT@Base 310
  glClearStencil@Base 1.0.4349
+ glClearTexImage@Base 331
+ glClearTexSubImage@Base 331
  glClientActiveTexture@Base 1.0.4349
  glClientActiveTextureARB@Base 1.0.4349
  glClientAttribDefaultEXT@Base 180
@@ -224,6 +238,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glConvolutionParameteri@Base 1.0.4349
  glConvolutionParameteriv@Base 1.0.4349
  glCopyBufferSubData@Base 190
+ glCopyBufferSubDataNV@Base 331
  glCopyColorSubTable@Base 1.0.4349
  glCopyColorTable@Base 1.0.4349
  glCopyConvolutionFilter1D@Base 1.0.4349
@@ -276,6 +291,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDeleteFencesNV@Base 1.0.4349
  glDeleteFramebuffers@Base 180
  glDeleteFramebuffersEXT@Base 1.0.7664
+ glDeleteFramebuffersOES@Base 325
  glDeleteLists@Base 1.0.4349
  glDeleteNamedStringARB@Base 270
  glDeleteObjectARB@Base 1.0.6106
@@ -287,11 +303,13 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDeleteProgramsNV@Base 1.0.4349
  glDeleteQueries@Base 1.0.6106
  glDeleteQueriesARB@Base 1.0.5328
+ glDeleteQueriesEXT@Base 331
  glDeleteRenderbuffers@Base 180
  glDeleteRenderbuffersEXT@Base 1.0.7664
+ glDeleteRenderbuffersOES@Base 325
  glDeleteSamplers@Base 256
  glDeleteShader@Base 1.0.7664
- glDeleteStatesNV@Base 260
+#MISSING: 331# glDeleteStatesNV@Base 260
  glDeleteSync@Base 190.18.05
  glDeleteTextures@Base 1.0.4349
  glDeleteTexturesEXT@Base 1.0.4349
@@ -325,6 +343,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDisableVertexAttribArrayARB@Base 1.0.4349
  glDisablei@Base 180
  glDispatchCompute@Base 310
+ glDispatchComputeGroupSizeARB@Base 331
  glDispatchComputeIndirect@Base 310
  glDrawArrays@Base 1.0.4349
  glDrawArraysEXT@Base 1.0.4349
@@ -333,6 +352,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDrawArraysInstancedARB@Base 180
  glDrawArraysInstancedBaseInstance@Base 285
  glDrawArraysInstancedEXT@Base 1.0.9746
+ glDrawArraysInstancedNV@Base 325
  glDrawBuffer@Base 1.0.4349
  glDrawBuffers@Base 1.0.7664
  glDrawBuffersARB@Base 1.0.7664
@@ -347,12 +367,21 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDrawElementsInstancedBaseVertex@Base 190.18.05
  glDrawElementsInstancedBaseVertexBaseInstance@Base 285
  glDrawElementsInstancedEXT@Base 1.0.9746
+ glDrawElementsInstancedNV@Base 325
  glDrawMeshNV@Base 1.0.4349
  glDrawPixels@Base 1.0.4349
  glDrawRangeElements@Base 1.0.4349
  glDrawRangeElementsBaseVertex@Base 190.18.05
  glDrawRangeElementsEXT@Base 1.0.4349
+ glDrawTexfOES@Base 331
+ glDrawTexfvOES@Base 331
+ glDrawTexiOES@Base 331
+ glDrawTexivOES@Base 331
+ glDrawTexsOES@Base 331
+ glDrawTexsvOES@Base 331
  glDrawTextureNV@Base 310
+ glDrawTexxOES@Base 331
+ glDrawTexxvOES@Base 331
  glDrawTransformFeedback@Base 256
  glDrawTransformFeedbackEXT@Base 190.36
  glDrawTransformFeedbackInstanced@Base 285
@@ -382,6 +411,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glEndOcclusionQueryNV@Base 1.0.4349
  glEndQuery@Base 1.0.6106
  glEndQueryARB@Base 1.0.5328
+ glEndQueryEXT@Base 331
  glEndQueryIndexed@Base 256
  glEndTransformFeedback@Base 180
  glEndTransformFeedbackNV@Base 1.0.9746
@@ -407,6 +437,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glFinishFenceNV@Base 1.0.4349
  glFlush@Base 1.0.4349
  glFlushMappedBufferRange@Base 180
+ glFlushMappedBufferRangeEXT@Base 331
  glFlushMappedNamedBufferRangeEXT@Base 185
  glFlushPixelDataRangeNV@Base 1.0.4349
  glFlushVertexArrayRangeNV@Base 1.0.4349
@@ -435,10 +466,12 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glFramebufferReadBufferEXT@Base 180
  glFramebufferRenderbuffer@Base 180
  glFramebufferRenderbufferEXT@Base 1.0.7664
+ glFramebufferRenderbufferOES@Base 325
  glFramebufferTexture1D@Base 180
  glFramebufferTexture1DEXT@Base 1.0.7664
  glFramebufferTexture2D@Base 180
  glFramebufferTexture2DEXT@Base 1.0.7664
+ glFramebufferTexture2DOES@Base 325
  glFramebufferTexture3D@Base 180
  glFramebufferTexture3DEXT@Base 1.0.7664
 #MISSING: 313.18# glFramebufferTexture3DOES@Base 270
@@ -460,6 +493,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGenFencesNV@Base 1.0.4349
  glGenFramebuffers@Base 180
  glGenFramebuffersEXT@Base 1.0.7664
+ glGenFramebuffersOES@Base 325
  glGenLists@Base 1.0.4349
  glGenOcclusionQueriesNV@Base 1.0.4349
  glGenPathsNV@Base 275
@@ -468,10 +502,12 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGenProgramsNV@Base 1.0.4349
  glGenQueries@Base 1.0.6106
  glGenQueriesARB@Base 1.0.5328
+ glGenQueriesEXT@Base 331
  glGenRenderbuffers@Base 180
  glGenRenderbuffersEXT@Base 1.0.7664
+ glGenRenderbuffersOES@Base 325
  glGenSamplers@Base 256
- glGenStatesNV@Base 260
+#MISSING: 331# glGenStatesNV@Base 260
  glGenTextures@Base 1.0.4349
  glGenTexturesEXT@Base 1.0.4349
  glGenTransformFeedbacks@Base 256
@@ -481,6 +517,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGenVertexArraysOES@Base 270
  glGenerateMipmap@Base 180
  glGenerateMipmapEXT@Base 1.0.7664
+ glGenerateMipmapOES@Base 325
  glGenerateMultiTexMipmapEXT@Base 180
  glGenerateTextureMipmapEXT@Base 180
  glGetActiveAtomicCounterBufferiv@Base 285
@@ -555,6 +592,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetFragDataLocationEXT@Base 1.0.9746
  glGetFramebufferAttachmentParameteriv@Base 180
  glGetFramebufferAttachmentParameterivEXT@Base 1.0.7664
+ glGetFramebufferAttachmentParameterivOES@Base 325
  glGetFramebufferParameteriv@Base 310
  glGetFramebufferParameterivEXT@Base 180
  glGetGraphicsResetStatusARB@Base 260
@@ -562,6 +600,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetHistogram@Base 1.0.4349
  glGetHistogramParameterfv@Base 1.0.4349
  glGetHistogramParameteriv@Base 1.0.4349
+ glGetImageHandleARB@Base 331
  glGetImageHandleNV@Base 290
  glGetInfoLogARB@Base 1.0.6106
  glGetInteger64i_v@Base 190.36
@@ -681,12 +720,16 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetQueryObjectivARB@Base 1.0.5328
  glGetQueryObjectui64v@Base 256
  glGetQueryObjectui64vEXT@Base 1.0.8174
+ glGetQueryObjectui64vNV@Base 331
  glGetQueryObjectuiv@Base 1.0.6106
  glGetQueryObjectuivARB@Base 1.0.5328
+ glGetQueryObjectuivEXT@Base 331
  glGetQueryiv@Base 1.0.6106
  glGetQueryivARB@Base 1.0.5328
+ glGetQueryivEXT@Base 331
  glGetRenderbufferParameteriv@Base 180
  glGetRenderbufferParameterivEXT@Base 1.0.7664
+ glGetRenderbufferParameterivOES@Base 325
  glGetSamplerParameterIiv@Base 256
  glGetSamplerParameterIuiv@Base 256
  glGetSamplerParameterfv@Base 256
@@ -697,12 +740,12 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetShaderSource@Base 1.0.7664
  glGetShaderSourceARB@Base 1.0.6106
  glGetShaderiv@Base 1.0.7664
- glGetStateDynamicPropertyNameivNV@Base 260
- glGetStateDynamicPropertyValuevNV@Base 260
- glGetStateGPUHandleNV@Base 290
- glGetStateParameterivNV@Base 260
- glGetStatePropertyfvNV@Base 260
- glGetStatePropertyivNV@Base 260
+#MISSING: 331# glGetStateDynamicPropertyNameivNV@Base 260
+#MISSING: 331# glGetStateDynamicPropertyValuevNV@Base 260
+#MISSING: 331# glGetStateGPUHandleNV@Base 290
+#MISSING: 331# glGetStateParameterivNV@Base 260
+#MISSING: 331# glGetStatePropertyfvNV@Base 260
+#MISSING: 331# glGetStatePropertyivNV@Base 260
  glGetString@Base 1.0.4349
  glGetStringi@Base 180
  glGetSubroutineIndex@Base 256
@@ -728,6 +771,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetTexParameterfv@Base 1.0.4349
  glGetTexParameteriv@Base 1.0.4349
  glGetTexParameterxv@Base 302
+ glGetTextureHandleARB@Base 331
  glGetTextureHandleNV@Base 290
  glGetTextureImageEXT@Base 180
  glGetTextureLevelParameterfvEXT@Base 180
@@ -736,6 +780,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetTextureParameterIuivEXT@Base 180
  glGetTextureParameterfvEXT@Base 180
  glGetTextureParameterivEXT@Base 180
+ glGetTextureSamplerHandleARB@Base 331
  glGetTextureSamplerHandleNV@Base 290
  glGetTrackMatrixivNV@Base 1.0.4349
  glGetTransformFeedbackVarying@Base 180
@@ -768,6 +813,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetVertexAttribLdv@Base 260
  glGetVertexAttribLdvEXT@Base 195
  glGetVertexAttribLi64vNV@Base 195
+ glGetVertexAttribLui64vARB@Base 331
  glGetVertexAttribLui64vNV@Base 195
  glGetVertexAttribPointerv@Base 1.0.7664
  glGetVertexAttribPointervARB@Base 1.0.4349
@@ -847,6 +893,8 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glIsFenceNV@Base 1.0.4349
  glIsFramebuffer@Base 180
  glIsFramebufferEXT@Base 1.0.7664
+ glIsFramebufferOES@Base 325
+ glIsImageHandleResidentARB@Base 331
  glIsImageHandleResidentNV@Base 290
  glIsList@Base 1.0.4349
  glIsNamedBufferResidentNV@Base 185
@@ -861,14 +909,17 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glIsProgramPipeline@Base 260
  glIsQuery@Base 1.0.6106
  glIsQueryARB@Base 1.0.5328
+ glIsQueryEXT@Base 331
  glIsRenderbuffer@Base 180
  glIsRenderbufferEXT@Base 1.0.7664
+ glIsRenderbufferOES@Base 325
  glIsSampler@Base 256
  glIsShader@Base 1.0.7664
- glIsStateNV@Base 260
+#MISSING: 331# glIsStateNV@Base 260
  glIsSync@Base 190.18.05
  glIsTexture@Base 1.0.4349
  glIsTextureEXT@Base 1.0.4349
+ glIsTextureHandleResidentARB@Base 331
  glIsTextureHandleResidentNV@Base 290
  glIsTransformFeedback@Base 256
  glIsTransformFeedbackEXT@Base 190.36
@@ -905,15 +956,19 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glLoadTransposeMatrixf@Base 1.0.4349
  glLoadTransposeMatrixfARB@Base 1.0.4349
  glLockArraysEXT@Base 1.0.4349
- glLockStateNV@Base 260
+#MISSING: 331# glLockStateNV@Base 260
  glLogicOp@Base 1.0.4349
  glMakeBufferNonResidentNV@Base 185
  glMakeBufferResidentNV@Base 185
+ glMakeImageHandleNonResidentARB@Base 331
  glMakeImageHandleNonResidentNV@Base 290
+ glMakeImageHandleResidentARB@Base 331
  glMakeImageHandleResidentNV@Base 290
  glMakeNamedBufferNonResidentNV@Base 185
  glMakeNamedBufferResidentNV@Base 185
+ glMakeTextureHandleNonResidentARB@Base 331
  glMakeTextureHandleNonResidentNV@Base 290
+ glMakeTextureHandleResidentARB@Base 331
  glMakeTextureHandleResidentNV@Base 290
  glMap1d@Base 1.0.4349
  glMap1f@Base 1.0.4349
@@ -923,6 +978,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glMapBufferARB@Base 1.0.4349
  glMapBufferOES@Base 270
  glMapBufferRange@Base 180
+ glMapBufferRangeEXT@Base 331
  glMapGrid1d@Base 1.0.4349
  glMapGrid1f@Base 1.0.4349
  glMapGrid2d@Base 1.0.4349
@@ -972,11 +1028,15 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glMultiDrawArraysEXT@Base 1.0.4349
  glMultiDrawArraysIndirect@Base 310
  glMultiDrawArraysIndirectAMD@Base 302
+ glMultiDrawArraysIndirectBindlessNV@Base 325
+ glMultiDrawArraysIndirectCountARB@Base 331
  glMultiDrawElements@Base 1.0.4349
  glMultiDrawElementsBaseVertex@Base 190.18.05
  glMultiDrawElementsEXT@Base 1.0.4349
  glMultiDrawElementsIndirect@Base 310
  glMultiDrawElementsIndirectAMD@Base 302
+ glMultiDrawElementsIndirectBindlessNV@Base 325
+ glMultiDrawElementsIndirectCountARB@Base 331
  glMultiTexBufferEXT@Base 180
  glMultiTexCoord1d@Base 1.0.4349
  glMultiTexCoord1dARB@Base 1.0.4349
@@ -1092,6 +1152,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glMultiTexSubImage3DEXT@Base 180
  glNVENCInterOpFunctionNVX@Base 313
  glNamedBufferDataEXT@Base 180
+ glNamedBufferStorageEXT@Base 331
  glNamedBufferSubDataEXT@Base 180
  glNamedCopyBufferSubDataEXT@Base 190
  glNamedFramebufferParameteriEXT@Base 310
@@ -1256,7 +1317,9 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glProgramStringARB@Base 1.0.4349
  glProgramSubroutineParametersuivNV@Base 195.30
  glProgramUniform1d@Base 256
+ glProgramUniform1dEXT@Base 325
  glProgramUniform1dv@Base 256
+ glProgramUniform1dvEXT@Base 325
  glProgramUniform1f@Base 260
  glProgramUniform1fEXT@Base 180
  glProgramUniform1fv@Base 260
@@ -1274,7 +1337,9 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glProgramUniform1uiv@Base 260
  glProgramUniform1uivEXT@Base 180
  glProgramUniform2d@Base 256
+ glProgramUniform2dEXT@Base 325
  glProgramUniform2dv@Base 256
+ glProgramUniform2dvEXT@Base 325
  glProgramUniform2f@Base 260
  glProgramUniform2fEXT@Base 180
  glProgramUniform2fv@Base 260
@@ -1292,7 +1357,9 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glProgramUniform2uiv@Base 260
  glProgramUniform2uivEXT@Base 180
  glProgramUniform3d@Base 256
+ glProgramUniform3dEXT@Base 325
  glProgramUniform3dv@Base 256
+ glProgramUniform3dvEXT@Base 325
  glProgramUniform3f@Base 260
  glProgramUniform3fEXT@Base 180
  glProgramUniform3fv@Base 260
@@ -1310,7 +1377,9 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glProgramUniform3uiv@Base 260
  glProgramUniform3uivEXT@Base 180
  glProgramUniform4d@Base 256
+ glProgramUniform4dEXT@Base 325
  glProgramUniform4dv@Base 256
+ glProgramUniform4dvEXT@Base 325
  glProgramUniform4f@Base 260
  glProgramUniform4fEXT@Base 180
  glProgramUniform4fv@Base 260
@@ -1327,33 +1396,44 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glProgramUniform4uiEXT@Base 180
  glProgramUniform4uiv@Base 260
  glProgramUniform4uivEXT@Base 180
+ glProgramUniformHandleui64ARB@Base 331
  glProgramUniformHandleui64NV@Base 290
+ glProgramUniformHandleui64vARB@Base 331
  glProgramUniformHandleui64vNV@Base 290
  glProgramUniformMatrix2dv@Base 256
+ glProgramUniformMatrix2dvEXT@Base 325
  glProgramUniformMatrix2fv@Base 260
  glProgramUniformMatrix2fvEXT@Base 180
  glProgramUniformMatrix2x3dv@Base 256
+ glProgramUniformMatrix2x3dvEXT@Base 325
  glProgramUniformMatrix2x3fv@Base 260
  glProgramUniformMatrix2x3fvEXT@Base 180
  glProgramUniformMatrix2x4dv@Base 256
+ glProgramUniformMatrix2x4dvEXT@Base 325
  glProgramUniformMatrix2x4fv@Base 260
  glProgramUniformMatrix2x4fvEXT@Base 180
  glProgramUniformMatrix3dv@Base 256
+ glProgramUniformMatrix3dvEXT@Base 325
  glProgramUniformMatrix3fv@Base 260
  glProgramUniformMatrix3fvEXT@Base 180
  glProgramUniformMatrix3x2dv@Base 256
+ glProgramUniformMatrix3x2dvEXT@Base 325
  glProgramUniformMatrix3x2fv@Base 260
  glProgramUniformMatrix3x2fvEXT@Base 180
  glProgramUniformMatrix3x4dv@Base 256
+ glProgramUniformMatrix3x4dvEXT@Base 325
  glProgramUniformMatrix3x4fv@Base 260
  glProgramUniformMatrix3x4fvEXT@Base 180
  glProgramUniformMatrix4dv@Base 256
+ glProgramUniformMatrix4dvEXT@Base 325
  glProgramUniformMatrix4fv@Base 260
  glProgramUniformMatrix4fvEXT@Base 180
  glProgramUniformMatrix4x2dv@Base 256
+ glProgramUniformMatrix4x2dvEXT@Base 325
  glProgramUniformMatrix4x2fv@Base 260
  glProgramUniformMatrix4x2fvEXT@Base 180
  glProgramUniformMatrix4x3dv@Base 256
+ glProgramUniformMatrix4x3dvEXT@Base 325
  glProgramUniformMatrix4x3fv@Base 260
  glProgramUniformMatrix4x3fvEXT@Base 180
  glProgramUniformui64NV@Base 185
@@ -1369,6 +1449,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glPushMatrix@Base 1.0.4349
  glPushName@Base 1.0.4349
  glQueryCounter@Base 256
+ glQueryCounterNV@Base 331
  glRasterPos2d@Base 1.0.4349
  glRasterPos2dv@Base 1.0.4349
  glRasterPos2f@Base 1.0.4349
@@ -1413,6 +1494,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glRenderbufferStorageMultisampleCoverageNV@Base 1.0.9746
  glRenderbufferStorageMultisampleEXT@Base 1.0.9625
  glRenderbufferStorageMultisampleNV@Base 313.26
+ glRenderbufferStorageOES@Base 325
  glRequestResidentProgramsNV@Base 1.0.4349
  glResetHistogram@Base 1.0.4349
  glResetMinmax@Base 1.0.4349
@@ -1487,10 +1569,10 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glShaderSource@Base 1.0.7664
  glShaderSourceARB@Base 1.0.6106
  glShaderStorageBlockBinding@Base 310
- glStatePropertiesDynamicNV@Base 260
- glStatePropertyfNV@Base 260
- glStatePropertyiNV@Base 260
- glStateTypeNV@Base 260
+#MISSING: 331# glStatePropertiesDynamicNV@Base 260
+#MISSING: 331# glStatePropertyfNV@Base 260
+#MISSING: 331# glStatePropertyiNV@Base 260
+#MISSING: 331# glStateTypeNV@Base 260
  glStencilFillPathInstancedNV@Base 275
  glStencilFillPathNV@Base 275
  glStencilFunc@Base 1.0.4349
@@ -1579,6 +1661,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glTexImage3DMultisampleCoverageNV@Base 256
  glTexImage3DNV@Base 319
 #MISSING: 313.18# glTexImage3DOES@Base 270
+ glTexPageCommitmentARB@Base 331
  glTexParameterIiv@Base 180
  glTexParameterIivEXT@Base 1.0.9746
  glTexParameterIuiv@Base 180
@@ -1614,6 +1697,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glTextureImage3DEXT@Base 180
  glTextureImage3DMultisampleCoverageNV@Base 256
  glTextureImage3DMultisampleNV@Base 256
+ glTexturePageCommitmentEXT@Base 331
  glTextureParameterIivEXT@Base 180
  glTextureParameterIuivEXT@Base 180
  glTextureParameterfEXT@Base 180
@@ -1713,7 +1797,9 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glUniform4uivEXT@Base 1.0.9746
  glUniformBlockBinding@Base 190
  glUniformBufferEXT@Base 1.0.9746
+ glUniformHandleui64ARB@Base 331
  glUniformHandleui64NV@Base 290
+ glUniformHandleui64vARB@Base 331
  glUniformHandleui64vNV@Base 290
  glUniformMatrix2dv@Base 256
  glUniformMatrix2fv@Base 1.0.7664
@@ -1921,6 +2007,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glVertexAttribBinding@Base 310
  glVertexAttribDivisor@Base 256
  glVertexAttribDivisorARB@Base 256
+ glVertexAttribDivisorNV@Base 325
  glVertexAttribFormat@Base 310
  glVertexAttribFormatNV@Base 185
  glVertexAttribI1i@Base 180
@@ -1973,7 +2060,9 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glVertexAttribL1dvEXT@Base 195
  glVertexAttribL1i64NV@Base 195
  glVertexAttribL1i64vNV@Base 195
+ glVertexAttribL1ui64ARB@Base 331
  glVertexAttribL1ui64NV@Base 195
+ glVertexAttribL1ui64vARB@Base 331
  glVertexAttribL1ui64vNV@Base 195
  glVertexAttribL2d@Base 260
  glVertexAttribL2dEXT@Base 195
@@ -2177,6 +2266,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glXWaitVideoSyncSGI@Base 1.0.4349
  glXWaitX@Base 1.0.4349
  glcuR0d4nX@Base 195.36
+ gldbc3cfnX@Base 325
 libnvidia-glcore.so.#VERSION# #PACKAGE# #MINVER#
  (regex)"^_nv\d*glcore@Base$" 0
 libnvidia-tls.so.#VERSION# #PACKAGE# #MINVER#
@@ -2188,6 +2278,7 @@ libnvidia-cfg.so.1 #PACKAGE# #MINVER#
  nvCfgCloseDevice@Base 1.0.8174
  nvCfgDebug@Base 180
  nvCfgDetachDevice@Base 319
+ nvCfgGetDeviceUUID@Base 325
  nvCfgFlashGSyncDevice@Base 304.30
  nvCfgGetDevices@Base 1.0.8174
  nvCfgGetDisplayDevices@Base 1.0.8174

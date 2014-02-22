@@ -71,6 +71,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGLUnmapBufferObject@Base 169
  cuGLUnmapBufferObjectAsync@Base 190
  cuGLUnregisterBufferObject@Base 169
+ cuGetErrorName@Base 331
+ cuGetErrorString@Base 331
  cuGetExportTable@Base 195.30
  cuGraphicsGLRegisterBuffer@Base 195
  cuGraphicsGLRegisterImage@Base 195
@@ -102,6 +104,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemAlloc@Base 169
  cuMemAllocHost@Base 169
  cuMemAllocHost_v2@Base 260
+ cuMemAllocManaged@Base 331
  cuMemAllocPitch@Base 169
  cuMemAllocPitch_v2@Base 260
  cuMemAlloc_v2@Base 260
@@ -193,16 +196,19 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuModuleLoadDataEx@Base 180
  cuModuleLoadFatBinary@Base 169
  cuModuleUnload@Base 169
+ cuOccupancyMaxActiveBlocksPerMultiprocessor@Base 331.38
  cuParamSetSize@Base 169
  cuParamSetTexRef@Base 169
  cuParamSetf@Base 169
  cuParamSeti@Base 169
  cuParamSetv@Base 169
  cuPointerGetAttribute@Base 270
+ cuPointerSetAttribute@Base 331
  cuProfilerInitialize@Base 270
  cuProfilerStart@Base 270
  cuProfilerStop@Base 270
  cuStreamAddCallback@Base 304
+ cuStreamAttachMemAsync@Base 331.38
  cuStreamCreate@Base 169
  cuStreamCreateWithPriority@Base 319
  cuStreamDestroy@Base 169
@@ -254,7 +260,28 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuVDPAUCtxCreate@Base 256
  cuVDPAUCtxCreate_v2@Base 260
  cuVDPAUGetDevice@Base 256
+ cudbgApiAttach@Base 331.20
+ cudbgApiClientPid@Base 331.20
+ cudbgApiClientRevision@Base 331.20
+ cudbgApiDetach@Base 331.20
+ cudbgApiInit@Base 331.20
+ cudbgAttachHandlerAvailable@Base 331.20
+ cudbgDebuggerInitialized@Base 331.20
+ cudbgDetachSuspendedDevicesMask@Base 331.20
+ cudbgEnableIntegratedMemcheck@Base 331.20
+ cudbgEnableLaunchBlocking@Base 331.20
+ cudbgEnablePreemptionDebugging@Base 331.20
  cudbgGetAPI@Base 195
  cudbgGetAPIVersion@Base 195
+ cudbgIpcFlag@Base 331.20
  cudbgMain@Base 304
- gpudbgDebuggerAttached@Base 177
+ cudbgReportDriverApiError@Base 331.20
+ cudbgReportDriverInternalError@Base 331.20
+ cudbgReportedDriverApiErrorCode@Base 331.20
+ cudbgReportedDriverApiErrorFuncNameAddr@Base 331.20
+ cudbgReportedDriverApiErrorFuncNameSize@Base 331.20
+ cudbgReportedDriverInternalErrorCode@Base 331.20
+ cudbgResumeForAttachDetach@Base 331.20
+ cudbgRpcEnabled@Base 331.20
+ cudbgSessionId@Base 331.20
+#MISSING: 331.20# gpudbgDebuggerAttached@Base 177

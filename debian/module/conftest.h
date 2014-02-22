@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 331.20, 325.15, 319.72, 304.116, 295.75, 173.14.38, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 331.38, 325.15, 319.82, 304.117, 295.75, 173.14.39, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -422,6 +422,20 @@
  #define NV_ADDRESS_SPACE_INIT_ONCE_PRESENT
 #else
  #undef NV_ADDRESS_SPACE_INIT_ONCE_PRESENT
+#endif
+
+/* Implement conftest.sh function kbasename */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,8,0)
+ #define NV_KBASENAME_PRESENT
+#else
+ #undef NV_KBASENAME_PRESENT
+#endif
+
+/* Implement conftest.sh function fatal_signal_pending */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,32)  // FIXME: may be older
+ #define NV_FATAL_SIGNAL_PENDING_PRESENT
+#else
+ #undef NV_FATAL_SIGNAL_PENDING_PRESENT
 #endif
 
 /* Implement conftest.sh function sg_init_table */

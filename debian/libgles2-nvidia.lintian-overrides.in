@@ -1,0 +1,15 @@
+# The NVIDIA license does not allow any form of modification.
+[!amd64]: binary-file-built-without-LFS-support
+[i386]: shlib-with-non-pic-code
+spelling-error-in-binary
+hardening-no-fortify-functions
+hardening-no-relro
+hardening-no-stackprotector
+
+# Packages built against the NVIDIA libGL should declare dependencies on
+# the free version for Debian's purposes.
+symbols-declares-dependency-on-other-package libgles2-mesa
+
+# Lintian and debhelper disagree w.r.t a library in a private directory.
+postinst-has-useless-call-to-ldconfig
+postrm-has-useless-call-to-ldconfig
