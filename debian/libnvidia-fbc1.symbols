@@ -6,20 +6,6 @@ libnvidia-fbc.so.1 #PACKAGE# #MINVER#
  NvFBCDestroyHandle@Base 331.38
  NvFBCGetLastErrorStr@Base 331.38
  NvFBCGetStatus@Base 331.38
-#MISSING: 331.38# NvFBCOGLCreateCaptureSession@Base 331
-#MISSING: 331.38# NvFBCOGLCreateHandle@Base 331
-#MISSING: 331.38# NvFBCOGLCreateInstance@Base 331
-#MISSING: 331.38# NvFBCOGLDestroyCaptureSession@Base 331
-#MISSING: 331.38# NvFBCOGLDestroyHandle@Base 331
-#MISSING: 331.38# NvFBCOGLGetLastErrorStr@Base 331
-#MISSING: 331.38# NvFBCOGLGetStatus@Base 331
-#MISSING: 331.38# NvFBCOGLToCudaGrabFrame@Base 331
-#MISSING: 331.38# NvFBCOGLToCudaSetUp@Base 331
-#MISSING: 331.38# NvFBCOGLToH264GetHeader@Base 331
-#MISSING: 331.38# NvFBCOGLToH264GrabFrame@Base 331
-#MISSING: 331.38# NvFBCOGLToH264SetUp@Base 331
-#MISSING: 331.38# NvFBCOGLToSysGrabFrame@Base 331
-#MISSING: 331.38# NvFBCOGLToSysSetUp@Base 331
  NvFBCToCudaGrabFrame@Base 331.38
  NvFBCToCudaSetUp@Base 331.38
  NvFBCToH264GetHeader@Base 331.38

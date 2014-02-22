@@ -10,8 +10,6 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuArrayDestroy@Base 169
  cuArrayGetDescriptor@Base 169
  cuArrayGetDescriptor_v2@Base 260
-#MISSING: 331.38# cuBinaryFree@Base 331
-#MISSING: 331.38# cuCompilePtx@Base 331
  cuCtxAttach@Base 169
  cuCtxCreate@Base 169
  cuCtxCreate_v2@Base 260
@@ -198,7 +196,6 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuModuleLoadDataEx@Base 180
  cuModuleLoadFatBinary@Base 169
  cuModuleUnload@Base 169
-#MISSING: 331.38# cuOccMaxActiveBlocksPerMultiprocessor@Base 331
  cuOccupancyMaxActiveBlocksPerMultiprocessor@Base 331.38
  cuParamSetSize@Base 169
  cuParamSetTexRef@Base 169
@@ -211,7 +208,6 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuProfilerStart@Base 270
  cuProfilerStop@Base 270
  cuStreamAddCallback@Base 304
-#MISSING: 331.38# cuStreamAttachManagedMem@Base 331
  cuStreamAttachMemAsync@Base 331.38
  cuStreamCreate@Base 169
  cuStreamCreateWithPriority@Base 319
