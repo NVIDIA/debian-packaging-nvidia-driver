@@ -10,6 +10,7 @@ nvidia-graphics-drivers (331.49-1) UNRELEASED; urgency=medium
     - Added experimental support for ARGB GLX visuals when Xinerama and
       Composite are enabled at the same time on X.Org xserver 1.15.
   * Update nv-readme.ids.
+  * Update symbols control files.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Feb 2014 22:43:30 +0100
 

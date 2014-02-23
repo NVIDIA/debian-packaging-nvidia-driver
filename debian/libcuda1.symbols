@@ -196,7 +196,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuModuleLoadDataEx@Base 180
  cuModuleLoadFatBinary@Base 169
  cuModuleUnload@Base 169
- cuOccupancyMaxActiveBlocksPerMultiprocessor@Base 331.38
+#MISSING: 331.49# cuOccupancyMaxActiveBlocksPerMultiprocessor@Base 331.38
  cuParamSetSize@Base 169
  cuParamSetTexRef@Base 169
  cuParamSetf@Base 169
