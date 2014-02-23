@@ -11,6 +11,7 @@ nvidia-graphics-drivers (331.49-1) UNRELEASED; urgency=medium
       Composite are enabled at the same time on X.Org xserver 1.15.
   * Update nv-readme.ids.
   * Update symbols control files.
+  * nvidia_3.13_kernel.patch: Remove, fixed upstream.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Feb 2014 22:43:30 +0100
 
