@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 331.38, 325.15, 319.82, 304.117, 295.75, 173.14.39, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 331.49, 325.15, 319.82, 304.117, 295.75, 173.14.39, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -432,10 +432,17 @@
 #endif
 
 /* Implement conftest.sh function fatal_signal_pending */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,32)  // FIXME: may be older
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
  #define NV_FATAL_SIGNAL_PENDING_PRESENT
 #else
  #undef NV_FATAL_SIGNAL_PENDING_PRESENT
+#endif
+
+/* Implement conftest.sh function kuid_t */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,5,0)
+ #define NV_KUID_T_PRESENT
+#else
+ #undef NV_KUID_T_PRESENT
 #endif
 
 /* Implement conftest.sh function sg_init_table */
