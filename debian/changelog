@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (331.49-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (331.49-1) unstable; urgency=medium
 
   * New upstream long lived branch release 331.49 (2014-02-18).
     - Added support for the following GPUs: GeForce GT 710, GeForce 825M.
@@ -14,8 +14,9 @@ nvidia-graphics-drivers (331.49-1) UNRELEASED; urgency=medium
   * nvidia_3.13_kernel.patch: Remove, fixed upstream.
   * conftest.h: Implement new conftest.sh function kuid_t (331.49).
   * bug-script: Report information about /etc/modprobe.d.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Feb 2014 22:43:30 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 23 Feb 2014 03:48:19 +0100
 
 nvidia-graphics-drivers (331.38-2) experimental; urgency=medium
 
