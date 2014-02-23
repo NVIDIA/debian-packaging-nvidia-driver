@@ -66,6 +66,12 @@ ls -la	/usr/lib/nvidia/ \
 	2>/dev/null
 echo
 
+echo "/etc/modprobe.d:"
+ls -la /etc/modprobe.d/
+echo
+grep -ri nvidia /etc/modprobe.d/
+echo
+
 echo "Files from nvidia-installer:"
 ls -la /usr/bin/nvidia-installer /usr/bin/nvidia-uninstall /var/lib/nvidia 2>/dev/null
 echo
