@@ -1,3 +1,17 @@
+nvidia-graphics-drivers (331.49-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 331.49 (2014-02-18).
+    - Added support for the following GPUs: GeForce GT 710, GeForce 825M.
+    - Added a new X configuration option "InbandStereoSignaling" to
+      enable/disable DisplayPort in-band stereo signaling. See
+      "Appendix B. X Config Options" in the README for more information.
+    - Fixed a bug that caused PBO downloads of cube map faces to
+      retrieve incorrect data.
+    - Added experimental support for ARGB GLX visuals when Xinerama and
+      Composite are enabled at the same time on X.Org xserver 1.15.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Feb 2014 22:43:30 +0100
+
 nvidia-graphics-drivers (331.38-2) experimental; urgency=medium
 
   * nvidia_3.13_kernel.patch: New patch from Fedora to adapt to ACPI changes
