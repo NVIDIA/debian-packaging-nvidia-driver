@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (331.67-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (331.67-1) unstable; urgency=medium
 
   * New upstream long lived branch release 331.67 (2014-04-09).
     - Fixed a bug that could lead to crashes when running Left 4 Dead 2
@@ -16,7 +16,7 @@ nvidia-graphics-drivers (331.67-1) UNRELEASED; urgency=medium
   * conftest.h: Implement new conftest.sh function pm_vt_switch_required
     (331.67).
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 22 Apr 2014 14:06:04 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 22 Apr 2014 14:53:29 +0200
 
 nvidia-graphics-drivers (331.49-1) unstable; urgency=medium
 
