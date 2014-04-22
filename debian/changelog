@@ -1,3 +1,20 @@
+nvidia-graphics-drivers (331.67-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 331.67 (2014-04-09).
+    - Fixed a bug that could lead to crashes when running Left 4 Dead 2
+      with threaded optimizations enabled.
+    - Added support for the following GPUs: GeForce GT 705, GeForce GT 720,
+      GeForce GTX 860M, GeForce GTX 870M, GeForce GTX 880M.
+    - Fixed a bug that causes some X clients to be disconnected from the X
+      server when the screen is resized while RandR 1.4 display offloading is in
+      use.
+    - Fixed a bug that could cause display corruption when resuming from
+      suspend on systems using RandR 1.4 display offloading with recent
+      Linux kernels.
+    - Added support for Tridelity SL stereo mode.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 22 Apr 2014 14:06:04 +0200
+
 nvidia-graphics-drivers (331.49-1) unstable; urgency=medium
 
   * New upstream long lived branch release 331.49 (2014-02-18).
