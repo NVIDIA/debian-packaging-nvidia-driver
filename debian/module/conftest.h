@@ -445,6 +445,13 @@
  #undef NV_KUID_T_PRESENT
 #endif
 
+/* Implement conftest.sh function pm_vt_switch_required */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,10,0)
+ #define NV_PM_VT_SWITCH_REQUIRED_PRESENT
+#else
+ #undef NV_PM_VT_SWITCH_REQUIRED_PRESENT
+#endif
+
 /* Implement conftest.sh function sg_init_table */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,24)
  #define NV_SG_INIT_TABLE_PRESENT

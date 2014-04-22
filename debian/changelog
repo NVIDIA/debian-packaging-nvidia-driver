@@ -13,6 +13,8 @@ nvidia-graphics-drivers (331.67-1) UNRELEASED; urgency=medium
       Linux kernels.
     - Added support for Tridelity SL stereo mode.
   * Update nv-readme.ids.
+  * conftest.h: Implement new conftest.sh function pm_vt_switch_required
+    (331.67).
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 22 Apr 2014 14:06:04 +0200
 
