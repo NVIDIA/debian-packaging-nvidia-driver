@@ -12,6 +12,7 @@ nvidia-graphics-drivers (331.67-1) unstable; urgency=medium
       suspend on systems using RandR 1.4 display offloading with recent
       Linux kernels.
     - Added support for Tridelity SL stereo mode.
+    * Improved compatibility with recent Linux kernels.  (Closes: #742645)
   * Update nv-readme.ids.
   * conftest.h: Implement new conftest.sh function pm_vt_switch_required
     (331.67).
