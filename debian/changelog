@@ -1,3 +1,41 @@
+nvidia-graphics-drivers (334.16-1) UNRELEASED; urgency=medium
+
+  * New upstream short lived branch release 334.16 (2014-02-08).
+    - Fixed a bug that could cause applications using the OpenGL
+      extension ARB_query_buffer_object to crash under Xinerama.
+    - Fixed a bug that could cause poor stereo synchronization in large
+      multi-monitor setups using 3D Vision, due to failed hardware
+      handshaking on some of the monitors.
+    - Fixed a bug that prevented some DisplayPort 1.2 displays from being
+      properly restored after a VT switch.
+    - Renamed per GPU proc directories in /proc/driver/nvidia/gpus/ with GPU's
+      bus location represented in "domain:bus:device.function" format.
+    - Added 64-bit EGL and OpenGL ES libraries to 64-bit driver prackages.
+    - Changed format of "Bus Location" field reported in the
+      /proc/driver/nvidia/gpus/0..N/information files from
+      "domain:bus.device.function" to "domain:bus:device.function" to match
+      the lspci format.
+    - Fixed a bug in the GLX_EXT_buffer_age extension where incorrect
+      ages would be returned unless triple buffering was enabled.
+    - Updated the NVIDIA X driver to load the NVIDIA kernel module using
+      `nvidia-modprobe`, rather than the XFree86 DDX helper function
+      xf86LoadKernelModule().
+    - Changed the driver's default behavior to stop deleting RandR 1.2 outputs
+      corresponding to unused DisplayPort 1.2 devices.  Deleting these outputs
+      can confuse some applications.  Added a new option,
+      DeleteUnusedDP12Displays, which can be used to turn this behavior back on.
+      This option can be enabled by running
+        sudo nvidia-xconfig --delete-unused-dp12-displays
+    - Improved support for the __GL_SYNC_DISPLAY_DEVICE and
+      VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE environment variables in certain
+      configurations.  Both environment variables will now recognize all
+      supported display device names.  See "Appendix C. Display Device Names"
+      and "Appendix G. VDPAU Support" in the README for more details.
+    - Improved performance of the X driver when handling large numbers of
+      surface allocations.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2014 14:02:01 +0200
+
 nvidia-graphics-drivers (331.67-1) unstable; urgency=medium
 
   * New upstream long lived branch release 331.67 (2014-04-09).
