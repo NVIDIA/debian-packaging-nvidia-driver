@@ -1,5 +1,35 @@
-nvidia-graphics-drivers (334.16-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (334.21-1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 334.21 (2014-03-03).
+    - Fixed a regression in the NVIDIA kernel module which caused it to
+      improperly dereference a userspace pointer. This potential security
+      issue was initially reported to the public at:
+        http://forums.grsecurity.net/viewtopic.php?f=3&t=3922
+      The regression did not affect NVIDIA GPU drivers before release 334.
+    - Fixed a bug that could cause OpenGL programs to hang after calling
+      fork(2).
+    - Fixed a bug that could cause a multi-threaded OpenGL application
+      to crash when one of its threads exits after the application has
+      unloaded libGL.
+    - Added support for the following GPUs: GeForce GTX 750 Ti,
+      GeForce GTX 750, GeForce GTX 745, GeForce GTX TITAN Black.
+    - Added support for GPUs with VDPAU Feature Set E. See the README
+      for details.
+    - On GPUs with VDPAU Feature Set E, VDPAU now supports more robust
+      decode error handling at the cost of a minor performance impact.
+      This can be disabled by setting the
+      VDPAU_NVIDIA_DISABLE_ERROR_CONCEALMENT environment variable to 1.
+    - Added support for application profile rule patterns which are logical
+      operations of subpatterns. See the README for details.
+    - Added support for a "findfile" application profile feature which
+      allows the driver to apply profiles based on matching files in the
+      same directory as the process executable. See the README for details.
+    - Improved performance of OpenGL applications when used in conjunction
+      with the X driver's composition pipeline.  The composition pipeline may
+      be explicitly enabled by using the ForceCompositionPipeline or
+      ForceFullCompositionPipeline MetaMode options, or implicitly enabled
+      when certain features such as some XRandR transformations, rotation,
+      Warp & Blend, PRIME, and NvFBC are used.
   * New upstream short lived branch release 334.16 (2014-02-08).
     - Fixed a bug that could cause applications using the OpenGL
       extension ARB_query_buffer_object to crash under Xinerama.
@@ -34,7 +64,7 @@ nvidia-graphics-drivers (334.16-1) UNRELEASED; urgency=medium
     - Improved performance of the X driver when handling large numbers of
       surface allocations.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2014 14:02:01 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2014 14:10:14 +0200
 
 nvidia-graphics-drivers (331.67-1) unstable; urgency=medium
 
