@@ -27,7 +27,7 @@ libGLESv1_CM.so.1 libgles1-mesa
  glCopyTexImage2D@Base 331
  glCopyTexSubImage2D@Base 331
  glCullFace@Base 331
- glCurrentPaletteMatrixOES@Base 331
+#MISSING: 334# glCurrentPaletteMatrixOES@Base 331
  glDeleteBuffers@Base 331
  glDeleteTextures@Base 331
  glDepthFunc@Base 331
@@ -96,13 +96,13 @@ libGLESv1_CM.so.1 libgles1-mesa
  glLoadIdentity@Base 331
  glLoadMatrixf@Base 331
  glLoadMatrixx@Base 331
- glLoadPaletteFromModelViewMatrixOES@Base 331
+#MISSING: 334# glLoadPaletteFromModelViewMatrixOES@Base 331
  glLogicOp@Base 331
  glMaterialf@Base 331
  glMaterialfv@Base 331
  glMaterialx@Base 331
  glMaterialxv@Base 331
- glMatrixIndexPointerOES@Base 331
+#MISSING: 334# glMatrixIndexPointerOES@Base 331
  glMatrixMode@Base 331
  glMultMatrixf@Base 331
  glMultMatrixx@Base 331
@@ -156,5 +156,4 @@ libGLESv1_CM.so.1 libgles1-mesa
  glTranslatex@Base 331
  glVertexPointer@Base 331
  glViewport@Base 331
- glWeightPointerOES@Base 331
-
+#MISSING: 334# glWeightPointerOES@Base 331
