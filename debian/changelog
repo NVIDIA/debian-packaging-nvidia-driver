@@ -63,6 +63,7 @@ nvidia-graphics-drivers (334.21-1) UNRELEASED; urgency=medium
       and "Appendix G. VDPAU Support" in the README for more details.
     - Improved performance of the X driver when handling large numbers of
       surface allocations.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2014 14:10:14 +0200
 
