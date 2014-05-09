@@ -84,15 +84,19 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glBlendEquationSeparateEXT@Base 1.0.6106
  glBlendEquationSeparatei@Base 256
  glBlendEquationSeparateiARB@Base 190.18.05
+ glBlendEquationSeparateiEXT@Base 337.19
  glBlendEquationi@Base 256
  glBlendEquationiARB@Base 190.18.05
+ glBlendEquationiEXT@Base 337.19
  glBlendFunc@Base 1.0.4349
  glBlendFuncSeparate@Base 1.0.4349
  glBlendFuncSeparateEXT@Base 1.0.4349
  glBlendFuncSeparatei@Base 256
  glBlendFuncSeparateiARB@Base 190.18.05
+ glBlendFuncSeparateiEXT@Base 337.19
  glBlendFunci@Base 256
  glBlendFunciARB@Base 190.18.05
+ glBlendFunciEXT@Base 337.19
  glBlendParameteriNV@Base 310
  glBlitFramebuffer@Base 180
  glBlitFramebufferEXT@Base 1.0.9625
@@ -184,6 +188,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glColorMask@Base 1.0.4349
  glColorMaskIndexedEXT@Base 1.0.9746
  glColorMaski@Base 180
+ glColorMaskiEXT@Base 337.19
  glColorMaterial@Base 1.0.4349
  glColorP3ui@Base 256
  glColorP3uiv@Base 256
@@ -248,6 +253,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glCopyConvolutionFilter1D@Base 1.0.4349
  glCopyConvolutionFilter2D@Base 1.0.4349
  glCopyImageSubData@Base 310
+ glCopyImageSubDataEXT@Base 337.19
  glCopyImageSubDataNV@Base 190
  glCopyMultiTexImage1DEXT@Base 180
  glCopyMultiTexImage2DEXT@Base 180
@@ -353,6 +359,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDisableVertexAttribArray@Base 1.0.7664
  glDisableVertexAttribArrayARB@Base 1.0.4349
  glDisablei@Base 180
+ glDisableiEXT@Base 337.19
  glDispatchCompute@Base 310
  glDispatchComputeGroupSizeARB@Base 331
  glDispatchComputeIndirect@Base 310
@@ -414,6 +421,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glEnableVertexAttribArray@Base 1.0.7664
  glEnableVertexAttribArrayARB@Base 1.0.4349
  glEnablei@Base 180
+ glEnableiEXT@Base 337.19
  glEnd@Base 1.0.4349
  glEndConditionalRender@Base 180
  glEndConditionalRenderNV@Base 165
@@ -753,7 +761,9 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetRenderbufferParameterivEXT@Base 1.0.7664
  glGetRenderbufferParameterivOES@Base 325
  glGetSamplerParameterIiv@Base 256
+ glGetSamplerParameterIivEXT@Base 337.19
  glGetSamplerParameterIuiv@Base 256
+ glGetSamplerParameterIuivEXT@Base 337.19
  glGetSamplerParameterfv@Base 256
  glGetSamplerParameteriv@Base 256
  glGetSeparableFilter@Base 1.0.4349
@@ -917,6 +927,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glIsEnabled@Base 1.0.4349
  glIsEnabledIndexedEXT@Base 1.0.9746
  glIsEnabledi@Base 180
+ glIsEnablediEXT@Base 337.19
  glIsFenceNV@Base 1.0.4349
  glIsFramebuffer@Base 180
  glIsFramebufferEXT@Base 1.0.7664
@@ -1246,8 +1257,10 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glOrthox@Base 302
  glPassThrough@Base 1.0.4349
  glPatchParameterfv@Base 256
+ glPatchParameterfvEXT@Base 337.19
  glPatchParameterfvNV@Base 195
  glPatchParameteri@Base 256
+ glPatchParameteriEXT@Base 337.19
  glPatchParameteriNV@Base 195
  glPathColorGenNV@Base 275
  glPathCommandsNV@Base 275
@@ -1255,9 +1268,11 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glPathCoverDepthFuncNV@Base 275
  glPathDashArrayNV@Base 275
  glPathFogGenNV@Base 275
+ glPathGlyphIndexArrayNV@Base 337.19
  glPathGlyphIndexRangeNV@Base 334
  glPathGlyphRangeNV@Base 275
  glPathGlyphsNV@Base 275
+ glPathMemoryGlyphIndexArrayNV@Base 337.19
  glPathParameterfNV@Base 275
  glPathParameterfvNV@Base 275
  glPathParameteriNV@Base 275
@@ -1553,7 +1568,9 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glSampleMaskIndexedNV@Base 177
  glSampleMaski@Base 190.18.05
  glSamplerParameterIiv@Base 256
+ glSamplerParameterIivEXT@Base 337.19
  glSamplerParameterIuiv@Base 256
+ glSamplerParameterIuivEXT@Base 337.19
  glSamplerParameterf@Base 256
  glSamplerParameterfv@Base 256
  glSamplerParameteri@Base 256
@@ -1635,6 +1652,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glTexBufferARB@Base 180
  glTexBufferEXT@Base 1.0.9746
  glTexBufferRange@Base 310
+ glTexBufferRangeEXT@Base 337.19
  glTexCoord1d@Base 1.0.4349
  glTexCoord1dv@Base 1.0.4349
  glTexCoord1f@Base 1.0.4349
@@ -1768,6 +1786,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glTextureSubImage2DEXT@Base 180
  glTextureSubImage3DEXT@Base 180
  glTextureView@Base 310
+ glTextureViewEXT@Base 337.19
  glTrackMatrixNV@Base 1.0.4349
  glTransformFeedbackAttribsNV@Base 1.0.9746
  glTransformFeedbackStreamAttribsNV@Base 195
