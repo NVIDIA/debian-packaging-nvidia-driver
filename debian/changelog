@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (337.19-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (337.19-1) experimental; urgency=medium
 
   * New upstream beta release 337.17 (2014-05-01).
     - Fixed a bug causing mode validation to fail for 4K resolutions over HDMI
@@ -64,6 +64,8 @@ nvidia-graphics-drivers (337.19-1) UNRELEASED; urgency=medium
       bits, and RGB5 formats were reported as having 16 bits.  Now they are
       correctly reported as 30, 24, and 15 bit formats respectively as
       required by the GLX and EGL specifications.
+    * Improved compatibility with recent Linux kernels.
+      (Closes: #745885, #746519)
   * New upstream release 331 series.
     - Fixed a bug that caused blank screens and flickering when rotating
       displays in a Base Mosaic layout.
@@ -79,7 +81,7 @@ nvidia-graphics-drivers (337.19-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Update symbols control files.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 09 May 2014 08:52:59 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 09 May 2014 09:08:38 +0200
 
 nvidia-graphics-drivers (334.21-1) experimental; urgency=medium
 
