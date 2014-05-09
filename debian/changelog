@@ -53,6 +53,7 @@ nvidia-graphics-drivers (337.12-1) UNRELEASED; urgency=medium
       bits, and RGB5 formats were reported as having 16 bits.  Now they are
       correctly reported as 30, 24, and 15 bit formats respectively as
       required by the GLX and EGL specifications.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2014 15:12:25 +0200
 
