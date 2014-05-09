@@ -71,6 +71,14 @@ nvidia-graphics-drivers (334.21-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2014 14:41:03 +0200
 
+nvidia-graphics-drivers (331.67-2) unstable; urgency=medium
+
+  * Drop Breaks: make (= 3.82-1), fixed in make/experimental.
+  * Add Depends: nvidia-modprobe.
+  * Build the nvidia-uvm module, too.  (Closes: #745715, #746643)
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 06 May 2014 07:35:39 +0200
+
 nvidia-graphics-drivers (331.67-1) unstable; urgency=medium
 
   * New upstream long lived branch release 331.67 (2014-04-09).

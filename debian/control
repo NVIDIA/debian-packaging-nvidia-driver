@@ -235,6 +235,7 @@ Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
  glx-alternative-nvidia (>= 0.4),
+ nvidia-modprobe,
  ${misc:Depends}
 Conflicts:
  libgl1-nvidia-alternatives,
@@ -272,8 +273,6 @@ Recommends:
  ${nvidia}-driver (>= ${nvidia:Version}),
 Provides:
  ${nvidia}-kernel-${nvidia:Version}${nvidia:Perfkit},
-Breaks:
- make (= 3.82-1),
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  This package builds the NVIDIA Xorg binary kernel module needed by
  ${nvidia}-driver, using DKMS.
@@ -309,7 +308,6 @@ Suggests:
  ${nvidia}-driver (>= ${nvidia:Version}),
 Breaks:
  module-assistant (<< 0.11.6~),
- make (= 3.82-1),
 Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  This package provides the source for the NVIDIA Xorg binary kernel module
  needed by ${nvidia}-driver in a form suitable
