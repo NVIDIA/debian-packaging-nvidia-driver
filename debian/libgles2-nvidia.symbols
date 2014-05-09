@@ -3,38 +3,60 @@ libGLESv2.so.2 libgles2-mesa
  NvGlEs2Init@Base 331
  glActiveTexture@Base 331
  glAttachShader@Base 331
+ glBeginQuery@Base 337
+ glBeginTransformFeedback@Base 337
  glBindAttribLocation@Base 331
  glBindBuffer@Base 331
+ glBindBufferBase@Base 337
+ glBindBufferRange@Base 337
  glBindFramebuffer@Base 331
  glBindRenderbuffer@Base 331
+ glBindSampler@Base 337
  glBindTexture@Base 331
+ glBindTransformFeedback@Base 337
+ glBindVertexArray@Base 337
  glBlendColor@Base 331
  glBlendEquation@Base 331
  glBlendEquationSeparate@Base 331
  glBlendFunc@Base 331
  glBlendFuncSeparate@Base 331
+ glBlitFramebuffer@Base 337
  glBufferData@Base 331
  glBufferSubData@Base 331
  glCheckFramebufferStatus@Base 331
  glClear@Base 331
+ glClearBufferfi@Base 337
+ glClearBufferfv@Base 337
+ glClearBufferiv@Base 337
+ glClearBufferuiv@Base 337
  glClearColor@Base 331
  glClearDepthf@Base 331
  glClearStencil@Base 331
+ glClientWaitSync@Base 337
  glColorMask@Base 331
  glCompileShader@Base 331
  glCompressedTexImage2D@Base 331
+ glCompressedTexImage3D@Base 337
  glCompressedTexSubImage2D@Base 331
+ glCompressedTexSubImage3D@Base 337
+ glCopyBufferSubData@Base 337
  glCopyTexImage2D@Base 331
  glCopyTexSubImage2D@Base 331
+ glCopyTexSubImage3D@Base 337
  glCreateProgram@Base 331
  glCreateShader@Base 331
  glCullFace@Base 331
  glDeleteBuffers@Base 331
  glDeleteFramebuffers@Base 331
  glDeleteProgram@Base 331
+ glDeleteQueries@Base 337
  glDeleteRenderbuffers@Base 331
+ glDeleteSamplers@Base 337
  glDeleteShader@Base 331
+ glDeleteSync@Base 337
  glDeleteTextures@Base 331
+ glDeleteTransformFeedbacks@Base 337
+ glDeleteVertexArrays@Base 337
  glDepthFunc@Base 331
  glDepthMask@Base 331
  glDepthRangef@Base 331
@@ -42,61 +64,115 @@ libGLESv2.so.2 libgles2-mesa
  glDisable@Base 331
  glDisableVertexAttribArray@Base 331
  glDrawArrays@Base 331
+ glDrawArraysInstanced@Base 337
+ glDrawBuffers@Base 337
  glDrawElements@Base 331
+ glDrawElementsInstanced@Base 337
+ glDrawRangeElements@Base 337
  glEnable@Base 331
  glEnableVertexAttribArray@Base 331
+ glEndQuery@Base 337
+ glEndTransformFeedback@Base 337
+ glFenceSync@Base 337
  glFinish@Base 331
  glFlush@Base 331
+ glFlushMappedBufferRange@Base 337
  glFramebufferRenderbuffer@Base 331
  glFramebufferTexture2D@Base 331
+ glFramebufferTextureLayer@Base 337
  glFrontFace@Base 331
  glGenBuffers@Base 331
  glGenFramebuffers@Base 331
+ glGenQueries@Base 337
  glGenRenderbuffers@Base 331
+ glGenSamplers@Base 337
  glGenTextures@Base 331
+ glGenTransformFeedbacks@Base 337
+ glGenVertexArrays@Base 337
  glGenerateMipmap@Base 331
  glGetActiveAttrib@Base 331
  glGetActiveUniform@Base 331
+ glGetActiveUniformBlockName@Base 337
+ glGetActiveUniformBlockiv@Base 337
+ glGetActiveUniformsiv@Base 337
  glGetAttachedShaders@Base 331
  glGetAttribLocation@Base 331
  glGetBooleanv@Base 331
+ glGetBufferParameteri64v@Base 337
  glGetBufferParameteriv@Base 331
+ glGetBufferPointerv@Base 337
  glGetError@Base 331
  glGetFloatv@Base 331
+ glGetFragDataLocation@Base 337
  glGetFramebufferAttachmentParameteriv@Base 331
+ glGetInteger64i_v@Base 337
+ glGetInteger64v@Base 337
+ glGetIntegeri_v@Base 337
  glGetIntegerv@Base 331
+ glGetInternalformativ@Base 337
+ glGetProgramBinary@Base 337
  glGetProgramInfoLog@Base 331
  glGetProgramiv@Base 331
+ glGetQueryObjectuiv@Base 337
+ glGetQueryiv@Base 337
  glGetRenderbufferParameteriv@Base 331
+ glGetSamplerParameterfv@Base 337
+ glGetSamplerParameteriv@Base 337
  glGetShaderInfoLog@Base 331
  glGetShaderPrecisionFormat@Base 331
  glGetShaderSource@Base 331
  glGetShaderiv@Base 331
  glGetString@Base 331
+ glGetStringi@Base 337
+ glGetSynciv@Base 337
  glGetTexParameterfv@Base 331
  glGetTexParameteriv@Base 331
+ glGetTransformFeedbackVarying@Base 337
+ glGetUniformBlockIndex@Base 337
+ glGetUniformIndices@Base 337
  glGetUniformLocation@Base 331
  glGetUniformfv@Base 331
  glGetUniformiv@Base 331
+ glGetUniformuiv@Base 337
+ glGetVertexAttribIiv@Base 337
+ glGetVertexAttribIuiv@Base 337
  glGetVertexAttribPointerv@Base 331
  glGetVertexAttribfv@Base 331
  glGetVertexAttribiv@Base 331
  glHint@Base 331
+ glInvalidateFramebuffer@Base 337
+ glInvalidateSubFramebuffer@Base 337
  glIsBuffer@Base 331
  glIsEnabled@Base 331
  glIsFramebuffer@Base 331
  glIsProgram@Base 331
+ glIsQuery@Base 337
  glIsRenderbuffer@Base 331
+ glIsSampler@Base 337
  glIsShader@Base 331
+ glIsSync@Base 337
  glIsTexture@Base 331
+ glIsTransformFeedback@Base 337
+ glIsVertexArray@Base 337
  glLineWidth@Base 331
  glLinkProgram@Base 331
+ glMapBufferRange@Base 337
+ glPauseTransformFeedback@Base 337
  glPixelStorei@Base 331
  glPolygonOffset@Base 331
+ glProgramBinary@Base 337
+ glProgramParameteri@Base 337
+ glReadBuffer@Base 337
  glReadPixels@Base 331
  glReleaseShaderCompiler@Base 331
  glRenderbufferStorage@Base 331
+ glRenderbufferStorageMultisample@Base 337
+ glResumeTransformFeedback@Base 337
  glSampleCoverage@Base 331
+ glSamplerParameterf@Base 337
+ glSamplerParameterfv@Base 337
+ glSamplerParameteri@Base 337
+ glSamplerParameteriv@Base 337
  glScissor@Base 331
  glShaderBinary@Base 331
  glShaderSource@Base 331
@@ -107,30 +183,51 @@ libGLESv2.so.2 libgles2-mesa
  glStencilOp@Base 331
  glStencilOpSeparate@Base 331
  glTexImage2D@Base 331
+ glTexImage3D@Base 337
  glTexParameterf@Base 331
  glTexParameterfv@Base 331
  glTexParameteri@Base 331
  glTexParameteriv@Base 331
+ glTexStorage2D@Base 337
+ glTexStorage3D@Base 337
  glTexSubImage2D@Base 331
+ glTexSubImage3D@Base 337
+ glTransformFeedbackVaryings@Base 337
  glUniform1f@Base 331
  glUniform1fv@Base 331
  glUniform1i@Base 331
  glUniform1iv@Base 331
+ glUniform1ui@Base 337
+ glUniform1uiv@Base 337
  glUniform2f@Base 331
  glUniform2fv@Base 331
  glUniform2i@Base 331
  glUniform2iv@Base 331
+ glUniform2ui@Base 337
+ glUniform2uiv@Base 337
  glUniform3f@Base 331
  glUniform3fv@Base 331
  glUniform3i@Base 331
  glUniform3iv@Base 331
+ glUniform3ui@Base 337
+ glUniform3uiv@Base 337
  glUniform4f@Base 331
  glUniform4fv@Base 331
  glUniform4i@Base 331
  glUniform4iv@Base 331
+ glUniform4ui@Base 337
+ glUniform4uiv@Base 337
+ glUniformBlockBinding@Base 337
  glUniformMatrix2fv@Base 331
+ glUniformMatrix2x3fv@Base 337
+ glUniformMatrix2x4fv@Base 337
  glUniformMatrix3fv@Base 331
+ glUniformMatrix3x2fv@Base 337
+ glUniformMatrix3x4fv@Base 337
  glUniformMatrix4fv@Base 331
+ glUniformMatrix4x2fv@Base 337
+ glUniformMatrix4x3fv@Base 337
+ glUnmapBuffer@Base 337
  glUseProgram@Base 331
  glValidateProgram@Base 331
  glVertexAttrib1f@Base 331
@@ -141,5 +238,12 @@ libGLESv2.so.2 libgles2-mesa
  glVertexAttrib3fv@Base 331
  glVertexAttrib4f@Base 331
  glVertexAttrib4fv@Base 331
+ glVertexAttribDivisor@Base 337
+ glVertexAttribI4i@Base 337
+ glVertexAttribI4iv@Base 337
+ glVertexAttribI4ui@Base 337
+ glVertexAttribI4uiv@Base 337
+ glVertexAttribIPointer@Base 337
  glVertexAttribPointer@Base 331
  glViewport@Base 331
+ glWaitSync@Base 337
