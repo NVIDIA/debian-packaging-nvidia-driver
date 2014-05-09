@@ -1,3 +1,61 @@
+nvidia-graphics-drivers (337.12-1) UNRELEASED; urgency=medium
+
+  * New upstream beta release 337.12 (2014-04-08).
+    - Fixed a bug that could cause OpenGL programs to freeze under some
+      low memory conditions.
+    - Updated the display configuration page in nvidia-settings to uniquely
+      identify DisplayPort 1.2 monitors by displaying the monitor GUIDs.
+    - Fixed a bug that could cause ECC settings to be displayed incorrectly
+      in nvidia-settings when changing ECC settings on a multi-GPU system.
+    - Removed the "OnDemandVBlankInterrupts" X configuration option: this
+      option has been enabled by default since version 177.68 of the
+      NVIDIA Unix driver, and the documentation had not been updated to
+      reflect the new default value.
+    - Fixed a bug that caused GPU errors when hotplugging daisy-chained
+      DisplayPort 1.2 displays.
+    - Updated the color correction settings page in the nvidia-settings
+      control panel to reflect gamma changes made by other RandR clients
+      while the control panel was already running.
+    - Fixed a bug that prevented the use of multiple simultaneous X servers
+      on UEFI systems.
+    - Updated the nvidia-settings source package to build libXNVCtrl when
+      building nvidia-settings, instead of relying on a pre-built library.
+    - Added the ability to over- and under-clock certain GeForce
+       GPUs in the GeForce GTX 400 series and later.  For GPUs that allow it,
+       an offset can be applied to clock values in some clock domains of
+       some performance levels.  This clock manipulation is done at the
+       user's own risk.  See the README documentation of the "CoolBits"
+       X configuration option for more details.
+    - Added support for the following GPUs: GeForce 830M, GeForce 840M,
+      GeForce 845M, GeForce GTX 850M.
+    - Updated the minimum required version of GTK+ from 2.2 to 2.4 for
+      nvidia-settings.
+    - Renamed the RandR output property _GUID to GUID now that it is an official
+      property documented in randrproto.txt:
+        http://cgit.freedesktop.org/xorg/proto/randrproto/commit/?id=19fc4c5a72eb9919d720ad66734029d9f8e313b1
+    - Reduced CPU utilization and GPU memory utilization of the NVIDIA
+      EGL driver.
+    - Added support for the following EGL extensions:
+      - EGL_EXT_buffer_age;
+      - EGL_EXT_client_extensions;
+      - EGL_EXT_platform_base;
+      - EGL_EXT_platform_x11.
+    - Renamed the "Clone" setting of the "MetaModeOrientation" X configuration
+      option to "SamePositionAs", to make clear that this setting applies to
+      the position only, and not to the resolution of modes in the MetaMode.
+    - Added NV-CONTROL attribute NV_CTRL_VIDEO_ENCODER_UTILIZATION to query
+      utilization percentage of the video encoder engine.
+    - Added support for the GLX_NV_delay_before_swap extension.  For more
+      details, see the extension specification:
+        http://www.opengl.org/registry/specs/NV/glx_delay_before_swap.txt
+    - Report correct buffer sizes for RGB GLX visuals, GLXFBConfigs, and
+      EGLConfigs.  Previously, RGB10 and RGB8 formats were reported as having 32
+      bits, and RGB5 formats were reported as having 16 bits.  Now they are
+      correctly reported as 30, 24, and 15 bit formats respectively as
+      required by the GLX and EGL specifications.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2014 15:12:25 +0200
+
 nvidia-graphics-drivers (334.21-1) experimental; urgency=medium
 
   * New upstream short lived branch release 334.21 (2014-03-03).
