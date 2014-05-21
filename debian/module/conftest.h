@@ -182,13 +182,18 @@
 #endif
 
 /* Implement conftest.sh function acquire_console_sem */
-// 2.6.38 renamed {acquire,release}_console_sem() to console_{,un}lock()
-// but NVIDIA neither checks for these new names nor uses them
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,4,10) && \
     LINUX_VERSION_CODE < KERNEL_VERSION(2,6,38)
  #define NV_ACQUIRE_CONSOLE_SEM_PRESENT
 #else
  #undef NV_ACQUIRE_CONSOLE_SEM_PRESENT
+#endif
+
+/* Implement conftest.sh function console_lock */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,38)
+ #define NV_CONSOLE_LOCK_PRESENT
+#else
+ #undef NV_CONSOLE_LOCK_PRESENT
 #endif
 
 /* Implement conftest.sh function kmem_cache_create */
