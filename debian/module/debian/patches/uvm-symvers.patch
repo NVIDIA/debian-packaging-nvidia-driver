@@ -1,0 +1,17 @@
+Author: Andreas Beckmann <debian@abeckmann.de>
+Description: fix up the ../Module.symvers dependency for our uvm build
+
+--- a/uvm/Kbuild
++++ b/uvm/Kbuild
+@@ -217,8 +217,11 @@ include $(RM_OUT_DIR)/nvidia-modules-com
+ 
+ $(eval $(call BUILD_MODULE_RULE, $(MODULE_OBJECT),"uvm",))
+ module: $(MODULE_OBJECT)
++$(MODULE_GLUE_TARGETS): $(UVM_MODULE_SYMVERS)
+ 
+ $(RM_MODULE_SYMVERS):
++	@echo "*** Please build the nvidia.ko module first ***"
++	exit 1
+ 	cd $(RM_OUT_DIR); make module SYSSRC=$(KERNEL_SOURCES) SYSOUT=$(KERNEL_OUTPUT) KBUILD_EXTMOD=$(RM_OUT_DIR)
+ 
+ $(UVM_MODULE_SYMVERS): $(RM_MODULE_SYMVERS)
