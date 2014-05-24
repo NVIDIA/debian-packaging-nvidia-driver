@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (337.19-2) UNRELEASED; urgency=medium
+
+  * nvidia-driver: Ship new file                        (Closes: #748909)
+    /usr/share/nvidia/nvidia-application-profiles-$VER-key-documentation.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 24 May 2014 22:46:12 +0200
+
 nvidia-graphics-drivers (337.19-1) experimental; urgency=medium
 
   * New upstream beta release 337.17 (2014-05-01).
