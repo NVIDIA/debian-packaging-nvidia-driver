@@ -42,6 +42,18 @@ nvidia-graphics-drivers (340.24-1) UNRELEASED; urgency=medium
       more details.
     - Fixed an X driver bug that caused gamma ramp updates of the green
       channel at depth 15, on some recent GPUs, to be ignored.
+  * New upstream short lived branch release 337.25 (2014-05-30).
+    - Fixed a bug that caused X to crash when querying clock offsets for
+      non-existent performance levels.
+    - Added support for the following GPUs:
+        * GeForce GTX TITAN Z
+        * GeForce GT 740
+    - Fixed a performance regression when running KDE with desktop effects
+      using the OpenGL compositing backend.
+    - Fixed a bug that caused duplicate entries to appear in some dropdown
+      menus in the "Application Profiles" page of nvidia-settings.
+    - Fixed a regression that could cause OpenGL rendering corruption on X
+      screens with 30 bit per pixel color.
   * Add myself to Uploaders.
 
   [ Andreas Beckmann ]
