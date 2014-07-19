@@ -1,5 +1,50 @@
-nvidia-graphics-drivers (337.19-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.24-1) UNRELEASED; urgency=medium
 
+  * Team upload.
+
+  [ Vincent Cheng ]
+  * New upstream long lived branch release 340.24 (2014-07-08).
+    - Fixed a bug that prevented 3D Vision stereo and ultra low motion blur
+      modes from working on G-SYNC capable monitors in some cases.
+    - Fixed a bug that caused the "Allow G-SYNC" checkbox to be displayed in
+      nvidia-settings even if the GPUs in the system are not capable of G-SYNC.
+    - Fixed a kernel crash when running some applications with IOMMU
+      functionality enabled.
+    - Fixed a floating point exception in the OpenGL driver when running
+      "Risk of Rain" under Wine.
+  * New upstream beta release 340.17 (2014-06-09).
+    - Made various improvements and corrections to the information reported
+      to GL applications via the KHR_debug and ARB_debug_output extensions.
+    - Fixed a bug that caused GLX applications which simultaneously create
+      drawables on multiple X servers to crash when swapping buffers.
+    - Updated nvidia-settings to report all valid names for each target
+      when querying target types, e.g. `nvidia-settings -q gpus`.
+    - Added support for controlling the availability of Fast Approximate
+      Antialiasing (FXAA) on a per-application basis via the new
+      __GL_ALLOW_FXAA_USAGE environment variable and the corresponding
+      GLAllowFXAAUsage application profile key. See the README for details.
+    - Fixed a bug where indirect rendering could become corrupted on
+      system configurations that disallow writing to executable memory.
+    - Updated the nvidia-settings Makefiles to allow nvidia-settings
+      to be dynamically linked against the host system's libjansson.
+      This option can be enabled by setting the NV_USE_BUNDLED_LIBJANSSON
+      Makefile variable to 0.  Please note that nvidia-settings requires
+      libjansson version 2.2 or later.
+    - Removed the runlevel check from nvidia-installer: the installation
+      problems formerly associated with runlevel 1 no longer apply.
+    - Added initial support for G-SYNC monitors.  Additional details and system
+      requirements can be found at:
+        http://www.geforce.com/hardware/technology/g-sync
+    - Improved support for running the NVIDIA driver in configurations where
+      writing to executable memory is disallowed.  Driver optimizations that
+      require writing to executable memory can be forcefully disabled using the
+      new __GL_WRITE_TEXT_SECTION environment variable.  See the README for
+      more details.
+    - Fixed an X driver bug that caused gamma ramp updates of the green
+      channel at depth 15, on some recent GPUs, to be ignored.
+
+  [ Andreas Beckmann ]
+  * Merged from 331.79-1 in unstable prior to being branched out:
   * nvidia-driver: Ship new file                        (Closes: #748909)
     /usr/share/nvidia/nvidia-application-profiles-$VER-key-documentation.
   * conftest.h: Implement new conftest.sh function console_lock (331.79).
@@ -8,7 +53,7 @@ nvidia-graphics-drivers (337.19-2) UNRELEASED; urgency=medium
     (Closes: #747366, #745715, #746643, #746455)
   * nvidia-driver: Ship new files /usr/share/nvidia/{monitoring.conf, pci.ids}.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 24 May 2014 22:46:12 +0200
+ -- Vincent Cheng <vcheng@debian.org>  Sat, 19 Jul 2014 02:12:46 -0700
 
 nvidia-graphics-drivers (337.19-1) experimental; urgency=medium
 
