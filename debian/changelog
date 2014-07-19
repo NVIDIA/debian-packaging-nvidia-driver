@@ -54,12 +54,14 @@ nvidia-graphics-drivers (340.24-1) UNRELEASED; urgency=medium
       menus in the "Application Profiles" page of nvidia-settings.
     - Fixed a regression that could cause OpenGL rendering corruption on X
       screens with 30 bit per pixel color.
+  * Refresh debian/patches/man-fixes-nvidia-smi.patch.
   * Add myself to Uploaders.
   * Add xorg-video-abi-18 as alternative dependency.
   * Update nv-readme.ids.
 
   [ Andreas Beckmann ]
-  * Merged from 331.79-1 in unstable prior to being branched out:
+  * Merged from 331.79-1 and UNRELEASED prior to being branched out into
+    experimental:
   * nvidia-driver: Ship new file                        (Closes: #748909)
     /usr/share/nvidia/nvidia-application-profiles-$VER-key-documentation.
   * conftest.h: Implement new conftest.sh function console_lock (331.79).
