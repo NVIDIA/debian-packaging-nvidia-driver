@@ -57,6 +57,7 @@ nvidia-graphics-drivers (340.24-1) UNRELEASED; urgency=medium
   * Refresh debian/patches/man-fixes-nvidia-smi.patch.
   * Add myself to Uploaders.
   * Add xorg-video-abi-18 as alternative dependency.
+    (Closes: #755020, #755138, #751082, #754828, #754251).
   * Update nv-readme.ids.
 
   [ Andreas Beckmann ]
