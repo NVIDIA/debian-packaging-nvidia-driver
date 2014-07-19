@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.24-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.24-1) unstable; urgency=medium
 
   * Team upload.
 
@@ -72,7 +72,7 @@ nvidia-graphics-drivers (340.24-1) UNRELEASED; urgency=medium
     (Closes: #747366, #745715, #746643, #746455)
   * nvidia-driver: Ship new files /usr/share/nvidia/{monitoring.conf, pci.ids}.
 
- -- Vincent Cheng <vcheng@debian.org>  Sat, 19 Jul 2014 02:12:46 -0700
+ -- Vincent Cheng <vcheng@debian.org>  Sat, 19 Jul 2014 14:05:31 -0700
 
 nvidia-graphics-drivers (337.19-1) experimental; urgency=medium
 
