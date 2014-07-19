@@ -3,8 +3,8 @@
 WATCH_VERSION		 =
 NVIDIA_SETTINGS		 = nvidia-settings (>= $(version_major))
 
-XORG_ABI_LIST		 = 15 14 13 12 11 10 8 6.0
-XORG_BOUND		 = (<< 2:1.15.99)
+XORG_ABI_LIST		 = 18 17 15 14 13 12 11 10 8 6.0
+XORG_BOUND		 = (<< 2:1.16.99)
 
 ARCH_LIST		 = i386 amd64 armhf
 NVIDIA_DIRNAME_X86	 = NVIDIA-Linux-x86-${NVIDIA_RELEASE}
