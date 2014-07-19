@@ -1,6 +1,73 @@
-nvidia-graphics-drivers (331.79-1) unstable; urgency=medium
+nvidia-graphics-drivers (337.19-2) UNRELEASED; urgency=medium
 
-  * New upstream long lived branch release 331.79 (2014-05-20).
+  * nvidia-driver: Ship new file                        (Closes: #748909)
+    /usr/share/nvidia/nvidia-application-profiles-$VER-key-documentation.
+  * conftest.h: Implement new conftest.sh function console_lock (331.79).
+  * uvm-symvers.patch: New patch to fix the missing Module.symvers from
+    nvidia.ko build while building nvidia-uvm.ko.
+    (Closes: #747366, #745715, #746643, #746455)
+  * nvidia-driver: Ship new files /usr/share/nvidia/{monitoring.conf, pci.ids}.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 24 May 2014 22:46:12 +0200
+
+nvidia-graphics-drivers (337.19-1) experimental; urgency=medium
+
+  * New upstream beta release 337.17 (2014-05-01).
+    - Fixed a bug causing mode validation to fail for 4K resolutions over HDMI
+      in certain situations.
+    - Added support for the GLX_EXT_stereo_tree extension.  For more
+      details, see the extension specification:
+        http://www.opengl.org/registry/specs/EXT/glx_stereo_tree.txt
+    - Enabled support for using Unified Back Buffer (UBB) and 3D Stereo with
+      the composite extension on Quadro cards.  Using stereo with a composite
+      manager requires a stereo-aware composite manager.  Otherwise, only the
+      left eye of stereo applications will be displayed.  See the
+      GLX_EXT_stereo_tree extension specification for more details.
+  * New upstream beta release 337.12 (2014-04-08).
+    - Fixed a bug that could cause OpenGL programs to freeze under some
+      low memory conditions.
+    - Removed the "OnDemandVBlankInterrupts" X configuration option: this
+      option has been enabled by default since version 177.68 of the
+      NVIDIA Unix driver, and the documentation had not been updated to
+      reflect the new default value.
+    - Fixed a bug that caused GPU errors when hotplugging daisy-chained
+      DisplayPort 1.2 displays.
+    - Fixed a bug that prevented the use of multiple simultaneous X servers
+      on UEFI systems.
+    - Added the ability to over- and under-clock certain GeForce
+       GPUs in the GeForce GTX 400 series and later.  For GPUs that allow it,
+       an offset can be applied to clock values in some clock domains of
+       some performance levels.  This clock manipulation is done at the
+       user's own risk.  See the README documentation of the "CoolBits"
+       X configuration option for more details.
+    - Added support for the following GPUs: GeForce 830M, GeForce 840M,
+      GeForce 845M, GeForce GTX 850M.
+    - Renamed the RandR output property _GUID to GUID now that it is an official
+      property documented in randrproto.txt:
+        http://cgit.freedesktop.org/xorg/proto/randrproto/commit/?id=19fc4c5a72eb9919d720ad66734029d9f8e313b1
+    - Reduced CPU utilization and GPU memory utilization of the NVIDIA
+      EGL driver.
+    - Added support for the following EGL extensions:
+      - EGL_EXT_buffer_age;
+      - EGL_EXT_client_extensions;
+      - EGL_EXT_platform_base;
+      - EGL_EXT_platform_x11.
+    - Renamed the "Clone" setting of the "MetaModeOrientation" X configuration
+      option to "SamePositionAs", to make clear that this setting applies to
+      the position only, and not to the resolution of modes in the MetaMode.
+    - Added NV-CONTROL attribute NV_CTRL_VIDEO_ENCODER_UTILIZATION to query
+      utilization percentage of the video encoder engine.
+    - Added support for the GLX_NV_delay_before_swap extension.  For more
+      details, see the extension specification:
+        http://www.opengl.org/registry/specs/NV/glx_delay_before_swap.txt
+    - Report correct buffer sizes for RGB GLX visuals, GLXFBConfigs, and
+      EGLConfigs.  Previously, RGB10 and RGB8 formats were reported as having 32
+      bits, and RGB5 formats were reported as having 16 bits.  Now they are
+      correctly reported as 30, 24, and 15 bit formats respectively as
+      required by the GLX and EGL specifications.
+    * Improved compatibility with recent Linux kernels.
+      (Closes: #745885, #746519)
+  * New upstream release 331 series.
     - Fixed a bug that caused blank screens and flickering when rotating
       displays in a Base Mosaic layout.
     - Fixed a bug that caused BadRRCrtc or BadRROutput errors for big-endian
@@ -12,13 +79,83 @@ nvidia-graphics-drivers (331.79-1) unstable; urgency=medium
       EDID version 1.3 or older when they are connected via DisplayPort on
       graphics boards that use external DisplayPort encoders, such as the Quadro
       FX 4800.
-  * conftest.h: Implement new conftest.sh function console_lock (331.79).
-  * uvm-symvers.patch: New patch to fix the missing Module.symvers from
-    nvidia.ko build while building nvidia-uvm.ko.
-    (Closes: #747366, #745715, #746643, #746455)
-  * nvidia-driver: Ship new files /usr/share/nvidia/{monitoring.conf, pci.ids}.
+  * Update nv-readme.ids.
+  * Update symbols control files.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 23 May 2014 12:45:22 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 09 May 2014 09:08:38 +0200
+
+nvidia-graphics-drivers (334.21-1) experimental; urgency=medium
+
+  * New upstream short lived branch release 334.21 (2014-03-03).
+    - Fixed a regression in the NVIDIA kernel module which caused it to
+      improperly dereference a userspace pointer. This potential security
+      issue was initially reported to the public at:
+        http://forums.grsecurity.net/viewtopic.php?f=3&t=3922
+      The regression did not affect NVIDIA GPU drivers before release 334.
+    - Fixed a bug that could cause OpenGL programs to hang after calling
+      fork(2).
+    - Fixed a bug that could cause a multi-threaded OpenGL application
+      to crash when one of its threads exits after the application has
+      unloaded libGL.
+    - Added support for the following GPUs: GeForce GTX 750 Ti,
+      GeForce GTX 750, GeForce GTX 745, GeForce GTX TITAN Black.
+    - Added support for GPUs with VDPAU Feature Set E. See the README
+      for details.
+    - On GPUs with VDPAU Feature Set E, VDPAU now supports more robust
+      decode error handling at the cost of a minor performance impact.
+      This can be disabled by setting the
+      VDPAU_NVIDIA_DISABLE_ERROR_CONCEALMENT environment variable to 1.
+    - Added support for application profile rule patterns which are logical
+      operations of subpatterns. See the README for details.
+    - Added support for a "findfile" application profile feature which
+      allows the driver to apply profiles based on matching files in the
+      same directory as the process executable. See the README for details.
+    - Improved performance of OpenGL applications when used in conjunction
+      with the X driver's composition pipeline.  The composition pipeline may
+      be explicitly enabled by using the ForceCompositionPipeline or
+      ForceFullCompositionPipeline MetaMode options, or implicitly enabled
+      when certain features such as some XRandR transformations, rotation,
+      Warp & Blend, PRIME, and NvFBC are used.
+  * New upstream short lived branch release 334.16 (2014-02-08).
+    - Fixed a bug that could cause applications using the OpenGL
+      extension ARB_query_buffer_object to crash under Xinerama.
+    - Fixed a bug that could cause poor stereo synchronization in large
+      multi-monitor setups using 3D Vision, due to failed hardware
+      handshaking on some of the monitors.
+    - Fixed a bug that prevented some DisplayPort 1.2 displays from being
+      properly restored after a VT switch.
+    - Renamed per GPU proc directories in /proc/driver/nvidia/gpus/ with GPU's
+      bus location represented in "domain:bus:device.function" format.
+    - Added 64-bit EGL and OpenGL ES libraries to 64-bit driver prackages.
+    - Changed format of "Bus Location" field reported in the
+      /proc/driver/nvidia/gpus/0..N/information files from
+      "domain:bus.device.function" to "domain:bus:device.function" to match
+      the lspci format.
+    - Fixed a bug in the GLX_EXT_buffer_age extension where incorrect
+      ages would be returned unless triple buffering was enabled.
+    - Updated the NVIDIA X driver to load the NVIDIA kernel module using
+      `nvidia-modprobe`, rather than the XFree86 DDX helper function
+      xf86LoadKernelModule().
+    - Changed the driver's default behavior to stop deleting RandR 1.2 outputs
+      corresponding to unused DisplayPort 1.2 devices.  Deleting these outputs
+      can confuse some applications.  Added a new option,
+      DeleteUnusedDP12Displays, which can be used to turn this behavior back on.
+      This option can be enabled by running
+        sudo nvidia-xconfig --delete-unused-dp12-displays
+    - Improved support for the __GL_SYNC_DISPLAY_DEVICE and
+      VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE environment variables in certain
+      configurations.  Both environment variables will now recognize all
+      supported display device names.  See "Appendix C. Display Device Names"
+      and "Appendix G. VDPAU Support" in the README for more details.
+    - Improved performance of the X driver when handling large numbers of
+      surface allocations.
+  * Update nv-readme.ids.
+  * Update symbols control files.
+  * Build the EGL/GLES packages for amd64, too.
+  * Update lintian overrides.
+  * Upload to experimental.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2014 14:41:03 +0200
 
 nvidia-graphics-drivers (331.67-2) unstable; urgency=medium
 
@@ -1218,7 +1355,7 @@ nvidia-graphics-drivers (304.51-1) experimental; urgency=low
       transformations such as rotation and keystone correction are in use.
     * Closes: #688660.
   * Update nv-readme.ids.
-  * Upload to experimental
+  * Upload to experimental.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 27 Sep 2012 08:25:18 +0200
 

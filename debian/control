@@ -151,7 +151,7 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
 
 #Package: libegl1-${nvidia}
 Package: libegl1-nvidia
-Architecture: i386 armhf
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -169,7 +169,7 @@ Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
 
 #Package: libgles1-${nvidia}
 Package: libgles1-nvidia
-Architecture: i386 armhf
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -190,7 +190,7 @@ Description: NVIDIA binary OpenGL|ES 1.x libraries${nvidia:LegacyDesc}
 
 #Package: libgles2-${nvidia}
 Package: libgles2-nvidia
-Architecture: i386 armhf
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -211,7 +211,7 @@ Description: NVIDIA binary OpenGL|ES 2.x libraries${nvidia:LegacyDesc}
  for a complete list of supported GPUs and PCI IDs.
 
 Package: libnvidia-eglcore
-Architecture: i386 armhf
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
