@@ -1076,6 +1076,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glMultiDrawArraysEXT@Base 1.0.4349
  glMultiDrawArraysIndirect@Base 310
  glMultiDrawArraysIndirectAMD@Base 302
+ glMultiDrawArraysIndirectBindlessCountNV@Base 340
  glMultiDrawArraysIndirectBindlessNV@Base 325
  glMultiDrawArraysIndirectCountARB@Base 331
  glMultiDrawElements@Base 1.0.4349
@@ -1083,6 +1084,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glMultiDrawElementsEXT@Base 1.0.4349
  glMultiDrawElementsIndirect@Base 310
  glMultiDrawElementsIndirectAMD@Base 302
+ glMultiDrawElementsIndirectBindlessCountNV@Base 340
  glMultiDrawElementsIndirectBindlessNV@Base 325
  glMultiDrawElementsIndirectCountARB@Base 331
  glMultiTexBufferEXT@Base 180
