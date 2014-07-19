@@ -55,6 +55,7 @@ nvidia-graphics-drivers (340.24-1) UNRELEASED; urgency=medium
     - Fixed a regression that could cause OpenGL rendering corruption on X
       screens with 30 bit per pixel color.
   * Add myself to Uploaders.
+  * Update nv-readme.ids.
 
   [ Andreas Beckmann ]
   * Merged from 331.79-1 in unstable prior to being branched out:
