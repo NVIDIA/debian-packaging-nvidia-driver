@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (340.24-2) unstable; urgency=high
+
+  * Fix FTBFS on armhf by not installing non-existent files. (Closes: #754621)
+  * Urgency=high because nvidia is currently completely broken in testing due
+    to xserver 1.16 migration and ABI bump.
+
+ -- Vincent Cheng <vcheng@debian.org>  Sat, 19 Jul 2014 23:57:46 -0700
+
 nvidia-graphics-drivers (340.24-1) unstable; urgency=medium
 
   * Team upload.
