@@ -26,7 +26,8 @@ nvidia-graphics-drivers (340.32-1) UNRELEASED; urgency=medium
       when a G-SYNC monitor is unplugged and replaced by a non-G-SYNC monitor.
     - Fixed a bug that prevented G-SYNC from working when a G-SYNC monitor
       was unplugged and plugged back in without a modeset.
-  * Refresh debian/patches/man-fixes-nvidia-smi.patch.
+  * Refresh debian/patches/man-fixes-nvidia-smi.patch and patches applied to
+    nvidia-kernel-dkms.
   * Update nv-readme.ids.
 
  -- Vincent Cheng <vcheng@debian.org>  Sat, 16 Aug 2014 23:49:21 -0700

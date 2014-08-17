@@ -3,7 +3,7 @@ Description: fix up the ../Module.symvers dependency for our uvm build
 
 --- a/uvm/Kbuild
 +++ b/uvm/Kbuild
-@@ -217,8 +217,11 @@ include $(RM_OUT_DIR)/nvidia-modules-com
+@@ -214,8 +214,11 @@
  
  $(eval $(call BUILD_MODULE_RULE, $(MODULE_OBJECT),"uvm",))
  module: $(MODULE_OBJECT)
