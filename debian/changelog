@@ -1,6 +1,31 @@
 nvidia-graphics-drivers (340.32-1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 340.32 (2014-08-12).
+    - Added support for the following GPUs:
+        * Quadro K420
+        * Quadro K620
+        * Quadro K2200
+        * Quadro K4200
+        * Quadro K5200
+    - Fixed a regression that prevented the internal stereo infrared emitter
+      built into some 3D Vision monitors from working.
+    - Fixed a bug that could cause some Java-based OpenGL applications using
+      JOGL to crash on startup on systems with Xinerama enabled.
+    - Fixed a bug that could prevent OpenGL Framebuffer Objects (FBOs) from
+      being properly redrawn after a modeswitch.
+    - Fixed a memory leak that occurred when starting OpenGL applications.
+    - Fixed a bug that prevented the EDID-Like Data (ELD) of audio-capable
+      displays from being updated when hotplugged/unplugged.
+    - Fixed a bug that caused Xid errors when using stereo mode 12 (HDMI 3D)
+      on Quadro boards without an onboard stereo DIN connector.
+    - Fixed a video corruption issue for VDPAU decoding of VC-1 and WMV video
+      streams utilizing range remapping on Maxwell GPUs.
+    - Fixed a "black window" bug in Ubuntu 14.04 when using the Xinerama and
+      Composite extensions.
+    - Fixed a bug that caused the screen's contents to be shifted downward
+      when a G-SYNC monitor is unplugged and replaced by a non-G-SYNC monitor.
+    - Fixed a bug that prevented G-SYNC from working when a G-SYNC monitor
+      was unplugged and plugged back in without a modeset.
   * Refresh debian/patches/man-fixes-nvidia-smi.patch.
   * Update nv-readme.ids.
 
