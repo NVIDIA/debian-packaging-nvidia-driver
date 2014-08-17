@@ -174,6 +174,14 @@
  #undef NV_ACPI_DEVICE_OPS_HAS_MATCH
 #endif
 
+/* Implement conftest.sh function acpi_op_remove */
+/* All versions since 2.6.0 have this, didn't check earlier kernels */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,9,0)
+ #define NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT 1
+#else
+ #define NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT 2
+#endif
+
 /* Implement conftest.sh function acpi_device_id */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,23)
  #define NV_ACPI_DEVICE_ID_HAS_DRIVER_DATA
