@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.32-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.32-1) unstable; urgency=medium
 
   * New upstream long lived branch release 340.32 (2014-08-12).
     - Added support for the following GPUs:
