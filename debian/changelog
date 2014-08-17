@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (340.32-1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 340.32 (2014-08-12).
+  * Refresh debian/patches/man-fixes-nvidia-smi.patch.
 
  -- Vincent Cheng <vcheng@debian.org>  Sat, 16 Aug 2014 23:49:21 -0700
 

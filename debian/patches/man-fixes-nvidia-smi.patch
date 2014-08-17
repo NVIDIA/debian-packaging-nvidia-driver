@@ -30,7 +30,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  There also can\(aqt be any compute applications running on any other GPU in the system.
  Only on supported devices from Fermi and Kepler family running on Linux.
  
-@@ -255,7 +255,7 @@
+@@ -256,7 +256,7 @@
  Accepts integer and floating point numbers.
  Only on supported devices from Kepler family.
  Requires administrator privileges.
@@ -39,7 +39,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  
  .SS "\-am, \-\-accounting\-mode=MODE"
  Enables or disables GPU Accounting.
-@@ -404,7 +404,7 @@
+@@ -405,7 +405,7 @@
  .SS "Persistence Mode"
  A flag that indicates whether persistence mode is enabled for the GPU.
  Value is either "Enabled" or "Disabled".
@@ -48,7 +48,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  This minimizes the driver load latency associated with running dependent apps, such as CUDA programs.
  For all CUDA-capable products.
  Linux only.
-@@ -414,7 +414,7 @@
+@@ -415,7 +415,7 @@
  Value is either \"Enabled\" or \"Disabled\"
  When accounting is enabled statistics are calculated for each compute process running on the GPU.
  Statistics are available for query after the process terminates.
@@ -57,7 +57,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  
  .SS "Accounting Mode Buffer Size"
  Returns the size of the circular buffer that holds list of processes that can be queried for accounting stats.
-@@ -488,7 +488,7 @@
+@@ -489,7 +489,7 @@
  
  
  .SS "GPU Operation Mode"
@@ -66,7 +66,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  
  Each GOM is designed to meet specific user needs.
  
-@@ -796,7 +796,7 @@
+@@ -797,7 +797,7 @@
  
  .TP 15
  .B "Power Limit"
@@ -75,7 +75,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  Only available if power management is supported.
  Requires Inforom PWR object version 3.0 or higher or Kepler device.
  On Kepler devices Power Limit can be adjusted using \-pl,\-\-power\-limit= switches.
-@@ -967,7 +967,7 @@
+@@ -968,7 +968,7 @@
  .PP
  .SH "UNIT ATTRIBUTES"
  .PP
@@ -84,7 +84,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  Unless otherwise noted all numerical results are base 10 and unitless.
  
  .SS "Timestamp"
-@@ -1079,7 +1079,7 @@
+@@ -1080,7 +1080,7 @@
  .PP
  .SH "NOTES"
  .PP
@@ -93,7 +93,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  Please see the relevant section of the driver README file.
  
  .PP
-@@ -1095,8 +1095,8 @@
+@@ -1096,8 +1096,8 @@
  Query UUID and persistence mode of all GPUs in the system.
  .SS "nvidia\-smi -q -d ECC,POWER -i 0 -l 10 -f out.log"
  Query ECC errors and power consumption for GPU 0 at a frequency of 10 seconds, indefinitely, and record to the file out.log.
@@ -104,7 +104,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .SS "nvidia\-smi -q -u -x --dtd"
  Query attributes for all Units once, and display in XML format with embedded DTD to stdout.
  .SS "nvidia\-smi --dtd -u -f nvsmi_unit.dtd"
-@@ -1174,19 +1174,19 @@
+@@ -1175,19 +1175,19 @@
   
  .PP 1
  
@@ -127,7 +127,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
   
-@@ -1195,13 +1195,13 @@
+@@ -1196,13 +1196,13 @@
    * Added reporting of Display Active state and updated documentation to clarify how it differs from Display Mode and Display Active state
  .PP 1
  
@@ -144,7 +144,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Renamed Clock Throttle Reason User Defined Clocks to Applications Clocks Setting
-@@ -1210,16 +1210,16 @@
+@@ -1211,16 +1211,16 @@
    * On error, return codes have distinct non zero values for each error class. See RETURN VALUE section
  .PP 1
  
@@ -164,7 +164,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Added the enforced power limit to the query output
-@@ -1228,7 +1228,7 @@
+@@ -1229,7 +1229,7 @@
   
  .PP 1
  
@@ -173,7 +173,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
   
-@@ -1237,13 +1237,13 @@
+@@ -1238,13 +1238,13 @@
    * Added reporting of GPU Operation Mode (GOM)
  .PP 1
  
@@ -189,7 +189,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
   
-@@ -1258,10 +1258,10 @@
+@@ -1259,10 +1259,10 @@
    * Better error handling when NVML shared library is not present in the system
  .PP 1
  
@@ -202,7 +202,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * When reporting free memory, calculate it from the rounded total and used memory so that values add up
-@@ -1270,7 +1270,7 @@
+@@ -1271,7 +1271,7 @@
    * Added reporting of power management limit constraints and default limit
  .PP 1
  
@@ -211,7 +211,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Added reporting of texture memory ECC errors
-@@ -1282,7 +1282,7 @@
+@@ -1283,7 +1283,7 @@
   
  .PP 1
  
@@ -220,7 +220,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    
-@@ -1294,7 +1294,7 @@
+@@ -1295,7 +1295,7 @@
    * When running commands on multiple GPUs at once N/A errors are treated as warnings.
  .PP 1
  
@@ -229,7 +229,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * UUID format changed to match UUID standard and will report a different value.
-@@ -1303,7 +1303,7 @@
+@@ -1304,7 +1304,7 @@
   
  .PP 1
  
@@ -238,7 +238,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    
-@@ -1312,7 +1312,7 @@
+@@ -1313,7 +1313,7 @@
    * Report VBIOS version.
  .PP 1
  
@@ -247,7 +247,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Added reporting of PCI Sub System ID
-@@ -1321,13 +1321,13 @@
+@@ -1322,13 +1322,13 @@
    * Updated docs to indicate we support M2075 and C2075
  .PP 1
  
@@ -263,7 +263,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Added message when NVIDIA driver is not running
-@@ -1339,19 +1339,19 @@
+@@ -1340,19 +1340,19 @@
    * Getting pending driver model works on non-admin
  .PP 1
  
@@ -287,7 +287,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Changed versioning scheme to also include "driver version"
-@@ -1360,10 +1360,10 @@
+@@ -1361,10 +1361,10 @@
    * XML format always conforms to DTD, even when error conditions occur
  .PP 1
  
