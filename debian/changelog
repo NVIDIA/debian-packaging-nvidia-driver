@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (340.32-2) UNRELEASED; urgency=medium
 
   * libcuda1: Add Provides: libcuda-6.{0,5}-1{,-i386}.
+  * nvidia-detect: Legacy driver 173xx won't be available in jessie.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 09 Sep 2014 15:40:24 +0200
 
@@ -331,7 +332,7 @@ nvidia-graphics-drivers (331.38-2) experimental; urgency=medium
     in Linux 3.13.  (Closes: #735630)
   * nvidia-detect: Clarify output regarding legacy driver series. Update
     information about wheezy-backports and 96xx not being available in jessie.
-    (Closes: 736145)
+    (Closes: #736145)
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Jan 2014 10:21:37 +0100
 
