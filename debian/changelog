@@ -43,8 +43,6 @@ nvidia-graphics-drivers (340.24-2) unstable; urgency=high
 
 nvidia-graphics-drivers (340.24-1) unstable; urgency=medium
 
-  * Team upload.
-
   [ Vincent Cheng ]
   * New upstream long lived branch release 340.24 (2014-07-08).
     - Fixed a bug that prevented 3D Vision stereo and ultra low motion blur
@@ -105,15 +103,8 @@ nvidia-graphics-drivers (340.24-1) unstable; urgency=medium
   * Update symbols control files.
 
   [ Andreas Beckmann ]
-  * Merged from 331.79-1 and UNRELEASED prior to being branched out into
-    experimental:
   * nvidia-driver: Ship new file                        (Closes: #748909)
     /usr/share/nvidia/nvidia-application-profiles-$VER-key-documentation.
-  * conftest.h: Implement new conftest.sh function console_lock (331.79).
-  * uvm-symvers.patch: New patch to fix the missing Module.symvers from
-    nvidia.ko build while building nvidia-uvm.ko.
-    (Closes: #747366, #745715, #746643, #746455)
-  * nvidia-driver: Ship new files /usr/share/nvidia/{monitoring.conf, pci.ids}.
 
  -- Vincent Cheng <vcheng@debian.org>  Sat, 19 Jul 2014 14:05:31 -0700
 
@@ -174,13 +165,6 @@ nvidia-graphics-drivers (337.19-1) experimental; urgency=medium
       required by the GLX and EGL specifications.
     * Improved compatibility with recent Linux kernels.
       (Closes: #745885, #746519)
-  * New upstream release 331 series.
-    - Fixed a bug that caused blank screens and flickering when rotating
-      displays in a Base Mosaic layout.
-    - Fixed a bug that caused BadRRCrtc or BadRROutput errors for big-endian
-      X11 clients making certain XRandR requests.
-    - Fixed a bug that corrupted certain software rendering, notably the
-      stippled text used to represent disabled entries in xterm's pop-up menus.
   * New upstream release 304 series.
     - Fixed a bug that caused corruption or blank screens on monitors that use
       EDID version 1.3 or older when they are connected via DisplayPort on
@@ -263,6 +247,28 @@ nvidia-graphics-drivers (334.21-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2014 14:41:03 +0200
+
+nvidia-graphics-drivers (331.79-1) unstable; urgency=medium
+
+  * New upstream long lived branch release 331.79 (2014-05-20).
+    - Fixed a bug that caused blank screens and flickering when rotating
+      displays in a Base Mosaic layout.
+    - Fixed a bug that caused BadRRCrtc or BadRROutput errors for big-endian
+      X11 clients making certain XRandR requests.
+    - Fixed a bug that corrupted certain software rendering, notably the
+      stippled text used to represent disabled entries in xterm's pop-up menus.
+  * New upstream release 304 series.
+    - Fixed a bug that caused corruption or blank screens on monitors that use
+      EDID version 1.3 or older when they are connected via DisplayPort on
+      graphics boards that use external DisplayPort encoders, such as the Quadro
+      FX 4800.
+  * conftest.h: Implement new conftest.sh function console_lock (331.79).
+  * uvm-symvers.patch: New patch to fix the missing Module.symvers from
+    nvidia.ko build while building nvidia-uvm.ko.
+    (Closes: #747366, #745715, #746643, #746455)
+  * nvidia-driver: Ship new files /usr/share/nvidia/{monitoring.conf, pci.ids}.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 23 May 2014 12:45:22 +0200
 
 nvidia-graphics-drivers (331.67-2) unstable; urgency=medium
 
