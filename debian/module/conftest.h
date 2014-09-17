@@ -374,7 +374,7 @@
 #endif
 
 /* Implement conftest.sh function drm_available */
-#if 0
+#if IS_ENABLED(CONFIG_DRM) || IS_ENABLED(CONFIG_DRM_MODULE)
  #define NV_DRM_AVAILABLE
 #else
  #undef NV_DRM_AVAILABLE
