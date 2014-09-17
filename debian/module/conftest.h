@@ -487,7 +487,7 @@
 #endif
 
 /* Check for drm/drmP.h */
-#if 1
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,27)
  #define NV_DRM_DRMP_H_PRESENT
 #else
  #undef NV_DRM_DRMP_H_PRESENT
