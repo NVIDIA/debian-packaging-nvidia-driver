@@ -1,9 +1,15 @@
 nvidia-graphics-drivers (340.32-2) UNRELEASED; urgency=medium
 
+  * Team upload.
+
+  [ Andreas Beckmann ]
   * libcuda1: Add Provides: libcuda-6.{0,5}-1{,-i386}.
   * nvidia-detect: Legacy driver 173xx won't be available in jessie.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 09 Sep 2014 15:40:24 +0200
+  [ Vincent Cheng ]
+  * Unload uvm module when nvidia is unloaded. (Closes: #749018)
+
+ -- Vincent Cheng <vcheng@debian.org>  Wed, 17 Sep 2014 00:56:16 -0700
 
 nvidia-graphics-drivers (340.32-1) unstable; urgency=medium
 
