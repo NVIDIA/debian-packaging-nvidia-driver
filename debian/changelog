@@ -20,6 +20,7 @@ nvidia-graphics-drivers (304.123-1) UNRELEASED; urgency=medium
       extension protocol requests from being used when RandR was enabled.
   * New upstream legacy 304xx branch release 304.119 (2014-01-23).
     - Fixed a crash when using WebGL in Firefox with a Geforce 6 GPU.
+  * Add xorg-video-abi-18 as alternative dependency.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 28 Sep 2014 20:46:10 +0200
 
