@@ -51,7 +51,7 @@ nvidia-graphics-drivers (340.32-1) unstable; urgency=medium
   * Refresh debian/patches/man-fixes-nvidia-smi.patch and patches applied to
     nvidia-kernel-dkms.
   * Update nv-readme.ids.
-  * conftest.h: Implement new conftest.sh function acpi_op_remove.
+  * conftest.h: Implement new conftest.sh function acpi_op_remove (304.123).
 
  -- Vincent Cheng <vcheng@debian.org>  Sat, 16 Aug 2014 23:49:21 -0700
 
