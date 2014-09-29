@@ -1,13 +1,12 @@
 nvidia-graphics-drivers (340.32-2) UNRELEASED; urgency=medium
 
-  * Team upload.
-
   [ Andreas Beckmann ]
   * libcuda1: Add Provides: libcuda-6.{0,5}-1{,-i386}.
   * nvidia-detect: Legacy driver 173xx won't be available in jessie.
+  * Merge changes from 304.123 (UNRELEASED).
 
   [ Vincent Cheng ]
-  * Unload uvm module when nvidia is unloaded. (Closes: #749018)
+  * Unload uvm module when nvidia is unloaded. (Closes: #749018, #763272)
   * Tighten conftest.h check for drm/drmP.h.
 
   [ Beren Minor ]
@@ -19,31 +18,36 @@ nvidia-graphics-drivers (340.32-2) UNRELEASED; urgency=medium
 nvidia-graphics-drivers (340.32-1) unstable; urgency=medium
 
   * New upstream long lived branch release 340.32 (2014-08-12).
-    - Added support for the following GPUs:
-        * Quadro K420
-        * Quadro K620
-        * Quadro K2200
-        * Quadro K4200
-        * Quadro K5200
+    - Added support for the following GPUs: Quadro K420, Quadro K620,
+      Quadro K2200, Quadro K4200, Quadro K5200, GeForce 830A.
     - Fixed a regression that prevented the internal stereo infrared emitter
       built into some 3D Vision monitors from working.
     - Fixed a bug that could cause some Java-based OpenGL applications using
       JOGL to crash on startup on systems with Xinerama enabled.
-    - Fixed a bug that could prevent OpenGL Framebuffer Objects (FBOs) from
-      being properly redrawn after a modeswitch.
+    - Fixed a bug that could prevent OpenGL Framebuffer Objects (FBOs)
+      from being properly redrawn after a modeswitch.
     - Fixed a memory leak that occurred when starting OpenGL applications.
     - Fixed a bug that prevented the EDID-Like Data (ELD) of audio-capable
       displays from being updated when hotplugged/unplugged.
     - Fixed a bug that caused Xid errors when using stereo mode 12 (HDMI 3D)
       on Quadro boards without an onboard stereo DIN connector.
-    - Fixed a video corruption issue for VDPAU decoding of VC-1 and WMV video
-      streams utilizing range remapping on Maxwell GPUs.
-    - Fixed a "black window" bug in Ubuntu 14.04 when using the Xinerama and
-      Composite extensions.
-    - Fixed a bug that caused the screen's contents to be shifted downward
-      when a G-SYNC monitor is unplugged and replaced by a non-G-SYNC monitor.
+    - Fixed a video corruption issue for VDPAU decoding of VC-1 and WMV
+      video streams utilizing range remapping on Maxwell GPUs.
+    - Fixed a "black window" bug in Ubuntu 14.04 when using the Xinerama
+      and Composite extensions.
+    - Fixed a bug that caused the screen's contents to be shifted downward when
+      a G-SYNC monitor is unplugged and replaced by a non-G-SYNC monitor.
     - Fixed a bug that prevented G-SYNC from working when a G-SYNC monitor
       was unplugged and plugged back in without a modeset.
+  * New upstream release 331 series.
+    - Added support for the following GPU: GeForce 810M.
+    - Improved the performance of OpenGL applications that request a large
+      number of GPU mappings via the GL_NV_shader_buffer_load extension.
+    - Fixed a bug that could cause a system crash when killing applications
+      that use NVIDIA GPUs on multiple-GPU systems with IOMMU functionality
+      enabled.
+    - Fixed a bug that caused the NVIDIA kernel module to leak memory for
+      DMA mappings on some configurations.
   * Refresh debian/patches/man-fixes-nvidia-smi.patch and patches applied to
     nvidia-kernel-dkms.
   * Update nv-readme.ids.
@@ -63,10 +67,12 @@ nvidia-graphics-drivers (340.24-1) unstable; urgency=medium
 
   [ Vincent Cheng ]
   * New upstream long lived branch release 340.24 (2014-07-08).
+    - Fixed a regression, introduced in the 340.17 public beta release,
+      that caused the NVIDIA X driver to access freed memory when exiting
+      a GLX application that used either of the GLX_NV_video_out or
+      GLX_NV_present_video extensions.
     - Fixed a bug that prevented 3D Vision stereo and ultra low motion blur
       modes from working on G-SYNC capable monitors in some cases.
-    - Fixed a bug that caused the "Allow G-SYNC" checkbox to be displayed in
-      nvidia-settings even if the GPUs in the system are not capable of G-SYNC.
     - Fixed a kernel crash when running some applications with IOMMU
       functionality enabled.
     - Fixed a floating point exception in the OpenGL driver when running
@@ -76,43 +82,41 @@ nvidia-graphics-drivers (340.24-1) unstable; urgency=medium
       to GL applications via the KHR_debug and ARB_debug_output extensions.
     - Fixed a bug that caused GLX applications which simultaneously create
       drawables on multiple X servers to crash when swapping buffers.
-    - Updated nvidia-settings to report all valid names for each target
-      when querying target types, e.g. `nvidia-settings -q gpus`.
     - Added support for controlling the availability of Fast Approximate
       Antialiasing (FXAA) on a per-application basis via the new
       __GL_ALLOW_FXAA_USAGE environment variable and the corresponding
       GLAllowFXAAUsage application profile key. See the README for details.
     - Fixed a bug where indirect rendering could become corrupted on
       system configurations that disallow writing to executable memory.
-    - Updated the nvidia-settings Makefiles to allow nvidia-settings
-      to be dynamically linked against the host system's libjansson.
-      This option can be enabled by setting the NV_USE_BUNDLED_LIBJANSSON
-      Makefile variable to 0.  Please note that nvidia-settings requires
-      libjansson version 2.2 or later.
-    - Removed the runlevel check from nvidia-installer: the installation
-      problems formerly associated with runlevel 1 no longer apply.
     - Added initial support for G-SYNC monitors.  Additional details and system
       requirements can be found at:
         http://www.geforce.com/hardware/technology/g-sync
     - Improved support for running the NVIDIA driver in configurations where
       writing to executable memory is disallowed.  Driver optimizations that
       require writing to executable memory can be forcefully disabled using the
-      new __GL_WRITE_TEXT_SECTION environment variable.  See the README for
-      more details.
+      new __GL_WRITE_TEXT_SECTION environment variable.  See the README for more
+      details.
     - Fixed an X driver bug that caused gamma ramp updates of the green
       channel at depth 15, on some recent GPUs, to be ignored.
   * New upstream short lived branch release 337.25 (2014-05-30).
     - Fixed a bug that caused X to crash when querying clock offsets for
       non-existent performance levels.
-    - Added support for the following GPUs:
-        * GeForce GTX TITAN Z
-        * GeForce GT 740
+    - Added support for the following GPUs: GeForce GTX TITAN Z,
+      GeForce GT 740.
     - Fixed a performance regression when running KDE with desktop effects
       using the OpenGL compositing backend.
-    - Fixed a bug that caused duplicate entries to appear in some dropdown
-      menus in the "Application Profiles" page of nvidia-settings.
     - Fixed a regression that could cause OpenGL rendering corruption on X
       screens with 30 bit per pixel color.
+  * New upstream long lived branch release 331.89 (2014-07-04).
+    - Fixed a race condition in the NVIDIA kernel module that caused some
+      GPUs to sporadically become unresponsive.
+    - Updated the error reporting in the NVIDIA kernel module to include the
+      GPU serial number, when available, in error messages written to the
+      system log.
+    - Added support for the following GPU: GeForce GT 730.
+    - Fixed a bug that caused blank screens when transforming or rotating displays
+      in an SLI Mosaic layout.
+    - Fixed a bug that corrupted certain software rendering on 32-bit systems.
   * Refresh debian/patches/man-fixes-nvidia-smi.patch.
   * Add myself to Uploaders.
   * Add xorg-video-abi-18 as alternative dependency.
@@ -183,11 +187,6 @@ nvidia-graphics-drivers (337.19-1) experimental; urgency=medium
       required by the GLX and EGL specifications.
     * Improved compatibility with recent Linux kernels.
       (Closes: #745885, #746519)
-  * New upstream release 304 series.
-    - Fixed a bug that caused corruption or blank screens on monitors that use
-      EDID version 1.3 or older when they are connected via DisplayPort on
-      graphics boards that use external DisplayPort encoders, such as the Quadro
-      FX 4800.
   * Update nv-readme.ids.
   * Update symbols control files.
 
@@ -275,11 +274,6 @@ nvidia-graphics-drivers (331.79-1) unstable; urgency=medium
       X11 clients making certain XRandR requests.
     - Fixed a bug that corrupted certain software rendering, notably the
       stippled text used to represent disabled entries in xterm's pop-up menus.
-  * New upstream release 304 series.
-    - Fixed a bug that caused corruption or blank screens on monitors that use
-      EDID version 1.3 or older when they are connected via DisplayPort on
-      graphics boards that use external DisplayPort encoders, such as the Quadro
-      FX 4800.
   * conftest.h: Implement new conftest.sh function console_lock (331.79).
   * uvm-symvers.patch: New patch to fix the missing Module.symvers from
     nvidia.ko build while building nvidia-uvm.ko.
