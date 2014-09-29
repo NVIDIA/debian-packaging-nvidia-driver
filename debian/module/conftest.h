@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 331.20, 325.15, 319.72, 304.116, 295.75, 173.14.38, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 340.32, 319.82, 304.123, 173.14.39, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -174,6 +174,14 @@
  #undef NV_ACPI_DEVICE_OPS_HAS_MATCH
 #endif
 
+/* Implement conftest.sh function acpi_op_remove */
+/* All versions since 2.6.0 have this, didn't check earlier kernels */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,9,0)
+ #define NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT 1
+#else
+ #define NV_ACPI_DEVICE_OPS_REMOVE_ARGUMENT_COUNT 2
+#endif
+
 /* Implement conftest.sh function acpi_device_id */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,23)
  #define NV_ACPI_DEVICE_ID_HAS_DRIVER_DATA
@@ -182,13 +190,18 @@
 #endif
 
 /* Implement conftest.sh function acquire_console_sem */
-// 2.6.38 renamed {acquire,release}_console_sem() to console_{,un}lock()
-// but NVIDIA neither checks for these new names nor uses them
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,4,10) && \
     LINUX_VERSION_CODE < KERNEL_VERSION(2,6,38)
  #define NV_ACQUIRE_CONSOLE_SEM_PRESENT
 #else
  #undef NV_ACQUIRE_CONSOLE_SEM_PRESENT
+#endif
+
+/* Implement conftest.sh function console_lock */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,38)
+ #define NV_CONSOLE_LOCK_PRESENT
+#else
+ #undef NV_CONSOLE_LOCK_PRESENT
 #endif
 
 /* Implement conftest.sh function kmem_cache_create */
@@ -361,7 +374,7 @@
 #endif
 
 /* Implement conftest.sh function drm_available */
-#if 0
+#if IS_ENABLED(CONFIG_DRM) || IS_ENABLED(CONFIG_DRM_MODULE)
  #define NV_DRM_AVAILABLE
 #else
  #undef NV_DRM_AVAILABLE
@@ -424,6 +437,34 @@
  #undef NV_ADDRESS_SPACE_INIT_ONCE_PRESENT
 #endif
 
+/* Implement conftest.sh function kbasename */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,8,0)
+ #define NV_KBASENAME_PRESENT
+#else
+ #undef NV_KBASENAME_PRESENT
+#endif
+
+/* Implement conftest.sh function fatal_signal_pending */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
+ #define NV_FATAL_SIGNAL_PENDING_PRESENT
+#else
+ #undef NV_FATAL_SIGNAL_PENDING_PRESENT
+#endif
+
+/* Implement conftest.sh function kuid_t */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,5,0)
+ #define NV_KUID_T_PRESENT
+#else
+ #undef NV_KUID_T_PRESENT
+#endif
+
+/* Implement conftest.sh function pm_vt_switch_required */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,10,0)
+ #define NV_PM_VT_SWITCH_REQUIRED_PRESENT
+#else
+ #undef NV_PM_VT_SWITCH_REQUIRED_PRESENT
+#endif
+
 /* Implement conftest.sh function sg_init_table */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,24)
  #define NV_SG_INIT_TABLE_PRESENT
@@ -446,7 +487,7 @@
 #endif
 
 /* Check for drm/drmP.h */
-#if 1
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,27)
  #define NV_DRM_DRMP_H_PRESENT
 #else
  #undef NV_DRM_DRMP_H_PRESENT

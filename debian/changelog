@@ -21,6 +21,15 @@ nvidia-graphics-drivers (304.123-1) UNRELEASED; urgency=medium
   * New upstream legacy 304xx branch release 304.119 (2014-01-23).
     - Fixed a crash when using WebGL in Firefox with a Geforce 6 GPU.
   * Add xorg-video-abi-18 as alternative dependency.
+  * conftest.h:
+    - Implement new conftest.sh function acpi_op_remove (304.123).
+    - Implement new conftest.sh functions kbasename, fatal_signal_pending
+      (331.38).
+    - Implement new conftest.sh function kuid_t (331.49).
+    - Implement new conftest.sh function pm_vt_switch_required (331.67).
+    - Implement new conftest.sh function console_lock (331.79).
+    - Fix DRM support activation.
+    - Tighten conftest.h for drm/drmP.h.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 28 Sep 2014 20:46:10 +0200
 
