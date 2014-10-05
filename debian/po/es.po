@@ -1,6 +1,6 @@
-# fglrx-driver translation to Spanish
+# nvidia-driver translation to Spanish
 # Copyright (C) 2012 Software in the Public Interest, SPI Inc.
-# This file is distributed under the same license as the fglrx-driver package.
+# This file is distributed under the same license as the nvidia-driver package.
 #
 # Changes:
 # - Initial translation
@@ -33,8 +33,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: fglrx-driver\n"
-"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"Project-Id-Version: nvidia-driver\n"
+"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-12 14:32+0200\n"
 "PO-Revision-Date: 2012-10-03 00:02+0200\n"
 "Last-Translator: Javier Fernández-Sanguino Peña <jfs@debian.org>\n"
@@ -45,29 +45,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.7.1\n"
-"X-POFile-SpellExtra: bin wheezy xserver conf Fglrx initial backports\n"
-"X-POFile-SpellExtra: aticonfig re legacy video usr xorg radeon fglrx Xorg\n"
-"X-POFile-SpellExtra: Radeon\n"
+"X-POFile-SpellExtra: bin wheezy xserver conf NVIDIA initial backports\n"
+"X-POFile-SpellExtra: aticonfig re legacy video usr xorg nouveau fglrx Xorg\n"
+"X-POFile-SpellExtra: Nouveau\n"
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
-msgid "Install Fglrx driver despite unsupported graphics card?"
+msgid "Install NVIDIA driver despite unsupported graphics card?"
 msgstr ""
-"¿Desea instalar el controlador Fglrx aún cuando su tarjeta gráfica no sea "
+"¿Desea instalar el controlador NVIDIA aún cuando su tarjeta gráfica no sea "
 "compatible?"
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the Fglrx "
-"driver (package fglrx-driver). You may wish to keep the package installed - "
+"This system has a graphics card which is no longer handled by the NVIDIA "
+"driver (package nvidia-driver). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
 "Este sistema tiene una tarjeta gráfica que ya no puede administrar el "
-"controlador Fglrx (paquete «fglrx-driver»). Tal vez quiera mantener el "
+"controlador NVIDIA (paquete «nvidia-driver»). Tal vez quiera mantener el "
 "paquete instalado (por ejemplo para controlar alguna otra tarjeta), pero no "
 "podrá utilizarse para gestionar la tarjeta mostrada a continuación:"
 
@@ -75,22 +75,22 @@ msgstr ""
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy Fglrx driver (package "
-"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
-"radeon)."
+"The above card requires either the non-free legacy NVIDIA driver (package "
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
+"nouveau)."
 msgstr ""
 "La tarjeta arriba mencionada requiere o bien del controlador no libre y "
-"obsoleto Fglrx (paquete «fglrx-legacy-driver») o el controlador libre Radeon "
-"(paquete «xserver-xorg-video-radeon»)."
+"obsoleto NVIDIA (paquete «nvidia-legacy-304xx-driver») o el controlador libre Nouveau "
+"(paquete «xserver-xorg-video-nouveau»)."
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"Before the Radeon driver can be used you must remove Fglrx configuration "
+"Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Antes de poder utilizar el controlador Radeon debe eliminar la configuración "
+"Antes de poder utilizar el controlador Nouveau debe eliminar la configuración "
 "de fglrx de «xorg.conf» (y de «xorg.conf.d/»)."
 
 #. Type: note
@@ -122,8 +122,8 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../fglrx-driver.templates:3001
-msgid "Fglrx driver is still enabled in xorg.conf"
-msgstr "El controlador Fglrx está aún activado en «xorg.conf»"
+msgid "NVIDIA driver is still enabled in xorg.conf"
+msgstr "El controlador NVIDIA está aún activado en «xorg.conf»"
 
 #. Type: note
 #. Description
@@ -138,5 +138,5 @@ msgstr ""
 "hasta que fglrx sea desactivado en los siguientes archivos de configuración:"
 
 #~ msgid ""
-#~ "The fglrx-legacy-driver package will be provided in wheezy-backports."
-#~ msgstr "El paquete «fglrx-legacy-driver» se proveerá en «wheezy-backports»."
+#~ "The nvidia-legacy-304xx-driver package will be provided in wheezy-backports."
+#~ msgstr "El paquete «nvidia-legacy-304xx-driver» se proveerá en «wheezy-backports»."

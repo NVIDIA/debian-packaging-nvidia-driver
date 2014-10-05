@@ -1,13 +1,13 @@
-# French translation for fglrx-driver debconf templates.
+# French translation for nvidia-driver debconf templates.
 # Copyright (C) 2009 Debian French l10n team <debian-l10n-french@lists.debian.org>
-# This file is distributed under the same license as the fglrx-driver package.
+# This file is distributed under the same license as the nvidia-driver package.
 #
 # Translators:
 # Christian Perrier <bubulle@debian.org>, 2009, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: fr\n"
-"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-12 14:32+0200\n"
 "PO-Revision-Date: 2012-09-21 07:06+0200\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
@@ -22,20 +22,20 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
-msgid "Install Fglrx driver despite unsupported graphics card?"
-msgstr "Faut-il installer le pilote Fglrx avec une carte graphique non gérée ?"
+msgid "Install NVIDIA driver despite unsupported graphics card?"
+msgstr "Faut-il installer le pilote NVIDIA avec une carte graphique non gérée ?"
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the Fglrx "
-"driver (package fglrx-driver). You may wish to keep the package installed - "
+"This system has a graphics card which is no longer handled by the NVIDIA "
+"driver (package nvidia-driver). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
 "Les jeux de composants graphiques suivants trouvés sur cette machine ne sont "
-"plus gérés par le pilote Fglrx. Vous pouvez préférer garder Fglrx (par "
+"plus gérés par le pilote NVIDIA. Vous pouvez préférer garder NVIDIA (par "
 "exemple pour piloter une autre carte), mais dans ce cas, la carte graphique "
 "ci-dessus ne sera pas utilisable."
 
@@ -43,29 +43,29 @@ msgstr ""
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy Fglrx driver (package "
-"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
-"radeon)."
+"The above card requires either the non-free legacy NVIDIA driver (package "
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
+"nouveau)."
 msgstr ""
-"Cette carte a besoin soit du pilote Fglrx constructeur, non libre, fourni "
-"par le paquet fglrx-legacy-driver ou du pilote libre Radeon fourni par le "
-"paquet xserver-xorg-video-radeon."
+"Cette carte a besoin soit du pilote NVIDIA constructeur, non libre, fourni "
+"par le paquet nvidia-legacy-304xx-driver ou du pilote libre Nouveau fourni par le "
+"paquet xserver-xorg-video-nouveau."
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"Before the Radeon driver can be used you must remove Fglrx configuration "
+"Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
 "Avant de pouvoir l'utiliser, il est nécessaire de supprimer la configuration "
-"de Fglrx dans le fichier xorg.conf (ou dans un des fichiers de xorg.conf.d/)."
+"de NVIDIA dans le fichier xorg.conf (ou dans un des fichiers de xorg.conf.d/)."
 
 #. Type: note
 #. Description
 #: ../fglrx-driver.templates:1001
 msgid "Manual configuration required to enable fglrx driver"
-msgstr "Configuration manuelle indispensable pour activer le pilote Fglrx"
+msgstr "Configuration manuelle indispensable pour activer le pilote NVIDIA"
 
 #. Type: note
 #. Description
@@ -74,7 +74,7 @@ msgid ""
 "The fglrx driver is not yet configured. Please consider using /usr/bin/"
 "aticonfig to create a working xorg.conf configuration."
 msgstr ""
-"Le pilote Fglrx n'est pas encore configuré. Veuillez utiliser le programme /"
+"Le pilote NVIDIA n'est pas encore configuré. Veuillez utiliser le programme /"
 "usr/bin/aticonfig pour mettre en place une configuration opérationnelle dans "
 "xorg.conf."
 
@@ -91,8 +91,8 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../fglrx-driver.templates:3001
-msgid "Fglrx driver is still enabled in xorg.conf"
-msgstr "Pilote Fglrx toujours activé dans xorg.conf"
+msgid "NVIDIA driver is still enabled in xorg.conf"
+msgstr "Pilote NVIDIA toujours activé dans xorg.conf"
 
 #. Type: note
 #. Description
@@ -102,13 +102,13 @@ msgid ""
 "configuration. X cannot be (re-)started successfully until fglrx is disabled "
 "in the following config file(s):"
 msgstr ""
-"Le pilote Fglrx a été supprimé mais est toujours utilisé dans la "
+"Le pilote NVIDIA a été supprimé mais est toujours utilisé dans la "
 "configuration de X.org. Le serveur X ne peut pas être (re)démarré tant que "
 "ce pilote n'est pas désactivé dans le(s) fichier(s) de configuration suivant"
 "(s) :"
 
 #~ msgid ""
-#~ "The fglrx-legacy-driver package will be provided in wheezy-backports."
+#~ "The nvidia-legacy-304xx-driver package will be provided in wheezy-backports."
 #~ msgstr ""
-#~ "Le paquet fglrx-legacy-driver sera fourni dans la distribution wheezy-"
+#~ "Le paquet nvidia-legacy-304xx-driver sera fourni dans la distribution wheezy-"
 #~ "backports (rétroportages destinés à wheezy)."

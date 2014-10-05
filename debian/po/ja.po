@@ -1,12 +1,12 @@
-# Translation of debconf tempates for the fglrx-driver package into japanese
+# Translation of debconf tempates for the nvidia-driver package into japanese
 # Copyright (C) 2012
-# This file is distributed under the same license as the fglrx-driver package.
+# This file is distributed under the same license as the nvidia-driver package.
 # Kenshi Muto <kmuto@debian.org>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: fglrx-driver\n"
-"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"Project-Id-Version: nvidia-driver\n"
+"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-12 14:32+0200\n"
 "PO-Revision-Date: 2012-09-19 21:15+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
@@ -19,21 +19,21 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
-msgid "Install Fglrx driver despite unsupported graphics card?"
+msgid "Install NVIDIA driver despite unsupported graphics card?"
 msgstr ""
-"サポートされていないグラフィックスカードですが Fglrx ドライバをインストールし"
+"サポートされていないグラフィックスカードですが NVIDIA ドライバをインストールし"
 "ますか?"
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the Fglrx "
-"driver (package fglrx-driver). You may wish to keep the package installed - "
+"This system has a graphics card which is no longer handled by the NVIDIA "
+"driver (package nvidia-driver). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
-"このシステムには Fglrx ドライバ (fglrx-driver パッケージ) ではもう扱われな"
+"このシステムには NVIDIA ドライバ (nvidia-driver パッケージ) ではもう扱われな"
 "い、グラフィックカードがあります。たとえばほかのカードを動作させるなどのため"
 "にパッケージをインストールしたままにしたいかもしれませんが、下記のチップセッ"
 "トを使ったカードは利用できなくなります:"
@@ -42,22 +42,22 @@ msgstr ""
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy Fglrx driver (package "
-"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
-"radeon)."
+"The above card requires either the non-free legacy NVIDIA driver (package "
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
+"nouveau)."
 msgstr ""
-"上記のカードには、フリーではない旧式の Fglrx ドライバ (fglrx-legacy-driver "
-"パッケージ) またはフリーの Radeon ドライバ (xserver-xorg-video-radeon パッ"
+"上記のカードには、フリーではない旧式の NVIDIA ドライバ (nvidia-legacy-304xx-driver "
+"パッケージ) またはフリーの Nouveau ドライバ (xserver-xorg-video-nouveau パッ"
 "ケージ) のいずれかが必要です。"
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"Before the Radeon driver can be used you must remove Fglrx configuration "
+"Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Radeon ドライバを利用できるようにするには、Fglrx の設定を xorg.conf (および "
+"Nouveau ドライバを利用できるようにするには、NVIDIA の設定を xorg.conf (および "
 "xorg.conf.d/) から削除しなければなりません。"
 
 #. Type: note
@@ -88,7 +88,7 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../fglrx-driver.templates:3001
-msgid "Fglrx driver is still enabled in xorg.conf"
+msgid "NVIDIA driver is still enabled in xorg.conf"
 msgstr "fglrx ドライバがまだ xorg.conf で有効になっています"
 
 #. Type: note
@@ -103,5 +103,5 @@ msgstr ""
 "の設定ファイルの fglrx が無効にされるまで正常に開始/再起動できません。"
 
 #~ msgid ""
-#~ "The fglrx-legacy-driver package will be provided in wheezy-backports."
-#~ msgstr "fglrx-legacy-driver パッケージは wheezy-backports で提供されます。"
+#~ "The nvidia-legacy-304xx-driver package will be provided in wheezy-backports."
+#~ msgstr "nvidia-legacy-304xx-driver パッケージは wheezy-backports で提供されます。"

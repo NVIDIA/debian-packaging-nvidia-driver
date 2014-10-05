@@ -1,12 +1,12 @@
-# Translation of fglrx-driver debconf template to Swedish
+# Translation of nvidia-driver debconf template to Swedish
 # Copyright (C) 2012 Martin Bagge <brother@bsnet.se>
-# This file is distributed under the same license as the fglrx-driver package.
+# This file is distributed under the same license as the nvidia-driver package.
 #
 # Martin Bagge <brother@bsnet.se>, 2012
 msgid ""
 msgstr ""
-"Project-Id-Version: fglrx-driver\n"
-"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"Project-Id-Version: nvidia-driver\n"
+"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-12 14:32+0200\n"
 "PO-Revision-Date: 2012-09-22 16:53+0100\n"
 "Last-Translator: Martin Bagge / brother <brother@bsnet.se>\n"
@@ -21,20 +21,20 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
-msgid "Install Fglrx driver despite unsupported graphics card?"
-msgstr "Ska Fglrx-drivrutinen installeras även om grafikkortet inte stöds?"
+msgid "Install NVIDIA driver despite unsupported graphics card?"
+msgstr "Ska NVIDIA-drivrutinen installeras även om grafikkortet inte stöds?"
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the Fglrx "
-"driver (package fglrx-driver). You may wish to keep the package installed - "
+"This system has a graphics card which is no longer handled by the NVIDIA "
+"driver (package nvidia-driver). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
-"Systemet har ett grafikkort som inte längre hanteras av drivrutinen Fglrx "
-"(paketet fglrx-driver). Du kan välja att fortsätta ha paketet installerat - "
+"Systemet har ett grafikkort som inte längre hanteras av drivrutinen NVIDIA "
+"(paketet nvidia-driver). Du kan välja att fortsätta ha paketet installerat - "
 "exempelvis för att driva ett annat kort - men kortet med följande chipp kan "
 "inte användas:"
 
@@ -42,22 +42,22 @@ msgstr ""
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy Fglrx driver (package "
-"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
-"radeon)."
+"The above card requires either the non-free legacy NVIDIA driver (package "
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
+"nouveau)."
 msgstr ""
-"Ovanstående kort behöver antingen den ofria drivrutinen Fglrx (paketet fglrx-"
-"legacy-driver) eller den fria drivrutinen Radeon (paketet xserver-xorg-video-"
-"radeon)."
+"Ovanstående kort behöver antingen den ofria drivrutinen NVIDIA (paketet fglrx-"
+"legacy-driver) eller den fria drivrutinen Nouveau (paketet xserver-xorg-video-"
+"nouveau)."
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"Before the Radeon driver can be used you must remove Fglrx configuration "
+"Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Innan drivrutinen Radeon kan användas måste du ta bort Fglrx-inställningen "
+"Innan drivrutinen Nouveau kan användas måste du ta bort NVIDIA-inställningen "
 "från xorg.conf (och xorg.conf.d/)."
 
 #. Type: note
@@ -73,7 +73,7 @@ msgid ""
 "The fglrx driver is not yet configured. Please consider using /usr/bin/"
 "aticonfig to create a working xorg.conf configuration."
 msgstr ""
-"Fglrx-drivrutinen är ännu inte komplett installerad. Överväg att exekvera /"
+"NVIDIA-drivrutinen är ännu inte komplett installerad. Överväg att exekvera /"
 "usr/bin/aticonfig för att skapa en fungerande xorg.conf-inställning."
 
 #. Type: note
@@ -87,8 +87,8 @@ msgstr "Exempelvis räcker \"sudo aticonfig --initial\" i de flesta fall."
 #. Type: note
 #. Description
 #: ../fglrx-driver.templates:3001
-msgid "Fglrx driver is still enabled in xorg.conf"
-msgstr "Fglrx-rivrutinen är fortfarande aktiverad i xorg.conf"
+msgid "NVIDIA driver is still enabled in xorg.conf"
+msgstr "NVIDIA-rivrutinen är fortfarande aktiverad i xorg.conf"
 
 #. Type: note
 #. Description
@@ -103,7 +103,7 @@ msgstr ""
 "följande inställningsfil(er):"
 
 #~ msgid ""
-#~ "The fglrx-legacy-driver package will be provided in wheezy-backports."
+#~ "The nvidia-legacy-304xx-driver package will be provided in wheezy-backports."
 #~ msgstr ""
-#~ "Paketet fglrx-legacy-driver kommer att göras tillgängligt i wheezy-"
+#~ "Paketet nvidia-legacy-304xx-driver kommer att göras tillgängligt i wheezy-"
 #~ "backports."

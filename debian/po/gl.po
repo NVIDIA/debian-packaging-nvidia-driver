@@ -1,12 +1,12 @@
-# Galician translations for fglrx-driver package.
-# Copyright (C) 2012 THE fglrx-driver'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the fglrx-driver package.
+# Galician translations for nvidia-driver package.
+# Copyright (C) 2012 THE nvidia-driver'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the nvidia-driver package.
 #
 # Jorge Barreiro Gonzalez <yortx.barry@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: fglrx-driver\n"
-"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"Project-Id-Version: nvidia-driver\n"
+"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-12 14:32+0200\n"
 "PO-Revision-Date: 2012-06-22 01:32+0200\n"
 "Last-Translator: Jorge Barreiro <yortx.barry@gmail.com>\n"
@@ -21,9 +21,9 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
-msgid "Install Fglrx driver despite unsupported graphics card?"
+msgid "Install NVIDIA driver despite unsupported graphics card?"
 msgstr ""
-"Quere instalar o controlador «Fglrx» inda que non teña ningunha tarxeta "
+"Quere instalar o controlador «NVIDIA» inda que non teña ningunha tarxeta "
 "gráfica admitida?"
 
 #. Type: boolean
@@ -35,8 +35,8 @@ msgstr ""
 #| "by the fglrx driver:You may wish to keep fglrx (for instance to drive "
 #| "some other card), but the above card won't be usable."
 msgid ""
-"This system has a graphics card which is no longer handled by the Fglrx "
-"driver (package fglrx-driver). You may wish to keep the package installed - "
+"This system has a graphics card which is no longer handled by the NVIDIA "
+"driver (package nvidia-driver). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
@@ -50,31 +50,31 @@ msgstr ""
 #: ../libfglrx.templates:2001
 #, fuzzy
 #| msgid ""
-#| "The above card requires the free Radeon driver in the package xserver-"
-#| "xorg-video-radeon."
+#| "The above card requires the free Nouveau driver in the package xserver-"
+#| "xorg-video-nouveau."
 msgid ""
-"The above card requires either the non-free legacy Fglrx driver (package "
-"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
-"radeon)."
+"The above card requires either the non-free legacy NVIDIA driver (package "
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
+"nouveau)."
 msgstr ""
-"A tarxeta de enriba precisa do controlador libre «Radeon», incluído no "
-"paquete «xserver-xorg-video-radeon»."
+"A tarxeta de enriba precisa do controlador libre «Nouveau», incluído no "
+"paquete «xserver-xorg-video-nouveau»."
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 #, fuzzy
 #| msgid ""
-#| "Before the Radeon driver can be used you must remove fglrx configuration "
+#| "Before the Nouveau driver can be used you must remove fglrx configuration "
 #| "from xorg.conf (and xorg.conf.d/) and purge (not just remove) the fglrx-"
 #| "driver package."
 msgid ""
-"Before the Radeon driver can be used you must remove Fglrx configuration "
+"Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Antes de que o controlador «Radeon» poida usarse debe eliminar a "
+"Antes de que o controlador «Nouveau» poida usarse debe eliminar a "
 "configuración de «fglrx» do ficheiro «xorg.conf» (e «xorg.conf.d/») e purgar "
-"(non chega con eliminar) o paquete «fglrx-driver»."
+"(non chega con eliminar) o paquete «nvidia-driver»."
 
 #. Type: note
 #. Description
@@ -110,7 +110,7 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../fglrx-driver.templates:3001
-msgid "Fglrx driver is still enabled in xorg.conf"
+msgid "NVIDIA driver is still enabled in xorg.conf"
 msgstr "O controlador «fglrx» inda está activado no «xorg.conf»"
 
 #. Type: note

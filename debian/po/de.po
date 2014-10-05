@@ -1,13 +1,13 @@
-# Translation of debconf tempates for the fglrx-driver package into german
+# Translation of debconf tempates for the nvidia-driver package into german
 # Copyright (C) 2012 Holger Wansing
-# This file is distributed under the same license as the fglrx-driver package.
+# This file is distributed under the same license as the nvidia-driver package.
 # Holger Wansing <linux@wansing-online.de>, 2012.
 #
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: fglrx-driver\n"
-"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"Project-Id-Version: nvidia-driver\n"
+"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-12 14:32+0200\n"
 "PO-Revision-Date: 2012-09-23 09:21+0200\n"
 "Last-Translator: Holger Wansing <linux@wansing-online.de>\n"
@@ -20,20 +20,20 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
-msgid "Install Fglrx driver despite unsupported graphics card?"
-msgstr "Fglrx-Treiber installieren trotz nicht unterstützter Grafikkarte?"
+msgid "Install NVIDIA driver despite unsupported graphics card?"
+msgstr "NVIDIA-Treiber installieren trotz nicht unterstützter Grafikkarte?"
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the Fglrx "
-"driver (package fglrx-driver). You may wish to keep the package installed - "
+"This system has a graphics card which is no longer handled by the NVIDIA "
+"driver (package nvidia-driver). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
-"Ihr System hat eine Grafikkarte, die nicht mehr vom Fglrx-Treiber (aus dem "
-"Paket fglrx-driver) bedient wird. Sie möchten das Paket vielleicht "
+"Ihr System hat eine Grafikkarte, die nicht mehr vom NVIDIA-Treiber (aus dem "
+"Paket nvidia-driver) bedient wird. Sie möchten das Paket vielleicht "
 "installiert lassen - um beispielsweise eine andere Karte zu betreiben, aber "
 "der folgende Chipsatz wird damit nicht nutzbar sein:"
 
@@ -41,22 +41,22 @@ msgstr ""
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy Fglrx driver (package "
-"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
-"radeon)."
+"The above card requires either the non-free legacy NVIDIA driver (package "
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
+"nouveau)."
 msgstr ""
-"Die oben angegebene Karte benötigt entweder den nicht-freien Legacy-Fglrx-"
-"Treiber (aus dem Paket fglrx-legacy-driver) oder den freien Radeon-Treiber "
-"(aus dem Paket xserver-xorg-video-radeon)."
+"Die oben angegebene Karte benötigt entweder den nicht-freien Legacy-NVIDIA-"
+"Treiber (aus dem Paket nvidia-legacy-304xx-driver) oder den freien Nouveau-Treiber "
+"(aus dem Paket xserver-xorg-video-nouveau)."
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"Before the Radeon driver can be used you must remove Fglrx configuration "
+"Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Bevor der Radeon-Treiber genutzt werden kann, müssen Sie die Fglrx-"
+"Bevor der Nouveau-Treiber genutzt werden kann, müssen Sie die NVIDIA-"
 "Konfiguration aus xorg.conf (und xorg.conf.d/) entfernen."
 
 #. Type: note
@@ -64,7 +64,7 @@ msgstr ""
 #: ../fglrx-driver.templates:1001
 msgid "Manual configuration required to enable fglrx driver"
 msgstr ""
-"Manuelle Konfiguration erforderlich, um den Fglrx-Treiber zu aktivieren"
+"Manuelle Konfiguration erforderlich, um den NVIDIA-Treiber zu aktivieren"
 
 #. Type: note
 #. Description
@@ -90,8 +90,8 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../fglrx-driver.templates:3001
-msgid "Fglrx driver is still enabled in xorg.conf"
-msgstr "Fglrx-Treiber noch in xorg.conf aktiviert"
+msgid "NVIDIA driver is still enabled in xorg.conf"
+msgstr "NVIDIA-Treiber noch in xorg.conf aktiviert"
 
 #. Type: note
 #. Description
@@ -101,11 +101,11 @@ msgid ""
 "configuration. X cannot be (re-)started successfully until fglrx is disabled "
 "in the following config file(s):"
 msgstr ""
-"Der Fglrx-Treiber wurde gerade entfernt, ist aber in der Xorg-Konfiguration "
+"Der NVIDIA-Treiber wurde gerade entfernt, ist aber in der Xorg-Konfiguration "
 "noch aktiviert. X kann nicht erfolgreich (neu-)gestartet werden, bis fglrx "
 "in folgenden Konfigurationsdateien deaktiviert wurde:"
 
 #~ msgid ""
-#~ "The fglrx-legacy-driver package will be provided in wheezy-backports."
+#~ "The nvidia-legacy-304xx-driver package will be provided in wheezy-backports."
 #~ msgstr ""
-#~ "Das fglrx-legacy-driver-Paket wird in wheezy-backports angeboten werden."
+#~ "Das nvidia-legacy-304xx-driver-Paket wird in wheezy-backports angeboten werden."

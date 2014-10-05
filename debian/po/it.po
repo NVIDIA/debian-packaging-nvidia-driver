@@ -1,11 +1,11 @@
-# Italian translation of fglrx-driver debconf messages.
+# Italian translation of nvidia-driver debconf messages.
 # Copyright (C) 2012, Beatrice Torracca <beatricet@libero.it>
-# This file is distributed under the same license as the fglrx-driver package.
+# This file is distributed under the same license as the nvidia-driver package.
 # Beatrice Torracca <beatricet@libero.it>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: fglrx-driver\n"
-"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"Project-Id-Version: nvidia-driver\n"
+"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-12 14:32+0200\n"
 "PO-Revision-Date: 2012-09-28 17:24+0200\n"
 "Last-Translator: Beatrice Torracca <beatricet@libero.it>\n"
@@ -20,21 +20,21 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
-msgid "Install Fglrx driver despite unsupported graphics card?"
+msgid "Install NVIDIA driver despite unsupported graphics card?"
 msgstr ""
-"Installare il driver Fglrx nonostante una scheda grafica non supportata?"
+"Installare il driver NVIDIA nonostante una scheda grafica non supportata?"
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the Fglrx "
-"driver (package fglrx-driver). You may wish to keep the package installed - "
+"This system has a graphics card which is no longer handled by the NVIDIA "
+"driver (package nvidia-driver). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
-"Questo sistema ha una scheda grafica che non è più gestita dal driver Fglrx "
-"(pacchetto fglrx-driver). Si può voler mantenere il pacchetto installato, ad "
+"Questo sistema ha una scheda grafica che non è più gestita dal driver NVIDIA "
+"(pacchetto nvidia-driver). Si può voler mantenere il pacchetto installato, ad "
 "esempio per pilotare una qualche altra scheda, ma quella con il seguente "
 "chipset non sarà utilizzabile:"
 
@@ -42,23 +42,23 @@ msgstr ""
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy Fglrx driver (package "
-"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
-"radeon)."
+"The above card requires either the non-free legacy NVIDIA driver (package "
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
+"nouveau)."
 msgstr ""
-"Tale scheda richiede il vecchio driver non libero Fglrx (pacchetto fglrx-"
-"legacy-driver) oppure il driver libero Radeon (pacchetto xserver-xorg-video-"
-"radeon)."
+"Tale scheda richiede il vecchio driver non libero NVIDIA (pacchetto fglrx-"
+"legacy-driver) oppure il driver libero Nouveau (pacchetto xserver-xorg-video-"
+"nouveau)."
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"Before the Radeon driver can be used you must remove Fglrx configuration "
+"Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Prima di poter usare il driver Radeon è necessario rimuovere la "
-"configurazione di Fglrx da xorg.conf (e xorg.conf.d/)."
+"Prima di poter usare il driver Nouveau è necessario rimuovere la "
+"configurazione di NVIDIA da xorg.conf (e xorg.conf.d/)."
 
 #. Type: note
 #. Description
@@ -89,7 +89,7 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../fglrx-driver.templates:3001
-msgid "Fglrx driver is still enabled in xorg.conf"
+msgid "NVIDIA driver is still enabled in xorg.conf"
 msgstr "Il driver fglrx è ancora abilitato in xorg.conf"
 
 #. Type: note
@@ -105,6 +105,6 @@ msgstr ""
 "che fglrx non sarà disabilitato nei seguenti file di configurazione:"
 
 #~ msgid ""
-#~ "The fglrx-legacy-driver package will be provided in wheezy-backports."
+#~ "The nvidia-legacy-304xx-driver package will be provided in wheezy-backports."
 #~ msgstr ""
-#~ "Il pacchetto fglrx-legacy-driver verrà fornito tramite wheezy-backports."
+#~ "Il pacchetto nvidia-legacy-304xx-driver verrà fornito tramite wheezy-backports."

@@ -1,12 +1,12 @@
-# Turkish translation of fglrx-driver package
+# Turkish translation of nvidia-driver package
 # Copyright (C) 2014 Mert Dirik
-# This file is distributed under the same license as the fglrx-driver package.
+# This file is distributed under the same license as the nvidia-driver package.
 # Mert Dirik <mertdirik@gmail.com>, 2014.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: fglrx-driver\n"
-"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"Project-Id-Version: nvidia-driver\n"
+"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-12 14:32+0200\n"
 "PO-Revision-Date: 2014-08-01 15:01+0200\n"
 "Last-Translator: Mert Dirik <mertdirik@gmail.com>\n"
@@ -20,20 +20,20 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
-msgid "Install Fglrx driver despite unsupported graphics card?"
-msgstr "Grafik kartı desteklenmediği halde Fglrx sürücüsü kurulsun mu?"
+msgid "Install NVIDIA driver despite unsupported graphics card?"
+msgstr "Grafik kartı desteklenmediği halde NVIDIA sürücüsü kurulsun mu?"
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the Fglrx "
-"driver (package fglrx-driver). You may wish to keep the package installed - "
+"This system has a graphics card which is no longer handled by the NVIDIA "
+"driver (package nvidia-driver). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
-"Sisteminizde bulunan grafik kartı artık (fglrx-driver paketinin sağladığı) "
-"Fglrx sürücüsüyle yönetilmeyen bir kart. İstediğiniz takdirde paketi kurulu "
+"Sisteminizde bulunan grafik kartı artık (nvidia-driver paketinin sağladığı) "
+"NVIDIA sürücüsüyle yönetilmeyen bir kart. İstediğiniz takdirde paketi kurulu "
 "vaziyette tutmaya devam edebilirsiniz (örneğin başka bir kartı yönetmesi "
 "için), fakat aşağıdaki yonga kümesini kullanan kart bu sürücü ile "
 "kullanılamayacaktır:"
@@ -42,23 +42,23 @@ msgstr ""
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy Fglrx driver (package "
-"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
-"radeon)."
+"The above card requires either the non-free legacy NVIDIA driver (package "
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
+"nouveau)."
 msgstr ""
-"Yukarıdaki kartı kullanabilmek için ya özgür olmayan eski Fglrx sürücüsünü "
-"(fglrx-legacy-driver paketi) ya da özgür Radeon sürücüsünü (xserver-xorg-"
-"video-radeon paketi) kullanmak gerekmektedir."
+"Yukarıdaki kartı kullanabilmek için ya özgür olmayan eski NVIDIA sürücüsünü "
+"(nvidia-legacy-304xx-driver paketi) ya da özgür Nouveau sürücüsünü (xserver-xorg-"
+"video-nouveau paketi) kullanmak gerekmektedir."
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"Before the Radeon driver can be used you must remove Fglrx configuration "
+"Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Radeon sürücüsünü kullanmadan önce xorg.conf (ve xorg.conf.d/) konumundaki "
-"Fglrx yapılandırmasını kaldırmanız gerekmektedir."
+"Nouveau sürücüsünü kullanmadan önce xorg.conf (ve xorg.conf.d/) konumundaki "
+"NVIDIA yapılandırmasını kaldırmanız gerekmektedir."
 
 #. Type: note
 #. Description
@@ -89,8 +89,8 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../fglrx-driver.templates:3001
-msgid "Fglrx driver is still enabled in xorg.conf"
-msgstr "Fglrx sürücüsü xorg.conf dosyasında hala etkin durumda"
+msgid "NVIDIA driver is still enabled in xorg.conf"
+msgstr "NVIDIA sürücüsü xorg.conf dosyasında hala etkin durumda"
 
 #. Type: note
 #. Description

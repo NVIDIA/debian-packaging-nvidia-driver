@@ -1,12 +1,12 @@
-# Czech PO debconf template translation of fglrx-driver.
+# Czech PO debconf template translation of nvidia-driver.
 # Copyright (C) 2012 Michal Simunek <michal.simunek@gmail.com>
-# This file is distributed under the same license as the fglrx-driver package.
+# This file is distributed under the same license as the nvidia-driver package.
 # Michal Simunek <michal.simunek@gmail.com>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: fglrx-driver 1:12-6+point-2\n"
-"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"Project-Id-Version: nvidia-driver 1:12-6+point-2\n"
+"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-12 14:32+0200\n"
 "PO-Revision-Date: 2012-06-19 18:31+0200\n"
 "Last-Translator: Michal Simunek <michal.simunek@gmail.com>\n"
@@ -19,19 +19,19 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
-msgid "Install Fglrx driver despite unsupported graphics card?"
-msgstr "Nainstalovat ovladač Fglrx i když nepodporuje grafickou kartu?"
+msgid "Install NVIDIA driver despite unsupported graphics card?"
+msgstr "Nainstalovat ovladač NVIDIA i když nepodporuje grafickou kartu?"
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the Fglrx "
-"driver (package fglrx-driver). You may wish to keep the package installed - "
+"This system has a graphics card which is no longer handled by the NVIDIA "
+"driver (package nvidia-driver). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
-"Systém má grafickou kartu, kterou již nebude ovladač Fglrx (balíček fglrx-"
+"Systém má grafickou kartu, kterou již nebude ovladač NVIDIA (balíček fglrx-"
 "driver) nadále obsluhovat. Můžete si však přát ponechat balíček "
 "nainstalovaný (například pro nějakou jinou kartu), ale karta s následující "
 "čipovou sadou nebude použitelná:"
@@ -40,23 +40,23 @@ msgstr ""
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy Fglrx driver (package "
-"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
-"radeon)."
+"The above card requires either the non-free legacy NVIDIA driver (package "
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
+"nouveau)."
 msgstr ""
-"Výše uvedená karta vyžaduje buď nesvobodný ovladač Fglrx pro starší karty "
-"(balíček fglrx-legacy-driver), nebo svobodný ovladač Radeon (balíček xserver-"
-"xorg-video-radeon)."
+"Výše uvedená karta vyžaduje buď nesvobodný ovladač NVIDIA pro starší karty "
+"(balíček nvidia-legacy-304xx-driver), nebo svobodný ovladač Nouveau (balíček xserver-"
+"xorg-video-nouveau)."
 
 #. Type: boolean
 #. Description
 #: ../libfglrx.templates:2001
 msgid ""
-"Before the Radeon driver can be used you must remove Fglrx configuration "
+"Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Před použitím ovladače Radeon musíte ze souboru xorg.conf (a xorg.conf.d/) "
-"odstranit nastavení pro ovladač Fglrx."
+"Před použitím ovladače Nouveau musíte ze souboru xorg.conf (a xorg.conf.d/) "
+"odstranit nastavení pro ovladač NVIDIA."
 
 #. Type: note
 #. Description
@@ -87,7 +87,7 @@ msgstr ""
 #. Type: note
 #. Description
 #: ../fglrx-driver.templates:3001
-msgid "Fglrx driver is still enabled in xorg.conf"
+msgid "NVIDIA driver is still enabled in xorg.conf"
 msgstr "Ovladač fglrx je v xorg.conf stále povolen"
 
 #. Type: note
@@ -103,5 +103,5 @@ msgstr ""
 "následujících konfiguračních souborech:"
 
 #~ msgid ""
-#~ "The fglrx-legacy-driver package will be provided in wheezy-backports."
-#~ msgstr "Balíček fglrx-legacy-driver bude poskytován ve wheezy-backports."
+#~ "The nvidia-legacy-304xx-driver package will be provided in wheezy-backports."
+#~ msgstr "Balíček nvidia-legacy-304xx-driver bude poskytován ve wheezy-backports."
