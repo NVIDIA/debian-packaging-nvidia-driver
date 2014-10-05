@@ -355,7 +355,7 @@ Breaks:
  libvdpau1 (<< 0.4.1-3),
 Replaces:
  nvidia-vdpau-driver-ia32,
-Description: NVIDIA vdpau driver
+Description: Video Decode and Presentation API for Unix - NVIDIA driver
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
  graphics cards.
@@ -588,7 +588,7 @@ Replaces:
  nvidia-opencl-icd-ia32,
 Provides:
  opencl-icd,
-Description: NVIDIA OpenCL ICD
+Description: NVIDIA OpenCL installable client driver (ICD)
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
