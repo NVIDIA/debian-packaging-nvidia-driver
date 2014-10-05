@@ -140,6 +140,7 @@ override_dh_auto_clean:
 	rm -fr kernel-source-tree
 	rm -f nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
 	rm -f LICENSE.txt LICENSE.tmp copyright.tmp
+	debconf-updatepo
 
 override_dh_clean:
 	dh_clean

@@ -1,0 +1,109 @@
+# Translation of fglrx-driver debconf template to Swedish
+# Copyright (C) 2012 Martin Bagge <brother@bsnet.se>
+# This file is distributed under the same license as the fglrx-driver package.
+#
+# Martin Bagge <brother@bsnet.se>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: fglrx-driver\n"
+"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"POT-Creation-Date: 2012-10-12 14:32+0200\n"
+"PO-Revision-Date: 2012-09-22 16:53+0100\n"
+"Last-Translator: Martin Bagge / brother <brother@bsnet.se>\n"
+"Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: Sweden\n"
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid "Install Fglrx driver despite unsupported graphics card?"
+msgstr "Ska Fglrx-drivrutinen installeras även om grafikkortet inte stöds?"
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid ""
+"This system has a graphics card which is no longer handled by the Fglrx "
+"driver (package fglrx-driver). You may wish to keep the package installed - "
+"for instance to drive some other card - but the card with the following "
+"chipset won't be usable:"
+msgstr ""
+"Systemet har ett grafikkort som inte längre hanteras av drivrutinen Fglrx "
+"(paketet fglrx-driver). Du kan välja att fortsätta ha paketet installerat - "
+"exempelvis för att driva ett annat kort - men kortet med följande chipp kan "
+"inte användas:"
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid ""
+"The above card requires either the non-free legacy Fglrx driver (package "
+"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
+"radeon)."
+msgstr ""
+"Ovanstående kort behöver antingen den ofria drivrutinen Fglrx (paketet fglrx-"
+"legacy-driver) eller den fria drivrutinen Radeon (paketet xserver-xorg-video-"
+"radeon)."
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid ""
+"Before the Radeon driver can be used you must remove Fglrx configuration "
+"from xorg.conf (and xorg.conf.d/)."
+msgstr ""
+"Innan drivrutinen Radeon kan användas måste du ta bort Fglrx-inställningen "
+"från xorg.conf (och xorg.conf.d/)."
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:1001
+msgid "Manual configuration required to enable fglrx driver"
+msgstr "Manuell justering krävs för att aktivera fglrx-drivrutinen"
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:1001
+msgid ""
+"The fglrx driver is not yet configured. Please consider using /usr/bin/"
+"aticonfig to create a working xorg.conf configuration."
+msgstr ""
+"Fglrx-drivrutinen är ännu inte komplett installerad. Överväg att exekvera /"
+"usr/bin/aticonfig för att skapa en fungerande xorg.conf-inställning."
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:1001
+msgid ""
+"For example, \"sudo aticonfig --initial\" should be sufficient for most use "
+"cases."
+msgstr "Exempelvis räcker \"sudo aticonfig --initial\" i de flesta fall."
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:3001
+msgid "Fglrx driver is still enabled in xorg.conf"
+msgstr "Fglrx-rivrutinen är fortfarande aktiverad i xorg.conf"
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:3001
+msgid ""
+"The fglrx driver was just removed, but it is still enabled in the Xorg "
+"configuration. X cannot be (re-)started successfully until fglrx is disabled "
+"in the following config file(s):"
+msgstr ""
+"Drivrutinen fglrx togs just bort men är fortfarande aktiverad i Xorg-"
+"inställningarna. X kan inte startas om korrekt innan fglrx avaktiveras i "
+"följande inställningsfil(er):"
+
+#~ msgid ""
+#~ "The fglrx-legacy-driver package will be provided in wheezy-backports."
+#~ msgstr ""
+#~ "Paketet fglrx-legacy-driver kommer att göras tillgängligt i wheezy-"
+#~ "backports."

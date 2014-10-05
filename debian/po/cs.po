@@ -1,0 +1,107 @@
+# Czech PO debconf template translation of fglrx-driver.
+# Copyright (C) 2012 Michal Simunek <michal.simunek@gmail.com>
+# This file is distributed under the same license as the fglrx-driver package.
+# Michal Simunek <michal.simunek@gmail.com>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fglrx-driver 1:12-6+point-2\n"
+"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"POT-Creation-Date: 2012-10-12 14:32+0200\n"
+"PO-Revision-Date: 2012-06-19 18:31+0200\n"
+"Last-Translator: Michal Simunek <michal.simunek@gmail.com>\n"
+"Language-Team: Czech <debian-l10n-czech@lists.debian.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid "Install Fglrx driver despite unsupported graphics card?"
+msgstr "Nainstalovat ovladač Fglrx i když nepodporuje grafickou kartu?"
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid ""
+"This system has a graphics card which is no longer handled by the Fglrx "
+"driver (package fglrx-driver). You may wish to keep the package installed - "
+"for instance to drive some other card - but the card with the following "
+"chipset won't be usable:"
+msgstr ""
+"Systém má grafickou kartu, kterou již nebude ovladač Fglrx (balíček fglrx-"
+"driver) nadále obsluhovat. Můžete si však přát ponechat balíček "
+"nainstalovaný (například pro nějakou jinou kartu), ale karta s následující "
+"čipovou sadou nebude použitelná:"
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid ""
+"The above card requires either the non-free legacy Fglrx driver (package "
+"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
+"radeon)."
+msgstr ""
+"Výše uvedená karta vyžaduje buď nesvobodný ovladač Fglrx pro starší karty "
+"(balíček fglrx-legacy-driver), nebo svobodný ovladač Radeon (balíček xserver-"
+"xorg-video-radeon)."
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid ""
+"Before the Radeon driver can be used you must remove Fglrx configuration "
+"from xorg.conf (and xorg.conf.d/)."
+msgstr ""
+"Před použitím ovladače Radeon musíte ze souboru xorg.conf (a xorg.conf.d/) "
+"odstranit nastavení pro ovladač Fglrx."
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:1001
+msgid "Manual configuration required to enable fglrx driver"
+msgstr "Pro povolení ovladače fglrx je vyžadováno ruční nastavení"
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:1001
+msgid ""
+"The fglrx driver is not yet configured. Please consider using /usr/bin/"
+"aticonfig to create a working xorg.conf configuration."
+msgstr ""
+"Ovladač fglrx ještě není nastaven. K vytvoření správného nastavení xorg.conf "
+"zvažte použití programu /usr/bin/aticonfig."
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:1001
+msgid ""
+"For example, \"sudo aticonfig --initial\" should be sufficient for most use "
+"cases."
+msgstr ""
+"Ve většině případů by mělo být dostačující spustit například \"sudo "
+"aticonfig --initial\"."
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:3001
+msgid "Fglrx driver is still enabled in xorg.conf"
+msgstr "Ovladač fglrx je v xorg.conf stále povolen"
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:3001
+msgid ""
+"The fglrx driver was just removed, but it is still enabled in the Xorg "
+"configuration. X cannot be (re-)started successfully until fglrx is disabled "
+"in the following config file(s):"
+msgstr ""
+"Ovladač fglrx byl právě odebrán, ale je stále povolen v nastavení Xorg. X "
+"nebude možné spustit, či restartovat, dokud nebude ovladač fglrx zakázán v "
+"následujících konfiguračních souborech:"
+
+#~ msgid ""
+#~ "The fglrx-legacy-driver package will be provided in wheezy-backports."
+#~ msgstr "Balíček fglrx-legacy-driver bude poskytován ve wheezy-backports."

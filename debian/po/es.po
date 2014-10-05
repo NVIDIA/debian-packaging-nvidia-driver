@@ -1,0 +1,142 @@
+# fglrx-driver translation to Spanish
+# Copyright (C) 2012 Software in the Public Interest, SPI Inc.
+# This file is distributed under the same license as the fglrx-driver package.
+#
+# Changes:
+# - Initial translation
+#      Fernando C. Estrada <fcestrada@fcestrada.com> , 2012
+# - Revision
+#      Matías Bellone <matiasbellone+debian@gmail.com> , 2012
+#      Javier Fernández-Sanguino <jfs@debian.org>, 2012
+#
+#  Traductores, si no conoce el formato PO, merece la pena leer la 
+#  documentación de gettext, especialmente las secciones dedicadas a este
+#  formato, por ejemplo ejecutando:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#
+# Equipo de traducción al español, por favor lean antes de traducir
+# los siguientes documentos:
+#
+# - El proyecto de traducción de Debian al español
+#   http://www.debian.org/intl/spanish/
+#   especialmente las notas y normas de traducción en
+#   http://www.debian.org/intl/spanish/notas
+#
+# - La guía de traducción de po's de debconf:
+#   /usr/share/doc/po-debconf/README-trans
+#   o http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+# Si tiene dudas o consultas sobre esta traducción consulte con el último
+# traductor (campo Last-Translator) y ponga en copia a la lista de
+# traducción de Debian al español (<debian-l10n-spanish@lists.debian.org>)
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fglrx-driver\n"
+"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"POT-Creation-Date: 2012-10-12 14:32+0200\n"
+"PO-Revision-Date: 2012-10-03 00:02+0200\n"
+"Last-Translator: Javier Fernández-Sanguino Peña <jfs@debian.org>\n"
+"Language-Team: Debian L10N Spanish <debian-l10n-spanish@lists.debian.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-POFile-SpellExtra: bin wheezy xserver conf Fglrx initial backports\n"
+"X-POFile-SpellExtra: aticonfig re legacy video usr xorg radeon fglrx Xorg\n"
+"X-POFile-SpellExtra: Radeon\n"
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid "Install Fglrx driver despite unsupported graphics card?"
+msgstr ""
+"¿Desea instalar el controlador Fglrx aún cuando su tarjeta gráfica no sea "
+"compatible?"
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid ""
+"This system has a graphics card which is no longer handled by the Fglrx "
+"driver (package fglrx-driver). You may wish to keep the package installed - "
+"for instance to drive some other card - but the card with the following "
+"chipset won't be usable:"
+msgstr ""
+"Este sistema tiene una tarjeta gráfica que ya no puede administrar el "
+"controlador Fglrx (paquete «fglrx-driver»). Tal vez quiera mantener el "
+"paquete instalado (por ejemplo para controlar alguna otra tarjeta), pero no "
+"podrá utilizarse para gestionar la tarjeta mostrada a continuación:"
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid ""
+"The above card requires either the non-free legacy Fglrx driver (package "
+"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
+"radeon)."
+msgstr ""
+"La tarjeta arriba mencionada requiere o bien del controlador no libre y "
+"obsoleto Fglrx (paquete «fglrx-legacy-driver») o el controlador libre Radeon "
+"(paquete «xserver-xorg-video-radeon»)."
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid ""
+"Before the Radeon driver can be used you must remove Fglrx configuration "
+"from xorg.conf (and xorg.conf.d/)."
+msgstr ""
+"Antes de poder utilizar el controlador Radeon debe eliminar la configuración "
+"de fglrx de «xorg.conf» (y de «xorg.conf.d/»)."
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:1001
+msgid "Manual configuration required to enable fglrx driver"
+msgstr "Configuración manual requerida para activar el controlador fglrx"
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:1001
+msgid ""
+"The fglrx driver is not yet configured. Please consider using /usr/bin/"
+"aticonfig to create a working xorg.conf configuration."
+msgstr ""
+"El controlador fglrx aún no está configurado. Puede utilizar «/usr/bin/"
+"aticonfig» para crear una configuración funcional de «xorg.conf»."
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:1001
+msgid ""
+"For example, \"sudo aticonfig --initial\" should be sufficient for most use "
+"cases."
+msgstr ""
+"Por ejemplo, «sudo aticonfig --initial» debería ser suficiente para la "
+"mayoría de los casos."
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:3001
+msgid "Fglrx driver is still enabled in xorg.conf"
+msgstr "El controlador Fglrx está aún activado en «xorg.conf»"
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:3001
+msgid ""
+"The fglrx driver was just removed, but it is still enabled in the Xorg "
+"configuration. X cannot be (re-)started successfully until fglrx is disabled "
+"in the following config file(s):"
+msgstr ""
+"Sólo se eliminó el controlador fglrx, pero aún sigue activo en la "
+"configuración de Xorg. No se puede (re)iniciar X en forma satisfactoria "
+"hasta que fglrx sea desactivado en los siguientes archivos de configuración:"
+
+#~ msgid ""
+#~ "The fglrx-legacy-driver package will be provided in wheezy-backports."
+#~ msgstr "El paquete «fglrx-legacy-driver» se proveerá en «wheezy-backports»."

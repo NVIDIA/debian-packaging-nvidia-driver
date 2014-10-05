@@ -1,0 +1,121 @@
+# Slovak translation of fglrx-driver debconf templates.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the fglrx-driver package.
+# Ivan Masár <helix84@centrum.sk>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fglrx-driver\n"
+"Report-Msgid-Bugs-To: fglrx-driver@packages.debian.org\n"
+"POT-Creation-Date: 2012-10-12 14:32+0200\n"
+"PO-Revision-Date: 2012-06-21 14:03+0100\n"
+"Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
+"Language-Team: Slovak <debian-l10n-slovak@lists.debian.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+msgid "Install Fglrx driver despite unsupported graphics card?"
+msgstr ""
+"Nainštalovať ovládač Fglrx napriek tou, že máte nepodporovanú grafickú kartu?"
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+#, fuzzy
+#| msgid ""
+#| "The following graphics chipset found in your system is no longer handled "
+#| "by the fglrx driver:You may wish to keep fglrx (for instance to drive "
+#| "some other card), but the above card won't be usable."
+msgid ""
+"This system has a graphics card which is no longer handled by the Fglrx "
+"driver (package fglrx-driver). You may wish to keep the package installed - "
+"for instance to drive some other card - but the card with the following "
+"chipset won't be usable:"
+msgstr ""
+"Ovládač fglrx už nedokáže pracovať s nasledovnou grafickou čipovou sadou, "
+"ktorá sa nachádza vo vašom systéme:Možno si budete chcieť ponechať fglrx "
+"(napríklad aby ovládal nejakú inú kartu), ale hore uvedená karta nebude "
+"použiteľná."
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+#, fuzzy
+#| msgid ""
+#| "The above card requires the free Radeon driver in the package xserver-"
+#| "xorg-video-radeon."
+msgid ""
+"The above card requires either the non-free legacy Fglrx driver (package "
+"fglrx-legacy-driver) or the free Radeon driver (package xserver-xorg-video-"
+"radeon)."
+msgstr ""
+"Hore uvedená karta vyžaduje slobodný ovládač Radeon z balíka xserver-xorg-"
+"video-radeon."
+
+#. Type: boolean
+#. Description
+#: ../libfglrx.templates:2001
+#, fuzzy
+#| msgid ""
+#| "Before the Radeon driver can be used you must remove fglrx configuration "
+#| "from xorg.conf (and xorg.conf.d/) and purge (not just remove) the fglrx-"
+#| "driver package."
+msgid ""
+"Before the Radeon driver can be used you must remove Fglrx configuration "
+"from xorg.conf (and xorg.conf.d/)."
+msgstr ""
+"Predtým, než budete môcť používať ovládač Radeon musíte odstrániť z xorg."
+"conf (a z xorg.conf.d/) konfiguráciu fglrx a vyčistiť („purge“, nie len "
+"„remove“) balík fglrx-driver."
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:1001
+msgid "Manual configuration required to enable fglrx driver"
+msgstr "Zapnutie ovládača fglrx vyžaduje ručnú konfiguráciu"
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:1001
+#, fuzzy
+#| msgid ""
+#| "The fglrx driver is not yet configured. Please consider /usr/bin/"
+#| "aticonfig to create a working xorg.conf configuration."
+msgid ""
+"The fglrx driver is not yet configured. Please consider using /usr/bin/"
+"aticonfig to create a working xorg.conf configuration."
+msgstr ""
+"Ovládať fglrx zatiaľ nie je nakonfigurovaný. Prosím, zvážte vytvorenie "
+"fungujúcej konfigurácie xorg.conf spustením /usr/bin/aticonfig."
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:1001
+msgid ""
+"For example, \"sudo aticonfig --initial\" should be sufficient for most use "
+"cases."
+msgstr ""
+"Napríklad „sudo aticonfig --initial“ by malo vo väčšine prípadov stačiť."
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:3001
+msgid "Fglrx driver is still enabled in xorg.conf"
+msgstr "Ovládač fglrx je ešte stále zapnutý v xorg.conf"
+
+#. Type: note
+#. Description
+#: ../fglrx-driver.templates:3001
+msgid ""
+"The fglrx driver was just removed, but it is still enabled in the Xorg "
+"configuration. X cannot be (re-)started successfully until fglrx is disabled "
+"in the following config file(s):"
+msgstr ""
+"Ovládač fglrx bol práve odstránený, ale je stále zapnutý v konfigurácii "
+"Xorg. Nie je možné úspešne spustiť/reštartovať X pokým nevypnete fglrx v "
+"nasledovných konfiguračných súboroch:"
