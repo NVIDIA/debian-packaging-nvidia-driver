@@ -5,6 +5,18 @@ nvidia-graphics-drivers (340.32-2) UNRELEASED; urgency=medium
   * nvidia-detect: Legacy driver 173xx won't be available in jessie.
   * Merge changes from 304.123 (UNRELEASED).
   * Bump Standards-Version to 3.9.6. No changes needed.
+  * libgl1-nvidia-glx.preinst: Implement hardware check for legacy GPUs that
+    require the nvidia-legacy-304xx-driver package. Based on the
+    implementation of the same feature in fglrx-driver (libfglrx.preinst).
+    - Show debconf question in preinst asking whether to proceed with driver
+      installation in case GPUs only supported in nvidia-legacy-304xx-driver
+      are present in the machine. (Having *no* supported hardware installed at
+      all is *not* an error.)
+    - The hardware check can be disabled via preseeding to allow unattended
+      installations/upgrades.
+    (Closes: #761062)
+  * Import and adjust the corresponding debconf translations from
+    fglrx-driver.
 
   [ Vincent Cheng ]
   * Unload uvm module when nvidia is unloaded. (Closes: #749018, #763272)
