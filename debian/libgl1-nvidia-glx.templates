@@ -1,25 +1,26 @@
-Template: fglrx-driver/check-for-unsupported-gpu
+Template: nvidia-driver/check-for-unsupported-gpu
 Type: boolean
 Default: true
 Description: for internal use
  Can be preseeded. If set to false, disables the check for
- legacy GPUs based on R6XX/R7XX.
+ legacy GPUs from the GeForce 6, GeForce 7 and corresponding
+ Quadro series.
 
-Template: fglrx-driver/install-even-if-unsupported-gpu-exists
+Template: nvidia-driver/install-even-if-unsupported-gpu-exists
 Type: boolean
 Default: false
 #flag:translate!:3
-_Description: Install Fglrx driver despite unsupported graphics card?
- This system has a graphics card which is no longer handled by the Fglrx
- driver (package fglrx-driver). You may wish to keep the package installed -
+_Description: Install NVIDIA driver despite unsupported graphics card?
+ This system has a graphics card which is no longer handled by the NVIDIA
+ driver (package nvidia-driver). You may wish to keep the package installed -
  for instance to drive some other card - but the card with the following
  chipset won't be usable:
  .
  ${unsupported-device}
  .
- The above card requires either the non-free legacy Fglrx driver
- (package fglrx-legacy-driver) or the free Radeon driver
- (package xserver-xorg-video-radeon).
+ The above card requires either the non-free legacy NVIDIA driver
+ (package nvidia-legacy-304xx-driver) or the free Nouveau driver
+ (package xserver-xorg-video-nouveau).
  .
- Before the Radeon driver can be used you must
- remove Fglrx configuration from xorg.conf (and xorg.conf.d/).
+ Before the Nouveau driver can be used you must
+ remove NVIDIA configuration from xorg.conf (and xorg.conf.d/).

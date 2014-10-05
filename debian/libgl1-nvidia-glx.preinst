@@ -4,145 +4,140 @@ set -e
 . /usr/share/debconf/confmodule
 
 UNSUPPORTED_PCIIDS="
-10029400
-10029401
-10029402
-10029403
-10029405
-1002940A
-1002940B
-1002940F
-10029440
-10029441
-10029442
-10029443
-10029444
-10029446
-10029447
-1002944A
-1002944B
-1002944C
-1002944E
-1002944F
-10029450
-10029451
-10029452
-10029456
-1002945A
-1002945B
-1002945E
-10029460
-10029462
-1002946A
-1002946B
-1002947A
-1002947B
-10029480
-10029487
-10029488
-10029489
-1002948A
-1002948F
-10029490
-10029491
-10029495
-10029498
-1002949C
-1002949E
-1002949F
-100294A0
-100294A1
-100294A3
-100294B1
-100294B3
-100294B4
-100294B5
-100294C0
-100294C1
-100294C3
-100294C4
-100294C5
-100294C6
-100294C7
-100294C8
-100294C9
-100294CB
-100294CC
-10029500
-10029501
-10029504
-10029505
-10029506
-10029507
-10029508
-10029509
-1002950F
-10029511
-10029513
-10029515
-10029517
-10029519
-10029540
-10029541
-10029542
-1002954E
-1002954F
-10029552
-10029553
-10029555
-10029557
-1002955F
-10029580
-10029581
-10029583
-10029586
-10029587
-10029588
-10029589
-1002958A
-1002958B
-1002958C
-1002958D
-1002958E
-1002958F
-10029590
-10029591
-10029593
-10029595
-10029596
-10029597
-10029598
-10029599
-1002959B
-100295C0
-100295C2
-100295C4
-100295C5
-100295C6
-100295C7
-100295C9
-100295CC
-100295CD
-100295CE
-100295CF
-10029610
-10029611
-10029612
-10029613
-10029614
-10029615
-10029616
-10029710
-10029711
-10029712
-10029713
-10029714
-10029715
+10DE0040
+10DE0041
+10DE0042
+10DE0043
+10DE0044
+10DE0045
+10DE0046
+10DE0047
+10DE0048
+10DE004E
+10DE0090
+10DE0091
+10DE0092
+10DE0093
+10DE0095
+10DE0098
+10DE0099
+10DE009D
+10DE00C0
+10DE00C1
+10DE00C2
+10DE00C3
+10DE00C8
+10DE00C9
+10DE00CC
+10DE00CD
+10DE00CE
+10DE00F1
+10DE00F2
+10DE00F3
+10DE00F4
+10DE00F5
+10DE00F6
+10DE00F8
+10DE00F9
+10DE0140
+10DE0141
+10DE0142
+10DE0143
+10DE0144
+10DE0145
+10DE0146
+10DE0147
+10DE0148
+10DE0149
+10DE014A
+10DE014C
+10DE014D
+10DE014E
+10DE014F
+10DE0160
+10DE0161
+10DE0162
+10DE0163
+10DE0164
+10DE0165
+10DE0166
+10DE0167
+10DE0168
+10DE0169
+10DE016A
+10DE01D0
+10DE01D1
+10DE01D2
+10DE01D3
+10DE01D6
+10DE01D7
+10DE01D8
+10DE01DA
+10DE01DB
+10DE01DC
+10DE01DD
+10DE01DE
+10DE01DF
+10DE0221
+10DE0222
+10DE0240
+10DE0241
+10DE0242
+10DE0244
+10DE0245
+10DE0247
+10DE0290
+10DE0291
+10DE0292
+10DE0293
+10DE0294
+10DE0295
+10DE0297
+10DE0298
+10DE0299
+10DE029A
+10DE029B
+10DE029C
+10DE029D
+10DE029E
+10DE029F
+10DE02E0
+10DE02E1
+10DE02E2
+10DE02E3
+10DE02E4
+10DE038B
+10DE0390
+10DE0391
+10DE0392
+10DE0393
+10DE0394
+10DE0395
+10DE0397
+10DE0398
+10DE0399
+10DE039C
+10DE039E
+10DE03D0
+10DE03D1
+10DE03D2
+10DE03D5
+10DE03D6
+10DE0531
+10DE0533
+10DE053A
+10DE053B
+10DE053E
+10DE07E0
+10DE07E1
+10DE07E2
+10DE07E3
+10DE07E5
 "
 
 find_unsupported_gpus()
 {
-	# Check for R6xx, R7xx, ... GPUs that are no longer supported starting with 12-6
+	# Check for Geforce 6xxx, 7xxx, ... GPUs that are only supported up to release 304.xx
 	if lspci --version > /dev/null 2>&1; then
 		lspci -mn \
 		| awk '{ gsub("\"",""); if ($2 == "0300") { print $1 " " $3$4 } }' \
@@ -164,7 +159,7 @@ find_unsupported_gpus()
 check_for_unsupported_gpus()
 {
 	# allow to disable the check via preseeding
-	db_get fglrx-driver/check-for-unsupported-gpu
+	db_get nvidia-driver/check-for-unsupported-gpu
 	test "$RET" = "true" || return 0
 
 	UNSUPPORTED_DEVICES="$(find_unsupported_gpus)"
@@ -173,23 +168,23 @@ check_for_unsupported_gpus()
 
 	UNSUPPORTED="$(for dev in $UNSUPPORTED_DEVICES ; do lspci -nn -s "$dev" ; done)"
 
-	db_subst fglrx-driver/install-even-if-unsupported-gpu-exists unsupported-device "$UNSUPPORTED"
+	db_subst nvidia-driver/install-even-if-unsupported-gpu-exists unsupported-device "$UNSUPPORTED"
 
 	# ensure the question is asked again unless it was accepted previously
-	db_get fglrx-driver/install-even-if-unsupported-gpu-exists
+	db_get nvidia-driver/install-even-if-unsupported-gpu-exists
 	if [ "$RET" = "false" ]; then
-		db_fset fglrx-driver/install-even-if-unsupported-gpu-exists seen false
+		db_fset nvidia-driver/install-even-if-unsupported-gpu-exists seen false
 	fi
 
-	db_input high fglrx-driver/install-even-if-unsupported-gpu-exists || true
+	db_input high nvidia-driver/install-even-if-unsupported-gpu-exists || true
 	db_go
 
 	echo "*** The following unsupported devices are present in the machine:"
 	echo "$UNSUPPORTED"
 
-	db_get fglrx-driver/install-even-if-unsupported-gpu-exists
+	db_get nvidia-driver/install-even-if-unsupported-gpu-exists
 	if [ "$RET" = "false" ]; then
-		echo "Aborting fglrx installation."
+		echo "Aborting nvidia driver installation."
 		exit 1
 	fi
 }
