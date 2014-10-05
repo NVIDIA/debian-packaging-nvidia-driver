@@ -3,7 +3,7 @@
 embedded-library usr/lib*/libcuda.so.#VERSION#: zlib
 [!armhf]: shlib-with-executable-stack
 [i386]: shlib-with-non-pic-code
-[i386]: spelling-error-in-binary
+spelling-error-in-binary
 unstripped-binary-or-object
 hardening-no-fortify-functions
 hardening-no-relro

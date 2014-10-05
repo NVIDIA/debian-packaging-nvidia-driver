@@ -5,6 +5,7 @@ nvidia-graphics-drivers (340.32-2) UNRELEASED; urgency=medium
   * nvidia-detect: Legacy driver 173xx won't be available in jessie.
   * Merge changes from 304.123 (UNRELEASED).
   * Bump Standards-Version to 3.9.6. No changes needed.
+  * Update lintian overrides.
   * libgl1-nvidia-glx.preinst: Implement hardware check for legacy GPUs that
     require the nvidia-legacy-304xx-driver package. Based on the
     implementation of the same feature in fglrx-driver (libfglrx.preinst).
