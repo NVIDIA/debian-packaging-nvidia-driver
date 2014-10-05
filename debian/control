@@ -108,6 +108,8 @@ Package: libgl1-nvidia-glx
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
+ debconf (>= 0.5) | debconf-2.0,
+ pciutils,
  nvidia-installer-cleanup,
  ${misc:Pre-Depends}
 Depends:
