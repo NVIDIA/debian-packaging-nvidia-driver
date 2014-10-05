@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: nvidia-driver\n"
-"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-12 14:32+0200\n"
+"Project-Id-Version: nvidia-graphics-drivers\n"
+"Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
+"POT-Creation-Date: 2014-10-05 18:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,13 +19,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid "Install NVIDIA driver despite unsupported graphics card?"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "This system has a graphics card which is no longer handled by the NVIDIA "
 "driver (package nvidia-driver). You may wish to keep the package installed - "
@@ -35,54 +35,17 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
-"nouveau)."
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
+"video-nouveau)."
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid "Manual configuration required to enable fglrx driver"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid ""
-"The fglrx driver is not yet configured. Please consider using /usr/bin/"
-"aticonfig to create a working xorg.conf configuration."
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid ""
-"For example, \"sudo aticonfig --initial\" should be sufficient for most use "
-"cases."
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:3001
-msgid "NVIDIA driver is still enabled in xorg.conf"
-msgstr ""
-
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:3001
-msgid ""
-"The fglrx driver was just removed, but it is still enabled in the Xorg "
-"configuration. X cannot be (re-)started successfully until fglrx is disabled "
-"in the following config file(s):"
 msgstr ""

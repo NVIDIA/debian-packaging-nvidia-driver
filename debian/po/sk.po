@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: nvidia-driver\n"
-"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-12 14:32+0200\n"
+"Project-Id-Version: nvidia-graphics-drivers\n"
+"Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
+"POT-Creation-Date: 2014-10-05 18:35+0200\n"
 "PO-Revision-Date: 2012-06-21 14:03+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <debian-l10n-slovak@lists.debian.org>\n"
@@ -18,14 +18,15 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid "Install NVIDIA driver despite unsupported graphics card?"
 msgstr ""
-"Nainštalovať ovládač NVIDIA napriek tou, že máte nepodporovanú grafickú kartu?"
+"Nainštalovať ovládač NVIDIA napriek tou, že máte nepodporovanú grafickú "
+"kartu?"
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 #, fuzzy
 #| msgid ""
 #| "The following graphics chipset found in your system is no longer handled "
@@ -44,22 +45,22 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 #, fuzzy
 #| msgid ""
 #| "The above card requires the free Nouveau driver in the package xserver-"
 #| "xorg-video-nouveau."
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
-"nouveau)."
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
+"video-nouveau)."
 msgstr ""
 "Hore uvedená karta vyžaduje slobodný ovládač Nouveau z balíka xserver-xorg-"
 "video-nouveau."
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 #, fuzzy
 #| msgid ""
 #| "Before the Nouveau driver can be used you must remove fglrx configuration "
@@ -73,49 +74,8 @@ msgstr ""
 "conf (a z xorg.conf.d/) konfiguráciu fglrx a vyčistiť („purge“, nie len "
 "„remove“) balík nvidia-driver."
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid "Manual configuration required to enable fglrx driver"
-msgstr "Zapnutie ovládača fglrx vyžaduje ručnú konfiguráciu"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
 #, fuzzy
-#| msgid ""
-#| "The fglrx driver is not yet configured. Please consider /usr/bin/"
-#| "aticonfig to create a working xorg.conf configuration."
-msgid ""
-"The fglrx driver is not yet configured. Please consider using /usr/bin/"
-"aticonfig to create a working xorg.conf configuration."
-msgstr ""
-"Ovládať fglrx zatiaľ nie je nakonfigurovaný. Prosím, zvážte vytvorenie "
-"fungujúcej konfigurácie xorg.conf spustením /usr/bin/aticonfig."
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid ""
-"For example, \"sudo aticonfig --initial\" should be sufficient for most use "
-"cases."
-msgstr ""
-"Napríklad „sudo aticonfig --initial“ by malo vo väčšine prípadov stačiť."
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:3001
-msgid "NVIDIA driver is still enabled in xorg.conf"
-msgstr "Ovládač fglrx je ešte stále zapnutý v xorg.conf"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:3001
-msgid ""
-"The fglrx driver was just removed, but it is still enabled in the Xorg "
-"configuration. X cannot be (re-)started successfully until fglrx is disabled "
-"in the following config file(s):"
-msgstr ""
-"Ovládač fglrx bol práve odstránený, ale je stále zapnutý v konfigurácii "
-"Xorg. Nie je možné úspešne spustiť/reštartovať X pokým nevypnete fglrx v "
-"nasledovných konfiguračných súboroch:"

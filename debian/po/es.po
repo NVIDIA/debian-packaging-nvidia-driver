@@ -33,9 +33,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: nvidia-driver\n"
-"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-12 14:32+0200\n"
+"Project-Id-Version: nvidia-graphics-drivers\n"
+"Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
+"POT-Creation-Date: 2014-10-05 18:35+0200\n"
 "PO-Revision-Date: 2012-10-03 00:02+0200\n"
 "Last-Translator: Javier Fernández-Sanguino Peña <jfs@debian.org>\n"
 "Language-Team: Debian L10N Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -51,7 +51,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid "Install NVIDIA driver despite unsupported graphics card?"
 msgstr ""
 "¿Desea instalar el controlador NVIDIA aún cuando su tarjeta gráfica no sea "
@@ -59,7 +59,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "This system has a graphics card which is no longer handled by the NVIDIA "
 "driver (package nvidia-driver). You may wish to keep the package installed - "
@@ -73,70 +73,28 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
-"nouveau)."
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
+"video-nouveau)."
 msgstr ""
 "La tarjeta arriba mencionada requiere o bien del controlador no libre y "
-"obsoleto NVIDIA (paquete «nvidia-legacy-304xx-driver») o el controlador libre Nouveau "
-"(paquete «xserver-xorg-video-nouveau»)."
+"obsoleto NVIDIA (paquete «nvidia-legacy-304xx-driver») o el controlador "
+"libre Nouveau (paquete «xserver-xorg-video-nouveau»)."
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Antes de poder utilizar el controlador Nouveau debe eliminar la configuración "
-"de fglrx de «xorg.conf» (y de «xorg.conf.d/»)."
+"Antes de poder utilizar el controlador Nouveau debe eliminar la "
+"configuración de fglrx de «xorg.conf» (y de «xorg.conf.d/»)."
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid "Manual configuration required to enable fglrx driver"
-msgstr "Configuración manual requerida para activar el controlador fglrx"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid ""
-"The fglrx driver is not yet configured. Please consider using /usr/bin/"
-"aticonfig to create a working xorg.conf configuration."
-msgstr ""
-"El controlador fglrx aún no está configurado. Puede utilizar «/usr/bin/"
-"aticonfig» para crear una configuración funcional de «xorg.conf»."
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid ""
-"For example, \"sudo aticonfig --initial\" should be sufficient for most use "
-"cases."
-msgstr ""
-"Por ejemplo, «sudo aticonfig --initial» debería ser suficiente para la "
-"mayoría de los casos."
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:3001
-msgid "NVIDIA driver is still enabled in xorg.conf"
-msgstr "El controlador NVIDIA está aún activado en «xorg.conf»"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:3001
-msgid ""
-"The fglrx driver was just removed, but it is still enabled in the Xorg "
-"configuration. X cannot be (re-)started successfully until fglrx is disabled "
-"in the following config file(s):"
-msgstr ""
-"Sólo se eliminó el controlador fglrx, pero aún sigue activo en la "
-"configuración de Xorg. No se puede (re)iniciar X en forma satisfactoria "
-"hasta que fglrx sea desactivado en los siguientes archivos de configuración:"
 
-#~ msgid ""
-#~ "The nvidia-legacy-304xx-driver package will be provided in wheezy-backports."
-#~ msgstr "El paquete «nvidia-legacy-304xx-driver» se proveerá en «wheezy-backports»."

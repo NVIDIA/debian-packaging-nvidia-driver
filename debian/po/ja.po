@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: nvidia-driver\n"
-"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-12 14:32+0200\n"
+"Project-Id-Version: nvidia-graphics-drivers\n"
+"Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
+"POT-Creation-Date: 2014-10-05 18:35+0200\n"
 "PO-Revision-Date: 2012-09-19 21:15+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: debian-japanese <debian-japanese@lists.debian.org>\n"
@@ -18,15 +18,15 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid "Install NVIDIA driver despite unsupported graphics card?"
 msgstr ""
-"サポートされていないグラフィックスカードですが NVIDIA ドライバをインストールし"
-"ますか?"
+"サポートされていないグラフィックスカードですが NVIDIA ドライバをインストール"
+"しますか?"
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "This system has a graphics card which is no longer handled by the NVIDIA "
 "driver (package nvidia-driver). You may wish to keep the package installed - "
@@ -40,68 +40,28 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
-"nouveau)."
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
+"video-nouveau)."
 msgstr ""
-"上記のカードには、フリーではない旧式の NVIDIA ドライバ (nvidia-legacy-304xx-driver "
-"パッケージ) またはフリーの Nouveau ドライバ (xserver-xorg-video-nouveau パッ"
-"ケージ) のいずれかが必要です。"
+"上記のカードには、フリーではない旧式の NVIDIA ドライバ (nvidia-legacy-304xx-"
+"driver パッケージ) またはフリーの Nouveau ドライバ (xserver-xorg-video-"
+"nouveau パッケージ) のいずれかが必要です。"
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Nouveau ドライバを利用できるようにするには、NVIDIA の設定を xorg.conf (および "
-"xorg.conf.d/) から削除しなければなりません。"
+"Nouveau ドライバを利用できるようにするには、NVIDIA の設定を xorg.conf (およ"
+"び xorg.conf.d/) から削除しなければなりません。"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid "Manual configuration required to enable fglrx driver"
-msgstr "fglrx ドライバを有効にするのに必要な手動設定"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid ""
-"The fglrx driver is not yet configured. Please consider using /usr/bin/"
-"aticonfig to create a working xorg.conf configuration."
-msgstr ""
-"fglrx ドライバはまだ設定されていません。動作する xorg.conf の設定を作成するた"
-"めに /usr/bin/aticonfig を実行してください。"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid ""
-"For example, \"sudo aticonfig --initial\" should be sufficient for most use "
-"cases."
-msgstr ""
-"通常 \"sudo aticonfig --initial\" でほとんどのユースケースに足りるはずです。"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:3001
-msgid "NVIDIA driver is still enabled in xorg.conf"
-msgstr "fglrx ドライバがまだ xorg.conf で有効になっています"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:3001
-msgid ""
-"The fglrx driver was just removed, but it is still enabled in the Xorg "
-"configuration. X cannot be (re-)started successfully until fglrx is disabled "
-"in the following config file(s):"
-msgstr ""
-"fglrx ドライバは削除されましたが、Xorg 設定でまだ有効になっています。X は以下"
-"の設定ファイルの fglrx が無効にされるまで正常に開始/再起動できません。"
 
-#~ msgid ""
-#~ "The nvidia-legacy-304xx-driver package will be provided in wheezy-backports."
-#~ msgstr "nvidia-legacy-304xx-driver パッケージは wheezy-backports で提供されます。"

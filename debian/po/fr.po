@@ -6,9 +6,9 @@
 # Christian Perrier <bubulle@debian.org>, 2009, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: fr\n"
-"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-12 14:32+0200\n"
+"Project-Id-Version: nvidia-graphics-drivers\n"
+"Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
+"POT-Creation-Date: 2014-10-05 18:35+0200\n"
 "PO-Revision-Date: 2012-09-21 07:06+0200\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -21,13 +21,14 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid "Install NVIDIA driver despite unsupported graphics card?"
-msgstr "Faut-il installer le pilote NVIDIA avec une carte graphique non gérée ?"
+msgstr ""
+"Faut-il installer le pilote NVIDIA avec une carte graphique non gérée ?"
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "This system has a graphics card which is no longer handled by the NVIDIA "
 "driver (package nvidia-driver). You may wish to keep the package installed - "
@@ -41,74 +42,29 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
-"nouveau)."
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
+"video-nouveau)."
 msgstr ""
 "Cette carte a besoin soit du pilote NVIDIA constructeur, non libre, fourni "
-"par le paquet nvidia-legacy-304xx-driver ou du pilote libre Nouveau fourni par le "
-"paquet xserver-xorg-video-nouveau."
+"par le paquet nvidia-legacy-304xx-driver ou du pilote libre Nouveau fourni "
+"par le paquet xserver-xorg-video-nouveau."
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
 "Avant de pouvoir l'utiliser, il est nécessaire de supprimer la configuration "
-"de NVIDIA dans le fichier xorg.conf (ou dans un des fichiers de xorg.conf.d/)."
+"de NVIDIA dans le fichier xorg.conf (ou dans un des fichiers de xorg.conf."
+"d/)."
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid "Manual configuration required to enable fglrx driver"
-msgstr "Configuration manuelle indispensable pour activer le pilote NVIDIA"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid ""
-"The fglrx driver is not yet configured. Please consider using /usr/bin/"
-"aticonfig to create a working xorg.conf configuration."
-msgstr ""
-"Le pilote NVIDIA n'est pas encore configuré. Veuillez utiliser le programme /"
-"usr/bin/aticonfig pour mettre en place une configuration opérationnelle dans "
-"xorg.conf."
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid ""
-"For example, \"sudo aticonfig --initial\" should be sufficient for most use "
-"cases."
-msgstr ""
-"Par exemple, la commande « sudo aticonfig --initial » devrait convenir pour "
-"la plupart des cas."
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:3001
-msgid "NVIDIA driver is still enabled in xorg.conf"
-msgstr "Pilote NVIDIA toujours activé dans xorg.conf"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:3001
-msgid ""
-"The fglrx driver was just removed, but it is still enabled in the Xorg "
-"configuration. X cannot be (re-)started successfully until fglrx is disabled "
-"in the following config file(s):"
-msgstr ""
-"Le pilote NVIDIA a été supprimé mais est toujours utilisé dans la "
-"configuration de X.org. Le serveur X ne peut pas être (re)démarré tant que "
-"ce pilote n'est pas désactivé dans le(s) fichier(s) de configuration suivant"
-"(s) :"
 
-#~ msgid ""
-#~ "The nvidia-legacy-304xx-driver package will be provided in wheezy-backports."
-#~ msgstr ""
-#~ "Le paquet nvidia-legacy-304xx-driver sera fourni dans la distribution wheezy-"
-#~ "backports (rétroportages destinés à wheezy)."

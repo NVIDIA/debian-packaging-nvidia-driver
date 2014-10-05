@@ -5,9 +5,9 @@
 # Américo Monteiro <a_monteiro@netcabo.pt>, 2009, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: nvidia-driver 1:12-6+point-2\n"
-"Report-Msgid-Bugs-To: nvidia-driver@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-12 14:32+0200\n"
+"Project-Id-Version: nvidia-graphics-drivers\n"
+"Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
+"POT-Creation-Date: 2014-10-05 18:35+0200\n"
 "PO-Revision-Date: 2012-09-19 23:40+0100\n"
 "Last-Translator: Américo Monteiro <a_monteiro@netcabo.pt>\n"
 "Language-Team: Portuguese <l10n@debianpt.org>\n"
@@ -20,13 +20,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid "Install NVIDIA driver despite unsupported graphics card?"
 msgstr "Instalar a driver NVIDIA apesar da placa gráfica não ser suportada?"
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "This system has a graphics card which is no longer handled by the NVIDIA "
 "driver (package nvidia-driver). You may wish to keep the package installed - "
@@ -40,18 +40,18 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-video-"
-"nouveau)."
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
+"video-nouveau)."
 msgstr ""
 "A placa acima necessita da driver NVIDIA legacy não-livre (pacote fglrx-"
 "legacy-driver) ou a driver Nouveau livre (pacote xserver-xorg-video-nouveau)."
 
 #. Type: boolean
 #. Description
-#: ../libfglrx.templates:2001
+#: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "Before the Nouveau driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
@@ -59,51 +59,8 @@ msgstr ""
 "Antes de poder usar a driver Nouveau você tem de remover a configuração da "
 "NVIDIA do xorg.conf (e de xorg.conf.d/)."
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid "Manual configuration required to enable fglrx driver"
-msgstr "É necessária configuração manual para activar a driver fglrx"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid ""
-"The fglrx driver is not yet configured. Please consider using /usr/bin/"
-"aticonfig to create a working xorg.conf configuration."
-msgstr ""
-"A driver fglrx ainda não está configurada. Por favor considere utilizar o /"
-"usr/bin/aticonfig para criar uma configuração xorg.conf funcional."
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:1001
-msgid ""
-"For example, \"sudo aticonfig --initial\" should be sufficient for most use "
-"cases."
-msgstr ""
-"Por exemplo, \"sudo aticonfig --initial\" deverá ser suficiente para a "
-"maioria dos casos."
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:3001
-msgid "NVIDIA driver is still enabled in xorg.conf"
-msgstr "Driver fglrx ainda está activa no xorg.conf"
 
-#. Type: note
-#. Description
-#: ../fglrx-driver.templates:3001
-msgid ""
-"The fglrx driver was just removed, but it is still enabled in the Xorg "
-"configuration. X cannot be (re-)started successfully until fglrx is disabled "
-"in the following config file(s):"
-msgstr ""
-"A driver fglrx foi removida, mas ainda está activa na configuração do Xorg. "
-"O X não pode ser (re-)iniciado com sucesso até que a fglrx seja desactivada "
-"nos seguintes ficheiros de configuração:"
 
-#~ msgid ""
-#~ "The nvidia-legacy-304xx-driver package will be provided in wheezy-backports."
-#~ msgstr ""
-#~ "O pacote nvidia-legacy-304xx-driver será disponibilizado nos backports de wheezy."
