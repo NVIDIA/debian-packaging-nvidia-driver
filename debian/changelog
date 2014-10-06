@@ -9,10 +9,16 @@ nvidia-graphics-drivers (340.46-1) UNRELEASED; urgency=medium
       potentially leading to momentary X freezes.
     - Fixed a bug that could prevent the GLSL compiler from correctly
       evaluating some expressions when compiling shaders.
-    - Fixed a bug that could cause nvidia-installer to crash while attempting
-      to run nvidia-xconfig on systems where that utility is missing.
     - Added option UseSysmemPixmapAccel to control the use of GPU acceleration
       for X drawing operations on pixmaps allocated in system memory.
+  * New upstream release 331 series.
+    - Fixed a bug that could prevent 32-bit GPU-based applications from
+      running correctly on 64-bit systems when using GPUs with very
+      large memory-mapped I/O regions.
+    - Fixed a bug that could cause poor system performance and hangs when
+      running large compute workloads on IOMMU-enabled systems.
+    - Fixed a bug that could cause a system crash when two or more
+      processes try to load the nvidia-uvm driver.
   * Unload uvm module when nvidia is unloaded. (Closes: #749018)
   * conftest.h: Tighten conftest.h check for drm/drmP.h.
   * conftest.h: Implement new conftest.sh functions sg_table, sg_alloc_table
