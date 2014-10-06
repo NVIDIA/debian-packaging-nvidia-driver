@@ -13,7 +13,7 @@ nvidia-graphics-drivers (340.46-1) UNRELEASED; urgency=medium
       to run nvidia-xconfig on systems where that utility is missing.
     - Added option UseSysmemPixmapAccel to control the use of GPU acceleration
       for X drawing operations on pixmaps allocated in system memory.
-  * Unload uvm module when nvidia is unloaded. (Closes: #749018, #763272)
+  * Unload uvm module when nvidia is unloaded. (Closes: #749018)
   * Tighten conftest.h check for drm/drmP.h.
 
   [ Andreas Beckmann ]
