@@ -1,4 +1,20 @@
-nvidia-graphics-drivers (340.32-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.46-1) UNRELEASED; urgency=medium
+
+  * Team upload.
+
+  [ Vincent Cheng ]
+  * New upstream long lived branch release 340.46 (2014-09-30).
+    - Fixed an OpenGL issue that could cause glReadPixels() operations to
+      be improperly clipped when resizing composited application windows,
+      potentially leading to momentary X freezes.
+    - Fixed a bug that could prevent the GLSL compiler from correctly
+      evaluating some expressions when compiling shaders.
+    - Fixed a bug that could cause nvidia-installer to crash while attempting
+      to run nvidia-xconfig on systems where that utility is missing.
+    - Added option UseSysmemPixmapAccel to control the use of GPU acceleration
+      for X drawing operations on pixmaps allocated in system memory.
+  * Unload uvm module when nvidia is unloaded. (Closes: #749018, #763272)
+  * Tighten conftest.h check for drm/drmP.h.
 
   [ Andreas Beckmann ]
   * libcuda1: Add Provides: libcuda-6.{0,5}-1{,-i386}.
@@ -19,15 +35,10 @@ nvidia-graphics-drivers (340.32-2) UNRELEASED; urgency=medium
   * Import and adjust the corresponding debconf translations from
     fglrx-driver.
 
-  [ Vincent Cheng ]
-  * Unload uvm module when nvidia is unloaded. (Closes: #749018, #763272)
-  * Tighten conftest.h check for drm/drmP.h.
-
   [ Beren Minor ]
-  * Fix DRM support activation in conftest.h. (Closes: #731265; possibly
-    fixes #756522 as well)
+  * Fix DRM support activation in conftest.h. (Closes: #731265)
 
- -- Vincent Cheng <vcheng@debian.org>  Wed, 17 Sep 2014 00:56:16 -0700
+ -- Vincent Cheng <vcheng@debian.org>  Mon, 06 Oct 2014 00:47:46 -0700
 
 nvidia-graphics-drivers (340.32-1) unstable; urgency=medium
 
