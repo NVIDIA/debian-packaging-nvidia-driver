@@ -14,7 +14,9 @@ nvidia-graphics-drivers (340.46-1) UNRELEASED; urgency=medium
     - Added option UseSysmemPixmapAccel to control the use of GPU acceleration
       for X drawing operations on pixmaps allocated in system memory.
   * Unload uvm module when nvidia is unloaded. (Closes: #749018)
-  * Tighten conftest.h check for drm/drmP.h.
+  * conftest.h: Tighten conftest.h check for drm/drmP.h.
+  * conftest.h: Implement new conftest.sh functions sg_table, sg_alloc_table
+                (340.46).
 
   [ Andreas Beckmann ]
   * libcuda1: Add Provides: libcuda-6.{0,5}-1{,-i386}.
