@@ -4,7 +4,6 @@ embedded-library usr/lib*/libnvidia-opencl.so.#VERSION#: zlib
 shlib-with-executable-stack
 [i386]: shlib-with-non-pic-code
 spelling-error-in-binary
-unstripped-binary-or-object
 hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
