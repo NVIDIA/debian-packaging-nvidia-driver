@@ -1,6 +1,4 @@
-nvidia-graphics-drivers (340.46-1) UNRELEASED; urgency=medium
-
-  * Team upload.
+nvidia-graphics-drivers (340.46-1) unstable; urgency=medium
 
   [ Vincent Cheng ]
   * New upstream long lived branch release 340.46 (2014-09-30).
@@ -46,7 +44,7 @@ nvidia-graphics-drivers (340.46-1) UNRELEASED; urgency=medium
   [ Beren Minor ]
   * Fix DRM support activation in conftest.h. (Closes: #731265)
 
- -- Vincent Cheng <vcheng@debian.org>  Mon, 06 Oct 2014 00:47:46 -0700
+ -- Vincent Cheng <vcheng@debian.org>  Mon, 06 Oct 2014 20:08:51 -0700
 
 nvidia-graphics-drivers (340.32-1) unstable; urgency=medium
 
