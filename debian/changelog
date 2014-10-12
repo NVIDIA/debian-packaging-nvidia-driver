@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (340.46-2) UNRELEASED; urgency=medium
+
+  * Merge changes from 331.104 (UNRELEASED).
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 12 Oct 2014 03:26:12 +0200
+
 nvidia-graphics-drivers (340.46-1) unstable; urgency=medium
 
   [ Vincent Cheng ]
@@ -9,18 +15,10 @@ nvidia-graphics-drivers (340.46-1) unstable; urgency=medium
       evaluating some expressions when compiling shaders.
     - Added option UseSysmemPixmapAccel to control the use of GPU acceleration
       for X drawing operations on pixmaps allocated in system memory.
-  * New upstream release 331 series.
-    - Fixed a bug that could prevent 32-bit GPU-based applications from
-      running correctly on 64-bit systems when using GPUs with very
-      large memory-mapped I/O regions.
-    - Fixed a bug that could cause poor system performance and hangs when
-      running large compute workloads on IOMMU-enabled systems.
-    - Fixed a bug that could cause a system crash when two or more
-      processes try to load the nvidia-uvm driver.
   * Unload uvm module when nvidia is unloaded. (Closes: #749018)
-  * conftest.h: Tighten conftest.h check for drm/drmP.h.
-  * conftest.h: Implement new conftest.sh functions sg_table, sg_alloc_table
-                (340.46).
+  * conftest.h:
+    - Tighten conftest.h check for drm/drmP.h.
+    - Implement new conftest.sh functions sg_table, sg_alloc_table (340.46).
 
   [ Andreas Beckmann ]
   * libcuda1: Add Provides: libcuda-6.{0,5}-1{,-i386}.
@@ -70,15 +68,6 @@ nvidia-graphics-drivers (340.32-1) unstable; urgency=medium
       a G-SYNC monitor is unplugged and replaced by a non-G-SYNC monitor.
     - Fixed a bug that prevented G-SYNC from working when a G-SYNC monitor
       was unplugged and plugged back in without a modeset.
-  * New upstream release 331 series.
-    - Added support for the following GPU: GeForce 810M.
-    - Improved the performance of OpenGL applications that request a large
-      number of GPU mappings via the GL_NV_shader_buffer_load extension.
-    - Fixed a bug that could cause a system crash when killing applications
-      that use NVIDIA GPUs on multiple-GPU systems with IOMMU functionality
-      enabled.
-    - Fixed a bug that caused the NVIDIA kernel module to leak memory for
-      DMA mappings on some configurations.
   * Refresh debian/patches/man-fixes-nvidia-smi.patch and patches applied to
     nvidia-kernel-dkms.
   * Update nv-readme.ids.
@@ -138,16 +127,6 @@ nvidia-graphics-drivers (340.24-1) unstable; urgency=medium
       using the OpenGL compositing backend.
     - Fixed a regression that could cause OpenGL rendering corruption on X
       screens with 30 bit per pixel color.
-  * New upstream long lived branch release 331.89 (2014-07-04).
-    - Fixed a race condition in the NVIDIA kernel module that caused some
-      GPUs to sporadically become unresponsive.
-    - Updated the error reporting in the NVIDIA kernel module to include the
-      GPU serial number, when available, in error messages written to the
-      system log.
-    - Added support for the following GPU: GeForce GT 730.
-    - Fixed a bug that caused blank screens when transforming or rotating displays
-      in an SLI Mosaic layout.
-    - Fixed a bug that corrupted certain software rendering on 32-bit systems.
   * Refresh debian/patches/man-fixes-nvidia-smi.patch.
   * Add myself to Uploaders.
   * Add xorg-video-abi-18 as alternative dependency.
@@ -295,6 +274,41 @@ nvidia-graphics-drivers (334.21-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 23 Apr 2014 14:41:03 +0200
+
+nvidia-graphics-drivers (331.104-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 331.104 (2014-10-08).
+    - Fixed a bug that could cause the CUDA debugger to fail after
+      exiting X on systems with persistence mode enabled.
+    - Fixed a bug that could cause silent and intermittent failures when
+      a CUDA application writes to a peer device's memory with GPUDirect.
+    - Fixed a bug that could prevent 32-bit GPU-based applications from
+      running correctly on 64-bit systems when using GPUs with very
+      large memory-mapped I/O regions.
+    - Fixed a bug that could cause poor system performance and hangs when
+      running large compute workloads on IOMMU-enabled systems.
+    - Fixed a bug that could cause a system crash when two or more
+      processes try to load the nvidia-uvm driver.
+    - Added support for the following GPU: GeForce 810M.
+    - Improved the performance of OpenGL applications that request a large
+      number of GPU mappings via the GL_NV_shader_buffer_load extension.
+    - Fixed a bug that could cause a system crash when killing applications
+      that use NVIDIA GPUs on multiple-GPU systems with IOMMU functionality
+      enabled.
+    - Fixed a bug that caused the NVIDIA kernel module to leak memory for
+      DMA mappings on some configurations.
+  * New upstream long lived branch release 331.89 (2014-07-04).
+    - Fixed a race condition in the NVIDIA kernel module that caused some
+      GPUs to sporadically become unresponsive.
+    - Updated the error reporting in the NVIDIA kernel module to include the
+      GPU serial number, when available, in error messages written to the
+      system log.
+    - Added support for the following GPU: GeForce GT 730.
+    - Fixed a bug that caused blank screens when transforming or rotating displays
+      in an SLI Mosaic layout.
+    - Fixed a bug that corrupted certain software rendering on 32-bit systems.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 12 Oct 2014 02:40:55 +0200
 
 nvidia-graphics-drivers (331.79-1) unstable; urgency=medium
 
