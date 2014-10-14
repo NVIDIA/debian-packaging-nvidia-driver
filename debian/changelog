@@ -22,7 +22,6 @@ nvidia-graphics-drivers (343.22-1) UNRELEASED; urgency=medium
       and X servers, as well as fixes for critical bugs, will be
       included in 340.* legacy releases through the end of 2019.
   * Update symbols control files.
-  * Update nv-readme.ids.
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Oct 2014 12:16:07 +0200
