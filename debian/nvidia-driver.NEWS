@@ -1,3 +1,20 @@
+nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
+
+  LEGACY GPUs: If you have a GeForce 8xxx, GeForce 9xxx, GeForce 2xx/3xx,
+  GeForce 405, GeForce G 1xx/2xx, GeForce GT 1xx/2xx/3xx, GeForce GT 415,
+  GeForce GTS 1xx/2xx/3xx, GeForce GTX 2xx, ION/ION 2/ION VGA/ION LE VGA,
+  NVS 300/2100/3100/5100, Quadro 400, Quadro CX, Quadro FX (any model),
+  Quadro NVS 130/135/140/150/160/290/295/320/420/450, Quadro Plex, Quadro VX,
+  Tesla C870/C1060/M1060, nforce 7xx, i.e., any GPU based on the C77/C78/C79,
+  G80/G84/G86/G92/G94/G96/G98, GT200/GT215/GT216/GT218, ION VGA, or
+  MCP79/MCP7A/MCP89 chips or a variant thereof (that is anything predating
+  the Fermi architecture),
+  DO NOT INSTALL THIS RELEASE!!!
+  Use the nvidia-legacy-340xx-driver, nvidia-legacy-340xx-kernel-dkms
+  packages instead.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Oct 2014 15:14:53 +0200
+
 nvidia-graphics-drivers (310.14-1) unstable; urgency=low
 
   LEGACY GPUs: If you have a GeForce 6xxx, GeForce Go 6xxx, GeForce 7xxx,
