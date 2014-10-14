@@ -25,6 +25,7 @@ nvidia-graphics-drivers (343.22-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * conftest.h: Implement extensions to conftest.sh function
     vm_operations_struct (343.13).
+  * libgl1-nvidia-glx.preinst: Update list of unsupported legacy devices.
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Oct 2014 12:16:07 +0200
