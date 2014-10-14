@@ -1,4 +1,11 @@
-libOpenCL.so.1 ocl-icd-libopencl1 | libopencl1, libopencl-1.1-1
+# * In each template "ocl-icd-libopencl1" (maybe versioned) is used as the
+#   first alternative so that, by default, the free ICD Loader will be
+#   installed on a Debian system
+#   We use it on all parts as dependencies can be reordered (see #739409)
+# * Since NVIDIA supports OpenCL 1.1 only (and does not version the symbols)
+#   we keep this symbol file simpler than the ones from ocl-icd-libopencl1
+#   and amd-libopencl1
+libOpenCL.so.1 ocl-icd-libopencl1 | #PACKAGE# | libopencl1, ocl-icd-libopencl1 (>= 1.0) | #PACKAGE# #MINVER# | libopencl-1.1-1
  clBuildProgram@Base 195
  clCreateBuffer@Base 195
  clCreateCommandQueue@Base 195
