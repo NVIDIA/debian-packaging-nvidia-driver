@@ -279,6 +279,8 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glCoverFillPathNV@Base 275
  glCoverStrokePathInstancedNV@Base 275
  glCoverStrokePathNV@Base 275
+ glCoverageModulationNV@Base 343
+ glCoverageModulationTableNV@Base 343
  glCreateProgram@Base 1.0.7664
  glCreateProgramObjectARB@Base 1.0.6106
  glCreateShader@Base 1.0.7664
@@ -479,6 +481,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glFogiv@Base 1.0.4349
  glFogx@Base 302
  glFogxv@Base 302
+ glFragmentCoverageColorNV@Base 343
  glFramebufferDrawBufferEXT@Base 180
  glFramebufferDrawBuffersEXT@Base 180
  glFramebufferParameteri@Base 310
@@ -486,6 +489,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glFramebufferRenderbuffer@Base 180
  glFramebufferRenderbufferEXT@Base 1.0.7664
  glFramebufferRenderbufferOES@Base 325
+ glFramebufferSampleLocationsfvNV@Base 343
  glFramebufferTexture1D@Base 180
  glFramebufferTexture1DEXT@Base 1.0.7664
  glFramebufferTexture2D@Base 180
@@ -591,11 +595,12 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetConvolutionFilter@Base 1.0.4349
  glGetConvolutionParameterfv@Base 1.0.4349
  glGetConvolutionParameteriv@Base 1.0.4349
+ glGetCoverageModulationTableNV@Base 343
  glGetDebugMessageLog@Base 310
  glGetDebugMessageLogARB@Base 260
  glGetDebugMessageLogKHR@Base 334
  glGetDebugMessageLogOES@Base 310
- glGetDevtoolsExportTableNVX@Base 337
+#MISSING: 343# glGetDevtoolsExportTableNVX@Base 337
  glGetDoubleIndexedvEXT@Base 180
  glGetDoublei_v@Base 260
  glGetDoublei_vEXT@Base 185
@@ -735,6 +740,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetProgramResourceLocation@Base 310
  glGetProgramResourceLocationIndex@Base 310
  glGetProgramResourceName@Base 310
+ glGetProgramResourcefvNV@Base 343
  glGetProgramResourceiv@Base 310
  glGetProgramStageiv@Base 256
  glGetProgramStringARB@Base 1.0.4349
@@ -1207,6 +1213,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glNamedCopyBufferSubDataEXT@Base 190
  glNamedFramebufferParameteriEXT@Base 310
  glNamedFramebufferRenderbufferEXT@Base 180
+ glNamedFramebufferSampleLocationsfvNV@Base 343
  glNamedFramebufferTexture1DEXT@Base 180
  glNamedFramebufferTexture2DEXT@Base 180
  glNamedFramebufferTexture3DEXT@Base 180
@@ -1372,6 +1379,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glProgramParameteriEXT@Base 1.0.9746
  glProgramParameters4dvNV@Base 1.0.4349
  glProgramParameters4fvNV@Base 1.0.4349
+ glProgramPathFragmentInputGenNV@Base 343
  glProgramStringARB@Base 1.0.4349
  glProgramSubroutineParametersuivNV@Base 195.30
  glProgramUniform1d@Base 256
@@ -1533,6 +1541,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glRasterPos4iv@Base 1.0.4349
  glRasterPos4s@Base 1.0.4349
  glRasterPos4sv@Base 1.0.4349
+ glRasterSamplesEXT@Base 343
  glReadBuffer@Base 1.0.4349
  glReadBufferNV@Base 270
  glReadPixels@Base 1.0.4349
@@ -1558,6 +1567,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glRequestResidentProgramsNV@Base 1.0.4349
  glResetHistogram@Base 1.0.4349
  glResetMinmax@Base 1.0.4349
+ glResolveDepthValuesNV@Base 343
  glResumeTransformFeedback@Base 256
  glResumeTransformFeedbackEXT@Base 190.36
  glResumeTransformFeedbackNV@Base 165
@@ -1649,6 +1659,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glStencilThenCoverFillPathNV@Base 334
  glStencilThenCoverStrokePathInstancedNV@Base 334
  glStencilThenCoverStrokePathNV@Base 334
+ glSubpixelPrecisionBiasNV@Base 343
  glTestFenceNV@Base 1.0.4349
  glTexBuffer@Base 190
  glTexBufferARB@Base 180
@@ -2221,6 +2232,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glViewportArrayv@Base 260
  glViewportIndexedf@Base 260
  glViewportIndexedfv@Base 260
+ glViewportSwizzleNV@Base 343
  glWaitSync@Base 190.18.05
  glWaitSyncValueuiNVX@Base 285
  glWeightPathsNV@Base 275

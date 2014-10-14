@@ -13,6 +13,7 @@ nvidia-graphics-drivers (343.13-1) UNRELEASED; urgency=medium
       chipsets based on them. Ongoing support for new Linux kernels
       and X servers, as well as fixes for critical bugs, will be
       included in 340.* legacy releases through the end of 2019.
+  * Update symbols control files.
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Oct 2014 11:33:59 +0200
