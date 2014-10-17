@@ -40,7 +40,7 @@ libdir			 = usr/lib$(if $(MULTIARCH),/$(DEB_HOST_MULTIARCH))
 # nvidia version specific directory below $(libdir)
 nvidia_private		 = nvidia/$(current)
 
-CONTROL_PREFIXES	 = nvidia-driver nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia nvidia-modprobe
+CONTROL_PREFIXES	 = nvidia-driver nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia nvidia-modprobe nvidia-vdpau
 RENAME_nvidia-glx		 = nvidia-glx$(legacy)
 RENAME_nvidia-alternative	 = $(NVIDIA_ALTERNATIVE)
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
