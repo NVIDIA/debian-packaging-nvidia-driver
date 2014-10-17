@@ -249,6 +249,7 @@ Breaks:
  nvidia-settings (<< 319.49),
  nvidia-settings-legacy-173xx (<< 173.14.37),
  nvidia-vdpau-driver (<< 340.46-2~),
+ nvidia-opencl-icd (<< 340.46-2~),
 Provides:
  ${nvidia-alternative}--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider
@@ -463,6 +464,7 @@ Description: NVIDIA CUDA 32-bit runtime library${nvidia:LegacyDesc}
  library when installing libcuda1 on amd64 with foreign architecture i386
  enabled.
 
+#Package: lib${nvidia}-compiler
 Package: libnvidia-compiler
 Architecture: i386 amd64
 Multi-Arch: same
@@ -567,9 +569,7 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Recommends:
- nvidia-opencl-icd
-Breaks:
- nvidia-opencl-icd (<< ${nvidia:Version}),
+ ${nvidia}-opencl-icd
 Description: NVIDIA OpenCL driver
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -578,16 +578,18 @@ Description: NVIDIA OpenCL driver
  This package provides the common files for the NVIDIA installable client
  driver (ICD) for OpenCL.
 
+#Package: ${nvidia}-opencl-icd
 Package: nvidia-opencl-icd
 Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-opencl-common (= ${binary:Version}),
+ ${nvidia-alternative} (= ${binary:Version}),
+ nvidia-opencl-common,
  ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1,
  libcuda1 (= ${binary:Version}),
- libnvidia-compiler (= ${binary:Version}),
+ lib${nvidia}-compiler (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Enhances:
  libopencl1,
@@ -613,7 +615,7 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-opencl-icd | opencl-icd,
+ ${nvidia}-opencl-icd | opencl-icd,
 Provides:
  libopencl1,
  libopencl-1.1-1,
