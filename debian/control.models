@@ -1,3 +1,3 @@
-This version only supports GeForce 8xxx and higher of the Geforce GPUs
-plus corresponding Quadros and nforce.  Look at the legacy packages
+This version only supports GeForce, Quadro, NVS, Tesla, ... GPUs based on the
+Fermi, Kepler, Maxwell, or newer architectures.  Look at the legacy packages
 for older cards.
