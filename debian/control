@@ -214,6 +214,7 @@ Description: NVIDIA binary OpenGL|ES 2.x libraries${nvidia:LegacyDesc}
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
+#Package: lib${nvidia}-eglcore
 Package: libnvidia-eglcore
 Architecture: i386 amd64 armhf
 Multi-Arch: same
@@ -254,6 +255,8 @@ Breaks:
  libnvidia-fbc1 (<< 340.46-2~),
  libnvidia-encode1 (<< 340.46-2~),
  libnvcuvid1 (<< 340.46-2~),
+ libnvidia-ml1 (<< 340.46-2~),
+ nvidia-smi (<< 340.46-2~),
 Provides:
  ${nvidia-alternative}--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider
@@ -375,11 +378,12 @@ Description: Video Decode and Presentation API for Unix - NVIDIA driver
  .
  ${nvidia:kmod:Description}
 
+#Package: ${nvidia}-smi
 Package: nvidia-smi
 Section: non-free/utils
 Architecture: i386 amd64 armhf
 Depends:
- libnvidia-ml1 (= ${binary:Version}),
+ lib${nvidia}-ml1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
@@ -555,6 +559,7 @@ Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
  .
  This package contains the NvFBCOpenGL runtime library.
 
+#Package: lib${nvidia}-ml1
 Package: libnvidia-ml1
 Architecture: i386 amd64 armhf
 Multi-Arch: same

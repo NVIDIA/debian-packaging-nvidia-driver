@@ -45,6 +45,7 @@ CONTROL_PREFIXES	+= nvidia-vdpau-driver
 CONTROL_PREFIXES	+= nvidia-opencl-icd libnvidia-compiler
 CONTROL_PREFIXES	+= libnvidia-ifr1 libnvidia-fbc1
 CONTROL_PREFIXES	+= libnvidia-encode1 libnvcuvid1
+CONTROL_PREFIXES	+= libnvidia-ml1 nvidia-smi
 RENAME_nvidia-glx		 = nvidia-glx$(legacy)
 RENAME_nvidia-alternative	 = $(NVIDIA_ALTERNATIVE)
 RENAME_libnvcuvid1		 = lib$(if $(legacy),${nvidia}-)nvcuvid1
@@ -166,6 +167,7 @@ install-into-tmp:
 	cp -al NVIDIA-Linux/ debian/tmp
 	rm -f debian/tmp/NVIDIA_Changelog
 	cp -al NVIDIA-Linux-amd64/NVIDIA_Changelog debian/tmp/
+	gzip -9fn debian/tmp/nvidia-smi.1
 
 	# Create xorg.conf.sample
 	test ! -f debian/tmp/usr/share/doc/XF86Config.sample || \

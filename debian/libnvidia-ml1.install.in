@@ -1,1 +1,1 @@
-libnvidia-ml.so.#VERSION#	#LIBDIR#/
+libnvidia-ml.so.#VERSION#	#LIBDIR#/#PRIVATE#/
