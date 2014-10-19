@@ -252,6 +252,8 @@ Breaks:
  nvidia-opencl-icd (<< 340.46-2~),
  libnvidia-ifr1 (<< 340.46-2~),
  libnvidia-fbc1 (<< 340.46-2~),
+ libnvidia-encode1 (<< 340.46-2~),
+ libnvcuvid1 (<< 340.46-2~),
 Provides:
  ${nvidia-alternative}--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider
@@ -485,6 +487,7 @@ Description: NVIDIA runtime compiler library
  .
  This package contains the runtime compiler library.
 
+#Package: lib${nvidia}-nvcuvid1
 Package: libnvcuvid1
 Architecture: i386 amd64 armhf
 Multi-Arch: same
@@ -503,6 +506,7 @@ Description: NVIDIA CUDA Video Decoder runtime library
  .
  This package contains the nvcuvid runtime library.
 
+#Package: lib${nvidia}-encode1
 Package: libnvidia-encode1
 Architecture: i386 amd64
 Multi-Arch: same

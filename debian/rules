@@ -43,8 +43,11 @@ nvidia_private		 = nvidia/$(current)
 CONTROL_PREFIXES	 = nvidia-driver nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia nvidia-modprobe
 CONTROL_PREFIXES	+= nvidia-vdpau-driver
 CONTROL_PREFIXES	+= nvidia-opencl-icd libnvidia-compiler
+CONTROL_PREFIXES	+= libnvidia-ifr1 libnvidia-fbc1
+CONTROL_PREFIXES	+= libnvidia-encode1 libnvcuvid1
 RENAME_nvidia-glx		 = nvidia-glx$(legacy)
 RENAME_nvidia-alternative	 = $(NVIDIA_ALTERNATIVE)
+RENAME_libnvcuvid1		 = lib$(if $(legacy),${nvidia}-)nvcuvid1
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
 CONTROL_PREFIXES_RENAMED = $(foreach p,$(CONTROL_PREFIXES),$(call renamed_prefix,$p))
 
