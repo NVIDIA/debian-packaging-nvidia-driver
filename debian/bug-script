@@ -50,7 +50,9 @@ ls -l	/etc/alternatives/glx* \
 	/usr/lib32/libnvidia* \
 	2>/dev/null
 
-ls -la	/usr/lib/nvidia/ \
+ls -la	\
+	/etc/nvidia/ \
+	/usr/lib/nvidia/ \
 	/usr/lib/nvidia/*/ \
 	/usr/lib/*-linux-gnu/nvidia/ \
 	/usr/lib/*-linux-gnu/nvidia/*/ \
@@ -70,6 +72,7 @@ echo "/etc/modprobe.d:"
 ls -la /etc/modprobe.d/
 echo
 grep -ri nvidia /etc/modprobe.d/
+grep -ri nouveau /etc/modprobe.d/
 echo
 
 echo "Files from nvidia-installer:"
@@ -78,7 +81,7 @@ echo
 
 echo "Config and logfiles:"
 echo
-for file in /etc/X11/xorg.conf /etc/X11/xorg.conf.d/*.conf $(ls -dt /var/log/Xorg.*.log* 2>/dev/null | head -n 1)
+for file in /etc/modprobe.d/*nvidia*.conf /etc/X11/xorg.conf /etc/X11/xorg.conf.d/*.conf $(ls -dt /var/log/Xorg.*.log* 2>/dev/null | head -n 2)
 do
 	if [ -f "$file" ] && [ -r "$file" ]; then
 		echo "<<<<<<<<<< $file >>>>>>>>>>"
@@ -92,6 +95,10 @@ echo "Kernel modules: nvidia.ko"
 find /lib/modules -name "nvidia*.ko"
 echo
 find /lib/modules -name "nvidia*.ko" | xargs -r modinfo | grep -v ^parm:
+echo
+
+echo "lsmod:"
+lsmod
 echo
 
 exit 0
