@@ -250,6 +250,8 @@ Breaks:
  nvidia-settings-legacy-173xx (<< 173.14.37),
  nvidia-vdpau-driver (<< 340.46-2~),
  nvidia-opencl-icd (<< 340.46-2~),
+ libnvidia-ifr1 (<< 340.46-2~),
+ libnvidia-fbc1 (<< 340.46-2~),
 Provides:
  ${nvidia-alternative}--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider
@@ -515,6 +517,7 @@ Description: NVENC Video Encoding runtime library
  .
  This package contains the nvidia-encode runtime library.
 
+#Package: lib${nvidia}-ifr1
 Package: libnvidia-ifr1
 Architecture: i386 amd64
 Multi-Arch: same
@@ -531,6 +534,7 @@ Description: NVIDIA OpenGL-based Inband Frame Readback runtime library
  .
  This package contains the NvIFROpenGL runtime library.
 
+#Package: lib${nvidia}-fbc1
 Package: libnvidia-fbc1
 Architecture: i386 amd64 armhf
 Multi-Arch: same

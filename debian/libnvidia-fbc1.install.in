@@ -1,1 +1,1 @@
-libnvidia-fbc.so.#VERSION#		#LIBDIR#/
+libnvidia-fbc.so.#VERSION#		#LIBDIR#/#PRIVATE#/
