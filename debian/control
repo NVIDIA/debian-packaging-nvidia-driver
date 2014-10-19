@@ -160,7 +160,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- libnvidia-eglcore (= ${binary:Version}),
+ lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
  This package contains the EGL native platform graphics interface library.
@@ -178,7 +178,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- libnvidia-eglcore (= ${binary:Version}),
+ lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 1.x libraries${nvidia:LegacyDesc}
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
@@ -199,7 +199,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- libnvidia-eglcore (= ${binary:Version}),
+ lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 2.x libraries${nvidia:LegacyDesc}
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
@@ -430,7 +430,7 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
- nvidia-smi,
+ ${nvidia}-smi,
  ${libcuda1}-i386 [amd64],
 Suggests:
  nvidia-cuda-mps,
@@ -472,8 +472,8 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA CUDA 32-bit runtime library${nvidia:LegacyDesc}
  This metapackage helps the automatic installation of the 32-bit NVIDIA CUDA
- library when installing ${libcuda1} on amd64 with foreign architecture i386
- enabled.
+ library when installing ${libcuda1} on amd64 with foreign
+ architecture i386 enabled.
 
 #Package: lib${nvidia}-compiler
 Package: libnvidia-compiler
@@ -571,7 +571,7 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Breaks:
- nvidia-smi (<< ${nvidia:Version}),
+ ${nvidia}-smi (<< ${nvidia:Version}),
 Homepage: http://developer.nvidia.com/nvidia-management-library-NVML
 Description: NVIDIA Management Library (NVML) runtime library
  The NVIDIA Management Library (NVML) provides a monitoring and management API.
