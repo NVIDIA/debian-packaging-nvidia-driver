@@ -29,14 +29,15 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
+#, fuzzy
 msgid ""
 "This system has a graphics card which is no longer handled by the NVIDIA "
-"driver (package nvidia-driver). You may wish to keep the package installed - "
+"driver (package ${driver}). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
 "Les jeux de composants graphiques suivants trouvés sur cette machine ne sont "
-"plus gérés par le pilote NVIDIA. Vous pouvez préférer garder NVIDIA (par "
+"plus gérés par le pilote NVIDIA (paquet ${driver}). Vous pouvez préférer garder NVIDIA (par "
 "exemple pour piloter une autre carte), mais dans ce cas, la carte graphique "
 "ci-dessus ne sera pas utilisable."
 

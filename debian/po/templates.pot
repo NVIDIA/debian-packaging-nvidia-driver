@@ -28,7 +28,7 @@ msgstr ""
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "This system has a graphics card which is no longer handled by the NVIDIA "
-"driver (package nvidia-driver). You may wish to keep the package installed - "
+"driver (package ${driver}). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
