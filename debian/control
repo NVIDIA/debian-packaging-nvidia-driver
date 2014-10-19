@@ -37,8 +37,11 @@ Depends:
 Recommends:
  ${nvidia-settings},
  libgl1-${nvidia}-glx-i386 [amd64],
+ libegl1-${nvidia} (= ${binary:Version}),
 Suggests:
  ${nvidia:kmod:source},
+ libgles1-${nvidia} (= ${binary:Version}),
+ libgles2-${nvidia} (= ${binary:Version}),
 Provides:
  nvidia-glx-any,
 Breaks:
