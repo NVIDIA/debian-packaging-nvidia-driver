@@ -3,8 +3,15 @@ Type: boolean
 Default: true
 Description: for internal use
  Can be preseeded. If set to false, disables the check for
- legacy GPUs from the GeForce 6, GeForce 7 and corresponding
- Quadro series.
+ old GPUs that require a legacy driver instead of this driver.
+
+Template: nvidia-driver/supported-in-legacy-driver-name
+Type: string
+Default:
+Description: for internal use
+ Remembers the name of the legacy driver where the
+ install-even-if-unsupported-gpu-exists question was answered with "yes".
+ The question will be asked again if the legacy driver name changes.
 
 Template: nvidia-driver/install-even-if-unsupported-gpu-exists
 Type: boolean
