@@ -54,7 +54,7 @@ msgstr ""
 #| "xorg-video-nouveau."
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
+"${legacy_driver}) or the free Nouveau driver (package xserver-xorg-"
 "video-nouveau)."
 msgstr ""
 "A tarxeta de enriba precisa do controlador libre «Nouveau», incluído no "
@@ -75,9 +75,3 @@ msgstr ""
 "Antes de que o controlador «Nouveau» poida usarse debe eliminar a "
 "configuración de «fglrx» do ficheiro «xorg.conf» (e «xorg.conf.d/») e purgar "
 "(non chega con eliminar) o paquete «nvidia-driver»."
-
-
-#, fuzzy
-
-
-

@@ -42,11 +42,11 @@ msgstr ""
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
+"${legacy_driver}) or the free Nouveau driver (package xserver-xorg-"
 "video-nouveau)."
 msgstr ""
 "Det ovenstående kort kræver enten den ikkefrie forældede NVIDIA-driver "
-"(pakke nvidia-legacy-304xx-driver) eller den frie Nouveaudriver (pakken "
+"(pakke ${legacy_driver}) eller den frie Nouveaudriver (pakken "
 "xserver-xorg-video-nouveau)."
 
 #. Type: boolean

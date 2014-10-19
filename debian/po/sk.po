@@ -52,7 +52,7 @@ msgstr ""
 #| "xorg-video-nouveau."
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
+"${legacy_driver}) or the free Nouveau driver (package xserver-xorg-"
 "video-nouveau)."
 msgstr ""
 "Hore uvedená karta vyžaduje slobodný ovládač Nouveau z balíka xserver-xorg-"
@@ -73,9 +73,4 @@ msgstr ""
 "Predtým, než budete môcť používať ovládač Nouveau musíte odstrániť z xorg."
 "conf (a z xorg.conf.d/) konfiguráciu fglrx a vyčistiť („purge“, nie len "
 "„remove“) balík nvidia-driver."
-
-
-#, fuzzy
-
-
 

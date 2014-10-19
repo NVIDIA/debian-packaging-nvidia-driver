@@ -46,7 +46,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.7.1\n"
 "X-POFile-SpellExtra: bin wheezy xserver conf NVIDIA initial backports\n"
-"X-POFile-SpellExtra: aticonfig re legacy video usr xorg nouveau fglrx Xorg\n"
+"X-POFile-SpellExtra: video usr xorg nouveau Xorg\n"
 "X-POFile-SpellExtra: Nouveau\n"
 
 #. Type: boolean
@@ -76,11 +76,11 @@ msgstr ""
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
+"${legacy_driver}) or the free Nouveau driver (package xserver-xorg-"
 "video-nouveau)."
 msgstr ""
 "La tarjeta arriba mencionada requiere o bien del controlador no libre y "
-"obsoleto NVIDIA (paquete «nvidia-legacy-304xx-driver») o el controlador "
+"obsoleto NVIDIA (paquete «${legacy_driver}») o el controlador "
 "libre Nouveau (paquete «xserver-xorg-video-nouveau»)."
 
 #. Type: boolean
