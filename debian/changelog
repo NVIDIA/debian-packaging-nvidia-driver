@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (343.22-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
   * New upstream short lived branch release 343.22 (2014-09-18).
     - Fixed a bug that prevented the "sync to vblank" setting from being
@@ -31,7 +31,7 @@ nvidia-graphics-drivers (343.22-1) UNRELEASED; urgency=medium
   * Update list of supported models.
   * Upload to experimental.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Oct 2014 12:16:07 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
 
 nvidia-graphics-drivers (340.46-2) unstable; urgency=medium
 
