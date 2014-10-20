@@ -374,7 +374,7 @@
 #endif
 
 /* Implement conftest.sh function drm_available */
-#if IS_ENABLED(CONFIG_DRM) || IS_ENABLED(CONFIG_DRM_MODULE)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,9,0) && IS_ENABLED(CONFIG_DRM)
  #define NV_DRM_AVAILABLE
 #else
  #undef NV_DRM_AVAILABLE
