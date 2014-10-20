@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nvidia-graphics-drivers\n"
 "Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
-"POT-Creation-Date: 2014-10-05 18:35+0200\n"
+"POT-Creation-Date: 2014-10-20 02:45+0200\n"
 "PO-Revision-Date: 2012-09-19 21:15+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: debian-japanese <debian-japanese@lists.debian.org>\n"
@@ -18,50 +18,47 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
-msgid "Install NVIDIA driver despite unsupported graphics card?"
+#. Translators, do not translate the ${substitution} ${variables}.
+#. ${vendor} will be substituted with 'NVIDIA' or 'Fglrx' (without quotes, of
+#. course), ${free_name} will become 'Nouveau' or 'Radeon' (no quotes, again)
+#. and the ${*driver} variables will be replaced with package names.
+#: ../libgl1-nvidia-glx.templates:3001
+msgid "Install ${vendor} driver despite unsupported graphics card?"
 msgstr ""
-"サポートされていないグラフィックスカードですが NVIDIA ドライバをインストール"
-"しますか?"
+"サポートされていないグラフィックスカードですが ${vendor} ドライバをインストー"
+"ルしますか?"
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 msgid ""
-"This system has a graphics card which is no longer handled by the NVIDIA "
-"driver (package nvidia-driver). You may wish to keep the package installed - "
-"for instance to drive some other card - but the card with the following "
-"chipset won't be usable:"
+"This system has a graphics card which is no longer handled by the ${vendor} "
+"driver (package ${driver}). You may wish to keep the package installed - for "
+"instance to drive some other card - but the card with the following chipset "
+"won't be usable:"
 msgstr ""
-"このシステムには NVIDIA ドライバ (nvidia-driver パッケージ) ではもう扱われな"
+"このシステムには ${vendor} ドライバ (${driver} パッケージ) ではもう扱われな"
 "い、グラフィックカードがあります。たとえばほかのカードを動作させるなどのため"
 "にパッケージをインストールしたままにしたいかもしれませんが、下記のチップセッ"
 "トを使ったカードは利用できなくなります:"
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 msgid ""
-"The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
-"video-nouveau)."
+"The above card requires either the non-free legacy ${vendor} driver (package "
+"${legacy_driver}) or the free ${free_name} driver (package ${free_driver})."
 msgstr ""
-"上記のカードには、フリーではない旧式の NVIDIA ドライバ (nvidia-legacy-304xx-"
-"driver パッケージ) またはフリーの Nouveau ドライバ (xserver-xorg-video-"
-"nouveau パッケージ) のいずれかが必要です。"
+"上記のカードには、フリーではない旧式の ${vendor} ドライバ (${legacy_driver} "
+"パッケージ) またはフリーの ${free_name} ドライバ (${free_driver} パッケージ) "
+"のいずれかが必要です。"
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 msgid ""
-"Before the Nouveau driver can be used you must remove NVIDIA configuration "
-"from xorg.conf (and xorg.conf.d/)."
+"Before the ${free_name} driver can be used you must remove ${vendor} "
+"configuration from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Nouveau ドライバを利用できるようにするには、NVIDIA の設定を xorg.conf (およ"
-"び xorg.conf.d/) から削除しなければなりません。"
-
-
-
-
-
-
+"${free_name} ドライバを利用できるようにするには、${vendor} の設定を xorg."
+"conf (および xorg.conf.d/) から削除しなければなりません。"

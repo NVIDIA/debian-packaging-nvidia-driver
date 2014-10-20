@@ -13,13 +13,13 @@ WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
 XORG_BOUND		?=
-MULTIARCH		?=
 BACKPORT		?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
 NVIDIA_ALTERNATIVE	?= nvidia$(legacy)-alternative
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
 nvidia			 = nvidia$(legacy)
+libcuda1		 = lib$(if $(legacy),$(nvidia)-)cuda1
 module			 = nvidia-$(current)
 current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
@@ -36,13 +36,22 @@ ARCH_LIST		?= i386 amd64
 ARCH_DEPS_i386		?= amd64
 
 # system libdir
-libdir			 = usr/lib$(if $(MULTIARCH),/$(DEB_HOST_MULTIARCH))
+libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 # nvidia version specific directory below $(libdir)
 nvidia_private		 = nvidia/$(current)
 
 CONTROL_PREFIXES	 = nvidia-driver nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia nvidia-modprobe
+CONTROL_PREFIXES	+= libnvidia-eglcore libegl1-nvidia libgles1-nvidia libgles2-nvidia
+CONTROL_PREFIXES	+= nvidia-vdpau-driver
+CONTROL_PREFIXES	+= libcuda1
+CONTROL_PREFIXES	+= nvidia-opencl-icd libnvidia-compiler
+CONTROL_PREFIXES	+= libnvidia-ml1 nvidia-smi
+CONTROL_PREFIXES	+= libnvidia-ifr1 libnvidia-fbc1
+CONTROL_PREFIXES	+= libnvidia-encode1 libnvcuvid1
 RENAME_nvidia-glx		 = nvidia-glx$(legacy)
 RENAME_nvidia-alternative	 = $(NVIDIA_ALTERNATIVE)
+RENAME_libnvcuvid1		 = lib$(if $(legacy),${nvidia}-)nvcuvid1
+RENAME_libcuda1			 = $(libcuda1)
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
 CONTROL_PREFIXES_RENAMED = $(foreach p,$(CONTROL_PREFIXES),$(call renamed_prefix,$p))
 
@@ -161,6 +170,7 @@ install-into-tmp:
 	cp -al NVIDIA-Linux/ debian/tmp
 	rm -f debian/tmp/NVIDIA_Changelog
 	cp -al NVIDIA-Linux-amd64/NVIDIA_Changelog debian/tmp/
+	gzip -9fn debian/tmp/nvidia-smi.1
 
 	# Create xorg.conf.sample
 	test ! -f debian/tmp/usr/share/doc/XF86Config.sample || \
@@ -261,6 +271,7 @@ override_dh_gencontrol:
 		-V'nvidia:xorgDepends=$(xorg_depends)' \
 		-V'nvidia:xorgProvides=$(xorg_provides)' \
 		-V'nvidia=$(nvidia)' \
+		-V'libcuda1=$(libcuda1)' \
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
 		-V'nvidia:Perfkit=$(perfkit)' \

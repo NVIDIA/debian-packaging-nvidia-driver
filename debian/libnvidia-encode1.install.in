@@ -1,1 +1,1 @@
-libnvidia-encode.so.#VERSION#		#LIBDIR#/
+libnvidia-encode.so.#VERSION#		#LIBDIR#/#PRIVATE#/

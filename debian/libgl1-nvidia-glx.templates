@@ -3,24 +3,36 @@ Type: boolean
 Default: true
 Description: for internal use
  Can be preseeded. If set to false, disables the check for
- legacy GPUs from the GeForce 6, GeForce 7 and corresponding
- Quadro series.
+ old GPUs that require a legacy driver instead of this driver.
+
+Template: nvidia-driver/supported-in-legacy-driver-name
+Type: string
+Default:
+Description: for internal use
+ Remembers the name of the legacy driver where the
+ install-even-if-unsupported-gpu-exists question was answered with "yes".
+ The question will be asked again if the legacy driver name changes.
 
 Template: nvidia-driver/install-even-if-unsupported-gpu-exists
 Type: boolean
 Default: false
 #flag:translate!:3
-_Description: Install NVIDIA driver despite unsupported graphics card?
- This system has a graphics card which is no longer handled by the NVIDIA
- driver (package nvidia-driver). You may wish to keep the package installed -
+#flag:comment:1
+# Translators, do not translate the ${substitution} ${variables}.
+# ${vendor} will be substituted with 'NVIDIA' or 'Fglrx' (without quotes, of
+# course), ${free_name} will become 'Nouveau' or 'Radeon' (no quotes, again)
+# and the ${*driver} variables will be replaced with package names.
+_Description: Install ${vendor} driver despite unsupported graphics card?
+ This system has a graphics card which is no longer handled by the ${vendor}
+ driver (package ${driver}). You may wish to keep the package installed -
  for instance to drive some other card - but the card with the following
  chipset won't be usable:
  .
  ${unsupported-device}
  .
- The above card requires either the non-free legacy NVIDIA driver
- (package nvidia-legacy-304xx-driver) or the free Nouveau driver
- (package xserver-xorg-video-nouveau).
+ The above card requires either the non-free legacy ${vendor} driver
+ (package ${legacy_driver}) or the free ${free_name} driver
+ (package ${free_driver}).
  .
- Before the Nouveau driver can be used you must
- remove NVIDIA configuration from xorg.conf (and xorg.conf.d/).
+ Before the ${free_name} driver can be used you must
+ remove ${vendor} configuration from xorg.conf (and xorg.conf.d/).

@@ -1,1 +1,1 @@
-#LIBDIR#/libnvidia-opencl.so.#VERSION#	#LIBDIR#/libnvidia-opencl.so.1
+#LIBDIR#/#PRIVATE#/libnvidia-opencl.so.#VERSION#	#LIBDIR#/#PRIVATE#/libnvidia-opencl.so.1

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nvidia-graphics-drivers\n"
 "Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
-"POT-Creation-Date: 2014-10-05 18:35+0200\n"
+"POT-Creation-Date: 2014-10-20 02:45+0200\n"
 "PO-Revision-Date: 2012-09-21 00:44+0200\n"
 "Last-Translator: Michał Kułach <michal.kulach@gmail.com>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
@@ -21,49 +21,46 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
-msgid "Install NVIDIA driver despite unsupported graphics card?"
+#. Translators, do not translate the ${substitution} ${variables}.
+#. ${vendor} will be substituted with 'NVIDIA' or 'Fglrx' (without quotes, of
+#. course), ${free_name} will become 'Nouveau' or 'Radeon' (no quotes, again)
+#. and the ${*driver} variables will be replaced with package names.
+#: ../libgl1-nvidia-glx.templates:3001
+msgid "Install ${vendor} driver despite unsupported graphics card?"
 msgstr ""
-"Zainstalować sterownik NVIDIA ignorując nieobsługiwaną kartę graficzną?"
+"Zainstalować sterownik ${vendor} ignorując nieobsługiwaną kartę graficzną?"
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 msgid ""
-"This system has a graphics card which is no longer handled by the NVIDIA "
-"driver (package nvidia-driver). You may wish to keep the package installed - "
-"for instance to drive some other card - but the card with the following "
-"chipset won't be usable:"
+"This system has a graphics card which is no longer handled by the ${vendor} "
+"driver (package ${driver}). You may wish to keep the package installed - for "
+"instance to drive some other card - but the card with the following chipset "
+"won't be usable:"
 msgstr ""
 "W systemie znajduje się karta graficzna, która nie jest dłużej obsługiwana "
-"przez sterownik NVIDIA (z pakietu nvidia-driver). Można jednak zachować "
+"przez sterownik ${vendor} (z pakietu ${driver}). Można jednak zachować "
 "pakiet (np. do innej karty), lecz ta z następującym chipsetem nie będzie "
 "wówczas obsługiwana:"
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 msgid ""
-"The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
-"video-nouveau)."
+"The above card requires either the non-free legacy ${vendor} driver (package "
+"${legacy_driver}) or the free ${free_name} driver (package ${free_driver})."
 msgstr ""
-"Powyższa karta wymaga albo niewolnego, nierozwijanego sterownika NVIDIA "
-"(pakiet nvidia-legacy-304xx-driver), albo wolnego sterownika Nouveau "
-"(znajdującego się w pakiecie xserver-xorg-video-nouveau)."
+"Powyższa karta wymaga albo niewolnego, nierozwijanego sterownika ${vendor} "
+"(pakiet ${legacy_driver}), albo wolnego sterownika ${free_name} "
+"(znajdującego się w pakiecie ${free_driver})."
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 msgid ""
-"Before the Nouveau driver can be used you must remove NVIDIA configuration "
-"from xorg.conf (and xorg.conf.d/)."
+"Before the ${free_name} driver can be used you must remove ${vendor} "
+"configuration from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Przed użyciem sterownika Nouveau, konieczne jest usunięcie konfiguracji "
-"NVIDIA z xorg.conf (i xorg.conf.d/)."
-
-
-
-
-
-
+"Przed użyciem sterownika ${free_name}, konieczne jest usunięcie konfiguracji "
+"${vendor} z xorg.conf (i xorg.conf.d/)."

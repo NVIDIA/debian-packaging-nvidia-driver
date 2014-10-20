@@ -4,5 +4,6 @@
 hardening-no-fortify-functions
 hardening-no-relro
 
-# A single symbolic link does not justify the creation of a new package.
-non-dev-pkg-with-shlib-symlink
+# Lintian and debhelper disagree w.r.t a library in a private directory.
+postinst-has-useless-call-to-ldconfig
+postrm-has-useless-call-to-ldconfig

@@ -11,3 +11,7 @@ hardening-no-stackprotector
 
 # libcudart.so.2 does dlopen("libcuda.so").
 non-dev-pkg-with-shlib-symlink
+
+# Lintian and debhelper disagree w.r.t a library in a private directory.
+postinst-has-useless-call-to-ldconfig
+postrm-has-useless-call-to-ldconfig
