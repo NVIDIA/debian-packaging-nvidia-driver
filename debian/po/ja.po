@@ -43,21 +43,21 @@ msgstr ""
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"${legacy_driver}) or the free Nouveau driver (package ${free_driver}"
+"${legacy_driver}) or the free ${free_name} driver (package ${free_driver}"
 ")."
 msgstr ""
 "上記のカードには、フリーではない旧式の NVIDIA ドライバ (${legacy_driver}"
-" パッケージ) またはフリーの Nouveau ドライバ (${free_driver}"
+" パッケージ) またはフリーの ${free_name} ドライバ (${free_driver}"
 " パッケージ) のいずれかが必要です。"
 
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"Before the Nouveau driver can be used you must remove NVIDIA configuration "
+"Before the ${free_name} driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Nouveau ドライバを利用できるようにするには、NVIDIA の設定を xorg.conf (およ"
+"${free_name} ドライバを利用できるようにするには、NVIDIA の設定を xorg.conf (およ"
 "び xorg.conf.d/) から削除しなければなりません。"
 
 

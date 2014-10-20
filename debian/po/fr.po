@@ -46,18 +46,18 @@ msgstr ""
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"${legacy_driver}) or the free Nouveau driver (package ${free_driver}"
+"${legacy_driver}) or the free ${free_name} driver (package ${free_driver}"
 ")."
 msgstr ""
 "Cette carte a besoin soit du pilote NVIDIA constructeur, non libre, fourni "
-"par le paquet ${legacy_driver} ou du pilote libre Nouveau fourni "
+"par le paquet ${legacy_driver} ou du pilote libre ${free_name} fourni "
 "par le paquet ${free_driver}."
 
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"Before the Nouveau driver can be used you must remove NVIDIA configuration "
+"Before the ${free_name} driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
 "Avant de pouvoir l'utiliser, il est nécessaire de supprimer la configuration "

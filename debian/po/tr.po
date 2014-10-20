@@ -43,21 +43,21 @@ msgstr ""
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"${legacy_driver}) or the free Nouveau driver (package ${free_driver}"
+"${legacy_driver}) or the free ${free_name} driver (package ${free_driver}"
 ")."
 msgstr ""
 "Yukarıdaki kartı kullanabilmek için ya özgür olmayan eski NVIDIA sürücüsünü "
-"(${legacy_driver} paketi) ya da özgür Nouveau sürücüsünü (${free_driver}"
+"(${legacy_driver} paketi) ya da özgür ${free_name} sürücüsünü (${free_driver}"
 " paketi) kullanmak gerekmektedir."
 
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"Before the Nouveau driver can be used you must remove NVIDIA configuration "
+"Before the ${free_name} driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Nouveau sürücüsünü kullanmadan önce xorg.conf (ve xorg.conf.d/) konumundaki "
+"${free_name} sürücüsünü kullanmadan önce xorg.conf (ve xorg.conf.d/) konumundaki "
 "NVIDIA yapılandırmasını kaldırmanız gerekmektedir."
 
 

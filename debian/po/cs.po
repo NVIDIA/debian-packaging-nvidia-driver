@@ -41,19 +41,19 @@ msgstr ""
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"${legacy_driver}) or the free Nouveau driver (package ${free_driver}"
+"${legacy_driver}) or the free ${free_name} driver (package ${free_driver}"
 ")."
 msgstr ""
 "Výše uvedená karta vyžaduje buď nesvobodný ovladač NVIDIA pro starší karty "
-"(balíček ${legacy_driver}), nebo svobodný ovladač Nouveau (balíček "
+"(balíček ${legacy_driver}), nebo svobodný ovladač ${free_name} (balíček "
 "${free_driver})."
 
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"Before the Nouveau driver can be used you must remove NVIDIA configuration "
+"Before the ${free_name} driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Před použitím ovladače Nouveau musíte ze souboru xorg.conf (a xorg.conf.d/) "
+"Před použitím ovladače ${free_name} musíte ze souboru xorg.conf (a xorg.conf.d/) "
 "odstranit nastavení pro ovladač NVIDIA."

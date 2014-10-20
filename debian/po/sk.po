@@ -48,13 +48,13 @@ msgstr ""
 #: ../libgl1-nvidia-glx.templates:2001
 #, fuzzy
 #| msgid ""
-#| "The above card requires the free Nouveau driver in the package ${free_driver}."
+#| "The above card requires the free ${free_name} driver in the package ${free_driver}."
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"${legacy_driver}) or the free Nouveau driver (package ${free_driver}"
+"${legacy_driver}) or the free ${free_name} driver (package ${free_driver}"
 ")."
 msgstr ""
-"Hore uvedená karta vyžaduje slobodný ovládač Nouveau z balíka ${free_driver}"
+"Hore uvedená karta vyžaduje slobodný ovládač ${free_name} z balíka ${free_driver}"
 "."
 
 #. Type: boolean
@@ -62,14 +62,14 @@ msgstr ""
 #: ../libgl1-nvidia-glx.templates:2001
 #, fuzzy
 #| msgid ""
-#| "Before the Nouveau driver can be used you must remove fglrx configuration "
+#| "Before the ${free_name} driver can be used you must remove fglrx configuration "
 #| "from xorg.conf (and xorg.conf.d/) and purge (not just remove) the fglrx-"
 #| "driver package."
 msgid ""
-"Before the Nouveau driver can be used you must remove NVIDIA configuration "
+"Before the ${free_name} driver can be used you must remove NVIDIA configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Predtým, než budete môcť používať ovládač Nouveau musíte odstrániť z xorg."
+"Predtým, než budete môcť používať ovládač ${free_name} musíte odstrániť z xorg."
 "conf (a z xorg.conf.d/) konfiguráciu fglrx a vyčistiť („purge“, nie len "
 "„remove“) balík nvidia-driver."
 
