@@ -43,10 +43,10 @@ msgstr ""
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-340xx-driver) or the free Nouveau driver (package xserver-xorg-"
+"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
 "video-nouveau)."
 msgstr ""
-"上記のカードには、フリーではない旧式の NVIDIA ドライバ (nvidia-legacy-340xx-"
+"上記のカードには、フリーではない旧式の NVIDIA ドライバ (nvidia-legacy-304xx-"
 "driver パッケージ) またはフリーの Nouveau ドライバ (xserver-xorg-video-"
 "nouveau パッケージ) のいずれかが必要です。"
 

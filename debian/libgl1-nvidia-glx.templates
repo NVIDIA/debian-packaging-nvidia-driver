@@ -19,7 +19,7 @@ _Description: Install NVIDIA driver despite unsupported graphics card?
  ${unsupported-device}
  .
  The above card requires either the non-free legacy NVIDIA driver
- (package nvidia-legacy-340xx-driver) or the free Nouveau driver
+ (package nvidia-legacy-304xx-driver) or the free Nouveau driver
  (package xserver-xorg-video-nouveau).
  .
  Before the Nouveau driver can be used you must
