@@ -21,19 +21,19 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
-msgid "Install NVIDIA driver despite unsupported graphics card?"
-msgstr "Ska NVIDIA-drivrutinen installeras även om grafikkortet inte stöds?"
+msgid "Install ${vendor} driver despite unsupported graphics card?"
+msgstr "Ska ${vendor}-drivrutinen installeras även om grafikkortet inte stöds?"
 
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the NVIDIA "
+"This system has a graphics card which is no longer handled by the ${vendor} "
 "driver (package ${driver}). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
-"Systemet har ett grafikkort som inte längre hanteras av drivrutinen NVIDIA "
+"Systemet har ett grafikkort som inte längre hanteras av drivrutinen ${vendor} "
 "(paketet ${driver}). Du kan välja att fortsätta ha paketet installerat - "
 "exempelvis för att driva ett annat kort - men kortet med följande chipp kan "
 "inte användas:"
@@ -42,11 +42,11 @@ msgstr ""
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy NVIDIA driver (package "
+"The above card requires either the non-free legacy ${vendor} driver (package "
 "${legacy_driver}) or the free ${free_name} driver (package ${free_driver}"
 ")."
 msgstr ""
-"Ovanstående kort behöver antingen den ofria drivrutinen NVIDIA (paketet "
+"Ovanstående kort behöver antingen den ofria drivrutinen ${vendor} (paketet "
 "${legacy_driver}) eller den fria drivrutinen ${free_name} (paketet ${free_driver}"
 ")."
 
@@ -54,10 +54,10 @@ msgstr ""
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"Before the ${free_name} driver can be used you must remove NVIDIA configuration "
+"Before the ${free_name} driver can be used you must remove ${vendor} configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Innan drivrutinen ${free_name} kan användas måste du ta bort NVIDIA-inställningen "
+"Innan drivrutinen ${free_name} kan användas måste du ta bort ${vendor}-inställningen "
 "från xorg.conf (och xorg.conf.d/)."
 
 

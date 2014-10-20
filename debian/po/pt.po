@@ -21,19 +21,19 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
-msgid "Install NVIDIA driver despite unsupported graphics card?"
-msgstr "Instalar a driver NVIDIA apesar da placa gráfica não ser suportada?"
+msgid "Install ${vendor} driver despite unsupported graphics card?"
+msgstr "Instalar a driver ${vendor} apesar da placa gráfica não ser suportada?"
 
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the NVIDIA "
+"This system has a graphics card which is no longer handled by the ${vendor} "
 "driver (package ${driver}). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
-"O sistema tem uma placa gráfica que já não é suportada pela driver NVIDIA "
+"O sistema tem uma placa gráfica que já não é suportada pela driver ${vendor} "
 "(pacote ${driver}). Você pode desejar manter o pacote instalado - por "
 "exemplo para lidar com outra placa) - mas a placa com o seguinte chipset não "
 "irá funcionar:"
@@ -42,22 +42,22 @@ msgstr ""
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy NVIDIA driver (package "
+"The above card requires either the non-free legacy ${vendor} driver (package "
 "${legacy_driver}) or the free ${free_name} driver (package ${free_driver}"
 ")."
 msgstr ""
-"A placa acima necessita da driver NVIDIA legacy não-livre (pacote "
+"A placa acima necessita da driver ${vendor} legacy não-livre (pacote "
 "${legacy_driver}) ou a driver ${free_name} livre (pacote ${free_driver})."
 
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"Before the ${free_name} driver can be used you must remove NVIDIA configuration "
+"Before the ${free_name} driver can be used you must remove ${vendor} configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
 "Antes de poder usar a driver ${free_name} você tem de remover a configuração da "
-"NVIDIA do xorg.conf (e de xorg.conf.d/)."
+"${vendor} do xorg.conf (e de xorg.conf.d/)."
 
 
 

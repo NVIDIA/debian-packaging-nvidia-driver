@@ -19,19 +19,19 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
-msgid "Install NVIDIA driver despite unsupported graphics card?"
-msgstr "Nainstalovat ovladač NVIDIA i když nepodporuje grafickou kartu?"
+msgid "Install ${vendor} driver despite unsupported graphics card?"
+msgstr "Nainstalovat ovladač ${vendor} i když nepodporuje grafickou kartu?"
 
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the NVIDIA "
+"This system has a graphics card which is no longer handled by the ${vendor} "
 "driver (package ${driver}). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
-"Systém má grafickou kartu, kterou již nebude ovladač NVIDIA (balíček "
+"Systém má grafickou kartu, kterou již nebude ovladač ${vendor} (balíček "
 "${driver}) nadále obsluhovat. Můžete si však přát ponechat balíček "
 "nainstalovaný (například pro nějakou jinou kartu), ale karta s následující "
 "čipovou sadou nebude použitelná:"
@@ -40,11 +40,11 @@ msgstr ""
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy NVIDIA driver (package "
+"The above card requires either the non-free legacy ${vendor} driver (package "
 "${legacy_driver}) or the free ${free_name} driver (package ${free_driver}"
 ")."
 msgstr ""
-"Výše uvedená karta vyžaduje buď nesvobodný ovladač NVIDIA pro starší karty "
+"Výše uvedená karta vyžaduje buď nesvobodný ovladač ${vendor} pro starší karty "
 "(balíček ${legacy_driver}), nebo svobodný ovladač ${free_name} (balíček "
 "${free_driver})."
 
@@ -52,8 +52,8 @@ msgstr ""
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"Before the ${free_name} driver can be used you must remove NVIDIA configuration "
+"Before the ${free_name} driver can be used you must remove ${vendor} configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
 "Před použitím ovladače ${free_name} musíte ze souboru xorg.conf (a xorg.conf.d/) "
-"odstranit nastavení pro ovladač NVIDIA."
+"odstranit nastavení pro ovladač ${vendor}."

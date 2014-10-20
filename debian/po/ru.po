@@ -21,22 +21,22 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
-msgid "Install NVIDIA driver despite unsupported graphics card?"
+msgid "Install ${vendor} driver despite unsupported graphics card?"
 msgstr ""
-"Установить драйвер NVIDIA несмотря на то, что графическая карта им не "
+"Установить драйвер ${vendor} несмотря на то, что графическая карта им не "
 "поддерживается?"
 
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the NVIDIA "
+"This system has a graphics card which is no longer handled by the ${vendor} "
 "driver (package ${driver}). You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
 "В системе обнаружена графическая карта, которая больше не поддерживается "
-"драйвером NVIDIA (пакет ${driver}). Вы можете оставить пакет "
+"драйвером ${vendor} (пакет ${driver}). Вы можете оставить пакет "
 "установленным (например, для какой-то другой карты), но карта со следующим "
 "набором микросхем работать не будет:"
 
@@ -44,11 +44,11 @@ msgstr ""
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy NVIDIA driver (package "
+"The above card requires either the non-free legacy ${vendor} driver (package "
 "${legacy_driver}) or the free ${free_name} driver (package ${free_driver}"
 ")."
 msgstr ""
-"Для указанной ранее карты требуется несвободный устаревший драйвер NVIDIA "
+"Для указанной ранее карты требуется несвободный устаревший драйвер ${vendor} "
 "(пакет ${legacy_driver}) или свободный драйвер ${free_name} (пакет "
 "${free_driver})."
 
@@ -56,11 +56,11 @@ msgstr ""
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"Before the ${free_name} driver can be used you must remove NVIDIA configuration "
+"Before the ${free_name} driver can be used you must remove ${vendor} configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
 "Перед тем, как использовать драйвер ${free_name}, вам нужно удалить настройку "
-"NVIDIA из xorg.conf (и xorg.conf.d/)."
+"${vendor} из xorg.conf (и xorg.conf.d/)."
 
 
 
