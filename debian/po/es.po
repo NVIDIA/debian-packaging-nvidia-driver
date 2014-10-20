@@ -88,7 +88,7 @@ msgid ""
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
 "Antes de poder utilizar el controlador ${free_name} debe eliminar la "
-"configuración de fglrx de «xorg.conf» (y de «xorg.conf.d/»)."
+"configuración de ${vendor} de «xorg.conf» (y de «xorg.conf.d/»)."
 
 
 
