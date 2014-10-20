@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nvidia-graphics-drivers\n"
 "Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
-"POT-Creation-Date: 2014-10-05 18:35+0200\n"
+"POT-Creation-Date: 2014-10-20 02:45+0200\n"
 "PO-Revision-Date: 2012-06-22 01:32+0200\n"
 "Last-Translator: Jorge Barreiro <yortx.barry@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -20,7 +20,11 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#. Translators, do not translate the ${substitution} ${variables}.
+#. ${vendor} will be substituted with 'NVIDIA' or 'Fglrx' (without quotes, of
+#. course), ${free_name} will become 'Nouveau' or 'Radeon' (no quotes, again)
+#. and the ${*driver} variables will be replaced with package names.
+#: ../libgl1-nvidia-glx.templates:3001
 msgid "Install ${vendor} driver despite unsupported graphics card?"
 msgstr ""
 "Quere instalar o controlador «${vendor}» inda que non teña ningunha tarxeta "
@@ -28,48 +32,48 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 #, fuzzy
 #| msgid ""
 #| "The following graphics chipset found in your system is no longer handled "
-#| "by the ${vendor} driver:You may wish to keep ${vendor} (for instance to drive "
-#| "some other card), but the above card won't be usable."
+#| "by the ${vendor} driver:You may wish to keep ${vendor} (for instance to "
+#| "drive some other card), but the above card won't be usable."
 msgid ""
 "This system has a graphics card which is no longer handled by the ${vendor} "
-"driver (package ${driver}). You may wish to keep the package installed - "
-"for instance to drive some other card - but the card with the following "
-"chipset won't be usable:"
+"driver (package ${driver}). You may wish to keep the package installed - for "
+"instance to drive some other card - but the card with the following chipset "
+"won't be usable:"
 msgstr ""
 "Os seguintes chipsets gráficos que se atoparon no seu sistema xa non son "
-"manexados polo controlador «${vendor}»:Pode querer manter «${vendor}» (por exemplo "
-"para manexar outra tarxeta), pero a tarxeta indicada enriba non poderá ser "
-"usada."
+"manexados polo controlador «${vendor}»:Pode querer manter «${vendor}» (por "
+"exemplo para manexar outra tarxeta), pero a tarxeta indicada enriba non "
+"poderá ser usada."
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 #, fuzzy
 #| msgid ""
-#| "The above card requires the free ${free_name} driver in the package ${free_driver}."
+#| "The above card requires the free ${free_name} driver in the package "
+#| "${free_driver}."
 msgid ""
 "The above card requires either the non-free legacy ${vendor} driver (package "
-"${legacy_driver}) or the free ${free_name} driver (package ${free_driver}"
-")."
+"${legacy_driver}) or the free ${free_name} driver (package ${free_driver})."
 msgstr ""
 "A tarxeta de enriba precisa do controlador libre «${free_name}», incluído no "
 "paquete «${free_driver}»."
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 #, fuzzy
 #| msgid ""
-#| "Before the ${free_name} driver can be used you must remove ${vendor} configuration "
-#| "from xorg.conf (and xorg.conf.d/) and purge (not just remove) the ${driver}"
-#| " package."
+#| "Before the ${free_name} driver can be used you must remove ${vendor} "
+#| "configuration from xorg.conf (and xorg.conf.d/) and purge (not just "
+#| "remove) the ${driver} package."
 msgid ""
-"Before the ${free_name} driver can be used you must remove ${vendor} configuration "
-"from xorg.conf (and xorg.conf.d/)."
+"Before the ${free_name} driver can be used you must remove ${vendor} "
+"configuration from xorg.conf (and xorg.conf.d/)."
 msgstr ""
 "Antes de que o controlador «${free_name}» poida usarse debe eliminar a "
 "configuración de «${vendor}» do ficheiro «xorg.conf» (e «xorg.conf.d/»)."

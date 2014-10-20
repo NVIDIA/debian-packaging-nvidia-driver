@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nvidia-graphics-drivers\n"
 "Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
-"POT-Creation-Date: 2014-10-05 18:35+0200\n"
+"POT-Creation-Date: 2014-10-20 02:45+0200\n"
 "PO-Revision-Date: 2012-09-23 09:21+0200\n"
 "Last-Translator: Holger Wansing <linux@wansing-online.de>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
@@ -19,48 +19,45 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#. Translators, do not translate the ${substitution} ${variables}.
+#. ${vendor} will be substituted with 'NVIDIA' or 'Fglrx' (without quotes, of
+#. course), ${free_name} will become 'Nouveau' or 'Radeon' (no quotes, again)
+#. and the ${*driver} variables will be replaced with package names.
+#: ../libgl1-nvidia-glx.templates:3001
 msgid "Install ${vendor} driver despite unsupported graphics card?"
 msgstr "${vendor}-Treiber installieren trotz nicht unterstützter Grafikkarte?"
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 msgid ""
 "This system has a graphics card which is no longer handled by the ${vendor} "
-"driver (package ${driver}). You may wish to keep the package installed - "
-"for instance to drive some other card - but the card with the following "
-"chipset won't be usable:"
+"driver (package ${driver}). You may wish to keep the package installed - for "
+"instance to drive some other card - but the card with the following chipset "
+"won't be usable:"
 msgstr ""
-"Ihr System hat eine Grafikkarte, die nicht mehr vom ${vendor}-Treiber (aus dem "
-"Paket ${driver}) bedient wird. Sie möchten das Paket vielleicht "
+"Ihr System hat eine Grafikkarte, die nicht mehr vom ${vendor}-Treiber (aus "
+"dem Paket ${driver}) bedient wird. Sie möchten das Paket vielleicht "
 "installiert lassen - um beispielsweise eine andere Karte zu betreiben, aber "
 "der folgende Chipsatz wird damit nicht nutzbar sein:"
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 msgid ""
 "The above card requires either the non-free legacy ${vendor} driver (package "
-"${legacy_driver}) or the free ${free_name} driver (package ${free_driver}"
-")."
+"${legacy_driver}) or the free ${free_name} driver (package ${free_driver})."
 msgstr ""
-"Die oben angegebene Karte benötigt entweder den nicht-freien Legacy-${vendor}-"
-"Treiber (aus dem Paket ${legacy_driver}) oder den freien ${free_name}-"
-"Treiber (aus dem Paket ${free_driver})."
+"Die oben angegebene Karte benötigt entweder den nicht-freien Legacy-"
+"${vendor}-Treiber (aus dem Paket ${legacy_driver}) oder den freien "
+"${free_name}-Treiber (aus dem Paket ${free_driver})."
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 msgid ""
-"Before the ${free_name} driver can be used you must remove ${vendor} configuration "
-"from xorg.conf (and xorg.conf.d/)."
+"Before the ${free_name} driver can be used you must remove ${vendor} "
+"configuration from xorg.conf (and xorg.conf.d/)."
 msgstr ""
 "Bevor der ${free_name}-Treiber genutzt werden kann, müssen Sie die ${vendor}-"
 "Konfiguration aus xorg.conf (und xorg.conf.d/) entfernen."
-
-
-
-
-
-

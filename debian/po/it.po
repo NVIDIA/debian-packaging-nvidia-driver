@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nvidia-graphics-drivers\n"
 "Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
-"POT-Creation-Date: 2014-10-05 18:35+0200\n"
+"POT-Creation-Date: 2014-10-20 02:45+0200\n"
 "PO-Revision-Date: 2012-09-28 17:24+0200\n"
 "Last-Translator: Beatrice Torracca <beatricet@libero.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
@@ -19,49 +19,46 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#. Translators, do not translate the ${substitution} ${variables}.
+#. ${vendor} will be substituted with 'NVIDIA' or 'Fglrx' (without quotes, of
+#. course), ${free_name} will become 'Nouveau' or 'Radeon' (no quotes, again)
+#. and the ${*driver} variables will be replaced with package names.
+#: ../libgl1-nvidia-glx.templates:3001
 msgid "Install ${vendor} driver despite unsupported graphics card?"
 msgstr ""
 "Installare il driver ${vendor} nonostante una scheda grafica non supportata?"
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 msgid ""
 "This system has a graphics card which is no longer handled by the ${vendor} "
-"driver (package ${driver}). You may wish to keep the package installed - "
-"for instance to drive some other card - but the card with the following "
-"chipset won't be usable:"
+"driver (package ${driver}). You may wish to keep the package installed - for "
+"instance to drive some other card - but the card with the following chipset "
+"won't be usable:"
 msgstr ""
-"Questo sistema ha una scheda grafica che non è più gestita dal driver ${vendor} "
-"(pacchetto ${driver}). Si può voler mantenere il pacchetto installato, "
-"ad esempio per pilotare una qualche altra scheda, ma quella con il seguente "
-"chipset non sarà utilizzabile:"
+"Questo sistema ha una scheda grafica che non è più gestita dal driver "
+"${vendor} (pacchetto ${driver}). Si può voler mantenere il pacchetto "
+"installato, ad esempio per pilotare una qualche altra scheda, ma quella con "
+"il seguente chipset non sarà utilizzabile:"
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 msgid ""
 "The above card requires either the non-free legacy ${vendor} driver (package "
-"${legacy_driver}) or the free ${free_name} driver (package ${free_driver}"
-")."
+"${legacy_driver}) or the free ${free_name} driver (package ${free_driver})."
 msgstr ""
 "Tale scheda richiede il vecchio driver non libero ${vendor} (pacchetto "
-"${legacy_driver}) oppure il driver libero ${free_name} (pacchetto ${free_driver}"
-")."
+"${legacy_driver}) oppure il driver libero ${free_name} (pacchetto "
+"${free_driver})."
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:2001
+#: ../libgl1-nvidia-glx.templates:3001
 msgid ""
-"Before the ${free_name} driver can be used you must remove ${vendor} configuration "
-"from xorg.conf (and xorg.conf.d/)."
+"Before the ${free_name} driver can be used you must remove ${vendor} "
+"configuration from xorg.conf (and xorg.conf.d/)."
 msgstr ""
 "Prima di poter usare il driver ${free_name} è necessario rimuovere la "
 "configurazione di ${vendor} da xorg.conf (e xorg.conf.d/)."
-
-
-
-
-
-
