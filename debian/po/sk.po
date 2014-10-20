@@ -48,15 +48,14 @@ msgstr ""
 #: ../libgl1-nvidia-glx.templates:2001
 #, fuzzy
 #| msgid ""
-#| "The above card requires the free Nouveau driver in the package xserver-"
-#| "xorg-video-nouveau."
+#| "The above card requires the free Nouveau driver in the package ${free_driver}."
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"${legacy_driver}) or the free Nouveau driver (package xserver-xorg-"
-"video-nouveau)."
+"${legacy_driver}) or the free Nouveau driver (package ${free_driver}"
+")."
 msgstr ""
-"Hore uvedená karta vyžaduje slobodný ovládač Nouveau z balíka xserver-xorg-"
-"video-nouveau."
+"Hore uvedená karta vyžaduje slobodný ovládač Nouveau z balíka ${free_driver}"
+"."
 
 #. Type: boolean
 #. Description

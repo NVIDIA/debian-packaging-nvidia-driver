@@ -46,12 +46,12 @@ msgstr ""
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
 "The above card requires either the non-free legacy NVIDIA driver (package "
-"${legacy_driver}) or the free Nouveau driver (package xserver-xorg-"
-"video-nouveau)."
+"${legacy_driver}) or the free Nouveau driver (package ${free_driver}"
+")."
 msgstr ""
 "Cette carte a besoin soit du pilote NVIDIA constructeur, non libre, fourni "
 "par le paquet ${legacy_driver} ou du pilote libre Nouveau fourni "
-"par le paquet xserver-xorg-video-nouveau."
+"par le paquet ${free_driver}."
 
 #. Type: boolean
 #. Description
