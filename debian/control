@@ -28,6 +28,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
+ libegl1-${nvidia} (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  ${nvidia}-vdpau-driver (= ${binary:Version}),
  ${nvidia-alternative} (= ${binary:Version}),
@@ -37,11 +38,10 @@ Depends:
 Recommends:
  ${nvidia-settings},
  libgl1-${nvidia}-glx-i386 [amd64],
- libegl1-${nvidia} (= ${binary:Version}),
-Suggests:
- ${nvidia:kmod:source},
  libgles1-${nvidia} (= ${binary:Version}),
  libgles2-${nvidia} (= ${binary:Version}),
+Suggests:
+ ${nvidia:kmod:source},
 Provides:
  nvidia-glx-any,
 Breaks:
