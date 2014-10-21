@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (340.46-3) UNRELEASED; urgency=medium
 
   * Updated French (fr) debconf translations by Christian Perrier.
+  * bug-script: Run xrandr, if possible.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 21 Oct 2014 13:49:13 +0200
 

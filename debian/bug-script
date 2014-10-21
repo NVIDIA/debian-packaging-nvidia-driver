@@ -101,4 +101,8 @@ echo "lsmod:"
 lsmod
 echo
 
+echo "xrandr:"
+test ! -x /usr/bin/xrandr || xrandr 2>&1
+echo
+
 exit 0
