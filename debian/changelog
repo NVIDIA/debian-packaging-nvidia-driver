@@ -33,6 +33,20 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
 
+nvidia-graphics-drivers (340.46-4) UNRELEASED; urgency=medium
+
+  * Fix installation of nvidia-smi.  (Closes: #766343)
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 23 Oct 2014 14:57:29 +0200
+
+nvidia-graphics-drivers (340.46-3) unstable; urgency=medium
+
+  * Updated French (fr) debconf translations by Christian Perrier.
+  * bug-script: Run xrandr, if possible.
+  * nvidia-driver: Depend on libegl1-nvidia and recommend libgles[12]-nvidia.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 22 Oct 2014 00:09:17 +0200
+
 nvidia-graphics-drivers (340.46-2) unstable; urgency=medium
 
   * Add libcuda1 dependency to libraries that seem to be capable of doing
