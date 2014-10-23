@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (340.46-4) UNRELEASED; urgency=medium
+
+  * Fix installation of nvidia-smi.  (Closes: #766343)
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 23 Oct 2014 14:57:29 +0200
+
 nvidia-graphics-drivers (340.46-3) unstable; urgency=medium
 
   * Updated French (fr) debconf translations by Christian Perrier.
