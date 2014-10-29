@@ -2,6 +2,7 @@ nvidia-graphics-drivers (343.22-2) UNRELEASED; urgency=medium
 
   * Split nvidia-driver-bin from the metapackage nvidia-driver.
   * nvidia-driver-bin: Support switching via nvidia-alternative.
+  * d/rules: Add #!armhf# and #!legacy# substitutions.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 29 Oct 2014 10:24:50 +0100
 
