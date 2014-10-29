@@ -3,5 +3,5 @@ nvidia-debugdump	usr/bin/
 nvidia-persistenced	usr/bin/
 nvidia-application-profiles-#VERSION#-rc	usr/share/nvidia/
 nvidia-application-profiles-#VERSION#-key-documentation	usr/share/nvidia/
-monitoring.conf		usr/share/nvidia/
-pci.ids			usr/share/nvidia/
+#!armhf#monitoring.conf		usr/share/nvidia/
+#!armhf#pci.ids			usr/share/nvidia/

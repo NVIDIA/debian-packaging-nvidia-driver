@@ -309,6 +309,7 @@ override_dh_strip:
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
+	-e 's{#!armhf#}{$(if $(filter armhf,$(DEB_HOST_ARCH)),#)}g;' \
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog
