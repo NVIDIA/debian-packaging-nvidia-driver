@@ -29,6 +29,7 @@ Pre-Depends:
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
  libegl1-${nvidia} (= ${binary:Version}),
+ ${nvidia}-driver-bin (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  ${nvidia}-vdpau-driver (= ${binary:Version}),
  ${nvidia-alternative} (= ${binary:Version}),
@@ -60,6 +61,26 @@ Description: NVIDIA metapackage${nvidia:LegacyDesc}
  .
  See /usr/share/doc/${nvidia}-driver/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+
+#Package: ${nvidia}-driver-bin
+Package: nvidia-driver-bin
+Section: non-free/x11
+Architecture: i386 amd64 armhf
+Depends:
+ ${nvidia-alternative} (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends:
+ ${nvidia}-driver,
+Breaks:
+ ${nvidia}-driver (<< 343.22-2~),
+Replaces:
+ ${nvidia}-driver (<< 343.22-2~),
+Description: NVIDIA driver support binaries${nvidia:LegacyDesc}
+ The NVIDIA binary driver provides optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server.
+ AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
+ .
+ This package contains supporting binaries for the driver.
 
 #Package: nvidia-glx${nvidia:Legacy}
 Package: nvidia-glx
