@@ -245,7 +245,7 @@ Package: nvidia-alternative
 Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
- glx-alternative-nvidia (>= 0.4),
+ glx-alternative-nvidia (>= 0.5),
  nvidia-modprobe,
  ${misc:Depends}
 Conflicts:
