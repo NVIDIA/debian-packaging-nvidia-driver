@@ -5,6 +5,7 @@ nvidia-graphics-drivers (340.46-4) UNRELEASED; urgency=medium
   * d/rules: Add #!armhf# and #!legacy# substitutions.
   * nvidia-driver: Stop shipping nvidia-persistenced, this is being moved to a
     separate source package.
+  * Split nvidia-driver-bin from the metapackage nvidia-driver.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 23 Oct 2014 14:57:29 +0200
 
