@@ -6,6 +6,7 @@ nvidia-graphics-drivers (340.46-4) UNRELEASED; urgency=medium
   * nvidia-driver: Stop shipping nvidia-persistenced, this is being moved to a
     separate source package.
   * Split nvidia-driver-bin from the metapackage nvidia-driver.
+  * nvidia-driver-bin: Support switching via nvidia-alternative.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 23 Oct 2014 14:57:29 +0200
 
