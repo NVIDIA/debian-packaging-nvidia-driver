@@ -2,5 +2,4 @@
 [!amd64]: binary-file-built-without-LFS-support
 embedded-library usr/bin/nvidia-debugdump: zlib
 hardening-no-relro usr/bin/nvidia-debugdump
-hardening-no-relro usr/bin/nvidia-persistenced
 hardening-no-fortify-functions

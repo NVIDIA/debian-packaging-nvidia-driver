@@ -3,6 +3,8 @@ nvidia-graphics-drivers (340.46-4) UNRELEASED; urgency=medium
   * Fix installation of nvidia-smi.  (Closes: #766343)
   * Add more dependencies on nvidia-alternative. 
   * d/rules: Add #!armhf# and #!legacy# substitutions.
+  * nvidia-driver: Stop shipping nvidia-persistenced, this is being moved to a
+    separate source package.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 23 Oct 2014 14:57:29 +0200
 

@@ -1,6 +1,5 @@
 nvidia-bug-report.sh	usr/lib/#PRIVATE#/
 nvidia-debugdump	usr/bin/
-nvidia-persistenced	usr/bin/
 nvidia-application-profiles-#VERSION#-rc	usr/share/nvidia/
 nvidia-application-profiles-#VERSION#-key-documentation	usr/share/nvidia/
 #!armhf#monitoring.conf		usr/share/nvidia/
