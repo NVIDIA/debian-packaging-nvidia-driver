@@ -20,22 +20,22 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
-msgid "Install NVIDIA driver despite unsupported graphics card?"
+msgid "Install ${vendor} driver despite unsupported graphics card?"
 msgstr ""
-"Toch het NVIDIA-stuurprogramma installeren, hoewel de grafische kaart niet "
+"Toch het ${vendor}-stuurprogramma installeren, hoewel de grafische kaart niet "
 "ondersteund wordt?"
 
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"This system has a graphics card which is no longer handled by the NVIDIA "
-"driver (package nvidia-driver). You may wish to keep the package installed - "
+"This system has a graphics card which is no longer handled by the ${vendor} "
+"driver (package ${driver}. You may wish to keep the package installed - "
 "for instance to drive some other card - but the card with the following "
 "chipset won't be usable:"
 msgstr ""
 "Dit systeem heeft een grafische kaart die niet langer beheerd wordt door het "
-"stuurprogramma van NVIDIA (pakket nvidia-driver). Misschien wilt u het "
+"stuurprogramma van ${vendor} (pakket ${driver}. Misschien wilt u het "
 "pakket geïnstalleerd houden - bijvoorbeeld om een andere kaart aan te sturen "
 "- maar de kaart met de volgende chipset zal niet bruikbaar zijn:"
 
@@ -43,20 +43,20 @@ msgstr ""
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"The above card requires either the non-free legacy NVIDIA driver (package "
-"nvidia-legacy-304xx-driver) or the free Nouveau driver (package xserver-xorg-"
-"video-nouveau)."
+"The above card requires either the non-free legacy ${vendor} driver (package "
+"${legacy_driver}) or the free ${free_name} driver (package "
+"${free_driver})."
 msgstr ""
-"De hierboven vermelde kaart heeft ofwel het niet-vrije vroegere NVIDIA-"
-"stuurprogramma (pakket nvidia-legacy-304xx-driver) of het vrije Nouveau-"
-"stuurprogramma (pakket xserver-xorg-video-nouveau) nodig."
+"De hierboven vermelde kaart heeft ofwel het niet-vrije vroegere ${vendor}-"
+"stuurprogramma (pakket ${legacy_driver}) of het vrije ${free_name}-"
+"stuurprogramma (pakket ${free_driver}) nodig."
 
 #. Type: boolean
 #. Description
 #: ../libgl1-nvidia-glx.templates:2001
 msgid ""
-"Before the Nouveau driver can be used you must remove NVIDIA configuration "
+"Before the ${free_name} driver can be used you must remove ${vendor} configuration "
 "from xorg.conf (and xorg.conf.d/)."
 msgstr ""
-"Vooraleer u het Nouveau-stuurprogramma kunt gebruiken, moet u de "
-"instellingen voor NVIDIA verwijderen uit xorg.conf (en xorg.conf.d/)."
+"Vooraleer u het ${free_name}-stuurprogramma kunt gebruiken, moet u de "
+"instellingen voor ${vendor} verwijderen uit xorg.conf (en xorg.conf.d/)."
