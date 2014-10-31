@@ -43,11 +43,24 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
 
-nvidia-graphics-drivers (340.46-4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.46-5) UNRELEASED; urgency=medium
+
+  * New Dutch (nl) debconf translations by Frans Spiesschaert.
+    (Closes: #767492)
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Oct 2014 17:42:51 +0100
+
+nvidia-graphics-drivers (340.46-4) unstable; urgency=medium
 
   * Fix installation of nvidia-smi.  (Closes: #766343)
+  * Add more dependencies on nvidia-alternative. 
+  * d/rules: Add #!armhf# and #!legacy# substitutions.
+  * nvidia-driver: Stop shipping nvidia-persistenced, this is being moved to a
+    separate source package.
+  * Split nvidia-driver-bin from the metapackage nvidia-driver.
+  * nvidia-driver-bin: Support switching via nvidia-alternative.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 23 Oct 2014 14:57:29 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 30 Oct 2014 23:43:37 +0100
 
 nvidia-graphics-drivers (340.46-3) unstable; urgency=medium
 

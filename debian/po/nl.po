@@ -1,0 +1,65 @@
+# Dutch translation of nvidia-graphics-drivers debconf templates.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the nvidia-graphics-drivers package.
+# Frans Spiesschaert <Frans.Spiesschaert@yucom.be>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: nvidia-graphics-drivers\n"
+"Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
+"POT-Creation-Date: 2014-10-20 02:45+0200\n"
+"PO-Revision-Date: 2014-10-21 21:23+0200\n"
+"Last-Translator: Frans Spiesschaert <Frans.Spiesschaert@yucom.be>\n"
+"Language-Team: Debian Dutch l10n Team <debian-l10n-dutch@lists.debian.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Type: boolean
+#. Description
+#. Translators, do not translate the ${substitution} ${variables}.
+#. ${vendor} will be substituted with 'NVIDIA' or 'Fglrx' (without quotes, of
+#. course), ${free_name} will become 'Nouveau' or 'Radeon' (no quotes, again)
+#. and the ${*driver} variables will be replaced with package names.
+#: ../libgl1-nvidia-glx.templates:3001
+msgid "Install ${vendor} driver despite unsupported graphics card?"
+msgstr ""
+"Toch het ${vendor}-stuurprogramma installeren, hoewel de grafische kaart "
+"niet ondersteund wordt?"
+
+#. Type: boolean
+#. Description
+#: ../libgl1-nvidia-glx.templates:3001
+msgid ""
+"This system has a graphics card which is no longer handled by the ${vendor} "
+"driver (package ${driver}). You may wish to keep the package installed - for "
+"instance to drive some other card - but the card with the following chipset "
+"won't be usable:"
+msgstr ""
+"Dit systeem heeft een grafische kaart die niet langer beheerd wordt door het "
+"stuurprogramma van ${vendor} (pakket ${driver}). Misschien wilt u het pakket "
+"geïnstalleerd houden - bijvoorbeeld om een andere kaart aan te sturen - maar "
+"de kaart met de volgende chipset zal niet bruikbaar zijn:"
+
+#. Type: boolean
+#. Description
+#: ../libgl1-nvidia-glx.templates:3001
+msgid ""
+"The above card requires either the non-free legacy ${vendor} driver (package "
+"${legacy_driver}) or the free ${free_name} driver (package ${free_driver})."
+msgstr ""
+"De hierboven vermelde kaart heeft ofwel het niet-vrije vroegere ${vendor}-"
+"stuurprogramma (pakket ${legacy_driver}) of het vrije ${free_name}-"
+"stuurprogramma (pakket ${free_driver}) nodig."
+
+#. Type: boolean
+#. Description
+#: ../libgl1-nvidia-glx.templates:3001
+msgid ""
+"Before the ${free_name} driver can be used you must remove ${vendor} "
+"configuration from xorg.conf (and xorg.conf.d/)."
+msgstr ""
+"Vooraleer u het ${free_name}-stuurprogramma kunt gebruiken, moet u de "
+"instellingen voor ${vendor} verwijderen uit xorg.conf (en xorg.conf.d/)."
