@@ -1,10 +1,27 @@
-nvidia-graphics-drivers (340.46-5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.58-1) UNRELEASED; urgency=medium
 
+  * New upstream long lived branch release 340.58 (2014-11-05).
+    - Added support for the following GPUs: GeForce GT820M, GeForce GTX 760A,
+      GeForce GTX 850A, GeForce 810A, GeForce 820A, GeForce 840A, Tesla K8.
+    - Fixed a bug that could cause VT-switching to fail following a
+      suspend, resume, and driver reload sequence.
+    - Fixed a bug that caused incorrect colors to be displayed on X screens
+      running at depth 8 on some GPUs.
+    - Fixed a bug that prevented GPUs from being correctly recognized in
+      MetaMode strings when identified by UUID.
+    - Implemented support for disabling indirect GLX context creation using
+      the -iglx option available on X.Org server release 1.16 and newer.  Note
+      that future X.Org server releases may make the -iglx option the default.
+      To re-enable support for indirect GLX on such servers, use the +iglx
+      option.
+    - Added the "AllowIndirectGLXProtocol" X config option.  This option can
+      be used to disallow use of GLX protocol.  See "Appendix B. X Config
+      Options" in the README for more details.
   * New Dutch (nl) debconf translations by Frans Spiesschaert.
     (Closes: #767492)
   * README.source: Document the nks-history.git repository.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Oct 2014 17:42:51 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 08 Nov 2014 03:50:33 +0100
 
 nvidia-graphics-drivers (340.46-4) unstable; urgency=medium
 
@@ -62,6 +79,8 @@ nvidia-graphics-drivers (340.46-1) unstable; urgency=medium
 
   [ Vincent Cheng ]
   * New upstream long lived branch release 340.46 (2014-09-30).
+    - Fixed a crash with UnrealEngine 4 when the application was started
+      with the -opengl4 commandline switch.
     - Fixed an OpenGL issue that could cause glReadPixels() operations to
       be improperly clipped when resizing composited application windows,
       potentially leading to momentary X freezes.
