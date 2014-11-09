@@ -17,6 +17,7 @@ nvidia-graphics-drivers (340.58-1) UNRELEASED; urgency=medium
     - Added the "AllowIndirectGLXProtocol" X config option.  This option can
       be used to disallow use of GLX protocol.  See "Appendix B. X Config
       Options" in the README for more details.
+  * Update nv-readme.ids.
   * New Dutch (nl) debconf translations by Frans Spiesschaert.
     (Closes: #767492)
   * README.source: Document the nks-history.git repository.
