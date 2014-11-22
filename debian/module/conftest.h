@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 343.22, 340.58, 319.82, 304.123, 173.14.39, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 346.16, 340.58, 319.82, 304.123, 173.14.39, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -113,6 +113,13 @@
  #define NV_AGP_BACKEND_ACQUIRE_ARGUMENT_COUNT 1
 #else
  #define NV_AGP_BACKEND_ACQUIRE_ARGUMENT_COUNT 0
+#endif
+
+/* Implement conftest.sh function follow_pfn */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,31)
+ #define NV_FOLLOW_PFN_PRESENT
+#else
+ #undef NV_FOLLOW_PFN_PRESENT
 #endif
 
 /* Implement conftest.sh function vmap */
@@ -425,6 +432,20 @@
  #define NV_VM_OPERATIONS_STRUCT_HAS_ACCESS
 #else
  #undef NV_VM_OPERATIONS_STRUCT_HAS_ACCESS
+#endif
+
+/* Implement conftest.sh function fault_flags */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,23)
+ #define NV_FAULT_FLAG_PRESENT
+#else
+ #undef NV_FAULT_FLAG_PRESENT
+#endif
+
+/* Implement conftest.sh function atomic64_type */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,31)
+ #define NV_ATOMIC64_PRESENT
+#else
+ #undef NV_ATOMIC64_PRESENT
 #endif
 
 /* Implement conftest.sh function task_struct */
