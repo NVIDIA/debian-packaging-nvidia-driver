@@ -73,8 +73,10 @@ Recommends:
  ${nvidia}-driver,
 Breaks:
  ${nvidia}-driver (<< 343.22-2~),
+ nvidia-glx${nvidia:Legacy} (<< 319),
 Replaces:
  ${nvidia}-driver (<< 343.22-2~),
+ nvidia-glx${nvidia:Legacy} (<< 319),
 Description: NVIDIA driver support binaries${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.

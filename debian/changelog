@@ -43,12 +43,44 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
 
-nvidia-graphics-drivers (340.46-5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.58-1) UNRELEASED; urgency=medium
 
+  * New upstream long lived branch release 340.58 (2014-11-05).
+    - Added support for the following GPUs: GeForce GT820M, GeForce GTX 760A,
+      GeForce GTX 850A, GeForce 810A, GeForce 820A, GeForce 840A, Tesla K8.
+    - Fixed a bug that could cause VT-switching to fail following a
+      suspend, resume, and driver reload sequence.
+    - Fixed a bug that caused incorrect colors to be displayed on X screens
+      running at depth 8 on some GPUs.
+    - Fixed a bug that prevented GPUs from being correctly recognized in
+      MetaMode strings when identified by UUID.
+    - Implemented support for disabling indirect GLX context creation using
+      the -iglx option available on X.Org server release 1.16 and newer.  Note
+      that future X.Org server releases may make the -iglx option the default.
+      To re-enable support for indirect GLX on such servers, use the +iglx
+      option.
+    - Added the "AllowIndirectGLXProtocol" X config option.  This option can
+      be used to disallow use of GLX protocol.  See "Appendix B. X Config
+      Options" in the README for more details.
+  * Update nv-readme.ids.
+  * conftest.h:
+    - Implement check for drm/drm_gem.h (340.58).
+    - Implement new conftest.sh functions pci_save_state (340.58), follow_pfn,
+      fault_flags, atomic64_type (346.16).
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Nov 2014 19:52:18 +0100
+
+nvidia-graphics-drivers (340.46-5) unstable; urgency=medium
+
+  * nvidia-driver-bin: Breaks+Replaces nvidia-glx from wheezy.
+  * libgles2-nvidia: Fix the SONAME symlink.
+  * nvidia-alternative: Ship /usr/share/nvidia (slave alternative location).
   * New Dutch (nl) debconf translations by Frans Spiesschaert.
     (Closes: #767492)
+  * README.source: Document the nks-history.git repository.
+  * bug-script: Collect more information.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Oct 2014 17:42:51 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Nov 2014 18:47:36 +0100
 
 nvidia-graphics-drivers (340.46-4) unstable; urgency=medium
 
@@ -106,6 +138,8 @@ nvidia-graphics-drivers (340.46-1) unstable; urgency=medium
 
   [ Vincent Cheng ]
   * New upstream long lived branch release 340.46 (2014-09-30).
+    - Fixed a crash with UnrealEngine 4 when the application was started
+      with the -opengl4 commandline switch.
     - Fixed an OpenGL issue that could cause glReadPixels() operations to
       be improperly clipped when resizing composited application windows,
       potentially leading to momentary X freezes.

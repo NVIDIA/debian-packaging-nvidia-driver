@@ -5,3 +5,4 @@ package-contains-empty-directory usr/lib/#PRIVATE#/
 package-contains-empty-directory #LIBDIR#/vdpau/
 package-contains-empty-directory usr/share/applications/
 package-contains-empty-directory usr/share/man/man1/
+package-contains-empty-directory usr/share/nvidia/

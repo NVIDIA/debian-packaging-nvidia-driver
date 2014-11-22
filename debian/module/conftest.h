@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 343.22, 340.46, 319.82, 304.123, 173.14.39, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 346.16, 340.58, 319.82, 304.123, 173.14.39, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -91,6 +91,13 @@
  #undef NV_PCI_GET_DOMAIN_BUS_AND_SLOT_PRESENT
 #endif
 
+/* Implement conftest.sh function pci_save_state */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,10)
+ #define NV_PCI_SAVE_STATE_ARGUMENT_COUNT 1
+#else
+ #define NV_PCI_SAVE_STATE_ARGUMENT_COUNT 2
+#endif
+
 /* Implement conftest.sh function remap_pfn_range */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,10)
  #define NV_REMAP_PFN_RANGE_PRESENT
@@ -106,6 +113,13 @@
  #define NV_AGP_BACKEND_ACQUIRE_ARGUMENT_COUNT 1
 #else
  #define NV_AGP_BACKEND_ACQUIRE_ARGUMENT_COUNT 0
+#endif
+
+/* Implement conftest.sh function follow_pfn */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,31)
+ #define NV_FOLLOW_PFN_PRESENT
+#else
+ #undef NV_FOLLOW_PFN_PRESENT
 #endif
 
 /* Implement conftest.sh function vmap */
@@ -420,6 +434,20 @@
  #undef NV_VM_OPERATIONS_STRUCT_HAS_ACCESS
 #endif
 
+/* Implement conftest.sh function fault_flags */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,23)
+ #define NV_FAULT_FLAG_PRESENT
+#else
+ #undef NV_FAULT_FLAG_PRESENT
+#endif
+
+/* Implement conftest.sh function atomic64_type */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,31)
+ #define NV_ATOMIC64_PRESENT
+#else
+ #undef NV_ATOMIC64_PRESENT
+#endif
+
 /* Implement conftest.sh function task_struct */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,29)
  #define NV_TASK_STRUCT_HAS_CRED
@@ -515,6 +543,13 @@
  #define NV_DRM_DRMP_H_PRESENT
 #else
  #undef NV_DRM_DRMP_H_PRESENT
+#endif
+
+/* Check for drm/drm_gem.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,18,0)
+ #define NV_DRM_DRM_GEM_H_PRESENT
+#else
+ #undef NV_DRM_DRM_GEM_H_PRESENT
 #endif
 
 /* Check for generated/autoconf.h */
