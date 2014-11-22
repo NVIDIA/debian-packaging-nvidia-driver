@@ -18,6 +18,9 @@ nvidia-graphics-drivers (340.58-1) UNRELEASED; urgency=medium
       be used to disallow use of GLX protocol.  See "Appendix B. X Config
       Options" in the README for more details.
   * Update nv-readme.ids.
+  * conftest.h:
+    - Implement check for drm/drm_gem.h (340.58).
+    - Implement new conftest.sh function pci_save_state (340.58).
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Nov 2014 19:52:18 +0100
 

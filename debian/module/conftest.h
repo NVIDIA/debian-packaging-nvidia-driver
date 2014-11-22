@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 343.22, 340.46, 319.82, 304.123, 173.14.39, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 343.22, 340.58, 319.82, 304.123, 173.14.39, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -89,6 +89,13 @@
  #define NV_PCI_GET_DOMAIN_BUS_AND_SLOT_PRESENT
 #else
  #undef NV_PCI_GET_DOMAIN_BUS_AND_SLOT_PRESENT
+#endif
+
+/* Implement conftest.sh function pci_save_state */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,10)
+ #define NV_PCI_SAVE_STATE_ARGUMENT_COUNT 1
+#else
+ #define NV_PCI_SAVE_STATE_ARGUMENT_COUNT 2
 #endif
 
 /* Implement conftest.sh function remap_pfn_range */
@@ -515,6 +522,13 @@
  #define NV_DRM_DRMP_H_PRESENT
 #else
  #undef NV_DRM_DRMP_H_PRESENT
+#endif
+
+/* Check for drm/drm_gem.h */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,18,0)
+ #define NV_DRM_DRM_GEM_H_PRESENT
+#else
+ #undef NV_DRM_DRM_GEM_H_PRESENT
 #endif
 
 /* Check for generated/autoconf.h */
