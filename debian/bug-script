@@ -39,15 +39,25 @@ ls -l	/etc/alternatives/glx* \
 	/etc/alternatives/*libGL* \
 	/etc/alternatives/*_gl_conf \
 	/etc/ld.so.conf.d/*_GL.conf \
+	/etc/X11/*.conf \
+	/usr/lib/libEGL.* \
 	/usr/lib/libGL.* \
+	/usr/lib/libGLES*.* \
 	/usr/lib/libGLcore* \
 	/usr/lib/libnvidia* \
+	/usr/lib/*-linux-gnu/libEGL.* \
 	/usr/lib/*-linux-gnu/libGL.* \
+	/usr/lib/*-linux-gnu/libGLES*.* \
 	/usr/lib/*-linux-gnu/libGLcore* \
 	/usr/lib/*-linux-gnu/libnvidia* \
 	/usr/lib32/libGL.* \
 	/usr/lib32/libGLcore* \
 	/usr/lib32/libnvidia* \
+	/usr/lib/xorg/modules/*glx* \
+	/usr/lib/xorg/modules/*/*glx* \
+	/usr/lib/xorg/modules/*nvidia* \
+	/usr/lib/xorg/modules/*/*nvidia* \
+	/var/log/Xorg.*.log* \
 	2>/dev/null
 
 ls -la	\
@@ -62,9 +72,7 @@ ls -la	\
 	/usr/lib/mesa-diverted/*-linux-gnu/ \
 	/usr/lib32/nvidia/ \
 	/usr/lib32/nvidia/diversions/ \
-	/etc/X11/{xorg,nvidia}.conf \
-	/etc/X11/xorg.conf.d \
-	/var/log/Xorg.*.log* \
+	/etc/X11/xorg.conf.d/ \
 	2>/dev/null
 echo
 

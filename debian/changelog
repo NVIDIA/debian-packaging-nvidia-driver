@@ -5,6 +5,7 @@ nvidia-graphics-drivers (340.46-5) UNRELEASED; urgency=medium
   * New Dutch (nl) debconf translations by Frans Spiesschaert.
     (Closes: #767492)
   * README.source: Document the nks-history.git repository.
+  * bug-script: Collect more information.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Oct 2014 17:42:51 +0100
 
