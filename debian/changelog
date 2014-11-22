@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.46-5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.46-5) unstable; urgency=medium
 
   * nvidia-driver-bin: Breaks+Replaces nvidia-glx from wheezy.
   * libgles2-nvidia: Fix the SONAME symlink.
@@ -8,7 +8,7 @@ nvidia-graphics-drivers (340.46-5) UNRELEASED; urgency=medium
   * README.source: Document the nks-history.git repository.
   * bug-script: Collect more information.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Oct 2014 17:42:51 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Nov 2014 18:47:36 +0100
 
 nvidia-graphics-drivers (340.46-4) unstable; urgency=medium
 
