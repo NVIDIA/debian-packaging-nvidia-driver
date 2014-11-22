@@ -51,6 +51,7 @@ nvidia-kernel (346.16-1) UNRELEASED; urgency=medium
     - Fixed a bug that rendered very bright garbage data onto some textures
       in UnrealEngine 4 applications. This issue is known as the "disco bug"
       by the UnrealEngine 4 Linux community.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Nov 2014 22:51:08 +0100
 
