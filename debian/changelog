@@ -1,3 +1,59 @@
+nvidia-kernel (346.16-1) UNRELEASED; urgency=medium
+
+  * New upstream beta 346.16 (2014-11-13).
+    - Fixed a bug that caused a blank screen when setting a mode requiring YUV
+      4:2:0 compression. These modes are not currently supported.
+    - Fixed a bug that caused an incorrect DisplayPort link configuration
+      to be displayed after a hotplug or unplug.
+    - Added support for the following GPUs: GeForce GTX 970M, GeForce GTX 980M.
+    - Added support for decoding VP8 video streams using the NVCUVID API
+      on GPUs with VP8 hardware decode support.
+    - Added support for the following EGL extensions: EGL_EXT_device_base,
+      EGL_EXT_platform_device, EGL_EXT_output_base.
+    - Added the ability to increase the operating voltage on certain
+      GeForce GPUs in the GeForce GTX 400 series and later. Voltage
+      adjustments are done at the user's own risk. See the documentation
+      on the "CoolBits" X configuration option in the README for details.
+    - Added support for NVENC on GeForce GPUs. For more details on the
+      NVENC SDK, see:
+          https://developer.nvidia.com/nvidia-video-codec-sdk.
+    - Added accelerated support for r8g8b8a8, r8g8b8x8, b8g8r8a8 and b8g8r8x8
+      RENDER formats.
+    - Updated nvidia-settings to take advantage of GTK+ 3, when available.
+      This is implemented by building the nvidia-settings user interface
+      into separate shared libraries (libnvidia-gtk2.so, libnvidia-gtk3.so),
+      and loading the correct one at run-time.
+    - Added the nvidia-settings option --gtk-library to allow specifying
+      the path of the directory containing the user interface library or
+      the path and filename of the specific library to use.
+    - Added support in nvidia-settings for a GTK+ 3 user interface on x86
+      and x86_64.
+    - Added the nvidia-settings option --use-gtk2 to force the use
+      of the GTK+ 2 UI library.
+    - Updated nvidia-installer to install a file in the system's xorg.conf.d
+      directory, when a sufficiently new X server is detected, to cause the X
+      server to load the "nvidia" X driver automatically if it is started after
+      the NVIDIA kernel module is loaded.
+      This feature is supported in X.Org xserver 1.16 and higher when running on
+      Linux 3.9 or higher with CONFIG_DRM enabled.
+    - Fixed a GLSL compiler bug that would produce corruption when 
+      running games such as Far Cry 3 in Wine.
+    - Fixed the EGL_KHR_stream_cross_process_fd extension.
+    - Fixed rendering corruption that sometimes happened when calling 
+      DrawElementsInstancedBaseVertexBaseInstance(), 
+      DrawElementsInstancedBaseInstance(), 
+      or DrawArraysInstancedBaseInstance().
+    - Dramatically improved OpenGL Framebuffer Object creation performance.
+    - Removed the limit on the maximum number of OpenGL Framebuffer Objects.
+    - Updated the NVIDIA OpenGL driver to prefer $XDG_CACHE_HOME over
+      $HOME as the default location for storing the GL shader disk cache.
+  * New upstream release 343 series.
+    - Fixed a bug that rendered very bright garbage data onto some textures
+      in UnrealEngine 4 applications. This issue is known as the "disco bug"
+      by the UnrealEngine 4 Linux community.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Nov 2014 22:51:08 +0100
+
 nvidia-graphics-drivers (343.22-2) experimental; urgency=medium
 
   * nvidia-driver: Stop shipping nvidia-persistenced, this is being moved to a
