@@ -3,7 +3,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
 
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -137,10 +137,10 @@
+@@ -142,10 +142,10 @@ MOD_SIGN_CMD ?= $(KERNEL_SOURCES)/script
  #
  
  $(obj)/$(CORE_OBJS):
@@ -16,20 +16,48 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  
  CONFTEST_COMPILE_TEST_HEADERS := $(obj)/conftest/macros.h \
  $(obj)/conftest/functions.h $(obj)/conftest/symbols.h $(obj)/conftest/types.h \
-@@ -152,10 +152,10 @@
- $(obj)/conftest.h $(CONFTEST_COMPILE_TEST_HEADERS): conftest-compile-test
+@@ -161,8 +161,8 @@ $(CONFTEST_COMPILE_TEST_HEADERS)
+ #
  
- conftest-compile-test: $(src)/conftest.sh
--	@if ! $(CONFTEST) compile_tests $(COMPILE_TESTS); then exit 1; fi
-+	$(NVQ)$(CONFTEST) compile_tests $(COMPILE_TESTS)
+ $(obj)/conftest/compile-tests/%.h: $(src)/conftest.sh $(obj)/conftest/headers.h
+-	@mkdir -p $(obj)/conftest/compile-tests
+-	@$(CONFTEST) compile_tests '$(CONFTEST_CFLAGS)' $(notdir $*) > $@
++	$(NVQ)mkdir -p $(obj)/conftest/compile-tests
++	$(NVQ)$(CONFTEST) compile_tests '$(CONFTEST_CFLAGS)' $(notdir $*) > $@
  
- $(obj)/conftest/patches.h:
--	@if ! $(CONFTEST) patch_check; then exit 1; fi
-+	$(NVQ)$(CONFTEST) patch_check
+ #
+ # Concatenate a conftest/*.h header from its constituent compile test headers
+@@ -173,9 +173,9 @@ $(obj)/conftest/compile-tests/%.h: $(src
  
- MODULE_GLUE_TARGETS = $(addprefix $(obj)/,$(MODULE_GLUE_OBJS))
+ define GENERATE_COMPILE_TEST_HEADER
+ $(obj)/conftest/$(1).h: $(addprefix $(obj)/conftest/compile-tests/,$(addsuffix .h,$(2)))
+-	@mkdir -p $(obj)/conftest
+-	@# concatenate /dev/null to prevent cat from hanging when $$^ is empty
+-	@cat $$^ /dev/null > $$@
++	$$(NVQ)mkdir -p $(obj)/conftest
++	$$(NVQ)# concatenate /dev/null to prevent cat from hanging when $$^ is empty
++	$$(NVQ)cat $$^ /dev/null > $$@
+ endef
  
-@@ -184,10 +184,10 @@
+ #
+@@ -190,12 +190,12 @@ $(eval $(call GENERATE_COMPILE_TEST_HEAD
+ $(eval $(call GENERATE_COMPILE_TEST_HEADER,types,$(TYPE_COMPILE_TESTS)))
+ 
+ $(obj)/conftest/patches.h: $(src)/conftest.sh
+-	@mkdir -p $(obj)/conftest
+-	@$(CONFTEST) patch_check > $@
++	$(NVQ)mkdir -p $(obj)/conftest
++	$(NVQ)$(CONFTEST) patch_check > $@
+ 
+ $(obj)/conftest/headers.h: $(src)/conftest.sh
+-	@mkdir -p $(obj)/conftest
+-	@$(CONFTEST) test_kernel_headers > $@
++	$(NVQ)mkdir -p $(obj)/conftest
++	$(NVQ)$(CONFTEST) test_kernel_headers > $@
+ 
+ $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
+ 
+@@ -220,10 +220,10 @@ KBUILD_PARAMS += ARCH=$(ARCH)
  #
  
  suser-sanity-check:
@@ -42,7 +70,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  
  BUILD_SANITY_CHECKS = \
  	cc_version_check \
-@@ -198,7 +198,7 @@
+@@ -234,7 +234,7 @@ BUILD_SANITY_CHECKS = \
  	preempt_rt_sanity_check
  
  build-sanity-checks:
@@ -51,52 +79,50 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
  	 exit 1; \
  	 fi; \
-@@ -221,10 +221,10 @@
- 
- define BUILD_MODULE_RULE
-  $(1): build-sanity-checks $(3)
--	@echo "NVIDIA: calling KBUILD..."; \
--	$$(MAKE) "CC=$$(CC)" NV_MODULE_SUFFIX=$$(strip $(2)) $$(KBUILD_PARAMS) modules; \
--	echo "NVIDIA: left KBUILD."; \
--	if ! [ -f $(1) ]; then \
-+	@echo "NVIDIA: calling KBUILD..."
-+	$$(NVQ)$$(MAKE) "CC=$$(CC)" NV_MODULE_SUFFIX=$$(strip $(2)) $$(KBUILD_PARAMS) modules
-+	@echo "NVIDIA: left KBUILD."
-+	$$(NVQ)if ! [ -f $(1) ]; then \
- 	 echo "$(1) failed to build!"; \
- 	 exit 1; \
- 	elif [ -f split-object-file.sh ]; then \
-@@ -239,7 +239,7 @@
+@@ -245,9 +245,9 @@ build-sanity-checks:
  #
  
- module-sign: $(MODULE_OBJECT)
--	@if [ -z "$(MODSECKEY)" ] || [ -z "$(MODPUBKEY)" ]; then \
-+	$(NVQ)if [ -z "$(MODSECKEY)" ] || [ -z "$(MODPUBKEY)" ]; then \
+ module: build-sanity-checks $(CONFTEST_HEADERS)
+-	@echo "NVIDIA: calling KBUILD..."; \
+-	$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules; \
+-	echo "NVIDIA: left KBUILD."; \
++	$(NVQ)echo "NVIDIA: calling KBUILD..."
++	$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules
++	echo "NVIDIA: left KBUILD."
+ 	for module in $(MODULE_OBJECTS); do \
+ 	if ! [ -f $$module ]; then \
+ 	 echo "$$module failed to build!"; \
+@@ -263,7 +263,7 @@ module: build-sanity-checks $(CONFTEST_H
+ #
+ 
+ module-sign: module
+-	@for module in $(MODULE_OBJECTS); do \
++	$(NVQ)for module in $(MODULE_OBJECTS); do \
+ 	 if [ -z "$(MODSECKEY)" ] || [ -z "$(MODPUBKEY)" ]; then \
  	 echo "ERROR: MODSECKEY and MODPUBKEY must be set to sign modules!"; \
  	 exit 1; \
- 	elif ! [ -f "$(MODSECKEY)" ]; then \
-@@ -271,7 +271,7 @@
+@@ -296,7 +296,7 @@ module-sign: module
  #
  
  module-install: suser-sanity-check module
 -	@mkdir -p $(MODULE_ROOT)/video; \
 +	$(NVQ)mkdir -p $(MODULE_ROOT)/video; \
- 	install -m 0664 -o root -g root $(MODULE_OBJECT) $(MODULE_ROOT)/video; \
+ 	install -m 0664 -o root -g root $(MODULE_OBJECTS) $(MODULE_ROOT)/video; \
  	PATH="$(PATH):/bin:/sbin" depmod -a
  
-@@ -281,7 +281,7 @@
+@@ -306,7 +306,7 @@ module-install: suser-sanity-check modul
  #
  
  package-install: module-install rmmod-sanity-check
--	@PATH="$(PATH):/bin:/sbin" modprobe $(MODULE_NAME) && \
-+	$(NVQ)PATH="$(PATH):/bin:/sbin" modprobe $(MODULE_NAME) && \
- 	echo "$(MODULE_OBJECT) installed successfully.";
+-	@PATH="$(PATH):/bin:/sbin" modprobe $(BUILD_MODULES_LIST) && \
++	$(NVQ)PATH="$(PATH):/bin:/sbin" modprobe $(BUILD_MODULES_LIST) && \
+ 	echo "$(MODULE_OBJECTS) installed successfully.";
  
  #
-@@ -306,20 +306,20 @@
+@@ -329,18 +329,18 @@ MODULE_COMMON_SCRIPT := $(if $(wildcard
  #
  
- $(KERNEL_GLUE_NAME): $(MODULE_OBJECT)
+ $(KERNEL_GLUE_NAME): module
 -	@$(LD) $(EXTRA_LDFLAGS) $(MODULE_COMMON_SCRIPT) -r -o $(KERNEL_GLUE_NAME) $(KERNEL_GLUE_OBJS)
 +	$(NVQ)$(LD) $(EXTRA_LDFLAGS) $(MODULE_COMMON_SCRIPT) -r -o $(KERNEL_GLUE_NAME) $(KERNEL_GLUE_OBJS)
  
@@ -109,16 +135,15 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
 -	@$(RM) -f build-in.o nv-linux*.o *.d .*.cmd .*.flags
 -	@$(RM) -f $(MODULE_NAME)*.o $(MODULE_NAME)*.ko*
 -	@$(RM) -f $(MODULE_NAME)*.mod* $(VERSION_HEADER) *~
--	@$(RM) -f conftest*.c conftest.h
+-	@$(RM) -f conftest*.c
 -	@$(RM) -rf conftest
 -	@$(RM) -rf Module*.symvers .tmp_versions modules.order
+-	@$(RM) -f nv-instance-*.c nv-instance-*.o
 +	$(NVQ)$(RM) -f $(MODULE_GLUE_OBJS) $(KERNEL_GLUE_OBJS)
 +	$(NVQ)$(RM) -f build-in.o nv-linux*.o *.d .*.cmd .*.flags
 +	$(NVQ)$(RM) -f $(MODULE_NAME)*.o $(MODULE_NAME)*.ko*
 +	$(NVQ)$(RM) -f $(MODULE_NAME)*.mod* $(VERSION_HEADER) *~
-+	$(NVQ)$(RM) -f conftest*.c conftest.h
++	$(NVQ)$(RM) -f conftest*.c
 +	$(NVQ)$(RM) -rf conftest
 +	$(NVQ)$(RM) -rf Module*.symvers .tmp_versions modules.order
- 
- #
- # This target just prints the kernel module filename (for use by the
++	$(NVQ)$(RM) -f nv-instance-*.c nv-instance-*.o

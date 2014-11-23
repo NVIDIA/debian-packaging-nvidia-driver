@@ -3,11 +3,8 @@ Description: fix up the ../Module.symvers dependency for our uvm build
 
 --- a/uvm/Kbuild
 +++ b/uvm/Kbuild
-@@ -214,8 +214,11 @@
- 
- $(eval $(call BUILD_MODULE_RULE, $(MODULE_OBJECT),"uvm",))
- module: $(MODULE_OBJECT)
-+$(MODULE_GLUE_TARGETS): $(UVM_MODULE_SYMVERS)
+@@ -226,6 +226,8 @@ $(MODULE_NAME)-y := $(MODULE_GLUE_OBJS)
+ include $(RM_OUT_DIR)/nvidia-modules-common.mk
  
  $(RM_MODULE_SYMVERS):
 +	@echo "*** Please build the nvidia.ko module first ***"

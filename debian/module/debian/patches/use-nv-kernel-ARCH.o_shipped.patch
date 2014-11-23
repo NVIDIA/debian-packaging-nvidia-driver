@@ -7,9 +7,9 @@ Description: Select the correct nv-kernel.o blob for the target architecture
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -78,6 +78,14 @@
-  $(MODULE_NAME)-objs := $(CORE_OBJS) $(MODULE_GLUE_OBJS)
- endif
+@@ -82,6 +82,14 @@ define INSTANCE_DEPENDENCIES
+  $(subst nv-instance,nv-instance-$(strip $(1)),$(INSTANCE_GLUE_OBJS))
+ endef
  
 +$(MODULE_NAME)-objs :=
 +$(MODULE_NAME)-y		 = $(MODULE_GLUE_OBJS)
@@ -20,5 +20,5 @@ Description: Select the correct nv-kernel.o blob for the target architecture
 +endif
 +
  #
- # List of targets to build in case of multiple NVIDIA kernel module builds. 
- # The actual target is constructed by prefixing nvidia/nvidia- to every
+ # Multi-module builds require GNU Make v3.81 or later, due to a bug in earlier
+ # versions of GNU Make that prevents the use of $(eval) within a $(foreach):

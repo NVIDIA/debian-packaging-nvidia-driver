@@ -8,9 +8,9 @@ Bug-Debian: http://bugs.debian.org/626279
 
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -20,6 +20,9 @@
- module module-sign module-install package-install clean print-module-filename \
- conftest-compile-test
+@@ -19,6 +19,9 @@
+ .PHONY: all install suser-sanity-check rmmod-sanity-check build-sanity-checks \
+ module module-sign module-install package-install clean
  
 +# avoid ld.gold, see #626279
 +LD=ld.bfd
