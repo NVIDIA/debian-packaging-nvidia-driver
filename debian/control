@@ -636,9 +636,10 @@ Depends:
  nvidia-opencl-common,
  ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1,
  ${nvidia-alternative},
- ${libcuda1} (= ${binary:Version}),
  lib${nvidia}-compiler (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Suggests:
+ ${libcuda1} (= ${binary:Version}),
 Enhances:
  libopencl1,
 Conflicts:
@@ -654,6 +655,9 @@ Description: NVIDIA OpenCL installable client driver (ICD)
  .
  This package provides the NVIDIA installable client driver (ICD) for OpenCL
  which supports NVIDIA GPUs.
+ .
+ The ${libcuda1} package may be required additionally to get a working OpenCL
+ setup for NVIDIA GPUs.
 
 Package: nvidia-libopencl1
 Architecture: i386 amd64
