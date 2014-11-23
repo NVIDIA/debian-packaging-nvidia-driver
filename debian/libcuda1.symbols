@@ -22,6 +22,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuCtxGetCacheConfig@Base 260
  cuCtxGetCurrent@Base 270
  cuCtxGetDevice@Base 177
+ cuCtxGetFlags@Base 346
  cuCtxGetLimit@Base 256
  cuCtxGetSharedMemConfig@Base 295.33
  cuCtxGetStreamPriorityRange@Base 319
@@ -43,6 +44,11 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuDeviceGetName@Base 169
  cuDeviceGetPCIBusId@Base 285
  cuDeviceGetProperties@Base 169
+ cuDevicePrimaryCtxGetState@Base 346
+ cuDevicePrimaryCtxRelease@Base 346
+ cuDevicePrimaryCtxReset@Base 346
+ cuDevicePrimaryCtxRetain@Base 346
+ cuDevicePrimaryCtxSetFlags@Base 346
  cuDeviceTotalMem@Base 169
  cuDeviceTotalMem_v2@Base 260
  cuDriverGetVersion@Base 185
@@ -52,6 +58,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuEventElapsedTime@Base 169
  cuEventQuery@Base 169
  cuEventRecord@Base 169
+ cuEventRecord_ptsz@Base 346
  cuEventSynchronize@Base 169
  cuFuncGetAttribute@Base 185
  cuFuncSetBlockShape@Base 169
@@ -66,7 +73,9 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGLMapBufferObject@Base 169
  cuGLMapBufferObjectAsync@Base 190
  cuGLMapBufferObjectAsync_v2@Base 260
+ cuGLMapBufferObjectAsync_v2_ptsz@Base 346
  cuGLMapBufferObject_v2@Base 260
+ cuGLMapBufferObject_v2_ptds@Base 346
  cuGLRegisterBufferObject@Base 169
  cuGLSetBufferObjectMapFlags@Base 190
  cuGLUnmapBufferObject@Base 169
@@ -78,6 +87,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGraphicsGLRegisterBuffer@Base 195
  cuGraphicsGLRegisterImage@Base 195
  cuGraphicsMapResources@Base 195
+ cuGraphicsMapResources_ptsz@Base 346
  cuGraphicsResourceGetMappedMipmappedArray@Base 304
  cuGraphicsResourceGetMappedPointer@Base 195
  cuGraphicsResourceGetMappedPointer_v2@Base 260
@@ -85,6 +95,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGraphicsResourceSetMapFlags_v2@Base 340
  cuGraphicsSubResourceGetMappedArray@Base 195
  cuGraphicsUnmapResources@Base 195
+ cuGraphicsUnmapResources_ptsz@Base 346
  cuGraphicsUnregisterResource@Base 195
  cuGraphicsVDPAURegisterOutputSurface@Base 256
  cuGraphicsVDPAURegisterVideoSurface@Base 256
@@ -98,6 +109,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuLaunchGrid@Base 169
  cuLaunchGridAsync@Base 169
  cuLaunchKernel@Base 270
+ cuLaunchKernel_ptsz@Base 346
  cuLinkAddData@Base 319
  cuLinkAddData_v2@Base 340
  cuLinkAddFile@Base 319
@@ -132,63 +144,99 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemcpy2D@Base 169
  cuMemcpy2DAsync@Base 169
  cuMemcpy2DAsync_v2@Base 260
+ cuMemcpy2DAsync_v2_ptsz@Base 346
  cuMemcpy2DUnaligned@Base 169
  cuMemcpy2DUnaligned_v2@Base 260
+ cuMemcpy2DUnaligned_v2_ptds@Base 346
  cuMemcpy2D_v2@Base 260
+ cuMemcpy2D_v2_ptds@Base 346
  cuMemcpy3D@Base 177
  cuMemcpy3DAsync@Base 177
  cuMemcpy3DAsync_v2@Base 260
+ cuMemcpy3DAsync_v2_ptsz@Base 346
  cuMemcpy3DPeer@Base 270
  cuMemcpy3DPeerAsync@Base 270
+ cuMemcpy3DPeerAsync_ptsz@Base 346
+ cuMemcpy3DPeer_ptds@Base 346
  cuMemcpy3D_v2@Base 260
+ cuMemcpy3D_v2_ptds@Base 346
  cuMemcpy@Base 270
  cuMemcpyAsync@Base 270
+ cuMemcpyAsync_ptsz@Base 346
  cuMemcpyAtoA@Base 169
  cuMemcpyAtoA_v2@Base 260
+ cuMemcpyAtoA_v2_ptds@Base 346
  cuMemcpyAtoD@Base 169
  cuMemcpyAtoD_v2@Base 260
+ cuMemcpyAtoD_v2_ptds@Base 346
  cuMemcpyAtoH@Base 169
  cuMemcpyAtoHAsync@Base 169
  cuMemcpyAtoHAsync_v2@Base 260
+ cuMemcpyAtoHAsync_v2_ptsz@Base 346
  cuMemcpyAtoH_v2@Base 260
+ cuMemcpyAtoH_v2_ptds@Base 346
  cuMemcpyDtoA@Base 169
  cuMemcpyDtoA_v2@Base 260
+ cuMemcpyDtoA_v2_ptds@Base 346
  cuMemcpyDtoD@Base 169
  cuMemcpyDtoDAsync@Base 195
  cuMemcpyDtoDAsync_v2@Base 260
+ cuMemcpyDtoDAsync_v2_ptsz@Base 346
  cuMemcpyDtoD_v2@Base 260
+ cuMemcpyDtoD_v2_ptds@Base 346
  cuMemcpyDtoH@Base 169
  cuMemcpyDtoHAsync@Base 169
  cuMemcpyDtoHAsync_v2@Base 260
+ cuMemcpyDtoHAsync_v2_ptsz@Base 346
  cuMemcpyDtoH_v2@Base 260
+ cuMemcpyDtoH_v2_ptds@Base 346
  cuMemcpyHtoA@Base 169
  cuMemcpyHtoAAsync@Base 169
  cuMemcpyHtoAAsync_v2@Base 260
+ cuMemcpyHtoAAsync_v2_ptsz@Base 346
  cuMemcpyHtoA_v2@Base 260
+ cuMemcpyHtoA_v2_ptds@Base 346
  cuMemcpyHtoD@Base 169
  cuMemcpyHtoDAsync@Base 169
  cuMemcpyHtoDAsync_v2@Base 260
+ cuMemcpyHtoDAsync_v2_ptsz@Base 346
  cuMemcpyHtoD_v2@Base 260
+ cuMemcpyHtoD_v2_ptds@Base 346
  cuMemcpyPeer@Base 270
  cuMemcpyPeerAsync@Base 270
+ cuMemcpyPeerAsync_ptsz@Base 346
+ cuMemcpyPeer_ptds@Base 346
+ cuMemcpy_ptds@Base 346
  cuMemsetD16@Base 169
  cuMemsetD16Async@Base 260
+ cuMemsetD16Async_ptsz@Base 346
  cuMemsetD16_v2@Base 260
+ cuMemsetD16_v2_ptds@Base 346
  cuMemsetD2D16@Base 169
  cuMemsetD2D16Async@Base 260
+ cuMemsetD2D16Async_ptsz@Base 346
  cuMemsetD2D16_v2@Base 260
+ cuMemsetD2D16_v2_ptds@Base 346
  cuMemsetD2D32@Base 169
  cuMemsetD2D32Async@Base 260
+ cuMemsetD2D32Async_ptsz@Base 346
  cuMemsetD2D32_v2@Base 260
+ cuMemsetD2D32_v2_ptds@Base 346
  cuMemsetD2D8@Base 169
  cuMemsetD2D8Async@Base 260
+ cuMemsetD2D8Async_ptsz@Base 346
  cuMemsetD2D8_v2@Base 260
+ cuMemsetD2D8_v2_ptds@Base 346
  cuMemsetD32@Base 169
  cuMemsetD32Async@Base 260
+ cuMemsetD32Async_ptsz@Base 346
  cuMemsetD32_v2@Base 260
+ cuMemsetD32_v2_ptds@Base 346
  cuMemsetD8@Base 169
  cuMemsetD8Async@Base 260
+ cuMemsetD8Async_ptsz@Base 346
  cuMemsetD8_v2@Base 260
+ cuMemsetD8_v2_ptds@Base 346
  cuMipmappedArrayCreate@Base 304
  cuMipmappedArrayDestroy@Base 304
  cuMipmappedArrayGetLevel@Base 304
@@ -203,28 +251,38 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuModuleLoadFatBinary@Base 169
  cuModuleUnload@Base 169
  cuOccupancyMaxActiveBlocksPerMultiprocessor@Base 340
+ cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags@Base 346
  cuOccupancyMaxPotentialBlockSize@Base 340
+ cuOccupancyMaxPotentialBlockSizeWithFlags@Base 346
  cuParamSetSize@Base 169
  cuParamSetTexRef@Base 169
  cuParamSetf@Base 169
  cuParamSeti@Base 169
  cuParamSetv@Base 169
  cuPointerGetAttribute@Base 270
+ cuPointerGetAttributes@Base 346
  cuPointerSetAttribute@Base 331
  cuProfilerInitialize@Base 270
  cuProfilerStart@Base 270
  cuProfilerStop@Base 270
  cuStreamAddCallback@Base 304
+ cuStreamAddCallback_ptsz@Base 346
  cuStreamAttachMemAsync@Base 331.38
+ cuStreamAttachMemAsync_ptsz@Base 346
  cuStreamCreate@Base 169
  cuStreamCreateWithPriority@Base 319
  cuStreamDestroy@Base 169
  cuStreamDestroy_v2@Base 270
  cuStreamGetFlags@Base 319
+ cuStreamGetFlags_ptsz@Base 346
  cuStreamGetPriority@Base 319
+ cuStreamGetPriority_ptsz@Base 346
  cuStreamQuery@Base 169
+ cuStreamQuery_ptsz@Base 346
  cuStreamSynchronize@Base 169
+ cuStreamSynchronize_ptsz@Base 346
  cuStreamWaitEvent@Base 260
+ cuStreamWaitEvent_ptsz@Base 346
  cuSurfObjectCreate@Base 304
  cuSurfObjectDestroy@Base 304
  cuSurfObjectGetResourceDesc@Base 304

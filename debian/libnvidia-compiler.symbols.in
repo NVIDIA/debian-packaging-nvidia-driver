@@ -1,5 +1,10 @@
 libnvidia-compiler.so.#VERSION# #PACKAGE# #MINVER#
+ NvCliCompileBitcode@Base 346
  NvCliCompileLogFree@Base 256
  NvCliCompileProgram@Base 256
+ NvCliCompileSource@Base 346
  NvCliCompiledProgramFree@Base 256
+ NvCliFreeBuffer@Base 346
+ NvCliGetBufferData@Base 346
+ NvCliLinkBitcode@Base 346
  nvvmCompilerProperty@Base 280
