@@ -6,6 +6,7 @@ nvidia-graphics-drivers (340.46-6) UNRELEASED; urgency=medium
     should avoid pulling in too many NVIDIA packages on wheezy -> jessie
     upgrades of systems that have no NVIDIA hardware, but nvidia-opencl-icd
     installed nevertheless.  (Closes: #769072, #770588, #769191)
+  * nvidia-detect: Update list of newer PCI IDs from release 346.16.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 23 Nov 2014 01:43:58 +0100
 
