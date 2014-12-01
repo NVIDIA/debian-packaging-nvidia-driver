@@ -54,6 +54,7 @@ nvidia-graphics-drivers (346.16-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Refresh patches.
   * Update symbols control files.
+  * nvidia-opencl-icd: Restore the Depends: libcuda1.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Nov 2014 22:51:08 +0100
 
@@ -129,16 +130,17 @@ nvidia-graphics-drivers (340.58-1) UNRELEASED; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Nov 2014 19:52:18 +0100
 
-nvidia-graphics-drivers (340.46-6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.46-6) unstable; urgency=medium
 
   * nvidia-kernel-dkms: Switch to Recommends: nvidia-driver | libcuda1
     to break the chain libcuda1 -> nvidia-kernel-dkms -> nvidia-driver.
   * nvidia-opencl-icd: Downgrade the Depends: libcuda1 to Suggests. This
     should avoid pulling in too many NVIDIA packages on wheezy -> jessie
     upgrades of systems that have no NVIDIA hardware, but nvidia-opencl-icd
-    installed nevertheless.  (Closes: #769072, #770588, #769191)
+    installed nevertheless.  (Closes: #769072 and many duplicates)
+  * nvidia-detect: Update list of newer PCI IDs from release 346.16.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 23 Nov 2014 01:43:58 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 30 Nov 2014 20:08:09 +0100
 
 nvidia-graphics-drivers (340.46-5) unstable; urgency=medium
 
