@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (343.22-3) UNRELEASED; urgency=medium
+
+  * nvidia-opencl-icd: Restore the Depends: libcuda1.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 02 Dec 2014 00:19:19 +0100
+
 nvidia-graphics-drivers (343.22-2) experimental; urgency=medium
 
   * nvidia-driver: Stop shipping nvidia-persistenced, this is being moved to a
