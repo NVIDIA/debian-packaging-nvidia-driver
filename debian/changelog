@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.58-0) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.58-1) unstable; urgency=medium
 
   * New upstream long lived branch release 340.58 (2014-11-05).
     - Added support for the following GPUs: GeForce GT820M, GeForce GTX 760A,
@@ -23,7 +23,7 @@ nvidia-graphics-drivers (340.58-0) UNRELEASED; urgency=medium
     - Implement new conftest.sh functions pci_save_state (340.58), follow_pfn,
       fault_flags, atomic64_type (346.16).
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Nov 2014 19:52:18 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 10 Dec 2014 01:21:29 +0100
 
 nvidia-graphics-drivers (340.46-6) unstable; urgency=medium
 
