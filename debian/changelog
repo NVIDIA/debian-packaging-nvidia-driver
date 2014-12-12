@@ -32,7 +32,7 @@ nvidia-graphics-drivers (304.125-1) UNRELEASED; urgency=medium
   * New upstream legacy 304xx branch release 304.119 (2014-01-23).
     - Fixed a crash when using WebGL in Firefox with a Geforce 6 GPU.
   * Refresh patches.
-  * Add xorg-video-abi-18 as alternative dependency.
+  * Add xorg-video-abi-19, xorg-video-abi-18 as alternative dependencies.
   * conftest.h:
     - Implement new conftest.sh function acpi_op_remove (304.123).
     - Implement new conftest.sh functions kbasename, fatal_signal_pending
@@ -127,7 +127,7 @@ nvidia-graphics-drivers (304.84-1) unstable; urgency=low
     - Fixed font rendering performance and corruption problems on X servers with
       backported support for the new glyph cache functionality added to Pixman
       0.27.
-    - Fixed a potential X server crash during initialization, when a 
+    - Fixed a potential X server crash during initialization, when a
       graphics card with a TV connector has no TV connected.
     - Added a new X configuration option, "UseHotplugEvents", to allow the
       suppression of RandR events when adding or removing non-DisplayPort
