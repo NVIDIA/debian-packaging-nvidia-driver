@@ -1,12 +1,13 @@
-nvidia-graphics-drivers (343.36-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (343.36-1) experimental; urgency=medium
 
   * New upstream short lived branch release 343.36 (2014-12-05).
+    * Fixes CVE-2014-8298.  (Closes: #772971)
     - Fixed a bug that rendered very bright garbage data onto some textures
       in UnrealEngine 4 applications. This issue is known as the "disco bug"
       by the UnrealEngine 4 Linux community.
   * nvidia-opencl-icd: Restore the Depends: libcuda1.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 12 Dec 2014 22:49:17 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 13 Dec 2014 00:55:32 +0100
 
 nvidia-graphics-drivers (343.22-2) experimental; urgency=medium
 
