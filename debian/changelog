@@ -1,5 +1,16 @@
-nvidia-graphics-drivers (304.123-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.125-1) UNRELEASED; urgency=medium
 
+  * New upstream legacy 304xx branch release 304.125 (2014-12-05).
+    - Added support for X.Org xserver ABI 19 (xorg-server 1.17).
+    - Improved compatibility with recent Linux kernels.
+    - Implemented support for disabling indirect GLX context creation using
+      the -iglx option available on X.Org server release 1.16 and newer.  Note
+      that future X.Org server releases may make the -iglx option the default.
+      To re-enable support for indirect GLX on such servers, use the +iglx
+      option.
+    - Added the "AllowIndirectGLXProtocol" X config option.  This option can
+      be used to disallow use of GLX protocol.  See "Appendix B. X Config
+      Options" in the README for more details.
   * New upstream legacy 304xx branch release 304.123 (2014-07-10).
     - Improved compatibility with recent Linux kernels.
     - Fixed a bug that could result in system instability while restoring
@@ -29,9 +40,9 @@ nvidia-graphics-drivers (304.123-1) UNRELEASED; urgency=medium
     - Implement new conftest.sh function pm_vt_switch_required (331.67).
     - Implement new conftest.sh function console_lock (331.79).
     - Fix DRM support activation.
-    - Tighten conftest.h for drm/drmP.h.
+    - Tighten check for drm/drmP.h.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 28 Sep 2014 20:46:10 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 12 Dec 2014 07:48:43 +0100
 
 nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
 
