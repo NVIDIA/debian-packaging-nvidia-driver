@@ -100,8 +100,10 @@ nvidia-graphics-drivers (340.46-2) unstable; urgency=medium
     made available in jessie-backports (and experimental).
   * d/rules: Correctly parse PCI ID lists from upstream README of release
     343xx onwards.
-  * conftest.h: Implement extensions to conftest.sh function
-    vm_operations_struct (343.13).
+  * conftest.h:
+    - DRM is only supported on Linux >= 3.9.  (Closes: #765679)
+    - Implement extensions to conftest.sh function vm_operations_struct
+      (343.13).
   * bug-script: Collect more information.
   * Update lintian overrides.
   * nvidia-vdpau-driver: Support switching via nvidia-alternative.
@@ -115,7 +117,6 @@ nvidia-graphics-drivers (340.46-2) unstable; urgency=medium
   * d/rules{,.defs}: Drop MULTIARCH switch - this is always enabled nowadays.
   * libgl1-nvidia-glx.preinst: Rework the legacy check. Use more debconf
     variable substitutions for easy reuse of the translations.
-  * conftest.h: DRM is only supported on Linux >= 3.9.  (Closes: #765679)
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 10:30:50 +0200
 
@@ -1255,6 +1256,7 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 nvidia-graphics-drivers (304.125-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 304xx branch release 304.125 (2014-12-05).
+    * Fixes CVE-2014-8298.  (Closes: #772971)
     - Added support for X.Org xserver ABI 19 (xorg-server 1.17).
     - Improved compatibility with recent Linux kernels.
     - Implemented support for disabling indirect GLX context creation using
@@ -1294,8 +1296,14 @@ nvidia-graphics-drivers (304.125-1) UNRELEASED; urgency=medium
     - Implement new conftest.sh function kuid_t (331.49).
     - Implement new conftest.sh function pm_vt_switch_required (331.67).
     - Implement new conftest.sh function console_lock (331.79).
-    - Fix DRM support activation.
     - Tighten check for drm/drmP.h.
+    - DRM is only supported on Linux >= 3.9.
+    - Implement new conftest.sh functions sg_table, sg_alloc_table (340.46).
+    - Implement extensions to conftest.sh function vm_operations_struct
+      (343.13).
+    - Implement check for drm/drm_gem.h (340.58).
+    - Implement new conftest.sh functions pci_save_state (340.58), follow_pfn,
+      fault_flags, atomic64_type (346.16).
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 12 Dec 2014 07:48:43 +0100
 
