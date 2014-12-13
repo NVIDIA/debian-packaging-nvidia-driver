@@ -174,6 +174,12 @@ nvidia-graphics-drivers (304.84-1) unstable; urgency=low
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 15 Mar 2013 11:23:39 +0100
 
+nvidia-graphics-drivers (304.64-5) UNRELEASED; urgency=low
+
+  * Dummy.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 15 Mar 2013 11:23:39 +0100
+
 nvidia-graphics-drivers (304.64-4) unstable; urgency=low
 
   * nvidia-detect: Fix detection of Debian 7.0 (wheezy).  (Closes: #697282)
