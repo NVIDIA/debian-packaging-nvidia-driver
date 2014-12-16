@@ -31,7 +31,7 @@ nvidia-graphics-drivers (304.125-1) wheezy; urgency=medium
       fault_flags, atomic64_type (346.16).
   * Add changelog entries from etch and squeeze updates.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 13 Dec 2014 18:26:09 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 16 Dec 2014 21:38:22 +0100
 
 nvidia-graphics-drivers (304.123-1) UNRELEASED; urgency=medium
 
