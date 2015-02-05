@@ -7,6 +7,7 @@ DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_MULTIARCH	?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog | sed -nr '/^Version:/s/Version: (.*:)?(.*)-(.*)/\2/p')
+BUILD_DATE		:= $(shell dpkg-parsechangelog --show-field=Date)
 include debian/rules.defs
 NVIDIA_LEGACY		?=
 WATCH_VERSION		?= $(NVIDIA_LEGACY)
@@ -220,6 +221,8 @@ build-kernel-source-tree: install-into-tmp
 	chmod a+x $(module_source)/debian/rules
 	chmod a+x $(module_source)/conftest.sh
 	chmod a+x $(module_source)/conftest_nvidia.sh
+	find '$(module_source)/../../modules' -depth -newermt '$(BUILD_DATE)' -print0 | \
+		xargs -0r touch --no-dereference --date='$(BUILD_DATE)'
 
 	# Build the tarball.
 	tar cfJ $(module_txz) \

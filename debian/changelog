@@ -7,6 +7,8 @@ nvidia-graphics-drivers (340.76-1) UNRELEASED; urgency=medium
       X server on systems with an NVIDIA Quadro SDI Capture card installed.
     - Fixed a bug that caused audio over HDMI to not work on some GPUs while
       using a display that supports HDMI 3D.
+  * nvidia-kernel-source: Use reproducible timestamps inside
+    /usr/src/nvidia-kernel.tar.xz.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Feb 2015 09:42:17 +0100
 
