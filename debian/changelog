@@ -1,3 +1,15 @@
+nvidia-graphics-drivers (340.76-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.76 (2015-01-27).
+    - Fixed a bug that caused frequent AMD-Vi page faults on systems with
+      some AMD 8xx/9xx-series chipsets when used with some NVIDIA GPUs.
+    - Fixed a regression that could cause system crashes when terminating the
+      X server on systems with an NVIDIA Quadro SDI Capture card installed.
+    - Fixed a bug that caused audio over HDMI to not work on some GPUs while
+      using a display that supports HDMI 3D.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Feb 2015 09:42:17 +0100
+
 nvidia-graphics-drivers (340.65-2) unstable; urgency=medium
 
   * Merge changes from 304.125-1.
