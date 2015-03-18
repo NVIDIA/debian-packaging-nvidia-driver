@@ -99,6 +99,7 @@ nvidia-graphics-drivers (346.47-1) UNRELEASED; urgency=medium
   * Refresh patches.
   * Update symbols control files.
   * nvidia-opencl-icd: Restore the Depends: libcuda1.
+  * libcuda1: Add Provides: libcuda-7.0-1{,-i386}.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Mar 2015 19:20:36 +0100
 
