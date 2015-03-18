@@ -7,8 +7,12 @@ nvidia-graphics-drivers (340.76-1) UNRELEASED; urgency=medium
       X server on systems with an NVIDIA Quadro SDI Capture card installed.
     - Fixed a bug that caused audio over HDMI to not work on some GPUs while
       using a display that supports HDMI 3D.
+    * Improved compatibility with recent Linux kernels.  (Closes: #778698)
   * nvidia-kernel-source: Use reproducible timestamps and file order inside
     /usr/src/nvidia-kernel.tar.xz.
+  * conftest.h:
+    - Implement new conftest.sh functions file_inode, drm_pci_set_busid
+      (340.76)
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Feb 2015 09:42:17 +0100
 
