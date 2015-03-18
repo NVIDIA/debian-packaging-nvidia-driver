@@ -225,9 +225,12 @@ build-kernel-source-tree: install-into-tmp
 		xargs -0r touch --no-dereference --date='$(BUILD_DATE)'
 
 	# Build the tarball.
-	tar cfJ $(module_txz) \
+	(cd $(module_source)/../.. && find modules --print0) | \
+	  LC_ALL=C sort -z | \
+	  tar cfJ $(module_txz) \
 	    --owner=root --group=src -C $(module_source)/../.. \
-	    --exclude '*.in' --exclude '.svn' modules
+	    --exclude '*.in' --exclude '.svn' \
+	    --null -T - --no-recursion
 	tar tfvJ $(module_txz)
 
 build-kernel-dkms-tree: build-kernel-source-tree
