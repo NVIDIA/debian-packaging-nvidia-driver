@@ -380,7 +380,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
  ${misc:Pre-Depends}
 Depends:
- libvdpau1,
+ libvdpau1 (>= 0.9),
  ${nvidia-alternative},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:

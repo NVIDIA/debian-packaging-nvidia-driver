@@ -100,6 +100,7 @@ nvidia-graphics-drivers (346.47-1) UNRELEASED; urgency=medium
   * Refresh patches.
   * Update symbols control files.
   * libcuda1: Add Provides: libcuda-7.0-1{,-i386}.
+  * nvidia-vdpau-driver: Bump Depends: libvdpau1 to (>= 0.9).
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Mar 2015 19:20:36 +0100
 
