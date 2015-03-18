@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 346.16, 340.58, 319.82, 304.123, 173.14.39, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 346.47, 343.36, 340.76, 304.125, 173.14.39, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -522,6 +522,20 @@
  #define NV_SG_INIT_TABLE_PRESENT
 #else
  #undef NV_SG_INIT_TABLE_PRESENT
+#endif
+
+/* Implement conftest.sh function file_inode */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,9,0)
+ #define NV_FILE_HAS_INODE
+#else
+ #undef NV_FILE_HAS_INODE
+#endif
+
+/* Implement conftest.sh function drm_pci_set_busid */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,18,0)
+ #define NV_DRM_PCI_SET_BUSID_PRESENT
+#else
+ #undef NV_DRM_PCI_SET_BUSID_PRESENT
 #endif
 
 /* Check for linux/semaphore.h */
