@@ -1764,7 +1764,6 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glShaderSourceARB@Base 346
  _glShaderStorageBlockBinding@Base 346
  _glStateCaptureNV@Base 346
- _glStatePropertiesDynamicNV@Base 346
  _glStencilFillPathInstancedNV@Base 346
  _glStencilFillPathNV@Base 346
  _glStencilFunc@Base 346
