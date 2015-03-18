@@ -1,6 +1,8 @@
 nvidia-graphics-drivers (343.36-2) UNRELEASED; urgency=medium
 
   * Merge changes from 340.76-1.
+  * f_path.dentry.patch: New patch to add support for Linux 3.19, thanks to
+    Eduard Bloch.  (Closes: #778698)
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Mar 2015 20:11:19 +0100
 
