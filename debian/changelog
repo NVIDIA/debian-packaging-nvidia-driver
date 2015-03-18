@@ -3,6 +3,7 @@ nvidia-graphics-drivers (343.36-2) experimental; urgency=medium
   * Merge changes from 340.76-1.
   * f_path.dentry.patch: New patch to add support for Linux 3.19, thanks to
     Eduard Bloch.  (Closes: #778698)
+  * Restrict watch file to releases from the 343.xx short lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Mar 2015 21:08:50 +0100
 
@@ -233,6 +234,7 @@ nvidia-graphics-drivers (340.46-1) unstable; urgency=medium
   * Merge changes from 304.123 (UNRELEASED).
   * Bump Standards-Version to 3.9.6. No changes needed.
   * Update lintian overrides.
+  * Restrict watch file to releases from the 340.xx long lived branch.
   * libgl1-nvidia-glx.preinst: Implement hardware check for legacy GPUs that
     require the nvidia-legacy-304xx-driver package. Based on the
     implementation of the same feature in fglrx-driver (libfglrx.preinst).
@@ -486,6 +488,11 @@ nvidia-graphics-drivers (331.113-1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 331.113 (2014-12-05).
     * Fixes CVE-2014-8298.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 12 Dec 2014 08:27:26 +0100
+
+nvidia-graphics-drivers (331.104-1) UNRELEASED; urgency=medium
+
   * New upstream long lived branch release 331.104 (2014-10-08).
     - Fixed a bug that could cause the CUDA debugger to fail after
       exiting X on systems with persistence mode enabled.
@@ -517,7 +524,7 @@ nvidia-graphics-drivers (331.113-1) UNRELEASED; urgency=medium
       in an SLI Mosaic layout.
     - Fixed a bug that corrupted certain software rendering on 32-bit systems.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 12 Dec 2014 08:27:26 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 12 Oct 2014 02:40:55 +0200
 
 nvidia-graphics-drivers (331.79-1) unstable; urgency=medium
 
@@ -939,6 +946,15 @@ nvidia-graphics-drivers (319.60-1) unstable; urgency=low
       when the boot display was on an external DisplayPort monitor, for example
       if the laptop was booted while the lid was closed.
     - Added support for the following GPU: GeForce GTX 760 Ti OEM.
+  * Update nv-readme.ids.
+  * Update symbols control files.
+  * man-fixes-nvidia-smi.patch: Updated for newly added hyphens.
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 21 Oct 2013 10:55:26 +0200
+
+nvidia-graphics-drivers (319.49-1) UNRELEASED; urgency=low
+
   * New upstream long lived branch release 319.49 (2013-08-20).
     - Fixed a bug that caused DisplayPort monitors connected to Quadro FX 3800,
       4800, or 5800 to remain off after DPMS.
@@ -965,17 +981,14 @@ nvidia-graphics-drivers (319.60-1) unstable; urgency=low
     - Fixed a bug that caused the X server to crash when querying the current
       mode of disabled displays.
   * Update nv-readme.ids.
-  * Update symbols control files.
   * linux-3.10-{i2c,procfs}.patch: Remove. Fixed upstream.
-  * man-fixes-nvidia-smi.patch: Updated for newly added hyphens.
   * libnvidia-ifr1: New package for NvIFROpenGL (libnvidia-ifr.so.1).
   * VDPAU is now available on armhf, too.
   * nvidia-detect [armhf]: Don't ship PCI ID lists for legacy drivers.
   * Restrict watch file to releases from the 319.xx long lived branch.
   * Merge changes from 304.108-4 and 313.30-3.
-  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 21 Oct 2013 10:55:26 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Sep 2013 10:30:58 +0200
 
 nvidia-graphics-drivers (319.32-2) experimental; urgency=low
 
@@ -1234,6 +1247,14 @@ nvidia-graphics-drivers (310.51-1) unstable; urgency=low
     - Fixed a regression that could cause an X server crash when performing
       a modeset (e.g. changing resolutions, transformation settings, or
       display layout) when some connected display devices are disabled.
+  * Merge changes from 304.108-4.
+  * Refresh patches.
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 18 Oct 2013 03:50:09 +0200
+
+nvidia-graphics-drivers (310.44-1) UNRELEASED; urgency=low
+
   * New upstream long lived branch release 310.44 (2013-04-02).
     * Fixed CVE-2013-0131: NVIDIA UNIX GPU Driver ARGB Cursor Buffer
       Overflow in "NoScanout" Mode.  This buffer overflow, which occurred
@@ -1243,6 +1264,11 @@ nvidia-graphics-drivers (310.51-1) unstable; urgency=low
       arbitrary code execution.
       For more details, see:
       http://nvidia.custhelp.com/app/answers/detail/a_id/3290
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 05 Apr 2013 02:41:13 +0200
+
+nvidia-graphics-drivers (310.40-1) UNRELEASED; urgency=low
+
   * New upstream long lived branch release 310.40 (2013-03-08).
     - Reduced the amount of time needed to establish framelock in some
       stereo configurations with many monitors.
@@ -1282,13 +1308,10 @@ nvidia-graphics-drivers (310.51-1) unstable; urgency=low
       boundaries.
     - Fix performance issues when using some versions of HyperMesh with Quadro
       GPUs.
-  * Merge changes from 304.108-4.
   * Restrict watch file to releases from the 310.xx long lived branch.
   * Update nv-readme.ids.
-  * Refresh patches.
-  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 18 Oct 2013 03:50:09 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Mar 2013 17:57:05 +0100
 
 nvidia-graphics-drivers (310.19-1) experimental; urgency=low
 
