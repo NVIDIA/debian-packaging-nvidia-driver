@@ -225,7 +225,7 @@ build-kernel-source-tree: install-into-tmp
 		xargs -0r touch --no-dereference --date='$(BUILD_DATE)'
 
 	# Build the tarball.
-	(cd $(module_source)/../.. && find modules --print0) | \
+	(cd $(module_source)/../.. && find modules -print0) | \
 	  LC_ALL=C sort -z | \
 	  tar cfJ $(module_txz) \
 	    --owner=root --group=src -C $(module_source)/../.. \
