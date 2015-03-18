@@ -1,5 +1,41 @@
-nvidia-graphics-drivers (346.16-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (346.47-1) UNRELEASED; urgency=medium
 
+  * New upstream release 346.47 (2015-02-24).
+    - Fixed a bug that could cause rendering corruption in GLX clients using
+      PBOs and/or VBOs when using GLX indirect rendering.
+    - Fixed a bug that caused Xinerama layouts which included X screens with
+      'Option "UseDisplayDevice" "none"' to be represented incorrectly in
+      the nvidia-settings control panel.
+    - Fixed a bug that could cause glXSwapBuffer() to block for longer than
+      necessary in multi-threaded GLX applications using the
+      GLX_NV_delay_before_swap extension.
+    - Fixed a bug that caused OpenGL applications using the NV_path_rendering
+      extension to crash after a modeswitch event.
+    - Added support for the following GPUs: Quadro K620M, Quadro K2200M,
+      GeForce GTX 960, GeForce GTX 965M.
+    - Fixed a bug that caused DisplayPort audio to stop working after monitors
+      are hotplugged.
+  * New upstream release 346.35 (2015-01-16).
+    - Added support for the following GPUs: GeForce 800A, GeForce 800M.
+    - Updated the NVIDIA X driver to reject frame packed interlaced HDMI 3D
+      modes during mode validation. These modes were being validated by the
+      driver, despite never having been supported.
+    - Fixed a bug that prevented the console from being restored after
+      forcefully terminating X, on some GPUs with multiple DisplayPort
+      monitors attached. This bug also subsequently prevented X from being
+      started following the failed console restoration.
+    - Fixed a bug that caused the ACPI hotkey mask to be set incorrectly on some
+      laptops even when the EnableACPIHotkeys option is disabled.
+    - Disabled the EnableACPIHotkeys option by default.  This option is now
+      considered deprecated and will be removed in a future driver release.  On
+      modern Linux systems, display change hotkey events are delivered to the
+      desktop environment as key press events, and the desktop environment
+      handles the display change by issuing requests through the X Resize and
+      Rotate extension (RandR).
+    - Fixed a bug that caused the screen image to be shifted when screen
+      transformations (such as rotations or reflections) were enabled on a
+      G-SYNC display attached to a Kepler-based GPU.
+  * New upstream beta 346.22 (2014-12-08).
   * New upstream beta 346.16 (2014-11-13).
     - Fixed a bug that caused a blank screen when setting a mode requiring YUV
       4:2:0 compression. These modes are not currently supported.
@@ -51,12 +87,20 @@ nvidia-graphics-drivers (346.16-1) UNRELEASED; urgency=medium
     - Fixed a bug that rendered very bright garbage data onto some textures
       in UnrealEngine 4 applications. This issue is known as the "disco bug"
       by the UnrealEngine 4 Linux community.
+  * New upstream release 340 series.
+    - Fixed a bug that caused the X server to crash if a RandR 1.4 output
+      provided by a Sink Output provider was selected as the primary output on
+      X.Org xserver 1.17 and higher.
+    - Fixed a bug that caused waiting on X Sync Fence objects in OpenGL to
+      hang indefinitely in some cases.
+    - Fixed a bug that prevented OpenGL from properly recovering from
+      hardware errors or sync object waits that had timed out.
   * Update nv-readme.ids.
   * Refresh patches.
   * Update symbols control files.
   * nvidia-opencl-icd: Restore the Depends: libcuda1.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 22 Nov 2014 22:51:08 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Mar 2015 19:20:36 +0100
 
 nvidia-graphics-drivers (343.22-2) experimental; urgency=medium
 
