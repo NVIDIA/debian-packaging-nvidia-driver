@@ -1,3 +1,12 @@
+
+  * New upstream beta 346.16 (2014-11-13).
+    - Updated nvidia-installer to install a file in the system's xorg.conf.d
+      directory, when a sufficiently new X server is detected, to cause the X
+      server to load the "nvidia" X driver automatically if it is started after
+      the NVIDIA kernel module is loaded.
+      This feature is supported in X.Org xserver 1.16 and higher when running on
+      Linux 3.9 or higher with CONFIG_DRM enabled.
+
 Consider renaming nvidia-opencl-icd to nvidia-icd (or similar) and make
 nvidia-opencl-icd a dummy package that at most Suggests: nvidia-icd.
 cf. #769072

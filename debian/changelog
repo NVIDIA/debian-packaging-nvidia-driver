@@ -1,11 +1,8 @@
 nvidia-graphics-drivers (346.47-1) UNRELEASED; urgency=medium
 
-  * New upstream release 346.47 (2015-02-24).
+  * New upstream release 346.47 (2015-02-24).  (Closes: #775742)
     - Fixed a bug that could cause rendering corruption in GLX clients using
       PBOs and/or VBOs when using GLX indirect rendering.
-    - Fixed a bug that caused Xinerama layouts which included X screens with
-      'Option "UseDisplayDevice" "none"' to be represented incorrectly in
-      the nvidia-settings control panel.
     - Fixed a bug that could cause glXSwapBuffer() to block for longer than
       necessary in multi-threaded GLX applications using the
       GLX_NV_delay_before_swap extension.
@@ -36,6 +33,7 @@ nvidia-graphics-drivers (346.47-1) UNRELEASED; urgency=medium
       transformations (such as rotations or reflections) were enabled on a
       G-SYNC display attached to a Kepler-based GPU.
   * New upstream beta 346.22 (2014-12-08).
+    * Fixes CVE-2014-8298.
   * New upstream beta 346.16 (2014-11-13).
     - Fixed a bug that caused a blank screen when setting a mode requiring YUV
       4:2:0 compression. These modes are not currently supported.
@@ -55,23 +53,6 @@ nvidia-graphics-drivers (346.47-1) UNRELEASED; urgency=medium
           https://developer.nvidia.com/nvidia-video-codec-sdk.
     - Added accelerated support for r8g8b8a8, r8g8b8x8, b8g8r8a8 and b8g8r8x8
       RENDER formats.
-    - Updated nvidia-settings to take advantage of GTK+ 3, when available.
-      This is implemented by building the nvidia-settings user interface
-      into separate shared libraries (libnvidia-gtk2.so, libnvidia-gtk3.so),
-      and loading the correct one at run-time.
-    - Added the nvidia-settings option --gtk-library to allow specifying
-      the path of the directory containing the user interface library or
-      the path and filename of the specific library to use.
-    - Added support in nvidia-settings for a GTK+ 3 user interface on x86
-      and x86_64.
-    - Added the nvidia-settings option --use-gtk2 to force the use
-      of the GTK+ 2 UI library.
-    - Updated nvidia-installer to install a file in the system's xorg.conf.d
-      directory, when a sufficiently new X server is detected, to cause the X
-      server to load the "nvidia" X driver automatically if it is started after
-      the NVIDIA kernel module is loaded.
-      This feature is supported in X.Org xserver 1.16 and higher when running on
-      Linux 3.9 or higher with CONFIG_DRM enabled.
     - Fixed a GLSL compiler bug that would produce corruption when 
       running games such as Far Cry 3 in Wine.
     - Fixed the EGL_KHR_stream_cross_process_fd extension.
