@@ -1,9 +1,21 @@
-nvidia-graphics-drivers (346.47-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (346.59-1) UNRELEASED; urgency=medium
 
-  * New upstream release 346.47 (2015-02-24).  (Closes: #775742)
+  * New upstream release 346.59 (2015-04-07).  (Closes: #775742)
+    - Fixed a bug that caused corruption when switching display modes in some
+      applications that use transform feedback.
+    - Added support for the following GPUs: Quadro K1200, Quadro M6000,
+      GeForce 920M, GeForce 930A, GeForce 930M, GeForce 940M,
+      GeForce GTX 950M, GeForce GTX 960M, GeForce GTX TITAN X.
+    - Fixed a bug that caused texture corruption on framebuffer depth
+      attachments cleared using glClearTexImage().
+    - Fixed a bug that artificially limited the maximum pixel clock on
+      displays in some SLI Mosaic configurations.
+    - Fixed a kernel memory leak that occurred when looping hardware-
+      accelerated video decoding with VDPAU on Maxell-based GPUs.
+  * New upstream release 346.47 (2015-02-24).
     - Fixed a bug that could cause rendering corruption in GLX clients using
       PBOs and/or VBOs when using GLX indirect rendering.
-    - Fixed a bug that could cause glXSwapBuffer() to block for longer than
+    - Fixed a bug that could cause glXSwapBuffers() to block for longer than
       necessary in multi-threaded GLX applications using the
       GLX_NV_delay_before_swap extension.
     - Fixed a bug that caused OpenGL applications using the NV_path_rendering
@@ -83,7 +95,7 @@ nvidia-graphics-drivers (346.47-1) UNRELEASED; urgency=medium
   * libcuda1: Add Provides: libcuda-7.0-1{,-i386}.
   * nvidia-vdpau-driver: Bump Depends: libvdpau1 to (>= 0.9).
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Mar 2015 19:20:36 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Apr 2015 18:11:18 +0200
 
 nvidia-graphics-drivers (343.36-2) experimental; urgency=medium
 
