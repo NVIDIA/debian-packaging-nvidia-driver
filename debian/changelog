@@ -94,6 +94,7 @@ nvidia-graphics-drivers (346.59-1) UNRELEASED; urgency=medium
   * Update symbols control files.
   * libcuda1: Add Provides: libcuda-7.0-1{,-i386}.
   * nvidia-vdpau-driver: Bump Depends: libvdpau1 to (>= 0.9).
+  * Drop the old transitional nvidia-glx package.
   * Restrict watch file to releases from the 346.xx long lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Apr 2015 18:11:18 +0200
@@ -163,6 +164,18 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
+
+nvidia-graphics-drivers (340.76-2) unstable; urgency=medium
+
+  * fixes-for-kernel-4.0.0.patch: New patch to add support for Linux 4.0,
+    thanks to Jessie Frazelle.  (Closes: #781810)
+  * conftest.h:
+    - Implement check for linux/log2.h (346.16).
+    - Implement check for xen/ioemu.h (346.59).
+    - Implement new conftest.sh functions write_cr4, xen_ioemu_inject_msi
+      (346.59), list_cut_position (349.12).
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 12 May 2015 20:47:07 +0200
 
 nvidia-graphics-drivers (340.76-1) unstable; urgency=medium
 
