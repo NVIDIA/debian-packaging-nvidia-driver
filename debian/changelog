@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (346.59-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
 
   * New upstream release 346.59 (2015-04-07).  (Closes: #775742)
     - Fixed a bug that caused corruption when switching display modes in some
@@ -97,7 +97,7 @@ nvidia-graphics-drivers (346.59-1) UNRELEASED; urgency=medium
   * Drop the old transitional nvidia-glx package.
   * Restrict watch file to releases from the 346.xx long lived branch.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Apr 2015 18:11:18 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 12 May 2015 21:55:05 +0200
 
 nvidia-graphics-drivers (343.36-2) experimental; urgency=medium
 
