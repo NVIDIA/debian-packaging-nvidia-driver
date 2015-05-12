@@ -46,9 +46,9 @@ Suggests:
 Provides:
  nvidia-glx-any,
 Breaks:
- nvidia-glx${nvidia:Legacy} (<< 319),
+ nvidia-glx${nvidia:Legacy},
 Replaces:
- nvidia-glx${nvidia:Legacy} (<< 319),
+ nvidia-glx${nvidia:Legacy},
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary driver and libraries
  that provide optimized hardware acceleration of
@@ -83,18 +83,6 @@ Description: NVIDIA driver support binaries${nvidia:LegacyDesc}
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
  .
  This package contains supporting binaries for the driver.
-
-#Package: nvidia-glx${nvidia:Legacy}
-Package: nvidia-glx
-Section: non-free/oldlibs
-Priority: extra
-Architecture: i386 amd64
-Depends:
- ${nvidia}-driver,
- ${misc:Depends}
-Description: transition to ${nvidia}-driver
- This is a dummy transitional package to aid switching to
- ${nvidia}-driver.
 
 #Package: xserver-xorg-video-${nvidia}
 Package: xserver-xorg-video-nvidia
