@@ -1,3 +1,17 @@
+nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
+
+  * New upstream release 346.72 (2015-05-12).
+    - Fixed a bug causing loss of stereo synchronization in certain Quadro
+      Sync framelock configurations.
+    - Fixed Pixel Buffer Object operations when row length is less than
+      width. GL_[UN]PACK_ROW_LENGTH can be set to a value lower than the
+      width of the operation being carried out. The OpenGL specification
+      allows for this (the source or destination lines will be overlapping).
+      Previously, our implementation of Pixel Buffer Objects did not support
+      this case and would throw an error.
+
+ -- Vincent Cheng <vcheng@debian.org>  Sun, 17 May 2015 23:11:29 -0700
+
 nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
 
   * New upstream release 346.59 (2015-04-07).  (Closes: #775742)
