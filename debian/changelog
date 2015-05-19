@@ -9,6 +9,7 @@ nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
       allows for this (the source or destination lines will be overlapping).
       Previously, our implementation of Pixel Buffer Objects did not support
       this case and would throw an error.
+  * Fix conftest.sh function write_cr4.
   * uvm module missing on armhf in 346.xx, causing FTBFS; avoid applying
     debian/modules/debian/patches/uvm-symvers.patch as a workaround.
 

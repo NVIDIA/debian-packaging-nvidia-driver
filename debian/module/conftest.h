@@ -540,7 +540,8 @@
 #endif
 
 /* Implement conftest.sh function write_cr4 */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,20)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,20) && \
+    LINUX_VERSION_CODE < KERNEL_VERSION(3,20,0)
  #define NV_WRITE_CR4_PRESENT
 #else
  #undef NV_WRITE_CR4_PRESENT
