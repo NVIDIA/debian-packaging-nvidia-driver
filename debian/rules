@@ -240,15 +240,9 @@ build-kernel-dkms-tree: build-kernel-source-tree
 	mkdir -p $(dir $(dkms_source))
 	mv $(module_source) $(dkms_source)
 	rmdir $(dir $(module_source))
-ifeq ($(DEB_HOST_ARCH),armhf)
-	cd $(dkms_source) \
-	    && QUILT_PATCHES=debian/patches QUILT_SERIES=debian/patches/series.armhf quilt --quiltrc /dev/null push -a || test $$? = 2 \
-	    && rm -rf .pc debian
-else
 	cd $(dkms_source) \
 	    && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2 \
 	    && rm -rf .pc debian
-endif
 	ls -la $(dkms_source)
 
 # This target is not used by the package build process.  You can use it if
