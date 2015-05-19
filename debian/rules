@@ -202,6 +202,8 @@ build-kernel-source-tree: install-into-tmp
 		ln -sf ../Makefile $(module_source)/uvm
 	test ! -d $(module_source)/uvm || \
 		ln -sf ../conftest.sh $(module_source)/uvm
+	test ! -d $(module_source)/uvm || \
+		ln -sf ../conftest.h $(module_source)/uvm
 
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.

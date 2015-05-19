@@ -34,9 +34,9 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
 -	@mkdir -p $(obj)/conftest
 -	@# concatenate /dev/null to prevent cat from hanging when $$^ is empty
 -	@cat $$^ /dev/null > $$@
-+	$$(NVQ)mkdir -p $(obj)/conftest
-+	$$(NVQ)# concatenate /dev/null to prevent cat from hanging when $$^ is empty
-+	$$(NVQ)cat $$^ /dev/null > $$@
++	$(NVQ)mkdir -p $(obj)/conftest
++	$(NVQ)# concatenate /dev/null to prevent cat from hanging when $$^ is empty
++	$(NVQ)cat $$^ /dev/null > $$@
  endef
  
  #
@@ -62,11 +62,11 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  
  suser-sanity-check:
 -	@if ! $(CONFTEST) suser_sanity_check; then exit 1; fi
-+	$(NVQ)$(CONFTEST) suser_sanity_check
++	$(NVQ)if ! $(CONFTEST) suser_sanity_check; then exit 1; fi
  
  rmmod-sanity-check:
 -	@if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
-+	$(NVQ)$(CONFTEST) rmmod_sanity_check
++	$(NVQ)if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
  
  BUILD_SANITY_CHECKS = \
  	cc_version_check \
@@ -79,19 +79,15 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
  	 exit 1; \
  	 fi; \
-@@ -245,9 +245,9 @@ build-sanity-checks:
+@@ -245,7 +245,7 @@ build-sanity-checks:
  #
  
  module: build-sanity-checks $(CONFTEST_HEADERS)
 -	@echo "NVIDIA: calling KBUILD..."; \
--	$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules; \
--	echo "NVIDIA: left KBUILD."; \
-+	$(NVQ)echo "NVIDIA: calling KBUILD..."
-+	$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules
-+	echo "NVIDIA: left KBUILD."
++	$(NVQ)echo "NVIDIA: calling KBUILD..."; \
+ 	$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules; \
+ 	echo "NVIDIA: left KBUILD."; \
  	for module in $(MODULE_OBJECTS); do \
- 	if ! [ -f $$module ]; then \
- 	 echo "$$module failed to build!"; \
 @@ -263,7 +263,7 @@ module: build-sanity-checks $(CONFTEST_H
  #
  
