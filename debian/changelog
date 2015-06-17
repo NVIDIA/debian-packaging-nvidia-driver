@@ -14,7 +14,7 @@ nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
   * Fix nvidia module FTBFS with linux >= 4.0. (Closes: #785205). Also fix
     FTBFS on armhf.
 
- -- Vincent Cheng <vcheng@debian.org>  Sun, 17 May 2015 23:11:29 -0700
+ -- Vincent Cheng <vcheng@debian.org>  Wed, 17 Jun 2015 01:18:40 -0700
 
 nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
 
