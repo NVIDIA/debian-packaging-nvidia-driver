@@ -10,6 +10,7 @@ nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
       Previously, our implementation of Pixel Buffer Objects did not support
       this case and would throw an error.
   * Fix conftest.sh function write_cr4.
+  * Update lintian overrides.
   * Apply patch provided by Luca Boccassi, cherrypicked from SteamOS; also
     partially apply patch provided by Konstantin Demin in #785205. Thanks!
   * Fix nvidia module FTBFS with linux >= 4.0. (Closes: #785205). Also fix
