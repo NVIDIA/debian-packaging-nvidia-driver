@@ -11,7 +11,8 @@ nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
       this case and would throw an error.
   * Fix conftest.sh function write_cr4.
   * Apply patch provided by Luca Boccassi, cherrypicked from SteamOS. Thanks!
-  * Fix nvidia module FTBFS with linux >= 4.0. (Closes: #785205)
+  * Fix nvidia module FTBFS with linux >= 4.0. (Closes: #785205). Also fix
+    FTBFS on armhf.
 
  -- Vincent Cheng <vcheng@debian.org>  Sun, 17 May 2015 23:11:29 -0700
 
