@@ -196,6 +196,9 @@ build-kernel-source-tree: install-into-tmp
 	mv $(module_source)/conftest.sh $(module_source)/conftest_nvidia.sh
 
 	# For the nvidia-uvm module.
+	test -d $(module_source)/uvm || cp -r NVIDIA-Linux-amd64/kernel/uvm $(module_source)/
+	test -d $(module_source)/uvm || cp -r NVIDIA-Linux-i386/kernel/uvm $(module_source)/
+	test -d $(module_source)/uvm || cp -r NVIDIA-Linux-armhf/kernel/uvm $(module_source)/
 	test ! -f $(module_source)/uvm/Makefile || \
 		mv $(module_source)/uvm/Makefile $(module_source)/uvm/Kbuild
 	test ! -d $(module_source)/uvm || \
