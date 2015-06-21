@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
 
   * New upstream release 346.72 (2015-05-12).
+    - Added support for the following GPU: GeForce GPU.
     - Fixed a bug causing loss of stereo synchronization in certain Quadro
       Sync framelock configurations.
     - Fixed Pixel Buffer Object operations when row length is less than
@@ -9,6 +10,13 @@ nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
       allows for this (the source or destination lines will be overlapping).
       Previously, our implementation of Pixel Buffer Objects did not support
       this case and would throw an error.
+  * New upstream release 340 series.
+    - Fixed a rare deadlock condition when running applications that use
+      OpenGL in multiple threads on a Quadro GPU.
+    - Fixed a bug which caused truncation of the EGLAttribEXT value returned
+      by eglQueryDeviceAttribEXT() on 64-bit systems.
+    - Fixed a kernel memory leak that occurred when looping hardware-
+      accelerated video decoding with VDPAU on Maxwell-based GPUs.
   * Fix conftest.sh function write_cr4.
   * Update lintian overrides.
   * Apply patch provided by Luca Boccassi, cherrypicked from SteamOS; also
@@ -30,8 +38,6 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
       attachments cleared using glClearTexImage().
     - Fixed a bug that artificially limited the maximum pixel clock on
       displays in some SLI Mosaic configurations.
-    - Fixed a kernel memory leak that occurred when looping hardware-
-      accelerated video decoding with VDPAU on Maxell-based GPUs.
   * New upstream release 346.47 (2015-02-24).
     - Fixed a bug that could cause rendering corruption in GLX clients using
       PBOs and/or VBOs when using GLX indirect rendering.
