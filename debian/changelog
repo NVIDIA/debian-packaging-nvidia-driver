@@ -7,6 +7,7 @@ nvidia-graphics-drivers (346.82-1) UNRELEASED; urgency=medium
   * New upstream release 340 series.
     - Fixed a bug that could cause an Xid error when terminating a video
       playback application using the overlay presentation queue in VDPAU.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 24 Jun 2015 13:24:33 +0200
 
