@@ -1,3 +1,15 @@
+nvidia-graphics-drivers (346.82-1) UNRELEASED; urgency=medium
+
+  * New upstream release 346.82 (2015-06-23).
+    - Added support for the following GPUs: Tesla K40t, GeForce 720A,
+      GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
+      GeForce GTX 980 Ti.
+  * New upstream release 340 series.
+    - Fixed a bug that could cause an Xid error when terminating a video
+      playback application using the overlay presentation queue in VDPAU.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 24 Jun 2015 13:24:33 +0200
+
 nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
 
   * New upstream release 346.72 (2015-05-12).
