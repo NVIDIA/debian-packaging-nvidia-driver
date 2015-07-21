@@ -65,7 +65,9 @@ nvidia-graphics-drivers (352.21-1) UNRELEASED; urgency=medium
   * Refresh debian/patches/man-fixes-nvidia-smi.patch.
   * Fix unresolved nvUvm* symbols in nvidia-uvm.ko from dkms package; patch
     cherrypicked from SteamOS and added as debian/patches/uvm-symvers.patch.
-    (Closes: #789483)
+    Thanks! (Closes: #789483)
+  * Various updates to the packaging provided by Luca Boccassi. Thanks!
+    - Update nv-readme.ids.
 
   [ Andreas Beckmann ]
   * New upstream release 346.82 (2015-06-23).
