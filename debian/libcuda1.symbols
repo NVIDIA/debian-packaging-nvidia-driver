@@ -52,15 +52,6 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuDeviceTotalMem@Base 169
  cuDeviceTotalMem_v2@Base 260
  cuDriverGetVersion@Base 185
- cuEGLInit@Base 352
- cuEGLStreamConsumerAcquireFrame@Base 352
- cuEGLStreamConsumerConnect@Base 352
- cuEGLStreamConsumerDisconnect@Base 352
- cuEGLStreamConsumerReleaseFrame@Base 352
- cuEGLStreamProducerConnect@Base 352
- cuEGLStreamProducerDisconnect@Base 352
- cuEGLStreamProducerPresentFrame@Base 352
- cuEGLStreamProducerReturnFrame@Base 352
  cuEventCreate@Base 169
  cuEventDestroy@Base 169
  cuEventDestroy_v2@Base 270
