@@ -62,6 +62,7 @@ nvidia-graphics-drivers (352.21-1) UNRELEASED; urgency=medium
     - Fixed a bug that prevented the X driver from correctly interpreting
       some X configuration options when a display device name was given
       with a GPU UUID qualifier.
+  * Refresh debian/patches/man-fixes-nvidia-smi.patch.
 
   [ Andreas Beckmann ]
   * New upstream release 346.82 (2015-06-23).
