@@ -1,7 +1,7 @@
 nvidia-graphics-drivers (352.21-1) UNRELEASED; urgency=medium
 
   [ Vincent Cheng ]
-  * New upstream release 352.21 (2015-06-15).
+  * New upstream release 352.21 (2015-06-15). (Closes: #793079)
     - Fixed a bug that caused the kernel to report errors when unmapping
       DMA allocations on kernels with CONFIG_DEBUG_DMA_API enabled.
     - Added GLX Protocol support for the following OpenGL extensions:
