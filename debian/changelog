@@ -65,6 +65,8 @@ nvidia-graphics-drivers (352.21-1) UNRELEASED; urgency=medium
   * Fix unresolved nvUvm* symbols in nvidia-uvm.ko from dkms package; patch
     cherrypicked from SteamOS and added as debian/patches/uvm-symvers.patch.
     Thanks! (Closes: #789483)
+  * nvidia-detect: Detect stretch as supported suite, and parse -h as --help.
+    (Closes: #792801)
   * Various updates to the packaging provided by Luca Boccassi. Thanks!
     - Update nv-readme.ids.
     - pci.ids and monitoring.conf are no longer shipped by Nvidia.
