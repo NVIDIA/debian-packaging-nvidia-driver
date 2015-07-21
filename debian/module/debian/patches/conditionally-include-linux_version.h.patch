@@ -7,7 +7,7 @@ Description: Conditionally include linux/version.h
 
 --- a/nv-linux.h
 +++ b/nv-linux.h
-@@ -40,7 +40,9 @@
+@@ -36,7 +36,9 @@
    #include <generated/compile.h>
  #endif
  

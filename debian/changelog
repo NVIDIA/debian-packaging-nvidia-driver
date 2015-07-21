@@ -62,7 +62,6 @@ nvidia-graphics-drivers (352.21-1) UNRELEASED; urgency=medium
     - Fixed a bug that prevented the X driver from correctly interpreting
       some X configuration options when a display device name was given
       with a GPU UUID qualifier.
-  * Refresh debian/patches/man-fixes-nvidia-smi.patch.
   * Fix unresolved nvUvm* symbols in nvidia-uvm.ko from dkms package; patch
     cherrypicked from SteamOS and added as debian/patches/uvm-symvers.patch.
     Thanks! (Closes: #789483)
@@ -72,6 +71,7 @@ nvidia-graphics-drivers (352.21-1) UNRELEASED; urgency=medium
     - conftest.h: Implement new conftest.sh functions phys_to_dma, get_dma_ops,
       dma_ops, noncoherent_swiotlb_dma_ops, backing_dev_info.
     - Update symbols control files.
+    - Refresh patches.
 
   [ Andreas Beckmann ]
   * New upstream release 346.82 (2015-06-23).

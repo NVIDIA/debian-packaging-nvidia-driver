@@ -7,9 +7,8 @@ Description: Select the correct nv-kernel.o blob for the target architecture
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -98,6 +98,14 @@ else
-  $(MODULE_NAME)-objs := $(CORE_OBJS) $(MODULE_GLUE_OBJS)
- endif
+@@ -130,4 +130,12 @@ MODULE_GLUE_OBJS := $(patsubst %.c,%.o,$(NVIDIA_SOURCES))
+ $(MODULE_NAME)-objs := $(CORE_OBJS) $(MODULE_GLUE_OBJS)
  
 +$(MODULE_NAME)-objs :=
 +$(MODULE_NAME)-y		 = $(MODULE_GLUE_OBJS)
@@ -19,6 +18,5 @@ Description: Select the correct nv-kernel.o blob for the target architecture
 +$(MODULE_NAME)-$(CONFIG_ARM)	+= nv-kernel-armhf.o_shipped
 +endif
 +
- nv-instance-%.c: nv-instance.c
- 	sed -e 's/#define MODULE_INSTANCE_NUMBER 0/#define MODULE_INSTANCE_NUMBER $(notdir $*)/' \
- 	 -e 's/#define MULTIPLE_KERNEL_MODULES NV_FALSE/#define MULTIPLE_KERNEL_MODULES NV_TRUE/' \
+ include $(src)/nvidia-modules-common.mk
+ 
