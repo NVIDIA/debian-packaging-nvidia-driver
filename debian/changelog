@@ -1,5 +1,69 @@
-nvidia-graphics-drivers (346.82-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.21-1) UNRELEASED; urgency=medium
 
+  [ Vincent Cheng ]
+  * New upstream release 352.21 (2015-06-15).
+    - Fixed a bug that caused the kernel to report errors when unmapping
+      DMA allocations on kernels with CONFIG_DEBUG_DMA_API enabled.
+    - Added GLX Protocol support for the following OpenGL extensions:
+      GL_ARB_copy_buffer
+      GL_ARB_texture_buffer_object
+    - Fixed a bug that caused a kernel crash if SLI Mosaic and G-SYNC were used
+      at the same time on a configuration with more display devices connected to
+      one GPU than another.
+  * New upstream release 352.09 (2015-05-18).
+    - Added the ability to configure the swapping behavior for quad-buffered
+      stereo visuals. The driver can be configured to independently swap
+      each eye as it becomes ready, to wait for both eyes to complete
+      rendering before swapping, or to allow applications to specify which
+      of these two behaviors is preferred by setting the swap interval.
+      This setting can be adjusted in the nvidia-settings control panel, or
+      via the NV-CONTROL API.
+    - Fixed a bug that sometimes prevented OpenGL sampler objects from
+      being properly deallocated when destroying OpenGL contexts.
+    - Fixed a bug that caused GLX_EXT_framebuffer_sRGB to incorrectly report
+      sRGB support in 30 bit-per-pixel framebuffer configurations.
+    - Added support for G-SYNC with sync-to-vblank disabled. This allows
+      applications to use G-SYNC to eliminate tearing for frame rates below the
+      monitor's maximum refresh rate but allow tearing above the maximum refresh
+      rate in order to minimize latency.
+      When G-SYNC is active and sync-to-vblank is enabled, the frame rate is
+      limited to the monitor's maximum refresh rate.
+    - GLSL gl_Fog.scale is now +infinity when gl_Fog.end equals gl_Fog.start.
+      Previously, the value 0 was used, but this broke certain
+      applications such as the game XIII running on Wine (Wine bug #37068).
+    - Enabled G-SYNC by default when Unified Back Buffer (UBB) is disabled.
+    - Updated the NVIDIA GPU driver to avoid using video memory already
+      in use by vesafb.
+  * New upstream release 349.12 (2015-03-25).
+    - Added support for G-SYNC monitors when used together with non-G-SYNC
+      monitors.  When G-SYNC is enabled, non-G-SYNC monitors will display with
+      tearing.
+    - Removed the "EnableACPIHotkeys" X configuration option. This option
+      has been deprecated and disabled by default since driver version 346.35.
+      On modern Linux systems, display change hotkey events are delivered to
+      the desktop environment as key press events, and the desktop environment
+      handles the display change by issuing requests through the X Resize and
+      Rotate extension (RandR).
+    - Added support for lossless H.264/AVC video streams to VDPAU.
+    - Added support for VDPAU Feature Set F to the NVIDIA VDPAU driver.
+      GPUs with VDPAU Feature Set F are capable of hardware-accelerated
+      decoding of H.265/HEVC video streams.
+    - Added support for the X.Org X server's "-background none" option. When
+      enabled, the NVIDIA driver will try to copy the framebuffer console's
+      contents out of /dev/fb0.  If that cannot be done, then the screen is
+      cleared to black.
+    - Added support for YUV 4:2:0 compression to enable HDMI 2.0 4K@60Hz modes
+      when either the display or GPU is incapable of driving these modes in
+      RGB 4:4:4.  See NoEdidHDMI2Check in the README for details.
+    - Fixed a bug that could cause multi-threaded applications to crash when
+      multiple threads used the EGL driver at the same time.
+    - Fixed a bug that caused Sync to VBlank to not work correctly with XVideo
+      applications in certain configurations.
+    - Fixed a bug that prevented the X driver from correctly interpreting
+      some X configuration options when a display device name was given
+      with a GPU UUID qualifier.
+
+  [ Andreas Beckmann ]
   * New upstream release 346.82 (2015-06-23).
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
@@ -9,7 +73,7 @@ nvidia-graphics-drivers (346.82-1) UNRELEASED; urgency=medium
       playback application using the overlay presentation queue in VDPAU.
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 24 Jun 2015 13:24:33 +0200
+ -- Vincent Cheng <vcheng@debian.org>  Mon, 20 Jul 2015 23:28:37 -0700
 
 nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
 
