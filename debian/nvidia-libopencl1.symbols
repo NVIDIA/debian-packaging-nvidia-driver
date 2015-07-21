@@ -6,85 +6,186 @@
 #   we keep this symbol file simpler than the ones from ocl-icd-libopencl1
 #   and amd-libopencl1
 libOpenCL.so.1 ocl-icd-libopencl1 | #PACKAGE# | libopencl1, ocl-icd-libopencl1 (>= 1.0) | #PACKAGE# #MINVER# | libopencl-1.1-1
- clBuildProgram@Base 195
- clCreateBuffer@Base 195
- clCreateCommandQueue@Base 195
- clCreateContext@Base 195
- clCreateContextFromType@Base 195
- clCreateFromGLBuffer@Base 195
- clCreateFromGLRenderbuffer@Base 195
- clCreateFromGLTexture2D@Base 195
- clCreateFromGLTexture3D@Base 195
- clCreateImage2D@Base 195
- clCreateImage3D@Base 195
- clCreateKernel@Base 195
- clCreateKernelsInProgram@Base 195
- clCreateProgramWithBinary@Base 195
- clCreateProgramWithSource@Base 195
- clCreateSampler@Base 195
- clCreateSubBuffer@Base 260
- clCreateUserEvent@Base 260
- clEnqueueAcquireGLObjects@Base 195
- clEnqueueBarrier@Base 195
- clEnqueueCopyBuffer@Base 195
- clEnqueueCopyBufferRect@Base 260
- clEnqueueCopyBufferToImage@Base 195
- clEnqueueCopyImage@Base 195
- clEnqueueCopyImageToBuffer@Base 195
- clEnqueueMapBuffer@Base 195
- clEnqueueMapImage@Base 195
- clEnqueueMarker@Base 195
- clEnqueueNDRangeKernel@Base 195
- clEnqueueNativeKernel@Base 195
- clEnqueueReadBuffer@Base 195
- clEnqueueReadBufferRect@Base 260
- clEnqueueReadImage@Base 195
- clEnqueueReleaseGLObjects@Base 195
- clEnqueueTask@Base 195
- clEnqueueUnmapMemObject@Base 195
- clEnqueueWaitForEvents@Base 195
- clEnqueueWriteBuffer@Base 195
- clEnqueueWriteBufferRect@Base 260
- clEnqueueWriteImage@Base 195
- clFinish@Base 195
- clFlush@Base 195
- clGetCommandQueueInfo@Base 195
- clGetContextInfo@Base 195
- clGetDeviceIDs@Base 195
- clGetDeviceInfo@Base 195
- clGetEventInfo@Base 195
- clGetEventProfilingInfo@Base 195
- clGetExtensionFunctionAddress@Base 195
- clGetGLObjectInfo@Base 195
- clGetGLTextureInfo@Base 195
- clGetImageInfo@Base 195
- clGetKernelInfo@Base 195
- clGetKernelWorkGroupInfo@Base 195
- clGetMemObjectInfo@Base 195
- clGetPlatformIDs@Base 195
- clGetPlatformInfo@Base 195
- clGetProgramBuildInfo@Base 195
- clGetProgramInfo@Base 195
- clGetSamplerInfo@Base 195
- clGetSupportedImageFormats@Base 195
- clReleaseCommandQueue@Base 195
- clReleaseContext@Base 195
- clReleaseEvent@Base 195
- clReleaseKernel@Base 195
- clReleaseMemObject@Base 195
- clReleaseProgram@Base 195
- clReleaseSampler@Base 195
- clRetainCommandQueue@Base 195
- clRetainContext@Base 195
- clRetainEvent@Base 195
- clRetainKernel@Base 195
- clRetainMemObject@Base 195
- clRetainProgram@Base 195
- clRetainSampler@Base 195
- clSetCommandQueueProperty@Base 195
- clSetEventCallback@Base 260
- clSetKernelArg@Base 195
- clSetMemObjectDestructorCallback@Base 260
- clSetUserEventStatus@Base 260
- clUnloadCompiler@Base 195
- clWaitForEvents@Base 195
+ OPENCL_1.0@OPENCL_1.0 349.16
+ OPENCL_1.1@OPENCL_1.1 349.16
+ OPENCL_1.2@OPENCL_1.2 349.16
+#MISSING: 349.16# clBuildProgram@Base 195
+ clBuildProgram@OPENCL_1.0 349.16
+ clCompileProgram@OPENCL_1.2 349.16
+#MISSING: 349.16# clCreateBuffer@Base 195
+ clCreateBuffer@OPENCL_1.0 349.16
+#MISSING: 349.16# clCreateCommandQueue@Base 195
+ clCreateCommandQueue@OPENCL_1.0 349.16
+#MISSING: 349.16# clCreateContext@Base 195
+ clCreateContext@OPENCL_1.0 349.16
+#MISSING: 349.16# clCreateContextFromType@Base 195
+ clCreateContextFromType@OPENCL_1.0 349.16
+#MISSING: 349.16# clCreateFromGLBuffer@Base 195
+ clCreateFromGLBuffer@OPENCL_1.0 349.16
+#MISSING: 349.16# clCreateFromGLRenderbuffer@Base 195
+ clCreateFromGLRenderbuffer@OPENCL_1.0 349.16
+#MISSING: 349.16# clCreateFromGLTexture2D@Base 195
+ clCreateFromGLTexture2D@OPENCL_1.0 349.16
+#MISSING: 349.16# clCreateFromGLTexture3D@Base 195
+ clCreateFromGLTexture3D@OPENCL_1.0 349.16
+ clCreateFromGLTexture@OPENCL_1.2 349.16
+#MISSING: 349.16# clCreateImage2D@Base 195
+ clCreateImage2D@OPENCL_1.0 349.16
+#MISSING: 349.16# clCreateImage3D@Base 195
+ clCreateImage3D@OPENCL_1.0 349.16
+ clCreateImage@OPENCL_1.2 349.16
+#MISSING: 349.16# clCreateKernel@Base 195
+ clCreateKernel@OPENCL_1.0 349.16
+#MISSING: 349.16# clCreateKernelsInProgram@Base 195
+ clCreateKernelsInProgram@OPENCL_1.0 349.16
+#MISSING: 349.16# clCreateProgramWithBinary@Base 195
+ clCreateProgramWithBinary@OPENCL_1.0 349.16
+ clCreateProgramWithBuiltInKernels@OPENCL_1.2 349.16
+#MISSING: 349.16# clCreateProgramWithSource@Base 195
+ clCreateProgramWithSource@OPENCL_1.0 349.16
+#MISSING: 349.16# clCreateSampler@Base 195
+ clCreateSampler@OPENCL_1.0 349.16
+#MISSING: 349.16# clCreateSubBuffer@Base 260
+ clCreateSubBuffer@OPENCL_1.1 349.16
+ clCreateSubDevices@OPENCL_1.2 349.16
+#MISSING: 349.16# clCreateUserEvent@Base 260
+ clCreateUserEvent@OPENCL_1.1 349.16
+#MISSING: 349.16# clEnqueueAcquireGLObjects@Base 195
+ clEnqueueAcquireGLObjects@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueBarrier@Base 195
+ clEnqueueBarrier@OPENCL_1.0 349.16
+ clEnqueueBarrierWithWaitList@OPENCL_1.2 349.16
+#MISSING: 349.16# clEnqueueCopyBuffer@Base 195
+ clEnqueueCopyBuffer@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueCopyBufferRect@Base 260
+ clEnqueueCopyBufferRect@OPENCL_1.1 349.16
+#MISSING: 349.16# clEnqueueCopyBufferToImage@Base 195
+ clEnqueueCopyBufferToImage@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueCopyImage@Base 195
+ clEnqueueCopyImage@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueCopyImageToBuffer@Base 195
+ clEnqueueCopyImageToBuffer@OPENCL_1.0 349.16
+ clEnqueueFillBuffer@OPENCL_1.2 349.16
+ clEnqueueFillImage@OPENCL_1.2 349.16
+#MISSING: 349.16# clEnqueueMapBuffer@Base 195
+ clEnqueueMapBuffer@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueMapImage@Base 195
+ clEnqueueMapImage@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueMarker@Base 195
+ clEnqueueMarker@OPENCL_1.0 349.16
+ clEnqueueMarkerWithWaitList@OPENCL_1.2 349.16
+ clEnqueueMigrateMemObjects@OPENCL_1.2 349.16
+#MISSING: 349.16# clEnqueueNDRangeKernel@Base 195
+ clEnqueueNDRangeKernel@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueNativeKernel@Base 195
+ clEnqueueNativeKernel@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueReadBuffer@Base 195
+ clEnqueueReadBuffer@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueReadBufferRect@Base 260
+ clEnqueueReadBufferRect@OPENCL_1.1 349.16
+#MISSING: 349.16# clEnqueueReadImage@Base 195
+ clEnqueueReadImage@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueReleaseGLObjects@Base 195
+ clEnqueueReleaseGLObjects@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueTask@Base 195
+ clEnqueueTask@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueUnmapMemObject@Base 195
+ clEnqueueUnmapMemObject@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueWaitForEvents@Base 195
+ clEnqueueWaitForEvents@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueWriteBuffer@Base 195
+ clEnqueueWriteBuffer@OPENCL_1.0 349.16
+#MISSING: 349.16# clEnqueueWriteBufferRect@Base 260
+ clEnqueueWriteBufferRect@OPENCL_1.1 349.16
+#MISSING: 349.16# clEnqueueWriteImage@Base 195
+ clEnqueueWriteImage@OPENCL_1.0 349.16
+#MISSING: 349.16# clFinish@Base 195
+ clFinish@OPENCL_1.0 349.16
+#MISSING: 349.16# clFlush@Base 195
+ clFlush@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetCommandQueueInfo@Base 195
+ clGetCommandQueueInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetContextInfo@Base 195
+ clGetContextInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetDeviceIDs@Base 195
+ clGetDeviceIDs@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetDeviceInfo@Base 195
+ clGetDeviceInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetEventInfo@Base 195
+ clGetEventInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetEventProfilingInfo@Base 195
+ clGetEventProfilingInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetExtensionFunctionAddress@Base 195
+ clGetExtensionFunctionAddress@OPENCL_1.0 349.16
+ clGetExtensionFunctionAddressForPlatform@OPENCL_1.2 349.16
+#MISSING: 349.16# clGetGLObjectInfo@Base 195
+ clGetGLObjectInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetGLTextureInfo@Base 195
+ clGetGLTextureInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetImageInfo@Base 195
+ clGetImageInfo@OPENCL_1.0 349.16
+ clGetKernelArgInfo@OPENCL_1.2 349.16
+#MISSING: 349.16# clGetKernelInfo@Base 195
+ clGetKernelInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetKernelWorkGroupInfo@Base 195
+ clGetKernelWorkGroupInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetMemObjectInfo@Base 195
+ clGetMemObjectInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetPlatformIDs@Base 195
+ clGetPlatformIDs@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetPlatformInfo@Base 195
+ clGetPlatformInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetProgramBuildInfo@Base 195
+ clGetProgramBuildInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetProgramInfo@Base 195
+ clGetProgramInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetSamplerInfo@Base 195
+ clGetSamplerInfo@OPENCL_1.0 349.16
+#MISSING: 349.16# clGetSupportedImageFormats@Base 195
+ clGetSupportedImageFormats@OPENCL_1.0 349.16
+ clLinkProgram@OPENCL_1.2 349.16
+#MISSING: 349.16# clReleaseCommandQueue@Base 195
+ clReleaseCommandQueue@OPENCL_1.0 349.16
+#MISSING: 349.16# clReleaseContext@Base 195
+ clReleaseContext@OPENCL_1.0 349.16
+ clReleaseDevice@OPENCL_1.2 349.16
+#MISSING: 349.16# clReleaseEvent@Base 195
+ clReleaseEvent@OPENCL_1.0 349.16
+#MISSING: 349.16# clReleaseKernel@Base 195
+ clReleaseKernel@OPENCL_1.0 349.16
+#MISSING: 349.16# clReleaseMemObject@Base 195
+ clReleaseMemObject@OPENCL_1.0 349.16
+#MISSING: 349.16# clReleaseProgram@Base 195
+ clReleaseProgram@OPENCL_1.0 349.16
+#MISSING: 349.16# clReleaseSampler@Base 195
+ clReleaseSampler@OPENCL_1.0 349.16
+#MISSING: 349.16# clRetainCommandQueue@Base 195
+ clRetainCommandQueue@OPENCL_1.0 349.16
+#MISSING: 349.16# clRetainContext@Base 195
+ clRetainContext@OPENCL_1.0 349.16
+ clRetainDevice@OPENCL_1.2 349.16
+#MISSING: 349.16# clRetainEvent@Base 195
+ clRetainEvent@OPENCL_1.0 349.16
+#MISSING: 349.16# clRetainKernel@Base 195
+ clRetainKernel@OPENCL_1.0 349.16
+#MISSING: 349.16# clRetainMemObject@Base 195
+ clRetainMemObject@OPENCL_1.0 349.16
+#MISSING: 349.16# clRetainProgram@Base 195
+ clRetainProgram@OPENCL_1.0 349.16
+#MISSING: 349.16# clRetainSampler@Base 195
+ clRetainSampler@OPENCL_1.0 349.16
+#MISSING: 349.16# clSetCommandQueueProperty@Base 195
+ clSetCommandQueueProperty@OPENCL_1.0 349.16
+#MISSING: 349.16# clSetEventCallback@Base 260
+ clSetEventCallback@OPENCL_1.1 349.16
+#MISSING: 349.16# clSetKernelArg@Base 195
+ clSetKernelArg@OPENCL_1.0 349.16
+#MISSING: 349.16# clSetMemObjectDestructorCallback@Base 260
+ clSetMemObjectDestructorCallback@OPENCL_1.1 349.16
+#MISSING: 349.16# clSetUserEventStatus@Base 260
+ clSetUserEventStatus@OPENCL_1.1 349.16
+#MISSING: 349.16# clUnloadCompiler@Base 195
+ clUnloadCompiler@OPENCL_1.0 349.16
+ clUnloadPlatformCompiler@OPENCL_1.2 349.16
+#MISSING: 349.16# clWaitForEvents@Base 195
+ clWaitForEvents@OPENCL_1.0 349.16

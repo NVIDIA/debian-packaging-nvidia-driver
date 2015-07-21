@@ -74,6 +74,8 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetSupportedMemoryClocks@Base 304
  nvmlDeviceGetTemperature@Base 270
  nvmlDeviceGetTemperatureThreshold@Base 340
+ nvmlDeviceGetTopologyCommonAncestor@Base 352
+ nvmlDeviceGetTopologyNearestGpus@Base 352
  nvmlDeviceGetTotalEccErrors@Base 270
  nvmlDeviceGetUUID@Base 270
  nvmlDeviceGetUtilizationRates@Base 270
@@ -110,6 +112,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlSystemGetHicVersion@Base 285
  nvmlSystemGetNVMLVersion@Base 285
  nvmlSystemGetProcessName@Base 285
+ nvmlSystemGetTopologyGpuSet@Base 352
  nvmlUnitGetCount@Base 270
  nvmlUnitGetDevices@Base 270
  nvmlUnitGetFanSpeedInfo@Base 270

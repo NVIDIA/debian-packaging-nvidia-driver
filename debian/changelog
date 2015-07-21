@@ -71,6 +71,7 @@ nvidia-graphics-drivers (352.21-1) UNRELEASED; urgency=medium
     - pci.ids and monitoring.conf are no longer shipped by Nvidia.
     - conftest.h: Implement new conftest.sh functions phys_to_dma, get_dma_ops,
       dma_ops, noncoherent_swiotlb_dma_ops, backing_dev_info.
+    - Update symbols control files.
 
   [ Andreas Beckmann ]
   * New upstream release 346.82 (2015-06-23).

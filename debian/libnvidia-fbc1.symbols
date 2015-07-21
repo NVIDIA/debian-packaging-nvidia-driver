@@ -10,8 +10,5 @@ libnvidia-fbc.so.1 #PACKAGE# #MINVER#
  NvFBCReleaseContext@Base 340
  NvFBCToCudaGrabFrame@Base 331.38
  NvFBCToCudaSetUp@Base 331.38
- NvFBCToH264GetHeader@Base 331.38
- NvFBCToH264GrabFrame@Base 331.38
- NvFBCToH264SetUp@Base 331.38
  NvFBCToSysGrabFrame@Base 331.38
  NvFBCToSysSetUp@Base 331.38
