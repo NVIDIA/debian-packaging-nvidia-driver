@@ -69,6 +69,8 @@ nvidia-graphics-drivers (352.21-1) UNRELEASED; urgency=medium
   * Various updates to the packaging provided by Luca Boccassi. Thanks!
     - Update nv-readme.ids.
     - pci.ids and monitoring.conf are no longer shipped by Nvidia.
+    - conftest.h: Implement new conftest.sh functions phys_to_dma, get_dma_ops,
+      dma_ops, noncoherent_swiotlb_dma_ops, backing_dev_info.
 
   [ Andreas Beckmann ]
   * New upstream release 346.82 (2015-06-23).
