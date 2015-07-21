@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (352.21-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.21-1) experimental; urgency=medium
 
   [ Vincent Cheng ]
   * New upstream release 352.21 (2015-06-15). (Closes: #793079)
