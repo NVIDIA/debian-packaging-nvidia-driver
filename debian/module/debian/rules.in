@@ -39,6 +39,9 @@ configure-stamp:
 	fi
 	sh debian/prep-modules $(KSRC)
 	sed 's/#KVERS#/$(KVERS)/g' debian/install.template > debian/install
+ifneq (1,$(WITH_UVM))
+	sed -i -e '/nvidia-uvm.ko/d' debian/install
+endif
 	touch $@
 
 build: build-arch build-indep
