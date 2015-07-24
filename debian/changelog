@@ -3,6 +3,9 @@ nvidia-graphics-drivers (352.21-2) UNRELEASED; urgency=medium
   * Add myself to Uploaders
   * Fix DKMS module build failure on i386 and armhf; patch provided and 
     inspired by Raphael Hertzog. Thanks! (Closes: #793160)
+  * Fix nvidia-modprobe.conf module unload ordering, to stop nvidia-uvm
+    getting stuck until a second modprobe -r nvidia-current is issued.
+    Fix provided by Jö Fahlke. Thanks! (Closes: #793386)
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Fri, 24 Jul 2015 01:39:29 +0100
 
