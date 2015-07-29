@@ -20,8 +20,11 @@ nvidia-graphics-drivers (352.30-1) UNRELEASED; urgency=medium
       indefinitely in some cases.
     - Fixed a bug that prevented OpenGL from properly recovering from hardware
       errors or sync object waits that had timed out.
+  * Add new armhf-only libcuda1 symbols
+  * Update nv-readme.ids
+  * Refresh patches
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 28 Jul 2015 23:00:36 +0100
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 29 Jul 2015 16:54:53 +0100
 
 nvidia-graphics-drivers (352.21-2) experimental; urgency=medium
 
