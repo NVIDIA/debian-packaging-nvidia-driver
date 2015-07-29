@@ -1,3 +1,28 @@
+nvidia-graphics-drivers (352.30-1) UNRELEASED; urgency=medium
+
+  * New upstream release 352.30 (2015-07-28).
+    - Added support for the following GPU: GeForce 910M
+    - Fixed a bug that caused poor video post-processing performance in VDPAU
+      when operating on a large number of video streams simultaneously.
+    - Fixed a bug that could cause an Xid error when terminating a video
+      playback application using the overlay presentation queue in VDPAU.
+    - Updated nvidia-installer to avoid recursing too deeply into kernel source
+      trees under /usr/lib/modules, mirroring an existing restriction on
+      recursion under /lib/modules.
+    - Fixed a rare deadlock condition when running applications that use OpenGL
+      in multiple threads on a Quadro GPU.
+    - Fixed a kernel memory leak that occurred when looping hardware -
+      accelerated video decoding with VDPAU on Maxwell-based GPUs.
+    - Fixed a bug that caused the X server to crash if a RandR 1.4 output
+      provided by a Sink Output provider was selected as the primary output on
+      X.Org xserver 1.17 and higher.
+    - Fixed a bug that caused waiting on X Sync Fence objects in OpenGL to hang
+      indefinitely in some cases.
+    - Fixed a bug that prevented OpenGL from properly recovering from hardware
+      errors or sync object waits that had timed out.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 28 Jul 2015 23:00:36 +0100
+
 nvidia-graphics-drivers (352.21-2) experimental; urgency=medium
 
   * Add myself to Uploaders
