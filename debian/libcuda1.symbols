@@ -52,6 +52,15 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuDeviceTotalMem@Base 169
  cuDeviceTotalMem_v2@Base 260
  cuDriverGetVersion@Base 185
+ (arch=armhf)cuEGLInit@Base 352.30
+ (arch=armhf)cuEGLStreamConsumerAcquireFrame@Base 352.30
+ (arch=armhf)cuEGLStreamConsumerConnect@Base 352.30
+ (arch=armhf)cuEGLStreamConsumerDisconnect@Base 352.30
+ (arch=armhf)cuEGLStreamConsumerReleaseFrame@Base 352.30
+ (arch=armhf)cuEGLStreamProducerConnect@Base 352.30
+ (arch=armhf)cuEGLStreamProducerDisconnect@Base 352.30
+ (arch=armhf)cuEGLStreamProducerPresentFrame@Base 352.30
+ (arch=armhf)cuEGLStreamProducerReturnFrame@Base 352.30
  cuEventCreate@Base 169
  cuEventDestroy@Base 169
  cuEventDestroy_v2@Base 270
@@ -84,10 +93,12 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGetErrorName@Base 331
  cuGetErrorString@Base 331
  cuGetExportTable@Base 195.30
+ (arch=armhf)cuGraphicsEGLRegisterImage@Base 352.30
  cuGraphicsGLRegisterBuffer@Base 195
  cuGraphicsGLRegisterImage@Base 195
  cuGraphicsMapResources@Base 195
  cuGraphicsMapResources_ptsz@Base 346
+ (arch=armhf)cuGraphicsResourceGetMappedEglFrame@Base 352.30
  cuGraphicsResourceGetMappedMipmappedArray@Base 304
  cuGraphicsResourceGetMappedPointer@Base 195
  cuGraphicsResourceGetMappedPointer_v2@Base 260
