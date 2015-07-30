@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (352.30-1) UNRELEASED; urgency=medium
 
-  * New upstream release 352.30 (2015-07-28).
+  * New upstream release 352.30 (2015-07-28). (Closes: #794075)
     - Added support for the following GPU: GeForce 910M
     - Fixed a bug that caused poor video post-processing performance in VDPAU
       when operating on a large number of video streams simultaneously.
