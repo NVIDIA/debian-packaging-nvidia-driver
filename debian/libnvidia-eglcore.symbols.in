@@ -85,18 +85,22 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glBlendEquationSeparatei@Base 346
  _glBlendEquationSeparateiARB@Base 346
  _glBlendEquationSeparateiEXT@Base 346
+ _glBlendEquationSeparateiOES@Base 349
  _glBlendEquationi@Base 346
  _glBlendEquationiARB@Base 346
  _glBlendEquationiEXT@Base 346
+ _glBlendEquationiOES@Base 349
  _glBlendFunc@Base 346
  _glBlendFuncSeparate@Base 346
  _glBlendFuncSeparateEXT@Base 346
  _glBlendFuncSeparatei@Base 346
  _glBlendFuncSeparateiARB@Base 346
  _glBlendFuncSeparateiEXT@Base 346
+ _glBlendFuncSeparateiOES@Base 349
  _glBlendFunci@Base 346
  _glBlendFunciARB@Base 346
  _glBlendFunciEXT@Base 346
+ _glBlendFunciOES@Base 349
  _glBlendParameteriNV@Base 346
  _glBlitFramebuffer@Base 346
  _glBlitFramebufferEXT@Base 346
@@ -108,6 +112,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glBufferDataSysmem@Base 346
  _glBufferPageCommitmentARB@Base 346
  _glBufferStorage@Base 346
+ _glBufferStorageEXT@Base 349
  _glBufferSubData@Base 346
  _glBufferSubDataARB@Base 346
  _glCallCommandListNV@Base 346
@@ -200,6 +205,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glColorMaskIndexedEXT@Base 346
  _glColorMaski@Base 346
  _glColorMaskiEXT@Base 346
+ _glColorMaskiOES@Base 349
  _glColorMaterial@Base 346
  _glColorP3ui@Base 346
  _glColorP3uiv@Base 346
@@ -269,6 +275,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glCopyImageSubData@Base 346
  _glCopyImageSubDataEXT@Base 346
  _glCopyImageSubDataNV@Base 346
+ _glCopyImageSubDataOES@Base 349
  _glCopyMultiTexImage1DEXT@Base 346
  _glCopyMultiTexImage2DEXT@Base 346
  _glCopyMultiTexSubImage1DEXT@Base 346
@@ -317,6 +324,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glCreateTransformFeedbacks@Base 346
  _glCreateVertexArrays@Base 346
  _glCullFace@Base 346
+ _glCurrentPaletteMatrixOES@Base 349
  _glDebugControlNVX@Base 346
  _glDebugMessageCallback@Base 346
  _glDebugMessageCallbackARB@Base 346
@@ -381,6 +389,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDetachObjectARB@Base 346
  _glDetachShader@Base 346
  _glDevtoolsCorrelationIdNVX@Base 346
+ _glDevtoolsInvokeFunctorNVX@Base 349
  _glDevtoolsInvokeStreamedCallbackNVX@Base 346
  _glDisable@Base 346
  _glDisableClientState@Base 346
@@ -395,6 +404,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDisablei@Base 346
  _glDisableiEXT@Base 346
  _glDisableiNV@Base 346
+ _glDisableiOES@Base 349
  _glDispatchCompute@Base 346
  _glDispatchComputeGroupSizeARB@Base 346
  _glDispatchComputeIndirect@Base 346
@@ -419,6 +429,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDrawElements@Base 346
  _glDrawElementsBaseVertex@Base 346
  _glDrawElementsBaseVertexEXT@Base 346
+ _glDrawElementsBaseVertexOES@Base 349
  _glDrawElementsIndirect@Base 346
  _glDrawElementsInstanced@Base 346
  _glDrawElementsInstancedARB@Base 346
@@ -428,6 +439,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDrawElementsInstancedBaseVertexBaseInstance@Base 346
  _glDrawElementsInstancedBaseVertexBaseInstanceEXT@Base 346
  _glDrawElementsInstancedBaseVertexEXT@Base 346
+ _glDrawElementsInstancedBaseVertexOES@Base 349
  _glDrawElementsInstancedEXT@Base 346
  _glDrawElementsInstancedNV@Base 346
  _glDrawMeshNV@Base 346
@@ -435,6 +447,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDrawRangeElements@Base 346
  _glDrawRangeElementsBaseVertex@Base 346
  _glDrawRangeElementsBaseVertexEXT@Base 346
+ _glDrawRangeElementsBaseVertexOES@Base 349
  _glDrawRangeElementsEXT@Base 346
  _glDrawTexfOES@Base 346
  _glDrawTexfvOES@Base 346
@@ -471,6 +484,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glEnablei@Base 346
  _glEnableiEXT@Base 346
  _glEnableiNV@Base 346
+ _glEnableiOES@Base 349
  _glEnd@Base 346
  _glEndConditionalRender@Base 346
  _glEndConditionalRenderNV@Base 346
@@ -554,6 +568,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glFramebufferTextureLayerARB@Base 346
  _glFramebufferTextureLayerEXT@Base 346
  _glFramebufferTextureLayerNV@Base 346
+ _glFramebufferTextureOES@Base 349
  _glFrontFace@Base 346
  _glFrustum@Base 346
  _glFrustumf@Base 346
@@ -832,8 +847,10 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetRenderbufferParameterivOES@Base 346
  _glGetSamplerParameterIiv@Base 346
  _glGetSamplerParameterIivEXT@Base 346
+ _glGetSamplerParameterIivOES@Base 349
  _glGetSamplerParameterIuiv@Base 346
  _glGetSamplerParameterIuivEXT@Base 346
+ _glGetSamplerParameterIuivOES@Base 349
  _glGetSamplerParameterfv@Base 346
  _glGetSamplerParameteriv@Base 346
  _glGetSeparableFilter@Base 346
@@ -866,8 +883,10 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetTexLevelParameterivNV@Base 346
  _glGetTexParameterIiv@Base 346
  _glGetTexParameterIivEXT@Base 346
+ _glGetTexParameterIivOES@Base 349
  _glGetTexParameterIuiv@Base 346
  _glGetTexParameterIuivEXT@Base 346
+ _glGetTexParameterIuivOES@Base 349
  _glGetTexParameterfv@Base 346
  _glGetTexParameteriv@Base 346
  _glGetTexParameterxv@Base 346
@@ -1032,6 +1051,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glIsEnabledi@Base 346
  _glIsEnablediEXT@Base 346
  _glIsEnablediNV@Base 346
+ _glIsEnablediOES@Base 349
  _glIsFenceNV@Base 346
  _glIsFramebuffer@Base 346
  _glIsFramebufferEXT@Base 346
@@ -1094,6 +1114,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glLoadMatrixf@Base 346
  _glLoadMatrixx@Base 346
  _glLoadName@Base 346
+ _glLoadPaletteFromModelViewMatrixOES@Base 349
  _glLoadProgramNV@Base 346
  _glLoadTransformEXT@Base 346
  _glLoadTransposeMatrixd@Base 346
@@ -1138,6 +1159,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glMaterialx@Base 346
  _glMaterialxv@Base 346
  _glMatrixFrustumEXT@Base 346
+ _glMatrixIndexPointerOES@Base 349
  _glMatrixLoad3x2fNV@Base 346
  _glMatrixLoad3x3fNV@Base 346
  _glMatrixLoadIdentityEXT@Base 346
@@ -1385,6 +1407,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glPatchParameteri@Base 346
  _glPatchParameteriEXT@Base 346
  _glPatchParameteriNV@Base 346
+ _glPatchParameteriOES@Base 349
  _glPathColorGenNV@Base 346
  _glPathCommandsNV@Base 346
  _glPathCoordsNV@Base 346
@@ -1435,6 +1458,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glPointSizePointerOES@Base 346
  _glPointSizex@Base 346
  _glPolygonMode@Base 346
+ _glPolygonModeNV@Base 349
  _glPolygonOffset@Base 346
  _glPolygonOffsetClampEXT@Base 346
  _glPolygonOffsetx@Base 346
@@ -1449,6 +1473,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glPresentFrameDualFillNV@Base 346
  _glPresentFrameKeyedNV@Base 346
  _glPrimitiveBoundingBoxEXT@Base 346
+ _glPrimitiveBoundingBoxOES@Base 349
  _glPrimitiveRestart@Base 346
  _glPrimitiveRestartIndex@Base 346
  _glPrimitiveRestartIndexNV@Base 346
@@ -1700,8 +1725,10 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glSampleMaski@Base 346
  _glSamplerParameterIiv@Base 346
  _glSamplerParameterIivEXT@Base 346
+ _glSamplerParameterIivOES@Base 349
  _glSamplerParameterIuiv@Base 346
  _glSamplerParameterIuivEXT@Base 346
+ _glSamplerParameterIuivOES@Base 349
  _glSamplerParameterf@Base 346
  _glSamplerParameterfv@Base 346
  _glSamplerParameteri@Base 346
@@ -1783,8 +1810,10 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glTexBuffer@Base 346
  _glTexBufferARB@Base 346
  _glTexBufferEXT@Base 346
+ _glTexBufferOES@Base 349
  _glTexBufferRange@Base 346
  _glTexBufferRangeEXT@Base 346
+ _glTexBufferRangeOES@Base 349
  _glTexCoord1d@Base 346
  _glTexCoord1dv@Base 346
  _glTexCoord1f@Base 346
@@ -1864,10 +1893,13 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glTexImage3DMultisampleCoverageNV@Base 346
  _glTexImage3DNV@Base 346
  _glTexPageCommitmentARB@Base 346
+ _glTexPageCommitmentEXT@Base 349
  _glTexParameterIiv@Base 346
  _glTexParameterIivEXT@Base 346
+ _glTexParameterIivOES@Base 349
  _glTexParameterIuiv@Base 346
  _glTexParameterIuivEXT@Base 346
+ _glTexParameterIuivOES@Base 349
  _glTexParameterf@Base 346
  _glTexParameterfv@Base 346
  _glTexParameteri@Base 346
@@ -1934,6 +1966,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glTextureSubImage3DEXT@Base 346
  _glTextureView@Base 346
  _glTextureViewEXT@Base 346
+ _glTextureViewOES@Base 349
  _glTrackMatrixNV@Base 346
  _glTransformFeedbackAttribsNV@Base 346
  _glTransformFeedbackBufferBase@Base 346
@@ -2374,6 +2407,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glWaitSync@Base 346
  _glWaitSyncValueuiNVX@Base 346
  _glWeightPathsNV@Base 346
+ _glWeightPointerOES@Base 349
  _glWindowBackBufferHintAutodesk@Base 346
  _glWindowPos2d@Base 346
  _glWindowPos2dARB@Base 346

@@ -86,18 +86,22 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glBlendEquationSeparatei@Base 256
  glBlendEquationSeparateiARB@Base 190.18.05
  glBlendEquationSeparateiEXT@Base 337.19
+ glBlendEquationSeparateiOES@Base 349
  glBlendEquationi@Base 256
  glBlendEquationiARB@Base 190.18.05
  glBlendEquationiEXT@Base 337.19
+ glBlendEquationiOES@Base 349
  glBlendFunc@Base 1.0.4349
  glBlendFuncSeparate@Base 1.0.4349
  glBlendFuncSeparateEXT@Base 1.0.4349
  glBlendFuncSeparatei@Base 256
  glBlendFuncSeparateiARB@Base 190.18.05
  glBlendFuncSeparateiEXT@Base 337.19
+ glBlendFuncSeparateiOES@Base 349
  glBlendFunci@Base 256
  glBlendFunciARB@Base 190.18.05
  glBlendFunciEXT@Base 337.19
+ glBlendFunciOES@Base 349
  glBlendParameteriNV@Base 310
  glBlitFramebuffer@Base 180
  glBlitFramebufferEXT@Base 1.0.9625
@@ -109,6 +113,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glBufferDataSysmem@Base 280
  glBufferPageCommitmentARB@Base 346
  glBufferStorage@Base 331
+ glBufferStorageEXT@Base 349
  glBufferSubData@Base 1.0.6106
  glBufferSubDataARB@Base 1.0.4349
  glCallCommandListNV@Base 346
@@ -201,6 +206,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glColorMaskIndexedEXT@Base 1.0.9746
  glColorMaski@Base 180
  glColorMaskiEXT@Base 337.19
+ glColorMaskiOES@Base 349
  glColorMaterial@Base 1.0.4349
  glColorP3ui@Base 256
  glColorP3uiv@Base 256
@@ -272,6 +278,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glCopyImageSubData@Base 310
  glCopyImageSubDataEXT@Base 337.19
  glCopyImageSubDataNV@Base 190
+ glCopyImageSubDataOES@Base 349
  glCopyMultiTexImage1DEXT@Base 180
  glCopyMultiTexImage2DEXT@Base 180
  glCopyMultiTexSubImage1DEXT@Base 180
@@ -321,6 +328,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glCreateTransformFeedbacks@Base 346
  glCreateVertexArrays@Base 346
  glCullFace@Base 1.0.4349
+ glCurrentPaletteMatrixOES@Base 349
  glDebugControlNVX@Base 177
  glDebugMessageCallback@Base 310
  glDebugMessageCallbackARB@Base 260
@@ -385,6 +393,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDetachObjectARB@Base 1.0.6106
  glDetachShader@Base 1.0.7664
  glDevtoolsCorrelationIdNVX@Base 337
+ glDevtoolsInvokeFunctorNVX@Base 349
  glDevtoolsInvokeStreamedCallbackNVX@Base 337
  glDisable@Base 1.0.4349
  glDisableClientState@Base 1.0.4349
@@ -399,6 +408,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDisablei@Base 180
  glDisableiEXT@Base 337.19
  glDisableiNV@Base 346
+ glDisableiOES@Base 349
  glDispatchCompute@Base 310
  glDispatchComputeGroupSizeARB@Base 331
  glDispatchComputeIndirect@Base 310
@@ -423,6 +433,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDrawElements@Base 1.0.4349
  glDrawElementsBaseVertex@Base 190.18.05
  glDrawElementsBaseVertexEXT@Base 346
+ glDrawElementsBaseVertexOES@Base 349
  glDrawElementsIndirect@Base 256
  glDrawElementsInstanced@Base 190
  glDrawElementsInstancedARB@Base 180
@@ -432,6 +443,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDrawElementsInstancedBaseVertexBaseInstance@Base 285
  glDrawElementsInstancedBaseVertexBaseInstanceEXT@Base 346
  glDrawElementsInstancedBaseVertexEXT@Base 346
+ glDrawElementsInstancedBaseVertexOES@Base 349
  glDrawElementsInstancedEXT@Base 1.0.9746
  glDrawElementsInstancedNV@Base 325
  glDrawMeshNV@Base 1.0.4349
@@ -439,6 +451,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDrawRangeElements@Base 1.0.4349
  glDrawRangeElementsBaseVertex@Base 190.18.05
  glDrawRangeElementsBaseVertexEXT@Base 346
+ glDrawRangeElementsBaseVertexOES@Base 349
  glDrawRangeElementsEXT@Base 1.0.4349
  glDrawTexfOES@Base 331
  glDrawTexfvOES@Base 331
@@ -473,6 +486,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glEnablei@Base 180
  glEnableiEXT@Base 337.19
  glEnableiNV@Base 346
+ glEnableiOES@Base 349
  glEnd@Base 1.0.4349
  glEndConditionalRender@Base 180
  glEndConditionalRenderNV@Base 165
@@ -557,6 +571,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glFramebufferTextureLayerARB@Base 180
  glFramebufferTextureLayerEXT@Base 1.0.9746
  glFramebufferTextureLayerNV@Base 319
+ glFramebufferTextureOES@Base 349
  glFrontFace@Base 1.0.4349
  glFrustum@Base 1.0.4349
  glFrustumf@Base 302
@@ -837,8 +852,10 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetRenderbufferParameterivOES@Base 325
  glGetSamplerParameterIiv@Base 256
  glGetSamplerParameterIivEXT@Base 337.19
+ glGetSamplerParameterIivOES@Base 349
  glGetSamplerParameterIuiv@Base 256
  glGetSamplerParameterIuivEXT@Base 337.19
+ glGetSamplerParameterIuivOES@Base 349
  glGetSamplerParameterfv@Base 256
  glGetSamplerParameteriv@Base 256
  glGetSeparableFilter@Base 1.0.4349
@@ -877,8 +894,10 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetTexLevelParameterivNV@Base 319
  glGetTexParameterIiv@Base 180
  glGetTexParameterIivEXT@Base 1.0.9746
+ glGetTexParameterIivOES@Base 349
  glGetTexParameterIuiv@Base 180
  glGetTexParameterIuivEXT@Base 1.0.9746
+ glGetTexParameterIuivOES@Base 349
  glGetTexParameterfv@Base 1.0.4349
  glGetTexParameteriv@Base 1.0.4349
  glGetTexParameterxv@Base 302
@@ -1043,6 +1062,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glIsEnabledi@Base 180
  glIsEnablediEXT@Base 337.19
  glIsEnablediNV@Base 346
+ glIsEnablediOES@Base 349
  glIsFenceNV@Base 1.0.4349
  glIsFramebuffer@Base 180
  glIsFramebufferEXT@Base 1.0.7664
@@ -1105,6 +1125,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glLoadMatrixf@Base 1.0.4349
  glLoadMatrixx@Base 302
  glLoadName@Base 1.0.4349
+ glLoadPaletteFromModelViewMatrixOES@Base 349
  glLoadProgramNV@Base 1.0.4349
  glLoadTransformEXT@Base 1.0.7664
  glLoadTransposeMatrixd@Base 1.0.4349
@@ -1150,6 +1171,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glMaterialx@Base 302
  glMaterialxv@Base 302
  glMatrixFrustumEXT@Base 180
+ glMatrixIndexPointerOES@Base 349
  glMatrixLoad3x2fNV@Base 334
  glMatrixLoad3x3fNV@Base 334
  glMatrixLoadIdentityEXT@Base 180
@@ -1398,6 +1420,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glPatchParameteri@Base 256
  glPatchParameteriEXT@Base 337.19
  glPatchParameteriNV@Base 195
+ glPatchParameteriOES@Base 349
  glPathColorGenNV@Base 275
  glPathCommandsNV@Base 275
  glPathCoordsNV@Base 275
@@ -1448,6 +1471,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glPointSizePointerOES@Base 302
  glPointSizex@Base 302
  glPolygonMode@Base 1.0.4349
+ glPolygonModeNV@Base 349
  glPolygonOffset@Base 1.0.4349
  glPolygonOffsetClampEXT@Base 346
  glPolygonOffsetx@Base 302
@@ -1462,6 +1486,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glPresentFrameDualFillNV@Base 173
  glPresentFrameKeyedNV@Base 173
  glPrimitiveBoundingBoxEXT@Base 346
+ glPrimitiveBoundingBoxOES@Base 349
  glPrimitiveRestart@Base 190
  glPrimitiveRestartIndex@Base 190
  glPrimitiveRestartIndexNV@Base 1.0.4349
@@ -1713,8 +1738,10 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glSampleMaski@Base 190.18.05
  glSamplerParameterIiv@Base 256
  glSamplerParameterIivEXT@Base 337.19
+ glSamplerParameterIivOES@Base 349
  glSamplerParameterIuiv@Base 256
  glSamplerParameterIuivEXT@Base 337.19
+ glSamplerParameterIuivOES@Base 349
  glSamplerParameterf@Base 256
  glSamplerParameterfv@Base 256
  glSamplerParameteri@Base 256
@@ -1799,8 +1826,10 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glTexBuffer@Base 190
  glTexBufferARB@Base 180
  glTexBufferEXT@Base 1.0.9746
+ glTexBufferOES@Base 349
  glTexBufferRange@Base 310
  glTexBufferRangeEXT@Base 337.19
+ glTexBufferRangeOES@Base 349
  glTexCoord1d@Base 1.0.4349
  glTexCoord1dv@Base 1.0.4349
  glTexCoord1f@Base 1.0.4349
@@ -1881,10 +1910,13 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glTexImage3DNV@Base 319
 #MISSING: 313.18# glTexImage3DOES@Base 270
  glTexPageCommitmentARB@Base 331
+ glTexPageCommitmentEXT@Base 349
  glTexParameterIiv@Base 180
  glTexParameterIivEXT@Base 1.0.9746
+ glTexParameterIivOES@Base 349
  glTexParameterIuiv@Base 180
  glTexParameterIuivEXT@Base 1.0.9746
+ glTexParameterIuivOES@Base 349
  glTexParameterf@Base 1.0.4349
  glTexParameterfv@Base 1.0.4349
  glTexParameteri@Base 1.0.4349
@@ -1952,6 +1984,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glTextureSubImage3DEXT@Base 180
  glTextureView@Base 310
  glTextureViewEXT@Base 337.19
+ glTextureViewOES@Base 349
  glTrackMatrixNV@Base 1.0.4349
  glTransformFeedbackAttribsNV@Base 1.0.9746
  glTransformFeedbackBufferBase@Base 346
@@ -2402,6 +2435,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glWaitSync@Base 190.18.05
  glWaitSyncValueuiNVX@Base 285
  glWeightPathsNV@Base 275
+ glWeightPointerOES@Base 349
  glWindowBackBufferHintAutodesk@Base 1.0.4349
  glWindowPos2d@Base 1.0.4349
  glWindowPos2dARB@Base 1.0.4349
