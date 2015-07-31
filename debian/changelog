@@ -23,8 +23,9 @@ nvidia-graphics-drivers (352.30-1) UNRELEASED; urgency=medium
   * Add new armhf-only libcuda1 symbols
   * Update nv-readme.ids
   * Refresh patches
+  * Updated conftest.h to address removal of NV_DMA_MAPPING_OPS_PRESENT
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 29 Jul 2015 16:54:53 +0100
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Fri, 31 Jul 2015 23:11:59 +0100
 
 nvidia-graphics-drivers (352.21-2) experimental; urgency=medium
 
