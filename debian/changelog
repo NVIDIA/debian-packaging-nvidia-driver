@@ -28,7 +28,9 @@ nvidia-graphics-drivers (349.12-1) UNRELEASED; urgency=medium
     - Fixed a bug that prevented the X driver from correctly interpreting
       some X configuration options when a display device name was given
       with a GPU UUID qualifier.
+    * Add support for OpenCL 1.2.
   * Update symbols control files.
+  * nvidia-libopencl1: Add Provides: libopencl-1.2-1.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Jul 2015 16:06:47 +0200
 

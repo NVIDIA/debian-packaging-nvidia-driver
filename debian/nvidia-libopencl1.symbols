@@ -1,90 +1,34 @@
+# We use alternative dependency templates:
 # * In each template "ocl-icd-libopencl1" (maybe versioned) is used as the
 #   first alternative so that, by default, the free ICD Loader will be
 #   installed on a Debian system
 #   We use it on all parts as dependencies can be reordered (see #739409)
-# * Since NVIDIA supports OpenCL 1.1 only (and does not version the symbols)
-#   we keep this symbol file simpler than the ones from ocl-icd-libopencl1
-#   and amd-libopencl1
-libOpenCL.so.1 ocl-icd-libopencl1 | #PACKAGE# | libopencl1, ocl-icd-libopencl1 (>= 1.0) | #PACKAGE# #MINVER# | libopencl-1.1-1
- clBuildProgram@Base 195
- clCreateBuffer@Base 195
- clCreateCommandQueue@Base 195
- clCreateContext@Base 195
- clCreateContextFromType@Base 195
- clCreateFromGLBuffer@Base 195
- clCreateFromGLRenderbuffer@Base 195
- clCreateFromGLTexture2D@Base 195
- clCreateFromGLTexture3D@Base 195
- clCreateImage2D@Base 195
- clCreateImage3D@Base 195
- clCreateKernel@Base 195
- clCreateKernelsInProgram@Base 195
- clCreateProgramWithBinary@Base 195
- clCreateProgramWithSource@Base 195
- clCreateSampler@Base 195
- clCreateSubBuffer@Base 260
- clCreateUserEvent@Base 260
- clEnqueueAcquireGLObjects@Base 195
- clEnqueueBarrier@Base 195
- clEnqueueCopyBuffer@Base 195
- clEnqueueCopyBufferRect@Base 260
- clEnqueueCopyBufferToImage@Base 195
- clEnqueueCopyImage@Base 195
- clEnqueueCopyImageToBuffer@Base 195
- clEnqueueMapBuffer@Base 195
- clEnqueueMapImage@Base 195
- clEnqueueMarker@Base 195
- clEnqueueNDRangeKernel@Base 195
- clEnqueueNativeKernel@Base 195
- clEnqueueReadBuffer@Base 195
- clEnqueueReadBufferRect@Base 260
- clEnqueueReadImage@Base 195
- clEnqueueReleaseGLObjects@Base 195
- clEnqueueTask@Base 195
- clEnqueueUnmapMemObject@Base 195
- clEnqueueWaitForEvents@Base 195
- clEnqueueWriteBuffer@Base 195
- clEnqueueWriteBufferRect@Base 260
- clEnqueueWriteImage@Base 195
- clFinish@Base 195
- clFlush@Base 195
- clGetCommandQueueInfo@Base 195
- clGetContextInfo@Base 195
- clGetDeviceIDs@Base 195
- clGetDeviceInfo@Base 195
- clGetEventInfo@Base 195
- clGetEventProfilingInfo@Base 195
- clGetExtensionFunctionAddress@Base 195
- clGetGLObjectInfo@Base 195
- clGetGLTextureInfo@Base 195
- clGetImageInfo@Base 195
- clGetKernelInfo@Base 195
- clGetKernelWorkGroupInfo@Base 195
- clGetMemObjectInfo@Base 195
- clGetPlatformIDs@Base 195
- clGetPlatformInfo@Base 195
- clGetProgramBuildInfo@Base 195
- clGetProgramInfo@Base 195
- clGetSamplerInfo@Base 195
- clGetSupportedImageFormats@Base 195
- clReleaseCommandQueue@Base 195
- clReleaseContext@Base 195
- clReleaseEvent@Base 195
- clReleaseKernel@Base 195
- clReleaseMemObject@Base 195
- clReleaseProgram@Base 195
- clReleaseSampler@Base 195
- clRetainCommandQueue@Base 195
- clRetainContext@Base 195
- clRetainEvent@Base 195
- clRetainKernel@Base 195
- clRetainMemObject@Base 195
- clRetainProgram@Base 195
- clRetainSampler@Base 195
- clSetCommandQueueProperty@Base 195
- clSetEventCallback@Base 260
- clSetKernelArg@Base 195
- clSetMemObjectDestructorCallback@Base 260
- clSetUserEventStatus@Base 260
- clUnloadCompiler@Base 195
- clWaitForEvents@Base 195
+# * The first template (default template) is in fact always added (see #737731)
+#   by dpkg-shlibdeps
+#   This always generates an alternate dependency on the virtual package
+#   "libopencl1"
+# * The next template is for symbols specific to this implementation
+#   There should be none, as their usage would prevent using alternate
+#   implementations of libOpenCL.so.1
+#   This is the only exception as there will be neither an "ocl-icd-libopencl1"
+#   nor any other alternative to "#PACKAGE# #MINVER#"
+# * the following ones are for symbols from OpenCL 1.0, 1.1, 1.2, 2.0, ...
+#   They all generate a dependency on the versioned virtual package
+#   "libopencl-VERSION-1" (the last -1 is the soname of current libopencl)
+#   Note: as OpenCL 1.0 does not really support ICD and as OpenCL 1.1 is
+#     supported by all current implementation, OpenCL 1.0 is treated as
+#     OpenCL 1.1 with respect to dependencies
+#   Note bis: #MINVER# is used with the real package, however, as
+#     ocl-icd-libopencl1 and #PACKAGE# provides the virtual packages, this
+#     version enforcement is purely cosmetic
+libOpenCL.so.1 ocl-icd-libopencl1 | #PACKAGE# #MINVER# | libopencl1
+# symbols specific to this implementation - would forbid using alternate implementations
+| #PACKAGE# #MINVER#
+# symbols conforming to the OpenCL standards - can use alternate implementations
+| ocl-icd-libopencl1 (>= 1.0)	| #PACKAGE# #MINVER# | libopencl-1.1-1
+| ocl-icd-libopencl1 (>= 1.0)	| #PACKAGE# #MINVER# | libopencl-1.2-1
+# As NVIDIA uses versioned symbols, we use this information instead of
+# listing all symbols.
+ (symver|optional)OPENCL_1.0 0 2
+ (symver|optional)OPENCL_1.1 260 2
+ (symver|optional)OPENCL_1.2 349 3
