@@ -1,5 +1,7 @@
-nvidia-graphics-drivers (346.82-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (346.87-1) UNRELEASED; urgency=medium
 
+  * New upstream release 346.87 (2015-07-21).
+    - Added support for the following GPU: GeForce 910M.
   * New upstream release 346.82 (2015-06-23).
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
@@ -9,7 +11,7 @@ nvidia-graphics-drivers (346.82-1) UNRELEASED; urgency=medium
       playback application using the overlay presentation queue in VDPAU.
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 24 Jun 2015 13:24:33 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Jul 2015 15:25:26 +0200
 
 nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
 
