@@ -1,5 +1,6 @@
-nvidia-graphics-drivers (349.12-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (349.16-1) UNRELEASED; urgency=medium
 
+  * New upstream short-lived branch release 349.16 (2015-04-14).
   * New upstream beta 349.12 (2015-03-25).
     - Added support for G-SYNC monitors when used together with non-G-SYNC
       monitors.  When G-SYNC is enabled, non-G-SYNC monitors will display with
@@ -32,7 +33,7 @@ nvidia-graphics-drivers (349.12-1) UNRELEASED; urgency=medium
   * Update symbols control files.
   * nvidia-libopencl1: Add Provides: libopencl-1.2-1.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Jul 2015 16:06:47 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Jul 2015 17:16:47 +0200
 
 nvidia-graphics-drivers (346.87-1) UNRELEASED; urgency=medium
 
