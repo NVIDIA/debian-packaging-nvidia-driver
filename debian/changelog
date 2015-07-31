@@ -1,3 +1,36 @@
+nvidia-graphics-drivers (349.12-1) UNRELEASED; urgency=medium
+
+  * New upstream beta 349.12 (2015-03-25).
+    - Added support for G-SYNC monitors when used together with non-G-SYNC
+      monitors.  When G-SYNC is enabled, non-G-SYNC monitors will display with
+      tearing.
+    - Removed the "EnableACPIHotkeys" X configuration option. This option
+      has been deprecated and disabled by default since driver version 346.35.
+      On modern Linux systems, display change hotkey events are delivered to
+      the desktop environment as key press events, and the desktop environment
+      handles the display change by issuing requests through the X Resize and
+      Rotate extension (RandR).
+    - Added support for lossless H.264/AVC video streams to VDPAU.
+    - Added support for VDPAU Feature Set F to the NVIDIA VDPAU driver.
+      GPUs with VDPAU Feature Set F are capable of hardware-accelerated
+      decoding of H.265/HEVC video streams.
+    - Added support for the X.Org X server's "-background none" option. When
+      enabled, the NVIDIA driver will try to copy the framebuffer console's
+      contents out of /dev/fb0.  If that cannot be done, then the screen is
+      cleared to black.
+    - Added support for YUV 4:2:0 compression to enable HDMI 2.0 4K@60Hz modes
+      when either the display or GPU is incapable of driving these modes in
+      RGB 4:4:4.  See NoEdidHDMI2Check in the README for details.
+    - Fixed a bug that could cause multi-threaded applications to crash when
+      multiple threads used the EGL driver at the same time.
+    - Fixed a bug that caused Sync to VBlank to not work correctly with XVideo
+      applications in certain configurations.
+    - Fixed a bug that prevented the X driver from correctly interpreting
+      some X configuration options when a display device name was given
+      with a GPU UUID qualifier.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Jul 2015 16:06:47 +0200
+
 nvidia-graphics-drivers (346.87-1) UNRELEASED; urgency=medium
 
   * New upstream release 346.87 (2015-07-21).
