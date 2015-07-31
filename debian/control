@@ -658,6 +658,7 @@ Recommends:
 Provides:
  libopencl1,
  libopencl-1.1-1,
+ libopencl-1.2-1,
 Conflicts:
  libopencl1,
  nvidia-libopencl1-ia32,
