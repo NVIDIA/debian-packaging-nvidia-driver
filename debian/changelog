@@ -14,6 +14,7 @@ nvidia-graphics-drivers (352.30-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * nvidia-libopencl1: Update symbols and add Provides: libopencl-1.2-1.
+  * Restrict watch file to releases from the 352.xx long lived branch.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Fri, 31 Jul 2015 23:11:59 +0100
 
