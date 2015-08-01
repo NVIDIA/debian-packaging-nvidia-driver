@@ -17,6 +17,8 @@ XORG_BOUND		?=
 BACKPORT		?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
 NVIDIA_ALTERNATIVE	?= nvidia$(legacy)-alternative
+ARCH_LIST		?= i386 amd64
+ARCH_DEPS_i386		?=
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
 nvidia			 = nvidia$(legacy)
@@ -33,8 +35,6 @@ filename_armhf		 = $(NVIDIA_FILENAME_armhf)
 dirname_i386		 = $(NVIDIA_DIRNAME_X86)
 dirname_amd64		 = $(NVIDIA_DIRNAME_X86_64)
 dirname_armhf		 = $(NVIDIA_DIRNAME_armhf)
-ARCH_LIST		?= i386 amd64
-ARCH_DEPS_i386		?= amd64
 
 # system libdir
 libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
