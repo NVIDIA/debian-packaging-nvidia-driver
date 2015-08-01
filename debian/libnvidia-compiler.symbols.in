@@ -7,5 +7,5 @@ libnvidia-compiler.so.#VERSION# #PACKAGE# #MINVER#
  NvCliFreeBuffer@Base 346
  NvCliGetBufferData@Base 346
  NvCliLinkBitcode@Base 346
- NvCliQueryBinaryType@Base 349.16
+ NvCliQueryBinaryType@Base 349
  nvvmCompilerProperty@Base 280
