@@ -1,38 +1,26 @@
 nvidia-graphics-drivers (352.30-1) UNRELEASED; urgency=medium
 
+  [ Luca Boccassi ]
   * New upstream release 352.30 (2015-07-28). (Closes: #794075)
-    - Added support for the following GPU: GeForce 910M
-    - Fixed a bug that caused poor video post-processing performance in VDPAU
-      when operating on a large number of video streams simultaneously.
-    - Fixed a bug that could cause an Xid error when terminating a video
-      playback application using the overlay presentation queue in VDPAU.
-    - Updated nvidia-installer to avoid recursing too deeply into kernel source
-      trees under /usr/lib/modules, mirroring an existing restriction on
-      recursion under /lib/modules.
-    - Fixed a rare deadlock condition when running applications that use OpenGL
-      in multiple threads on a Quadro GPU.
-    - Fixed a kernel memory leak that occurred when looping hardware -
-      accelerated video decoding with VDPAU on Maxwell-based GPUs.
-    - Fixed a bug that caused the X server to crash if a RandR 1.4 output
-      provided by a Sink Output provider was selected as the primary output on
-      X.Org xserver 1.17 and higher.
-    - Fixed a bug that caused waiting on X Sync Fence objects in OpenGL to hang
-      indefinitely in some cases.
-    - Fixed a bug that prevented OpenGL from properly recovering from hardware
-      errors or sync object waits that had timed out.
-    - Add support for OpenCL 1.2.
-  * Add new armhf-only libcuda1 symbols
-  * Update nv-readme.ids
-  * Refresh patches
-  * Updated conftest.h to address removal of NV_DMA_MAPPING_OPS_PRESENT
-  * nvidia-libopencl1: Add Provides: libopencl-1.2-1.
+    - Fixed a bug that caused poor video post-processing performance
+      in VDPAU when operating on a large number of video streams
+      simultaneously.
+  * New upstream release 346 series.
+    - Added support for the following GPU: Tesla K80.
+  * Add new armhf-only libcuda1 symbols.
+  * Update nv-readme.ids.
+  * Refresh patches.
+  * Updated conftest.h to address removal of NV_DMA_MAPPING_OPS_PRESENT.
+
+  [ Andreas Beckmann ]
+  * nvidia-libopencl1: Update symbols and add Provides: libopencl-1.2-1.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Fri, 31 Jul 2015 23:11:59 +0100
 
 nvidia-graphics-drivers (352.21-2) experimental; urgency=medium
 
   * Add myself to Uploaders
-  * Fix DKMS module build failure on i386 and armhf; patch provided and 
+  * Fix DKMS module build failure on i386 and armhf; patch provided and
     inspired by Raphael Hertzog. Thanks! (Closes: #793160)
   * Fix nvidia-modprobe.conf module unload ordering, to stop nvidia-uvm
     getting stuck until a second modprobe -r nvidia-current is issued.
@@ -52,7 +40,7 @@ nvidia-graphics-drivers (352.21-1) experimental; urgency=medium
     - Fixed a bug that caused a kernel crash if SLI Mosaic and G-SYNC were used
       at the same time on a configuration with more display devices connected to
       one GPU than another.
-  * New upstream release 352.09 (2015-05-18).
+  * New upstream beta 352.09 (2015-05-18).
     - Added the ability to configure the swapping behavior for quad-buffered
       stereo visuals. The driver can be configured to independently swap
       each eye as it becomes ready, to wait for both eyes to complete
@@ -76,7 +64,8 @@ nvidia-graphics-drivers (352.21-1) experimental; urgency=medium
     - Enabled G-SYNC by default when Unified Back Buffer (UBB) is disabled.
     - Updated the NVIDIA GPU driver to avoid using video memory already
       in use by vesafb.
-  * New upstream release 349.12 (2015-03-25).
+  * New upstream short-lived branch release 349.16 (2015-04-14).
+  * New upstream beta 349.12 (2015-03-25).
     - Added support for G-SYNC monitors when used together with non-G-SYNC
       monitors.  When G-SYNC is enabled, non-G-SYNC monitors will display with
       tearing.
@@ -104,20 +93,24 @@ nvidia-graphics-drivers (352.21-1) experimental; urgency=medium
     - Fixed a bug that prevented the X driver from correctly interpreting
       some X configuration options when a display device name was given
       with a GPU UUID qualifier.
+    * Add support for OpenCL 1.2.
   * Fix unresolved nvUvm* symbols in nvidia-uvm.ko from dkms package; patch
     cherrypicked from SteamOS and added as debian/patches/uvm-symvers.patch.
     Thanks! (Closes: #789483)
   * nvidia-detect: Detect stretch as supported suite, and parse -h as --help.
     (Closes: #792801)
-  * Various updates to the packaging provided by Luca Boccassi. Thanks!
-    - Update nv-readme.ids.
-    - pci.ids and monitoring.conf are no longer shipped by Nvidia.
-    - conftest.h: Implement new conftest.sh functions phys_to_dma, get_dma_ops,
-      dma_ops, noncoherent_swiotlb_dma_ops, backing_dev_info.
-    - Update symbols control files.
-    - Refresh patches.
+
+  [ Luca Boccassi ]
+  * Update nv-readme.ids.
+  * pci.ids and monitoring.conf are no longer shipped by NVIDIA.
+  * conftest.h: Implement new conftest.sh functions phys_to_dma, get_dma_ops,
+    dma_ops, noncoherent_swiotlb_dma_ops, backing_dev_info.
+  * Update symbols control files.
+  * Refresh patches.
 
   [ Andreas Beckmann ]
+  * New upstream release 346.87 (2015-07-21).
+    - Added support for the following GPU: GeForce 910M.
   * New upstream release 346.82 (2015-06-23).
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
@@ -222,12 +215,12 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
           https://developer.nvidia.com/nvidia-video-codec-sdk.
     - Added accelerated support for r8g8b8a8, r8g8b8x8, b8g8r8a8 and b8g8r8x8
       RENDER formats.
-    - Fixed a GLSL compiler bug that would produce corruption when 
+    - Fixed a GLSL compiler bug that would produce corruption when
       running games such as Far Cry 3 in Wine.
     - Fixed the EGL_KHR_stream_cross_process_fd extension.
-    - Fixed rendering corruption that sometimes happened when calling 
-      DrawElementsInstancedBaseVertexBaseInstance(), 
-      DrawElementsInstancedBaseInstance(), 
+    - Fixed rendering corruption that sometimes happened when calling
+      DrawElementsInstancedBaseVertexBaseInstance(),
+      DrawElementsInstancedBaseInstance(),
       or DrawArraysInstancedBaseInstance().
     - Dramatically improved OpenGL Framebuffer Object creation performance.
     - Removed the limit on the maximum number of OpenGL Framebuffer Objects.
