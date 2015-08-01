@@ -27,10 +27,6 @@ export KSRC
 export KVERS
 export KPKG_DEST_DIR
 
-ifneq (,$(wildcard uvm))
-    WITH_UVM	 = 1
-endif
-
 configure: configure-stamp
 configure-stamp:
 	@if [ x"$(KVERS)" = x ] ; then \
@@ -39,9 +35,6 @@ configure-stamp:
 	fi
 	sh debian/prep-modules $(KSRC)
 	sed 's/#KVERS#/$(KVERS)/g' debian/install.template > debian/install
-ifneq (1,$(WITH_UVM))
-	sed -i -e '/nvidia-uvm.ko/d' debian/install
-endif
 	touch $@
 
 build: build-arch build-indep
@@ -51,9 +44,7 @@ build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
 	$(MAKE) SYSSRC=$(KSRC)
-ifeq (1,$(WITH_UVM))
-	$(MAKE) -C uvm SYSSRC=$(KSRC)
-endif
+#HAS_UVM#	$(MAKE) -C uvm SYSSRC=$(KSRC)
 	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
 	touch $@
 
@@ -86,9 +77,7 @@ clean:
 	dh_testdir
 	dh_testroot
 	$(MAKE) SYSSRC=$(KSRC) $(KPKG_EXTRAV_ARG) clean
-ifeq (1,$(WITH_UVM))
-	$(MAKE) -C uvm SYSSRC=$(KSRC) $(KPKG_EXTRAV_ARG) clean
-endif
+#HAS_UVM#	$(MAKE) -C uvm SYSSRC=$(KSRC) $(KPKG_EXTRAV_ARG) clean
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
 	dh_clean debian/control debian/install
 
