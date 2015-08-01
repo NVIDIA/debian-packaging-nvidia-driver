@@ -145,7 +145,7 @@ override_dh_auto_clean:
 	rm -fr $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(dirname_$a))
 	rm -fr debian/temp
 	rm -fr kernel-source-tree
-	rm -f nvidia.ids nv-kernel.ids nv-readme.ids
+	rm -f nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
 	rm -f LICENSE.txt LICENSE.tmp copyright.tmp
 	test ! -d debian/po || debconf-updatepo
 
@@ -344,6 +344,20 @@ endif
 	| ( tr '\n' ' '; echo ) \
 	| fold -s -w 78 \
 	| sed -e 's/#/ /g; s/ *$$//' > $@
+
+# only invoked manually
+pci.ids.nvidia: /usr/share/misc/pci.ids
+	sed -nr '/^10de/,/^10df/ { /^\t\t/d; /\t/ { s/  (.*) \[(.*)\]$$/  \2 [\1]/; s/^\t/10de/; p} }' $< > $@.tmp
+	cut -c 1-8 $@.tmp | tr a-f A-F > $@.tmp1
+	cut -c 9- $@.tmp | paste -d '' $@.tmp1 - > $@
+	$(RM) $@.tmp $@.tmp1
+
+# only invoked manually
+%.names: %.ids pci.ids.nvidia
+	cat $< | \
+	while read id ; do \
+		grep ^$$id pci.ids.nvidia || echo $$id ; \
+	done > $@
 
 # only invoked manually
 file-lists: $(patsubst %,debian/files_$(NVIDIA_RELEASE)_%,$(ARCH_LIST))
