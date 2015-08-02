@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (340.76-4) UNRELEASED; urgency=medium
+
+  * Drop obsolete transitional package nvidia-glx.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Aug 2015 23:20:48 +0200
+
 nvidia-graphics-drivers (340.76-3) unstable; urgency=medium
 
   [ Vincent Cheng ]
