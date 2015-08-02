@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (352.30-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.30-1) experimental; urgency=medium
 
   [ Luca Boccassi ]
   * New upstream release 352.30 (2015-07-28). (Closes: #794075)
@@ -7,6 +7,8 @@ nvidia-graphics-drivers (352.30-1) UNRELEASED; urgency=medium
       simultaneously.
   * New upstream release 346 series.
     - Added support for the following GPU: Tesla K80.
+  * New upstream release 346.87 (2015-07-21).
+    - Added support for the following GPU: GeForce 910M.
   * Add new armhf-only libcuda1 symbols.
   * Update nv-readme.ids.
   * Refresh patches.
@@ -20,7 +22,7 @@ nvidia-graphics-drivers (352.30-1) UNRELEASED; urgency=medium
     that can build the kernel module in the package description.
   * Restrict watch file to releases from the 352.xx long lived branch.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Fri, 31 Jul 2015 23:11:59 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Aug 2015 15:39:14 +0200
 
 nvidia-graphics-drivers (352.21-2) experimental; urgency=medium
 
@@ -114,8 +116,6 @@ nvidia-graphics-drivers (352.21-1) experimental; urgency=medium
   * Refresh patches.
 
   [ Andreas Beckmann ]
-  * New upstream release 346.87 (2015-07-21).
-    - Added support for the following GPU: GeForce 910M.
   * New upstream release 346.82 (2015-06-23).
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
