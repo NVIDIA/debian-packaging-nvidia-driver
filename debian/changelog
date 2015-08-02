@@ -9,6 +9,9 @@ nvidia-graphics-drivers (340.76-3) UNRELEASED; urgency=medium
     getting stuck until a second modprobe -r nvidia-current is issued.
     Fix provided by Jö Fahlke. Thanks! (Closes: #793386)
 
+  [ Andreas Beckmann ]
+  * Add Luca Boccassi to Uploaders.
+
  -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Aug 2015 19:09:11 +0200
 
 nvidia-graphics-drivers (340.76-2) unstable; urgency=medium
