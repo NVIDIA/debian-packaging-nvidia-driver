@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.76-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.76-3) unstable; urgency=medium
 
   [ Vincent Cheng ]
   * nvidia-detect: Detect stretch as supported suite, and parse -h as --help.
@@ -20,7 +20,7 @@ nvidia-graphics-drivers (340.76-3) UNRELEASED; urgency=medium
     - Implement new conftest.sh function dma_map_ops (352.30).
     - Reorder conftest.h to match conftest.sh.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Aug 2015 19:09:11 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Aug 2015 22:33:27 +0200
 
 nvidia-graphics-drivers (340.76-2) unstable; urgency=medium
 
@@ -31,6 +31,7 @@ nvidia-graphics-drivers (340.76-2) unstable; urgency=medium
     - Implement check for xen/ioemu.h (346.59).
     - Implement new conftest.sh functions write_cr4, xen_ioemu_inject_msi
       (346.59), list_cut_position (349.12).
+  * Split some old UNRELEASED changelog entries to linearize the BTS history.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 May 2015 20:47:07 +0200
 
