@@ -13,6 +13,10 @@ nvidia-graphics-drivers (340.76-3) UNRELEASED; urgency=medium
   * Add Luca Boccassi to Uploaders.
   * nvidia-driver, nvidia-kernel-*: Report the latest tested Linux version
     that can build the kernel module in the package description.
+  * conftest.h:
+    - Fix conftest.sh function write_cr4.
+    - Implement new conftest.sh functions backing_dev_info (346.82),
+      phys_to_dma, dma_ops, get_dma_ops, noncoherent_swiotlb_dma_ops (352.09).
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Aug 2015 19:09:11 +0200
 
