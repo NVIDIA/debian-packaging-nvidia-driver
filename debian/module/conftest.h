@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 319.16, 346.59, 343.36, 340.76, 304.125, 173.14.39, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 352.30, 349.16, 346.87, 343.36, 340.76, 304.125, 173.14.39, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -255,6 +255,7 @@
 /* nv-xen.h does not exist */
 #undef HAVE_NV_XEN
 
+/* removed in 352 */
 /* Implement conftest.sh function nvmap_support */
 /* nv-android.h does not exist */
 #undef HAVE_NV_ANDROID
@@ -374,6 +375,33 @@
  #undef NV_FILE_OPERATIONS_HAS_COMPAT_IOCTL
 #endif
 
+/* removed in 352 */
+/* Implement conftest.sh function sg_init_table */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,24)
+ #define NV_SG_INIT_TABLE_PRESENT
+#else
+ #undef NV_SG_INIT_TABLE_PRESENT
+#endif
+
+/* Implement conftest.sh function sg_table */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
+ #define NV_SG_TABLE_PRESENT
+#else
+ #undef NV_SG_TABLE_PRESENT
+#endif
+
+/* Implement conftest.sh function sg_alloc_table */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
+ #define NV_SG_ALLOC_TABLE_PRESENT
+#else
+ #undef NV_SG_ALLOC_TABLE_PRESENT
+#endif
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,6,0)
+ #define NV_SG_ALLOC_TABLE_FROM_PAGES_PRESENT
+#else
+ #undef NV_SG_ALLOC_TABLE_FROM_PAGES_PRESENT
+#endif
+
 /* Implement conftest.sh function efi_enabled */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,1)
  #define NV_EFI_ENABLED_PRESENT
@@ -456,6 +484,13 @@
  #undef NV_TASK_STRUCT_HAS_CRED
 #endif
 
+/* Implement conftest.sh function backing_dev_info */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0)
+ #define NV_ADDRESS_SPACE_HAS_BACKING_DEV_INFO
+#else
+ #undef NV_ADDRESS_SPACE_HAS_BACKING_DEV_INFO
+#endif
+
 /* Implement conftest.sh function address_space */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,12) && \
                 LINUX_VERSION_CODE < KERNEL_VERSION(2,6,27)
@@ -499,30 +534,11 @@
  #undef NV_PM_VT_SWITCH_REQUIRED_PRESENT
 #endif
 
-/* Implement conftest.sh function sg_table */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
- #define NV_SG_TABLE_PRESENT
+/* Implement conftest.sh function list_cut_position */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,27)
+ #define NV_LIST_CUT_POSITION_PRESENT
 #else
- #undef NV_SG_TABLE_PRESENT
-#endif
-
-/* Implement conftest.sh function sg_alloc_table */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,25)
- #define NV_SG_ALLOC_TABLE_PRESENT
-#else
- #undef NV_SG_ALLOC_TABLE_PRESENT
-#endif
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,6,0)
- #define NV_SG_ALLOC_TABLE_FROM_PAGES_PRESENT
-#else
- #undef NV_SG_ALLOC_TABLE_FROM_PAGES_PRESENT
-#endif
-
-/* Implement conftest.sh function sg_init_table */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,24)
- #define NV_SG_INIT_TABLE_PRESENT
-#else
- #undef NV_SG_INIT_TABLE_PRESENT
+ #undef NV_LIST_CUT_POSITION_PRESENT
 #endif
 
 /* Implement conftest.sh function file_inode */
@@ -539,13 +555,6 @@
  #undef NV_DRM_PCI_SET_BUSID_PRESENT
 #endif
 
-/* Implement conftest.sh function write_cr4 */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,20)
- #define NV_WRITE_CR4_PRESENT
-#else
- #undef NV_WRITE_CR4_PRESENT
-#endif
-
 /* Implement conftest.sh function xen_ioemu_inject_msi */
 /* this seems to require some xen patch for the kernel */
 #if 0
@@ -554,11 +563,58 @@
  #undef NV_XEN_IOEMU_INJECT_MSI
 #endif
 
-/* Implement conftest.sh function list_cut_position */
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,27)
- #define NV_LIST_CUT_POSITION_PRESENT
+/* Implement conftest.sh function phys_to_dma */
+#if ((IS_ENABLED(CONFIG_X86) || (IS_ENABLED(CONFIG_PPC)) \
+    && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,32)) || \
+  (IS_ENABLED(CONFIG_ARM64) && LINUX_VERSION_CODE >= KERNEL_VERSION(3,7,0)) || \
+  (IS_ENABLED(CONFIG_ARM) && LINUX_VERSION_CODE >= KERNEL_VERSION(3,13,0)))
+ #define NV_PHYS_TO_DMA_PRESENT
 #else
- #undef NV_LIST_CUT_POSITION_PRESENT
+ #undef NV_PHYS_TO_DMA_PRESENT
+#endif
+
+/* Implement conftest.sh function dma_ops */
+#if (IS_ENABLED(CONFIG_X86) && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,26)) || \
+  (IS_ENABLED(CONFIG_X86_64) && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,16)) || \
+  (IS_ENABLED(CONFIG_ARM64) && LINUX_VERSION_CODE >= KERNEL_VERSION(3,7,0))
+ #define NV_DMA_OPS_PRESENT
+#else
+ #undef NV_DMA_OPS_PRESENT
+#endif
+
+/* Implement conftest.sh function dma_map_ops */
+#if (IS_ENABLED(CONFIG_X86) && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,30)) || \
+  (IS_ENABLED(CONFIG_ARM64) && LINUX_VERSION_CODE >= KERNEL_VERSION(3,7,0))
+ #define NV_DMA_MAP_OPS_PRESENT
+#else
+ #undef NV_DMA_MAP_OPS_PRESENT
+#endif
+
+/* Implement conftest.sh function get_dma_ops */
+#if (IS_ENABLED(CONFIG_X86) && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,27)) || \
+  (IS_ENABLED(CONFIG_ARM64) && LINUX_VERSION_CODE >= KERNEL_VERSION(3,7,0)) || \
+  (IS_ENABLED(CONFIG_ARM) && LINUX_VERSION_CODE >= KERNEL_VERSION(3,5,0)) || \
+  (IS_ENABLED(CONFIG_PPC) && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,28)) || \
+  (IS_ENABLED(CONFIG_PPC64) && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,20))
+ #define NV_GET_DMA_OPS_PRESENT
+#else
+ #undef NV_GET_DMA_OPS_PRESENT
+#endif
+
+/* Implement conftest.sh function noncoherent_swiotlb_dma_ops */
+#if IS_ENABLED(CONFIG_ARM64) && LINUX_VERSION_CODE < KERNEL_VERSION(4,0,0) && \
+  LINUX_VERSION_CODE >= KERNEL_VERSION(3,15,0)
+ #define NV_NONCOHERENT_SWIOTLB_DMA_OPS_PRESENT
+#else
+ #undef NV_NONCOHERENT_SWIOTLB_DMA_OPS_PRESENT
+#endif
+
+/* Implement conftest.sh function write_cr4 */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,20) && \
+    LINUX_VERSION_CODE < KERNEL_VERSION(3,20,0)
+ #define NV_WRITE_CR4_PRESENT
+#else
+ #undef NV_WRITE_CR4_PRESENT
 #endif
 
 /* Check for linux/semaphore.h */
@@ -638,6 +694,7 @@
  #undef NV_LINUX_SCREEN_INFO_H_PRESENT
 #endif
 
+/* removed in 352 */
 /* Check for linux/nvmap.h */
 // does not (yet) exist in kernel source
  #undef NV_LINUX_NVMAP_H_PRESENT

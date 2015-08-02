@@ -1,2 +1,2 @@
 alias nvidia #MODULE#
-remove #MODULE# rmmod nvidia nvidia-uvm
+remove #MODULE# rmmod nvidia-uvm nvidia
