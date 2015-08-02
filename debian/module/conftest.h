@@ -574,20 +574,20 @@
 #endif
 
 /* Implement conftest.sh function dma_ops */
-#if (IS_ENABLED(CONFIG_X86) && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,30)) || \
+#if (IS_ENABLED(CONFIG_X86) && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,26)) || \
+  (IS_ENABLED(CONFIG_X86_64) && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,16)) || \
   (IS_ENABLED(CONFIG_ARM64) && LINUX_VERSION_CODE >= KERNEL_VERSION(3,7,0))
  #define NV_DMA_OPS_PRESENT
- #define NV_DMA_MAP_OPS_PRESENT
-/* #undef NV_DMA_MAPPING_OPS_PRESENT added in 352.21, removed in 352.30 */
-#elif (IS_ENABLED(CONFIG_X86) && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,26)) || \
-  (IS_ENABLED(CONFIG_X86_64) && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,16))
- #define NV_DMA_OPS_PRESENT
- #undef NV_DMA_MAP_OPS_PRESENT
-/* #define NV_DMA_MAPPING_OPS_PRESENT added in 352.21, removed in 352.30 */
 #else
  #undef NV_DMA_OPS_PRESENT
+#endif
+
+/* Implement conftest.sh function dma_map_ops */
+#if (IS_ENABLED(CONFIG_X86) && LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,30)) || \
+  (IS_ENABLED(CONFIG_ARM64) && LINUX_VERSION_CODE >= KERNEL_VERSION(3,7,0))
+ #define NV_DMA_MAP_OPS_PRESENT
+#else
  #undef NV_DMA_MAP_OPS_PRESENT
-/* #undef NV_DMA_MAPPING_OPS_PRESENT added in 352.21, removed in 352.30 */
 #endif
 
 /* Implement conftest.sh function get_dma_ops */
