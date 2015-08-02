@@ -16,6 +16,8 @@ nvidia-graphics-drivers (352.30-1) UNRELEASED; urgency=medium
   * nvidia-libopencl1: Update symbols and add Provides: libopencl-1.2-1.
   * nvidia-kernel-*: [i386] Drop support for building amd64 kernel modules.
   * Overhaul arch-specific UVM support.
+  * nvidia-driver, nvidia-kernel-*: Report the latest tested Linux version
+    that can build the kernel module in the package description.
   * Restrict watch file to releases from the 352.xx long lived branch.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Fri, 31 Jul 2015 23:11:59 +0100
