@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (340.76-3) UNRELEASED; urgency=medium
+
+  [ Vincent Cheng ]
+  * nvidia-detect: Detect stretch as supported suite, and parse -h as --help.
+    (Closes: #792801)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Aug 2015 19:09:11 +0200
+
 nvidia-graphics-drivers (340.76-2) unstable; urgency=medium
 
   * fixes-for-kernel-4.0.0.patch: New patch to add support for Linux 4.0,
