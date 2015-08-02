@@ -1,0 +1,16 @@
+Description: Fix unresolved nvUvm* symbols in nvidia-uvm.ko from dkms package
+Author: Vivek Das Mohapatra <vivek@collabora.com>
+Bug-Debian: https://bugs.debian.org/789483
+Last-Update: 2015-08-01
+
+--- a/uvm/Kbuild
++++ b/uvm/Kbuild
+@@ -172,6 +172,8 @@
+ RM_MODULE_SYMVERS:= $(RM_OUT_DIR)/Module.symvers
+ UVM_MODULE_SYMVERS:= $(obj)/Module.symvers
+ 
++KBUILD_EXTRA_SYMBOLS += $(RM_MODULE_SYMVERS)
++
+ module $(MODULE_NAME).ko: $(UVM_MODULE_SYMVERS) debug_diagnostics_printing
+ 
+ $(MODULE_NAME)-y := $(MODULE_GLUE_OBJS)
