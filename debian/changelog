@@ -3,6 +3,7 @@ nvidia-graphics-drivers (340.76-4) UNRELEASED; urgency=medium
   * Drop obsolete transitional package nvidia-glx.
   * nvidia-kernel-*: [i386] Drop support for building amd64 kernel modules.
   * Overhaul arch-specific UVM support.
+  * nvidia-detect: Add support for the upcoming nvidia-legacy-340xx-driver.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Aug 2015 23:20:48 +0200
 
