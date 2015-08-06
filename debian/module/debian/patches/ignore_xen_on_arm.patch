@@ -1,0 +1,20 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Ignore CONFIG_XEN if building on ARM
+ Currently armmp kernel headers ship with CONFIG_XEN enabled and
+ CONFIG_PARAVIRT disabled. This causes a build failure of the armhf dkms modules
+ in all current versions of the Nvidia driver.
+ Since running this driver on Xen is currently not supported anyway on Debian,
+ override the check altogether on arm.
+
+--- a/nv-linux.h
++++ b/nv-linux.h
+@@ -258,7 +258,7 @@
+  * NVIDIA graphics driver has no way of knowing and is unlikely
+  * to work correctly.
+  */
+-#if defined(CONFIG_XEN) && !defined(CONFIG_PARAVIRT)
++#if defined(CONFIG_XEN) && !defined(CONFIG_PARAVIRT) && !defined(NVCPU_ARM)
+ #include <asm/maddr.h>
+ #include <xen/interface/memory.h>
+ #define NV_XEN_SUPPORT_FULLY_VIRTUALIZED_KERNEL
+ #endif
