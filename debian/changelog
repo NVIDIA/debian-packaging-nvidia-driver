@@ -7,6 +7,9 @@ nvidia-graphics-drivers (340.76-4) UNRELEASED; urgency=medium
   * Rename nvidia-uvm.ko to nvidia-{current,legacy-*}.ko.
   * README.source: Document my schroot setup for testing module compilation.
 
+  [ Luca Boccassi ]
+  * README.source: Document armhf setup for testing module compilation.
+
  -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Aug 2015 23:20:48 +0200
 
 nvidia-graphics-drivers (340.76-3) unstable; urgency=medium
