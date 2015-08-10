@@ -4,3 +4,4 @@ use-nv-kernel-ARCH.o_shipped.patch
 conditionally-include-linux_version.h.patch
 #HAS_UVM#uvm-symvers.patch
 fixes-for-kernel-4.0.0.patch
+ignore_xen_on_arm.patch

@@ -1,16 +1,31 @@
-nvidia-graphics-drivers (340.76-4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.76-5) UNRELEASED; urgency=medium
 
   * Drop obsolete transitional package nvidia-glx.
   * nvidia-kernel-*: [i386] Drop support for building amd64 kernel modules.
   * Overhaul arch-specific UVM support.
   * nvidia-detect: Add support for the upcoming nvidia-legacy-340xx-driver.
-  * Rename nvidia-uvm.ko to nvidia-{current,legacy-*}.ko.
-  * README.source: Document my schroot setup for testing module compilation.
-
-  [ Luca Boccassi ]
-  * README.source: Document armhf setup for testing module compilation.
+  * Rename nvidia-uvm.ko to nvidia-{current,legacy-*}-uvm.ko.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Aug 2015 23:20:48 +0200
+
+nvidia-graphics-drivers (340.76-4) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * README.source: Document my schroot setup for testing module compilation.
+  * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * conftest.h:
+    - dma_map_ops and dma_ops are available for PPC and ARM too
+  * Add ignore_xen_on_arm.patch needed for dkms build on armhf: armmp
+    kernel headers ship with CONFIG_XEN enabled, which breaks the build,
+    so since running this driver on XEN is currently not supported,
+    ignore the check for XEN in nv-linux.h as a workaround on arm, and
+    also disable CONFIG_XEN and CONFIG_XEN_DOM0 if building on <= 3.16.
+    (Closes: #794435)
+  * README.source: Document armhf setup for testing module compilation.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 10 Aug 2015 02:23:23 +0200
 
 nvidia-graphics-drivers (340.76-3) unstable; urgency=medium
 
