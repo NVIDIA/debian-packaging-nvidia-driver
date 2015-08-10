@@ -2,6 +2,7 @@ nvidia-graphics-drivers (340.76-4) unstable; urgency=medium
 
   [ Andreas Beckmann ]
   * README.source: Document my schroot setup for testing module compilation.
+  * Update lintian overrides.
 
   [ Luca Boccassi ]
   * conftest.h:
