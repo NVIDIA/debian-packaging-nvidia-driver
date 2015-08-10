@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.76-4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.76-4) unstable; urgency=medium
 
   [ Andreas Beckmann ]
   * README.source: Document my schroot setup for testing module compilation.
@@ -14,7 +14,7 @@ nvidia-graphics-drivers (340.76-4) UNRELEASED; urgency=medium
     (Closes: #794435)
   * README.source: Document armhf setup for testing module compilation.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 03 Aug 2015 22:14:40 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 10 Aug 2015 02:23:23 +0200
 
 nvidia-graphics-drivers (340.76-3) unstable; urgency=medium
 
