@@ -39,6 +39,11 @@ dirname_i386		 = $(NVIDIA_DIRNAME_X86)
 dirname_amd64		 = $(NVIDIA_DIRNAME_X86_64)
 dirname_armhf		 = $(NVIDIA_DIRNAME_armhf)
 
+# this needs the internal names (i.e. upstream's names, not our renamed files)
+rmmod_modules		 =
+rmmod_modules		+= $(if $(has_uvm),nvidia-uvm)
+rmmod_modules		+= nvidia
+
 # system libdir
 libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 # nvidia version specific directory below $(libdir)
@@ -315,6 +320,7 @@ override_dh_strip:
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
+	-e 's{#RMMOD_MODULES#}{$(strip $(rmmod_modules))}g;' \
 	-e 's{#HAS_UVM#}{$(if $(has_uvm),,#)}g;' \
 	-e 's{#!armhf#}{$(if $(filter armhf,$(DEB_HOST_ARCH)),#)}g;' \
 	-e 's{#!legacy#}{$(if $(legacy),#)}g;' \
