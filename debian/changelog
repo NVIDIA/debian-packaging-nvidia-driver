@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.76-5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.76-5) unstable; urgency=medium
 
   * Drop obsolete transitional package nvidia-glx.
   * nvidia-kernel-*: [i386] Drop support for building amd64 kernel modules.
@@ -6,7 +6,7 @@ nvidia-graphics-drivers (340.76-5) UNRELEASED; urgency=medium
   * nvidia-detect: Add support for the upcoming nvidia-legacy-340xx-driver.
   * Rename nvidia-uvm.ko to nvidia-{current,legacy-*}-uvm.ko.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Aug 2015 23:20:48 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 11 Aug 2015 18:30:32 +0200
 
 nvidia-graphics-drivers (340.76-4) unstable; urgency=medium
 
