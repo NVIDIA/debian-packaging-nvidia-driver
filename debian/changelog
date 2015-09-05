@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (352.30-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.41-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * conftest.h:
@@ -18,6 +18,16 @@ nvidia-graphics-drivers (352.30-2) UNRELEASED; urgency=medium
     also disable CONFIG_XEN and CONFIG_XEN_DOM0 if building on <= 3.16.
     (Closes: #794435)
   * Update rules.def, armhf DKMS module builds on 3.16, 4.0 and 4.1.
+  * New upstream release 352.41 (2015-08-28).
+    - Added support for the following GPUs: GeForce GTX 950, Quadro M4000,
+      Quadro M5000
+    - Fixed a bug that caused VDPAU to only display the top half of a
+      video frame when decoding and displaying H.265/HEVC encoded video
+      streams.
+    - Fixed a bug that caused the X server to crash if an OpenGL
+      application tried to allocate a drawable when GPU-accessible memory
+      is exhausted.
+  * Update nv-readme.ids.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 03 Aug 2015 00:09:18 +0100
 
