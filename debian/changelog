@@ -1,3 +1,27 @@
+nvidia-graphics-drivers (340.93-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.93 (2015-09-02).
+    - Fixed a bug that caused the X server to crash if an OpenGL application
+      tried to allocate a drawable when GPU-accessible memory is exhausted.
+    - Fixed a bug that could cause an Xid error when terminating a video
+      playback application using the overlay presentation queue in VDPAU.
+    - Fixed a rare deadlock condition when running applications that use
+      OpenGL in multiple threads on a Quadro GPU.
+    - Fixed a bug which caused truncation of the EGLAttribEXT value returned
+      by eglQueryDeviceAttribEXT() on 64-bit systems.
+    - Fixed a kernel memory leak that occurred when looping hardware-
+      accelerated video decoding with VDPAU on Maxwell-based GPUs.
+    - Fixed a bug that caused the X server to crash if a RandR 1.4 output
+      provided by a Sink Output provider was selected as the primary output on
+      X.Org xserver 1.17 and higher.
+    - Fixed a bug that caused waiting on X Sync Fence objects in OpenGL to
+      hang indefinitely in some cases.
+    - Fixed a bug that prevented OpenGL from properly recovering from
+      hardware errors or sync object waits that had timed out.
+    * Improved compatibility with recent Linux kernels.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Sep 2015 01:00:49 +0200
+
 nvidia-graphics-drivers (340.76-4) unstable; urgency=medium
 
   [ Andreas Beckmann ]
