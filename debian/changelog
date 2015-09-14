@@ -28,6 +28,7 @@ nvidia-graphics-drivers (340.93-1) UNRELEASED; urgency=medium
     the respective legacy packages from the same upstream version due to file
     conflicts on versioned files.
   * bug-script: Report file information in arm-linux-gnueabihf directories.
+  * bug-script: Collect information from /etc/modules{,-load.d/}.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Sep 2015 01:00:49 +0200
 

@@ -83,6 +83,13 @@ grep -ri nvidia /etc/modprobe.d/
 grep -ri nouveau /etc/modprobe.d/
 echo
 
+echo "/etc/modules-load.d:"
+ls -la /etc/modules /etc/modules-load.d/ 2>&1
+echo
+grep -ri nvidia /etc/modules /etc/modules-load.d/ 2>/dev/null
+grep -ri nouveau /etc/modules /etc/modules-load.d/ 2>/dev/null
+echo
+
 echo "Files from nvidia-installer:"
 ls -la /usr/bin/nvidia-installer /usr/bin/nvidia-uninstall /var/lib/nvidia 2>/dev/null
 echo
