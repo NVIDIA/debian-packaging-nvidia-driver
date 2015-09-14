@@ -42,6 +42,7 @@ Recommends:
  libgl1-${nvidia}-glx-i386 [amd64],
  libgles1-${nvidia} (= ${binary:Version}),
  libgles2-${nvidia} (= ${binary:Version}),
+ nvidia-persistenced,
 Suggests:
  ${nvidia:kmod:source},
 Provides:
