@@ -22,6 +22,7 @@ nvidia-graphics-drivers (340.93-1) UNRELEASED; urgency=medium
   * fixes-for-kernel-4.0.0.patch: Remove, fixed upstream.
   * conftest.h:
     - Implement new conftest.sh function nvidia_grid_build (352.41).
+  * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Sep 2015 01:00:49 +0200
 
