@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.93-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.93-1) unstable; urgency=medium
 
   * New upstream legacy 340xx branch release 340.93 (2015-09-02).
     - Fixed a bug that caused the X server to crash if an OpenGL application
@@ -31,7 +31,7 @@ nvidia-graphics-drivers (340.93-1) UNRELEASED; urgency=medium
   * bug-script: Collect information from /etc/modules{,-load.d/}.
   * nvidia-driver: Add Recommends: nvidia-persistenced.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Sep 2015 01:00:49 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Sep 2015 20:58:29 +0200
 
 nvidia-graphics-drivers (340.76-5) unstable; urgency=medium
 
