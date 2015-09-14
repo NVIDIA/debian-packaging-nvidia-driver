@@ -23,6 +23,10 @@ nvidia-graphics-drivers (340.93-1) UNRELEASED; urgency=medium
   * conftest.h:
     - Implement new conftest.sh function nvidia_grid_build (352.41).
   * Update lintian overrides.
+  * nvidia-driver-bin, libnvidia-compiler, libnvidia-eglcore: Add
+    Provides+Conflicts: $pkg-${nvidia:Version} to forbid co-installation with
+    the respective legacy packages from the same upstream version due to file
+    conflicts on versioned files.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Sep 2015 01:00:49 +0200
 
