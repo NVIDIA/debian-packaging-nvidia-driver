@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 352.30, 349.16, 346.87, 343.36, 340.76, 304.125, 173.14.39, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 352.41, 349.16, 346.96, 343.36, 340.93, 304.128, 173.14.39, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -414,6 +414,13 @@
  #define NV_DOM0_KERNEL_PRESENT
 #else
  #undef NV_DOM0_KERNEL_PRESENT
+#endif
+
+/* Implement conftest.sh function nvidia_grid_build */
+#if 0
+ #define NV_GRID_BUILD
+#else
+ #undef NV_GRID_BUILD
 #endif
 
 /* Implement conftest.sh function drm_available */

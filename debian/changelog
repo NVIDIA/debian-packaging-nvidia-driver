@@ -1,27 +1,34 @@
 nvidia-graphics-drivers (340.93-1) UNRELEASED; urgency=medium
 
-  * New upstream release 340.93 (2015-09-01).
+  * New upstream legacy 340xx branch release 340.93 (2015-09-02).
     - Fixed a bug that caused the X server to crash if an OpenGL application
       tried to allocate a drawable when GPU-accessible memory is exhausted.
     - Fixed a bug that could cause an Xid error when terminating a video
       playback application using the overlay presentation queue in VDPAU.
-    - Updated nvidia-installer to avoid recursing too deeply into kernel source
-      trees under/usr/lib/modules, mirroring an existing restriction on
-      recursion under /lib/modules.
-    - Fixed a rare deadlock condition when running applications that use OpenGL
-      in multiple threads on a Quadro GPU.
-    - Fixed a kernel memory leak that occurred when looping
-      hardware-accelerated video decoding with VDPAU on Maxwell-based GPUs.
+    - Fixed a rare deadlock condition when running applications that use
+      OpenGL in multiple threads on a Quadro GPU.
+    - Fixed a bug which caused truncation of the EGLAttribEXT value returned
+      by eglQueryDeviceAttribEXT() on 64-bit systems.
+    - Fixed a kernel memory leak that occurred when looping hardware-
+      accelerated video decoding with VDPAU on Maxwell-based GPUs.
     - Fixed a bug that caused the X server to crash if a RandR 1.4 output
-      provided by a SinkOutput provider was selected as the primary output on
+      provided by a Sink Output provider was selected as the primary output on
       X.Org xserver 1.17 and higher.
-    - Fixed a bug that caused waiting on X Sync Fence objects in OpenGL to hang
-      indefinitely in some cases.
-    - Fixed a bug that prevented OpenGL from properly recovering from hardware
-      errors orsync object waits that had timed out.
-  * Removed fixes-for-kernel-4.0.0.patch, fixed upstream.
+    - Fixed a bug that caused waiting on X Sync Fence objects in OpenGL to
+      hang indefinitely in some cases.
+    - Fixed a bug that prevented OpenGL from properly recovering from
+      hardware errors or sync object waits that had timed out.
+    * Improved compatibility with recent Linux kernels.
+  * fixes-for-kernel-4.0.0.patch: Remove, fixed upstream.
+  * conftest.h:
+    - Implement new conftest.sh function nvidia_grid_build (352.41).
+  * Update lintian overrides.
+  * nvidia-driver-bin, libnvidia-compiler, libnvidia-eglcore: Add
+    Provides+Conflicts: $pkg-${nvidia:Version} to forbid co-installation with
+    the respective legacy packages from the same upstream version due to file
+    conflicts on versioned files.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 06 Sep 2015 00:05:11 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Sep 2015 01:00:49 +0200
 
 nvidia-graphics-drivers (340.76-5) unstable; urgency=medium
 
@@ -1389,6 +1396,13 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
+
+nvidia-graphics-drivers (304.128-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.128 (2015-08-31).
+    * Improved compatibility with recent Linux kernels.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 13 Sep 2015 23:34:49 +0200
 
 nvidia-graphics-drivers (304.125-1) wheezy; urgency=medium
 
