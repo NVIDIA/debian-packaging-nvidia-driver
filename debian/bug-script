@@ -45,11 +45,11 @@ ls -l	/etc/alternatives/glx* \
 	/usr/lib/libGLES*.* \
 	/usr/lib/libGLcore* \
 	/usr/lib/libnvidia* \
-	/usr/lib/*-linux-gnu/libEGL.* \
-	/usr/lib/*-linux-gnu/libGL.* \
-	/usr/lib/*-linux-gnu/libGLES*.* \
-	/usr/lib/*-linux-gnu/libGLcore* \
-	/usr/lib/*-linux-gnu/libnvidia* \
+	/usr/lib/*-linux-gnu*/libEGL.* \
+	/usr/lib/*-linux-gnu*/libGL.* \
+	/usr/lib/*-linux-gnu*/libGLES*.* \
+	/usr/lib/*-linux-gnu*/libGLcore* \
+	/usr/lib/*-linux-gnu*/libnvidia* \
 	/usr/lib32/libGL.* \
 	/usr/lib32/libGLcore* \
 	/usr/lib32/libnvidia* \
@@ -64,12 +64,12 @@ ls -la	\
 	/etc/nvidia/ \
 	/usr/lib/nvidia/ \
 	/usr/lib/nvidia/*/ \
-	/usr/lib/*-linux-gnu/nvidia/ \
-	/usr/lib/*-linux-gnu/nvidia/*/ \
+	/usr/lib/*-linux-gnu*/nvidia/ \
+	/usr/lib/*-linux-gnu*/nvidia/*/ \
 	/usr/lib/mesa/ \
-	/usr/lib/*-linux-gnu/mesa/ \
+	/usr/lib/*-linux-gnu*/mesa/ \
 	/usr/lib/mesa-diverted/ \
-	/usr/lib/mesa-diverted/*-linux-gnu/ \
+	/usr/lib/mesa-diverted/*-linux-gnu*/ \
 	/usr/lib32/nvidia/ \
 	/usr/lib32/nvidia/diversions/ \
 	/etc/X11/xorg.conf.d/ \
