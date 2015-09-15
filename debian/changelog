@@ -2,6 +2,10 @@ nvidia-graphics-drivers (304.128-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 304xx branch release 304.128 (2015-08-31).
     * Improved compatibility with recent Linux kernels.
+  * libgl1-nvidia-glx: Add Provides+Conflicts:
+    libgl1-nvidia-glx-${nvidia:Version} to forbid co-installation of
+    libgl1-nvidia-legacy-304xx-glx from the same upstream version due to file
+    conflicts on versioned files.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 13 Sep 2015 23:34:49 +0200
 

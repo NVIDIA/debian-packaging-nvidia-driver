@@ -137,7 +137,9 @@ Suggests:
 Provides:
  libgl1-nvidia${nvidia:Legacy}-glx-i386 [i386],
  libgl1-nvidia-glx-any,
+ libgl1-nvidia-glx-${nvidia:Version},
 Conflicts:
+ libgl1-nvidia-glx-${nvidia:Version},
  libgl1-nvidia${nvidia:Legacy}-dev,
  nvidia-glx${nvidia:Legacy}-dev,
  libgl1-nvidia${nvidia:Legacy}-glx-ia32 [i386],
