@@ -1,7 +1,0 @@
-Goals for jessie:
-=================
-
-  * automatic configuration of Xorg
-    - fix Xorg autodetection (which may be an insufficiency in the nvidia
-      driver that does not expose its supported PCI IDs properly), see
-      #586502

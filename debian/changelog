@@ -3,6 +3,9 @@ nvidia-graphics-drivers (340.93-2) UNRELEASED; urgency=medium
   * nvidia-modprobe.conf: Don't use aliases for the renamed modules, only use
     install and remove commands. Remodel the nvidia-uvm -> nvidia dependency
     via an install command.  (Closes: #798207)
+  * Drop instructions and debconf notes about manual xorg.conf creation - the
+    driver now integrates with Xorg s.t. it is automatically used if
+    available.  (Closes: #586502, #612093)
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 15 Sep 2015 13:23:48 +0200
 
