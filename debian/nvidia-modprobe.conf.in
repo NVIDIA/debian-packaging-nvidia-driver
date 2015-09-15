@@ -1,4 +1,5 @@
-alias nvidia #MODULE#
-#HAS_UVM#alias nvidia-uvm #MODULE#-uvm
-remove #MODULE# rmmod #RMMOD_MODULES#
-#HAS_UVM#remove #MODULE#-uvm rmmod nvidia-uvm
+install nvidia modprobe -i #MODULE# $CMDLINE_OPTS
+
+#HAS_UVM#install nvidia-uvm modprobe nvidia ; modprobe -i #MODULE#-uvm $CMDLINE_OPTS
+
+#HAS_UVM#remove nvidia modprobe -r -i nvidia-uvm nvidia
