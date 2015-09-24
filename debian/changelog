@@ -1,8 +1,11 @@
 nvidia-graphics-drivers (340.93-2) UNRELEASED; urgency=medium
 
-  * nvidia-modprobe.conf: Don't use aliases for the renamed modules, only use
-    install and remove commands. Remodel the nvidia-uvm -> nvidia dependency
-    via an install command.  (Closes: #798207)
+  * nvidia-modprobe.conf:  (Closes: #798207)
+    - Don't use aliases for the renamed modules, only use install and remove
+      commands.
+    - Remodel the nvidia-uvm -> nvidia dependency via an install command.
+    - Duplicate the module's built-in PCI-ID-match aliases to ensure they
+      cause the virtual "nvidia" module to be loaded instead of a random one.
   * Drop instructions and debconf notes about manual xorg.conf creation - the
     driver now integrates with Xorg s.t. it is automatically used if
     available.  (Closes: #586502, #612093)
