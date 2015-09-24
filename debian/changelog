@@ -10,6 +10,10 @@ nvidia-graphics-drivers (340.93-2) UNRELEASED; urgency=medium
     driver now integrates with Xorg s.t. it is automatically used if
     available.  (Closes: #586502, #612093)
   * Bump glx-alternative-nvidia dependency to (>= 0.6) for Xorg autoconfig.
+  * libgl1-nvidia-glx: Add Provides+Conflicts:
+    libgl1-nvidia-glx-${nvidia:Version} to forbid co-installation of
+    libgl1-nvidia-legacy-304xx-glx from the same upstream version due to file
+    conflicts on versioned files that are not handled via alternatives.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 15 Sep 2015 13:23:48 +0200
 
@@ -41,7 +45,7 @@ nvidia-graphics-drivers (340.93-1) unstable; urgency=medium
   * nvidia-driver-bin, libnvidia-compiler, libnvidia-eglcore: Add
     Provides+Conflicts: $pkg-${nvidia:Version} to forbid co-installation with
     the respective legacy packages from the same upstream version due to file
-    conflicts on versioned files.
+    conflicts on versioned files are not handled via alternatives.
   * bug-script: Report file information in arm-linux-gnueabihf directories.
   * bug-script: Collect information from /etc/modules{,-load.d/}.
   * nvidia-driver: Add Recommends: nvidia-persistenced.
@@ -1419,6 +1423,10 @@ nvidia-graphics-drivers (304.128-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 304xx branch release 304.128 (2015-08-31).
     * Improved compatibility with recent Linux kernels.
+  * libgl1-nvidia-glx: Add Provides+Conflicts:
+    libgl1-nvidia-glx-${nvidia:Version} to forbid co-installation of
+    libgl1-nvidia-legacy-304xx-glx from the same upstream version due to file
+    conflicts on versioned files that are not handled via alternatives.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 13 Sep 2015 23:34:49 +0200
 
