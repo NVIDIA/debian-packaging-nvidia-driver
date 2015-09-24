@@ -157,7 +157,9 @@ Suggests:
  ${nvidia:kmod:source},
 Provides:
  libgl1-nvidia-glx-any,
+ libgl1-nvidia-glx-${nvidia:Version},
 Conflicts:
+ libgl1-nvidia-glx-${nvidia:Version},
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
  nvidia-glx${nvidia:Legacy}-ia32,
  libgl1-nvidia-glx-ia32-any,
