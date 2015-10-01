@@ -1,6 +1,8 @@
 nvidia-graphics-drivers (340.93-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 340xx branch release 340.93 (2015-09-02).
+    * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      (Closes: #800566)
     - Fixed a bug that caused the X server to crash if an OpenGL application
       tried to allocate a drawable when GPU-accessible memory is exhausted.
     - Fixed a bug that could cause an Xid error when terminating a video
