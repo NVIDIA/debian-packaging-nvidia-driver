@@ -2,6 +2,7 @@ nvidia-graphics-drivers (340.93-3) UNRELEASED; urgency=medium
 
   * Revert glx-alternative-nvidia dependency to (>= 0.5) because Xorg
     autoconfig causes some permission issues (see: #799948).
+  * Document the permission issues.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 01 Oct 2015 02:20:36 +0200
 

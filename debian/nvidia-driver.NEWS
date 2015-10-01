@@ -1,11 +1,3 @@
-nvidia-graphics-drivers (340.93-2) unstable; urgency=medium
-
-  The NVIDIA driver now automatically integrates with the Xorg configuration.
-  Therefore it is no longer necessary to manually create an xorg.conf to
-  enable it.
-
- -- Andreas Beckmann <anbe@debian.org>  Thu, 24 Sep 2015 04:38:22 +0200
-
 nvidia-graphics-drivers (310.14-1) unstable; urgency=low
 
   LEGACY GPUs: If you have a GeForce 6xxx, GeForce Go 6xxx, GeForce 7xxx,
