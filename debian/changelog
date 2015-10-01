@@ -1,10 +1,10 @@
-nvidia-graphics-drivers (340.93-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.93-3) unstable; urgency=medium
 
   * Revert glx-alternative-nvidia dependency to (>= 0.5) because Xorg
     autoconfig causes some permission issues (see: #799948).
   * Document the permission issues.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 01 Oct 2015 02:20:36 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 01 Oct 2015 04:26:47 +0200
 
 nvidia-graphics-drivers (340.93-2) unstable; urgency=medium
 
