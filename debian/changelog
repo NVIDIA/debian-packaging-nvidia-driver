@@ -1,6 +1,8 @@
 nvidia-graphics-drivers (304.128-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 304xx branch release 304.128 (2015-08-31).
+    * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      (Closes: #800566)
     * Improved compatibility with recent Linux kernels.
   * libgl1-nvidia-glx: Add Provides+Conflicts:
     libgl1-nvidia-glx-${nvidia:Version} to forbid co-installation of
