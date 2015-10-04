@@ -20,6 +20,7 @@ nvidia-graphics-drivers (304.128-1) UNRELEASED; urgency=medium
     - Implement new conftest.sh function dma_map_ops (352.30).
     - Reorder conftest.h to match conftest.sh.
     - Implement new conftest.sh function nvidia_grid_build (352.41).
+  * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 13 Sep 2015 23:34:49 +0200
 
