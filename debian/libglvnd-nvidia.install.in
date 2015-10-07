@@ -1,0 +1,2 @@
+libGLdispatch.so.0		#LIBDIR#/#PRIVATE#/
+libOpenGL.so.0		#LIBDIR#/#PRIVATE#/

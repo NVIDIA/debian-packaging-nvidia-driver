@@ -189,6 +189,24 @@ Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
+#Package: libglvnd-${nvidia}
+Package: libglvnd-nvidia
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${nvidia-alternative},
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA binary GL vendor neutral libraries${nvidia:LegacyDesc}
+ This package contains the vendor neutral graphics libraries.
+ These libraries are currently used to provide full OpenGL dispatching support
+ to NVIDIA's implementation of EGL.
+ .
+ See the description of the ${nvidia}-driver package
+ or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+
 #Package: libgles1-${nvidia}
 Package: libgles1-nvidia
 Architecture: i386 amd64 armhf
