@@ -33,6 +33,11 @@ if [ -x /bin/dmesg ]; then
 	echo
 fi
 
+echo "Device node permissions:"
+ls -l /dev/dri/* /dev/nvidia* 2>/dev/null
+getent group video
+echo
+
 echo "OpenGL and NVIDIA library files installed:"
 ls -l	/etc/alternatives/glx* \
 	/etc/alternatives/nvidia* \

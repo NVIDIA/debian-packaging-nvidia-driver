@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (340.93-4) UNRELEASED; urgency=medium
 
   * Update lintian overrides.
+  * bug-script: Report device node permissions.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 06 Oct 2015 10:18:28 +0200
 
