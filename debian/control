@@ -179,6 +179,7 @@ Pre-Depends:
 Depends:
  ${nvidia-alternative},
  lib${nvidia}-eglcore (= ${binary:Version}),
+ libglvnd-${nvidia} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
  This package contains the EGL native platform graphics interface library.

@@ -61,6 +61,7 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
     - debian/module/conftest/patches.h is no longer a symlink
    * Added new libglvnd-nvidia package, dependency of new libEGL.so.1,
      ships vendor-neutral GL libraries
+   * Updated libegl1-nvidia, upstream now ships libEGL.so.1
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
 
