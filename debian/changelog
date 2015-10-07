@@ -58,6 +58,7 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
       debian/rules for new build system
     - Removed debian/module/Makefile, debian/module/conftest.sh
     - Modules build on 4.2, update rules.def
+    - debian/module/conftest/patches.h is no longer a symlink
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
 
