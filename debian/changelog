@@ -1,3 +1,53 @@
+nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
+
+  [ Luca Boccassi ]
+  * New upstream release 355.11 (2015-08-31).
+    - Fixed a bug that caused applications using OpenCL or CUDA with OpenGL
+      interoperability to crash when using GLX indirect rendering.
+    - Fixed a bug that could cause GPU exceptions when using glReadPixels() on
+      the depth or stencil buffers of multisample windows while resizing or
+      moving the windows.
+  * New upstream beta 355.06 (2015-08-03).
+    - Fixed a bug that could cause data from one texture level to overwrite data
+      from the next lowest level, when creating a texture view that did not
+      include the higher of the two levels.
+    - Fixed a bug that could cause the nvidia-settings control panel to crash
+      when updating the display layout.
+    - Corrected some erroneous reporting of support for GLX extensions: several
+      extensions were being reported as supported for indirect GLX, which were
+      in fact only supported under direct rendering.
+    - Added support for the following EGL extensions:
+      EGL_KHR_swap_buffers_with_damage
+      EGL_NV_stream_consumer_gltexture_yuv
+    - Replaced the build system for the NVIDIA kernel modules and updated the
+      installer package and nvidia-installer to use the new build system and
+      kernel module source code layout. For more information about the new build
+      system and layout, see the README document at: 
+      ftp://download.nvidia.com/XFree86/packaging/linux/new-kbuild-for-355/
+    - Added experimental full OpenGL support to EGL.
+    - Marked the DeleteUnusedDP12Displays option as deprecated. 
+      Version 1.5.0 of the X Resize and Rotate specification added a note that
+      dynamically-created outputs will not be destroyed, so this option is
+      deprecated and will be removed in a future driver release.
+    - Added support for VDPAU profiles added in VDPAU 0.9:
+      VDP_DECODER_PROFILE_H264_BASELINE
+      VDP_DECODER_PROFILE_H264_CONSTRAINED_BASELINE
+      VDP_DECODER_PROFILE_H264_EXTENDED
+      VDP_DECODER_PROFILE_H264_PROGRESSIVE_HIGH
+      VDP_DECODER_PROFILE_H264_CONSTRAINED_HIGH
+    - Fixed a bug that prevented more than one RandR output from sharing
+      user-added modes.
+    - Fixed a bug that caused application-specified swap intervals to be ignored
+      on some screens when using Xinerama.
+    - Fixed a bug that caused user-supplied RandR modes with nonsensical
+      combinations of the +HSync, -HSync, +VSync, and -VSync flags to corrupt
+      the mode list.
+    - Added support to make an OpenGL 3.0 and above context current without
+      making current to any drawable.
+   * Updated watch version to 355
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
+
 nvidia-graphics-drivers (352.41-1) experimental; urgency=medium
 
   [ Andreas Beckmann ]
