@@ -1,0 +1,27 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix failure to build module on kernel 4.3
+ seq_printf and seq_puts do not return a value anymore since commit
+ 6798a8caaf64f, so nv-procfs.c has to be patched to avoid a build failure.
+
+--- a/nvidia/nv-procfs.c
++++ b/nvidia/nv-procfs.c
+@@ -358,7 +358,8 @@
+     registry_keys = ((nvl != NULL) ?
+             nvl->registry_keys : nv_registry_keys);
+ 
+-    return seq_printf(s, "Binary: \"%s\"\n", registry_keys);
++    seq_printf(s, "Binary: \"%s\"\n", registry_keys);
++    return 0;
+ }
+ 
+ static ssize_t
+@@ -558,7 +559,8 @@
+     void *v
+ )
+ {
+-    return seq_puts(s, s->private);
++    seq_puts(s, s->private);
++    return 0;
+ }
+ 
+ NV_DEFINE_PROCFS_SINGLE_FILE(text_file);

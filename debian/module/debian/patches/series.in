@@ -4,3 +4,4 @@ include-swiotlb-header-on-arm.patch
 ignore_xen_on_arm.patch
 disable_nvidia_conftest.patch
 #HAS_UVM#disable_uvm_conftest.patch
+seq-printf.patch
