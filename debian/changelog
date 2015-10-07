@@ -62,6 +62,7 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
    * Added new libglvnd-nvidia package, dependency of new libEGL.so.1,
      ships vendor-neutral GL libraries
    * Updated libegl1-nvidia, upstream now ships libEGL.so.1
+   * Updated libgl1-nvidia-glx and libnvidia-eglcore symbols
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
 

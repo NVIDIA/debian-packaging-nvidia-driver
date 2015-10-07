@@ -1675,6 +1675,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glQueryCounter@Base 256
  glQueryCounterEXT@Base 346
  glQueryCounterNV@Base 331
+ glQueryResourceNVX@Base 355
  glRasterPos2d@Base 1.0.4349
  glRasterPos2dv@Base 1.0.4349
  glRasterPos2f@Base 1.0.4349

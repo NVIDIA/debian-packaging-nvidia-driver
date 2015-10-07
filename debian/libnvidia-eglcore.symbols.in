@@ -1661,6 +1661,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glQueryCounter@Base 346
  _glQueryCounterEXT@Base 346
  _glQueryCounterNV@Base 346
+ _glQueryResourceNVX@Base 355
  _glRasterPos2d@Base 346
  _glRasterPos2dv@Base 346
  _glRasterPos2f@Base 346
