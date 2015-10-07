@@ -6,15 +6,14 @@ Description: avoid linking the kernel module with ld.gold
  ld.bfd nor ld.gold, but we are not supporting lenny backports anyway.
 Bug-Debian: http://bugs.debian.org/626279
 
---- a/nvidia-modules-common.mk
-+++ b/nvidia-modules-common.mk
-@@ -19,6 +19,9 @@
- .PHONY: all install suser-sanity-check rmmod-sanity-check build-sanity-checks \
- module module-sign module-install package-install clean
+--- a/Makefile
++++ b/Makefile
+@@ -77,6 +77,8 @@
+   endif
  
-+# avoid ld.gold, see #626279
-+LD=ld.bfd
-+
- all: install
- install: package-install
- 
+   .PHONY: modules module clean clean_conftest modules_install
++  # avoid ld.gold, see #626279
++  LD=ld.bfd
+   modules clean modules_install:
+ 	$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) $@
+ 	@if [ "$@" = "modules" ]; then \

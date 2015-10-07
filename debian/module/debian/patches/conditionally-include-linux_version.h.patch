@@ -5,8 +5,8 @@ Description: Conditionally include linux/version.h
  Since linux/version.h does not contain include guards, add a check to
  nv-linux.h to not include linux/version.h multiple times.
 
---- a/nv-linux.h
-+++ b/nv-linux.h
+--- a/common/inc/nv-linux.h
++++ b/common/inc/nv-linux.h
 @@ -36,7 +36,9 @@
    #include <generated/compile.h>
  #endif

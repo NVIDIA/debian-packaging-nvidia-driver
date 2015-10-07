@@ -1,0 +1,21 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com
+Description: Remove dependency on conftest.sh from kernel modules
+ The new build system of the Nvidia kernel modules now runs conftest.sh by
+ having the modules objects depend on it. Simply overriding the script with a
+ noop is no longer necessary, as the conftest/ directory with the headers will
+ be created and will fail to build. As a workaround, simply take out the
+ dependency from the modules, so that the build system doesn't even try to run
+ the scripts and create the files.
+
+--- a/nvidia/nvidia.Kbuild
++++ b/nvidia/nvidia.Kbuild
+@@ -94,8 +94,8 @@
+ # Register the conftests needed by nvidia.ko
+ #
+ 
+-NV_OBJECTS_DEPEND_ON_CONFTEST += $(NVIDIA_OBJECTS)
++#NV_OBJECTS_DEPEND_ON_CONFTEST += $(NVIDIA_OBJECTS)
+ 
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += remap_pfn_range
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += follow_pfn
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += vmap

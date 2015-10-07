@@ -44,7 +44,20 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
       the mode list.
     - Added support to make an OpenGL 3.0 and above context current without
       making current to any drawable.
-   * Updated watch version to 355
+  * Updated watch version to 355
+  * Updated kernel module build to adapt to the new upstream build system.
+    - Dropped patches that are no longer needed:
+      not-silent.patch
+      use-nv-kernel-ARCH.o_shipped.patch
+      uvm-symvers.patch
+      uvm-symvers2.patch
+    - Make build verbose by using new env var NV_VERBOSE=1
+    - Updated kernel module patches to accomodate for new build path
+    - Added patches to stop upstream Kbuild from using conftest.sh
+    - Updated paths in debian/nvidia-kernel-dkms.dkms.in debian/rules.in,
+      debian/rules for new build system
+    - Removed debian/module/Makefile, debian/module/conftest.sh
+    - Modules build on 4.2, update rules.def
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
 

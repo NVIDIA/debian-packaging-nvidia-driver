@@ -10,8 +10,8 @@ Description: Undef CONFIG_XEN and CONFIG_XEN_DOM0 if building on ARM
  It is recommended to build an armmp kernel with CONFIG_XEN disabled (or with
  CONFIG_XEN_PARAVIRT enabled) to use the Nvidia drivers.
 
---- a/nv-linux.h
-+++ b/nv-linux.h
+--- a/common/inc/nv-linux.h
++++ b/common/inc/nv-linux.h
 @@ -27,7 +27,12 @@
  #include <linux/autoconf.h>
  #endif
