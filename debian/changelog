@@ -3,6 +3,8 @@ nvidia-graphics-drivers (340.93-4) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Update lintian overrides.
   * bug-script: Report device node permissions.
+  * bug-control, bug-script: Report information about CUDA libraries.
+  * libcuda1: Provides: libcuda1-any.
 
   [ Luca Boccassi ]
   * Add patch to fix kernel module build failure on 4.3
