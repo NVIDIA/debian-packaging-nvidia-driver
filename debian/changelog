@@ -7,6 +7,7 @@ nvidia-graphics-drivers (340.93-4) UNRELEASED; urgency=medium
   * libcuda1: Provides: libcuda1-any.
   * xserver-xorg-video-nvidia: Ship nvidia-drm-outputclass.conf, managed via
     nvidia-alternative.
+  * Add nvidia-kernel-support package.
 
   [ Luca Boccassi ]
   * Add patch to fix kernel module build failure on 4.3

@@ -303,6 +303,23 @@ Description: allows the selection of NVIDIA as GLX provider
  In order to install the NVIDIA driver and libraries, install the
  ${nvidia}-driver package instead.
 
+#Package: ${nvidia}-kernel-support
+Package: nvidia-kernel-support
+Section: non-free/kernel
+Architecture: i386 amd64 armhf
+Multi-Arch: foreign
+Depends:
+ ${nvidia-alternative} (= ${binary:Version}),
+ nvidia-kernel-common (>= 20110213),
+ ${misc:Depends}
+Description: NVIDIA binary kernel module support files${nvidia:LegacyDesc}
+ The NVIDIA binary drivers provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server for graphics cards
+ using NVIDIA chip sets.  AGP, PCIe, SLI, TV-out and flat panel displays
+ are also supported.
+ .
+ This package provides supporting configuration for the kernel module.
+
 #Package: ${nvidia}-kernel-dkms
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
@@ -312,6 +329,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  dkms,
+ ${nvidia}-kernel-support,
  nvidia-kernel-common (>= 20110213),
  ${nvidia-alternative}--kmod-alias,
  ${misc:Depends}
