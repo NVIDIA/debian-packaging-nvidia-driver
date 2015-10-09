@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (352.41-2) UNRELEASED; urgency=medium
 
   * Add patch to fix kernel module build failure on 4.3
+  * Add patch to fix armhf kernel module build failure on 4.3
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 07 Oct 2015 20:25:41 +0100
 
