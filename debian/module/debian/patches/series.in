@@ -5,3 +5,4 @@ conditionally-include-linux_version.h.patch
 #HAS_UVM#uvm-symvers.patch
 ignore_xen_on_arm.patch
 seq-printf.patch
+arm-outer-sync.patch
