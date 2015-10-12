@@ -1,5 +1,9 @@
 nvidia-graphics-drivers (340.93-5) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
+  * Reroute all kernel module dependencies through nvidia-kernel-support.
+
+  [ Luca Boccassi ]
   * Add patch to fix armhf kernel module build failure on 4.3
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sat, 10 Oct 2015 00:19:20 +0100
