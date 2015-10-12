@@ -13,6 +13,10 @@ MAKE[0]="env CCACHE_DISABLE=1 NV_VERBOSE=1 \
     make -C . SYSSRC=${kernel_source_dir} modules"
 CLEAN="make -C . SYSSRC=${kernel_source_dir} clean"
 
-#HAS_UVM#BUILT_MODULE_NAME[1]="nvidia-uvm"
-#HAS_UVM#DEST_MODULE_NAME[1]="nvidia-uvm"
-#HAS_UVM#DEST_MODULE_LOCATION[1]="/updates/dkms"
+BUILT_MODULE_NAME[1]="nvidia-modeset"
+DEST_MODULE_NAME[1]="nvidia-modeset"
+DEST_MODULE_LOCATION[1]="/updates/dkms"
+
+#HAS_UVM#BUILT_MODULE_NAME[2]="nvidia-uvm"
+#HAS_UVM#DEST_MODULE_NAME[2]="nvidia-uvm"
+#HAS_UVM#DEST_MODULE_LOCATION[2]="/updates/dkms"
