@@ -74,6 +74,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glBindVideoCaptureStreamBufferNV@Base 346
  _glBindVideoCaptureStreamTextureNV@Base 346
  _glBitmap@Base 346
+ _glBlendBarrier@Base 358
  _glBlendBarrierKHR@Base 346
  _glBlendBarrierNV@Base 346
  _glBlendColor@Base 346
@@ -321,6 +322,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glCreateShaderProgramv@Base 346
  _glCreateShaderProgramvEXT@Base 346
  _glCreateStatesNV@Base 346
+ _glCreateSyncFromCLeventARB@Base 358
  _glCreateTextures@Base 346
  _glCreateTransformFeedbacks@Base 346
  _glCreateVertexArrays@Base 346
@@ -512,6 +514,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glEvalMesh2@Base 346
  _glEvalPoint1@Base 346
  _glEvalPoint2@Base 346
+ _glEvaluateDepthValuesARB@Base 358
  _glExecuteProgramNV@Base 346
  _glFeedbackBuffer@Base 346
  _glFenceSync@Base 346
@@ -553,6 +556,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glFramebufferRenderbuffer@Base 346
  _glFramebufferRenderbufferEXT@Base 346
  _glFramebufferRenderbufferOES@Base 346
+ _glFramebufferSampleLocationsfvARB@Base 358
  _glFramebufferSampleLocationsfvNV@Base 346
  _glFramebufferTexture1D@Base 346
  _glFramebufferTexture1DEXT@Base 346
@@ -927,9 +931,11 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetUniformdv@Base 346
  _glGetUniformfv@Base 346
  _glGetUniformfvARB@Base 346
+ _glGetUniformi64vARB@Base 358
  _glGetUniformi64vNV@Base 346
  _glGetUniformiv@Base 346
  _glGetUniformivARB@Base 346
+ _glGetUniformui64vARB@Base 358
  _glGetUniformui64vNV@Base 346
  _glGetUniformuiv@Base 346
  _glGetUniformuivEXT@Base 346
@@ -1005,10 +1011,12 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetnUniformfvARB@Base 346
  _glGetnUniformfvEXT@Base 346
  _glGetnUniformfvKHR@Base 346
+ _glGetnUniformi64vARB@Base 358
  _glGetnUniformiv@Base 346
  _glGetnUniformivARB@Base 346
  _glGetnUniformivEXT@Base 346
  _glGetnUniformivKHR@Base 346
+ _glGetnUniformui64vARB@Base 358
  _glGetnUniformuiv@Base 346
  _glGetnUniformuivARB@Base 346
  _glGetnUniformuivKHR@Base 346
@@ -1187,6 +1195,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glMatrixScalefEXT@Base 346
  _glMatrixTranslatedEXT@Base 346
  _glMatrixTranslatefEXT@Base 346
+ _glMaxShaderCompilerThreadsARB@Base 358
  _glMemoryBarrier@Base 346
  _glMemoryBarrierByRegion@Base 346
  _glMemoryBarrierEXT@Base 346
@@ -1347,6 +1356,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glNamedFramebufferReadBuffer@Base 346
  _glNamedFramebufferRenderbuffer@Base 346
  _glNamedFramebufferRenderbufferEXT@Base 346
+ _glNamedFramebufferSampleLocationsfvARB@Base 358
  _glNamedFramebufferSampleLocationsfvNV@Base 346
  _glNamedFramebufferTexture1DEXT@Base 346
  _glNamedFramebufferTexture2DEXT@Base 346
@@ -1474,6 +1484,8 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glPopName@Base 346
  _glPresentFrameDualFillNV@Base 346
  _glPresentFrameKeyedNV@Base 346
+ _glPrimitiveBoundingBox@Base 358
+ _glPrimitiveBoundingBoxARB@Base 358
  _glPrimitiveBoundingBoxEXT@Base 346
  _glPrimitiveBoundingBoxOES@Base 349
  _glPrimitiveRestart@Base 346
@@ -1533,13 +1545,17 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glProgramUniform1fEXT@Base 346
  _glProgramUniform1fv@Base 346
  _glProgramUniform1fvEXT@Base 346
+ _glProgramUniform1i64ARB@Base 358
  _glProgramUniform1i64NV@Base 346
+ _glProgramUniform1i64vARB@Base 358
  _glProgramUniform1i64vNV@Base 346
  _glProgramUniform1i@Base 346
  _glProgramUniform1iEXT@Base 346
  _glProgramUniform1iv@Base 346
  _glProgramUniform1ivEXT@Base 346
+ _glProgramUniform1ui64ARB@Base 358
  _glProgramUniform1ui64NV@Base 346
+ _glProgramUniform1ui64vARB@Base 358
  _glProgramUniform1ui64vNV@Base 346
  _glProgramUniform1ui@Base 346
  _glProgramUniform1uiEXT@Base 346
@@ -1553,13 +1569,17 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glProgramUniform2fEXT@Base 346
  _glProgramUniform2fv@Base 346
  _glProgramUniform2fvEXT@Base 346
+ _glProgramUniform2i64ARB@Base 358
  _glProgramUniform2i64NV@Base 346
+ _glProgramUniform2i64vARB@Base 358
  _glProgramUniform2i64vNV@Base 346
  _glProgramUniform2i@Base 346
  _glProgramUniform2iEXT@Base 346
  _glProgramUniform2iv@Base 346
  _glProgramUniform2ivEXT@Base 346
+ _glProgramUniform2ui64ARB@Base 358
  _glProgramUniform2ui64NV@Base 346
+ _glProgramUniform2ui64vARB@Base 358
  _glProgramUniform2ui64vNV@Base 346
  _glProgramUniform2ui@Base 346
  _glProgramUniform2uiEXT@Base 346
@@ -1573,13 +1593,17 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glProgramUniform3fEXT@Base 346
  _glProgramUniform3fv@Base 346
  _glProgramUniform3fvEXT@Base 346
+ _glProgramUniform3i64ARB@Base 358
  _glProgramUniform3i64NV@Base 346
+ _glProgramUniform3i64vARB@Base 358
  _glProgramUniform3i64vNV@Base 346
  _glProgramUniform3i@Base 346
  _glProgramUniform3iEXT@Base 346
  _glProgramUniform3iv@Base 346
  _glProgramUniform3ivEXT@Base 346
+ _glProgramUniform3ui64ARB@Base 358
  _glProgramUniform3ui64NV@Base 346
+ _glProgramUniform3ui64vARB@Base 358
  _glProgramUniform3ui64vNV@Base 346
  _glProgramUniform3ui@Base 346
  _glProgramUniform3uiEXT@Base 346
@@ -1593,13 +1617,17 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glProgramUniform4fEXT@Base 346
  _glProgramUniform4fv@Base 346
  _glProgramUniform4fvEXT@Base 346
+ _glProgramUniform4i64ARB@Base 358
  _glProgramUniform4i64NV@Base 346
+ _glProgramUniform4i64vARB@Base 358
  _glProgramUniform4i64vNV@Base 346
  _glProgramUniform4i@Base 346
  _glProgramUniform4iEXT@Base 346
  _glProgramUniform4iv@Base 346
  _glProgramUniform4ivEXT@Base 346
+ _glProgramUniform4ui64ARB@Base 358
  _glProgramUniform4ui64NV@Base 346
+ _glProgramUniform4ui64vARB@Base 358
  _glProgramUniform4ui64vNV@Base 346
  _glProgramUniform4ui@Base 346
  _glProgramUniform4uiEXT@Base 346
@@ -1987,13 +2015,17 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glUniform1fARB@Base 346
  _glUniform1fv@Base 346
  _glUniform1fvARB@Base 346
+ _glUniform1i64ARB@Base 358
  _glUniform1i64NV@Base 346
+ _glUniform1i64vARB@Base 358
  _glUniform1i64vNV@Base 346
  _glUniform1i@Base 346
  _glUniform1iARB@Base 346
  _glUniform1iv@Base 346
  _glUniform1ivARB@Base 346
+ _glUniform1ui64ARB@Base 358
  _glUniform1ui64NV@Base 346
+ _glUniform1ui64vARB@Base 358
  _glUniform1ui64vNV@Base 346
  _glUniform1ui@Base 346
  _glUniform1uiEXT@Base 346
@@ -2005,13 +2037,17 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glUniform2fARB@Base 346
  _glUniform2fv@Base 346
  _glUniform2fvARB@Base 346
+ _glUniform2i64ARB@Base 358
  _glUniform2i64NV@Base 346
+ _glUniform2i64vARB@Base 358
  _glUniform2i64vNV@Base 346
  _glUniform2i@Base 346
  _glUniform2iARB@Base 346
  _glUniform2iv@Base 346
  _glUniform2ivARB@Base 346
+ _glUniform2ui64ARB@Base 358
  _glUniform2ui64NV@Base 346
+ _glUniform2ui64vARB@Base 358
  _glUniform2ui64vNV@Base 346
  _glUniform2ui@Base 346
  _glUniform2uiEXT@Base 346
@@ -2023,13 +2059,17 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glUniform3fARB@Base 346
  _glUniform3fv@Base 346
  _glUniform3fvARB@Base 346
+ _glUniform3i64ARB@Base 358
  _glUniform3i64NV@Base 346
+ _glUniform3i64vARB@Base 358
  _glUniform3i64vNV@Base 346
  _glUniform3i@Base 346
  _glUniform3iARB@Base 346
  _glUniform3iv@Base 346
  _glUniform3ivARB@Base 346
+ _glUniform3ui64ARB@Base 358
  _glUniform3ui64NV@Base 346
+ _glUniform3ui64vARB@Base 358
  _glUniform3ui64vNV@Base 346
  _glUniform3ui@Base 346
  _glUniform3uiEXT@Base 346
@@ -2041,13 +2081,17 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glUniform4fARB@Base 346
  _glUniform4fv@Base 346
  _glUniform4fvARB@Base 346
+ _glUniform4i64ARB@Base 358
  _glUniform4i64NV@Base 346
+ _glUniform4i64vARB@Base 358
  _glUniform4i64vNV@Base 346
  _glUniform4i@Base 346
  _glUniform4iARB@Base 346
  _glUniform4iv@Base 346
  _glUniform4ivARB@Base 346
+ _glUniform4ui64ARB@Base 358
  _glUniform4ui64NV@Base 346
+ _glUniform4ui64vARB@Base 358
  _glUniform4ui64vNV@Base 346
  _glUniform4ui@Base 346
  _glUniform4uiEXT@Base 346

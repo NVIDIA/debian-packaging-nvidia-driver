@@ -75,6 +75,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glBindVideoCaptureStreamBufferNV@Base 190.32
  glBindVideoCaptureStreamTextureNV@Base 190.32
  glBitmap@Base 1.0.4349
+ glBlendBarrier@Base 358
  glBlendBarrierKHR@Base 337
  glBlendBarrierNV@Base 331
  glBlendColor@Base 1.0.4349
@@ -326,6 +327,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glCreateShaderProgramv@Base 260
  glCreateShaderProgramvEXT@Base 334
  glCreateStatesNV@Base 346
+ glCreateSyncFromCLeventARB@Base 358
  glCreateTextures@Base 346
  glCreateTransformFeedbacks@Base 346
  glCreateVertexArrays@Base 346
@@ -515,6 +517,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glEvalMesh2@Base 1.0.4349
  glEvalPoint1@Base 1.0.4349
  glEvalPoint2@Base 1.0.4349
+ glEvaluateDepthValuesARB@Base 358
  glExecuteProgramNV@Base 1.0.4349
  glFeedbackBuffer@Base 1.0.4349
  glFenceSync@Base 190.18.05
@@ -556,6 +559,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glFramebufferRenderbuffer@Base 180
  glFramebufferRenderbufferEXT@Base 1.0.7664
  glFramebufferRenderbufferOES@Base 325
+ glFramebufferSampleLocationsfvARB@Base 358
  glFramebufferSampleLocationsfvNV@Base 343
  glFramebufferTexture1D@Base 180
  glFramebufferTexture1DEXT@Base 1.0.7664
@@ -939,9 +943,11 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetUniformdv@Base 256
  glGetUniformfv@Base 1.0.7664
  glGetUniformfvARB@Base 1.0.6106
+ glGetUniformi64vARB@Base 358
  glGetUniformi64vNV@Base 195
  glGetUniformiv@Base 1.0.7664
  glGetUniformivARB@Base 1.0.6106
+ glGetUniformui64vARB@Base 358
  glGetUniformui64vNV@Base 185
  glGetUniformuiv@Base 180
  glGetUniformuivEXT@Base 1.0.9746
@@ -1017,10 +1023,12 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetnUniformfvARB@Base 260
  glGetnUniformfvEXT@Base 334
  glGetnUniformfvKHR@Base 346
+ glGetnUniformi64vARB@Base 358
  glGetnUniformiv@Base 346
  glGetnUniformivARB@Base 260
  glGetnUniformivEXT@Base 334
  glGetnUniformivKHR@Base 346
+ glGetnUniformui64vARB@Base 358
  glGetnUniformuiv@Base 346
  glGetnUniformuivARB@Base 260
  glGetnUniformuivKHR@Base 346
@@ -1200,6 +1208,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glMatrixScalefEXT@Base 180
  glMatrixTranslatedEXT@Base 180
  glMatrixTranslatefEXT@Base 180
+ glMaxShaderCompilerThreadsARB@Base 358
  glMemoryBarrier@Base 285
  glMemoryBarrierByRegion@Base 337
  glMemoryBarrierEXT@Base 195
@@ -1361,6 +1370,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glNamedFramebufferReadBuffer@Base 346
  glNamedFramebufferRenderbuffer@Base 346
  glNamedFramebufferRenderbufferEXT@Base 180
+ glNamedFramebufferSampleLocationsfvARB@Base 358
  glNamedFramebufferSampleLocationsfvNV@Base 343
  glNamedFramebufferTexture1DEXT@Base 180
  glNamedFramebufferTexture2DEXT@Base 180
@@ -1488,6 +1498,8 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glPopName@Base 1.0.4349
  glPresentFrameDualFillNV@Base 173
  glPresentFrameKeyedNV@Base 173
+ glPrimitiveBoundingBox@Base 358
+ glPrimitiveBoundingBoxARB@Base 358
  glPrimitiveBoundingBoxEXT@Base 346
  glPrimitiveBoundingBoxOES@Base 349
  glPrimitiveRestart@Base 190
@@ -1547,13 +1559,17 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glProgramUniform1fEXT@Base 180
  glProgramUniform1fv@Base 260
  glProgramUniform1fvEXT@Base 180
+ glProgramUniform1i64ARB@Base 358
  glProgramUniform1i64NV@Base 195
+ glProgramUniform1i64vARB@Base 358
  glProgramUniform1i64vNV@Base 195
  glProgramUniform1i@Base 260
  glProgramUniform1iEXT@Base 180
  glProgramUniform1iv@Base 260
  glProgramUniform1ivEXT@Base 180
+ glProgramUniform1ui64ARB@Base 358
  glProgramUniform1ui64NV@Base 195
+ glProgramUniform1ui64vARB@Base 358
  glProgramUniform1ui64vNV@Base 195
  glProgramUniform1ui@Base 260
  glProgramUniform1uiEXT@Base 180
@@ -1567,13 +1583,17 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glProgramUniform2fEXT@Base 180
  glProgramUniform2fv@Base 260
  glProgramUniform2fvEXT@Base 180
+ glProgramUniform2i64ARB@Base 358
  glProgramUniform2i64NV@Base 195
+ glProgramUniform2i64vARB@Base 358
  glProgramUniform2i64vNV@Base 195
  glProgramUniform2i@Base 260
  glProgramUniform2iEXT@Base 180
  glProgramUniform2iv@Base 260
  glProgramUniform2ivEXT@Base 180
+ glProgramUniform2ui64ARB@Base 358
  glProgramUniform2ui64NV@Base 195
+ glProgramUniform2ui64vARB@Base 358
  glProgramUniform2ui64vNV@Base 195
  glProgramUniform2ui@Base 260
  glProgramUniform2uiEXT@Base 180
@@ -1587,13 +1607,17 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glProgramUniform3fEXT@Base 180
  glProgramUniform3fv@Base 260
  glProgramUniform3fvEXT@Base 180
+ glProgramUniform3i64ARB@Base 358
  glProgramUniform3i64NV@Base 195
+ glProgramUniform3i64vARB@Base 358
  glProgramUniform3i64vNV@Base 195
  glProgramUniform3i@Base 260
  glProgramUniform3iEXT@Base 180
  glProgramUniform3iv@Base 260
  glProgramUniform3ivEXT@Base 180
+ glProgramUniform3ui64ARB@Base 358
  glProgramUniform3ui64NV@Base 195
+ glProgramUniform3ui64vARB@Base 358
  glProgramUniform3ui64vNV@Base 195
  glProgramUniform3ui@Base 260
  glProgramUniform3uiEXT@Base 180
@@ -1607,13 +1631,17 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glProgramUniform4fEXT@Base 180
  glProgramUniform4fv@Base 260
  glProgramUniform4fvEXT@Base 180
+ glProgramUniform4i64ARB@Base 358
  glProgramUniform4i64NV@Base 195
+ glProgramUniform4i64vARB@Base 358
  glProgramUniform4i64vNV@Base 195
  glProgramUniform4i@Base 260
  glProgramUniform4iEXT@Base 180
  glProgramUniform4iv@Base 260
  glProgramUniform4ivEXT@Base 180
+ glProgramUniform4ui64ARB@Base 358
  glProgramUniform4ui64NV@Base 195
+ glProgramUniform4ui64vARB@Base 358
  glProgramUniform4ui64vNV@Base 195
  glProgramUniform4ui@Base 260
  glProgramUniform4uiEXT@Base 180
@@ -2006,13 +2034,17 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glUniform1fARB@Base 1.0.6106
  glUniform1fv@Base 1.0.7664
  glUniform1fvARB@Base 1.0.6106
+ glUniform1i64ARB@Base 358
  glUniform1i64NV@Base 195
+ glUniform1i64vARB@Base 358
  glUniform1i64vNV@Base 195
  glUniform1i@Base 1.0.7664
  glUniform1iARB@Base 1.0.6106
  glUniform1iv@Base 1.0.7664
  glUniform1ivARB@Base 1.0.6106
+ glUniform1ui64ARB@Base 358
  glUniform1ui64NV@Base 195
+ glUniform1ui64vARB@Base 358
  glUniform1ui64vNV@Base 195
  glUniform1ui@Base 180
  glUniform1uiEXT@Base 1.0.9746
@@ -2024,13 +2056,17 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glUniform2fARB@Base 1.0.6106
  glUniform2fv@Base 1.0.7664
  glUniform2fvARB@Base 1.0.6106
+ glUniform2i64ARB@Base 358
  glUniform2i64NV@Base 195
+ glUniform2i64vARB@Base 358
  glUniform2i64vNV@Base 195
  glUniform2i@Base 1.0.7664
  glUniform2iARB@Base 1.0.6106
  glUniform2iv@Base 1.0.7664
  glUniform2ivARB@Base 1.0.6106
+ glUniform2ui64ARB@Base 358
  glUniform2ui64NV@Base 195
+ glUniform2ui64vARB@Base 358
  glUniform2ui64vNV@Base 195
  glUniform2ui@Base 180
  glUniform2uiEXT@Base 1.0.9746
@@ -2042,13 +2078,17 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glUniform3fARB@Base 1.0.6106
  glUniform3fv@Base 1.0.7664
  glUniform3fvARB@Base 1.0.6106
+ glUniform3i64ARB@Base 358
  glUniform3i64NV@Base 195
+ glUniform3i64vARB@Base 358
  glUniform3i64vNV@Base 195
  glUniform3i@Base 1.0.7664
  glUniform3iARB@Base 1.0.6106
  glUniform3iv@Base 1.0.7664
  glUniform3ivARB@Base 1.0.6106
+ glUniform3ui64ARB@Base 358
  glUniform3ui64NV@Base 195
+ glUniform3ui64vARB@Base 358
  glUniform3ui64vNV@Base 195
  glUniform3ui@Base 180
  glUniform3uiEXT@Base 1.0.9746
@@ -2060,13 +2100,17 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glUniform4fARB@Base 1.0.6106
  glUniform4fv@Base 1.0.7664
  glUniform4fvARB@Base 1.0.6106
+ glUniform4i64ARB@Base 358
  glUniform4i64NV@Base 195
+ glUniform4i64vARB@Base 358
  glUniform4i64vNV@Base 195
  glUniform4i@Base 1.0.7664
  glUniform4iARB@Base 1.0.6106
  glUniform4iv@Base 1.0.7664
  glUniform4ivARB@Base 1.0.6106
+ glUniform4ui64ARB@Base 358
  glUniform4ui64NV@Base 195
+ glUniform4ui64vARB@Base 358
  glUniform4ui64vNV@Base 195
  glUniform4ui@Base 180
  glUniform4uiEXT@Base 1.0.9746
