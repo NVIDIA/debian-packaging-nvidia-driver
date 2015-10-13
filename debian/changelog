@@ -1,6 +1,8 @@
 nvidia-graphics-drivers (340.93-5) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
+  * nvidia-kernel-support: Ship nvidia-modprobe.conf (previously in
+    nvidia-alternative), managed via nvidia-alternative.
   * Reroute all kernel module dependencies through nvidia-kernel-support.
 
   [ Luca Boccassi ]

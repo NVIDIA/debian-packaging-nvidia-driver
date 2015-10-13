@@ -70,7 +70,7 @@ if [ "$1" = "triggered" ]; then
 "
 	minor_slaves="
 		$(add_slave /etc/nvidia/nvidia-drm-outputclass.conf nvidia-drm-outputclass.conf /etc/#PRIVATE#/nvidia-drm-outputclass.conf)
-		$(add_slave /etc/modprobe.d/nvidia.conf nvidia-modprobe.conf /etc/nvidia/#NVIDIA#-modprobe.conf)
+		$(add_slave /etc/nvidia/nvidia-modprobe.conf nvidia-modprobe.conf /etc/#PRIVATE#/nvidia-modprobe.conf)
 "
 	if echo "$slaves" | grep -q "slave" ; then
 		update-alternatives --install /usr/lib/nvidia/nvidia nvidia /usr/lib/#PRIVATE# #MAJOR# $slaves $minor_slaves

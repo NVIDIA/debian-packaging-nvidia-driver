@@ -1,1 +1,2 @@
-debian/nvidia-load.conf		/etc/#PRIVATE#/
+debian/nvidia-load.conf		etc/#PRIVATE#/
+debian/nvidia-modprobe.conf	etc/#PRIVATE#/
