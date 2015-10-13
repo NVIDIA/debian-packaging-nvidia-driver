@@ -270,9 +270,6 @@ override_dh_dkms:
 override_dh_bugfiles:
 	dh_bugfiles -A
 
-override_dh_makeshlibs:
-	dh_makeshlibs -Xvdpau/libvdpau_nvidia.so -Xtls/libnvidia-tls.so
-
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir)/$(nvidia_private):$(LD_LIBRARY_PATH) dh_shlibdeps
 
