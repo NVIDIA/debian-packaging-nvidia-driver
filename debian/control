@@ -320,6 +320,10 @@ Depends:
  ${misc:Depends}
 Provides:
  ${nvidia}-kernel-support--v1,
+Breaks:
+# glx-alternative-nvidia (<< 0.6.91),
+Replaces:
+# glx-alternative-nvidia (<< 0.6.91),
 Description: NVIDIA binary kernel module support files${nvidia:LegacyDesc}
  The NVIDIA binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server for graphics cards
