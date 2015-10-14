@@ -65,6 +65,9 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
   * Updated libgl1-nvidia-glx and libnvidia-eglcore symbols
   * Add patch to fix kernel module build failure on 4.3
   * Add patch to fix armhf kernel module build failure on 4.3  
+  * conftest.h:
+    - Implement new conftest.sh functions hlist_for_each_entry, of_parse_phandle,
+      for_each_online_node, node_end_pfn (358.09)
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
 
