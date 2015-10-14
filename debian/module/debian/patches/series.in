@@ -6,5 +6,4 @@ conditionally-include-linux_version.h.patch
 #HAS_UVM#uvm-symvers.patch
 include-swiotlb-header-on-arm.patch
 ignore_xen_on_arm.patch
-seq-printf.patch
 arm-outer-sync.patch

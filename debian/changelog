@@ -4,7 +4,6 @@ nvidia-graphics-drivers (352.55-1) UNRELEASED; urgency=medium
     - Added support for the following GPUs: GeForce 805A, GeForce GTX 960A
     - Fixed a bug that caused applications using OpenCL or CUDA with
       OpenGL interopability to crash when using GLX indirect rendering.
-  * Add patch to fix kernel module build failure on 4.3
   * Add patch to fix armhf kernel module build failure on 4.3
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 14 Oct 2015 22:13:28 +0100
