@@ -275,7 +275,6 @@ Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
  glx-alternative-nvidia (>= 0.5),
- nvidia-modprobe,
  ${misc:Depends}
 Conflicts:
  libgl1-nvidia-alternatives,
@@ -317,6 +316,7 @@ Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  ${nvidia-alternative}--kmod-alias,
  nvidia-kernel-common (>= 20110213),
+ nvidia-modprobe,
  ${misc:Depends}
 Provides:
  ${nvidia}-kernel-support--v1,
