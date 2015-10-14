@@ -1,6 +1,9 @@
 nvidia-graphics-drivers (358.09-1) UNRELEASED; urgency=medium
 
   * New upstream beta 358.09 (2015-10-12).
+    - Added support for the following GPUs:
+      GeForce 805A
+      GeForce GTX 960A
     - Fixed a regression that reduced OpenGL performance on headless X server
       configurations.
     - Fixed a memory leak that occurred after destroying a GLXWindow which
