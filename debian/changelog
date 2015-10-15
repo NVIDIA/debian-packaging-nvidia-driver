@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.93-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.93 (2015-09-02).
     * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
@@ -36,7 +36,7 @@ nvidia-graphics-drivers (340.93-1) UNRELEASED; urgency=medium
   * bug-control, bug-script: Report information about CUDA libraries.
   * Merge changes from 304.128-1.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Sep 2015 01:00:49 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 13:18:03 +0200
 
 nvidia-graphics-drivers (340.76-4) unstable; urgency=medium
 
