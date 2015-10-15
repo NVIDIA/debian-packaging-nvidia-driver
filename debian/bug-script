@@ -33,37 +33,68 @@ if [ -x /bin/dmesg ]; then
 	echo
 fi
 
+echo "Device node permissions:"
+ls -l /dev/dri/* /dev/nvidia* 2>/dev/null
+getent group video
+echo
+
 echo "OpenGL and NVIDIA library files installed:"
 ls -l	/etc/alternatives/glx* \
 	/etc/alternatives/nvidia* \
 	/etc/alternatives/*libGL* \
 	/etc/alternatives/*_gl_conf \
 	/etc/ld.so.conf.d/*_GL.conf \
+	/etc/X11/*.conf \
+	/usr/lib/libEGL.* \
 	/usr/lib/libGL.* \
+	/usr/lib/libGLES*.* \
 	/usr/lib/libGLcore* \
+	/usr/lib/libcuda* \
 	/usr/lib/libnvidia* \
-	/usr/lib/*-linux-gnu/libGL.* \
-	/usr/lib/*-linux-gnu/libGLcore* \
-	/usr/lib/*-linux-gnu/libnvidia* \
+	/usr/lib/*-linux-gnu*/libEGL.* \
+	/usr/lib/*-linux-gnu*/libGL.* \
+	/usr/lib/*-linux-gnu*/libGLES*.* \
+	/usr/lib/*-linux-gnu*/libGLcore* \
+	/usr/lib/*-linux-gnu*/libcuda* \
+	/usr/lib/*-linux-gnu*/libnvidia* \
 	/usr/lib32/libGL.* \
 	/usr/lib32/libGLcore* \
 	/usr/lib32/libnvidia* \
-	2>/dev/null
-
-ls -la	/usr/lib/nvidia/ \
-	/usr/lib/nvidia/*/ \
-	/usr/lib/*-linux-gnu/nvidia/ \
-	/usr/lib/*-linux-gnu/nvidia/*/ \
-	/usr/lib/mesa/ \
-	/usr/lib/*-linux-gnu/mesa/ \
-	/usr/lib/mesa-diverted/ \
-	/usr/lib/mesa-diverted/*-linux-gnu/ \
-	/usr/lib32/nvidia/ \
-	/usr/lib32/nvidia/diversions/ \
-	/etc/X11/{xorg,nvidia}.conf \
-	/etc/X11/xorg.conf.d \
+	/usr/lib/xorg/modules/*glx* \
+	/usr/lib/xorg/modules/*/*glx* \
+	/usr/lib/xorg/modules/*nvidia* \
+	/usr/lib/xorg/modules/*/*nvidia* \
 	/var/log/Xorg.*.log* \
 	2>/dev/null
+
+ls -la	\
+	/etc/nvidia/ \
+	/usr/lib/nvidia/ \
+	/usr/lib/nvidia/*/ \
+	/usr/lib/*-linux-gnu*/nvidia/ \
+	/usr/lib/*-linux-gnu*/nvidia/*/ \
+	/usr/lib/mesa/ \
+	/usr/lib/*-linux-gnu*/mesa/ \
+	/usr/lib/mesa-diverted/ \
+	/usr/lib/mesa-diverted/*-linux-gnu*/ \
+	/usr/lib32/nvidia/ \
+	/usr/lib32/nvidia/diversions/ \
+	/etc/X11/xorg.conf.d/ \
+	2>/dev/null
+echo
+
+echo "/etc/modprobe.d:"
+ls -la /etc/modprobe.d/
+echo
+grep -ri nvidia /etc/modprobe.d/
+grep -ri nouveau /etc/modprobe.d/
+echo
+
+echo "/etc/modules-load.d:"
+ls -la /etc/modules /etc/modules-load.d/ 2>&1
+echo
+grep -ri nvidia /etc/modules /etc/modules-load.d/ 2>/dev/null
+grep -ri nouveau /etc/modules /etc/modules-load.d/ 2>/dev/null
 echo
 
 echo "Files from nvidia-installer:"
@@ -72,7 +103,7 @@ echo
 
 echo "Config and logfiles:"
 echo
-for file in /etc/X11/xorg.conf /etc/X11/xorg.conf.d/*.conf $(ls -dt /var/log/Xorg.*.log* 2>/dev/null | head -n 1)
+for file in /etc/modprobe.d/*nvidia*.conf /etc/X11/xorg.conf /etc/X11/xorg.conf.d/*.conf $(ls -dt /var/log/Xorg.*.log* 2>/dev/null | head -n 2)
 do
 	if [ -f "$file" ] && [ -r "$file" ]; then
 		echo "<<<<<<<<<< $file >>>>>>>>>>"
@@ -86,6 +117,14 @@ echo "Kernel modules: nvidia.ko"
 find /lib/modules -name "nvidia*.ko"
 echo
 find /lib/modules -name "nvidia*.ko" | xargs -r modinfo | grep -v ^parm:
+echo
+
+echo "lsmod:"
+lsmod
+echo
+
+echo "xrandr:"
+test ! -x /usr/bin/xrandr || xrandr 2>&1
 echo
 
 exit 0
