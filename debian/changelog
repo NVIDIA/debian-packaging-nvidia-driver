@@ -6,6 +6,7 @@ nvidia-graphics-drivers (340.93-5) UNRELEASED; urgency=medium
   * nvidia-kernel-support: Ship nvidia-blacklists-nouveau.conf and
     nvidia-load.conf, managed via nvidia-alternative.
   * Reroute all kernel module dependencies through nvidia-kernel-support.
+  * nvidia-modprobe.conf: Temporarily disable the PCI-ID-match aliases.
   * Update lintian overrides.
 
   [ Luca Boccassi ]
