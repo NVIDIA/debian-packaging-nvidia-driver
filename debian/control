@@ -379,7 +379,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  module-assistant | kernel-package,
- nvidia-kernel-support,
+ ${nvidia}-kernel-support,
 Suggests:
  ${nvidia}-driver (>= ${nvidia:Version}),
 Breaks:
