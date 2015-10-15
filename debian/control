@@ -319,6 +319,7 @@ Depends:
  nvidia-modprobe,
  ${misc:Depends}
 Provides:
+ nvidia-kernel-support-any,
  ${nvidia}-kernel-support--v1,
 Breaks:
  glx-alternative-nvidia (<< 0.6.91),
