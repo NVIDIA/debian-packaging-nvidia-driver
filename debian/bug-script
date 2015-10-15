@@ -33,6 +33,11 @@ if [ -x /bin/dmesg ]; then
 	echo
 fi
 
+echo "Device node permissions:"
+ls -l /dev/dri/* /dev/nvidia* 2>/dev/null
+getent group video
+echo
+
 echo "OpenGL and NVIDIA library files installed:"
 ls -l	/etc/alternatives/glx* \
 	/etc/alternatives/nvidia* \
@@ -44,11 +49,13 @@ ls -l	/etc/alternatives/glx* \
 	/usr/lib/libGL.* \
 	/usr/lib/libGLES*.* \
 	/usr/lib/libGLcore* \
+	/usr/lib/libcuda* \
 	/usr/lib/libnvidia* \
 	/usr/lib/*-linux-gnu*/libEGL.* \
 	/usr/lib/*-linux-gnu*/libGL.* \
 	/usr/lib/*-linux-gnu*/libGLES*.* \
 	/usr/lib/*-linux-gnu*/libGLcore* \
+	/usr/lib/*-linux-gnu*/libcuda* \
 	/usr/lib/*-linux-gnu*/libnvidia* \
 	/usr/lib32/libGL.* \
 	/usr/lib32/libGLcore* \
