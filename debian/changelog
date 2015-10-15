@@ -8,6 +8,7 @@ nvidia-graphics-drivers (340.93-5) UNRELEASED; urgency=medium
     nvidia-load.conf, managed via nvidia-alternative.
   * Reroute all kernel module dependencies through nvidia-kernel-support.
   * nvidia-modprobe.conf: Temporarily disable the PCI-ID-match aliases.
+  * Xorg autoconfig does not cause the permission issues.  (See: #801598)
   * Update lintian overrides.
 
   [ Luca Boccassi ]

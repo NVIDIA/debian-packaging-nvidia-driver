@@ -19,10 +19,6 @@ The NVIDIA driver packages now configure the system s.t. Xorg automatically
 detects and uses the NVIDIA driver. Therefore it is no longer necessary to
 manually create an xorg.conf.
 
-*** Automatic integration has been disabed due to some permission issues
-*** see #799948 for details. For the "old way" use
-glx-alternative-nvidia (<< 0.6.0) and a manually generated xorg.conf .
-
 If you still want to manually create an xorg.conf, e.g. to change some other
 driver settings, the following minimal one can serve as a starting point:
 
