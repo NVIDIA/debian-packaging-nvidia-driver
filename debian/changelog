@@ -34,6 +34,7 @@ nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
   * bug-script: Collect information from /etc/modules{,-load.d/}.
   * bug-script: Report device node permissions.
   * bug-control, bug-script: Report information about CUDA libraries.
+  * nvidia-detect: Update list of newer PCI IDs from release 346.87.
   * Merge changes from 304.128-1.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 13:18:03 +0200

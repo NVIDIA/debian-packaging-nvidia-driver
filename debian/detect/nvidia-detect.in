@@ -103,7 +103,7 @@ fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia-346.ids 2>/dev/null
 then
-	VERSIONS[346]=346.16
+	VERSIONS[346]=346.87
 fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia.ids 2>/dev/null
