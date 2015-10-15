@@ -6,6 +6,7 @@ nvidia-graphics-drivers (340.93-5) UNRELEASED; urgency=medium
   * nvidia-kernel-support: Ship nvidia-blacklists-nouveau.conf and
     nvidia-load.conf, managed via nvidia-alternative.
   * Reroute all kernel module dependencies through nvidia-kernel-support.
+  * Update lintian overrides.
 
   [ Luca Boccassi ]
   * Add patch to fix armhf kernel module build failure on 4.3
