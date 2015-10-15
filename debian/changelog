@@ -13,6 +13,9 @@ nvidia-graphics-drivers (340.93-5) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
   * Add patch to fix armhf kernel module build failure on 4.3
+  * conftest.h:
+    - Implement new conftest.sh functions hlist_for_each_entry, of_parse_phandle,
+      for_each_online_node, node_end_pfn (358.09).
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sat, 10 Oct 2015 00:19:20 +0100
 

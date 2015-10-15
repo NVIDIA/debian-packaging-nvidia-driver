@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 352.41, 349.16, 346.96, 343.36, 340.93, 304.128, 173.14.39, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 358.09, 355.11, 352.55, 349.16, 346.96, 343.36, 340.93, 304.128, 173.14.39, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -548,6 +548,13 @@
  #undef NV_LIST_CUT_POSITION_PRESENT
 #endif
 
+/* Implement conftest.sh function hlist_for_each_entry */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,9,0)
+ #define NV_HLIST_FOR_EACH_ENTRY_ARGUMENT_COUNT 3
+#else
+ #define NV_HLIST_FOR_EACH_ENTRY_ARGUMENT_COUNT 4
+#endif
+
 /* Implement conftest.sh function file_inode */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3,9,0)
  #define NV_FILE_HAS_INODE
@@ -628,6 +635,29 @@
  #define NV_WRITE_CR4_PRESENT
 #else
  #undef NV_WRITE_CR4_PRESENT
+#endif
+
+/* Implement conftest.sh function of_parse_phandle */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,31)
+ #define NV_OF_PARSE_PHANDLE_PRESENT
+#else
+ #undef NV_OF_PARSE_PHANDLE_PRESENT
+#endif
+
+/* Implement conftest.sh function for_each_online_node */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,24)
+ #define NV_FOR_EACH_ONLINE_NODE_PRESENT
+#else
+ #undef NV_FOR_EACH_ONLINE_NODE_PRESENT
+#endif
+
+/* Implement conftest.sh function node_end_pfn */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,0,0) || \
+    ((IS_ENABLED(CONFIG_X86) || IS_ENABLED(CONFIG_PPC)) && \
+    LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,24))
+ #define NV_NODE_END_PFN_PRESENT
+#else
+ #undef NV_NODE_END_PFN_PRESENT
 #endif
 
 /* Check for linux/semaphore.h */
