@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.128-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.128-1) wheezy; urgency=medium
 
   * New upstream legacy 304xx branch release 304.128 (2015-08-31).
     * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
@@ -23,7 +23,7 @@ nvidia-graphics-drivers (304.128-1) UNRELEASED; urgency=medium
   * bug-script: Synchronize with unstable (340.93-4).
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 13 Sep 2015 23:34:49 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 12:39:53 +0200
 
 nvidia-graphics-drivers (304.125-1) wheezy; urgency=medium
 
