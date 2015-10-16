@@ -4,7 +4,7 @@ nvidia-graphics-drivers (352.55-1) experimental; urgency=medium
   Therefore it is no longer necessary to manually create an xorg.conf to
   enable it.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 23:00:27 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 23:41:50 +0200
 
 nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 

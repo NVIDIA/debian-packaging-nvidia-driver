@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (352.55-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.55-1) experimental; urgency=medium
 
   * New upstream long lived branch release 352.55 (2015-10-12).
     - Added support for the following GPUs: GeForce 805A, GeForce GTX 960A.
@@ -10,7 +10,7 @@ nvidia-graphics-drivers (352.55-1) UNRELEASED; urgency=medium
   * libcuda1: Add Provides: libcuda-7.5-1{,-i386}.
   * Update lintian overrides.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 14 Oct 2015 22:13:28 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 23:41:50 +0200
 
 nvidia-graphics-drivers (352.41-1) experimental; urgency=medium
 
