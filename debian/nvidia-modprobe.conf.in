@@ -1,2 +1,14 @@
-alias nvidia #MODULE#
-remove #MODULE# rmmod nvidia-uvm nvidia
+install nvidia modprobe -i #MODULE# $CMDLINE_OPTS
+
+#HAS_UVM#install nvidia-uvm modprobe nvidia ; modprobe -i #MODULE#-uvm $CMDLINE_OPTS
+
+#HAS_UVM#remove nvidia modprobe -r -i nvidia-uvm nvidia
+
+# These aliases are defined in *all* nvidia modules.
+# Duplicating them here sets higher precedence and ensures the selected
+# module gets loaded instead of a random first match if more than one
+# version is installed. See #798207.
+#alias	pci:v000010DEd00000E00sv*sd*bc04sc80i00*	nvidia
+#alias	pci:v000010DEd00000AA3sv*sd*bc0Bsc40i00*	nvidia
+#alias	pci:v000010DEd*sv*sd*bc03sc02i00*		nvidia
+#alias	pci:v000010DEd*sv*sd*bc03sc00i00*		nvidia

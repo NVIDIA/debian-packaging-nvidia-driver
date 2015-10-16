@@ -65,11 +65,22 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
   * Updated libgl1-nvidia-glx and libnvidia-eglcore symbols
   * Add patch to fix kernel module build failure on 4.3
   * Add patch to fix armhf kernel module build failure on 4.3  
-  * conftest.h:
-    - Implement new conftest.sh functions hlist_for_each_entry, of_parse_phandle,
-      for_each_online_node, node_end_pfn (358.09)
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
+
+nvidia-graphics-drivers (352.55-1) experimental; urgency=medium
+
+  * New upstream long lived branch release 352.55 (2015-10-12).
+    - Added support for the following GPUs: GeForce 805A, GeForce GTX 960A.
+    - Fixed a bug that caused applications using OpenCL or CUDA with OpenGL
+      interopability to crash when using GLX indirect rendering.
+    * Improved compatibility with recent Linux kernels.
+  * Merge changes from 340.93-5.
+  * seq-printf.patch: Remove, fixed upstream.
+  * libcuda1: Add Provides: libcuda-7.5-1{,-i386}.
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 23:41:50 +0200
 
 nvidia-graphics-drivers (352.41-1) experimental; urgency=medium
 
@@ -81,9 +92,6 @@ nvidia-graphics-drivers (352.41-1) experimental; urgency=medium
       Quadro M5000.
     - Fixed a bug that caused VDPAU to only display the top half of a video
       frame when decoding and displaying H.265/HEVC encoded video streams.
-  * New upstream release 340 series.
-    - Fixed a bug that caused the X server to crash if an OpenGL application
-      tried to allocate a drawable when GPU-accessible memory is exhausted.
   * conftest.h:
     - Implement new conftest.sh function dma_map_ops (352.30).
     - Reorder conftest.h to match conftest.sh.
@@ -112,17 +120,13 @@ nvidia-graphics-drivers (352.30-1) experimental; urgency=medium
     - Fixed a bug that caused poor video post-processing performance
       in VDPAU when operating on a large number of video streams
       simultaneously.
-  * New upstream release 346 series.
-    - Added support for the following GPU: Tesla K80.
-  * New upstream release 346.87 (2015-07-21).
-    - Added support for the following GPU: GeForce 910M.
   * Add new armhf-only libcuda1 symbols.
   * Update nv-readme.ids.
   * Refresh patches.
   * Updated conftest.h to address removal of NV_DMA_MAPPING_OPS_PRESENT.
 
   [ Andreas Beckmann ]
-  * nvidia-libopencl1: Update symbols and add Provides: libopencl-1.2-1.
+  * Merge changes from 349.16 (UNRELEASED).
   * nvidia-kernel-*: [i386] Drop support for building amd64 kernel modules.
   * Overhaul arch-specific UVM support.
   * nvidia-driver, nvidia-kernel-*: Report the latest tested Linux version
@@ -178,6 +182,24 @@ nvidia-graphics-drivers (352.21-1) experimental; urgency=medium
     - Enabled G-SYNC by default when Unified Back Buffer (UBB) is disabled.
     - Updated the NVIDIA GPU driver to avoid using video memory already
       in use by vesafb.
+  * Fix unresolved nvUvm* symbols in nvidia-uvm.ko from dkms package; patch
+    cherrypicked from SteamOS and added as debian/patches/uvm-symvers.patch.
+    Thanks! (Closes: #789483)
+  * nvidia-detect: Detect stretch as supported suite, and parse -h as --help.
+    (Closes: #792801)
+
+  [ Luca Boccassi ]
+  * Update nv-readme.ids.
+  * pci.ids and monitoring.conf are no longer shipped by NVIDIA.
+  * conftest.h: Implement new conftest.sh functions phys_to_dma, get_dma_ops,
+    dma_ops, noncoherent_swiotlb_dma_ops (352.09), backing_dev_info (346.82).
+  * Update symbols control files.
+  * Refresh patches.
+
+ -- Vincent Cheng <vcheng@debian.org>  Mon, 20 Jul 2015 23:28:37 -0700
+
+nvidia-graphics-drivers (349.16-1) UNRELEASED; urgency=medium
+
   * New upstream short-lived branch release 349.16 (2015-04-14).
   * New upstream beta 349.12 (2015-03-25).
     - Added support for G-SYNC monitors when used together with non-G-SYNC
@@ -208,31 +230,29 @@ nvidia-graphics-drivers (352.21-1) experimental; urgency=medium
       some X configuration options when a display device name was given
       with a GPU UUID qualifier.
     * Add support for OpenCL 1.2.
-  * Fix unresolved nvUvm* symbols in nvidia-uvm.ko from dkms package; patch
-    cherrypicked from SteamOS and added as debian/patches/uvm-symvers.patch.
-    Thanks! (Closes: #789483)
-  * nvidia-detect: Detect stretch as supported suite, and parse -h as --help.
-    (Closes: #792801)
-
-  [ Luca Boccassi ]
-  * Update nv-readme.ids.
-  * pci.ids and monitoring.conf are no longer shipped by NVIDIA.
-  * conftest.h: Implement new conftest.sh functions phys_to_dma, get_dma_ops,
-    dma_ops, noncoherent_swiotlb_dma_ops, backing_dev_info.
   * Update symbols control files.
-  * Refresh patches.
+  * nvidia-libopencl1: Add Provides: libopencl-1.2-1.
 
-  [ Andreas Beckmann ]
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Jul 2015 17:16:47 +0200
+
+nvidia-graphics-drivers (346.96-1) UNRELEASED; urgency=medium
+
+  * New upstream release 346.96 (2015-09-01).
+    * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      (Closes: #800566)
+    - Added support for the following GPU: Tesla K80.
+  * New upstream release 346.87 (2015-07-21).
+    - Added support for the following GPU: GeForce 910M.
   * New upstream release 346.82 (2015-06-23).
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
       GeForce GTX 980 Ti.
-  * New upstream release 340 series.
-    - Fixed a bug that could cause an Xid error when terminating a video
-      playback application using the overlay presentation queue in VDPAU.
+  * Merge changes from 340.93-5.
   * Update nv-readme.ids.
+  * UVM is no longer available on 32-bit architectures.
+  * Use nvidia-drm-outputclass.conf as shipped by NVIDIA.
 
- -- Vincent Cheng <vcheng@debian.org>  Mon, 20 Jul 2015 23:28:37 -0700
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 19:26:13 +0200
 
 nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
 
@@ -246,13 +266,6 @@ nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
       allows for this (the source or destination lines will be overlapping).
       Previously, our implementation of Pixel Buffer Objects did not support
       this case and would throw an error.
-  * New upstream release 340 series.
-    - Fixed a rare deadlock condition when running applications that use
-      OpenGL in multiple threads on a Quadro GPU.
-    - Fixed a bug which caused truncation of the EGLAttribEXT value returned
-      by eglQueryDeviceAttribEXT() on 64-bit systems.
-    - Fixed a kernel memory leak that occurred when looping hardware-
-      accelerated video decoding with VDPAU on Maxwell-based GPUs.
   * Fix conftest.sh function write_cr4.
   * Update lintian overrides.
   * Apply patch provided by Luca Boccassi, cherrypicked from SteamOS; also
@@ -338,18 +351,6 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
     - Removed the limit on the maximum number of OpenGL Framebuffer Objects.
     - Updated the NVIDIA OpenGL driver to prefer $XDG_CACHE_HOME over
       $HOME as the default location for storing the GL shader disk cache.
-  * New upstream release 343 series.
-    - Fixed a bug that rendered very bright garbage data onto some textures
-      in UnrealEngine 4 applications. This issue is known as the "disco bug"
-      by the UnrealEngine 4 Linux community.
-  * New upstream release 340 series.
-    - Fixed a bug that caused the X server to crash if a RandR 1.4 output
-      provided by a Sink Output provider was selected as the primary output on
-      X.Org xserver 1.17 and higher.
-    - Fixed a bug that caused waiting on X Sync Fence objects in OpenGL to
-      hang indefinitely in some cases.
-    - Fixed a bug that prevented OpenGL from properly recovering from
-      hardware errors or sync object waits that had timed out.
   * Update nv-readme.ids.
   * f_path.dentry.patch: Remove, fixed upstream.
   * Refresh patches.
@@ -360,6 +361,12 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
   * Restrict watch file to releases from the 346.xx long lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 May 2015 21:55:05 +0200
+
+nvidia-graphics-drivers (343.36-3) UNRELEASED; urgency=medium
+
+  * Merge changes from 340.93-5.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 12:56:02 +0200
 
 nvidia-graphics-drivers (343.36-2) experimental; urgency=medium
 
@@ -427,6 +434,192 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
 
+nvidia-graphics-drivers (340.93-6) UNRELEASED; urgency=medium
+
+  * nvidia-opencl-icd: Restore the Depends: libcuda1.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 18:35:10 +0200
+
+nvidia-graphics-drivers (340.93-5) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Merge changes from 304.128-1 (wheezy) and 340.93-0+deb8u1 (jessie).
+  * nvidia-kernel-support: Ship nvidia-modprobe.conf (previously in
+    nvidia-alternative), managed via nvidia-alternative.
+  * nvidia-kernel-support: Ship nvidia-blacklists-nouveau.conf and
+    nvidia-load.conf, managed via nvidia-alternative.
+  * Reroute all kernel module dependencies through nvidia-kernel-support.
+    (Closes: #801298)
+  * nvidia-modprobe.conf: Temporarily disable the PCI-ID-match aliases and go
+    back to insecure default permissions (root:root 0666).  (See: #801869)
+  * Xorg autoconfig does not cause the permission issues.  (See: #801598)
+  * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * Add patch to fix armhf kernel module build failure on 4.3
+  * conftest.h:
+    - Implement new conftest.sh functions hlist_for_each_entry,
+      of_parse_phandle, for_each_online_node, node_end_pfn (358.09).
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 16:00:30 +0200
+
+nvidia-graphics-drivers (340.93-4) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Update lintian overrides.
+  * bug-script: Report device node permissions.
+  * bug-control, bug-script: Report information about CUDA libraries.
+  * libcuda1: Provides: libcuda1-any.
+  * xserver-xorg-video-nvidia: Ship nvidia-drm-outputclass.conf, managed via
+    nvidia-alternative.
+  * Add nvidia-kernel-support package.
+
+  [ Luca Boccassi ]
+  * Add patch to fix kernel module build failure on 4.3
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 09 Oct 2015 01:52:51 +0200
+
+nvidia-graphics-drivers (340.93-3) unstable; urgency=medium
+
+  * Revert glx-alternative-nvidia dependency to (>= 0.5) because Xorg
+    autoconfig causes some permission issues (see: #799948).
+  * Document the permission issues.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 01 Oct 2015 04:26:47 +0200
+
+nvidia-graphics-drivers (340.93-2) unstable; urgency=medium
+
+  * nvidia-modprobe.conf:  (Closes: #798207)
+    - Don't use aliases for the renamed modules, only use install and remove
+      commands.
+    - Remodel the nvidia-uvm -> nvidia dependency via an install command.
+    - Duplicate the module's built-in PCI-ID-match aliases to ensure they
+      cause the virtual "nvidia" module to be loaded instead of a random one.
+  * Drop instructions and debconf notes about manual xorg.conf creation. The
+    driver now integrates with Xorg s.t. it is automatically detected and
+    loaded if selected as the glx alternative.  (Closes: #586502, #612093)
+  * Add NEWS entry about no longer requiring manual xorg.conf creation.
+  * Bump glx-alternative-nvidia dependency to (>= 0.6) for Xorg autoconfig.
+  * libgl1-nvidia-glx: Add Provides+Conflicts:
+    libgl1-nvidia-glx-${nvidia:Version} to forbid co-installation of
+    libgl1-nvidia-legacy-304xx-glx from the same upstream version due to file
+    conflicts on versioned files that are not handled via alternatives.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 24 Sep 2015 04:38:22 +0200
+
+nvidia-graphics-drivers (340.93-1) unstable; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.93 (2015-09-02).
+    * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      (Closes: #800566)
+  * fixes-for-kernel-4.0.0.patch: Remove, fixed upstream.
+  * conftest.h:
+    - Implement new conftest.sh function nvidia_grid_build (352.41).
+  * Update lintian overrides.
+  * nvidia-driver-bin, libnvidia-compiler, libnvidia-eglcore: Add
+    Provides+Conflicts: $pkg-${nvidia:Version} to forbid co-installation with
+    the respective legacy packages from the same upstream version due to file
+    conflicts on versioned files are not handled via alternatives.
+  * bug-script: Report file information in arm-linux-gnueabihf directories.
+  * bug-script: Collect information from /etc/modules{,-load.d/}.
+  * nvidia-driver: Add Recommends: nvidia-persistenced.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Sep 2015 20:58:29 +0200
+
+nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.93 (2015-09-02).
+    * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      (Closes: #800566)
+    - Fixed a bug that caused the X server to crash if an OpenGL application
+      tried to allocate a drawable when GPU-accessible memory is exhausted.
+    - Fixed a bug that could cause an Xid error when terminating a video
+      playback application using the overlay presentation queue in VDPAU.
+    - Fixed a rare deadlock condition when running applications that use
+      OpenGL in multiple threads on a Quadro GPU.
+    - Fixed a bug which caused truncation of the EGLAttribEXT value returned
+      by eglQueryDeviceAttribEXT() on 64-bit systems.
+    - Fixed a kernel memory leak that occurred when looping hardware-
+      accelerated video decoding with VDPAU on Maxwell-based GPUs.
+    - Fixed a bug that caused the X server to crash if a RandR 1.4 output
+      provided by a Sink Output provider was selected as the primary output on
+      X.Org xserver 1.17 and higher.
+    - Fixed a bug that caused waiting on X Sync Fence objects in OpenGL to
+      hang indefinitely in some cases.
+    - Fixed a bug that prevented OpenGL from properly recovering from
+      hardware errors or sync object waits that had timed out.
+    * Improved compatibility with recent Linux kernels.
+  * fixes-for-kernel-4.0.0.patch: Remove, fixed upstream.
+  * conftest.h:
+    - Implement new conftest.sh function nvidia_grid_build (352.41).
+  * Update lintian overrides.
+  * nvidia-driver-bin, libnvidia-compiler, libnvidia-eglcore,
+    libgl1-nvidia-glx: Add Provides+Conflicts: $pkg-${nvidia:Version} to
+    forbid co-installation with the respective legacy packages from the same
+    upstream version due to file conflicts on versioned files that are not
+    handled via alternatives.
+  * bug-script: Report file information in arm-linux-gnueabihf directories.
+  * bug-script: Collect information from /etc/modules{,-load.d/}.
+  * bug-script: Report device node permissions.
+  * bug-control, bug-script: Report information about CUDA libraries.
+  * nvidia-detect: Update list of newer PCI IDs from release 346.87.
+  * Merge changes from 304.128-1.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 13:18:03 +0200
+
+nvidia-graphics-drivers (340.76-5) unstable; urgency=medium
+
+  * Drop obsolete transitional package nvidia-glx.
+  * nvidia-kernel-*: [i386] Drop support for building amd64 kernel modules.
+  * Overhaul arch-specific UVM support.
+  * nvidia-detect: Add support for the upcoming nvidia-legacy-340xx-driver.
+  * Rename nvidia-uvm.ko to nvidia-{current,legacy-*}-uvm.ko.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 11 Aug 2015 18:30:32 +0200
+
+nvidia-graphics-drivers (340.76-4) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * README.source: Document my schroot setup for testing module compilation.
+  * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * conftest.h:
+    - dma_map_ops and dma_ops are available for PPC and ARM too
+  * Add ignore_xen_on_arm.patch needed for dkms build on armhf: armmp
+    kernel headers ship with CONFIG_XEN enabled, which breaks the build,
+    so since running this driver on XEN is currently not supported,
+    ignore the check for XEN in nv-linux.h as a workaround on arm, and
+    also disable CONFIG_XEN and CONFIG_XEN_DOM0 if building on <= 3.16.
+    (Closes: #794435)
+  * README.source: Document armhf setup for testing module compilation.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 10 Aug 2015 02:23:23 +0200
+
+nvidia-graphics-drivers (340.76-3) unstable; urgency=medium
+
+  [ Vincent Cheng ]
+  * nvidia-detect: Detect stretch as supported suite, and parse -h as --help.
+    (Closes: #792801)
+
+  [ Luca Boccassi ]
+  * Fix nvidia-modprobe.conf module unload ordering, to stop nvidia-uvm
+    getting stuck until a second modprobe -r nvidia-current is issued.
+    Fix provided by Jö Fahlke. Thanks! (Closes: #793386)
+
+  [ Andreas Beckmann ]
+  * Add Luca Boccassi to Uploaders.
+  * nvidia-driver, nvidia-kernel-*: Report the latest tested Linux version
+    that can build the kernel module in the package description.
+  * conftest.h:
+    - Fix conftest.sh function write_cr4.
+    - Implement new conftest.sh functions backing_dev_info (346.82),
+      phys_to_dma, dma_ops, get_dma_ops, noncoherent_swiotlb_dma_ops (352.09).
+    - Implement new conftest.sh function dma_map_ops (352.30).
+    - Reorder conftest.h to match conftest.sh.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 02 Aug 2015 22:33:27 +0200
+
 nvidia-graphics-drivers (340.76-2) unstable; urgency=medium
 
   * fixes-for-kernel-4.0.0.patch: New patch to add support for Linux 4.0,
@@ -436,6 +629,7 @@ nvidia-graphics-drivers (340.76-2) unstable; urgency=medium
     - Implement check for xen/ioemu.h (346.59).
     - Implement new conftest.sh functions write_cr4, xen_ioemu_inject_msi
       (346.59), list_cut_position (349.12).
+  * Split some old UNRELEASED changelog entries to linearize the BTS history.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 May 2015 20:47:07 +0200
 
@@ -1739,6 +1933,33 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
+
+nvidia-graphics-drivers (304.128-1) wheezy; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.128 (2015-08-31).
+    * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      (Closes: #800566)
+    * Improved compatibility with recent Linux kernels.
+  * libgl1-nvidia-glx: Add Provides+Conflicts:
+    libgl1-nvidia-glx-${nvidia:Version} to forbid co-installation of
+    libgl1-nvidia-legacy-304xx-glx from the same upstream version due to file
+    conflicts on versioned files that are not handled via alternatives.
+  * conftest.h:
+    - Implement new conftest.sh functions file_inode, drm_pci_set_busid
+      (340.76).
+    - Implement check for linux/log2.h (346.16).
+    - Implement check for xen/ioemu.h (346.59).
+    - Implement new conftest.sh functions write_cr4, xen_ioemu_inject_msi
+      (346.59), list_cut_position (349.12).
+    - Implement new conftest.sh functions backing_dev_info (346.82),
+      phys_to_dma, dma_ops, get_dma_ops, noncoherent_swiotlb_dma_ops (352.09).
+    - Implement new conftest.sh function dma_map_ops (352.30).
+    - Reorder conftest.h to match conftest.sh.
+    - Implement new conftest.sh function nvidia_grid_build (352.41).
+  * bug-script: Synchronize with unstable (340.93-4).
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 12:39:53 +0200
 
 nvidia-graphics-drivers (304.125-1) wheezy; urgency=medium
 
