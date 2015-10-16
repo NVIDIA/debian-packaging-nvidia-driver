@@ -10,6 +10,7 @@ nvidia-graphics-drivers (346.96-1) UNRELEASED; urgency=medium
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
       GeForce GTX 980 Ti.
+  * Merge changes from 340.93-5.
   * Update nv-readme.ids.
   * UVM is no longer available on 32-bit architectures.
   * Use nvidia-drm-outputclass.conf as shipped by NVIDIA.
