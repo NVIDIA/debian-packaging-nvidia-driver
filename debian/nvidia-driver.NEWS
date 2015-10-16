@@ -4,7 +4,7 @@ nvidia-graphics-drivers (340.93-5) unstable; urgency=medium
   Therefore it is no longer necessary to manually create an xorg.conf to
   enable it.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 24 Sep 2015 04:38:22 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 16:00:30 +0200
 
 nvidia-graphics-drivers (310.14-1) unstable; urgency=low
 
