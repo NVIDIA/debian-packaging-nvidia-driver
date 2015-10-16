@@ -1,16 +1,10 @@
 nvidia-graphics-drivers (352.55-1) UNRELEASED; urgency=medium
 
-  [ Luca Boccassi ]
   * New upstream long lived branch release 352.55 (2015-10-12).
-    - Added support for the following GPUs: GeForce 805A, GeForce GTX 960A
-    - Fixed a bug that caused applications using OpenCL or CUDA with
-      OpenGL interopability to crash when using GLX indirect rendering.
-  * Add patch to fix armhf kernel module build failure on 4.3
-  * conftest.h:
-    - Implement new conftest.sh functions hlist_for_each_entry, of_parse_phandle,
-      for_each_online_node, node_end_pfn (358.09)
-
-  [ Andreas Beckmann ]
+    - Added support for the following GPUs: GeForce 805A, GeForce GTX 960A.
+    - Fixed a bug that caused applications using OpenCL or CUDA with OpenGL
+      interopability to crash when using GLX indirect rendering.
+  * Merge changes from 340.93-5.
   * libcuda1: Add Provides: libcuda-7.5-1{,-i386}.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 14 Oct 2015 22:13:28 +0100
@@ -25,9 +19,6 @@ nvidia-graphics-drivers (352.41-1) experimental; urgency=medium
       Quadro M5000.
     - Fixed a bug that caused VDPAU to only display the top half of a video
       frame when decoding and displaying H.265/HEVC encoded video streams.
-  * New upstream release 340 series.
-    - Fixed a bug that caused the X server to crash if an OpenGL application
-      tried to allocate a drawable when GPU-accessible memory is exhausted.
   * conftest.h:
     - Implement new conftest.sh function dma_map_ops (352.30).
     - Reorder conftest.h to match conftest.sh.
@@ -56,17 +47,13 @@ nvidia-graphics-drivers (352.30-1) experimental; urgency=medium
     - Fixed a bug that caused poor video post-processing performance
       in VDPAU when operating on a large number of video streams
       simultaneously.
-  * New upstream release 346 series.
-    - Added support for the following GPU: Tesla K80.
-  * New upstream release 346.87 (2015-07-21).
-    - Added support for the following GPU: GeForce 910M.
   * Add new armhf-only libcuda1 symbols.
   * Update nv-readme.ids.
   * Refresh patches.
   * Updated conftest.h to address removal of NV_DMA_MAPPING_OPS_PRESENT.
 
   [ Andreas Beckmann ]
-  * nvidia-libopencl1: Update symbols and add Provides: libopencl-1.2-1.
+  * Merge changes from 349.16 (UNRELEASED).
   * nvidia-kernel-*: [i386] Drop support for building amd64 kernel modules.
   * Overhaul arch-specific UVM support.
   * nvidia-driver, nvidia-kernel-*: Report the latest tested Linux version
@@ -122,36 +109,6 @@ nvidia-graphics-drivers (352.21-1) experimental; urgency=medium
     - Enabled G-SYNC by default when Unified Back Buffer (UBB) is disabled.
     - Updated the NVIDIA GPU driver to avoid using video memory already
       in use by vesafb.
-  * New upstream short-lived branch release 349.16 (2015-04-14).
-  * New upstream beta 349.12 (2015-03-25).
-    - Added support for G-SYNC monitors when used together with non-G-SYNC
-      monitors.  When G-SYNC is enabled, non-G-SYNC monitors will display with
-      tearing.
-    - Removed the "EnableACPIHotkeys" X configuration option. This option
-      has been deprecated and disabled by default since driver version 346.35.
-      On modern Linux systems, display change hotkey events are delivered to
-      the desktop environment as key press events, and the desktop environment
-      handles the display change by issuing requests through the X Resize and
-      Rotate extension (RandR).
-    - Added support for lossless H.264/AVC video streams to VDPAU.
-    - Added support for VDPAU Feature Set F to the NVIDIA VDPAU driver.
-      GPUs with VDPAU Feature Set F are capable of hardware-accelerated
-      decoding of H.265/HEVC video streams.
-    - Added support for the X.Org X server's "-background none" option. When
-      enabled, the NVIDIA driver will try to copy the framebuffer console's
-      contents out of /dev/fb0.  If that cannot be done, then the screen is
-      cleared to black.
-    - Added support for YUV 4:2:0 compression to enable HDMI 2.0 4K@60Hz modes
-      when either the display or GPU is incapable of driving these modes in
-      RGB 4:4:4.  See NoEdidHDMI2Check in the README for details.
-    - Fixed a bug that could cause multi-threaded applications to crash when
-      multiple threads used the EGL driver at the same time.
-    - Fixed a bug that caused Sync to VBlank to not work correctly with XVideo
-      applications in certain configurations.
-    - Fixed a bug that prevented the X driver from correctly interpreting
-      some X configuration options when a display device name was given
-      with a GPU UUID qualifier.
-    * Add support for OpenCL 1.2.
   * Fix unresolved nvUvm* symbols in nvidia-uvm.ko from dkms package; patch
     cherrypicked from SteamOS and added as debian/patches/uvm-symvers.patch.
     Thanks! (Closes: #789483)
@@ -162,19 +119,9 @@ nvidia-graphics-drivers (352.21-1) experimental; urgency=medium
   * Update nv-readme.ids.
   * pci.ids and monitoring.conf are no longer shipped by NVIDIA.
   * conftest.h: Implement new conftest.sh functions phys_to_dma, get_dma_ops,
-    dma_ops, noncoherent_swiotlb_dma_ops, backing_dev_info.
+    dma_ops, noncoherent_swiotlb_dma_ops (352.09), backing_dev_info (346.82).
   * Update symbols control files.
   * Refresh patches.
-
-  [ Andreas Beckmann ]
-  * New upstream release 346.82 (2015-06-23).
-    - Added support for the following GPUs: Tesla K40t, GeForce 720A,
-      GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
-      GeForce GTX 980 Ti.
-  * New upstream release 340 series.
-    - Fixed a bug that could cause an Xid error when terminating a video
-      playback application using the overlay presentation queue in VDPAU.
-  * Update nv-readme.ids.
 
  -- Vincent Cheng <vcheng@debian.org>  Mon, 20 Jul 2015 23:28:37 -0700
 
