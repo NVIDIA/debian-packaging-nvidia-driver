@@ -2,7 +2,7 @@
 # Based on http://wiki.debian.org/NvidiaGraphicsDrivers?action=AttachFile&do=view&target=nvidia-versions.sh
 #
 # Copyright © 2008-2011 Filipus Klutiero <chealer@gmail.com>
-# Copyright © 2011-2014 Andreas Beckmann <anbe@debian.org>
+# Copyright © 2011-2015 Andreas Beckmann <anbe@debian.org>
 #
 # This package is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -89,6 +89,11 @@ fi
 if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-304xx.ids 2>/dev/null
 then
 	VERSIONS[304]=304.123
+fi
+
+if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-340xx.ids 2>/dev/null
+then
+	VERSIONS[340]=340.76
 fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia-195.ids 2>/dev/null
@@ -184,18 +189,24 @@ fi
 		elif [[ -n ${VERSIONS[96]} ]]; then
 			echo "Your card is only supported up to the 96.43 legacy drivers series.";
 			PACKAGE="nvidia-glx-legacy-96xx"
-		else
+		elif [[ -n ${VERSIONS[71]} ]]; then
 			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite.";
+		else
+			echo "Oops. Internal error 7 ($NVGA)"
 		fi;
 	elif grep -q "jessie\|^8" /etc/debian_version
 	then
-		if [[ -n ${VERSIONS[999]} ]]; then
+		if [[ -n ${VERSIONS[340]} ]]; then
 			if [[ -n ${VERSIONS[304]} ]]; then
 				echo "Your card is supported by the default drivers and legacy driver series 304."
 			else
 				echo "Your card is supported by the default drivers."
 			fi
 			PACKAGE="nvidia-driver"
+		elif [[ -n ${VERSIONS[999]} ]]; then
+			echo "Your card is only supported by the updated drivers from jessie-backports."
+			echo "See http://backports.debian.org for instructions how to use backports."
+			PACKAGE="nvidia-driver/jessie-backports"
 		elif [[ -n ${VERSIONS[304]} ]]; then
 			echo "Your card is only supported up to the 304 legacy drivers series."
 			PACKAGE="nvidia-legacy-304xx-driver"
@@ -203,18 +214,27 @@ fi
 			echo "Uh oh. Your card is only supported by the 173.14 legacy drivers series, which is not in any current Debian suite."
 		elif [[ -n ${VERSIONS[96]} ]]; then
 			echo "Uh oh. Your card is only supported by the 96.43 legacy drivers series, which is not in any current Debian suite."
-		else
+		elif [[ -n ${VERSIONS[71]} ]]; then
 			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite."
+		else
+			echo "Oops. Internal error 8 ($NVGA)"
 		fi
 	elif grep -q "stretch\|^9" /etc/debian_version
 	then
 		if [[ -n ${VERSIONS[999]} ]]; then
-			if [[ -n ${VERSIONS[304]} ]]; then
-				echo "Your card is supported by the default drivers and legacy driver series 304."
+			if [[ -n ${VERSIONS[340]} ]]; then
+				if [[ -n ${VERSIONS[304]} ]]; then
+				       	echo "Your card is supported by all driver versions."
+				else
+					echo "Your card is supported by the default drivers and legacy driver series 340."
+				fi
 			else
 				echo "Your card is supported by the default drivers."
 			fi
 			PACKAGE="nvidia-driver"
+		elif [[ -n ${VERSIONS[340]} ]]; then
+			echo "Your card is only supported up to the 340 legacy drivers series."
+			PACKAGE="nvidia-legacy-340xx-driver"
 		elif [[ -n ${VERSIONS[304]} ]]; then
 			echo "Your card is only supported up to the 304 legacy drivers series."
 			PACKAGE="nvidia-legacy-304xx-driver"
@@ -222,8 +242,10 @@ fi
 			echo "Uh oh. Your card is only supported by the 173.14 legacy drivers series, which is not in any current Debian suite."
 		elif [[ -n ${VERSIONS[96]} ]]; then
 			echo "Uh oh. Your card is only supported by the 96.43 legacy drivers series, which is not in any current Debian suite."
-		else
+		elif [[ -n ${VERSIONS[71]} ]]; then
 			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite."
+		else
+			echo "Oops. Internal error 9 ($NVGA)"
 		fi
 	elif grep -q "^4" /etc/debian_version;
 	then
