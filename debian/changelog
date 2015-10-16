@@ -11,6 +11,7 @@ nvidia-graphics-drivers (346.96-1) UNRELEASED; urgency=medium
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
       GeForce GTX 980 Ti.
   * Update nv-readme.ids.
+  * UVM is no longer available on 32-bit architectures.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 19:26:13 +0200
 
