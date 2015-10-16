@@ -70,6 +70,12 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
 
+nvidia-graphics-drivers (340.93-6) UNRELEASED; urgency=medium
+
+  * nvidia-opencl-icd: Restore the Depends: libcuda1.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 18:35:10 +0200
+
 nvidia-graphics-drivers (340.93-5) unstable; urgency=medium
 
   [ Andreas Beckmann ]

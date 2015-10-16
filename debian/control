@@ -692,9 +692,6 @@ Description: NVIDIA OpenCL installable client driver (ICD)
  .
  This package provides the NVIDIA installable client driver (ICD) for OpenCL
  which supports NVIDIA GPUs.
- .
- The ${libcuda1} package may be required additionally
- to get a working OpenCL setup for NVIDIA GPUs.
 
 Package: nvidia-libopencl1
 Architecture: i386 amd64
