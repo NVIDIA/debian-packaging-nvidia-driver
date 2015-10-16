@@ -48,7 +48,7 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
       uvm-symvers.patch
       uvm-symvers2.patch
     - Make build verbose by using new env var NV_VERBOSE=1
-    - Updated kernel module patches to accomodate for new build path
+    - Updated kernel module patches to accommodate for new build path
     - Added patches to stop upstream Kbuild from using conftest.sh
     - Updated paths in debian/nvidia-kernel-dkms.dkms.in debian/rules.in,
       debian/rules for new build system
