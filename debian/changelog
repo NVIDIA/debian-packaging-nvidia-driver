@@ -1,17 +1,18 @@
-nvidia-graphics-drivers (346.87-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (346.96-1) UNRELEASED; urgency=medium
 
+  * New upstream release 346.96 (2015-09-01).
+    * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      (Closes: #800566)
+    - Added support for the following GPU: Tesla K80.
   * New upstream release 346.87 (2015-07-21).
     - Added support for the following GPU: GeForce 910M.
   * New upstream release 346.82 (2015-06-23).
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
       GeForce GTX 980 Ti.
-  * New upstream release 340 series.
-    - Fixed a bug that could cause an Xid error when terminating a video
-      playback application using the overlay presentation queue in VDPAU.
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Jul 2015 15:25:26 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 19:26:13 +0200
 
 nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
 
@@ -25,13 +26,6 @@ nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
       allows for this (the source or destination lines will be overlapping).
       Previously, our implementation of Pixel Buffer Objects did not support
       this case and would throw an error.
-  * New upstream release 340 series.
-    - Fixed a rare deadlock condition when running applications that use
-      OpenGL in multiple threads on a Quadro GPU.
-    - Fixed a bug which caused truncation of the EGLAttribEXT value returned
-      by eglQueryDeviceAttribEXT() on 64-bit systems.
-    - Fixed a kernel memory leak that occurred when looping hardware-
-      accelerated video decoding with VDPAU on Maxwell-based GPUs.
   * Fix conftest.sh function write_cr4.
   * Update lintian overrides.
   * Apply patch provided by Luca Boccassi, cherrypicked from SteamOS; also
@@ -106,29 +100,17 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
           https://developer.nvidia.com/nvidia-video-codec-sdk.
     - Added accelerated support for r8g8b8a8, r8g8b8x8, b8g8r8a8 and b8g8r8x8
       RENDER formats.
-    - Fixed a GLSL compiler bug that would produce corruption when 
+    - Fixed a GLSL compiler bug that would produce corruption when
       running games such as Far Cry 3 in Wine.
     - Fixed the EGL_KHR_stream_cross_process_fd extension.
-    - Fixed rendering corruption that sometimes happened when calling 
-      DrawElementsInstancedBaseVertexBaseInstance(), 
-      DrawElementsInstancedBaseInstance(), 
+    - Fixed rendering corruption that sometimes happened when calling
+      DrawElementsInstancedBaseVertexBaseInstance(),
+      DrawElementsInstancedBaseInstance(),
       or DrawArraysInstancedBaseInstance().
     - Dramatically improved OpenGL Framebuffer Object creation performance.
     - Removed the limit on the maximum number of OpenGL Framebuffer Objects.
     - Updated the NVIDIA OpenGL driver to prefer $XDG_CACHE_HOME over
       $HOME as the default location for storing the GL shader disk cache.
-  * New upstream release 343 series.
-    - Fixed a bug that rendered very bright garbage data onto some textures
-      in UnrealEngine 4 applications. This issue is known as the "disco bug"
-      by the UnrealEngine 4 Linux community.
-  * New upstream release 340 series.
-    - Fixed a bug that caused the X server to crash if a RandR 1.4 output
-      provided by a Sink Output provider was selected as the primary output on
-      X.Org xserver 1.17 and higher.
-    - Fixed a bug that caused waiting on X Sync Fence objects in OpenGL to
-      hang indefinitely in some cases.
-    - Fixed a bug that prevented OpenGL from properly recovering from
-      hardware errors or sync object waits that had timed out.
   * Update nv-readme.ids.
   * f_path.dentry.patch: Remove, fixed upstream.
   * Refresh patches.
