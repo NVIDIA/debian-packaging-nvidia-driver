@@ -14,15 +14,20 @@ WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
 XORG_BOUND		?=
+LINUX_KMOD_TESTED	?=
 BACKPORT		?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
 NVIDIA_ALTERNATIVE	?= nvidia$(legacy)-alternative
+ARCH_LIST		?= i386 amd64
+ARCH_DEPS_i386		?=
+UVM_ARCH_LIST		?= $(ARCH_LIST)
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
 nvidia			 = nvidia$(legacy)
 libcuda1		 = lib$(if $(legacy),$(nvidia)-)cuda1
 module			 = nvidia-$(current)
 current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
+has_uvm			 = $(filter $(DEB_HOST_ARCH),$(UVM_ARCH_LIST))
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 perfkit			 =
@@ -33,15 +38,13 @@ filename_armhf		 = $(NVIDIA_FILENAME_armhf)
 dirname_i386		 = $(NVIDIA_DIRNAME_X86)
 dirname_amd64		 = $(NVIDIA_DIRNAME_X86_64)
 dirname_armhf		 = $(NVIDIA_DIRNAME_armhf)
-ARCH_LIST		?= i386 amd64
-ARCH_DEPS_i386		?= amd64
 
 # system libdir
 libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 # nvidia version specific directory below $(libdir)
 nvidia_private		 = nvidia/$(current)
 
-CONTROL_PREFIXES	 = nvidia-driver nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia nvidia-modprobe
+CONTROL_PREFIXES	 = nvidia-driver nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
 CONTROL_PREFIXES	+= libnvidia-eglcore libegl1-nvidia libgles1-nvidia libgles2-nvidia
 CONTROL_PREFIXES	+= nvidia-vdpau-driver
 CONTROL_PREFIXES	+= libcuda1
@@ -195,13 +198,13 @@ build-kernel-source-tree: install-into-tmp
 		mv $(module_source)/Makefile $(module_source)/Kbuild
 	mv $(module_source)/conftest.sh $(module_source)/conftest_nvidia.sh
 
+ifneq (,$(has_uvm))
 	# For the nvidia-uvm module.
-	test ! -f $(module_source)/uvm/Makefile || \
-		mv $(module_source)/uvm/Makefile $(module_source)/uvm/Kbuild
-	test ! -d $(module_source)/uvm || \
-		ln -sf ../Makefile $(module_source)/uvm
-	test ! -d $(module_source)/uvm || \
-		ln -sf ../conftest.sh $(module_source)/uvm
+	mv $(module_source)/uvm/Makefile $(module_source)/uvm/Kbuild
+	ln -sf ../Makefile $(module_source)/uvm
+	ln -sf ../conftest.sh $(module_source)/uvm
+	ln -sf ../conftest.h $(module_source)/uvm
+endif
 	test ! -d $(module_source)/uvm || \
 		ln -sf ../conftest.h $(module_source)/uvm
 
@@ -264,9 +267,6 @@ override_dh_dkms:
 override_dh_bugfiles:
 	dh_bugfiles -A
 
-override_dh_makeshlibs:
-	dh_makeshlibs -Xvdpau/libvdpau_nvidia.so -Xtls/libnvidia-tls.so
-
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir)/$(nvidia_private):$(LD_LIBRARY_PATH) dh_shlibdeps
 
@@ -281,8 +281,10 @@ override_dh_gencontrol:
 		-V'nvidia:Perfkit=$(perfkit)' \
 		-V'nvidia-alternative=$(NVIDIA_ALTERNATIVE)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
+		-V'not:Current=$(if $(legacy),,ignore-)' \
 		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}$${nvidia:Perfkit}' \
 		-V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
+		-V'nvidia:kmod:tested:Linux=$(strip $(or $(LINUX_KMOD_TESTED_$(DEB_HOST_ARCH)),$(LINUX_KMOD_TESTED),???))' \
 		-Vnvidia:kmod:Description="`cat debian/control.kmod`" \
 		-Vnvidia:Models="`cat debian/control.models`"
 
@@ -313,6 +315,7 @@ override_dh_strip:
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
+	-e 's{#HAS_UVM#}{$(if $(has_uvm),,#)}g;' \
 	-e 's{#!armhf#}{$(if $(filter armhf,$(DEB_HOST_ARCH)),#)}g;' \
 	-e 's{#!legacy#}{$(if $(legacy),#)}g;' \
 	< $< > $@

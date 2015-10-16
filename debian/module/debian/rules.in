@@ -27,10 +27,6 @@ export KSRC
 export KVERS
 export KPKG_DEST_DIR
 
-ifneq (,$(wildcard uvm))
-    WITH_UVM	 = 1
-endif
-
 configure: configure-stamp
 configure-stamp:
 	@if [ x"$(KVERS)" = x ] ; then \
@@ -48,10 +44,9 @@ build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
 	$(MAKE) SYSSRC=$(KSRC)
-ifeq (1,$(WITH_UVM))
-	$(MAKE) -C uvm SYSSRC=$(KSRC)
-endif
+#HAS_UVM#	$(MAKE) -C uvm SYSSRC=$(KSRC)
 	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
+#HAS_UVM#	test "#MODULE#" = "nvidia" || mv uvm/nvidia-uvm.ko uvm/#MODULE#-uvm.ko
 	touch $@
 
 get_built_using	?= $(filter-out (=),$(shell dpkg-query -f='$${source:Package} (=$${source:Version})' -W $1))
@@ -83,9 +78,7 @@ clean:
 	dh_testdir
 	dh_testroot
 	$(MAKE) SYSSRC=$(KSRC) $(KPKG_EXTRAV_ARG) clean
-ifeq (1,$(WITH_UVM))
-	$(MAKE) -C uvm SYSSRC=$(KSRC) $(KPKG_EXTRAV_ARG) clean
-endif
+#HAS_UVM#	$(MAKE) -C uvm SYSSRC=$(KSRC) $(KPKG_EXTRAV_ARG) clean
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
 	dh_clean debian/control debian/install
 
