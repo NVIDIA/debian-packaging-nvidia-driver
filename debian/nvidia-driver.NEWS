@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (352.55-1) experimental; urgency=medium
+
+  The NVIDIA driver now automatically integrates with the Xorg configuration.
+  Therefore it is no longer necessary to manually create an xorg.conf to
+  enable it.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 23:00:27 +0200
+
 nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
   LEGACY GPUs: If you have a GeForce 8xxx, GeForce 9xxx, GeForce 2xx/3xx,
@@ -14,14 +22,6 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
   packages instead.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Oct 2014 15:14:53 +0200
-
-nvidia-graphics-drivers (340.93-5) unstable; urgency=medium
-
-  The NVIDIA driver now automatically integrates with the Xorg configuration.
-  Therefore it is no longer necessary to manually create an xorg.conf to
-  enable it.
-
- -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 16:00:30 +0200
 
 nvidia-graphics-drivers (310.14-1) unstable; urgency=low
 
