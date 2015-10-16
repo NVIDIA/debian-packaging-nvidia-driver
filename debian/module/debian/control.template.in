@@ -11,8 +11,7 @@ Package: #NVIDIA#-kernel-#KVERS#
 Architecture: i386 amd64
 Provides: #NVIDIA#-kernel-#VERSION#
 Depends:
- nvidia-kernel-common (>= 20110213),
- #NVIDIA_ALTERNATIVE#--kmod-alias,
+ #NVIDIA#-kernel-support--v1,
 Recommends: linux-image-#KVERS#
 Built-Using: ${built:using:kernel}, ${built:using:nvidia}
 Description: NVIDIA binary kernel module for Linux #KVERS#

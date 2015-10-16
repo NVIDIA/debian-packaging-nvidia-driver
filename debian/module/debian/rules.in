@@ -46,6 +46,7 @@ build-stamp: configure-stamp
 	$(MAKE) SYSSRC=$(KSRC)
 #HAS_UVM#	$(MAKE) -C uvm SYSSRC=$(KSRC)
 	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
+#HAS_UVM#	test "#MODULE#" = "nvidia" || mv uvm/nvidia-uvm.ko uvm/#MODULE#-uvm.ko
 	touch $@
 
 get_built_using	?= $(filter-out (=),$(shell dpkg-query -f='$${source:Package} (=$${source:Version})' -W $1))

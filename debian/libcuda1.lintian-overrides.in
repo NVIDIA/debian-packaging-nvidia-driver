@@ -4,14 +4,9 @@ embedded-library usr/lib*/libcuda.so.#VERSION#: zlib
 [!armhf]: shlib-with-executable-stack
 [i386]: shlib-with-non-pic-code
 spelling-error-in-binary
-unstripped-binary-or-object
 hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
 
-# libcudart.so.2 does dlopen("libcuda.so").
-non-dev-pkg-with-shlib-symlink
-
 # Lintian and debhelper disagree w.r.t a library in a private directory.
 postinst-has-useless-call-to-ldconfig
-postrm-has-useless-call-to-ldconfig

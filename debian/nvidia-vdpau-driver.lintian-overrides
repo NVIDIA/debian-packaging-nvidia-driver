@@ -1,5 +1,5 @@
 # The NVIDIA license does not allow any form of modification.
-[i386]: binary-file-built-without-LFS-support
+[!amd64]: binary-file-built-without-LFS-support
 [i386]: shlib-with-non-pic-code
 hardening-no-fortify-functions
 hardening-no-relro
@@ -7,4 +7,3 @@ hardening-no-stackprotector
 
 # Lintian and debhelper disagree w.r.t a library in a private directory.
 postinst-has-useless-call-to-ldconfig
-postrm-has-useless-call-to-ldconfig

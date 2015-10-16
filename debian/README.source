@@ -77,6 +77,48 @@ parts of the kernel module
  -- Andreas Beckmann <anbe@debian.org>  Sun, 09 Nov 2014 14:49:10 +0100
 
 
+Testing kernel module compilation
+
+    The following approach has been useful to test nvidia-kernel-source (or
+    a corresponding legacy variant) against a range of kernel headers. The
+    dkms packages are less suited for semi-automatic testing.
+
+    Initial setup amd64/i386:
+    * setup a minimal sid chroot for the target architecture (debootstrap)
+    * setup a schroot configuration for easy usage
+    * include all releases to be tested in the sources.list
+      (the linux-headers-*-all metapackages from oldstable/stable/backports/
+      testing/ sid/experimental/*-backports are co-installable)
+    * install as many linux-headers-* (meta-)packages as you want to test
+
+    Initial setup armhf:
+    * install the package: qemu-user-static (MUST be version >= 1:2.3)
+    * cowbuilder yields best results compared to chroot/schroot/pbuilder, for
+      detailed instructions see: https://wiki.debian.org/cowbuilder
+    * define or export DEBOOTSTRAP="qemu-debootstrap" ARCH="armhf" before every
+      step
+
+    Testing a new nvidia*-kernel-source package:
+    * enter the chroot as root, update it, install new linux-headers-*
+    * install the new package to be tested with dpkg
+    * run 
+      sh /usr/share/doc/nvidia-kernel-source/build-module-packages.sh
+    * and wait, this will iterate over all available linux-headers
+    * should any fail to build, module-assistant will print an error and
+      wait for return being pressed before continuing
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Aug 2015 11:54:28 +0200
+
+
+The kernel modules get renamed to allow concurrent installation of the
+current and the legacy drivers. Only one module can be loaded at a time.
+Only the module filename gets renamed, the internal name is kept unchanged,
+otherwise the module seems to get confused. This needs some special care
+for unloading it, which is realized via modprobe configuration.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 11 Aug 2015 18:15:47 +0200
+
+
 Importing a new upstream release that moved support for some legacy cards
 to a new legacy driver
 
