@@ -13,9 +13,10 @@ MAKE[0]="env CCACHE_DISABLE=1 \
     make -C . SYSSRC=${kernel_source_dir}"
 CLEAN="make -C . SYSSRC=${kernel_source_dir} clean"
 
-BUILT_MODULE_NAME[1]="nvidia-uvm"
-BUILT_MODULE_LOCATION[1]="uvm/"
-DEST_MODULE_LOCATION[1]="/updates/dkms"
-MAKE[0]+="; env CCACHE_DISABLE=1 \
-    make -C uvm SYSSRC=${kernel_source_dir}"
-CLEAN+="; make -C uvm SYSSRC=${kernel_source_dir} clean"
+#HAS_UVM#BUILT_MODULE_NAME[1]="nvidia-uvm"
+#HAS_UVM#BUILT_MODULE_LOCATION[1]="uvm/"
+#HAS_UVM#DEST_MODULE_NAME[1]="$PACKAGE_NAME-uvm"
+#HAS_UVM#DEST_MODULE_LOCATION[1]="/updates/dkms"
+#HAS_UVM#MAKE[0]+="; env CCACHE_DISABLE=1 \
+#HAS_UVM#    make -C uvm SYSSRC=${kernel_source_dir}"
+#HAS_UVM#CLEAN+="; make -C uvm SYSSRC=${kernel_source_dir} clean"

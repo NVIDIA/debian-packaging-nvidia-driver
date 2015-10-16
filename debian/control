@@ -6,7 +6,8 @@ Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Uploaders:
  Russ Allbery <rra@debian.org>,
  Andreas Beckmann <anbe@debian.org>,
- Vincent Cheng <vcheng@debian.org>
+ Vincent Cheng <vcheng@debian.org>,
+ Luca Boccassi <luca.boccassi@gmail.com>,
 Vcs-Svn: svn://anonscm.debian.org/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
 Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
@@ -41,6 +42,7 @@ Recommends:
  libgl1-${nvidia}-glx-i386 [amd64],
  libgles1-${nvidia} (= ${binary:Version}),
  libgles2-${nvidia} (= ${binary:Version}),
+ nvidia-persistenced,
 Suggests:
  ${nvidia:kmod:source},
 Provides:
@@ -61,6 +63,8 @@ Description: NVIDIA metapackage${nvidia:LegacyDesc}
  .
  See /usr/share/doc/${nvidia}-driver/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+ .
+ Building the kernel module has been tested up to Linux ${nvidia:kmod:tested:Linux}.
 
 #Package: ${nvidia}-driver-bin
 Package: nvidia-driver-bin
@@ -71,6 +75,10 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia}-driver,
+Provides:
+ nvidia-driver-bin-${nvidia:Version},
+Conflicts:
+ nvidia-driver-bin-${nvidia:Version},
 Breaks:
  ${nvidia}-driver (<< 343.22-2~),
  nvidia-glx${nvidia:Legacy} (<< 319),
@@ -106,6 +114,10 @@ Suggests:
 Provides:
  xserver-xorg-video-nvidia-any,
  ${nvidia:xorgProvides},
+Breaks:
+ glx-alternative-nvidia (<< 0.6.91),
+Replaces:
+ glx-alternative-nvidia (<< 0.6.91),
 Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  These binary drivers provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
@@ -138,7 +150,9 @@ Suggests:
  ${nvidia:kmod:source},
 Provides:
  libgl1-nvidia-glx-any,
+ libgl1-nvidia-glx-${nvidia:Version},
 Conflicts:
+ libgl1-nvidia-glx-${nvidia:Version},
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
  nvidia-glx${nvidia:Legacy}-ia32,
  libgl1-nvidia-glx-ia32-any,
@@ -239,6 +253,10 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-eglcore-${nvidia:Version},
+Conflicts:
+ libnvidia-eglcore-${nvidia:Version},
 Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES and OpenVG.
@@ -257,7 +275,6 @@ Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
  glx-alternative-nvidia (>= 0.5),
- nvidia-modprobe,
  ${misc:Depends}
 Conflicts:
  libgl1-nvidia-alternatives,
@@ -276,6 +293,7 @@ Breaks:
  libnvcuvid1 (<< 340.46-2~),
  libnvidia-ml1 (<< 340.46-2~),
  nvidia-smi (<< 340.46-2~),
+ ${not:Current}nvidia-alternative (<< 340.93-5~),
 Provides:
  ${nvidia-alternative}--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider
@@ -289,6 +307,32 @@ Description: allows the selection of NVIDIA as GLX provider
  In order to install the NVIDIA driver and libraries, install the
  ${nvidia}-driver package instead.
 
+#Package: ${nvidia}-kernel-support
+Package: nvidia-kernel-support
+Section: non-free/kernel
+Architecture: i386 amd64 armhf
+Multi-Arch: foreign
+Depends:
+ ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia-alternative}--kmod-alias,
+ nvidia-kernel-common (>= 20110213),
+ nvidia-modprobe,
+ ${misc:Depends}
+Provides:
+ nvidia-kernel-support-any,
+ ${nvidia}-kernel-support--v1,
+Breaks:
+ glx-alternative-nvidia (<< 0.6.91),
+Replaces:
+ glx-alternative-nvidia (<< 0.6.91),
+Description: NVIDIA binary kernel module support files${nvidia:LegacyDesc}
+ The NVIDIA binary drivers provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server for graphics cards
+ using NVIDIA chip sets.  AGP, PCIe, SLI, TV-out and flat panel displays
+ are also supported.
+ .
+ This package provides supporting configuration for the kernel module.
+
 #Package: ${nvidia}-kernel-dkms
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
@@ -298,8 +342,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  dkms,
- nvidia-kernel-common (>= 20110213),
- ${nvidia-alternative}--kmod-alias,
+ ${nvidia}-kernel-support--v1,
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver (>= ${nvidia:Version}) | ${libcuda1} (>= ${nvidia:Version}),
@@ -321,6 +364,8 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  .
  See /usr/share/doc/${nvidia}-kernel-dkms/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+ .
+ Building the kernel module has been tested up to Linux ${nvidia:kmod:tested:Linux}.
 
 #Package: ${nvidia}-kernel-source
 Package: nvidia-kernel-source
@@ -334,8 +379,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  module-assistant | kernel-package,
- nvidia-kernel-common,
- ${nvidia-alternative}--kmod-alias,
+ ${nvidia}-kernel-support,
 Suggests:
  ${nvidia}-driver (>= ${nvidia:Version}),
 Breaks:
@@ -358,6 +402,8 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  .
  See /usr/share/doc/${nvidia}-kernel-source/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+ .
+ Building the kernel module has been tested up to Linux ${nvidia:kmod:tested:Linux}.
 
 #Package: ${nvidia}-vdpau-driver
 Package: nvidia-vdpau-driver
@@ -460,6 +506,7 @@ Conflicts:
 Replaces:
  libcuda1-ia32,
 Provides:
+ libcuda1-any,
  libcuda-5.0-1,
  libcuda-5.0-1-i386 [i386],
  libcuda-5.5-1,
@@ -502,7 +549,10 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-compiler-${nvidia:Version},
 Conflicts:
+ libnvidia-compiler-${nvidia:Version},
  libnvidia-compiler-ia32,
 Replaces:
  libnvidia-compiler-ia32,
@@ -642,6 +692,9 @@ Description: NVIDIA OpenCL installable client driver (ICD)
  .
  This package provides the NVIDIA installable client driver (ICD) for OpenCL
  which supports NVIDIA GPUs.
+ .
+ The ${libcuda1} package may be required additionally
+ to get a working OpenCL setup for NVIDIA GPUs.
 
 Package: nvidia-libopencl1
 Architecture: i386 amd64
