@@ -1,4 +1,4 @@
-Author: Luca Boccassi <luca.boccassi@gmail.com
+Author: Luca Boccassi <luca.boccassi@gmail.com>
 Description: Remove dependency on conftest.sh from kernel modules
  The new build system of the Nvidia kernel modules now runs conftest.sh by
  having the modules objects depend on it. Simply overriding the script with a
