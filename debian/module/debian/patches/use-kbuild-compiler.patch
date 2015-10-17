@@ -1,0 +1,18 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: let Kbuild set the compiler version
+ If CC=cc is passed to make, the default system compiler will be used. But we
+ want to build the kernel modules with the same compiler version used to build
+ the kernel itself. Remove the CC parameter from upstream's Makefile's make
+ invocation.
+
+--- a/Makefile
++++ b/Makefile
+@@ -79,7 +79,7 @@
+   .PHONY: modules module clean clean_conftest modules_install
+   # avoid ld.gold, see #626279
+   modules clean modules_install:
+-	$(MAKE) "CC=$(CC)" "LD=ld.bfd" $(KBUILD_PARAMS) $@
++	$(MAKE) "LD=ld.bfd" $(KBUILD_PARAMS) $@
+ 	@if [ "$@" = "modules" ]; then \
+ 	  for module in $(NV_KERNEL_MODULES); do \
+ 	    if [ -x split-object-file.sh ]; then \
