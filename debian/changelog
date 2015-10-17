@@ -13,8 +13,7 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
       several extensions were being reported as supported for indirect
       GLX, which were in fact only supported under direct rendering.
     - Added support for the following EGL extensions:
-          EGL_KHR_swap_buffers_with_damage
-          EGL_NV_stream_consumer_gltexture_yuv
+        EGL_KHR_swap_buffers_with_damage, EGL_NV_stream_consumer_gltexture_yuv
     - Replaced the build system for the NVIDIA kernel modules and updated
       the installer package and nvidia-installer to use the new build
       system and kernel module source code layout. For more information
@@ -26,11 +25,11 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
       dynamically-created outputs will not be destroyed, so this option is
       deprecated and will be removed in a future driver release.
     - Added support for VDPAU profiles added in VDPAU 0.9:
-      VDP_DECODER_PROFILE_H264_BASELINE
-      VDP_DECODER_PROFILE_H264_CONSTRAINED_BASELINE
-      VDP_DECODER_PROFILE_H264_EXTENDED
-      VDP_DECODER_PROFILE_H264_PROGRESSIVE_HIGH
-      VDP_DECODER_PROFILE_H264_CONSTRAINED_HIGH
+        VDP_DECODER_PROFILE_H264_BASELINE,
+        VDP_DECODER_PROFILE_H264_CONSTRAINED_BASELINE,
+        VDP_DECODER_PROFILE_H264_EXTENDED,
+        VDP_DECODER_PROFILE_H264_PROGRESSIVE_HIGH,
+        VDP_DECODER_PROFILE_H264_CONSTRAINED_HIGH
     - Fixed a bug that prevented more than one RandR output from sharing
       user-added modes.
     - Fixed a bug that caused application-specified swap intervals to be
