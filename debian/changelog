@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (358.09-1) UNRELEASED; urgency=medium
 
+  [ Luca Boccassi ]
   * New upstream beta 358.09 (2015-10-12).
     - Fixed a regression that reduced OpenGL performance on headless X
       server configurations.
@@ -90,7 +91,8 @@ nvidia-graphics-drivers (358.09-1) UNRELEASED; urgency=medium
       uvm-symvers2.patch
     - Make build verbose by using new env var NV_VERBOSE=1
     - Updated kernel module patches to accommodate for new build path
-    - Added patches to stop upstream Kbuild from using conftest.sh
+    - Added patches to stop upstream Kbuild from using conftest.sh:
+      disable_nvidia_conftest.patch, disable_uvm_conftest.patch
     - Updated paths in debian/nvidia-kernel-dkms.dkms.in debian/rules.in,
       debian/rules for new build system and new nvidia-modesetting module
     - Removed debian/module/Makefile, debian/module/conftest.sh
