@@ -6,3 +6,4 @@ disable_nvidia_conftest.patch
 #HAS_UVM#disable_uvm_conftest.patch
 seq-printf.patch
 arm-outer-sync.patch
+use-kbuild-compiler.patch

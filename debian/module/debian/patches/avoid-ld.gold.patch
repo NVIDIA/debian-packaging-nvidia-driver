@@ -8,12 +8,14 @@ Bug-Debian: http://bugs.debian.org/626279
 
 --- a/Makefile
 +++ b/Makefile
-@@ -77,6 +77,8 @@
+@@ -77,8 +77,9 @@
    endif
  
    .PHONY: modules module clean clean_conftest modules_install
 +  # avoid ld.gold, see #626279
-+  LD=ld.bfd
    modules clean modules_install:
- 	$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) $@
+-	$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) $@
++	$(MAKE) "CC=$(CC)" "LD=ld.bfd" $(KBUILD_PARAMS) $@
  	@if [ "$@" = "modules" ]; then \
+ 	  for module in $(NV_KERNEL_MODULES); do \
+ 	    if [ -x split-object-file.sh ]; then \
