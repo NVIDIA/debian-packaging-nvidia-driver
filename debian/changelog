@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (340.93-6) UNRELEASED; urgency=medium
 
   * nvidia-opencl-icd: Restore the Depends: libcuda1.
+  * r/rules: Move tar option --no-recursion before the list of files.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 18:35:10 +0200
 
