@@ -1,53 +1,48 @@
 nvidia-graphics-drivers (358.09-1) UNRELEASED; urgency=medium
 
   * New upstream beta 358.09 (2015-10-12).
-    - Added support for the following GPUs:
-      GeForce 805A
-      GeForce GTX 960A
-    - Fixed a regression that reduced OpenGL performance on headless X server
-      configurations.
+    - Fixed a regression that reduced OpenGL performance on headless X
+      server configurations.
     - Fixed a memory leak that occurred after destroying a GLXWindow which
       still has the current context attached to it.
     - Fixed a bug which caused EGL pbuffers to be created with both a front
       and back buffer, instead of a back buffer only, as is required for EGL.
-    - Added a new kernel module, nvidia-modeset.ko.  This new driver component
-      works in conjunction with the nvidia.ko kernel module to program the
-      display engine of the GPU.
-      nvidia-modeset.ko does not provide any new user-visible functionality or
-      interfaces to third party applications.  However, in a later release,
-      nvidia-modeset.ko will be used as a basis for the modesetting interface
-      provided by the kernel's direct rendering manager (DRM).
+    - Added a new kernel module, nvidia-modeset.ko.  This new driver
+      component works in conjunction with the nvidia.ko kernel module
+      to program the display engine of the GPU.
+      nvidia-modeset.ko does not provide any new user-visible
+      functionality or interfaces to third party applications.  However,
+      in a later release, nvidia-modeset.ko will be used as a basis for
+      the modesetting interface provided by the kernel's direct rendering
+      manager (DRM).
     - Reduced flickering and delays when transitioning into or out of G-SYNC
       mode.  As part of this change, monitors that have G-SYNC indicators in
       their on-screen displays will now always report that they are in G-SYNC
       mode.  The OpenGL G-SYNC visual indicator can be enabled in
       nvidia-settings to determine when G-SYNC is actually being used.
-    - GLX protocol for the following OpenGL extension from OpenGL 3.0 has been
-      promoted from unofficial to ARB approved official status:
-      GL_EXT_draw_buffers2
+    - GLX protocol for the following OpenGL
+      extension from OpenGL 3.0 has been promoted from
+      unofficial to ARB approved official status:
+        GL_EXT_draw_buffers2
     - GLX protocol for the following OpenGL 3.0 commands:
-      BindBufferRangeNV
-      BindBufferBaseNV
-      BeginTransformFeedbackNV
-      EndTransformFeedbackNV
-      GetTransformFeedbackVaryingEXT
-      TransformFeedbackVaryingsEXT
-
+        BindBufferRangeNV, BindBufferBaseNV, BeginTransformFeedbackNV,
+        EndTransformFeedbackNV, GetTransformFeedbackVaryingEXT,
+        TransformFeedbackVaryingsEXT
       which are part of the following extensions:
-
-      GL_NV_transform_feedback
-      GL_EXT_transform_feedback
-
-      has been promoted from unofficial to ARB approved official status.
-    - With the above changes, GLX protocol for OpenGL 3.0 has been promoted
-     from unofficial to ARB approved official status.
-    - Added a new system memory allocation mechanism for large allocations in
-      the OpenGL driver.  This mechanism allows unmapping the allocation from
-      the process when it is not in use, making more virtual address space
-      available to the application.  It is enabled by default on 32 bit OpenGL
-      applications with Linux 3.11+ and glibc 2.19+.  Memory allocated this
-      way will consume space in /dev/shm. Setting the environment variable
-      __GL_DevShmPageableAllocations to 2 will disable this feature
+        GL_NV_transform_feedback, GL_EXT_transform_feedback
+      has been promoted from unofficial to ARB approved
+      official status.
+      With the above changes, GLX protocol for
+      OpenGL 3.0 has been promoted from unofficial
+      to ARB approved official status.
+    - Added a new system memory allocation mechanism for large
+      allocations in the OpenGL driver.  This mechanism allows unmapping
+      the allocation from the process when it is not in use, making more
+      virtual address space available to the application.  It is enabled
+      by default on 32 bit OpenGL applications with Linux 3.11+ and glibc
+      2.19+.  Memory allocated this way will consume space in /dev/shm.
+      Setting the environment variable __GL_DevShmPageableAllocations
+      to 2 will disable this feature
   * New upstream release 355.11 (2015-08-31).
     - Fixed a bug that could cause GPU exceptions when using glReadPixels()
       on the depth or stencil buffers of multisample windows while resizing
@@ -60,8 +55,7 @@ nvidia-graphics-drivers (358.09-1) UNRELEASED; urgency=medium
       several extensions were being reported as supported for indirect
       GLX, which were in fact only supported under direct rendering.
     - Added support for the following EGL extensions:
-          EGL_KHR_swap_buffers_with_damage
-          EGL_NV_stream_consumer_gltexture_yuv
+        EGL_KHR_swap_buffers_with_damage, EGL_NV_stream_consumer_gltexture_yu
     - Replaced the build system for the NVIDIA kernel modules and updated
       the installer package and nvidia-installer to use the new build
       system and kernel module source code layout. For more information
