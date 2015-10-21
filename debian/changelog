@@ -5,6 +5,7 @@ nvidia-graphics-drivers (340.93-6) UNRELEASED; urgency=medium
   * Bump dependency to nvidia-kernel-common (>= 20151021) which no longer
     applies non-default permissions on the /dev/nvidia* device nodes.
     (See: #801598, #801869)
+  * nvidia-modprobe.conf: Re-enable the PCI ID matching aliases.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 18:35:10 +0200
 
