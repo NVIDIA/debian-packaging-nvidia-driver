@@ -10,7 +10,7 @@ nvidia-graphics-drivers (346.96-1) UNRELEASED; urgency=medium
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
       GeForce GTX 980 Ti.
-  * Merge changes from 340.93-5.
+  * Merge changes from 340.93-6.
   * Update nv-readme.ids.
   * UVM is no longer available on 32-bit architectures.
   * Use nvidia-drm-outputclass.conf as shipped by NVIDIA.
@@ -127,7 +127,7 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (343.36-3) UNRELEASED; urgency=medium
 
-  * Merge changes from 340.93-5.
+  * Merge changes from 340.93-6.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 12:56:02 +0200
 
@@ -197,11 +197,16 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
 
-nvidia-graphics-drivers (340.93-6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.93-6) unstable; urgency=medium
 
   * nvidia-opencl-icd: Restore the Depends: libcuda1.
+  * d/rules: Move tar option --no-recursion before the list of files.
+  * Bump dependency to nvidia-kernel-common (>= 20151021) which no longer
+    applies non-default permissions on the /dev/nvidia* device nodes.
+    (See: #801598, #801869) (Closes: #801191, #801097)
+  * nvidia-modprobe.conf: Re-enable the PCI ID matching aliases.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 18:35:10 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 21 Oct 2015 16:22:33 +0200
 
 nvidia-graphics-drivers (340.93-5) unstable; urgency=medium
 
@@ -219,7 +224,8 @@ nvidia-graphics-drivers (340.93-5) unstable; urgency=medium
   * Update lintian overrides.
 
   [ Luca Boccassi ]
-  * Add patch to fix armhf kernel module build failure on 4.3
+  * arm-outer-sync.patch: New patch to fix armhf kernel module build for
+    Linux 4.3.
   * conftest.h:
     - Implement new conftest.sh functions hlist_for_each_entry,
       of_parse_phandle, for_each_online_node, node_end_pfn (358.09).
@@ -238,7 +244,7 @@ nvidia-graphics-drivers (340.93-4) unstable; urgency=medium
   * Add nvidia-kernel-support package.
 
   [ Luca Boccassi ]
-  * Add patch to fix kernel module build failure on 4.3
+  * seq-printf.patch: New patch to fix kernel module build for Linux 4.3.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 09 Oct 2015 01:52:51 +0200
 
