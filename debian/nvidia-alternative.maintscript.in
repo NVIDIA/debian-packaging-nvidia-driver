@@ -1,1 +1,1 @@
-rm_conffile /etc/nvidia/#NVIDIA#-modprobe.conf 340.93-5~
+rm_conffile /etc/nvidia/#NVIDIA#-modprobe.conf 346.96~
