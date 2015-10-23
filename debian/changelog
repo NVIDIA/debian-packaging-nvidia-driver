@@ -1,8 +1,8 @@
-nvidia-graphics-drivers (352.55-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.55-2) experimental; urgency=medium
 
   * Merge changes from 340.93-6.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 23 Oct 2015 02:40:52 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 23 Oct 2015 02:46:30 +0200
 
 nvidia-graphics-drivers (352.55-1) experimental; urgency=medium
 
