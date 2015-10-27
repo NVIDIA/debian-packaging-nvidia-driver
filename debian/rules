@@ -12,11 +12,9 @@ include debian/rules.defs
 NVIDIA_LEGACY		?=
 WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
-LINUX_KMOD_TESTED	?=
 XORG_ABI_LIST		?=
 XORG_BOUND		?=
 LINUX_KMOD_TESTED	?=
-BACKPORT		?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
 NVIDIA_ALTERNATIVE	?= nvidia$(legacy)-alternative
 ARCH_LIST		?= i386 amd64
@@ -218,7 +216,7 @@ build-kernel-source-tree: install-into-tmp
 	  tar cfJ $(module_txz) \
 	    --owner=root --group=src -C $(module_source)/../.. \
 	    --exclude '*.in' --exclude '.svn' \
-	    --null -T - --no-recursion
+	    --no-recursion --null -T -
 	tar tfvJ $(module_txz)
 
 build-kernel-dkms-tree: build-kernel-source-tree
