@@ -1,9 +1,9 @@
-nvidia-graphics-drivers (340.93-7) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.93-7) unstable; urgency=medium
 
   * Ship the NEWS in xserver-xorg-video-nvidia and nvidia-kernel-dkms, too.
   * Bump glx-alternative-nvidia dependency to (>= 0.7) for Xorg autoconfig.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 01 Nov 2015 23:33:19 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 02 Nov 2015 12:10:02 +0100
 
 nvidia-graphics-drivers (340.93-6) unstable; urgency=medium
 
