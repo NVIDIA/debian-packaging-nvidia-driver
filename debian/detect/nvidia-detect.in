@@ -52,9 +52,10 @@ done
 
 if [ "$(echo $NV_DEVICES | wc -w)" != 1 ]; then
 	echo "Several NVIDIA GPUs detected. Checking only the first."
+	NV_DEVICES=$(echo $NV_DEVICES | awk '{ print $1 }')
 fi
 
-NVGA=$(lspci -mn -s ${NV_DEVICES%% *} | awk '{ gsub("\"",""); print $3 $4 }')
+NVGA=$(lspci -mn -s "$NV_DEVICES" | awk '{ gsub("\"",""); print $3 $4 }')
 
 else
 
