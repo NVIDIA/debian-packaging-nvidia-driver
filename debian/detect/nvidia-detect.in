@@ -19,7 +19,7 @@
 #
 
 if [ "$1" = "-h" -o "$1" = "--help" ]; then
-	echo "Usage: nvidia-detect [PCIID]"
+	echo "Usage: nvidia-detect [PCIID]..."
 	echo "       Reports the Debian packages supporting the NVIDIA GPU that is"
 	echo "       installed on the local system (or given as a PCIID parameter)."
 	exit 0
