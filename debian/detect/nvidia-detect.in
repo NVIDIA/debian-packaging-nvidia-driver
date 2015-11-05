@@ -36,6 +36,7 @@ NV_DETECT()
 
 NVGA=$1
 IDLISTDIR=/usr/share/nvidia
+local VERSIONS
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-71xx.ids 2>/dev/null
 then
@@ -83,7 +84,7 @@ if [[ ${#VERSIONS[*]} == 0 ]]; then
        	echo "Uh oh. Your card is not supported by any driver version up to $LATEST."
 	echo "A newer driver may add support for your card."
 	echo "Newer driver releases may be available in backports."
-	exit 0;
+	return
 fi
 
 	if grep -q "lenny\|^5" /etc/debian_version;
@@ -255,13 +256,15 @@ if [ -z "$1" ]; then
 
 else
 
-	PCIID=$(echo "$1" | sed -rn 's/^(10de)?:?([0-9a-fA-F]{4})$/10de\2/ip')
-	if [ -z "$PCIID" ]; then
-		echo "Error parsing PCI ID '$1'."
-		exit 1
-	fi
+	for id in "$@" ; do
+		PCIID=$(echo "$id" | sed -rn 's/^(10de)?:?([0-9a-fA-F]{4})$/10de\2/ip')
+		if [ -z "$PCIID" ]; then
+			echo "Error parsing PCI ID '$id'."
+			exit 1
+		fi
 
-	echo "Checking driver support for PCI ID [$(echo $PCIID | sed -r 's/(....)(....)/\1:\2/')]"
-	NV_DETECT "$PCIID"
+		echo "Checking driver support for PCI ID [$(echo $PCIID | sed -r 's/(....)(....)/\1:\2/')]"
+		NV_DETECT "$PCIID"
+	done
 
 fi
