@@ -31,45 +31,10 @@ shopt -s compat31 nocasematch 2>/dev/null || { echo "Error: this script only wor
 LATEST="#VERSION#"
 PACKAGE=
 
-if [ -z "$1" ]; then
+NV_DETECT()
+{
 
-if ! (lspci --version) > /dev/null 2>&1; then
-	echo "ERROR: The 'lspci' command was not found. Please install the 'pciutils' package." >&2
-	exit 1
-fi
-
-NV_DEVICES=$(lspci -mn | awk '{ gsub("\"",""); if ($2 == "0300" && ($3 == "10de" || $3 == "12d2")) { print $1 } }')
-
-if [ -z "$NV_DEVICES" ]; then
-	echo "No NVIDIA GPU detected."
-	exit 0
-fi
-
-echo "Detected NVIDIA GPUs:"
-for d in $NV_DEVICES ; do
-	lspci -nn -s $d
-done
-
-if [ "$(echo $NV_DEVICES | wc -w)" != 1 ]; then
-	echo "Several NVIDIA GPUs detected. Checking only the first."
-	NV_DEVICES=$(echo $NV_DEVICES | awk '{ print $1 }')
-fi
-
-NVGA=$(lspci -mn -s "$NV_DEVICES" | awk '{ gsub("\"",""); print $3 $4 }')
-
-else
-
-	PCIID=$(echo "$1" | sed -rn 's/^(10de)?:?([0-9a-fA-F]{4})$/10de\2/ip')
-	if [ -z "$PCIID" ]; then
-		echo "Error parsing PCI ID '$1'."
-		exit 1
-	fi
-
-	echo "Checking driver support for PCI ID [$(echo $PCIID | sed -r 's/(....)(....)/\1:\2/')]"
-	NVGA="$PCIID"
-
-fi
-
+NVGA=$1
 IDLISTDIR=/usr/share/nvidia
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-71xx.ids 2>/dev/null
@@ -259,4 +224,44 @@ if [ -n "$PACKAGE" ]; then
 	echo "It is recommended to install the"
 	echo "    $PACKAGE"
 	echo "package."
+fi
+
+}
+
+
+if [ -z "$1" ]; then
+
+	if ! (lspci --version) > /dev/null 2>&1; then
+		echo "ERROR: The 'lspci' command was not found. Please install the 'pciutils' package." >&2
+		exit 1
+	fi
+
+	NV_DEVICES=$(lspci -mn | awk '{ gsub("\"",""); if ($2 == "0300" && ($3 == "10de" || $3 == "12d2")) { print $1 } }')
+
+	if [ -z "$NV_DEVICES" ]; then
+		echo "No NVIDIA GPU detected."
+		exit 0
+	fi
+
+	echo "Detected NVIDIA GPUs:"
+	for d in $NV_DEVICES ; do
+		lspci -nn -s $d
+	done
+
+	for d in $NV_DEVICES ; do
+		echo -e "\nChecking card: $(lspci -s $d | awk -F: '{print $3}')"
+		NV_DETECT "$(lspci -mn -s "$d" | awk '{ gsub("\"",""); print $3 $4 }')"
+	done
+
+else
+
+	PCIID=$(echo "$1" | sed -rn 's/^(10de)?:?([0-9a-fA-F]{4})$/10de\2/ip')
+	if [ -z "$PCIID" ]; then
+		echo "Error parsing PCI ID '$1'."
+		exit 1
+	fi
+
+	echo "Checking driver support for PCI ID [$(echo $PCIID | sed -r 's/(....)(....)/\1:\2/')]"
+	NV_DETECT "$PCIID"
+
 fi

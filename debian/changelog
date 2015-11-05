@@ -1,7 +1,7 @@
 nvidia-graphics-drivers (340.93-8) UNRELEASED; urgency=medium
 
-  * nvidia-detect: Fix lspci call if there are multiple NVIDIA GPUs installed.
-    (Closes: #804073)
+  * nvidia-detect: Fix lspci call if there are multiple NVIDIA GPUs installed
+    and report driver support for each of them.  (Closes: #804073)
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 04 Nov 2015 19:23:00 +0100
 
