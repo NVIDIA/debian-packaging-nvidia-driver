@@ -335,7 +335,7 @@ Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  ${nvidia-alternative}--kmod-alias,
  nvidia-kernel-common (>= 20110213),
- nvidia-modprobe,
+ nvidia-modprobe (>= 352),
  ${misc:Depends}
 Provides:
  nvidia-kernel-support-any,
