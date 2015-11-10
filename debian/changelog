@@ -1,7 +1,7 @@
 nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
-  * New upstream release 355.11 (2015-08-31).
+  * New upstream release 355.11 (2015-08-31). (Closes: #804547)
     - Fixed a bug that could cause GPU exceptions when using glReadPixels()
       on the depth or stencil buffers of multisample windows while resizing
       or moving the windows.
