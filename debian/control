@@ -301,7 +301,7 @@ Description: allows the selection of NVIDIA as GLX provider
  legacy) this metapackage registers an alternative to allow easy switching
  between the different versions.
  .
- Use 'update-alternatives --config nvidia' to select a version.
+ Use 'update-glx --config nvidia' to select a version.
  .
  This package does not depend on the corresponding NVIDIA libraries.
  In order to install the NVIDIA driver and libraries, install the

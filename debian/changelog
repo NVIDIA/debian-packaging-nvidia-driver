@@ -5,6 +5,8 @@ nvidia-graphics-drivers (340.93-8) UNRELEASED; urgency=medium
   * bug-control: Report status of bumblebee and bumblebee-nvidia.
   * nvidia-alternative.postinst: Activate the register-glx-alternative-nvidia
     trigger with --no-await.
+  * Update documentation to use update-glx to configure the 'nvidia' and 'glx'
+    alternatives.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 04 Nov 2015 19:23:00 +0100
 
