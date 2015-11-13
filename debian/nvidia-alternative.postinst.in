@@ -80,7 +80,7 @@ if [ "$1" = "triggered" ]; then
 	fi
 
 	# activate the trigger selecting NVIDIA as GLX provider
-	dpkg-trigger register-glx-alternative-nvidia
+	dpkg-trigger --no-await register-glx-alternative-nvidia
 
 fi
 
