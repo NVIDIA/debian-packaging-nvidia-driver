@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.93-8) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.93-8) unstable; urgency=medium
 
   * nvidia-detect: Fix lspci call if there are multiple NVIDIA GPUs installed
     and report driver support for each of them.  (Closes: #804073)
@@ -8,7 +8,7 @@ nvidia-graphics-drivers (340.93-8) UNRELEASED; urgency=medium
   * Update documentation to use update-glx to configure the 'nvidia' and 'glx'
     alternatives.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 04 Nov 2015 19:23:00 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 13 Nov 2015 12:14:46 +0100
 
 nvidia-graphics-drivers (340.93-7) unstable; urgency=medium
 
