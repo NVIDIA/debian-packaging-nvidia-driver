@@ -64,6 +64,12 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
 
+nvidia-graphics-drivers (352.55-3) experimental; urgency=medium
+
+  * Merge changes from 340.93-8.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 13 Nov 2015 19:07:13 +0100
+
 nvidia-graphics-drivers (352.55-2) experimental; urgency=medium
 
   * Merge changes from 340.93-6.
@@ -367,7 +373,7 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (343.36-3) UNRELEASED; urgency=medium
 
-  * Merge changes from 340.93-6.
+  * Merge changes from 340.93-8.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 12:56:02 +0200
 
@@ -436,6 +442,25 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
+
+nvidia-graphics-drivers (340.93-8) unstable; urgency=medium
+
+  * nvidia-detect: Fix lspci call if there are multiple NVIDIA GPUs installed
+    and report driver support for each of them.  (Closes: #804073)
+  * bug-control: Report status of bumblebee and bumblebee-nvidia.
+  * nvidia-alternative.postinst: Activate the register-glx-alternative-nvidia
+    trigger with --no-await.
+  * Update documentation to use update-glx to configure the 'nvidia' and 'glx'
+    alternatives.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 13 Nov 2015 12:14:46 +0100
+
+nvidia-graphics-drivers (340.93-7) unstable; urgency=medium
+
+  * Ship the NEWS in xserver-xorg-video-nvidia and nvidia-kernel-dkms, too.
+  * Bump glx-alternative-nvidia dependency to (>= 0.7) for Xorg autoconfig.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 02 Nov 2015 12:10:02 +0100
 
 nvidia-graphics-drivers (340.93-6) unstable; urgency=medium
 
