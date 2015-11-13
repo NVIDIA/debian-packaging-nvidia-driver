@@ -1777,6 +1777,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glShaderSourceARB@Base 1.0.6106
  glShaderStorageBlockBinding@Base 310
  glStateCaptureNV@Base 346
+#MISSING: 331# glStatePropertiesDynamicNV@Base 260
 #MISSING: 331# glStatePropertyfNV@Base 260
 #MISSING: 331# glStatePropertyiNV@Base 260
 #MISSING: 331# glStateTypeNV@Base 260
