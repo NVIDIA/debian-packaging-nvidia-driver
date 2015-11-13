@@ -293,7 +293,6 @@ Breaks:
  libnvcuvid1 (<< 340.46-2~),
  libnvidia-ml1 (<< 340.46-2~),
  nvidia-smi (<< 340.46-2~),
- ${not:Current}nvidia-alternative (<< 340.93-5~),
 Provides:
  ${nvidia-alternative}--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider
