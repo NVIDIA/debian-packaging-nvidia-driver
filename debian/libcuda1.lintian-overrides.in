@@ -1,6 +1,6 @@
 # The NVIDIA license does not allow any form of modification.
 [!amd64]: binary-file-built-without-LFS-support
-embedded-library usr/lib*/libcuda.so.#VERSION#: zlib
+embedded-library #LIBDIR#/#PRIVATE#/libcuda.so.#VERSION#: zlib
 [!armhf]: shlib-with-executable-stack
 [i386]: shlib-with-non-pic-code
 spelling-error-in-binary

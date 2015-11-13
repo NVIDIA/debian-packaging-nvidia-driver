@@ -293,7 +293,7 @@ Package: nvidia-alternative
 Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
- glx-alternative-nvidia (>= 0.5),
+ glx-alternative-nvidia (>= 0.7),
  ${misc:Depends}
 Conflicts:
  libgl1-nvidia-alternatives,
@@ -312,7 +312,6 @@ Breaks:
  libnvcuvid1 (<< 340.46-2~),
  libnvidia-ml1 (<< 340.46-2~),
  nvidia-smi (<< 340.46-2~),
- ${not:Current}nvidia-alternative (<< 340.93-5~),
 Provides:
  ${nvidia-alternative}--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider
@@ -320,7 +319,7 @@ Description: allows the selection of NVIDIA as GLX provider
  legacy) this metapackage registers an alternative to allow easy switching
  between the different versions.
  .
- Use 'update-alternatives --config nvidia' to select a version.
+ Use 'update-glx --config nvidia' to select a version.
  .
  This package does not depend on the corresponding NVIDIA libraries.
  In order to install the NVIDIA driver and libraries, install the
@@ -334,7 +333,7 @@ Multi-Arch: foreign
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  ${nvidia-alternative}--kmod-alias,
- nvidia-kernel-common (>= 20110213),
+ nvidia-kernel-common (>= 20151021),
  nvidia-modprobe (>= 352),
  ${misc:Depends}
 Provides:

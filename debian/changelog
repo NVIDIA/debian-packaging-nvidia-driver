@@ -56,7 +56,7 @@ nvidia-graphics-drivers (358.09-1) UNRELEASED; urgency=medium
       several extensions were being reported as supported for indirect
       GLX, which were in fact only supported under direct rendering.
     - Added support for the following EGL extensions:
-        EGL_KHR_swap_buffers_with_damage, EGL_NV_stream_consumer_gltexture_yu
+        EGL_KHR_swap_buffers_with_damage, EGL_NV_stream_consumer_gltexture_yuv
     - Replaced the build system for the NVIDIA kernel modules and updated
       the installer package and nvidia-installer to use the new build
       system and kernel module source code layout. For more information
@@ -68,11 +68,11 @@ nvidia-graphics-drivers (358.09-1) UNRELEASED; urgency=medium
       dynamically-created outputs will not be destroyed, so this option is
       deprecated and will be removed in a future driver release.
     - Added support for VDPAU profiles added in VDPAU 0.9:
-      VDP_DECODER_PROFILE_H264_BASELINE
-      VDP_DECODER_PROFILE_H264_CONSTRAINED_BASELINE
-      VDP_DECODER_PROFILE_H264_EXTENDED
-      VDP_DECODER_PROFILE_H264_PROGRESSIVE_HIGH
-      VDP_DECODER_PROFILE_H264_CONSTRAINED_HIGH
+        VDP_DECODER_PROFILE_H264_BASELINE,
+        VDP_DECODER_PROFILE_H264_CONSTRAINED_BASELINE,
+        VDP_DECODER_PROFILE_H264_EXTENDED,
+        VDP_DECODER_PROFILE_H264_PROGRESSIVE_HIGH,
+        VDP_DECODER_PROFILE_H264_CONSTRAINED_HIGH
     - Fixed a bug that prevented more than one RandR output from sharing
       user-added modes.
     - Fixed a bug that caused application-specified swap intervals to be
@@ -107,6 +107,18 @@ nvidia-graphics-drivers (358.09-1) UNRELEASED; urgency=medium
   * Updated libgl1-nvidia-glx and libnvidia-eglcore symbols
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
+
+nvidia-graphics-drivers (352.55-3) experimental; urgency=medium
+
+  * Merge changes from 340.93-8.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 13 Nov 2015 19:07:13 +0100
+
+nvidia-graphics-drivers (352.55-2) experimental; urgency=medium
+
+  * Merge changes from 340.93-6.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 23 Oct 2015 02:46:30 +0200
 
 nvidia-graphics-drivers (352.55-1) experimental; urgency=medium
 
@@ -272,6 +284,7 @@ nvidia-graphics-drivers (349.16-1) UNRELEASED; urgency=medium
     * Add support for OpenCL 1.2.
   * Update symbols control files.
   * nvidia-libopencl1: Add Provides: libopencl-1.2-1.
+  * Restrict watch file to releases from the 349.xx short lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Jul 2015 17:16:47 +0200
 
@@ -287,7 +300,7 @@ nvidia-graphics-drivers (346.96-1) UNRELEASED; urgency=medium
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
       GeForce GTX 980 Ti.
-  * Merge changes from 340.93-5.
+  * Merge changes from 340.93-6.
   * Update nv-readme.ids.
   * UVM is no longer available on 32-bit architectures.
   * Use nvidia-drm-outputclass.conf as shipped by NVIDIA.
@@ -404,7 +417,7 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (343.36-3) UNRELEASED; urgency=medium
 
-  * Merge changes from 340.93-5.
+  * Merge changes from 340.93-8.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 12:56:02 +0200
 
@@ -474,11 +487,35 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
 
-nvidia-graphics-drivers (340.93-6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.93-8) unstable; urgency=medium
+
+  * nvidia-detect: Fix lspci call if there are multiple NVIDIA GPUs installed
+    and report driver support for each of them.  (Closes: #804073)
+  * bug-control: Report status of bumblebee and bumblebee-nvidia.
+  * nvidia-alternative.postinst: Activate the register-glx-alternative-nvidia
+    trigger with --no-await.
+  * Update documentation to use update-glx to configure the 'nvidia' and 'glx'
+    alternatives.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 13 Nov 2015 12:14:46 +0100
+
+nvidia-graphics-drivers (340.93-7) unstable; urgency=medium
+
+  * Ship the NEWS in xserver-xorg-video-nvidia and nvidia-kernel-dkms, too.
+  * Bump glx-alternative-nvidia dependency to (>= 0.7) for Xorg autoconfig.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 02 Nov 2015 12:10:02 +0100
+
+nvidia-graphics-drivers (340.93-6) unstable; urgency=medium
 
   * nvidia-opencl-icd: Restore the Depends: libcuda1.
+  * d/rules: Move tar option --no-recursion before the list of files.
+  * Bump dependency to nvidia-kernel-common (>= 20151021) which no longer
+    applies non-default permissions on the /dev/nvidia* device nodes.
+    (See: #801598, #801869) (Closes: #801191, #801097)
+  * nvidia-modprobe.conf: Re-enable the PCI ID matching aliases.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 18:35:10 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 21 Oct 2015 16:22:33 +0200
 
 nvidia-graphics-drivers (340.93-5) unstable; urgency=medium
 
@@ -496,7 +533,8 @@ nvidia-graphics-drivers (340.93-5) unstable; urgency=medium
   * Update lintian overrides.
 
   [ Luca Boccassi ]
-  * Add patch to fix armhf kernel module build failure on 4.3
+  * arm-outer-sync.patch: New patch to fix armhf kernel module build for
+    Linux 4.3.
   * conftest.h:
     - Implement new conftest.sh functions hlist_for_each_entry,
       of_parse_phandle, for_each_online_node, node_end_pfn (358.09).
@@ -515,7 +553,7 @@ nvidia-graphics-drivers (340.93-4) unstable; urgency=medium
   * Add nvidia-kernel-support package.
 
   [ Luca Boccassi ]
-  * Add patch to fix kernel module build failure on 4.3
+  * seq-printf.patch: New patch to fix kernel module build for Linux 4.3.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 09 Oct 2015 01:52:51 +0200
 
