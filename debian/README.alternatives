@@ -3,22 +3,15 @@ Short summary about selecting a glx implementation
 
 To switch between the current and legacy NVIDIA drivers, use
 
-    update-alternatives --config nvidia
-    dpkg-reconfigure glx-alternative-nvidia
-
-(The second command ensures the changes are propagated to the glx
-alternative.)
+    update-glx --config nvidia
 
 To switch between the GLX implementation from MESA, NVIDIA and AMD(fglrx),
 use the command
 
-    update-alternatives --config glx
+    update-glx --config glx
 
-followed by
-
-    update-initramfs -u
-
-to rebuild the initrd with a possibly changed kernel module blacklist.
+This will also trigger an update of the initrd with a possibly changed
+kernel module blacklist.
 
 
 Detailed description of the diversions/alternatives for libGL.so.1 etc.
@@ -68,7 +61,7 @@ alternative accordingly.
 
 User configuration can be done with the command
 
-    update-alternatives --config glx
+    update-glx --config glx
 
 which allows one to select a glx provider from mesa, nvidia, fglrx.
 (Available choices depend on the installed drivers.)
@@ -76,7 +69,7 @@ which allows one to select a glx provider from mesa, nvidia, fglrx.
 For NVIDIA, there is a second alternative that allows one to switch between
  the current driver version and eventually installed legacy ones:
 
-    update-alternatives --config nvidia
+    update-glx --config nvidia
 
 
 libGL.so
