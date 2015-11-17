@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (340.93-9) UNRELEASED; urgency=medium
+
+  * debian/module/debian/rules: Explicitly copy Module.symvers from the main
+    kernel module for use by the uvm module, since the dependencies in Kbuild
+    seem not to work in all cases.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 17 Nov 2015 05:28:25 +0100
+
 nvidia-graphics-drivers (340.93-8) unstable; urgency=medium
 
   * nvidia-detect: Fix lspci call if there are multiple NVIDIA GPUs installed
