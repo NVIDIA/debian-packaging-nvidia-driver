@@ -234,6 +234,7 @@ Depends:
  libglx-nvidia-alternatives (>= 275.09.07-4),
  ${misc:Depends}
 Breaks:
+ libcuda1 (<< ${nvidia:Version}),
  nvidia-glx${nvidia:Legacy} (<< 275.09.07-2),
  libgl1-nvidia${nvidia:Legacy}-glx (<< 275.09.07-2),
 Description: allows the selection of NVIDIA as GLX provider
@@ -440,6 +441,8 @@ Provides:
 Conflicts:
  libcuda1-dev,
  libcuda1-ia32 [i386],
+Breaks:
+ nvidia-alternative (<< ${nvidia:Version}),
 Replaces:
  nvidia-glx (<< 185.18.14-2),
  nvidia-glx-dev (<< 185.18.14-2),
