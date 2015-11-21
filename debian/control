@@ -285,7 +285,7 @@ Breaks:
  nvidia-settings-legacy-173xx (<< 173.14.37),
  nvidia-driver (<< 340.46-4~),
  nvidia-vdpau-driver (<< 340.46-2~),
- libcuda1 (<< 340.93-9~),
+ libcuda1 (<< 340.96),
  nvidia-opencl-icd (<< 340.46-2~),
  libnvidia-ifr1 (<< 340.46-2~),
  libnvidia-fbc1 (<< 340.46-2~),

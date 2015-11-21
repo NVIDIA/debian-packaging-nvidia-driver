@@ -1,5 +1,6 @@
-nvidia-graphics-drivers (340.93-9) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.96-1) UNRELEASED; urgency=medium
 
+  * New upstream legacy 340xx branch release 340.96 (2015-11-16).
   * debian/module/debian/rules: Explicitly copy Module.symvers from the main
     kernel module for use by the uvm module, since the dependencies in Kbuild
     seem not to work in all cases.
@@ -7,7 +8,7 @@ nvidia-graphics-drivers (340.93-9) UNRELEASED; urgency=medium
     to prevent partial upgrades.
   * Update lintian overrides.  (Closes: #805388)
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 17 Nov 2015 05:28:25 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 02:50:49 +0100
 
 nvidia-graphics-drivers (340.93-8) unstable; urgency=medium
 
@@ -1533,6 +1534,22 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
+
+nvidia-graphics-drivers (304.131-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.131 (2015-11-16).
+    - Fixed a bug that could cause texture corruption in some OpenGL
+      applications when video memory is exhausted by a combination of
+      simultaneously running graphical and compute workloads.
+    - Added support for X.Org xserver ABI 20 (xorg-server 1.18).
+  * Add xorg-video-abi-20 as alternative dependency.
+  * conftest.h:
+    - Implement new conftest.sh functions hlist_for_each_entry,
+      of_parse_phandle, for_each_online_node, node_end_pfn (358.09).
+    - Update conftest.sh function scatterlist for logic reversal in
+      304.131/340.96/352.63, support both ways.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 00:54:17 +0100
 
 nvidia-graphics-drivers (304.128-1) wheezy; urgency=medium
 
