@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.96-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.96-2) unstable; urgency=medium
 
   * New upstream legacy 340xx branch release 340.96 (2015-11-16).
   * New upstream legacy 304xx branch release 304.131 (2015-11-16).
@@ -22,7 +22,7 @@ nvidia-graphics-drivers (340.96-2) UNRELEASED; urgency=medium
     in Kbuild seem not to work in all cases.
   * Update lintian overrides.  (Closes: #805388)
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 02:50:49 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 06:59:25 +0100
 
 nvidia-graphics-drivers (340.93-8) unstable; urgency=medium
 
