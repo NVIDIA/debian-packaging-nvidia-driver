@@ -2,8 +2,11 @@ nvidia-graphics-drivers (340.96-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 340xx branch release 340.96 (2015-11-16).
   * d/rules: Move tar option --no-recursion before the list of files.
-  * debian/control: Make dependencies on nvidia-alternative strictly versioned
-    to prevent partial upgrades.
+  * d/control: Make dependencies on nvidia-alternative strictly versioned to
+    prevent partial upgrades.
+  * d/module/debian/control.template: Add armhf to the Architecture list,
+    otherwise module-assistant can't build any module packages from
+    nvidia-kernel-source on armhf.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 02:50:49 +0100
 

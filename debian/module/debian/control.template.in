@@ -8,7 +8,7 @@ Standards-Version: 3.9.0
 Homepage: http://www.nvidia.com/
 
 Package: #NVIDIA#-kernel-#KVERS#
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Provides: #NVIDIA#-kernel-#VERSION#
 Depends:
  nvidia-kernel-common (>= 20110213),
