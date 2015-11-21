@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (340.96-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 340xx branch release 340.96 (2015-11-16).
+  * seq-printf.patch: Remove, fixed upstream.
   * debian/module/debian/rules: Explicitly copy Module.symvers from the main
     kernel module for use by the uvm module, since the dependencies in Kbuild
     seem not to work in all cases.
