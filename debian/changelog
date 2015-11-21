@@ -1415,12 +1415,15 @@ nvidia-graphics-drivers (304.131-1) UNRELEASED; urgency=medium
       applications when video memory is exhausted by a combination of
       simultaneously running graphical and compute workloads.
     - Added support for X.Org xserver ABI 20 (xorg-server 1.18).
+    * Improved compatibility with recent Linux kernels.
   * Add xorg-video-abi-20 as alternative dependency.
   * conftest.h:
     - Implement new conftest.sh functions hlist_for_each_entry,
       of_parse_phandle, for_each_online_node, node_end_pfn (358.09).
     - Update conftest.sh function scatterlist for logic reversal in
       304.131/340.96/352.63, support both ways.
+  * debian/control: Add Breaks between mismatching upstream versions of
+    libcuda1 and nvidia-alternative to prevent partial upgrades. 
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 00:54:17 +0100
 
