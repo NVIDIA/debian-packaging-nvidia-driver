@@ -12,11 +12,14 @@ nvidia-graphics-drivers (340.96-2) UNRELEASED; urgency=medium
   * conftest.h:
     - Update conftest.sh function scatterlist for logic reversal in
       304.131/340.96/352.63, support both ways.
-  * debian/control: Make dependencies on nvidia-alternative strictly versioned
-    to prevent partial upgrades.
-  * debian/module/debian/rules: Explicitly copy Module.symvers from the main
-    kernel module for use by the uvm module, since the dependencies in Kbuild
-    seem not to work in all cases.
+  * d/control: Make dependencies on nvidia-alternative strictly versioned to
+    prevent partial upgrades.
+  * d/module/debian/control.template: Add armhf to the Architecture list,
+    otherwise module-assistant can't build any module packages from
+    nvidia-kernel-source on armhf.
+  * d/module/debian/rules: Explicitly copy Module.symvers from the nvidia.ko
+    kernel module for use by the nvidia-uvm.ko module, since the dependencies
+    in Kbuild seem not to work in all cases.
   * Update lintian overrides.  (Closes: #805388)
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 02:50:49 +0100
