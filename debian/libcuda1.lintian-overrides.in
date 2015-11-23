@@ -1,12 +1,14 @@
 # The NVIDIA license does not allow any form of modification.
 [!amd64]: binary-file-built-without-LFS-support
-embedded-library usr/lib*/libcuda.so.#VERSION#: zlib
 [!armhf]: shlib-with-executable-stack
 [i386]: shlib-with-non-pic-code
 spelling-error-in-binary
 hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
+
+# Use wildcard instead of exact substitution, this is a M-A: same package.
+embedded-library usr/lib*/libcuda.so.#VERSION#: zlib
 
 # Lintian and debhelper disagree w.r.t a library in a private directory.
 postinst-has-useless-call-to-ldconfig
