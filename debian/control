@@ -71,7 +71,7 @@ Package: nvidia-driver-bin
 Section: non-free/x11
 Architecture: i386 amd64 armhf
 Depends:
- ${nvidia-alternative},
+ ${nvidia-alternative} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia}-driver,
@@ -140,7 +140,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
  ${misc:Pre-Depends}
 Depends:
- ${nvidia-alternative},
+ ${nvidia-alternative} (= ${binary:Version}),
  nvidia-installer-cleanup (>= 20130816) [i386],
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
@@ -188,7 +188,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- ${nvidia-alternative},
+ ${nvidia-alternative} (= ${binary:Version}),
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
@@ -207,7 +207,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- ${nvidia-alternative},
+ ${nvidia-alternative} (= ${binary:Version}),
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 1.x libraries${nvidia:LegacyDesc}
@@ -229,7 +229,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- ${nvidia-alternative},
+ ${nvidia-alternative} (= ${binary:Version}),
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 2.x libraries${nvidia:LegacyDesc}
@@ -285,7 +285,7 @@ Breaks:
  nvidia-settings-legacy-173xx (<< 173.14.37),
  nvidia-driver (<< 343.22-2~),
  nvidia-vdpau-driver (<< 340.46-2~),
- libcuda1 (<< 340.46-2~),
+ libcuda1 (<< 352.63),
  nvidia-opencl-icd (<< 340.46-2~),
  libnvidia-ifr1 (<< 340.46-2~),
  libnvidia-fbc1 (<< 340.46-2~),
@@ -414,7 +414,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  libvdpau1 (>= 0.9),
- ${nvidia-alternative},
+ ${nvidia-alternative} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
@@ -490,7 +490,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  nvidia-support,
- ${nvidia-alternative},
+ ${nvidia-alternative} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
@@ -641,7 +641,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- ${nvidia-alternative},
+ ${nvidia-alternative} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Breaks:
  ${nvidia}-smi (<< ${nvidia:Version}),
@@ -676,7 +676,7 @@ Pre-Depends:
 Depends:
  nvidia-opencl-common,
  ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1,
- ${nvidia-alternative},
+ ${nvidia-alternative} (= ${binary:Version}),
  ${libcuda1} (= ${binary:Version}),
  lib${nvidia}-compiler (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
