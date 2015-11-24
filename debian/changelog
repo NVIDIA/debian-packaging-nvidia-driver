@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (304.131-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 304xx branch release 304.131 (2015-11-16).
+    * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
     - Fixed a bug that could cause texture corruption in some OpenGL
       applications when video memory is exhausted by a combination of
       simultaneously running graphical and compute workloads.
