@@ -1,6 +1,36 @@
-nvidia-graphics-drivers (358.09-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (358.16-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
+  * New upstream short lived branch release 358.16 (2015-11-20).
+    * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
+    - Fixed a regression, introduced in 358.09, that caused incorrect
+      rendering of OpenGL stereo applications in combination with
+      Quadro Sync on certain GPUs.
+    - Fixed a regression, introduced in 358.09, that caused OpenGL
+      stereo applications to hang when SLI AFR, SFR, or SLIAA modes
+      were enabled.
+    - Fixed a regression, introduced in 358.09, that caused the
+      system to hang while launching OpenGL applications when some SLI
+      Mosaic topologies were in use.
+    - Fixed a bug that could cause some G-SYNC monitors to flicker on
+      Kepler-based GPUs when running at low frame rates.
+    - Fixed a regression that could cause OpenGL or VDPAU applications to
+      hang in Xinerama layouts which include multiple X screens that are
+      driven by the same GPU.
+    - Added a fallback to allow GLX to function when UNIX domain socket
+      communication is blocked between NVIDIA client-side GLX and NVIDIA
+      server-side GLX. For example, the default SELinux policy on Fedora 22
+      prevents the NVIDIA 358.09 GLX driver from working in GDM3:
+      https://bugzilla.redhat.com/show_bug.cgi?id=1271401
+    - Fixed a regression from 358.09 that caused G-SYNC monitors configured to
+      use 3D Vision stereo to go blank and report an unsupported signal.
+    - Fixed a regression from 358.09 that caused OpenGL applications that failed
+      to negotiate permission to perform glXSwapBuffers via flipping to stop
+      updating the screen.  This was triggered on Fedora 22 where the SELinux
+      system policy prevents gnome-shell from communicating with the X server.
+      Now, OpenGL applications that fail to negotiate flipping will fall back to
+      glXSwapBuffers via blitting.
+      See https://bugzilla.redhat.com/show_bug.cgi?id=1271401 for more details.
   * New upstream beta 358.09 (2015-10-12).
     - Fixed a regression that reduced OpenGL performance on headless X
       server configurations.
@@ -106,7 +136,7 @@ nvidia-graphics-drivers (358.09-1) UNRELEASED; urgency=medium
   * Updated libegl1-nvidia, upstream now ships libEGL.so.1
   * Updated libgl1-nvidia-glx and libnvidia-eglcore symbols
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 24 Nov 2015 01:58:15 +0100
 
 nvidia-graphics-drivers (352.63-1) experimental; urgency=medium
 
