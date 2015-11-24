@@ -108,6 +108,23 @@ nvidia-graphics-drivers (358.09-1) UNRELEASED; urgency=medium
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
 
+nvidia-graphics-drivers (352.63-1) experimental; urgency=medium
+
+  * New upstream long lived branch release 352.63 (2015-11-16).
+    * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
+    - Added support for the following GPUs: GeForce 945M, Quadro M5000M,
+      Quadro M4000M, Quadro M3000M, Quadro M2000M, Quadro M1000M,
+      Quadro M600M, NVS 810, Tesla M40.
+    - Fixed a regression that prevented DPMS from working correctly on
+      some DisplayPort displays.
+    - Fixed a bug that could prevent X from starting when configured with
+      multiple X screens, some of which scan out to display devices, and
+      some of which do not.
+  * Update nv-readme.ids.
+  * Merge changes from 340.96-2.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 24 Nov 2015 01:32:50 +0100
+
 nvidia-graphics-drivers (352.55-3) experimental; urgency=medium
 
   * Merge changes from 340.93-8.
@@ -300,7 +317,7 @@ nvidia-graphics-drivers (346.96-1) UNRELEASED; urgency=medium
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
       GeForce GTX 980 Ti.
-  * Merge changes from 340.93-6.
+  * Merge changes from 340.96-2.
   * Update nv-readme.ids.
   * UVM is no longer available on 32-bit architectures.
   * Use nvidia-drm-outputclass.conf as shipped by NVIDIA.
@@ -417,7 +434,7 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (343.36-3) UNRELEASED; urgency=medium
 
-  * Merge changes from 340.93-8.
+  * Merge changes from 340.96-2.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 12:56:02 +0200
 
@@ -486,6 +503,32 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
+
+nvidia-graphics-drivers (340.96-2) unstable; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.96 (2015-11-16).
+  * New upstream legacy 304xx branch release 304.131 (2015-11-16).
+    - Fixed a bug that could cause texture corruption in some OpenGL
+      applications when video memory is exhausted by a combination of
+      simultaneously running graphical and compute workloads.
+    - Added support for X.Org xserver ABI 20 (xorg-server 1.18).
+    * Improved compatibility with recent Linux kernels.
+  * seq-printf.patch: Remove, fixed upstream.
+  * Add xorg-video-abi-20 as alternative dependency.
+  * conftest.h:
+    - Update conftest.sh function scatterlist for logic reversal in
+      304.131/340.96/352.63, support both ways.
+  * d/control: Make dependencies on nvidia-alternative strictly versioned to
+    prevent partial upgrades.
+  * d/module/debian/control.template: Add armhf to the Architecture list,
+    otherwise module-assistant can't build any module packages from
+    nvidia-kernel-source on armhf.
+  * d/module/debian/rules: Explicitly copy Module.symvers from the nvidia.ko
+    kernel module for use by the nvidia-uvm.ko module, since the dependencies
+    in Kbuild seem not to work in all cases.
+  * Update lintian overrides.  (Closes: #805388)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 06:59:25 +0100
 
 nvidia-graphics-drivers (340.93-8) unstable; urgency=medium
 

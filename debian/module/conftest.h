@@ -1,4 +1,4 @@
-/* synchronized with conftest.sh from 358.09, 355.11, 352.55, 349.16, 346.96, 343.36, 340.93, 304.128, 173.14.39, 96.43.23, 71.86.15 */
+/* synchronized with conftest.sh from 358.16, 355.11, 352.63, 349.16, 346.96, 343.36, 340.96, 304.131, 173.14.39, 96.43.23, 71.86.15 */
 
 #ifndef LINUX_VERSION_CODE
 #include <linux/version.h>
@@ -348,9 +348,13 @@
 #endif
 
 /* Implement conftest.sh function scatterlist */
+/* The logic and the define were reversed from HAS_PAGE
+   to HAS_PAGE_LINK in 304.131/340.96/352.63 */
 #if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,24)
+ #undef NV_SCATTERLIST_HAS_PAGE_LINK
  #define NV_SCATTERLIST_HAS_PAGE
 #else
+ #define NV_SCATTERLIST_HAS_PAGE_LINK
  #undef NV_SCATTERLIST_HAS_PAGE
 #endif
 
