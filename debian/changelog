@@ -10,6 +10,7 @@ nvidia-graphics-drivers (352.63-1) UNRELEASED; urgency=medium
     - Fixed a bug that could prevent X from starting when configured with
       multiple X screens, some of which scan out to display devices, and
       some of which do not.
+  * Update nv-readme.ids.
   * Merge changes from 340.96-2.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 24 Nov 2015 00:30:46 +0100
