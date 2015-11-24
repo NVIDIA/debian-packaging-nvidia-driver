@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (352.63-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.63-1) experimental; urgency=medium
 
   * New upstream long lived branch release 352.63 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
@@ -13,7 +13,7 @@ nvidia-graphics-drivers (352.63-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Merge changes from 340.96-2.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 24 Nov 2015 00:30:46 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 24 Nov 2015 01:32:50 +0100
 
 nvidia-graphics-drivers (352.55-3) experimental; urgency=medium
 
