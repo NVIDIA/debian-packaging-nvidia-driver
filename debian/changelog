@@ -17,9 +17,6 @@ nvidia-graphics-drivers (340.96-2) unstable; urgency=medium
   * d/module/debian/control.template: Add armhf to the Architecture list,
     otherwise module-assistant can't build any module packages from
     nvidia-kernel-source on armhf.
-  * d/module/debian/rules: Explicitly copy Module.symvers from the nvidia.ko
-    kernel module for use by the nvidia-uvm.ko module, since the dependencies
-    in Kbuild seem not to work in all cases.
   * Update lintian overrides.  (Closes: #805388)
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 06:59:25 +0100
