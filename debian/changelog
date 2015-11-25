@@ -1,6 +1,14 @@
 nvidia-graphics-drivers (340.96-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 340xx branch release 340.96 (2015-11-16).
+    * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
+  * Merge changes from 304.131-1.
+  * Add xorg-video-abi-20 as alternative dependency.
+  * conftest.h:
+    - Implement new conftest.sh functions hlist_for_each_entry,
+      of_parse_phandle, for_each_online_node, node_end_pfn (358.09).
+    - Update conftest.sh function scatterlist for logic reversal in
+      304.131/340.96/352.63, support both ways.
   * d/rules: Move tar option --no-recursion before the list of files.
   * d/control: Make dependencies on nvidia-alternative strictly versioned to
     prevent partial upgrades.
