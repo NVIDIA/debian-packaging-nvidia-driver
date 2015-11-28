@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (340.96-3) UNRELEASED; urgency=medium
+
+  * Add slave alternative for libnvcuvid.so.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 28 Nov 2015 02:28:29 +0100
+
 nvidia-graphics-drivers (340.96-2) unstable; urgency=medium
 
   * New upstream legacy 340xx branch release 340.96 (2015-11-16).
