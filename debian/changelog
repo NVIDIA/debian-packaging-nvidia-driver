@@ -1,13 +1,13 @@
-nvidia-graphics-drivers (340.96-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.96-3) unstable; urgency=medium
 
   * Merge changes from 304.131-1 (wheezy) and 340.96-1 (jessie).
   * Add slave alternative for libnvcuvid.so.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 28 Nov 2015 02:28:29 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 10:59:42 +0100
 
 nvidia-graphics-drivers (340.96-2) unstable; urgency=medium
 
-  * Merge changes from 340.96-1.
+  * Merge changes from 340.96-1 (UNRELEASED).
   * seq-printf.patch: Remove, fixed upstream.
   * Update lintian overrides.  (Closes: #805388)
   * Upload to unstable.
@@ -149,6 +149,7 @@ nvidia-graphics-drivers (340.93-1) unstable; urgency=medium
   * bug-script: Report file information in arm-linux-gnueabihf directories.
   * bug-script: Collect information from /etc/modules{,-load.d/}.
   * nvidia-driver: Add Recommends: nvidia-persistenced.
+  * Upload to unstable.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Sep 2015 20:58:29 +0200
 
