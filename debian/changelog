@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.96-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.96-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.96 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
@@ -15,8 +15,9 @@ nvidia-graphics-drivers (340.96-1) UNRELEASED; urgency=medium
   * d/module/debian/control.template: Add armhf to the Architecture list,
     otherwise module-assistant can't build any module packages from
     nvidia-kernel-source on armhf.
+  * Upload to jessie.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 02:50:49 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 10:17:49 +0100
 
 nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
 
@@ -56,6 +57,7 @@ nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
   * bug-control, bug-script: Report information about CUDA libraries.
   * nvidia-detect: Update list of newer PCI IDs from release 346.87.
   * Merge changes from 304.128-1.
+  * Upload to jessie.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 13:18:03 +0200
 
