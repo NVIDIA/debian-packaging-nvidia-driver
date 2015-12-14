@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (340.96-4) UNRELEASED; urgency=medium
+
+  [Luca Boccassi]
+  * bug-script: collect Xorg log from journalctl if running on systemd
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 14 Dec 2015 15:19:08 +0000
+
 nvidia-graphics-drivers (340.96-3) unstable; urgency=medium
 
   * Merge changes from 304.131-1 (wheezy) and 340.96-1 (jessie).
