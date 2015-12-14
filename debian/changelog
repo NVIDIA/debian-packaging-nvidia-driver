@@ -2,6 +2,7 @@ nvidia-graphics-drivers (340.96-3) unstable; urgency=medium
 
   * Merge changes from 304.131-1 (wheezy) and 340.96-1 (jessie).
   * Add slave alternative for libnvcuvid.so.
+  * Use a more generic approach for unloading the modules.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 10:59:42 +0100
 
