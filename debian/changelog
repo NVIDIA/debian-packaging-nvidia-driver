@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.131-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.131-1) wheezy; urgency=medium
 
   * New upstream legacy 304xx branch release 304.131 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
@@ -15,8 +15,9 @@ nvidia-graphics-drivers (304.131-1) UNRELEASED; urgency=medium
       304.131/340.96/352.63, support both ways.
   * debian/control: Add Breaks between mismatching upstream versions of
     libcuda1 and nvidia-alternative to prevent partial upgrades. 
+  * Upload to wheezy.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 00:54:17 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 09:53:49 +0100
 
 nvidia-graphics-drivers (304.128-1) wheezy; urgency=medium
 
@@ -42,6 +43,7 @@ nvidia-graphics-drivers (304.128-1) wheezy; urgency=medium
     - Implement new conftest.sh function nvidia_grid_build (352.41).
   * bug-script: Synchronize with unstable (340.93-4).
   * Update lintian overrides.
+  * Upload to wheezy.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 12:39:53 +0200
 
@@ -77,6 +79,7 @@ nvidia-graphics-drivers (304.125-1) wheezy; urgency=medium
     - Implement new conftest.sh functions pci_save_state (340.58), follow_pfn,
       fault_flags, atomic64_type (346.16).
   * Add changelog entries from etch and squeeze updates.
+  * Upload to wheezy.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 16 Dec 2014 21:38:22 +0100
 
@@ -157,6 +160,7 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
     underscores (may occur in custom kernels) with dashes to be eligible for
     package names and versions.  (Closes: #710891)
   * Update lintian overrides.
+  * Upload to wheezy.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 15 Feb 2014 16:11:02 +0100
 
