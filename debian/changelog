@@ -2,6 +2,7 @@ nvidia-graphics-drivers (340.96-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.96 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
+    * Improved compatibility with recent Linux kernels.
   * Merge changes from 304.131-1.
   * Add xorg-video-abi-20 as alternative dependency.
   * conftest.h:
