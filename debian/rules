@@ -301,6 +301,7 @@ override_dh_gencontrol:
 # Stripping the binary modules would constitute modifying the binary files
 # in a way other than unzipping of compressed files.
 override_dh_strip:
+override_dh_strip_nondeterminism:
 
 ############################################################################
 
