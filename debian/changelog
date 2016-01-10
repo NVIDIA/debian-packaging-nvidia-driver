@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.96-4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.96-4) unstable; urgency=medium
 
   [ Andreas Beckmann ]
   * Do not run dh_strip_nondeterminism, it may perform modifications not
@@ -11,7 +11,7 @@ nvidia-graphics-drivers (340.96-4) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * bug-script: collect Xorg log from journalctl if running on systemd
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 14 Dec 2015 15:19:08 +0000
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Jan 2016 19:55:26 +0100
 
 nvidia-graphics-drivers (340.96-3) unstable; urgency=medium
 
