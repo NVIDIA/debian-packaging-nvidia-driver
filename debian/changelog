@@ -3,6 +3,8 @@ nvidia-graphics-drivers (340.96-4) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Do not run dh_strip_nondeterminism, it may perform modifications not
     permitted by the NVIDIA license.
+  * get-orig-source: Download *.run with wget from http download server to
+    preserve timestamps.
   * get-orig-source: Generate tarball reproducibly.
   * Update lintian overrides.
 
