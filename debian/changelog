@@ -4,6 +4,7 @@ nvidia-graphics-drivers (340.96-4) UNRELEASED; urgency=medium
   * Do not run dh_strip_nondeterminism, it may perform modifications not
     permitted by the NVIDIA license.
   * get-orig-source: Generate tarball reproducibly.
+  * Update lintian overrides.
 
   [ Luca Boccassi ]
   * bug-script: collect Xorg log from journalctl if running on systemd
