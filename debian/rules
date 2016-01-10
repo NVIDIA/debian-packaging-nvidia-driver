@@ -383,10 +383,11 @@ get-orig-source:
 	@set -e -x ; \
 	    cd get-orig-source ; \
 	    newversion=$$(ls *-x86-*.run | sed -e 's/.*-\([0-9.]*\)\(-.*\)\?\.run/\1/') ; \
-	    mkdir nvidia-graphics-drivers-$${newversion}.orig ; \
-	    mv *.run nvidia-graphics-drivers-$${newversion}.orig/ ; \
-	    chmod 0755 nvidia-graphics-drivers-$${newversion}.orig/* ; \
+	    dir=nvidia-graphics-drivers-$${newversion}.orig ; \
+	    mkdir $$dir ; \
+	    mv *.run $$dir/ ; \
+	    chmod 0755 $$dir/* ; \
 	    tar cfvz ../nvidia-graphics-drivers$(legacy)_$$newversion.orig.tar.gz \
 		--owner=root --group=src \
-		nvidia-graphics-drivers-$${newversion}.orig
+		$$dir
 	rm -rf get-orig-source
