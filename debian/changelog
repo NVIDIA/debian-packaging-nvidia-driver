@@ -10,10 +10,13 @@ nvidia-graphics-drivers (346.96-1) UNRELEASED; urgency=medium
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
       GeForce GTX 980 Ti.
-  * Merge changes from 340.96-2.
+  * Merge changes from 343.36-3.
   * Update nv-readme.ids.
   * UVM is no longer available on 32-bit architectures.
   * Use nvidia-drm-outputclass.conf as shipped by NVIDIA.
+  * d/module/debian/rules: Explicitly copy Module.symvers from the nvidia.ko
+    kernel module for use by the nvidia-uvm.ko module, since the dependencies
+    in Kbuild seem not to work in all cases.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 19:26:13 +0200
 
@@ -125,11 +128,12 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 May 2015 21:55:05 +0200
 
-nvidia-graphics-drivers (343.36-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (343.36-3) unstable; urgency=low
 
-  * Merge changes from 340.96-2.
+  * Merge changes from 340.96-4.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 12:56:02 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 16:55:37 +0100
 
 nvidia-graphics-drivers (343.36-2) experimental; urgency=medium
 
@@ -197,31 +201,59 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
 
+nvidia-graphics-drivers (340.96-4) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Do not run dh_strip_nondeterminism, it may perform modifications not
+    permitted by the NVIDIA license.
+  * get-orig-source: Download *.run with wget from http download server to
+    preserve timestamps.
+  * get-orig-source: Generate tarball reproducibly.
+  * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * bug-script: collect Xorg log from journalctl if running on systemd
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Jan 2016 19:55:26 +0100
+
+nvidia-graphics-drivers (340.96-3) unstable; urgency=medium
+
+  * Merge changes from 304.131-1 (wheezy) and 340.96-1 (jessie).
+  * Add slave alternative for libnvcuvid.so.
+  * Use a more generic approach for unloading the modules.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 10:59:42 +0100
+
 nvidia-graphics-drivers (340.96-2) unstable; urgency=medium
 
-  * New upstream legacy 340xx branch release 340.96 (2015-11-16).
-  * New upstream legacy 304xx branch release 304.131 (2015-11-16).
-    - Fixed a bug that could cause texture corruption in some OpenGL
-      applications when video memory is exhausted by a combination of
-      simultaneously running graphical and compute workloads.
-    - Added support for X.Org xserver ABI 20 (xorg-server 1.18).
-    * Improved compatibility with recent Linux kernels.
+  * Merge changes from 340.96-1 (UNRELEASED).
   * seq-printf.patch: Remove, fixed upstream.
+  * Update lintian overrides.  (Closes: #805388)
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 06:59:25 +0100
+
+nvidia-graphics-drivers (340.96-1) jessie; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.96 (2015-11-16).
+    * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
+    * Improved compatibility with recent Linux kernels.
+  * Merge changes from 304.131-1.
   * Add xorg-video-abi-20 as alternative dependency.
   * conftest.h:
+    - Implement new conftest.sh functions hlist_for_each_entry,
+      of_parse_phandle, for_each_online_node, node_end_pfn (358.09).
     - Update conftest.sh function scatterlist for logic reversal in
       304.131/340.96/352.63, support both ways.
+  * d/rules: Move tar option --no-recursion before the list of files.
   * d/control: Make dependencies on nvidia-alternative strictly versioned to
     prevent partial upgrades.
   * d/module/debian/control.template: Add armhf to the Architecture list,
     otherwise module-assistant can't build any module packages from
     nvidia-kernel-source on armhf.
-  * d/module/debian/rules: Explicitly copy Module.symvers from the nvidia.ko
-    kernel module for use by the nvidia-uvm.ko module, since the dependencies
-    in Kbuild seem not to work in all cases.
-  * Update lintian overrides.  (Closes: #805388)
+  * Upload to jessie.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 06:59:25 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 10:17:49 +0100
 
 nvidia-graphics-drivers (340.93-8) unstable; urgency=medium
 
@@ -337,6 +369,7 @@ nvidia-graphics-drivers (340.93-1) unstable; urgency=medium
   * bug-script: Report file information in arm-linux-gnueabihf directories.
   * bug-script: Collect information from /etc/modules{,-load.d/}.
   * nvidia-driver: Add Recommends: nvidia-persistenced.
+  * Upload to unstable.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Sep 2015 20:58:29 +0200
 
@@ -378,6 +411,7 @@ nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
   * bug-control, bug-script: Report information about CUDA libraries.
   * nvidia-detect: Update list of newer PCI IDs from release 346.87.
   * Merge changes from 304.128-1.
+  * Upload to jessie.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 13:18:03 +0200
 
@@ -1748,6 +1782,27 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
+nvidia-graphics-drivers (304.131-1) wheezy; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.131 (2015-11-16).
+    * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
+    - Fixed a bug that could cause texture corruption in some OpenGL
+      applications when video memory is exhausted by a combination of
+      simultaneously running graphical and compute workloads.
+    - Added support for X.Org xserver ABI 20 (xorg-server 1.18).
+    * Improved compatibility with recent Linux kernels.
+  * Add xorg-video-abi-20 as alternative dependency.
+  * conftest.h:
+    - Implement new conftest.sh functions hlist_for_each_entry,
+      of_parse_phandle, for_each_online_node, node_end_pfn (358.09).
+    - Update conftest.sh function scatterlist for logic reversal in
+      304.131/340.96/352.63, support both ways.
+  * debian/control: Add Breaks between mismatching upstream versions of
+    libcuda1 and nvidia-alternative to prevent partial upgrades. 
+  * Upload to wheezy.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 09:53:49 +0100
+
 nvidia-graphics-drivers (304.128-1) wheezy; urgency=medium
 
   * New upstream legacy 304xx branch release 304.128 (2015-08-31).
@@ -1772,6 +1827,7 @@ nvidia-graphics-drivers (304.128-1) wheezy; urgency=medium
     - Implement new conftest.sh function nvidia_grid_build (352.41).
   * bug-script: Synchronize with unstable (340.93-4).
   * Update lintian overrides.
+  * Upload to wheezy.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 12:39:53 +0200
 
@@ -1807,6 +1863,7 @@ nvidia-graphics-drivers (304.125-1) wheezy; urgency=medium
     - Implement new conftest.sh functions pci_save_state (340.58), follow_pfn,
       fault_flags, atomic64_type (346.16).
   * Add changelog entries from etch and squeeze updates.
+  * Upload to wheezy.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 16 Dec 2014 21:38:22 +0100
 
@@ -1885,6 +1942,7 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
     underscores (may occur in custom kernels) with dashes to be eligible for
     package names and versions.  (Closes: #710891)
   * Update lintian overrides.
+  * Upload to wheezy.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 15 Feb 2014 16:11:02 +0100
 
