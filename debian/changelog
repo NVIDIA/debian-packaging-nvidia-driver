@@ -1,15 +1,11 @@
 nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
 
-  [ Andreas Beckmann ]
   * Do not run dh_strip_nondeterminism, it may perform modifications not
     permitted by the NVIDIA license.
-  * get-orig-source: Download *.run with wget from http download server to
-    preserve timestamps.
-  * get-orig-source: Generate tarball reproducibly.
+  * rules, rules.defs: Synchronize variable naming with unstable (340.96-4).
+  * get-orig-source: Synchronize with unstable (340.96-4).
+  * bug-script: Synchronize with unstable (340.96-4).
   * Update lintian overrides.
-
-  [ Luca Boccassi ]
-  * bug-script: collect Xorg log from journalctl if running on systemd
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 11:34:10 +0100
 
@@ -1433,6 +1429,17 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
+
+nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
+
+  * Do not run dh_strip_nondeterminism, it may perform modifications not
+    permitted by the NVIDIA license.
+  * rules, rules.defs: Synchronize variable naming with unstable (340.96-4).
+  * get-orig-source: Synchronize with unstable (340.96-4).
+  * bug-script: Synchronize with unstable (340.96-4).
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 13:04:27 +0100
 
 nvidia-graphics-drivers (304.131-1) wheezy; urgency=medium
 
