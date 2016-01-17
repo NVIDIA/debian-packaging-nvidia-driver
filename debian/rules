@@ -16,15 +16,21 @@ XORG_BOUND		?=
 MULTIARCH		?=
 BACKPORT		?=
 NVIDIA_SETTINGS		?= nvidia-settings
+ARCH_LIST		?= i386 amd64
 version			 = $(NVIDIA_RELEASE)
+version_major		 = $(firstword $(subst ., ,$(version)))
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 perfkit			 =
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
-filename_x86		 = $(NVIDIA_FILENAME_X86)
-filename_x86_64		 = $(NVIDIA_FILENAME_X86_64)
-dirname_x86		 = $(NVIDIA_DIRNAME_X86)
-dirname_x86_64		 = $(NVIDIA_DIRNAME_X86_64)
+filename_i386		 = $(NVIDIA_FILENAME_i386)
+filename_amd64		 = $(NVIDIA_FILENAME_amd64)
+dirname_i386		 = $(NVIDIA_DIRNAME_i386)
+dirname_amd64		 = $(NVIDIA_DIRNAME_amd64)
+filename_x86		 = $(filename_i386)
+filename_x86_64		 = $(filename_amd64)
+dirname_x86		 = $(dirname_i386)
+dirname_x86_64		 = $(dirname_amd64)
 
 # system libdir
 libdir			 = usr/lib$(if $(MULTIARCH),/$(DEB_HOST_MULTIARCH))
@@ -283,7 +289,7 @@ override_dh_builddeb:
 %:: %.in debian/rules debian/rules.defs
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
-	-e 's{#MAJOR#}{$(firstword $(subst ., ,$(version)))}g;' \
+	-e 's{#MAJOR#}{$(version_major)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
@@ -328,6 +334,11 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 	while read id ; do \
 		grep ^$$id pci.ids.nvidia || echo $$id ; \
 	done > $@
+
+# only invoked manually
+file-lists: $(patsubst %,debian/files_$(NVIDIA_RELEASE)_%,$(ARCH_LIST))
+debian/files_$(NVIDIA_RELEASE)_%: NVIDIA-Linux-%
+	(cd $< && find .) | sed 's/$(NVIDIA_RELEASE)/VERSION/g' | sort > $@
 
 ############################################################################
 
