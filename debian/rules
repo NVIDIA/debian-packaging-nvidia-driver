@@ -27,6 +27,7 @@ filename_i386		 = $(NVIDIA_FILENAME_i386)
 filename_amd64		 = $(NVIDIA_FILENAME_amd64)
 dirname_i386		 = $(NVIDIA_DIRNAME_i386)
 dirname_amd64		 = $(NVIDIA_DIRNAME_amd64)
+# legacy variable names:
 filename_x86		 = $(filename_i386)
 filename_x86_64		 = $(filename_amd64)
 dirname_x86		 = $(dirname_i386)
@@ -279,6 +280,7 @@ override_dh_gencontrol:
 # Stripping the binary modules would constitute modifying the binary files
 # in a way other than unzipping of compressed files.
 override_dh_strip:
+override_dh_strip_nondeterminism:
 
 override_dh_builddeb:
 	dh_builddeb -- -Zxz
@@ -360,23 +362,40 @@ prepare-squeeze-backport:
 ############################################################################
 
 PASV	?= --pasv
+CACHE	?= ../.cache
+ORIGDIR	?= nvidia-graphics-drivers-$(NVIDIA_RELEASE).orig
+TARBALL	?= nvidia-graphics-drivers$(legacy)_$(NVIDIA_RELEASE).orig.tar.gz
+
+# $1 = arch
+get_download_url	 = $(HTTPURL_PREFIX)/$(HTTPURL_ARCHDIR_$(strip $1))/$(NVIDIA_RELEASE)/$(NVIDIA_FILENAME_$(strip $1))
+
+get-orig-source-prepare:
+	$(RM) $(TARBALL)
+	$(RM) -r get-orig-source || true
+	mkdir get-orig-source
+
+get-orig-source-download-%: get-orig-source-prepare
+	ln -v $(CACHE)/$(NVIDIA_FILENAME_$*) get-orig-source/ 2>/dev/null || \
+		wget $(call get_download_url,$*) -P get-orig-source/
+	if [ -d $(CACHE) ] && [ ! -f $(CACHE)/$(NVIDIA_FILENAME_$*) ]; then \
+		ln -v get-orig-source/$(NVIDIA_FILENAME_$*) $(CACHE) ; fi
 
 .PHONY: get-orig-source
-get-orig-source:
-	rm -rf get-orig-source || true
-	mkdir get-orig-source
-	ln -v ../.cache/*-$(version).run get-orig-source/ 2>/dev/null || true
-	ln -v ../.cache/*-$(version)-*.run get-orig-source/ 2>/dev/null || true
-	uscan --no-symlink --download-current-version $(PASV) \
-	    --watchfile debian/watch --destdir get-orig-source
-	test $$(ls get-orig-source/* | wc -l) = 2  # we need exactly 2 downloaded files
+get-orig-source: $(foreach a,$(ARCH_LIST),get-orig-source-download-$a)
+	#uscan --no-symlink --download-current-version $(PASV) \
+	#    --watchfile debian/watch --destdir get-orig-source
+	test $$(ls get-orig-source/* | wc -l) = $(words $(ARCH_LIST))  # we need one file per architecture
 	@set -e -x ; \
 	    cd get-orig-source ; \
-	    newversion=$$(ls *-x86-*.run | sed -e 's/.*-\([0-9.]*\)\(-.*\)\?\.run/\1/') ; \
-	    mkdir nvidia-graphics-drivers-$${newversion}.orig ; \
-	    mv *.run nvidia-graphics-drivers-$${newversion}.orig/ ; \
-	    chmod 0755 nvidia-graphics-drivers-$${newversion}.orig/* ; \
-	    tar cfvz ../nvidia-graphics-drivers$(legacy)_$$newversion.orig.tar.gz \
+	    mkdir $(ORIGDIR) ; \
+	    mv *.run $(ORIGDIR)/ ; \
+	    chmod 0755 $(ORIGDIR)/* ; \
+	    latestfile=$$(ls -tr $(ORIGDIR)/* | tail -n 1) ; \
+	    touch $(ORIGDIR) -r $$latestfile ; \
+	    tar cfvz ../$(TARBALL) \
+	        --sort=name \
 		--owner=root --group=src \
-		nvidia-graphics-drivers-$${newversion}.orig
+		$(ORIGDIR) \
+		; \
+	    touch ../$(TARBALL) -r $$latestfile
 	rm -rf get-orig-source

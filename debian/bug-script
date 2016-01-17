@@ -113,6 +113,13 @@ do
 	fi
 done
 
+if [ -d /run/systemd/system ]; then
+	echo "<<<<<<<<<< Xorg (journald) >>>>>>>>>>"
+	journalctl -b _COMM=Xorg --no-pager
+	echo "^^^^^^^^^^ Xorg (journald) ^^^^^^^^^^"
+	echo
+fi
+
 echo "Kernel modules: nvidia.ko"
 find /lib/modules -name "nvidia*.ko"
 echo
