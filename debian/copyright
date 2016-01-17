@@ -13,12 +13,12 @@ Disclaimer:
  permitted, and the binaries are not distributed with source code.
 
 Files: *
-Copyright: 1993-2011 NVIDIA Corporation.  All rights reserved.
+Copyright: 1993-2014 NVIDIA Corporation.  All rights reserved.
 License: NVIDIA-graphics-drivers
 
 Files: debian/*
 Copyright: 2001-2010 Randall Donald <rdonald@debian.org>
-           2009-2015 Andreas Beckmann <anbe@debian.org>
+           2009-2016 Andreas Beckmann <anbe@debian.org>
            2010 Russ Allbery <rra@debian.org>
            Based on packages by Christopher Cheney.
 License: GPL-2.0+
