@@ -1,8 +1,9 @@
-nvidia-graphics-drivers (343.36-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (343.36-3) unstable; urgency=low
 
   * Merge changes from 340.96-4.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 12:56:02 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 16:55:37 +0100
 
 nvidia-graphics-drivers (343.36-2) experimental; urgency=medium
 
