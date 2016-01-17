@@ -399,11 +399,11 @@ get-orig-source: $(foreach a,$(ARCH_LIST),get-orig-source-download-$a)
 	    mv *.run $(ORIGDIR)/ ; \
 	    chmod 0755 $(ORIGDIR)/* ; \
 	    latestfile=$$(ls -tr $(ORIGDIR)/* | tail -n 1) ; \
-	    touch $(ORIGDIR) -r $$latestfile ; \
-	    tar cfvz ../$(TARBALL) \
+	    tar cv \
+	        --clamp-mtime --mtime="./$$latestfile" \
 	        --sort=name \
 		--owner=root --group=src \
 		$(ORIGDIR) \
-		; \
+		| gzip -n -9 > ../$(TARBALL) ; \
 	    touch ../$(TARBALL) -r $$latestfile
 	rm -rf get-orig-source
