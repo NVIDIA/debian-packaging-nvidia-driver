@@ -17,6 +17,7 @@ nvidia-graphics-drivers (346.96-1) UNRELEASED; urgency=medium
   * d/module/debian/rules: Explicitly copy Module.symvers from the nvidia.ko
     kernel module for use by the nvidia-uvm.ko module, since the dependencies
     in Kbuild seem not to work in all cases.
+  * Add armhf specific symbols.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 19:26:13 +0200
 
