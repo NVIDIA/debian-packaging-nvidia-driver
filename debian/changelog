@@ -1,6 +1,6 @@
-nvidia-graphics-drivers (346.96-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (346.96-1) unstable; urgency=low
 
-  * New upstream release 346.96 (2015-09-01).
+  * New upstream release 346.96 (2015-09-01).  (Closes: #811349)
     * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
       (Closes: #800566)
     - Added support for the following GPU: Tesla K80.
@@ -18,8 +18,9 @@ nvidia-graphics-drivers (346.96-1) UNRELEASED; urgency=medium
     kernel module for use by the nvidia-uvm.ko module, since the dependencies
     in Kbuild seem not to work in all cases.
   * Add armhf specific symbols.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 19:26:13 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 18 Jan 2016 12:50:19 +0100
 
 nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
 
@@ -207,6 +208,7 @@ nvidia-graphics-drivers (340.96-4) unstable; urgency=medium
   [ Andreas Beckmann ]
   * Do not run dh_strip_nondeterminism, it may perform modifications not
     permitted by the NVIDIA license.
+  * rules, rules.defs: Unified naming of arch-specific variables.
   * get-orig-source: Download *.run with wget from http download server to
     preserve timestamps.
   * get-orig-source: Generate tarball reproducibly.
