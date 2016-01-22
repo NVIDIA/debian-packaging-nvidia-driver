@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (349.16-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (349.16-1) unstable; urgency=low
 
   * New upstream short-lived branch release 349.16 (2015-04-14).
   * New upstream beta 349.12 (2015-03-25).
@@ -34,7 +34,7 @@ nvidia-graphics-drivers (349.16-1) UNRELEASED; urgency=medium
   * nvidia-libopencl1: Add Provides: libopencl-1.2-1.
   * Restrict watch file to releases from the 349.xx short lived branch.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 31 Jul 2015 17:16:47 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 22 Jan 2016 02:15:34 +0100
 
 nvidia-graphics-drivers (346.96-1) unstable; urgency=low
 
