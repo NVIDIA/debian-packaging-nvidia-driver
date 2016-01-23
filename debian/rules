@@ -264,9 +264,6 @@ override_dh_installchangelogs:
 	dh_installchangelogs debian/tmp/NVIDIA_Changelog
 
 override_dh_dkms:
-ifeq (,$(wildcard NVIDIA-Linux/kernel/uvm))
-	sed -i -e '/BUILT_MODULE_NAME\[1\]="nvidia-uvm"/,$$d' debian/$(nvidia)-kernel-dkms.dkms
-endif
 	dh_dkms -V $(version)
 
 override_dh_bugfiles:
