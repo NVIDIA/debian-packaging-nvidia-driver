@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (352.63-2) UNRELEASED; urgency=medium
+
+  * Merge changes from 349.16-2.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 23 Jan 2016 17:33:38 +0100
+
 nvidia-graphics-drivers (352.63-1) experimental; urgency=medium
 
   * New upstream long lived branch release 352.63 (2015-11-16).
@@ -156,6 +162,15 @@ nvidia-graphics-drivers (352.21-1) experimental; urgency=medium
   * Refresh patches.
 
  -- Vincent Cheng <vcheng@debian.org>  Mon, 20 Jul 2015 23:28:37 -0700
+
+nvidia-graphics-drivers (349.16-2) unstable; urgency=medium
+
+  * uvm-symvers.patch: Explicitly copy Module.symvers from the nvidia.ko
+    kernel module for use by the nvidia-uvm.ko module, since the dependencies
+    in Kbuild seem not to work in all cases. This solution works with the dkms
+    build, too.  (Closes: #812396, #812107)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 23 Jan 2016 17:03:28 +0100
 
 nvidia-graphics-drivers (349.16-1) unstable; urgency=low
 

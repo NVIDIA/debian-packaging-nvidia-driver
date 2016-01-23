@@ -1,4 +1,4 @@
-Author: Andreas Beckmann <debian@abeckmann.de>
+Author: Andreas Beckmann <anbe@debian.org>
 Description: fix up the ../Module.symvers dependency for our uvm build
 
 --- a/uvm/Kbuild
