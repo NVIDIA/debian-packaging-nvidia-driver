@@ -44,7 +44,6 @@ if [ "$1" = "triggered" ]; then
 	slaves="
 		$(add_multiarch_slave /usr/lib nvidia/ libGL.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib nvidia/ libEGL.so.1 /usr/lib #PRIVATE#/)
-		$(add_multiarch_slave /usr/lib nvidia/ libEGL.so /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib nvidia/ libGLESv1_CM.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib nvidia/ libGLESv2.so.2 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib nvidia/ libnvidia-cfg.so.1 /usr/lib #PRIVATE#/)
@@ -61,7 +60,6 @@ if [ "$1" = "triggered" ]; then
 		$(add_multiarch_slave /usr/lib "" libnvcuvid.so /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libnvidia-ml.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libOpenGL.so.0 /usr/lib #PRIVATE#/)
-		$(add_multiarch_slave /usr/lib "" libOpenGL.so /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libEGL_nvidia.so.0 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libGLdispatch.so.0 /usr/lib #PRIVATE#/)
 		$(add_slave /usr/bin/nvidia-smi nvidia-smi /usr/lib/#PRIVATE#/nvidia-smi)
