@@ -1,4 +1,4 @@
-Author: Andreas Beckmann <debian@abeckmann.de>
+Author: Andreas Beckmann <anbe@debian.org>
 Description: fix up the ../Module.symvers dependency for our uvm build
 
 --- a/uvm/Kbuild
@@ -12,3 +12,20 @@ Description: fix up the ../Module.symvers dependency for our uvm build
  	cd $(RM_OUT_DIR); make module SYSSRC=$(KERNEL_SOURCES) SYSOUT=$(KERNEL_OUTPUT) KBUILD_EXTMOD=$(RM_OUT_DIR)
  
  $(UVM_MODULE_SYMVERS): $(RM_MODULE_SYMVERS)
+--- a/Makefile
++++ b/Makefile
+@@ -30,6 +30,14 @@ KBUILD_PARAMS += -C $(KERNEL_SOURCES) M=
+ default: modules
+ .PHONY: default
+ 
++ifneq (,$(filter %/uvm,$(CURDIR)))
++modules: HACK
++
++HACK:
++	# We need Module.symvers from the regular nvidia module.
++	cp ../Module.symvers .
++endif
++
+ # hand over to kbuild
+ %::
+ 	$(MAKE) $(KBUILD_PARAMS) $@

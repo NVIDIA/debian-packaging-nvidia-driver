@@ -44,7 +44,6 @@ build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
 	$(MAKE) SYSSRC=$(KSRC)
-#HAS_UVM#	cp Module.symvers uvm/
 #HAS_UVM#	$(MAKE) -C uvm SYSSRC=$(KSRC)
 	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
 #HAS_UVM#	test "#MODULE#" = "nvidia" || mv uvm/nvidia-uvm.ko uvm/#MODULE#-uvm.ko
