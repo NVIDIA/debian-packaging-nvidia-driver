@@ -36,7 +36,7 @@ Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  ${nvidia:kmod:binary},
  nvidia-support,
- ${shlibs:Depends}, ${misc:Depends}
+ ${misc:Depends}
 Recommends:
  ${nvidia-settings},
  libgl1-${nvidia}-glx-i386 [amd64],
@@ -754,7 +754,7 @@ Section: non-free/x11
 Architecture: i386 amd64 armhf
 Depends:
  pciutils,
- ${shlibs:Depends}, ${misc:Depends}
+ ${misc:Depends}
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
