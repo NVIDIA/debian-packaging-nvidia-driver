@@ -195,8 +195,8 @@ build-kernel-source-tree: install-into-tmp
 
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
-	rm -f $(module_source)/nv-kernel.o
-	$(foreach a,$(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)),cp -a NVIDIA-Linux-$a/kernel/nvidia/nv-kernel.o_binary $(module_source)/nv-kernel-$a.o_shipped ;)
+	rm -f $(module_source)/nvidia/nv-kernel.o_binary
+	$(foreach a,$(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)),cp -a NVIDIA-Linux-$a/kernel/nvidia/nv-kernel.o_binary $(module_source)/nvidia/nv-kernel-$a.o_binary ;)
 
 	# Install a debian/ tree and new conftest files that work purely
 	# with kbuild and don't require root into the module package.

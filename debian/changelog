@@ -43,7 +43,6 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
   * Updated kernel module build to adapt to the new upstream build system.
     - Dropped patches that are no longer needed:
       not-silent.patch
-      use-nv-kernel-ARCH.o_shipped.patch
       uvm-symvers.patch
       uvm-symvers2.patch
     - Make build verbose by using new env var NV_VERBOSE=1
