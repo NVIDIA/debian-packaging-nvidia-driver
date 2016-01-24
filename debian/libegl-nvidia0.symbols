@@ -1,0 +1,2 @@
+libEGL_nvidia.so.0 #PACKAGE# #MINVER#
+ __egl_Main@Base 355

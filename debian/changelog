@@ -57,10 +57,15 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
     - Removed debian/module/Makefile, debian/module/conftest.sh
     - Modules build on 4.2, update rules.def
     - debian/module/conftest/patches.h is no longer a symlink
+  * Update symbols control files.
+
+  [ Andreas Beckmann ]
   * libglvnd-nvidia: New package package for the vendor-neutral GL libraries:
     libOpenGL.so.0, libGLdispatch.so.0
-  * Updated libegl1-nvidia, upstream now ships libEGL.so.1
-  * Updated libgl1-nvidia-glx and libnvidia-eglcore symbols
+  * libegl-nvidia0: New package for the vendor-specific EGL implementation
+    from NVIDIA (libEGL_nvidia.so.0), accessible via libglvnd.
+  * libegl1-nvidia: The libEGL.so.1 is now just a (vendor-neutral) stub that
+    redirects to libEGL_nvidia.so.0 via libglvnd.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
 

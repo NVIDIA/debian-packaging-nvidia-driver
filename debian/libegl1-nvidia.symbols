@@ -46,5 +46,3 @@ libEGL.so.1 libegl1-mesa
  glvnd_byte_swap16@Base 355
  st_rwlock_destroy@Base 355
  st_rwlock_init@Base 355
-libEGL_nvidia.so.0 libegl1-nvidia #MINVER#
- __egl_Main@Base 355
