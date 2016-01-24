@@ -7,12 +7,12 @@ Description: let Kbuild set the compiler version
 
 --- a/Makefile
 +++ b/Makefile
-@@ -79,7 +79,7 @@
+@@ -78,7 +78,7 @@ else
+ 
    .PHONY: modules module clean clean_conftest modules_install
-   # avoid ld.gold, see #626279
    modules clean modules_install:
--	$(MAKE) "CC=$(CC)" "LD=ld.bfd" $(KBUILD_PARAMS) $@
-+	$(MAKE) "LD=ld.bfd" $(KBUILD_PARAMS) $@
+-	$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) $@
++	$(MAKE) $(KBUILD_PARAMS) $@
  	@if [ "$@" = "modules" ]; then \
  	  for module in $(NV_KERNEL_MODULES); do \
  	    if [ -x split-object-file.sh ]; then \

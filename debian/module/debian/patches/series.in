@@ -1,9 +1,9 @@
-avoid-ld.gold.patch
+use-kbuild-compiler.patch
+disable_nvidia_conftest.patch
+#HAS_UVM#disable_uvm_conftest.patch
 conditionally-include-linux_version.h.patch
+avoid-ld.gold.patch
 include-swiotlb-header-on-arm.patch
 ignore_xen_on_arm.patch
-disable_nvidia_conftest.patch
-seq-printf.patch
 arm-outer-sync.patch
-use-kbuild-compiler.patch
-#HAS_UVM#disable_uvm_conftest.patch
+seq-printf.patch
