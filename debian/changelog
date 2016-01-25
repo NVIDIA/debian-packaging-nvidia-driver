@@ -1,3 +1,14 @@
+nvidia-graphics-drivers (352.79-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 352.79 (2016-01-25).
+    - Added support for the following GPUs: Quadro M500M
+    - Fixed a bug in the EGL driver where a mutex was unlocked
+      more than once.  This triggers undefined behavior, and in
+      particular, if lock elision is enabled in glibc, may result
+      in a segmentation fault.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 25 Jan 2016 21:55:24 +0000
+
 nvidia-graphics-drivers (352.63-2) unstable; urgency=medium
 
   * Merge changes from 349.16-2.
