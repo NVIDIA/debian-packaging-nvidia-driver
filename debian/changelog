@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
 
   [ Luca Boccassi ]
   * New upstream release 355.11 (2015-08-31). (Closes: #804547)
@@ -54,7 +54,6 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
     - Updated paths in debian/nvidia-kernel-dkms.dkms.in debian/rules.in,
       debian/rules for new build system
     - Removed debian/module/Makefile, debian/module/conftest.sh
-    - Modules build on 4.2, update rules.def
     - debian/module/conftest/patches.h is no longer a symlink
   * Update symbols control files.
 
@@ -65,8 +64,9 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
     from NVIDIA (libEGL_nvidia.so.0), accessible via libglvnd.
   * libegl1-nvidia: The libEGL.so.1 is now just a (vendor-neutral) stub that
     redirects to libEGL_nvidia.so.0 via libglvnd.
+  * Upload to experimental.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Feb 2016 19:32:35 +0100
 
 nvidia-graphics-drivers (352.79-1) unstable; urgency=medium
 
