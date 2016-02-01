@@ -68,6 +68,19 @@ nvidia-graphics-drivers (355.11-1) UNRELEASED; urgency=medium
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 04 Oct 2015 22:07:14 +0100
 
+nvidia-graphics-drivers (352.79-1) unstable; urgency=medium
+
+  [ Luca Boccassi ]
+  * New upstream long lived branch release 352.79 (2016-01-25).
+    - Added support for the following GPUs: Quadro M500M, Tesla M4.
+    - Fixed a bug in the EGL driver where a mutex was unlocked more than
+      once.  This triggers undefined behavior, and in particular, if
+      lock elision is enabled in glibc, may result in a segmentation
+      fault.  (Closes: #807244)
+  * Update nv-readme.ids.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 27 Jan 2016 17:26:16 +0100
+
 nvidia-graphics-drivers (352.63-2) unstable; urgency=medium
 
   * Merge changes from 349.16-2.
