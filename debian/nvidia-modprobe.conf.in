@@ -2,7 +2,7 @@ install nvidia modprobe -i #MODULE# $CMDLINE_OPTS ; modprobe -i nvidia-modeset $
 
 #HAS_UVM#install nvidia-uvm modprobe nvidia ; modprobe -i #MODULE#-uvm $CMDLINE_OPTS
 
-remove nvidia modprobe -r -i nvidia-modeset #HAS_UVM_MODPROBE# nvidia
+remove nvidia modprobe -r -i #UNLOAD_MODULES#
 
 # These aliases are defined in *all* nvidia modules.
 # Duplicating them here sets higher precedence and ensures the selected

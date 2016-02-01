@@ -13,19 +13,19 @@ Disclaimer:
  permitted, and the binaries are not distributed with source code.
 
 Files: *
-Copyright: 1993-2011 NVIDIA Corporation.  All rights reserved.
+Copyright: 1993-2015 NVIDIA Corporation.  All rights reserved.
 License: NVIDIA-graphics-drivers
 
 Files: debian/*
 Copyright: 2001-2010 Randall Donald <rdonald@debian.org>
-           2009-2015 Andreas Beckmann <anbe@debian.org>
+           2009-2016 Andreas Beckmann <anbe@debian.org>
            2010 Russ Allbery <rra@debian.org>
            Based on packages by Christopher Cheney.
 License: GPL-2.0+
 
 Files: debian/detect/nvidia-detect.in
 Copyright: © 2008-2011 Filipus Klutiero <chealer@gmail.com>
-           © 2011-2013 Andreas Beckmann <anbe@debian.org>
+           © 2011-2015 Andreas Beckmann <anbe@debian.org>
 License: GPL-2.0+
 
 Files: debian/module/debian/patches/* debian/patches/*

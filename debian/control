@@ -36,7 +36,7 @@ Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  ${nvidia:kmod:binary},
  nvidia-support,
- ${shlibs:Depends}, ${misc:Depends}
+ ${misc:Depends}
 Recommends:
  ${nvidia-settings},
  libgl1-${nvidia}-glx-i386 [amd64],
@@ -130,6 +130,22 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  See /usr/share/doc/${nvidia}-driver/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
+Package: libglvnd-nvidia
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA binary GL vendor neutral libraries${nvidia:LegacyDesc}
+ The vendor neutral dispatch library for OpenGL (libglvnd).
+ The goal for libglvnd is to allow multiple OpenGL implementations from 
+ different vendors to coexist on the same system, without interfering 
+ with each other or requiring any manual configuration.
+ .
+ This package contains the binary libraries libGLdispatch.so.0 and
+ libOpenGL.so.0 as shipped by NVIDIA.
+
 #Package: libgl1-${nvidia}-glx
 Package: libgl1-nvidia-glx
 Architecture: i386 amd64 armhf
@@ -189,8 +205,29 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
+ libglvnd-nvidia,
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA binary EGL stub libraries${nvidia:LegacyDesc}
+ This package contains the EGL native platform graphics interface library.
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES and OpenVG.
+ .
+ See the description of the ${nvidia}-driver package
+ or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+ .
+ This package contains a libEGL.so.1 stub that redirects to a vendor
+ implementation via libglvnd.
+
+#Package: libegl-${nvidia}0
+Package: libegl-nvidia0
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${nvidia-alternative} (= ${binary:Version}),
  lib${nvidia}-eglcore (= ${binary:Version}),
- libglvnd-${nvidia} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
  This package contains the EGL native platform graphics interface library.
@@ -200,24 +237,9 @@ Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
  See the description of the ${nvidia}-driver package
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
-
-#Package: libglvnd-${nvidia}
-Package: libglvnd-nvidia
-Architecture: i386 amd64 armhf
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${nvidia-alternative},
- ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA binary GL vendor neutral libraries${nvidia:LegacyDesc}
- This package contains the vendor neutral graphics libraries.
- These libraries are currently used to provide full OpenGL dispatching support
- to NVIDIA's implementation of EGL.
  .
- See the description of the ${nvidia}-driver package
- or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+ This package contains the driver specific binary EGL implementation by NVIDIA
+ that is accessed via libglvnd.
 
 #Package: libgles1-${nvidia}
 Package: libgles1-nvidia
@@ -754,7 +776,7 @@ Section: non-free/x11
 Architecture: i386 amd64 armhf
 Depends:
  pciutils,
- ${shlibs:Depends}, ${misc:Depends}
+ ${misc:Depends}
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
