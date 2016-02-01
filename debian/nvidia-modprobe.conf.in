@@ -1,4 +1,6 @@
-install nvidia modprobe -i #MODULE# $CMDLINE_OPTS ; modprobe -i nvidia-modeset $CMDLINE_OPTS
+install nvidia modprobe -i #MODULE# $CMDLINE_OPTS
+
+install nvidia-modeset modprobe nvidia ; modprobe -i #MODULE#-modeset $CMDLINE_OPTS
 
 #HAS_UVM#install nvidia-uvm modprobe nvidia ; modprobe -i #MODULE#-uvm $CMDLINE_OPTS
 

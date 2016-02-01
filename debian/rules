@@ -40,6 +40,7 @@ dirname_armhf		 = $(NVIDIA_DIRNAME_armhf)
 
 # this needs the internal names (i.e. upstream's names, not our renamed files)
 unload_modules		 =
+unload_modules		+= nvidia-modprobe
 unload_modules		+= $(if $(has_uvm),nvidia-uvm)
 unload_modules		+= nvidia
 
@@ -197,7 +198,7 @@ build-kernel-source-tree: install-into-tmp
 	# all kernel flavors. Use Kbuild-compatible names.
 	rm -f $(module_source)/nvidia/nv-kernel.o_binary
 	$(foreach a,$(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)),cp -a NVIDIA-Linux-$a/kernel/nvidia/nv-kernel.o_binary $(module_source)/nvidia/nv-kernel-$a.o_binary ;)
-	$(foreach a,$(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)),cp -a NVIDIA-Linux-$a/kernel/nvidia-modeset/nv-modeset-kernel.o_binary $(module_source)/nv-modeset-kernel-$a.o_shipped ;)
+	$(foreach a,$(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)),cp -a NVIDIA-Linux-$a/kernel/nvidia-modeset/nv-modeset-kernel.o_binary $(module_source)/nvidia-modeset/nv-modeset-kernel-$a.o_binary ;)
 
 	# Install a debian/ tree and new conftest files that work purely
 	# with kbuild and don't require root into the module package.
@@ -304,7 +305,6 @@ override_dh_strip_nondeterminism:
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
 	-e 's{#UNLOAD_MODULES#}{$(strip $(unload_modules))}g;' \
 	-e 's{#HAS_UVM#}{$(if $(has_uvm),,#)}g;' \
-	-e 's{#HAS_UVM_MODPROBE#}{$(if $(has_uvm),nvidia-uvm,)}g;' \
 	-e 's{#!armhf#}{$(if $(filter armhf,$(DEB_HOST_ARCH)),#)}g;' \
 	-e 's{#!legacy#}{$(if $(legacy),#)}g;' \
 	< $< > $@
