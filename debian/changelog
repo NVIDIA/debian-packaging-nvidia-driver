@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (355.11-2) UNRELEASED; urgency=medium
+
+  * conftest-verbose.patch: New patch to dump dynamically generated conftest
+    headers.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 02 Feb 2016 02:10:07 +0100
+
 nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
 
   [ Luca Boccassi ]

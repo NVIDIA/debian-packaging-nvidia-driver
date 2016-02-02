@@ -1,4 +1,5 @@
 use-kbuild-compiler.patch
+conftest-verbose.patch
 disable_nvidia_conftest.patch
 #HAS_UVM#disable_uvm_conftest.patch
 conditionally-include-linux_version.h.patch
