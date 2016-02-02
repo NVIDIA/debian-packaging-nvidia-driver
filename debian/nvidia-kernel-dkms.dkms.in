@@ -10,8 +10,8 @@ DEST_MODULE_LOCATION[0]="/updates/dkms"
 AUTOINSTALL=yes
 
 MAKE[0]="env CCACHE_DISABLE=1 NV_VERBOSE=1 \
-    make -C . SYSSRC=${kernel_source_dir} modules"
-CLEAN="make -C . SYSSRC=${kernel_source_dir} clean"
+    make KERNEL_UNAME=${kernelver} modules"
+CLEAN="make KERNEL_UNAME=${kernelver} clean"
 
 #HAS_UVM#BUILT_MODULE_NAME[1]="nvidia-uvm"
 #HAS_UVM#DEST_MODULE_NAME[1]="$PACKAGE_NAME-uvm"
