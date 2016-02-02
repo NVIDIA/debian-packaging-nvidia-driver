@@ -198,6 +198,7 @@ build-kernel-source-tree: install-into-tmp
 	# all kernel flavors. Use Kbuild-compatible names.
 	rm -f $(module_source)/nvidia/nv-kernel.o_binary
 	$(foreach a,$(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)),cp -a NVIDIA-Linux-$a/kernel/nvidia/nv-kernel.o_binary $(module_source)/nvidia/nv-kernel-$a.o_binary ;)
+	rm -f $(module_source)/nvidia-modeset/nv-modeset-kernel.o_binary
 	$(foreach a,$(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)),cp -a NVIDIA-Linux-$a/kernel/nvidia-modeset/nv-modeset-kernel.o_binary $(module_source)/nvidia-modeset/nv-modeset-kernel-$a.o_binary ;)
 
 	# Install a debian/ tree and new conftest files that work purely
