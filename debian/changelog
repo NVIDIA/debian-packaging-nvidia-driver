@@ -1,5 +1,7 @@
 nvidia-graphics-drivers (355.11-2) UNRELEASED; urgency=medium
 
+  * Use NVIDIA's conftest.sh script to determine settings during module build
+    instead of our manually maintained conftest.h header.
   * conftest-verbose.patch: New patch to dump dynamically generated conftest
     headers.
   * Pass only the kernel version via KERNEL_UNAME and let the new module build

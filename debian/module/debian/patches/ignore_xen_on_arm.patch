@@ -12,8 +12,7 @@ Description: Undef CONFIG_XEN and CONFIG_XEN_DOM0 if building on ARM
 
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -41,6 +41,11 @@
- #endif
+@@ -42,5 +42,10 @@
  #include <linux/utsname.h>
  
 +#if defined(NVCPU_ARM) && LINUX_VERSION_CODE < KERNEL_VERSION(3,17,0)
