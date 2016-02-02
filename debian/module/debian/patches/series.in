@@ -1,6 +1,6 @@
 use-kbuild-compiler.patch
 conftest-verbose.patch
-use-nv-kernel-ARCH.o_shipped.patch
+nvidia-use-ARCH.o_binary.patch
 avoid-ld.gold.patch
 include-swiotlb-header-on-arm.patch
 ignore_xen_on_arm.patch
