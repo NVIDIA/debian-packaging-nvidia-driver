@@ -1,11 +1,19 @@
 nvidia-graphics-drivers (355.11-2) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * Use NVIDIA's conftest.sh script to determine settings during module build
     instead of our manually maintained conftest.h header.
   * conftest-verbose.patch: New patch to dump dynamically generated conftest
     headers.
   * Pass only the kernel version via KERNEL_UNAME and let the new module build
     system figure out the paths.
+
+  [ Luca Boccassi ]
+  * Unset ARCH in dkms.conf before calling make, to let upstream's Makefile
+    figure out the architecture of the build host and set it accordingly.
+    Previously the Debian's binary ABI triplet was being passed by dkms, which
+    causes a build failure because conftest.sh uses it to look for
+    arch-specific kernel headers (eg: arch/armhf instead of arch/arm).
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 02 Feb 2016 02:10:07 +0100
 
