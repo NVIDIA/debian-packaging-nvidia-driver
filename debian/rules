@@ -40,7 +40,7 @@ dirname_armhf		 = $(NVIDIA_DIRNAME_armhf)
 
 # this needs the internal names (i.e. upstream's names, not our renamed files)
 unload_modules		 =
-unload_modules		+= nvidia-modprobe
+unload_modules		+= nvidia-modeset
 unload_modules		+= $(if $(has_uvm),nvidia-uvm)
 unload_modules		+= nvidia
 
