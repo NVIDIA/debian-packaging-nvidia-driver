@@ -14,7 +14,7 @@ MAKE[0]="unset ARCH; env CCACHE_DISABLE=1 NV_VERBOSE=1 \
 CLEAN="make KERNEL_UNAME=${kernelver} clean"
 
 BUILT_MODULE_NAME[1]="nvidia-modeset"
-DEST_MODULE_NAME[1]="nvidia-modeset"
+DEST_MODULE_NAME[1]="$PACKAGE_NAME-modeset"
 DEST_MODULE_LOCATION[1]="/updates/dkms"
 
 #HAS_UVM#BUILT_MODULE_NAME[2]="nvidia-uvm"
