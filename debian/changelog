@@ -29,9 +29,9 @@ nvidia-graphics-drivers (352.63-1) experimental; urgency=medium
 
   * New upstream long lived branch release 352.63 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
-    - Added support for the following GPUs: GeForce 945M, Quadro M5000M,
-      Quadro M4000M, Quadro M3000M, Quadro M2000M, Quadro M1000M,
-      Quadro M600M, NVS 810, Tesla M40.
+    - Added support for the following GPUs: GeForce 940MX, GeForce 945M,
+      Quadro M5000M, Quadro M4000M, Quadro M3000M, Quadro M2000M,
+      Quadro M1000M, Quadro M600M, NVS 810, Tesla M40.
     - Fixed a regression that prevented DPMS from working correctly on
       some DisplayPort displays.
     - Fixed a bug that could prevent X from starting when configured with
