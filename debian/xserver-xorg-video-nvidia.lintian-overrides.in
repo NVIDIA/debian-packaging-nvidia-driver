@@ -3,6 +3,7 @@
 embedded-library usr/lib/#PRIVATE#/nvidia_drv.so: zlib
 embedded-library usr/lib/#PRIVATE#/nvidia_drv.so: libpng
 spelling-error-in-binary
+hardening-no-bindnow
 hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector

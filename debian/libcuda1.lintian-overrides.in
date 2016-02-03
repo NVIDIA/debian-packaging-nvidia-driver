@@ -3,6 +3,7 @@
 [!armhf]: shlib-with-executable-stack
 [i386]: shlib-with-non-pic-code
 spelling-error-in-binary
+hardening-no-bindnow
 hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
