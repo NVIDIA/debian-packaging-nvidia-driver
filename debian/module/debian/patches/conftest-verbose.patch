@@ -1,0 +1,29 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: dump the generated conftest headers
+
+--- a/Kbuild
++++ b/Kbuild
+@@ -130,6 +130,8 @@ define NV_GENERATE_COMPILE_TEST_HEADER
+ 	@mkdir -p $(obj)/conftest
+ 	@# concatenate /dev/null to prevent cat from hanging when $$^ is empty
+ 	@cat $$^ /dev/null > $$@
++	@echo " CONFTEST $$(notdir $$@):"
++	@cat $$@
+ endef
+ 
+ #
+@@ -152,10 +154,14 @@ $(eval $(call NV_GENERATE_COMPILE_TEST_H
+ $(obj)/conftest/patches.h: $(NV_CONFTEST_SCRIPT)
+ 	@mkdir -p $(obj)/conftest
+ 	@$(NV_CONFTEST_CMD) patch_check > $@
++	@echo " CONFTEST $(notdir $@):"
++	@cat $@
+ 
+ $(obj)/conftest/headers.h: $(NV_CONFTEST_SCRIPT)
+ 	@mkdir -p $(obj)/conftest
+ 	@$(NV_CONFTEST_CMD) test_kernel_headers > $@
++	@echo " CONFTEST $(notdir $@):"
++	@cat $@
+ 
+ clean-dirs := $(obj)/conftest
+ 

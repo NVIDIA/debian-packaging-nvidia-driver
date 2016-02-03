@@ -201,11 +201,8 @@ build-kernel-source-tree: install-into-tmp
 	rm -f $(module_source)/nvidia-modeset/nv-modeset-kernel.o_binary
 	$(foreach a,$(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)),cp -a NVIDIA-Linux-$a/kernel/nvidia-modeset/nv-modeset-kernel.o_binary $(module_source)/nvidia-modeset/nv-modeset-kernel-$a.o_binary ;)
 
-	# Install a debian/ tree and new conftest files that work purely
-	# with kbuild and don't require root into the module package.
+	# Install a debian/ tree.
 	cp -a debian/module/debian $(module_source)/
-	cp -a debian/module/conftest $(module_source)/common/inc/
-	cp -a debian/module/conftest.h $(module_source)/common/inc/
 	cp -a debian/copyright $(module_source)/debian/
 	cp -a debian/bug-script $(module_source)/debian/
 	cp -a debian/bug-control $(module_source)/debian/
@@ -214,7 +211,6 @@ build-kernel-source-tree: install-into-tmp
 	# Fix permissions.
 	chmod -R a-sx,u=rwX,go=rX $(module_source)/../..
 	chmod a+x $(module_source)/debian/rules
-	chmod a+x $(module_source)/conftest.sh
 	find '$(module_source)/../../modules' -depth -newermt '$(BUILD_DATE)' -print0 | \
 		xargs -0r touch --no-dereference --date='$(BUILD_DATE)'
 
