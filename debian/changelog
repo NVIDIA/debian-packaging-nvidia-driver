@@ -8,6 +8,7 @@ nvidia-graphics-drivers (355.11-2) UNRELEASED; urgency=medium
   * Pass only the kernel version via KERNEL_UNAME and let the new module build
     system figure out the paths.
   * 355.11 does not yet support xorg-video-abi-20.  (Closes: #813565)
+  * Update lintian overrides.
 
   [ Luca Boccassi ]
   * Unset ARCH in dkms.conf before calling make, to let upstream's Makefile
