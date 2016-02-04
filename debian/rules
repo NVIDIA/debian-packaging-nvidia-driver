@@ -193,13 +193,7 @@ build-kernel-source-tree: install-into-tmp
 	# binary packages.
 	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
 
-	# We only want Kbuild.
-	rm -f $(module_source)/makefile
-	rm -f $(module_source)/Makefile.nvidia
-	test ! -f $(module_source)/Makefile.kbuild || \
-		mv $(module_source)/Makefile.kbuild $(module_source)/Kbuild
-	test ! -f $(module_source)/Makefile || \
-		mv $(module_source)/Makefile $(module_source)/Kbuild
+	mv $(module_source)/Makefile $(module_source)/Kbuild
 	mv $(module_source)/conftest.sh $(module_source)/conftest_nvidia.sh
 
 ifneq (,$(has_uvm))
