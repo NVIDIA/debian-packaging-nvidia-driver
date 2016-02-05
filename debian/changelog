@@ -7,6 +7,8 @@ nvidia-graphics-drivers (352.79-2) UNRELEASED; urgency=medium
     headers.
   * conftest-via-kbuild.patch: New patch to call conftest.sh from within
     kbuild (and therefore with kbuild's compiler and flags) as in 355.xx.
+  * Pass only the kernel version via KERNEL_UNAME and let the module build
+    system figure out the paths.
   * Bump Standards-Version to 3.9.7. No changes needed.
   * Update lintian overrides.
 

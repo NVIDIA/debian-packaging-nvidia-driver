@@ -23,7 +23,6 @@ ifndef KPKG_DEST_DIR
     KPKG_DEST_DIR = ..
 endif
 KVERS := $(shell perl debian/kernel-version $(KSRC))
-export KSRC
 export KVERS
 export KPKG_DEST_DIR
 
@@ -43,8 +42,8 @@ build-indep:
 build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
-	$(MAKE) module SYSSRC=$(KSRC)
-#HAS_UVM#	$(MAKE) -C uvm module SYSSRC=$(KSRC) KBUILD_EXTMOD=$(CURDIR)/uvm
+	$(MAKE) module KERNEL_UNAME=$(KVERS)
+#HAS_UVM#	$(MAKE) -C uvm module KERNEL_UNAME=$(KVERS) KBUILD_EXTMOD=$(CURDIR)/uvm
 	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
 #HAS_UVM#	test "#MODULE#" = "nvidia" || mv uvm/nvidia-uvm.ko uvm/#MODULE#-uvm.ko
 	touch $@
@@ -77,8 +76,8 @@ clean:
 	test -f debian/control || cp debian/control.template debian/control
 	dh_testdir
 	dh_testroot
-	$(MAKE) SYSSRC=$(KSRC) $(KPKG_EXTRAV_ARG) clean
-#HAS_UVM#	$(MAKE) -C uvm SYSSRC=$(KSRC) $(KPKG_EXTRAV_ARG) clean
+	$(MAKE) clean KERNEL_UNAME=$(KVERS) $(KPKG_EXTRAV_ARG)
+#HAS_UVM#	$(MAKE) -C uvm clean KERNEL_UNAME=$(KVERS) $(KPKG_EXTRAV_ARG)
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
 	dh_clean debian/control debian/install
 
