@@ -1,0 +1,46 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: dump the generated conftest headers
+
+--- a/nvidia-modules-common.mk
++++ b/nvidia-modules-common.mk
+@@ -159,6 +159,7 @@ $(CONFTEST_COMPILE_TEST_HEADERS)
+ 
+ $(obj)/conftest/compile-tests/%.h: $(src)/conftest.sh $(obj)/conftest/headers.h
+ 	@mkdir -p $(obj)/conftest/compile-tests
++	@echo " CONFTEST: $(notdir $*)"
+ 	@$(CONFTEST) compile_tests '$(CONFTEST_CFLAGS)' $(notdir $*) > $@
+ 
+ #
+@@ -173,6 +174,8 @@ $(obj)/conftest/$(1).h: $(addprefix $(ob
+ 	@mkdir -p $(obj)/conftest
+ 	@# concatenate /dev/null to prevent cat from hanging when $$^ is empty
+ 	@cat $$^ /dev/null > $$@
++	@echo " CONFTEST $$(notdir $$@):"
++	@cat $$@
+ endef
+ 
+ #
+@@ -189,10 +192,14 @@ $(eval $(call GENERATE_COMPILE_TEST_HEAD
+ $(obj)/conftest/patches.h: $(src)/conftest.sh
+ 	@mkdir -p $(obj)/conftest
+ 	@$(CONFTEST) patch_check > $@
++	@echo " CONFTEST $(notdir $@):"
++	@cat $@
+ 
+ $(obj)/conftest/headers.h: $(src)/conftest.sh
+ 	@mkdir -p $(obj)/conftest
+ 	@$(CONFTEST) test_kernel_headers > $@
++	@echo " CONFTEST $(notdir $@):"
++	@cat $@
+ 
+ $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
+ 
+@@ -231,6 +238,8 @@ BUILD_SANITY_CHECKS = \
+ 	preempt_rt_sanity_check
+ 
+ build-sanity-checks:
++	@echo 'CONFTEST=$(CONFTEST)'
++	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
+ 	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
+ 	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
+ 	 exit 1; \

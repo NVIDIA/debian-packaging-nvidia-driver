@@ -3,6 +3,8 @@ nvidia-graphics-drivers (352.79-2) UNRELEASED; urgency=medium
   * avoid-ld.gold.patch: Disable, hopefully this is no longer needed.
   * use-kbuild-compiler.patch: New patch to build with Kbuild's version of the
     compiler instead of system default, thanks to Luca.
+  * conftest-verbose.patch: New patch to dump dynamically generated conftest
+    headers.
   * Bump Standards-Version to 3.9.7. No changes needed.
   * Update lintian overrides.
 
