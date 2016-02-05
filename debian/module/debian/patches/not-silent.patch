@@ -29,16 +29,16 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  
  BUILD_SANITY_CHECKS = \
  	cc_version_check \
-@@ -240,7 +240,7 @@ BUILD_SANITY_CHECKS = \
- build-sanity-checks:
+@@ -243,7 +243,7 @@ $(obj)/conftest/sanity-checks.stamp:
  	@echo 'CONFTEST=$(CONFTEST)'
  	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
+ 	@mkdir -p $(obj)/conftest
 -	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
 +	$(NVQ)for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
  	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
  	 exit 1; \
  	 fi; \
-@@ -254,7 +254,7 @@ module: build-sanity-checks $(CONFTEST_H
+@@ -260,7 +260,7 @@ module:
  	@echo "NVIDIA: calling KBUILD..."
  	$(MAKE) $(KBUILD_PARAMS) modules
  	@echo "NVIDIA: left KBUILD."
@@ -47,7 +47,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	if ! [ -f $$module ]; then \
  	 echo "$$module failed to build!"; \
  	 exit 1; \
-@@ -269,7 +269,7 @@ module: build-sanity-checks $(CONFTEST_H
+@@ -275,7 +275,7 @@ module:
  #
  
  module-sign: module
@@ -56,7 +56,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	 if [ -z "$(MODSECKEY)" ] || [ -z "$(MODPUBKEY)" ]; then \
  	 echo "ERROR: MODSECKEY and MODPUBKEY must be set to sign modules!"; \
  	 exit 1; \
-@@ -302,7 +302,7 @@ module-sign: module
+@@ -308,7 +308,7 @@ module-sign: module
  #
  
  module-install: suser-sanity-check module
@@ -65,7 +65,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	install -m 0664 -o root -g root $(MODULE_OBJECTS) $(MODULE_ROOT)/video; \
  	PATH="$(PATH):/bin:/sbin" depmod -a
  
-@@ -312,7 +312,7 @@ module-install: suser-sanity-check modul
+@@ -318,7 +318,7 @@ module-install: suser-sanity-check modul
  #
  
  package-install: module-install rmmod-sanity-check
@@ -74,7 +74,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	echo "$(MODULE_OBJECTS) installed successfully.";
  
  #
-@@ -335,17 +335,17 @@ MODULE_COMMON_SCRIPT := $(if $(wildcard
+@@ -341,20 +341,20 @@ MODULE_COMMON_SCRIPT := $(if $(wildcard
  #
  
  $(KERNEL_GLUE_NAME): module
@@ -100,3 +100,6 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
 +	$(NVQ)$(RM) -f conftest*.c
 +	$(NVQ)$(RM) -rf conftest
 +	$(NVQ)$(RM) -rf Module*.symvers .tmp_versions modules.order
+ 
+ # For any object files that depend on conftest, declare the dependency here.
+ $(addprefix $(obj)/,$(MODULE_GLUE_OBJS)): | $(NV_CONFTEST_HEADERS)

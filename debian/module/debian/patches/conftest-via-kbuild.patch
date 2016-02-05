@@ -1,0 +1,38 @@
+--- a/nvidia-modules-common.mk
++++ b/nvidia-modules-common.mk
+@@ -237,20 +237,26 @@ BUILD_SANITY_CHECKS = \
+ 	xen_sanity_check \
+ 	preempt_rt_sanity_check
+ 
+-build-sanity-checks:
++build-sanity-checks: $(obj)/conftest/sanity-checks.stamp
++
++$(obj)/conftest/sanity-checks.stamp:
+ 	@echo 'CONFTEST=$(CONFTEST)'
+ 	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
++	@mkdir -p $(obj)/conftest
+ 	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
+ 	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
+ 	 exit 1; \
+ 	 fi; \
+ 	done
++	touch $@
+ 
+ #
+ # Call into KBUILD to build the NVIDIA kernel module(s) defined in $(obj-m)
+ #
+ 
+-module: build-sanity-checks $(CONFTEST_HEADERS)
++NV_CONFTEST_HEADERS	 = build-sanity-checks $(CONFTEST_HEADERS)
++
++module:
+ 	@echo "NVIDIA: calling KBUILD..."
+ 	$(MAKE) $(KBUILD_PARAMS) modules
+ 	@echo "NVIDIA: left KBUILD."
+@@ -349,3 +355,6 @@ clean:
+ 	@$(RM) -f conftest*.c
+ 	@$(RM) -rf conftest
+ 	@$(RM) -rf Module*.symvers .tmp_versions modules.order
++
++# For any object files that depend on conftest, declare the dependency here.
++$(addprefix $(obj)/,$(MODULE_GLUE_OBJS)): | $(NV_CONFTEST_HEADERS)
