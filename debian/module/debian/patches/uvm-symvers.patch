@@ -1,8 +1,8 @@
 Author: Andreas Beckmann <anbe@debian.org>
 Description: fix up the ../Module.symvers dependency for our uvm build
 
---- a/uvm/Kbuild
-+++ b/uvm/Kbuild
+--- a/uvm/Makefile
++++ b/uvm/Makefile
 @@ -181,6 +181,8 @@ $(MODULE_NAME)-y := $(MODULE_GLUE_OBJS)
  include $(RM_OUT_DIR)/nvidia-modules-common.mk
  

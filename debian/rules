@@ -193,12 +193,8 @@ build-kernel-source-tree: install-into-tmp
 	# binary packages.
 	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
 
-	mv $(module_source)/Makefile $(module_source)/Kbuild
-
 ifneq (,$(has_uvm))
 	# For the nvidia-uvm module.
-	mv $(module_source)/uvm/Makefile $(module_source)/uvm/Kbuild
-	ln -sf ../Makefile $(module_source)/uvm
 	ln -sf ../conftest.h $(module_source)/uvm
 endif
 

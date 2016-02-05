@@ -43,8 +43,8 @@ build-indep:
 build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
-	$(MAKE) SYSSRC=$(KSRC)
-#HAS_UVM#	$(MAKE) -C uvm SYSSRC=$(KSRC)
+	$(MAKE) module SYSSRC=$(KSRC)
+#HAS_UVM#	$(MAKE) -C uvm module SYSSRC=$(KSRC) KBUILD_EXTMOD=$(CURDIR)/uvm
 	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
 #HAS_UVM#	test "#MODULE#" = "nvidia" || mv uvm/nvidia-uvm.ko uvm/#MODULE#-uvm.ko
 	touch $@
