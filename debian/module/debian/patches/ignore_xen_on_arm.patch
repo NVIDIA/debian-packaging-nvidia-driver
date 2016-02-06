@@ -32,3 +32,15 @@ Description: Undef CONFIG_XEN and CONFIG_XEN_DOM0 if building on ARM
  #include <asm/maddr.h>
  #include <xen/interface/memory.h>
  #define NV_XEN_SUPPORT_FULLY_VIRTUALIZED_KERNEL
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -39,7 +39,8 @@
+     # CONFIG_XEN and CONFIG_PARAVIRT are present, text_xen() treats
+     # the kernel as a stand-alone kernel.
+     #
+-    if ! test_configuration_option CONFIG_XEN ||
++    if [ "$ARCH" = "arm" ] ||
++         ! test_configuration_option CONFIG_XEN ||
+          test_configuration_option CONFIG_PARAVIRT; then
+         XEN_PRESENT=0
+     fi
