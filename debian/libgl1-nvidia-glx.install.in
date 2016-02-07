@@ -1,4 +1,4 @@
-libGL.so.#VERSION#		#LIBDIR#/#PRIVATE#/
+libGL.so.1		#LIBDIR#/#PRIVATE#/
 libnvidia-glcore.so.#VERSION#	#LIBDIR#/
 libnvidia-cfg.so.#VERSION#	#LIBDIR#/#PRIVATE#/
 libnvidia-tls.so.#VERSION#	#LIBDIR#/
