@@ -1,7 +1,7 @@
 libGLESv2.so.2 libgles2-mesa
- NvClientRedirInit@Base 331
- NvGlEs2Init@Base 331
- glActiveShaderProgram@Base 346
+#MISSING: 361.18# NvClientRedirInit@Base 331
+#MISSING: 361.18# NvGlEs2Init@Base 331
+#MISSING: 361.18# glActiveShaderProgram@Base 346
  glActiveTexture@Base 331
  glAttachShader@Base 331
  glBeginQuery@Base 337
@@ -11,14 +11,14 @@ libGLESv2.so.2 libgles2-mesa
  glBindBufferBase@Base 337
  glBindBufferRange@Base 337
  glBindFramebuffer@Base 331
- glBindImageTexture@Base 346
- glBindProgramPipeline@Base 346
+#MISSING: 361.18# glBindImageTexture@Base 346
+#MISSING: 361.18# glBindProgramPipeline@Base 346
  glBindRenderbuffer@Base 331
  glBindSampler@Base 337
  glBindTexture@Base 331
  glBindTransformFeedback@Base 337
  glBindVertexArray@Base 337
- glBindVertexBuffer@Base 346
+#MISSING: 361.18# glBindVertexBuffer@Base 346
  glBlendColor@Base 331
  glBlendEquation@Base 331
  glBlendEquationSeparate@Base 331
@@ -49,12 +49,12 @@ libGLESv2.so.2 libgles2-mesa
  glCopyTexSubImage3D@Base 337
  glCreateProgram@Base 331
  glCreateShader@Base 331
- glCreateShaderProgramv@Base 346
+#MISSING: 361.18# glCreateShaderProgramv@Base 346
  glCullFace@Base 331
  glDeleteBuffers@Base 331
  glDeleteFramebuffers@Base 331
  glDeleteProgram@Base 331
- glDeleteProgramPipelines@Base 346
+#MISSING: 361.18# glDeleteProgramPipelines@Base 346
  glDeleteQueries@Base 337
  glDeleteRenderbuffers@Base 331
  glDeleteSamplers@Base 337
@@ -69,14 +69,14 @@ libGLESv2.so.2 libgles2-mesa
  glDetachShader@Base 331
  glDisable@Base 331
  glDisableVertexAttribArray@Base 331
- glDispatchCompute@Base 346
- glDispatchComputeIndirect@Base 346
+#MISSING: 361.18# glDispatchCompute@Base 346
+#MISSING: 361.18# glDispatchComputeIndirect@Base 346
  glDrawArrays@Base 331
- glDrawArraysIndirect@Base 346
+#MISSING: 361.18# glDrawArraysIndirect@Base 346
  glDrawArraysInstanced@Base 337
  glDrawBuffers@Base 337
  glDrawElements@Base 331
- glDrawElementsIndirect@Base 346
+#MISSING: 361.18# glDrawElementsIndirect@Base 346
  glDrawElementsInstanced@Base 337
  glDrawRangeElements@Base 337
  glEnable@Base 331
@@ -87,14 +87,14 @@ libGLESv2.so.2 libgles2-mesa
  glFinish@Base 331
  glFlush@Base 331
  glFlushMappedBufferRange@Base 337
- glFramebufferParameteri@Base 346
+#MISSING: 361.18# glFramebufferParameteri@Base 346
  glFramebufferRenderbuffer@Base 331
  glFramebufferTexture2D@Base 331
  glFramebufferTextureLayer@Base 337
  glFrontFace@Base 331
  glGenBuffers@Base 331
  glGenFramebuffers@Base 331
- glGenProgramPipelines@Base 346
+#MISSING: 361.18# glGenProgramPipelines@Base 346
  glGenQueries@Base 337
  glGenRenderbuffers@Base 331
  glGenSamplers@Base 337
@@ -109,7 +109,7 @@ libGLESv2.so.2 libgles2-mesa
  glGetActiveUniformsiv@Base 337
  glGetAttachedShaders@Base 331
  glGetAttribLocation@Base 331
- glGetBooleani_v@Base 346
+#MISSING: 361.18# glGetBooleani_v@Base 346
  glGetBooleanv@Base 331
  glGetBufferParameteri64v@Base 337
  glGetBufferParameteriv@Base 331
@@ -118,22 +118,22 @@ libGLESv2.so.2 libgles2-mesa
  glGetFloatv@Base 331
  glGetFragDataLocation@Base 337
  glGetFramebufferAttachmentParameteriv@Base 331
- glGetFramebufferParameteriv@Base 346
+#MISSING: 361.18# glGetFramebufferParameteriv@Base 346
  glGetInteger64i_v@Base 337
  glGetInteger64v@Base 337
  glGetIntegeri_v@Base 337
  glGetIntegerv@Base 331
  glGetInternalformativ@Base 337
- glGetMultisamplefv@Base 346
+#MISSING: 361.18# glGetMultisamplefv@Base 346
  glGetProgramBinary@Base 337
  glGetProgramInfoLog@Base 331
- glGetProgramInterfaceiv@Base 346
- glGetProgramPipelineInfoLog@Base 346
- glGetProgramPipelineiv@Base 346
- glGetProgramResourceIndex@Base 346
- glGetProgramResourceLocation@Base 346
- glGetProgramResourceName@Base 346
- glGetProgramResourceiv@Base 346
+#MISSING: 361.18# glGetProgramInterfaceiv@Base 346
+#MISSING: 361.18# glGetProgramPipelineInfoLog@Base 346
+#MISSING: 361.18# glGetProgramPipelineiv@Base 346
+#MISSING: 361.18# glGetProgramResourceIndex@Base 346
+#MISSING: 361.18# glGetProgramResourceLocation@Base 346
+#MISSING: 361.18# glGetProgramResourceName@Base 346
+#MISSING: 361.18# glGetProgramResourceiv@Base 346
  glGetProgramiv@Base 331
  glGetQueryObjectuiv@Base 337
  glGetQueryiv@Base 337
@@ -147,8 +147,8 @@ libGLESv2.so.2 libgles2-mesa
  glGetString@Base 331
  glGetStringi@Base 337
  glGetSynciv@Base 337
- glGetTexLevelParameterfv@Base 346
- glGetTexLevelParameteriv@Base 346
+#MISSING: 361.18# glGetTexLevelParameterfv@Base 346
+#MISSING: 361.18# glGetTexLevelParameteriv@Base 346
  glGetTexParameterfv@Base 331
  glGetTexParameteriv@Base 331
  glGetTransformFeedbackVarying@Base 337
@@ -170,7 +170,7 @@ libGLESv2.so.2 libgles2-mesa
  glIsEnabled@Base 331
  glIsFramebuffer@Base 331
  glIsProgram@Base 331
- glIsProgramPipeline@Base 346
+#MISSING: 361.18# glIsProgramPipeline@Base 346
  glIsQuery@Base 337
  glIsRenderbuffer@Base 331
  glIsSampler@Base 337
@@ -182,46 +182,46 @@ libGLESv2.so.2 libgles2-mesa
  glLineWidth@Base 331
  glLinkProgram@Base 331
  glMapBufferRange@Base 337
- glMemoryBarrier@Base 346
- glMemoryBarrierByRegion@Base 346
+#MISSING: 361.18# glMemoryBarrier@Base 346
+#MISSING: 361.18# glMemoryBarrierByRegion@Base 346
  glPauseTransformFeedback@Base 337
  glPixelStorei@Base 331
  glPolygonOffset@Base 331
  glProgramBinary@Base 337
  glProgramParameteri@Base 337
- glProgramUniform1f@Base 346
- glProgramUniform1fv@Base 346
- glProgramUniform1i@Base 346
- glProgramUniform1iv@Base 346
- glProgramUniform1ui@Base 346
- glProgramUniform1uiv@Base 346
- glProgramUniform2f@Base 346
- glProgramUniform2fv@Base 346
- glProgramUniform2i@Base 346
- glProgramUniform2iv@Base 346
- glProgramUniform2ui@Base 346
- glProgramUniform2uiv@Base 346
- glProgramUniform3f@Base 346
- glProgramUniform3fv@Base 346
- glProgramUniform3i@Base 346
- glProgramUniform3iv@Base 346
- glProgramUniform3ui@Base 346
- glProgramUniform3uiv@Base 346
- glProgramUniform4f@Base 346
- glProgramUniform4fv@Base 346
- glProgramUniform4i@Base 346
- glProgramUniform4iv@Base 346
- glProgramUniform4ui@Base 346
- glProgramUniform4uiv@Base 346
- glProgramUniformMatrix2fv@Base 346
- glProgramUniformMatrix2x3fv@Base 346
- glProgramUniformMatrix2x4fv@Base 346
- glProgramUniformMatrix3fv@Base 346
- glProgramUniformMatrix3x2fv@Base 346
- glProgramUniformMatrix3x4fv@Base 346
- glProgramUniformMatrix4fv@Base 346
- glProgramUniformMatrix4x2fv@Base 346
- glProgramUniformMatrix4x3fv@Base 346
+#MISSING: 361.18# glProgramUniform1f@Base 346
+#MISSING: 361.18# glProgramUniform1fv@Base 346
+#MISSING: 361.18# glProgramUniform1i@Base 346
+#MISSING: 361.18# glProgramUniform1iv@Base 346
+#MISSING: 361.18# glProgramUniform1ui@Base 346
+#MISSING: 361.18# glProgramUniform1uiv@Base 346
+#MISSING: 361.18# glProgramUniform2f@Base 346
+#MISSING: 361.18# glProgramUniform2fv@Base 346
+#MISSING: 361.18# glProgramUniform2i@Base 346
+#MISSING: 361.18# glProgramUniform2iv@Base 346
+#MISSING: 361.18# glProgramUniform2ui@Base 346
+#MISSING: 361.18# glProgramUniform2uiv@Base 346
+#MISSING: 361.18# glProgramUniform3f@Base 346
+#MISSING: 361.18# glProgramUniform3fv@Base 346
+#MISSING: 361.18# glProgramUniform3i@Base 346
+#MISSING: 361.18# glProgramUniform3iv@Base 346
+#MISSING: 361.18# glProgramUniform3ui@Base 346
+#MISSING: 361.18# glProgramUniform3uiv@Base 346
+#MISSING: 361.18# glProgramUniform4f@Base 346
+#MISSING: 361.18# glProgramUniform4fv@Base 346
+#MISSING: 361.18# glProgramUniform4i@Base 346
+#MISSING: 361.18# glProgramUniform4iv@Base 346
+#MISSING: 361.18# glProgramUniform4ui@Base 346
+#MISSING: 361.18# glProgramUniform4uiv@Base 346
+#MISSING: 361.18# glProgramUniformMatrix2fv@Base 346
+#MISSING: 361.18# glProgramUniformMatrix2x3fv@Base 346
+#MISSING: 361.18# glProgramUniformMatrix2x4fv@Base 346
+#MISSING: 361.18# glProgramUniformMatrix3fv@Base 346
+#MISSING: 361.18# glProgramUniformMatrix3x2fv@Base 346
+#MISSING: 361.18# glProgramUniformMatrix3x4fv@Base 346
+#MISSING: 361.18# glProgramUniformMatrix4fv@Base 346
+#MISSING: 361.18# glProgramUniformMatrix4x2fv@Base 346
+#MISSING: 361.18# glProgramUniformMatrix4x3fv@Base 346
  glReadBuffer@Base 337
  glReadPixels@Base 331
  glReleaseShaderCompiler@Base 331
@@ -229,7 +229,7 @@ libGLESv2.so.2 libgles2-mesa
  glRenderbufferStorageMultisample@Base 337
  glResumeTransformFeedback@Base 337
  glSampleCoverage@Base 331
- glSampleMaski@Base 346
+#MISSING: 361.18# glSampleMaski@Base 346
  glSamplerParameterf@Base 337
  glSamplerParameterfv@Base 337
  glSamplerParameteri@Base 337
@@ -250,7 +250,7 @@ libGLESv2.so.2 libgles2-mesa
  glTexParameteri@Base 331
  glTexParameteriv@Base 331
  glTexStorage2D@Base 337
- glTexStorage2DMultisample@Base 346
+#MISSING: 361.18# glTexStorage2DMultisample@Base 346
  glTexStorage3D@Base 337
  glTexSubImage2D@Base 331
  glTexSubImage3D@Base 337
@@ -291,9 +291,9 @@ libGLESv2.so.2 libgles2-mesa
  glUniformMatrix4x3fv@Base 337
  glUnmapBuffer@Base 337
  glUseProgram@Base 331
- glUseProgramStages@Base 346
+#MISSING: 361.18# glUseProgramStages@Base 346
  glValidateProgram@Base 331
- glValidateProgramPipeline@Base 346
+#MISSING: 361.18# glValidateProgramPipeline@Base 346
  glVertexAttrib1f@Base 331
  glVertexAttrib1fv@Base 331
  glVertexAttrib2f@Base 331
@@ -302,16 +302,16 @@ libGLESv2.so.2 libgles2-mesa
  glVertexAttrib3fv@Base 331
  glVertexAttrib4f@Base 331
  glVertexAttrib4fv@Base 331
- glVertexAttribBinding@Base 346
+#MISSING: 361.18# glVertexAttribBinding@Base 346
  glVertexAttribDivisor@Base 337
- glVertexAttribFormat@Base 346
+#MISSING: 361.18# glVertexAttribFormat@Base 346
  glVertexAttribI4i@Base 337
  glVertexAttribI4iv@Base 337
  glVertexAttribI4ui@Base 337
  glVertexAttribI4uiv@Base 337
- glVertexAttribIFormat@Base 346
+#MISSING: 361.18# glVertexAttribIFormat@Base 346
  glVertexAttribIPointer@Base 337
  glVertexAttribPointer@Base 331
- glVertexBindingDivisor@Base 346
+#MISSING: 361.18# glVertexBindingDivisor@Base 346
  glViewport@Base 331
  glWaitSync@Base 337

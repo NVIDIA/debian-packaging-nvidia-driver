@@ -38,6 +38,10 @@ nvidia-graphics-drivers (361.18-1) UNRELEASED; urgency=medium
     from NVIDIA (libGLESv1_CM_nvidia.so.1), accessible via libglvnd.
   * libgles1-nvidia: The libGLESv1_CM.so.1 is now just a (vendor-neutral) stub
     that redirects to libGLESv1_CM_nvidia.so.1 via libglvnd.
+  * libgles-nvidia2: New package for the vendor-specific GLESv2 implementation
+    from NVIDIA (libGLESv2_nvidia.so.2), accessible via libglvnd.
+  * libgles2-nvidia: The libGLESv2.so.2 is now just a (vendor-neutral) stub
+    that redirects to libGLESv2_nvidia.so.2 via libglvnd.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
 
