@@ -42,6 +42,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuDeviceGetByPCIBusId@Base 285
  cuDeviceGetCount@Base 169
  cuDeviceGetName@Base 169
+ cuDeviceGetP2PAttribute@Base 361.18
  cuDeviceGetPCIBusId@Base 285
  cuDeviceGetProperties@Base 169
  cuDevicePrimaryCtxGetState@Base 346
@@ -312,6 +313,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuTexRefGetAddressMode@Base 169
  cuTexRefGetAddress_v2@Base 260
  cuTexRefGetArray@Base 169
+ cuTexRefGetBorderColor@Base 361.18
  cuTexRefGetFilterMode@Base 169
  cuTexRefGetFlags@Base 169
  cuTexRefGetFormat@Base 177
@@ -327,6 +329,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuTexRefSetAddressMode@Base 169
  cuTexRefSetAddress_v2@Base 260
  cuTexRefSetArray@Base 169
+ cuTexRefSetBorderColor@Base 361.18
  cuTexRefSetFilterMode@Base 169
  cuTexRefSetFlags@Base 169
  cuTexRefSetFormat@Base 169

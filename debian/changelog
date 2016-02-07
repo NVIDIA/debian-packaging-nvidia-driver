@@ -51,6 +51,7 @@ nvidia-graphics-drivers (361.18-1) UNRELEASED; urgency=medium
   * libnvidia-ptxjitcompiler: New package for the CUDA PXT JIT compiler.
   * Add dependency to libegl-nvidia package to nvidia-driver, otherwise
     apt-get install nvidia-driver will not pull it in.
+  * Update symbols files
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
 
