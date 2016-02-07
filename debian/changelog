@@ -46,6 +46,8 @@ nvidia-graphics-drivers (361.18-1) UNRELEASED; urgency=medium
     from NVIDIA (libGLX_nvidia.so.0), accessible via libglvnd.
   * libglx0-nvidia: New package for libGLX.so.0, a new (vendor-neutral) stub
     that redirects to libGLX_nvidia.so.0 via libglvnd.
+  * libnvidia-fatbinaryloader: New package for FAT multiarch binary loader,
+    needed by CUDA PXT JIT compiler.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
 
