@@ -30,6 +30,7 @@ Pre-Depends:
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
  libegl1-${nvidia} (= ${binary:Version}),
+ libegl-${nvidia}0 (= ${binary:Version}),
  libglx0-${nvidia} (= ${binary:Version}),
  libglx-${nvidia}0 (= ${binary:Version}),
  ${nvidia}-driver-bin (= ${binary:Version}),
