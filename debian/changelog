@@ -31,6 +31,7 @@ nvidia-graphics-drivers (361.18-1) UNRELEASED; urgency=medium
       http://people.freedesktop.org/~aplattner/vdpau/
       Please see http://freedesktop.org/wiki/Software/VDPAU/ for more
       information.
+  * Refresh man-fixes-nvidia-smi.patch (failed to apply on 361.18).
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
 
