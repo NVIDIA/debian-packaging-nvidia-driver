@@ -33,6 +33,11 @@ nvidia-graphics-drivers (361.18-1) UNRELEASED; urgency=medium
       information.
   * Refresh man-fixes-nvidia-smi.patch (failed to apply on 361.18).
   * Update nv-readme.ids.
+  * Updated watch version to 361.
+  * libgles-nvidia1: New package for the vendor-specific GLESv1 implementation
+    from NVIDIA (libGLESv1_CM_nvidia.so.1), accessible via libglvnd.
+  * libgles1-nvidia: The libGLESv1_CM.so.1 is now just a (vendor-neutral) stub
+    that redirects to libGLESv1_CM_nvidia.so.1 via libglvnd.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
 

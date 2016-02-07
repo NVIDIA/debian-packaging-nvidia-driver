@@ -51,6 +51,7 @@ if [ "$1" = "triggered" ]; then
 		$(add_slave /usr/lib/nvidia/nvidia_drv.so nvidia_drv.so /usr/lib/#PRIVATE#/nvidia_drv.so)
 		$(add_multiarch_slave /usr/lib vdpau/ libvdpau_nvidia.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libEGL_nvidia.so.0 /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib "" libGLESv1_CM_nvidia.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libcuda.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libcuda.so /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libnvcuvid.so.1 /usr/lib #PRIVATE#/)
