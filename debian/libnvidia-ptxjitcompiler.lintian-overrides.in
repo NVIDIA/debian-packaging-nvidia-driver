@@ -1,0 +1,16 @@
+# The NVIDIA license does not allow any form of modification.
+[i386]: binary-file-built-without-LFS-support
+binary-has-unneeded-section
+[i386]: shlib-with-non-pic-code
+spelling-error-in-binary
+hardening-no-bindnow
+hardening-no-fortify-functions
+hardening-no-relro
+hardening-no-stackprotector
+
+# The libnvidia-ptxjitcompiler.so.* SONAME changes with every upstream release.
+# But it is a (huge) plugin that is only used from other NVIDIA libraries
+# with the same upstream version (and a constant SONAME), so don't include
+# the SONAME in the package name to avoid going through NEW with every new
+# upstream release.
+package-name-doesnt-match-sonames

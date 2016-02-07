@@ -706,6 +706,22 @@ Description: NVIDIA runtime compiler library
  .
  This package contains the runtime compiler library.
 
+#Package: lib${nvidia}-ptxjitcompiler
+Package: libnvidia-ptxjitcompiler
+Architecture: i386 amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends},
+ lib${nvidia}-fatbinaryloader (= ${binary:Version})
+Description: NVIDIA PTX JIT Compiler
+ The Compute Unified Device Architecture (CUDA) enables NVIDIA
+ graphics processing units (GPUs) to be used for massively parallel
+ general purpose computation.
+ .
+ This package contains the runtime PTX JIT compiler library.
+
 #Package: lib${nvidia}-fatbinaryloader
 Package: libnvidia-fatbinaryloader
 Architecture: i386 amd64

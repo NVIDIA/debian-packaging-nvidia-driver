@@ -48,6 +48,7 @@ nvidia-graphics-drivers (361.18-1) UNRELEASED; urgency=medium
     that redirects to libGLX_nvidia.so.0 via libglvnd.
   * libnvidia-fatbinaryloader: New package for FAT multiarch binary loader,
     needed by CUDA PXT JIT compiler.
+  * libnvidia-ptxjitcompiler: New package for the CUDA PXT JIT compiler.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
 
