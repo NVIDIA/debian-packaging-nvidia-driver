@@ -32,6 +32,8 @@ Depends:
  libegl1-${nvidia} (= ${binary:Version}),
  libgles1-${nvidia} (= ${binary:Version}),
  libgles-${nvidia}1 (= ${binary:Version}),
+ libglx0-${nvidia} (= ${binary:Version}),
+ libglx-${nvidia}0 (= ${binary:Version}),
  ${nvidia}-driver-bin (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  ${nvidia}-vdpau-driver (= ${binary:Version}),
@@ -338,6 +340,50 @@ Description: NVIDIA binary OpenGL|ES 2.x libraries${nvidia:LegacyDesc}
  See the description of the ${nvidia}-driver package
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+
+#Package: libglx0-${nvidia}
+Package: libglx0-nvidia
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${nvidia-alternative} (= ${binary:Version}),
+ libglvnd-nvidia,
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA binary GLX stub libraries${nvidia:LegacyDesc}
+ This package contains the EGL native platform graphics interface library.
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES and OpenVG.
+ .
+ See the description of the ${nvidia}-driver package
+ or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+ .
+ This package contains a libGLX.so.0 stub that redirects to a vendor
+ implementation via libglvnd.
+
+#Package: libglx-${nvidia}0
+Package: libglx-nvidia0
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${nvidia-alternative} (= ${binary:Version}),
+ libgl1-${nvidia}-glx (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA binary GLX libraries${nvidia:LegacyDesc}
+ This package contains the EGL native platform graphics interface library.
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES and OpenVG.
+ .
+ See the description of the ${nvidia}-driver package
+ or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+ .
+ This package contains the driver specific binary GLX implementation by NVIDIA
+ that is accessed via libglvnd.
 
 #Package: lib${nvidia}-eglcore
 Package: libnvidia-eglcore
