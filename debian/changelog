@@ -1,3 +1,39 @@
+nvidia-graphics-drivers (361.18-1) UNRELEASED; urgency=medium
+
+  [ Luca Boccassi ]
+  * New upstream beta branch release 361.18 (2016-01-13).
+    - Added support for the following GPUs: GeForce 940MX Quadro M500M
+    - Fixed a bug in the EGL driver where a mutex was unlocked more than once.
+      This triggers undefined behavior, and in particular, if lock elision is
+      enabled in glibc, may result in a segmentation fault.
+  * New upstream beta branch release 361.16 (2016-01-05).
+    - The OpenGL Vendor-Neutral Driver (GLVND) infrastructure is now included
+      and supported by the NVIDIA GLX and OpenGL drivers.  This should not
+      cause any visible changes in behavior for end users, but some internal
+      driver component libraries have been renamed and/or moved as a result.
+      These changes may affect scripts that rely on the presence of NVIDIA
+      OpenGL driver components other than those specified in the Linux OpenGL
+      ABI version 1.0, maintainers of alternative NVIDIA driver installation
+      packages, and applications which rely on the presence of any
+      non- OpenGL/GLX symbols in the libGL.so.1 library and its dependencies
+      in any way.
+      Please see: https://github.com/NVIDIA/libglvnd For more information on
+      the GLVND project.
+      The Linux OpenGL ABI version 1.0 specification is available at:
+      https://www.opengl.org/registry/ABI
+    - Updated nvidia-installer to run ldconfig(8) and depmod(8) after
+      uninstalling an existing driver, instead of only running these two
+      commands when installing a new driver.
+    - Removed the VDPAU wrapper and trace libraries libvdpau.so.1 and
+      libvdpau_trace.so.1 from the driver package.  These libraries may be
+      available via your distribution's package management system, or can be
+      compiled from the sources available at:
+      http://people.freedesktop.org/~aplattner/vdpau/
+      Please see http://freedesktop.org/wiki/Software/VDPAU/ for more
+      information.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
+
 nvidia-graphics-drivers (358.16-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
