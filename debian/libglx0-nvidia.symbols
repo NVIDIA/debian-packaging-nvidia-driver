@@ -18,10 +18,13 @@ libGLX.so.0 #PACKAGE# #MINVER#
  XGLVQueryXIDScreenMapping@Base 361.18
  XGLVRegisterCloseDisplayCallback@Base 361.18
  XGLVUnregisterCloseDisplayCallbacks@Base 361.18
- __glXAddScreenContextMapping@Base 361.18
- __glXAddScreenDrawableMapping@Base 361.18
- __glXAddScreenFBConfigMapping@Base 361.18
+#MISSING: 361.28# __glXAddScreenContextMapping@Base 361.18
+#MISSING: 361.28# __glXAddScreenDrawableMapping@Base 361.18
+#MISSING: 361.28# __glXAddScreenFBConfigMapping@Base 361.18
  __glXAddScreenVisualMapping@Base 361.18
+ __glXAddVendorContextMapping@Base 361.28
+ __glXAddVendorDrawableMapping@Base 361.28
+ __glXAddVendorFBConfigMapping@Base 361.28
  __glXDispatchNoop@Base 361.18
  __glXDispatchNoopPtr@Base 361.18
  __glXFetchDispatchEntry@Base 361.18
@@ -29,7 +32,7 @@ libGLX.so.0 #PACKAGE# #MINVER#
  __glXGLLoadGLXFunction@Base 361.18
  __glXGenerateGLXEntrypoint@Base 361.18
  __glXGetCurrentDynDispatch@Base 361.18
- __glXGetDrawableStaticDispatch@Base 361.18
+#MISSING: 361.28# __glXGetDrawableStaticDispatch@Base 361.18
  __glXGetDynDispatch@Base 361.18
  __glXGetGLDispatch@Base 361.18
  __glXGetGLXDispatchAddress@Base 361.18
@@ -40,13 +43,16 @@ libGLX.so.0 #PACKAGE# #MINVER#
  __glXMappingTeardown@Base 361.18
  __glXNotifyContextDestroyed@Base 361.18
  __glXPthreadFuncs@Base 361.18
- __glXRemoveScreenContextMapping@Base 361.18
- __glXRemoveScreenDrawableMapping@Base 361.18
- __glXRemoveScreenFBConfigMapping@Base 361.18
+#MISSING: 361.28# __glXRemoveScreenContextMapping@Base 361.18
+#MISSING: 361.28# __glXRemoveScreenDrawableMapping@Base 361.18
+#MISSING: 361.28# __glXRemoveScreenFBConfigMapping@Base 361.18
  __glXRemoveScreenVisualMapping@Base 361.18
- __glXScreenFromContext@Base 361.18
- __glXScreenFromDrawable@Base 361.18
- __glXScreenFromFBConfig@Base 361.18
+ __glXRemoveVendorContextMapping@Base 361.28
+ __glXRemoveVendorDrawableMapping@Base 361.28
+ __glXRemoveVendorFBConfigMapping@Base 361.28
+#MISSING: 361.28# __glXScreenFromContext@Base 361.18
+#MISSING: 361.28# __glXScreenFromDrawable@Base 361.18
+#MISSING: 361.28# __glXScreenFromFBConfig@Base 361.18
  __glXThreadInitialize@Base 361.18
  __glXVendorFromContext@Base 361.18
  __glXVendorFromDrawable@Base 361.18

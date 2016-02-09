@@ -132,6 +132,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuLinkCreate@Base 319
  cuLinkCreate_v2@Base 340
  cuLinkDestroy@Base 319
+ cuMemAdvise@Base 361.28
  cuMemAlloc@Base 169
  cuMemAllocHost@Base 169
  cuMemAllocHost_v2@Base 260
