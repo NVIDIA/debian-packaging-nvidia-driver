@@ -344,7 +344,7 @@ Description: NVIDIA binary OpenGL|ES 2.x libraries${nvidia:LegacyDesc}
 
 #Package: libglx0-${nvidia}
 Package: libglx0-nvidia
-Architecture: i386 amd64 armhf
+Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -366,7 +366,7 @@ Description: NVIDIA binary GLX stub libraries${nvidia:LegacyDesc}
 
 #Package: libglx-${nvidia}0
 Package: libglx-nvidia0
-Architecture: i386 amd64 armhf
+Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
