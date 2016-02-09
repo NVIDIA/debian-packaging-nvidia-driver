@@ -303,6 +303,7 @@ override_dh_strip_nondeterminism:
 	-e 's{#UNLOAD_MODULES#}{$(strip $(unload_modules))}g;' \
 	-e 's{#HAS_UVM#}{$(if $(has_uvm),,#)}g;' \
 	-e 's{#!armhf#}{$(if $(filter armhf,$(DEB_HOST_ARCH)),#)}g;' \
+	-e 's{#armhf#}{$(if $(filter-out armhf,$(DEB_HOST_ARCH)),#)}g;' \
 	-e 's{#!legacy#}{$(if $(legacy),#)}g;' \
 	< $< > $@
 
