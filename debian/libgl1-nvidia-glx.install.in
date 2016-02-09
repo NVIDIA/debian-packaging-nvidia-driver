@@ -1,4 +1,5 @@
-libGL.so.1.0.0		#LIBDIR#/#PRIVATE#/
+#!armhf#libGL.so.1.0.0		#LIBDIR#/#PRIVATE#/
+#armhf#libGL.so.#VERSION#		#LIBDIR#/#PRIVATE#/
 libnvidia-glcore.so.#VERSION#	#LIBDIR#/
 libnvidia-cfg.so.#VERSION#	#LIBDIR#/#PRIVATE#/
 libnvidia-tls.so.#VERSION#	#LIBDIR#/
