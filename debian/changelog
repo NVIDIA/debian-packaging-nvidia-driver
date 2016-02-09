@@ -70,6 +70,7 @@ nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
   * Add dependency to libegl-nvidia package to nvidia-driver, otherwise
     apt-get install nvidia-driver will not pull it in.
   * Update symbols files
+  * Updated libgl1-nvidia-glx package to ship libglvnd's version of libGL.so.1
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
 
