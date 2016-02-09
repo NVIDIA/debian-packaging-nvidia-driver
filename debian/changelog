@@ -1,6 +1,24 @@
-nvidia-graphics-drivers (361.18-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
+  * New upstream long lived branch release 361.28 (2016-02-09).
+    - Added support for the following GPU: GeForce 945A
+    - Added a legacy, non-GLVND libGL.so GLX client library to the NVIDIA Linux
+      driver installer package, and the ability to select between a GLVND or
+      non-GLVND GLX client library at installation time. This allows users to
+      install the legacy non-GLVND GLX client library in order to work around
+      compatibility issues which may arise due to GLX applications which depend
+      upon behaviors of the NVIDIA GLX client driver which are not defined by
+      the Linux OpenGL ABI version 1.0. 
+      By default, nvidia-installer will install the legacy, non-GLVND GLX client
+      libraries. The --glvnd-glx-client command line option can be used to
+      override the default, and install the GLVND GLX client libraries instead.
+      Please contact the vendors of any applications that are not compatible
+      with GLVND to ensure that their applications be updated for compatibility
+      with GLVND.
+      The presence of multiple GLX client libraries in the package has
+      implications for repackagers of the NVIDIA driver; see the libGL.so entry
+      in the "Installed Components" chapter of the README for details. 
   * New upstream beta branch release 361.18 (2016-01-13).
     - Added support for the following GPUs: GeForce 940MX Quadro M500M
     - Fixed a bug in the EGL driver where a mutex was unlocked more than once.
