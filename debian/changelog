@@ -1,7 +1,7 @@
 nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
-  * New upstream long lived branch release 361.28 (2016-02-09).
+  * New upstream long lived branch release 361.28 (2016-02-09). (Closes: #814347)
     - Added support for the following GPU: GeForce 945A
     - Added a legacy, non-GLVND libGL.so GLX client library to the NVIDIA Linux
       driver installer package, and the ability to select between a GLVND or
