@@ -1,0 +1,15 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: disable preempt_rt_sanity_check
+ we already skipped that test in our conftest.h
+
+--- a/nvidia-modules-common.mk
++++ b/nvidia-modules-common.mk
+@@ -235,7 +235,7 @@ BUILD_SANITY_CHECKS = \
+ 	nvidiafb_sanity_check \
+ 	dom0_sanity_check \
+ 	xen_sanity_check \
+-	preempt_rt_sanity_check
++#	preempt_rt_sanity_check
+ 
+ build-sanity-checks: $(obj)/conftest/sanity-checks.stamp
+ 

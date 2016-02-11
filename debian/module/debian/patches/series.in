@@ -1,6 +1,7 @@
 use-kbuild-compiler.patch
 conftest-verbose.patch
 conftest-via-kbuild.patch
+disable-preempt_rt_sanity_check.patch
 not-silent.patch
 use-nv-kernel-ARCH.o_shipped.patch
 #avoid-ld.gold.patch

@@ -10,6 +10,8 @@ nvidia-graphics-drivers (352.79-2) UNRELEASED; urgency=medium
     headers.
   * conftest-via-kbuild.patch: New patch to call conftest.sh from within
     kbuild (and therefore with kbuild's compiler and flags) as in 355.xx.
+  * disable-preempt_rt_sanity_check.patch: New patch to disable a check we
+    already skipped in our conftest.h.
   * Pass only the kernel version via KERNEL_UNAME and let the module build
     system figure out the paths.
   * Clear ARCH variable from environment before dkms build, thanks to Luca.
