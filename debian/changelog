@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (352.79-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.79-2) unstable; urgency=low
 
   [ Andreas Beckmann ]
   * Add nvidia-legacy-check package, taking over the check for legacy GPUs
@@ -26,7 +26,7 @@ nvidia-graphics-drivers (352.79-2) UNRELEASED; urgency=medium
     kernel module build failure on armhf by forcing XEN_PRESENT=0 when
     building on armhf
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 02 Feb 2016 16:05:17 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 12 Feb 2016 02:09:09 +0100
 
 nvidia-graphics-drivers (352.79-1) unstable; urgency=medium
 
