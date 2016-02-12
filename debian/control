@@ -27,6 +27,7 @@ Section: non-free/x11
 Architecture: i386 amd64 armhf
 Pre-Depends:
  nvidia-installer-cleanup,
+ ${nvidia-legacy-check},
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
  libegl1-${nvidia} (= ${binary:Version}),
@@ -98,6 +99,7 @@ Section: non-free/x11
 Architecture: i386 amd64 armhf
 Pre-Depends:
  nvidia-installer-cleanup,
+ ${nvidia-legacy-check},
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
  ${nvidia-alternative} (= ${binary:Version}),
@@ -130,14 +132,29 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  See /usr/share/doc/${nvidia}-driver/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
 
+Package: nvidia-legacy-check
+Architecture: i386 amd64 armhf
+Multi-Arch: foreign
+Pre-Depends:
+ debconf (>= 0.5) | debconf-2.0,
+ pciutils,
+ nvidia-installer-cleanup,
+Depends:
+ ${misc:Depends}
+Description: check for NVIDIA GPUs requiring a legacy driver
+ This package checks whether the system contains NVIDIA GPUs that are no longer
+ supported by the main driver line and require a legacy driver.
+ .
+ If such hardware is present, a debconf question will be asked to confirm the
+ installation of the current driver line.
+
 #Package: libgl1-${nvidia}-glx
 Package: libgl1-nvidia-glx
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
- debconf (>= 0.5) | debconf-2.0,
- pciutils,
  nvidia-installer-cleanup,
+ ${nvidia-legacy-check},
  ${misc:Pre-Depends}
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
@@ -273,6 +290,8 @@ Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
 Package: nvidia-alternative
 Architecture: i386 amd64 armhf
 Multi-Arch: foreign
+Pre-Depends:
+ ${nvidia-legacy-check},
 Depends:
  glx-alternative-nvidia (>= 0.7),
  ${misc:Depends}

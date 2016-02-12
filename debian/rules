@@ -14,6 +14,7 @@ WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
 XORG_BOUND		?=
+NVIDIA_LEGACY_CHECK	?=
 LINUX_KMOD_TESTED	?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
 NVIDIA_ALTERNATIVE	?= nvidia$(legacy)-alternative
@@ -262,6 +263,7 @@ override_dh_gencontrol:
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
 		-V'nvidia:Perfkit=$(perfkit)' \
+		-V'nvidia-legacy-check=$(NVIDIA_LEGACY_CHECK)' \
 		-V'nvidia-alternative=$(NVIDIA_ALTERNATIVE)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
 		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}$${nvidia:Perfkit}' \

@@ -1,6 +1,9 @@
 nvidia-graphics-drivers (352.79-2) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
+  * Add nvidia-legacy-check package, taking over the check for legacy GPUs
+    from libgl1-nvidia-glx. Add the new package to the Pre-Depends of several
+    core packages.  (Closes: #813541)
   * avoid-ld.gold.patch: Disable, hopefully this is no longer needed.
   * use-kbuild-compiler.patch: New patch to build with Kbuild's version of the
     compiler instead of system default, thanks to Luca.
