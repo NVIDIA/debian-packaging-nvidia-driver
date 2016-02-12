@@ -430,6 +430,7 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
+ ${nvidia-legacy-check},
  ${misc:Pre-Depends}
 Depends:
  libvdpau1 (>= 0.9),
@@ -506,6 +507,7 @@ Package: libcuda1
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
+ ${nvidia-legacy-check},
  ${misc:Pre-Depends}
 Depends:
  nvidia-support,
