@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (352.79-3) UNRELEASED; urgency=medium
+
+  * Update reportbug template to parse content of
+    /etc/bumblebee/bumblebee.conf and /etc/bumblebee/xorg.conf.nvidia if
+    they are present.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 14 Feb 2016 12:50:01 +0000
+
 nvidia-graphics-drivers (352.79-2) unstable; urgency=low
 
   [ Andreas Beckmann ]
