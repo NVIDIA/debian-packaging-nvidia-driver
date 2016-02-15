@@ -32,14 +32,6 @@ legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 perfkit			 =
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
-filename_i386		 = $(NVIDIA_FILENAME_i386)
-filename_amd64		 = $(NVIDIA_FILENAME_amd64)
-filename_armhf		 = $(NVIDIA_FILENAME_armhf)
-filename_ppc64el	 = ppc64el/$(NVIDIA_FILENAME_ppc64el)
-dirname_i386		 = $(NVIDIA_DIRNAME_i386)
-dirname_amd64		 = $(NVIDIA_DIRNAME_amd64)
-dirname_armhf		 = $(NVIDIA_DIRNAME_armhf)
-dirname_ppc64el		 = $(NVIDIA_DIRNAME_ppc64el)
 
 # this needs the internal names (i.e. upstream's names, not our renamed files)
 unload_modules		 =
@@ -98,8 +90,8 @@ prepare: autogen unpack-stamp nvidia.ids compare-copyright-license
 patch: prepare
 
 NVIDIA-Linux-%:
-	sh ${filename_$*} --extract-only
-	ln -s ${dirname_$*} $@
+	sh $(wildcard $*/${NVIDIA_FILENAME_$*} ${NVIDIA_FILENAME_$*}) --extract-only
+	ln -s ${NVIDIA_DIRNAME_$*} $@
 	test -f $@/README.txt || \
 		mv $@/usr/share/doc/README.txt $@/README.txt 2>/dev/null || \
 		mv $@/usr/share/doc/README $@/README.txt
@@ -152,7 +144,7 @@ binary binary-arch binary-indep build clean install:
 override_dh_auto_clean:
 	rm -fr .pc
 	rm -f NVIDIA-Linux
-	rm -fr $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(dirname_$a))
+	rm -fr $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(NVIDIA_DIRNAME_$a))
 	rm -fr debian/temp
 	rm -fr kernel-source-tree
 	rm -f nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
