@@ -92,14 +92,7 @@ patch: prepare
 NVIDIA-Linux-%:
 	sh $(wildcard $*/${NVIDIA_FILENAME_$*} ${NVIDIA_FILENAME_$*}) --extract-only
 	ln -s ${NVIDIA_DIRNAME_$*} $@
-	test -f $@/README.txt || \
-		mv $@/usr/share/doc/README.txt $@/README.txt 2>/dev/null || \
-		mv $@/usr/share/doc/README $@/README.txt
-	test -f $@/NVIDIA_Changelog || \
-		mv $@/usr/share/doc/NVIDIA_Changelog $@/
-	test -d $@/kernel || \
-		mv $@/usr/src/nv $@/kernel
-	-gunzip $@/*.1.gz
+	gunzip $@/*.1.gz
 
 # Unpack all architectures, we may need files from all of them.
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
