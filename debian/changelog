@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (352.79-3) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
+  * get-orig-source: Generate an additional .orig-ppc64el tarball for ppc64el.
   * Add preliminary support for ppc64el, only supports CUDA/OpenCL.
 
   [ Luca Boccassi ]
