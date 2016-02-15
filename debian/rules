@@ -35,9 +35,11 @@ watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?
 filename_i386		 = $(NVIDIA_FILENAME_i386)
 filename_amd64		 = $(NVIDIA_FILENAME_amd64)
 filename_armhf		 = $(NVIDIA_FILENAME_armhf)
+filename_ppc64el	 = $(NVIDIA_FILENAME_ppc64el)
 dirname_i386		 = $(NVIDIA_DIRNAME_i386)
 dirname_amd64		 = $(NVIDIA_DIRNAME_amd64)
 dirname_armhf		 = $(NVIDIA_DIRNAME_armhf)
+dirname_ppc64el		 = $(NVIDIA_DIRNAME_ppc64el)
 
 # this needs the internal names (i.e. upstream's names, not our renamed files)
 unload_modules		 =
@@ -358,7 +360,7 @@ ORIGDIR	?= nvidia-graphics-drivers-$(NVIDIA_RELEASE).orig
 TARBALL	?= nvidia-graphics-drivers$(legacy)_$(NVIDIA_RELEASE).orig.tar.gz
 
 # $1 = arch
-get_download_url	 = $(HTTPURL_PREFIX)/$(HTTPURL_ARCHDIR_$(strip $1))/$(NVIDIA_RELEASE)/$(NVIDIA_FILENAME_$(strip $1))
+get_download_url	 = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(HTTPURL_ARCHDIR_$(strip $1))/$(NVIDIA_RELEASE)/$(NVIDIA_FILENAME_$(strip $1))
 
 get-orig-source-prepare:
 	$(RM) $(TARBALL)
