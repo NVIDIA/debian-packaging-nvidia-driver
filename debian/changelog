@@ -1,6 +1,10 @@
 nvidia-graphics-drivers (352.79-3) UNRELEASED; urgency=medium
 
-  * Update reportbug template to parse content of
+  [ Andreas Beckmann ]
+  * Add preliminary support for ppc64el, only supports CUDA/OpenCL.
+
+  [ Luca Boccassi ]
+  * Update reportbug template to include content of
     /etc/bumblebee/bumblebee.conf and /etc/bumblebee/xorg.conf.nvidia if
     they are present.
 
