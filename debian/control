@@ -14,7 +14,7 @@ Build-Depends:
  debhelper (>= 9),
  xz-utils,
  dkms,
- libxext6,
+ libxext6 [!ppc64el],
  quilt,
  po-debconf,
 Standards-Version: 3.9.7
@@ -753,7 +753,7 @@ Description: NVIDIA OpenCL ICD Loader library
 
 Package: nvidia-detect
 Section: non-free/x11
-Architecture: i386 amd64 armhf ppc64el
+Architecture: i386 amd64 armhf
 Depends:
  pciutils,
  ${misc:Depends}
