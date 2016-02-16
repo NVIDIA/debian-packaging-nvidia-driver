@@ -35,7 +35,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nvidia-graphics-drivers\n"
 "Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
-"POT-Creation-Date: 2014-10-20 02:45+0200\n"
+"POT-Creation-Date: 2016-02-12 01:57+0100\n"
 "PO-Revision-Date: 2012-10-03 00:02+0200\n"
 "Last-Translator: Javier Fernández-Sanguino Peña <jfs@debian.org>\n"
 "Language-Team: Debian L10N Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 #. ${vendor} will be substituted with 'NVIDIA' or 'Fglrx' (without quotes, of
 #. course), ${free_name} will become 'Nouveau' or 'Radeon' (no quotes, again)
 #. and the ${*driver} variables will be replaced with package names.
-#: ../libgl1-nvidia-glx.templates:3001
+#: ../nvidia-legacy-check.templates:3001
 msgid "Install ${vendor} driver despite unsupported graphics card?"
 msgstr ""
 "¿Desea instalar el controlador ${vendor} aún cuando su tarjeta gráfica no "
@@ -60,7 +60,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:3001
+#: ../nvidia-legacy-check.templates:3001
 msgid ""
 "This system has a graphics card which is no longer handled by the ${vendor} "
 "driver (package ${driver}). You may wish to keep the package installed - for "
@@ -74,7 +74,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:3001
+#: ../nvidia-legacy-check.templates:3001
 msgid ""
 "The above card requires either the non-free legacy ${vendor} driver (package "
 "${legacy_driver}) or the free ${free_name} driver (package ${free_driver})."
@@ -85,7 +85,14 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:3001
+#: ../nvidia-legacy-check.templates:3001
+msgid ""
+"Use the update-glx command to switch between different installed drivers."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../nvidia-legacy-check.templates:3001
 msgid ""
 "Before the ${free_name} driver can be used you must remove ${vendor} "
 "configuration from xorg.conf (and xorg.conf.d/)."

@@ -34,5 +34,7 @@ _Description: Install ${vendor} driver despite unsupported graphics card?
  (package ${legacy_driver}) or the free ${free_name} driver
  (package ${free_driver}).
  .
+ Use the update-glx command to switch between different installed drivers.
+ .
  Before the ${free_name} driver can be used you must
  remove ${vendor} configuration from xorg.conf (and xorg.conf.d/).

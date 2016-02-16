@@ -2,7 +2,7 @@ use-kbuild-compiler.patch
 conftest-verbose.patch
 nvidia-use-ARCH.o_binary.patch
 nvidia-modeset-use-ARCH.o_binary.patch
-avoid-ld.gold.patch
+#avoid-ld.gold.patch
 include-swiotlb-header-on-arm.patch
 ignore_xen_on_arm.patch
 arm-outer-sync.patch
