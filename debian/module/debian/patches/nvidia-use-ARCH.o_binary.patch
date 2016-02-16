@@ -7,7 +7,7 @@ Description: Select the correct nv-kernel.o blob for the target architecture
 
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -37,7 +37,10 @@ NVIDIA_KO = nvidia/nvidia.ko
+@@ -37,7 +37,11 @@ NVIDIA_KO = nvidia/nvidia.ko
  # and needs to be re-executed.
  #
  
@@ -15,6 +15,7 @@ Description: Select the correct nv-kernel.o blob for the target architecture
 +NVIDIA_BINARY_OBJECT-$(CONFIG_X86_32)	+= nv-kernel-i386.o_binary
 +NVIDIA_BINARY_OBJECT-$(CONFIG_X86_64)	+= nv-kernel-amd64.o_binary
 +NVIDIA_BINARY_OBJECT-$(CONFIG_ARM)	+= nv-kernel-armhf.o_binary
++NVIDIA_BINARY_OBJECT-$(CONFIG_PPC64)	+= nv-kernel-ppc64el.o_binary
 +NVIDIA_BINARY_OBJECT := $(src)/nvidia/$(NVIDIA_BINARY_OBJECT-y)
  NVIDIA_BINARY_OBJECT_O := nvidia/nv-kernel.o
  
