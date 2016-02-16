@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nvidia-graphics-drivers\n"
 "Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
-"POT-Creation-Date: 2014-10-20 02:45+0200\n"
+"POT-Creation-Date: 2016-02-12 01:57+0100\n"
 "PO-Revision-Date: 2012-06-21 14:03+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <debian-l10n-slovak@lists.debian.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #. ${vendor} will be substituted with 'NVIDIA' or 'Fglrx' (without quotes, of
 #. course), ${free_name} will become 'Nouveau' or 'Radeon' (no quotes, again)
 #. and the ${*driver} variables will be replaced with package names.
-#: ../libgl1-nvidia-glx.templates:3001
+#: ../nvidia-legacy-check.templates:3001
 msgid "Install ${vendor} driver despite unsupported graphics card?"
 msgstr ""
 "Nainštalovať ovládač ${vendor} napriek tou, že máte nepodporovanú grafickú "
@@ -30,7 +30,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:3001
+#: ../nvidia-legacy-check.templates:3001
 #, fuzzy
 #| msgid ""
 #| "The following graphics chipset found in your system is no longer handled "
@@ -49,7 +49,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:3001
+#: ../nvidia-legacy-check.templates:3001
 #, fuzzy
 #| msgid ""
 #| "The above card requires the free ${free_name} driver in the package "
@@ -63,7 +63,14 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../libgl1-nvidia-glx.templates:3001
+#: ../nvidia-legacy-check.templates:3001
+msgid ""
+"Use the update-glx command to switch between different installed drivers."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../nvidia-legacy-check.templates:3001
 #, fuzzy
 #| msgid ""
 #| "Before the ${free_name} driver can be used you must remove ${vendor} "
