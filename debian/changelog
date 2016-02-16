@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (352.79-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.79-3) unstable; urgency=medium
 
   [ Andreas Beckmann ]
   * get-orig-source: Generate an additional .orig-ppc64el tarball for ppc64el.
@@ -10,7 +10,7 @@ nvidia-graphics-drivers (352.79-3) UNRELEASED; urgency=medium
     /etc/bumblebee/bumblebee.conf and /etc/bumblebee/xorg.conf.nvidia if
     they are present.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 14 Feb 2016 12:50:01 +0000
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 16 Feb 2016 12:27:17 +0100
 
 nvidia-graphics-drivers (352.79-2) unstable; urgency=low
 
