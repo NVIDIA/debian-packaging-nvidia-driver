@@ -363,7 +363,7 @@ Depends:
  ${nvidia}-kernel-support--v1,
  ${misc:Depends}
 Recommends:
- ${nvidia}-driver (>= ${nvidia:Version}) | ${libcuda1} (>= ${nvidia:Version}),
+ ${nvidia}-driver (>= ${nvidia:Version}) [!ppc64el] | ${libcuda1} (>= ${nvidia:Version}),
 Provides:
  ${nvidia}-kernel-${nvidia:Version}${nvidia:Perfkit},
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
@@ -399,7 +399,7 @@ Recommends:
  module-assistant | kernel-package,
  ${nvidia}-kernel-support,
 Suggests:
- ${nvidia}-driver (>= ${nvidia:Version}),
+ ${nvidia}-driver (>= ${nvidia:Version}) [!ppc64el],
 Breaks:
  module-assistant (<< 0.11.6~),
 Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
@@ -516,6 +516,7 @@ Depends:
 Recommends:
  ${nvidia:kmod:binary},
  ${nvidia}-smi,
+ nvidia-persistenced,
  ${libcuda1}-i386 [amd64],
 Suggests:
  nvidia-cuda-mps,
@@ -699,7 +700,7 @@ Depends:
  ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1,
  ${nvidia-alternative} (= ${binary:Version}),
  ${libcuda1} (= ${binary:Version}),
- lib${nvidia}-compiler (= ${binary:Version}),
+ lib${nvidia}-compiler (= ${binary:Version}) [!ppc64el],
  ${shlibs:Depends}, ${misc:Depends}
 Enhances:
  libopencl1,
