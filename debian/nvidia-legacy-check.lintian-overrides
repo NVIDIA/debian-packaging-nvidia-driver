@@ -1,0 +1,2 @@
+# The magic is in the preinst script.
+package-contains-no-arch-dependent-files
