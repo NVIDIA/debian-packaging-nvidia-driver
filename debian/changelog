@@ -1,7 +1,8 @@
 nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
-  * New upstream long lived branch release 361.28 (2016-02-09). (Closes: #814347)
+  * New upstream long lived branch release 361.28 (2016-02-09).
+    (Closes: #814347)
     - Added support for the following GPU: GeForce 945A.
     *** TODO: ***
     - Added a legacy, non-GLVND libGL.so GLX client library to the NVIDIA
@@ -60,6 +61,9 @@ nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
   * Update symbols files
   * Updated libgl1-nvidia-glx package to ship libglvnd's version of libGL.so.1
     on i386 and amd64. Upstream ships only non-libglvnd libraries on ARM.
+
+  [ Andreas Beckmann ]
+  * Update lintian overrides.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
 

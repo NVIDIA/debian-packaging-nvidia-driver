@@ -1,9 +1,12 @@
 # The NVIDIA license does not allow any form of modification.
 [!amd64]: binary-file-built-without-LFS-support
+shlib-calls-exit
 hardening-no-bindnow
 hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
 
-# Lintian and debhelper disagree w.r.t a library in a private directory.
-postinst-has-useless-call-to-ldconfig
+# This package is a strange special case since it provides an alternative
+# implementation of libGLX.so.0, so the package name won't ever be able to
+# match the library names it provides.
+package-name-doesnt-match-sonames

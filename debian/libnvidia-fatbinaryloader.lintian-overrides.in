@@ -1,12 +1,12 @@
 # The NVIDIA license does not allow any form of modification.
 [i386]: binary-file-built-without-LFS-support
-binary-has-unneeded-section
-[i386]: shlib-with-non-pic-code
-spelling-error-in-binary
 hardening-no-bindnow
 hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
+
+# Use wildcard instead of exact substitution, this is a M-A: same package.
+embedded-library usr/lib*/libnvidia-fatbinaryloader.so.#VERSION#: zlib
 
 # The libnvidia-fatbinaryloader.so.* SONAME changes with every upstream release.
 # But it is a (huge) plugin that is only used from other NVIDIA libraries
