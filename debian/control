@@ -30,7 +30,7 @@ Pre-Depends:
  ${nvidia-legacy-check},
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
- libegl1-${nvidia} (= ${binary:Version}),
+ libegl-${nvidia}0 (= ${binary:Version}),
  libopengl0-nvidia (= ${binary:Version}),
  ${nvidia}-driver-bin (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
@@ -247,15 +247,17 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
  OpenGL libraries when installing libgl1-${nvidia}-glx
  on amd64 with foreign architecture i386 enabled.
 
-#Package: libegl1-${nvidia}
-Package: libegl1-nvidia
+#Package: libegl1-glvnd-${nvidia}
+Package: libegl1-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
+Conflicts: libegl1-nvidia
+Replaces: libegl1-nvidia
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
- libglvnd-nvidia,
+ libgldispatch0-nvidia,
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary EGL stub libraries${nvidia:LegacyDesc}
  This package contains the EGL native platform graphics interface library.
@@ -278,6 +280,7 @@ Pre-Depends:
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  lib${nvidia}-eglcore (= ${binary:Version}),
+ libegl1-glvnd-${nvidia} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
  This package contains the EGL native platform graphics interface library.
