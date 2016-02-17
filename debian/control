@@ -31,6 +31,7 @@ Pre-Depends:
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
  libegl1-${nvidia} (= ${binary:Version}),
+ libopengl0-nvidia (= ${binary:Version}),
  ${nvidia}-driver-bin (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  ${nvidia}-vdpau-driver (= ${binary:Version}),
@@ -149,7 +150,7 @@ Description: check for NVIDIA GPUs requiring a legacy driver
  installation of the current driver line.
 
 Package: libglvnd-nvidia
-Architecture: i386 amd64 armhf
+Architecture: none
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -163,6 +164,38 @@ Description: NVIDIA binary GL vendor neutral libraries${nvidia:LegacyDesc}
  .
  This package contains the binary libraries libGLdispatch.so.0 and
  libOpenGL.so.0 as shipped by NVIDIA.
+
+Package: libgldispatch0-nvidia
+Section: libs
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Conflicts: libglvnd-nvidia, libgldispatch0
+Replaces: libglvnd-nvidia, libgldispatch0
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Description: Vendor neutral GL dispatch library -- libGLdispatch
+ This is an implementation of the vendor-neutral dispatch layer for
+ arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
+ .
+ This package contains the libGLdispatch shared library.
+
+Package: libopengl0-nvidia
+Section: libs
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Conflicts: libglvnd-nvidia, libopengl0
+Replaces: libglvnd-nvidia, libopengl0
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Description: Vendor neutral GL dispatch library -- libOpenGL
+ This is an implementation of the vendor-neutral dispatch layer for
+ arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
+ .
+ This package contains the libOpenGL shared library.
 
 #Package: libgl1-${nvidia}-glx
 Package: libgl1-nvidia-glx
