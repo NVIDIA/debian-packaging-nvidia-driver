@@ -32,7 +32,6 @@ Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
  libegl1-${nvidia} (= ${binary:Version}),
  libegl-${nvidia}0 (= ${binary:Version}),
- libglx0-${nvidia} (= ${binary:Version}),
  libglx-${nvidia}0 (= ${binary:Version}),
  ${nvidia}-driver-bin (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
@@ -44,9 +43,7 @@ Depends:
 Recommends:
  ${nvidia-settings},
  libgl1-${nvidia}-glx-i386 [amd64],
- libgles1-${nvidia} (= ${binary:Version}),
  libgles-${nvidia}1 (= ${binary:Version}),
- libgles2-${nvidia} (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
  nvidia-persistenced,
 Suggests:
@@ -297,6 +294,7 @@ Pre-Depends:
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  lib${nvidia}-eglcore (= ${binary:Version}),
+ libgles1-glvnd-${nvidia} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 1.x libraries${nvidia:LegacyDesc}
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
@@ -349,6 +347,7 @@ Pre-Depends:
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  lib${nvidia}-eglcore (= ${binary:Version}),
+ libgles2-glvnd-${nvidia} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 2.x libraries${nvidia:LegacyDesc}
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
@@ -392,6 +391,7 @@ Pre-Depends:
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  libgl1-${nvidia}-glx (= ${binary:Version}),
+ libglx0-${nvidia} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary GLX libraries${nvidia:LegacyDesc}
  GLX ("OpenGL Extension to the X Window System") provides an interface between
