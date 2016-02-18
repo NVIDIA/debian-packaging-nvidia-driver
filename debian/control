@@ -259,6 +259,7 @@ Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
  This package contains the driver specific binary EGL implementation by NVIDIA
  that is accessed via libglvnd.
 
+#Package: libgles1-glvnd-${nvidia}
 Package: libgles1-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
@@ -311,6 +312,7 @@ Description: NVIDIA binary OpenGL|ES 1.x libraries${nvidia:LegacyDesc}
  This package contains the driver specific binary OpenGL|ES 1.x implementation
  by NVIDIA that is accessed via libglvnd.
 
+#Package: libgles2-glvnd-${nvidia}
 Package: libgles2-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
@@ -365,6 +367,7 @@ Description: NVIDIA binary OpenGL|ES 2.x libraries${nvidia:LegacyDesc}
  This package contains the driver specific binary OpenGL|ES 2.x implementation
  by NVIDIA that is accessed via libglvnd.
 
+#Package: libglx0-${nvidia}
 Package: libglx0-nvidia
 Architecture: i386 amd64
 Multi-Arch: same
