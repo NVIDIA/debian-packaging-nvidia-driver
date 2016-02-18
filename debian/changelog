@@ -43,12 +43,14 @@ nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
   * Updated watch version to 361.
   * libgles-nvidia1: New package for the vendor-specific GLESv1 implementation
     from NVIDIA (libGLESv1_CM_nvidia.so.1), accessible via libglvnd.
-  * libgles1-nvidia: The libGLESv1_CM.so.1 is now just a (vendor-neutral) stub
-    that redirects to libGLESv1_CM_nvidia.so.1 via libglvnd.
+  * rename libgles1-nvidia to libgles1-glvnd-nvidia: The libGLESv1_CM.so.1 is
+    now just a (vendor-neutral)
+    stub that redirects to libGLESv1_CM_nvidia.so.1 via libglvnd.
   * libgles-nvidia2: New package for the vendor-specific GLESv2 implementation
     from NVIDIA (libGLESv2_nvidia.so.2), accessible via libglvnd.
-  * libgles2-nvidia: The libGLESv2.so.2 is now just a (vendor-neutral) stub
-    that redirects to libGLESv2_nvidia.so.2 via libglvnd.
+  * rename libgles2-nvidia to libgles2-glvnd-nvidia: The libGLESv2.so.2 is now
+    just a (vendor-neutral)
+    stub that redirects to libGLESv2_nvidia.so.2 via libglvnd.
   * libglx-nvidia0: New package for the vendor-specific GLX implementation
     from NVIDIA (libGLX_nvidia.so.0), accessible via libglvnd.
   * libglx0-nvidia: New package for libGLX.so.0, a new (vendor-neutral) stub
