@@ -2,6 +2,7 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
 
   * Do not run dh_strip_nondeterminism, it may perform modifications not
     permitted by the NVIDIA license.
+  * Use #!armhf# and #HAS_UVM# substitutions as in unstable.
   * rules, rules.defs: Synchronize variable naming with unstable (340.96-4).
   * get-orig-source: Synchronize with unstable (340.96-4).
   * bug-script: Synchronize with unstable (340.96-4).
