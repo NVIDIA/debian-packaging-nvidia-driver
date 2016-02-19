@@ -25,7 +25,7 @@ nvidia-graphics-drivers (304.131-1) wheezy; urgency=medium
     - Update conftest.sh function scatterlist for logic reversal in
       304.131/340.96/352.63, support both ways.
   * debian/control: Add Breaks between mismatching upstream versions of
-    libcuda1 and nvidia-alternative to prevent partial upgrades. 
+    libcuda1 and nvidia-alternative to prevent partial upgrades.
   * Upload to wheezy.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 09:53:49 +0100
@@ -350,7 +350,7 @@ nvidia-graphics-drivers (304.51-1) experimental; urgency=low
       transformations such as rotation and keystone correction are in use.
     * Closes: #688660.
   * Update nv-readme.ids.
-  * Upload to experimental
+  * Upload to experimental.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Thu, 27 Sep 2012 08:25:18 +0200
 
@@ -604,11 +604,6 @@ nvidia-graphics-drivers (304.22-1) experimental; urgency=low
     - Fixed a bug that prevented NVIDIA 3D Vision Pro from working
       properly when switching between X servers on different VTs.
     * Closes: #682618
-  * New upstream release 302 series.
-    - Added support for desktop panning when rotation, reflection,
-      or transformation is applied to a display device (either through
-      RandR or through the MetaMode syntax); panning would previously be
-      ignored in that case.
   * Upload to experimental.
   * Update nv-readme.ids.
   * Update symbols control files.
@@ -1258,14 +1253,6 @@ nvidia-graphics-drivers (280.13-1) unstable; urgency=low
       use X server grabs.
     - Fixed an X driver bug that caused 16x8 stipple patterns to
       be rendered incorrectly.
-  * New upstream release 275 series.
-    - Fixed a bug in VDPAU that caused a glibc assertion when a call to
-      VdpDeviceCreateX11 failed in certain ways.
-    - Fixed a bug that caused the GLSL built-in uniforms gl_FrontMaterial
-      and gl_BackMaterial to not be updated properly when calling
-      glMaterial from a display list.
-    - Fixed an error handling bug that caused the OpenGL driver to
-      crash while running certain WebGL applications.
   * Upload to unstable.
   * conftest.h: remove obsolete conftest.sh function signal_struct, no longer
     used by the legacy drivers.

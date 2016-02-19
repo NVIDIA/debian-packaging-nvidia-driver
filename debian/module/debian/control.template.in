@@ -2,7 +2,6 @@ Source: nvidia-kernel#LEGACY#
 Section: non-free/kernel
 Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
-Uploaders: Russ Allbery <rra@debian.org>
 Build-Depends: debhelper (>= 8), quilt (>= 0.46-7~)
 Standards-Version: 3.9.0
 Homepage: http://www.nvidia.com/
