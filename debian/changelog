@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (352.79-4) UNRELEASED; urgency=medium
+
+  * nvidia-kernel-source: Switch to debhelper compat level 9.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 19 Feb 2016 15:19:58 +0100
+
 nvidia-graphics-drivers (352.79-3) unstable; urgency=medium
 
   [ Andreas Beckmann ]
