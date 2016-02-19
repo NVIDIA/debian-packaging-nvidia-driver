@@ -2,9 +2,9 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
 
   * Do not run dh_strip_nondeterminism, it may perform modifications not
     permitted by the NVIDIA license.
-  * rules, rules.defs: Synchronize variable naming with unstable (340.96-4).
+  * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
   * rules: Drop support for ancient .run layout.
-  * get-orig-source: Synchronize with unstable (340.96-4).
+  * get-orig-source: Synchronize with unstable (352.79-3).
   * bug-script: Synchronize with unstable (340.96-4).
   * Update lintian overrides.
 
