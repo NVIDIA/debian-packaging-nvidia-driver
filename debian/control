@@ -6,7 +6,7 @@ Uploaders:
  Russ Allbery <rra@debian.org>,
  Andreas Beckmann <anbe@debian.org>,
 Vcs-Svn: svn://anonscm.debian.org/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
-Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphics-drivers/
+Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
  debhelper (>= 9),
  bzip2,
@@ -357,7 +357,7 @@ Replaces:
  nvidia-libvdpau-dev,
  nvidia-libvdpau1,
  nvidia-libvdpau1-driver,
-Description: NVIDIA vdpau driver
+Description: Video Decode and Presentation API for Unix - NVIDIA driver
  .
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
@@ -595,7 +595,7 @@ Conflicts:
 Provides:
  opencl-icd,
  nvidia-opencl-icd-i386 [i386],
-Description: NVIDIA OpenCL ICD
+Description: NVIDIA OpenCL installable client driver (ICD)
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.

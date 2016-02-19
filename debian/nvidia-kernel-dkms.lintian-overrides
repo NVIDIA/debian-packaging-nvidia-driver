@@ -2,5 +2,5 @@
 # Both architectures are included on i386 so that we can build the kernel
 # module for the amd64 kernel flavor.
 [i386]: binary-from-other-architecture
-unstripped-binary-or-object
 spelling-error-in-binary
+unstripped-binary-or-object
