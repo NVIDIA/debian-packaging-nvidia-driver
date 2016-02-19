@@ -7,6 +7,7 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
   * rules, rules.defs: Synchronize variable naming with unstable (340.96-4).
   * get-orig-source: Synchronize with unstable (340.96-4).
   * bug-script: Synchronize with unstable (340.96-4).
+  * Bump Standards-Version to 3.9.7. No changes needed.
   * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 11:34:10 +0100
