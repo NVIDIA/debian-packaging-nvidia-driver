@@ -23,15 +23,6 @@ legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 perfkit			 =
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
-filename_i386		 = $(NVIDIA_FILENAME_i386)
-filename_amd64		 = $(NVIDIA_FILENAME_amd64)
-dirname_i386		 = $(NVIDIA_DIRNAME_i386)
-dirname_amd64		 = $(NVIDIA_DIRNAME_amd64)
-# legacy variable names:
-filename_x86		 = $(filename_i386)
-filename_x86_64		 = $(filename_amd64)
-dirname_x86		 = $(dirname_i386)
-dirname_x86_64		 = $(dirname_amd64)
 
 # system libdir
 libdir			 = usr/lib$(if $(MULTIARCH),/$(DEB_HOST_MULTIARCH))
@@ -74,14 +65,14 @@ $(if $(and $(BACKPORT),$(MULTIARCH)),$(error Oops, backports do not support mult
 autogen: $(AUTOGEN)
 prepare: autogen unpack-stamp nvidia.ids compare-copyright-license
 
+NVIDIA-Linux-%:
+	sh ${NVIDIA_FILENAME_$*} --extract-only
+	ln -s ${NVIDIA_DIRNAME_$*} $@
+	gunzip $@/*.1.gz
 
-unpack-stamp: ${filename_x86} ${filename_x86_64}
+# Unpack all architectures, we may need files from all of them.
+unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
 	dh_testdir
-	# extract both so we can fetch the kernel object code for both arches
-	sh ${filename_x86} --extract-only
-	sh ${filename_x86_64} --extract-only
-	ln -s ${dirname_x86} NVIDIA-Linux-i386
-	ln -s ${dirname_x86_64} NVIDIA-Linux-amd64
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
 	ls -al
 	touch $@
@@ -130,9 +121,8 @@ binary binary-arch binary-indep build clean install:
 	dh $@ --with dkms
 
 override_dh_auto_clean:
-	rm -f NVIDIA-Linux-i386 NVIDIA-Linux-amd64 NVIDIA-Linux
-	rm -fr $(dirname_x86) $(dirname_x86_64)
-	rm -fr debian/temp
+	rm -f NVIDIA-Linux
+	rm -fr $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(NVIDIA_DIRNAME_$a))
 	rm -fr kernel-source-tree
 	rm -f nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
 	rm -f LICENSE.txt LICENSE.tmp copyright.tmp
