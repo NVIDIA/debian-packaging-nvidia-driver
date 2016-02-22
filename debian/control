@@ -333,7 +333,7 @@ Multi-Arch: foreign
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  ${nvidia-alternative}--kmod-alias,
- nvidia-kernel-common (>= 20151021),
+ nvidia-kernel-common (>= 20151021) [!ppc64el],
  nvidia-modprobe,
  ${misc:Depends}
 Provides:
