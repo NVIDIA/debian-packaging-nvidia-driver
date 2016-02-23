@@ -16,9 +16,11 @@ XORG_BOUND		?=
 MULTIARCH		?=
 BACKPORT		?=
 NVIDIA_SETTINGS		?= nvidia-settings
+NVIDIA_ALTERNATIVE	?= nvidia$(legacy)-alternative
 ARCH_LIST		?= i386 amd64
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
+nvidia			 = nvidia$(legacy)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 perfkit			 =
@@ -43,6 +45,7 @@ TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in debian/detect/*.in
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
+AUTOGEN		+= debian/bug-control
 AUTOKEEP	 = debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
@@ -288,6 +291,8 @@ endef
 ifneq (,$(legacy))
 $(foreach p,$(CONTROL_PREFIXES),$(eval $(call rename-template,$p)))
 endif
+
+include debian/bug-control.mk
 
 ############################################################################
 
