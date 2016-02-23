@@ -4,9 +4,10 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
     permitted by the NVIDIA license.
   * Use #!armhf# and #HAS_UVM# substitutions as in unstable.
   * Add slave alternative for libnvcuvid.so (340.96-3).
-  * rules, rules.defs: Synchronize variable naming with unstable (340.96-4).
-  * get-orig-source: Synchronize with unstable (340.96-4).
-  * bug-script: Synchronize with unstable (340.96-4).
+  * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
+  * rules: Drop support for ancient .run layout.
+  * get-orig-source: Synchronize with unstable (352.79-3).
+  * bug-script: Synchronize with unstable (352.79-3).
   * Bump Standards-Version to 3.9.7. No changes needed.
   * Update lintian overrides.
 
@@ -1437,9 +1438,11 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
 
   * Do not run dh_strip_nondeterminism, it may perform modifications not
     permitted by the NVIDIA license.
-  * rules, rules.defs: Synchronize variable naming with unstable (340.96-4).
-  * get-orig-source: Synchronize with unstable (340.96-4).
-  * bug-script: Synchronize with unstable (340.96-4).
+  * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
+  * rules: Drop support for ancient .run layout.
+  * get-orig-source: Synchronize with unstable (352.79-3).
+  * bug-script: Synchronize with unstable (352.79-3).
+  * debian/bug-control.mk: New script to generate bug-control.
   * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 13:04:27 +0100
@@ -1460,7 +1463,7 @@ nvidia-graphics-drivers (304.131-1) wheezy; urgency=medium
     - Update conftest.sh function scatterlist for logic reversal in
       304.131/340.96/352.63, support both ways.
   * debian/control: Add Breaks between mismatching upstream versions of
-    libcuda1 and nvidia-alternative to prevent partial upgrades. 
+    libcuda1 and nvidia-alternative to prevent partial upgrades.
   * Upload to wheezy.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 09:53:49 +0100
