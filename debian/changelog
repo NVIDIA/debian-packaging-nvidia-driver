@@ -3,6 +3,9 @@ nvidia-graphics-drivers (352.79-4) UNRELEASED; urgency=medium
   * nvidia-kernel-source: Switch to debhelper compat level 9.
   * [ppc64el] Do not depend on nvidia-kernel-common.
   * Drop Conflicts+Replaces against transitional packages in wheezy.
+  * Document in nvidia-legacy-check's description that the debconf questions
+    can be preseeded to allow for non-interactive installations.
+    (Closes: #815515)
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 19 Feb 2016 15:19:58 +0100
 

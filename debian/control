@@ -145,8 +145,8 @@ Description: check for NVIDIA GPUs requiring a legacy driver
  This package checks whether the system contains NVIDIA GPUs that are no longer
  supported by the main driver line and require a legacy driver.
  .
- If such hardware is present, a debconf question will be asked to confirm the
- installation of the current driver line.
+ If such hardware is present, a (preseedable) debconf question will be asked to
+ confirm the installation of the current driver line.
 
 #Package: libgl1-${nvidia}-glx
 Package: libgl1-nvidia-glx
