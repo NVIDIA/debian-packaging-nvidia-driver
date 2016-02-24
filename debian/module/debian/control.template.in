@@ -7,7 +7,7 @@ Standards-Version: 3.9.0
 Homepage: http://www.nvidia.com/
 
 Package: nvidia-kernel#LEGACY#-#KVERS#
-Architecture: i386 amd64
+Architecture: #ARCH_LIST#
 Provides: nvidia-kernel-#VERSION#
 Depends: nvidia-kernel-common (>= 20110213)
 Recommends: linux-image-#KVERS#

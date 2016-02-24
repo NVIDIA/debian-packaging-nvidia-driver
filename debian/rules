@@ -277,6 +277,7 @@ override_dh_builddeb:
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
+	-e 's{#ARCH_LIST#}{$(ARCH_LIST)}g;' \
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog
