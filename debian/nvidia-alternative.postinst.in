@@ -69,11 +69,11 @@ if [ "$1" = "triggered" ]; then
 		$(add_slave /usr/share/applications/nvidia-settings.desktop nvidia-settings.desktop /usr/lib/#PRIVATE#/nvidia-settings.desktop)
 		$(add_slave /usr/share/man/man1/nvidia-settings.1.gz nvidia-settings.1.gz /usr/lib/#PRIVATE#/nvidia-settings.1.gz)
 "
-	minor_slaves="
+	conf_slaves="
 		$(add_slave /etc/modprobe.d/nvidia.conf nvidia-modprobe.conf /etc/nvidia/#NVIDIA#-modprobe.conf)
 "
 	if echo "$slaves" | grep -q "slave" ; then
-		update-alternatives --install /usr/lib/nvidia/nvidia nvidia /usr/lib/#PRIVATE# #MAJOR# $slaves $minor_slaves
+		update-alternatives --install /usr/lib/nvidia/nvidia nvidia /usr/lib/#PRIVATE# #MAJOR# $slaves $conf_slaves
 	else
 		update-alternatives --remove nvidia /usr/lib/#PRIVATE#
 	fi
