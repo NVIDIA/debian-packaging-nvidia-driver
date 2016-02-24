@@ -148,8 +148,6 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
     - Updated a fallback of writing temporary files to $HOME/.nvidia to
       use $HOME/.nv instead, as the latter path is already used for other
       NVIDIA driver related files.
-  * New upstream legacy 304xx branch release 304.108 (2013-08-08).
-    * Add support for Linux 3.10.
   * Refresh patches.
   * conftest.h:
     - conftest.h: Add ARM support.
@@ -170,13 +168,20 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
   * Use canonical Vcs-* URLs.
   * {libgl1-nvidia-glx,libcuda1}.postinst: Load debconf/confmodule, may be
     used by /usr/lib/nvidia/check* scripts.  (Closes: #722469)
-  * debian/module/debian/prep-modules: Sanitize the kernel version. Replace
-    underscores (may occur in custom kernels) with dashes to be eligible for
-    package names and versions.  (Closes: #710891)
   * Update lintian overrides.
   * Upload to wheezy.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 15 Feb 2014 16:11:02 +0100
+
+nvidia-graphics-drivers (304.108-1) unstable; urgency=low
+
+  * New upstream legacy 304xx branch release 304.108 (2013-08-08).
+    * Add support for Linux 3.10.
+  * debian/module/debian/prep-modules: Sanitize the kernel version. Replace
+    underscores (may occur in custom kernels) with dashes to be eligible for
+    package names and versions.  (Closes: #710891)
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 22 Aug 2013 03:03:09 +0200
 
 nvidia-graphics-drivers (304.88-1+deb7u1) wheezy; urgency=low
 
