@@ -1,0 +1,35 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: dump the generated conftest headers
+
+--- a/nvidia-modules-common.mk
++++ b/nvidia-modules-common.mk
+@@ -150,12 +150,18 @@ CONFTEST_HEADERS := $(obj)/conftest.h $(
+ $(obj)/conftest/patches.h
+ 
+ $(obj)/conftest.h $(CONFTEST_COMPILE_TEST_HEADERS): conftest-compile-test
++	@echo " CONFTEST $(notdir $@):"
++	@cat $@
+ 
+ conftest-compile-test: $(src)/conftest.sh
++	@echo " CONFTEST: compile_tests"
+ 	@if ! $(CONFTEST) compile_tests $(COMPILE_TESTS); then exit 1; fi
+ 
+ $(obj)/conftest/patches.h:
++	@echo " CONFTEST: patch_check"
+ 	@if ! $(CONFTEST) patch_check; then exit 1; fi
++	@echo " CONFTEST $(notdir $@):"
++	@cat $@
+ 
+ MODULE_GLUE_TARGETS = $(addprefix $(obj)/,$(MODULE_GLUE_OBJS))
+ 
+@@ -198,7 +204,10 @@ BUILD_SANITY_CHECKS = \
+ 	preempt_rt_sanity_check
+ 
+ build-sanity-checks:
++	@echo 'CONFTEST=$(CONFTEST)'
++	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
+ 	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
++	 echo " CONFTEST: $$SANITY_CHECK"; \
+ 	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
+ 	 exit 1; \
+ 	 fi; \

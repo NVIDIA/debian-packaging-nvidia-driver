@@ -175,23 +175,6 @@ build-kernel-source-tree: install-into-tmp
 	# binary packages.
 	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
 
-	# We only want Kbuild.
-	rm -f $(module_source)/makefile
-	rm -f $(module_source)/Makefile.nvidia
-	test ! -f $(module_source)/Makefile.kbuild || \
-		mv $(module_source)/Makefile.kbuild $(module_source)/Kbuild
-	test ! -f $(module_source)/Makefile || \
-		mv $(module_source)/Makefile $(module_source)/Kbuild
-	mv $(module_source)/conftest.sh $(module_source)/conftest_nvidia.sh
-
-ifneq (,$(has_uvm))
-	# For the nvidia-uvm module.
-	mv $(module_source)/uvm/Makefile $(module_source)/uvm/Kbuild
-	ln -sf ../Makefile $(module_source)/uvm
-	ln -sf ../conftest.sh $(module_source)/uvm
-	ln -sf ../conftest.h $(module_source)/uvm
-endif
-
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
 	rm -f $(module_source)/nv-kernel.o
@@ -199,7 +182,7 @@ endif
 
 	# Install a debian/ tree and new conftest files that work purely
 	# with kbuild and don't require root into the module package.
-	cp -a debian/module/* $(module_source)/
+	cp -a debian/module/debian $(module_source)/
 	cp -a debian/copyright $(module_source)/debian/
 	cp -a debian/bug-script $(module_source)/debian/
 	cp -a debian/bug-control $(module_source)/debian/
@@ -208,8 +191,6 @@ endif
 	# Fix permissions.
 	chmod -R a-sx,u=rwX,go=rX $(module_source)/../..
 	chmod a+x $(module_source)/debian/rules
-	chmod a+x $(module_source)/conftest.sh
-	chmod a+x $(module_source)/conftest_nvidia.sh
 	find '$(module_source)/../../modules' -depth -newermt '$(BUILD_DATE)' -print0 | \
 		xargs -0r touch --no-dereference --date='$(BUILD_DATE)'
 

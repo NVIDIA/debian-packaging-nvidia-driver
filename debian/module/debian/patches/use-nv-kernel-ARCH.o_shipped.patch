@@ -5,8 +5,8 @@ Description: Select the correct nv-kernel.o blob for the target architecture
  This patch makes the build system select the correct one depending on the
  kernel architecture the module is built for.
 
---- a/Kbuild
-+++ b/Kbuild
+--- a/Makefile
++++ b/Makefile
 @@ -78,6 +78,14 @@
   $(MODULE_NAME)-objs := $(CORE_OBJS) $(MODULE_GLUE_OBJS)
  endif

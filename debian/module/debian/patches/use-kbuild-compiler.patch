@@ -1,0 +1,24 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: let Kbuild set the compiler version
+ If CC=cc is passed to make, the default system compiler will be used. But we
+ want to build the kernel modules with the same compiler version used to build
+ the kernel itself. Remove the CC parameter from upstream's Makefile's make
+ invocation.
+
+--- a/nvidia-modules-common.mk
++++ b/nvidia-modules-common.mk
+@@ -221,10 +221,10 @@ build-sanity-checks:
+ 
+ define BUILD_MODULE_RULE
+  $(1): build-sanity-checks $(3)
+-	@echo "NVIDIA: calling KBUILD..."; \
+-	$$(MAKE) "CC=$$(CC)" NV_MODULE_SUFFIX=$$(strip $(2)) $$(KBUILD_PARAMS) modules; \
+-	echo "NVIDIA: left KBUILD."; \
+-	if ! [ -f $(1) ]; then \
++	@echo "NVIDIA: calling KBUILD..."
++	$$(MAKE) NV_MODULE_SUFFIX=$$(strip $(2)) $$(KBUILD_PARAMS) modules
++	@echo "NVIDIA: left KBUILD."
++	@if ! [ -f $(1) ]; then \
+ 	 echo "$(1) failed to build!"; \
+ 	 exit 1; \
+ 	elif [ -f split-object-file.sh ]; then \

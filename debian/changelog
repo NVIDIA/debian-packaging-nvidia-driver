@@ -8,6 +8,23 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
   * rules: Drop support for ancient .run layout.
   * get-orig-source: Synchronize with unstable (352.79-3).
   * bug-script: Synchronize with unstable (352.79-3).
+  * debian/bug-control.mk: New script to generate bug-control.
+  * use-kbuild-compiler.patch: New patch to build with Kbuild's version of the
+    compiler instead of system default, thanks to Luca.
+  * Use NVIDIA's conftest.sh script to determine settings during module build
+    instead of our manually maintained conftest.h header.
+  * conftest-verbose.patch: New patch to dump dynamically generated conftest
+    headers.
+  * conftest-via-kbuild.patch: New patch to call conftest.sh from within
+    kbuild (and therefore with kbuild's compiler and flags) as in 355.xx.
+  * disable-preempt_rt_sanity_check.patch: New patch to disable a check we
+    already skipped in our conftest.h.
+  * Pass only the kernel version via KERNEL_UNAME and let the module build
+    system figure out the paths.
+  * Clear ARCH variable from environment before dkms build, thanks to Luca.
+  * ignore_xen_on_arm.patch: Update to add workaround for conftest.sh to fix
+    kernel module build failure on armhf by forcing XEN_PRESENT=0 when
+    building on armhf, thanks to Luca.
   * Bump Standards-Version to 3.9.7. No changes needed.
   * Update lintian overrides.
 
