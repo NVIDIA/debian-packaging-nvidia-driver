@@ -7,6 +7,7 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * get-orig-source: Synchronize with unstable (352.79-3).
   * bug-script: Synchronize with unstable (352.79-3).
   * debian/bug-control.mk: New script to generate bug-control.
+  * conftest.h: Keep only the bits relevant for 304.xx.
   * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 13:04:27 +0100

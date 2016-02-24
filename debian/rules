@@ -361,7 +361,7 @@ get_origdir		 = $(or $(ORIGDIR.$(strip $1)),$(ORIGDIR)-$(strip $1))
 get_tarball		 = $(or $(TARBALL.$(strip $1)),$(TARBALL_BASE)-$(strip $1)$(TARBALL_SUFFIX))
 
 get-orig-source-prepare:
-	$(RM) -r get-orig-source || true
+	$(RM) -r get-orig-source
 	mkdir get-orig-source
 
 get-orig-source-prepare/%: get-orig-source-prepare
