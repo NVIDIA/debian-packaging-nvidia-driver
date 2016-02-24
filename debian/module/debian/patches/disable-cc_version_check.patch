@@ -1,0 +1,17 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: disable cc_version_check
+ checks the running kernel, not the one we are compiling for
+
+--- a/nvidia-modules-common.mk
++++ b/nvidia-modules-common.mk
+@@ -195,8 +195,9 @@ suser-sanity-check:
+ rmmod-sanity-check:
+ 	@if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
+ 
++#	cc_version_check \
++
+ BUILD_SANITY_CHECKS = \
+-	cc_version_check \
+ 	rivafb_sanity_check \
+ 	nvidiafb_sanity_check \
+ 	dom0_sanity_check \

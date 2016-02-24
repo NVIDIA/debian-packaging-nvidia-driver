@@ -17,6 +17,8 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
     headers.
   * conftest-via-kbuild.patch: New patch to call conftest.sh from within
     kbuild (and therefore with kbuild's compiler and flags) as in 355.xx.
+  * disable-cc_version_check.patch: New patch to disable a useless check that
+    tests the running kernel instead of the compilation target.
   * disable-preempt_rt_sanity_check.patch: New patch to disable a check we
     already skipped in our conftest.h.
   * Pass only the kernel version via KERNEL_UNAME and let the module build
