@@ -149,15 +149,6 @@ install-into-tmp:
 	rm -f debian/tmp/NVIDIA_Changelog
 	cp -al NVIDIA-Linux-amd64/NVIDIA_Changelog debian/tmp/
 
-	# Create xorg.conf.sample
-	test ! -f debian/tmp/usr/share/doc/XF86Config.sample || \
-	sed \
-	    -e 's/XF86Config(4\/5)/xorg.conf(5)/g' \
-	    -e 's/XF86Config/xorg.conf/g' \
-	    -e 's/XFree86/Xorg/g' \
-	    < debian/tmp/usr/share/doc/XF86Config.sample \
-	    > debian/tmp/usr/share/doc/xorg.conf.sample
-
 build-kernel-source-tree: install-into-tmp
 	# Build the nvidia-kernel-source tree.
 	mkdir -p $(module_source)
