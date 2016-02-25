@@ -27,6 +27,7 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
   * ignore_xen_on_arm.patch: Update to add workaround for conftest.sh to fix
     kernel module build failure on armhf by forcing XEN_PRESENT=0 when
     building on armhf, thanks to Luca.
+  * nvidia-detect: Update list of newer PCI IDs from release 352.79.
   * Bump Standards-Version to 3.9.7. No changes needed.
   * Update lintian overrides.
 
