@@ -1464,6 +1464,7 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * bug-script: Synchronize with unstable (352.79-3).
   * debian/bug-control.mk: New script to generate bug-control.
   * conftest.h: Keep only the bits relevant for 304.xx.
+  * nvidia-detect: Drop support for lenny.
   * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 13:04:27 +0100
@@ -1624,9 +1625,6 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
   * Use canonical Vcs-* URLs.
   * {libgl1-nvidia-glx,libcuda1}.postinst: Load debconf/confmodule, may be
     used by /usr/lib/nvidia/check* scripts.  (Closes: #722469)
-  * debian/module/debian/prep-modules: Sanitize the kernel version. Replace
-    underscores (may occur in custom kernels) with dashes to be eligible for
-    package names and versions.  (Closes: #710891)
   * Update lintian overrides.
   * Upload to wheezy.
 
