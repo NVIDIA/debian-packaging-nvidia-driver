@@ -68,7 +68,7 @@ fi
 if [ "$1" = "configure" ]; then
 
 	# activate our trigger
-	dpkg-trigger register-nvidia-alternative#LEGACY#
+	dpkg-trigger register-#NVIDIA_ALTERNATIVE#
 
 fi
 
