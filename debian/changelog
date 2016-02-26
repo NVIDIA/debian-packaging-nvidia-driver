@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (355.11-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (355.11-3) experimental; urgency=medium
 
   [ Luca Boccassi ]
   * Split libglvnd-nvidia in libopengl0-nvidia and libgldispatch0-nvidia
@@ -10,7 +10,7 @@ nvidia-graphics-drivers (355.11-3) UNRELEASED; urgency=medium
   * Merge changes from 352.79-4.
   * Add a transitional libegl1-nvidia package.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 17 Feb 2016 23:36:31 +0000
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 26 Feb 2016 18:07:14 +0100
 
 nvidia-graphics-drivers (355.11-2) experimental; urgency=medium
 
