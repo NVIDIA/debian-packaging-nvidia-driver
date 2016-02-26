@@ -172,10 +172,6 @@ build-kernel-source-tree: install-into-tmp
 	# binary packages.
 	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
 
-ifneq (,$(has_uvm))
-	ln -sf ../conftest.sh $(module_source)/uvm
-endif
-
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
 	rm -f $(module_source)/nvidia/nv-kernel.o_binary

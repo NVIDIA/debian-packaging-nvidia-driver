@@ -3,7 +3,7 @@ Description: dump the generated conftest headers
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -130,6 +130,8 @@ define NV_GENERATE_COMPILE_TEST_HEADER
+@@ -131,6 +131,8 @@ define NV_GENERATE_COMPILE_TEST_HEADER
  	@mkdir -p $(obj)/conftest
  	@# concatenate /dev/null to prevent cat from hanging when $$^ is empty
  	@cat $$^ /dev/null > $$@
@@ -12,7 +12,7 @@ Description: dump the generated conftest headers
  endef
  
  #
-@@ -152,10 +154,14 @@ $(eval $(call NV_GENERATE_COMPILE_TEST_H
+@@ -153,10 +155,18 @@ $(eval $(call NV_GENERATE_COMPILE_TEST_H
  $(obj)/conftest/patches.h: $(NV_CONFTEST_SCRIPT)
  	@mkdir -p $(obj)/conftest
  	@$(NV_CONFTEST_CMD) patch_check > $@
@@ -20,6 +20,10 @@ Description: dump the generated conftest headers
 +	@cat $@
  
  $(obj)/conftest/headers.h: $(NV_CONFTEST_SCRIPT)
++	@echo 'NV_CONFTEST_CMD=$(NV_CONFTEST_CMD)'
++	@echo 'NV_CONFTEST_CFLAGS=$(NV_CONFTEST_CFLAGS)'
++	@echo 'KBUILD_CFLAGS=$(KBUILD_CFLAGS)'
++	@echo 'LINUXINCLUDE=$(LINUXINCLUDE)'
  	@mkdir -p $(obj)/conftest
  	@$(NV_CONFTEST_CMD) test_kernel_headers > $@
 +	@echo " CONFTEST $(notdir $@):"
