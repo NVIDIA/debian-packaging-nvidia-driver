@@ -83,6 +83,20 @@ nvidia-graphics-drivers (358.16-1) UNRELEASED; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 24 Nov 2015 02:15:05 +0100
 
+nvidia-graphics-drivers (355.11-3) experimental; urgency=medium
+
+  [ Luca Boccassi ]
+  * Split libglvnd-nvidia in libopengl0-nvidia and libgldispatch0-nvidia
+  * Rename libegl1-nvidia to libegl1-glvnd-nvidia
+  * Add dependency from libegl-nvidia0 to libegl1-glvnd-nvidia
+  * Switch dependency in nvidia-driver from libegl1-nvidia to libegl-nvidia0
+
+  [ Andreas Beckmann ]
+  * Merge changes from 352.79-4.
+  * Add a transitional libegl1-nvidia package.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 26 Feb 2016 18:07:14 +0100
+
 nvidia-graphics-drivers (355.11-2) experimental; urgency=medium
 
   [ Andreas Beckmann ]
@@ -163,6 +177,20 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Feb 2016 19:32:35 +0100
+
+nvidia-graphics-drivers (352.79-4) unstable; urgency=medium
+
+  * nvidia-kernel-source: Switch to debhelper compat level 9.
+  * [ppc64el] Do not depend on nvidia-kernel-common.
+  * rules: Drop support for ancient .run layout.
+  * Drop Conflicts+Replaces against transitional packages in wheezy.
+  * nvidia-detect: Drop support for lenny.
+  * debian/bug-control.mk: New script to generate bug-control.
+  * Document in nvidia-legacy-check's description that the debconf questions
+    can be preseeded to allow for non-interactive installations.
+    (Closes: #815515)
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 26 Feb 2016 04:40:49 +0100
 
 nvidia-graphics-drivers (352.79-3) unstable; urgency=medium
 
@@ -2237,7 +2265,7 @@ nvidia-graphics-drivers (304.131-1) wheezy; urgency=medium
     - Update conftest.sh function scatterlist for logic reversal in
       304.131/340.96/352.63, support both ways.
   * debian/control: Add Breaks between mismatching upstream versions of
-    libcuda1 and nvidia-alternative to prevent partial upgrades. 
+    libcuda1 and nvidia-alternative to prevent partial upgrades.
   * Upload to wheezy.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 09:53:49 +0100
@@ -2377,9 +2405,6 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
   * Use canonical Vcs-* URLs.
   * {libgl1-nvidia-glx,libcuda1}.postinst: Load debconf/confmodule, may be
     used by /usr/lib/nvidia/check* scripts.  (Closes: #722469)
-  * debian/module/debian/prep-modules: Sanitize the kernel version. Replace
-    underscores (may occur in custom kernels) with dashes to be eligible for
-    package names and versions.  (Closes: #710891)
   * Update lintian overrides.
   * Upload to wheezy.
 

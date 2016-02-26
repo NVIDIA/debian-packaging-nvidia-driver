@@ -30,7 +30,7 @@ Pre-Depends:
  ${nvidia-legacy-check},
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
- libegl1-${nvidia} (= ${binary:Version}),
+ libegl-${nvidia}0 (= ${binary:Version}),
  ${nvidia}-driver-bin (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  ${nvidia}-vdpau-driver (= ${binary:Version}),
@@ -41,6 +41,7 @@ Depends:
 Recommends:
  ${nvidia-settings},
  libgl1-${nvidia}-glx-i386 [amd64],
+ libopengl0-nvidia (= ${binary:Version}),
  libgles1-${nvidia} (= ${binary:Version}),
  libgles2-${nvidia} (= ${binary:Version}),
  nvidia-persistenced,
@@ -145,24 +146,48 @@ Description: check for NVIDIA GPUs requiring a legacy driver
  This package checks whether the system contains NVIDIA GPUs that are no longer
  supported by the main driver line and require a legacy driver.
  .
- If such hardware is present, a debconf question will be asked to confirm the
- installation of the current driver line.
+ If such hardware is present, a (preseedable) debconf question will be asked to
+ confirm the installation of the current driver line.
 
-Package: libglvnd-nvidia
+Package: libgldispatch0-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA binary GL vendor neutral libraries${nvidia:LegacyDesc}
- The vendor neutral dispatch library for OpenGL (libglvnd).
- The goal for libglvnd is to allow multiple OpenGL implementations from 
- different vendors to coexist on the same system, without interfering 
- with each other or requiring any manual configuration.
+Conflicts:
+ libglvnd-nvidia,
+ libgldispatch0,
+Replaces:
+ libglvnd-nvidia,
+ libgldispatch0,
+Description: Vendor neutral GL dispatch library -- libGLdispatch
+ This is an implementation of the vendor-neutral dispatch layer for
+ arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
  .
- This package contains the binary libraries libGLdispatch.so.0 and
- libOpenGL.so.0 as shipped by NVIDIA.
+ This package contains the (binary) libGLdispatch shared library provided by
+ NVIDIA.
+
+Package: libopengl0-nvidia
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Conflicts:
+ libglvnd-nvidia,
+ libopengl0,
+Replaces:
+ libglvnd-nvidia,
+ libopengl0,
+Description: Vendor neutral GL dispatch library -- libOpenGL
+ This is an implementation of the vendor-neutral dispatch layer for
+ arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
+ .
+ This package contains the (binary) libOpenGL shared library provided by
+ NVIDIA.
 
 #Package: libgl1-${nvidia}-glx
 Package: libgl1-nvidia-glx
@@ -186,14 +211,6 @@ Provides:
  libgl1-nvidia-glx-${nvidia:Version},
 Conflicts:
  libgl1-nvidia-glx-${nvidia:Version},
- libgl1-nvidia${nvidia:Legacy}-glx-ia32,
- nvidia-glx${nvidia:Legacy}-ia32,
- libgl1-nvidia-glx-ia32-any,
-Breaks:
- ia32-libs (<< 1:0),
-Replaces:
- libgl1-nvidia${nvidia:Legacy}-glx-ia32,
- nvidia-glx${nvidia:Legacy}-ia32,
 Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
@@ -214,27 +231,42 @@ Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
  OpenGL libraries when installing libgl1-${nvidia}-glx
  on amd64 with foreign architecture i386 enabled.
 
-#Package: libegl1-${nvidia}
-Package: libegl1-nvidia
+Package: libegl1-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
- libglvnd-nvidia,
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA binary EGL stub libraries${nvidia:LegacyDesc}
- This package contains the EGL native platform graphics interface library.
+Breaks:
+ libegl1-nvidia (<< 355.11-3),
+Replaces:
+ libegl1-nvidia (<< 355.11-3),
+Description: NVIDIA binary EGL GLVND stub library
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
- for use with other graphics libraries, such as OpenGL|ES and OpenVG.
- .
- See the description of the ${nvidia}-driver package
- or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+ for use with other graphics libraries, such as OpenGL|ES.
  .
  This package contains a libEGL.so.1 stub that redirects to a vendor
- implementation via libglvnd.
+ implementation via GLVND.
+
+#Package: libegl1-${nvidia}
+Package: libegl1-nvidia
+Section: non-free/oldlibs
+Priority: extra
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ libegl-${nvidia}0 (= ${binary:Version}),
+ ${misc:Depends}
+Description: NVIDIA binary EGL libraries (transitional)${nvidia:LegacyDesc}
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES.
+ .
+ This is a transitional package to aid switching to the GLVND based
+ implementation.
 
 #Package: libegl-${nvidia}0
 Package: libegl-nvidia0
@@ -244,19 +276,20 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
+ libegl1-glvnd | libegl1-glvnd-nvidia,
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
  This package contains the EGL native platform graphics interface library.
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
- for use with other graphics libraries, such as OpenGL|ES and OpenVG.
+ for use with other graphics libraries, such as OpenGL|ES.
  .
  See the description of the ${nvidia}-driver package
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
  .
  This package contains the driver specific binary EGL implementation by NVIDIA
- that is accessed via libglvnd.
+ that is accessed via GLVND.
 
 #Package: libgles1-${nvidia}
 Package: libgles1-nvidia
@@ -317,7 +350,7 @@ Conflicts:
  libnvidia-eglcore-${nvidia:Version},
 Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
- for use with other graphics libraries, such as OpenGL|ES and OpenVG.
+ for use with other graphics libraries, such as OpenGL|ES.
  .
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
  embedded systems - including consoles, phones, appliances and vehicles.
@@ -336,10 +369,6 @@ Pre-Depends:
 Depends:
  glx-alternative-nvidia (>= 0.7) [!ppc64el],
  ${misc:Depends}
-Conflicts:
- libgl1-nvidia-alternatives,
- libglx-nvidia-alternatives,
- libgl1-nvidia-alternatives-ia32,
 Breaks:
  nvidia-settings (<< 319.49),
  nvidia-settings-legacy-173xx (<< 173.14.37),
@@ -374,7 +403,7 @@ Multi-Arch: foreign
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  ${nvidia-alternative}--kmod-alias,
- nvidia-kernel-common (>= 20151021),
+ nvidia-kernel-common (>= 20151021) [!ppc64el],
  nvidia-modprobe (>= 352),
  ${misc:Depends}
 Provides:
@@ -431,7 +460,7 @@ Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64 armhf ppc64el
 Depends:
- debhelper (>= 8),
+ debhelper (>= 9),
  make,
  quilt,
  xz-utils,
@@ -485,12 +514,6 @@ Enhances:
  libvdpau1,
 Provides:
  vdpau-driver,
-Conflicts:
- nvidia-vdpau-driver-ia32,
-Breaks:
- libvdpau1 (<< 0.4.1-3),
-Replaces:
- nvidia-vdpau-driver-ia32,
 Description: Video Decode and Presentation API for Unix - NVIDIA driver
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
@@ -527,10 +550,6 @@ Section: non-free/utils
 Architecture: i386 amd64 armhf ppc64el
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- nvidia-cuda-proxy,
-Replaces:
- nvidia-cuda-proxy,
 Description: NVIDIA CUDA Multi Process Service (MPS)
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -562,11 +581,6 @@ Recommends:
 Suggests:
  nvidia-cuda-mps,
  ${nvidia:kmod:source},
-Conflicts:
- libcuda1-ia32,
- nvidia-cuda-proxy,
-Replaces:
- libcuda1-ia32,
 Provides:
  libcuda1-any,
  libcuda-5.0-1,
@@ -619,9 +633,6 @@ Provides:
  libnvidia-compiler-${nvidia:Version},
 Conflicts:
  libnvidia-compiler-${nvidia:Version},
- libnvidia-compiler-ia32,
-Replaces:
- libnvidia-compiler-ia32,
 Description: NVIDIA runtime compiler library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -745,10 +756,6 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Enhances:
  libopencl1,
-Conflicts:
- nvidia-opencl-icd-ia32,
-Replaces:
- nvidia-opencl-icd-ia32,
 Provides:
  opencl-icd,
 Description: NVIDIA OpenCL installable client driver (ICD)
@@ -774,12 +781,10 @@ Provides:
  libopencl-1.2-1,
 Conflicts:
  libopencl1,
- nvidia-libopencl1-ia32,
 Breaks:
  nvidia-opencl-dev (<= 5.0.35-6),
 Replaces:
  libopencl1,
- nvidia-libopencl1-ia32,
 Description: NVIDIA OpenCL ICD Loader library
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -791,7 +796,7 @@ Description: NVIDIA OpenCL ICD Loader library
  hardware) is required to run OpenCL applications.
  .
  This package contains the ICD Loader library provided by NVIDIA. This library
- supports OpenCL 1.1 only.
+ supports OpenCL 1.x only.
 
 Package: nvidia-detect
 Section: non-free/x11
@@ -802,6 +807,6 @@ Depends:
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-driver, nvidia-legacy-173xx-driver or nvidia-legacy-96xx-driver) for
- installation.
+ (nvidia-driver, nvidia-legacy-340xx-driver or nvidia-legacy-304xx-driver)
+ for installation.
 
