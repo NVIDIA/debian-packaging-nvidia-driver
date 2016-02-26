@@ -25,11 +25,6 @@ define PACKAGE_STATUS
 	nvidia-kernel-support-any
 	nvidia-glx-any
 	libgl1-nvidia-glx-any
-	libgl1-nvidia-glx-ia32-any
-	libgl1-nvidia-glx-ia32
-	libgl1-nvidia-legacy-173xx-glx-ia32
-	libgl1-nvidia-legacy-96xx-glx-ia32
-	libgl1-nvidia-alternatives-ia32
 	xserver-xorg-video-nvidia-any
 	libcuda1
 	libcuda1-any
@@ -47,7 +42,6 @@ define PACKAGE_STATUS
 	libdrm-nouveau1a
 	libdrm-nouveau2
 	xserver-xorg-video-nouveau
-	ia32-libs
 	make
 endef
 
