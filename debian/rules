@@ -71,6 +71,7 @@ TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in debian/module/debi
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
+AUTOGEN		+= debian/bug-control
 AUTOKEEP	 = debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
@@ -138,7 +139,6 @@ override_dh_auto_clean:
 	rm -fr .pc
 	rm -f NVIDIA-Linux
 	rm -fr $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(NVIDIA_DIRNAME_$a))
-	rm -fr debian/temp
 	rm -fr kernel-source-tree
 	rm -f nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
 	rm -f LICENSE.txt LICENSE.tmp copyright.tmp
@@ -164,15 +164,6 @@ install-into-tmp:
 	cp -al NVIDIA-Linux-amd64/NVIDIA_Changelog debian/tmp/
 	gzip -9fn debian/tmp/nvidia-smi.1
 
-	# Create xorg.conf.sample
-	test ! -f debian/tmp/usr/share/doc/XF86Config.sample || \
-	sed \
-	    -e 's/XF86Config(4\/5)/xorg.conf(5)/g' \
-	    -e 's/XF86Config/xorg.conf/g' \
-	    -e 's/XFree86/Xorg/g' \
-	    < debian/tmp/usr/share/doc/XF86Config.sample \
-	    > debian/tmp/usr/share/doc/xorg.conf.sample
-
 build-kernel-source-tree: install-into-tmp
 	# Build the nvidia-kernel-source tree.
 	mkdir -p $(module_source)
@@ -180,6 +171,10 @@ build-kernel-source-tree: install-into-tmp
 	# This copy of the changelog is going to be installed into the module
 	# binary packages.
 	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
+
+ifneq (,$(has_uvm))
+	ln -sf ../conftest.sh $(module_source)/uvm
+endif
 
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
@@ -287,6 +282,7 @@ override_dh_strip_nondeterminism:
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
 	-e 's{#UNLOAD_MODULES#}{$(strip $(unload_modules))}g;' \
+	-e 's{#ARCH_LIST#}{$(ARCH_LIST)}g;' \
 	-e 's{#HAS_UVM#}{$(if $(has_uvm),,#)}g;' \
 	-e 's{#!armhf#}{$(if $(filter armhf,$(DEB_HOST_ARCH)),#)}g;' \
 	-e 's{#!legacy#}{$(if $(legacy),#)}g;' \
@@ -304,6 +300,8 @@ endef
 ifneq (,$(legacy))
 $(foreach p,$(CONTROL_PREFIXES),$(eval $(call rename-template,$p,$(call renamed_prefix,$p))))
 endif
+
+include debian/bug-control.mk
 
 ############################################################################
 
@@ -338,8 +336,8 @@ debian/files_$(NVIDIA_RELEASE)_%: NVIDIA-Linux-%
 
 ############################################################################
 
-CACHE	?= ../.cache
-ORIGDIR	?= nvidia-graphics-drivers-$(NVIDIA_RELEASE).orig
+CACHE			?= ../.cache
+ORIGDIR			?= nvidia-graphics-drivers-$(NVIDIA_RELEASE).orig
 TARBALL_BASE		?= nvidia-graphics-drivers$(legacy)_$(NVIDIA_RELEASE).orig
 TARBALL_SUFFIX		?= .tar.gz
 TARBALL			?= $(TARBALL_BASE)$(TARBALL_SUFFIX)

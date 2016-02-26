@@ -2,13 +2,12 @@ Source: #NVIDIA#-kernel
 Section: non-free/kernel
 Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
-Uploaders: Russ Allbery <rra@debian.org>
 Build-Depends: debhelper (>= 9), quilt
 Standards-Version: 3.9.7
 Homepage: http://www.nvidia.com/
 
 Package: #NVIDIA#-kernel-#KVERS#
-Architecture: i386 amd64 armhf ppc64el
+Architecture: #ARCH_LIST#
 Provides: #NVIDIA#-kernel-#VERSION#
 Depends:
  #NVIDIA#-kernel-support--v1,

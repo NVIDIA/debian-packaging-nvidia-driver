@@ -378,7 +378,7 @@ Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64 armhf ppc64el
 Depends:
- debhelper (>= 8),
+ debhelper (>= 9),
  make,
  quilt,
  xz-utils,
