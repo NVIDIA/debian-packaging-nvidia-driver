@@ -146,8 +146,8 @@ Description: check for NVIDIA GPUs requiring a legacy driver
  This package checks whether the system contains NVIDIA GPUs that are no longer
  supported by the main driver line and require a legacy driver.
  .
- If such hardware is present, a debconf question will be asked to confirm the
- installation of the current driver line.
+ If such hardware is present, a (preseedable) debconf question will be asked to
+ confirm the installation of the current driver line.
 
 Package: libgldispatch0-nvidia
 Architecture: i386 amd64 armhf
@@ -211,14 +211,6 @@ Provides:
  libgl1-nvidia-glx-${nvidia:Version},
 Conflicts:
  libgl1-nvidia-glx-${nvidia:Version},
- libgl1-nvidia${nvidia:Legacy}-glx-ia32,
- nvidia-glx${nvidia:Legacy}-ia32,
- libgl1-nvidia-glx-ia32-any,
-Breaks:
- ia32-libs (<< 1:0),
-Replaces:
- libgl1-nvidia${nvidia:Legacy}-glx-ia32,
- nvidia-glx${nvidia:Legacy}-ia32,
 Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
@@ -364,10 +356,6 @@ Pre-Depends:
 Depends:
  glx-alternative-nvidia (>= 0.7) [!ppc64el],
  ${misc:Depends}
-Conflicts:
- libgl1-nvidia-alternatives,
- libglx-nvidia-alternatives,
- libgl1-nvidia-alternatives-ia32,
 Breaks:
  nvidia-settings (<< 319.49),
  nvidia-settings-legacy-173xx (<< 173.14.37),
@@ -402,7 +390,7 @@ Multi-Arch: foreign
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  ${nvidia-alternative}--kmod-alias,
- nvidia-kernel-common (>= 20151021),
+ nvidia-kernel-common (>= 20151021) [!ppc64el],
  nvidia-modprobe,
  ${misc:Depends}
 Provides:
@@ -459,7 +447,7 @@ Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64 armhf ppc64el
 Depends:
- debhelper (>= 8),
+ debhelper (>= 9),
  make,
  quilt,
  xz-utils,
@@ -513,12 +501,6 @@ Enhances:
  libvdpau1,
 Provides:
  vdpau-driver,
-Conflicts:
- nvidia-vdpau-driver-ia32,
-Breaks:
- libvdpau1 (<< 0.4.1-3),
-Replaces:
- nvidia-vdpau-driver-ia32,
 Description: Video Decode and Presentation API for Unix - NVIDIA driver
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
@@ -555,10 +537,6 @@ Section: non-free/utils
 Architecture: i386 amd64 armhf ppc64el
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- nvidia-cuda-proxy,
-Replaces:
- nvidia-cuda-proxy,
 Description: NVIDIA CUDA Multi Process Service (MPS)
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -590,11 +568,6 @@ Recommends:
 Suggests:
  nvidia-cuda-mps,
  ${nvidia:kmod:source},
-Conflicts:
- libcuda1-ia32,
- nvidia-cuda-proxy,
-Replaces:
- libcuda1-ia32,
 Provides:
  libcuda1-any,
  libcuda-5.0-1,
@@ -647,9 +620,6 @@ Provides:
  libnvidia-compiler-${nvidia:Version},
 Conflicts:
  libnvidia-compiler-${nvidia:Version},
- libnvidia-compiler-ia32,
-Replaces:
- libnvidia-compiler-ia32,
 Description: NVIDIA runtime compiler library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -773,10 +743,6 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Enhances:
  libopencl1,
-Conflicts:
- nvidia-opencl-icd-ia32,
-Replaces:
- nvidia-opencl-icd-ia32,
 Provides:
  opencl-icd,
 Description: NVIDIA OpenCL installable client driver (ICD)
@@ -802,12 +768,10 @@ Provides:
  libopencl-1.2-1,
 Conflicts:
  libopencl1,
- nvidia-libopencl1-ia32,
 Breaks:
  nvidia-opencl-dev (<= 5.0.35-6),
 Replaces:
  libopencl1,
- nvidia-libopencl1-ia32,
 Description: NVIDIA OpenCL ICD Loader library
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -819,7 +783,7 @@ Description: NVIDIA OpenCL ICD Loader library
  hardware) is required to run OpenCL applications.
  .
  This package contains the ICD Loader library provided by NVIDIA. This library
- supports OpenCL 1.1 only.
+ supports OpenCL 1.x only.
 
 Package: nvidia-detect
 Section: non-free/x11
@@ -830,6 +794,6 @@ Depends:
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-driver, nvidia-legacy-173xx-driver or nvidia-legacy-96xx-driver) for
- installation.
+ (nvidia-driver, nvidia-legacy-340xx-driver or nvidia-legacy-304xx-driver)
+ for installation.
 

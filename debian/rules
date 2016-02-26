@@ -71,6 +71,7 @@ TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in debian/module/debi
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
+AUTOGEN		+= debian/bug-control
 AUTOKEEP	 = debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
@@ -138,7 +139,6 @@ override_dh_auto_clean:
 	rm -fr .pc
 	rm -f NVIDIA-Linux
 	rm -fr $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(NVIDIA_DIRNAME_$a))
-	rm -fr debian/temp
 	rm -fr kernel-source-tree
 	rm -f nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
 	rm -f LICENSE.txt LICENSE.tmp copyright.tmp
@@ -164,15 +164,6 @@ install-into-tmp:
 	cp -al NVIDIA-Linux-amd64/NVIDIA_Changelog debian/tmp/
 	gzip -9fn debian/tmp/nvidia-smi.1
 
-	# Create xorg.conf.sample
-	test ! -f debian/tmp/usr/share/doc/XF86Config.sample || \
-	sed \
-	    -e 's/XF86Config(4\/5)/xorg.conf(5)/g' \
-	    -e 's/XF86Config/xorg.conf/g' \
-	    -e 's/XFree86/Xorg/g' \
-	    < debian/tmp/usr/share/doc/XF86Config.sample \
-	    > debian/tmp/usr/share/doc/xorg.conf.sample
-
 build-kernel-source-tree: install-into-tmp
 	# Build the nvidia-kernel-source tree.
 	mkdir -p $(module_source)
@@ -180,6 +171,10 @@ build-kernel-source-tree: install-into-tmp
 	# This copy of the changelog is going to be installed into the module
 	# binary packages.
 	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
+
+ifneq (,$(has_uvm))
+	ln -sf ../conftest.sh $(module_source)/uvm
+endif
 
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
@@ -287,6 +282,7 @@ override_dh_strip_nondeterminism:
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
 	-e 's{#UNLOAD_MODULES#}{$(strip $(unload_modules))}g;' \
+	-e 's{#ARCH_LIST#}{$(ARCH_LIST)}g;' \
 	-e 's{#HAS_UVM#}{$(if $(has_uvm),,#)}g;' \
 	-e 's{#!armhf#}{$(if $(filter armhf,$(DEB_HOST_ARCH)),#)}g;' \
 	-e 's{#!legacy#}{$(if $(legacy),#)}g;' \
@@ -304,6 +300,8 @@ endef
 ifneq (,$(legacy))
 $(foreach p,$(CONTROL_PREFIXES),$(eval $(call rename-template,$p,$(call renamed_prefix,$p))))
 endif
+
+include debian/bug-control.mk
 
 ############################################################################
 
@@ -338,8 +336,8 @@ debian/files_$(NVIDIA_RELEASE)_%: NVIDIA-Linux-%
 
 ############################################################################
 
-CACHE	?= ../.cache
-ORIGDIR	?= nvidia-graphics-drivers-$(NVIDIA_RELEASE).orig
+CACHE			?= ../.cache
+ORIGDIR			?= nvidia-graphics-drivers-$(NVIDIA_RELEASE).orig
 TARBALL_BASE		?= nvidia-graphics-drivers$(legacy)_$(NVIDIA_RELEASE).orig
 TARBALL_SUFFIX		?= .tar.gz
 TARBALL			?= $(TARBALL_BASE)$(TARBALL_SUFFIX)
@@ -347,41 +345,47 @@ ORIGDIR.main		?= $(ORIGDIR)
 TARBALL.main		?= $(TARBALL)
 ARCH_LIST.main		?= $(filter-out ppc64el,$(ARCH_LIST))
 NVIDIA_FILENAME_main	?= $(foreach a,$(ARCH_LIST.main),$(NVIDIA_FILENAME_$a))
-ORIGDIR.ppc64el		?= $(ORIGDIR)-ppc64el
-TARBALL.ppc64el		?= $(TARBALL_BASE)-ppc64el$(TARBALL_SUFFIX)
 
 # $1 = arch
 get_download_url	 = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(HTTPURL_ARCHDIR_$(strip $1))/$(NVIDIA_RELEASE)/$(NVIDIA_FILENAME_$(strip $1))
+get_origdir		 = $(or $(ORIGDIR.$(strip $1)),$(ORIGDIR)-$(strip $1))
+get_tarball		 = $(or $(TARBALL.$(strip $1)),$(TARBALL_BASE)-$(strip $1)$(TARBALL_SUFFIX))
 
 get-orig-source-prepare:
-	$(RM) -r get-orig-source || true
+	$(RM) -r get-orig-source
 	mkdir get-orig-source
 
-get-orig-source-download-%: get-orig-source-prepare
+get-orig-source-prepare/%: get-orig-source-prepare
+	$(RM) $(call get_tarball,$*)
+	mkdir get-orig-source/$(call get_origdir,$*)
+
+get-orig-source-download/%: get-orig-source-prepare
 	ln -v $(CACHE)/$(NVIDIA_FILENAME_$*) get-orig-source/ 2>/dev/null || \
 		wget $(call get_download_url,$*) -P get-orig-source/
 	if [ -d $(CACHE) ] && [ ! -f $(CACHE)/$(NVIDIA_FILENAME_$*) ]; then \
 		ln -v get-orig-source/$(NVIDIA_FILENAME_$*) $(CACHE) ; fi
 
-get-orig-source-download-main: $(foreach a,$(ARCH_LIST.main),get-orig-source-download-$a) ;
+get-orig-source-download/main: $(foreach a,$(ARCH_LIST.main),get-orig-source-download/$a) ;
 
-get-orig-source-%: get-orig-source-download-%
-	$(RM) $(TARBALL.$*)
+get-orig-source-files/%: get-orig-source-prepare/% get-orig-source-download/%
 	@set -e -x ; \
 	    cd get-orig-source ; \
-	    mkdir $(ORIGDIR.$*) ; \
-	    mv $(NVIDIA_FILENAME_$*) $(ORIGDIR.$*)/ ; \
-	    chmod 0755 $(ORIGDIR.$*)/* ; \
-	    latestfile=$$(ls -tr $$(find $(ORIGDIR.$*) -type f) | tail -n 1) ; \
+	    mv $(NVIDIA_FILENAME_$*) $(call get_origdir,$*)/ ; \
+	    chmod 0755 $(call get_origdir,$*)/* ; \
+	    touch $(call get_origdir,$*).stamp -r $$(ls -tr $$(find $(call get_origdir,$*) -type f) | tail -n 1)
+
+get-orig-source-pack/%: get-orig-source-files/%
+	@set -e -x ; \
+	    cd get-orig-source ; \
 	    tar cv \
-	        --clamp-mtime --mtime="./$$latestfile" \
+	        --clamp-mtime --mtime="./$(call get_origdir,$*).stamp" \
 	        --sort=name \
 		--owner=root --group=src \
-		$(ORIGDIR.$*) \
-		| gzip -n -9 > $(TARBALL.$*) ; \
-	    touch $(TARBALL.$*) -r $$latestfile
-	mv get-orig-source/$(TARBALL.$*) .
+		$(call get_origdir,$*) \
+		| gzip -n -9 > $(call get_tarball,$*) ; \
+	    touch $(call get_tarball,$*) -r $(call get_origdir,$*).stamp
+	mv get-orig-source/$(call get_tarball,$*) .
 
 .PHONY: get-orig-source
-get-orig-source: get-orig-source-main $(foreach a,$(filter-out $(ARCH_LIST.main),$(ARCH_LIST)),get-orig-source-$a)
+get-orig-source: get-orig-source-pack/main $(foreach a,$(filter-out $(ARCH_LIST.main),$(ARCH_LIST)),get-orig-source-pack/$a)
 	rm -rf get-orig-source

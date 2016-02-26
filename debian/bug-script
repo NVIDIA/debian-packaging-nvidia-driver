@@ -103,7 +103,13 @@ echo
 
 echo "Config and logfiles:"
 echo
-for file in /etc/modprobe.d/*nvidia*.conf /etc/X11/xorg.conf /etc/X11/xorg.conf.d/*.conf $(ls -dt /var/log/Xorg.*.log* 2>/dev/null | head -n 2) /etc/bumblebee/bumblebee.conf /etc/bumblebee/xorg.conf.nvidia
+for file in \
+	/etc/bumblebee/bumblebee.conf \
+	/etc/bumblebee/xorg.conf.nvidia \
+	/etc/modprobe.d/*nvidia*.conf \
+	/etc/X11/xorg.conf \
+	/etc/X11/xorg.conf.d/*.conf \
+	$(ls -dt /var/log/Xorg.*.log* 2>/dev/null | head -n 2)
 do
 	if [ -f "$file" ] && [ -r "$file" ]; then
 		echo "<<<<<<<<<< $file >>>>>>>>>>"
