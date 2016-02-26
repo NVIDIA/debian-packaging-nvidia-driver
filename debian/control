@@ -714,7 +714,7 @@ Description: NVIDIA OpenCL ICD Loader library
  hardware) is required to run OpenCL applications.
  .
  This package contains the ICD Loader library provided by NVIDIA. This library
- supports OpenCL 1.1 only.
+ supports OpenCL 1.x only.
 
 Package: nvidia-detect
 Section: non-free/x11
@@ -725,6 +725,6 @@ Depends:
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-driver, nvidia-legacy-173xx-driver or nvidia-legacy-96xx-driver) for
- installation.
+ (nvidia-driver, nvidia-legacy-340xx-driver or nvidia-legacy-304xx-driver)
+ for installation.
 
