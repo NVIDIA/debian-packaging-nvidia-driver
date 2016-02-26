@@ -7,16 +7,18 @@ Description: let Kbuild set the compiler version
 
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -242,9 +242,9 @@ build-sanity-checks:
+@@ -242,10 +242,10 @@ build-sanity-checks:
  #
  
  module: build-sanity-checks $(CONFTEST_HEADERS)
 -	@echo "NVIDIA: calling KBUILD..."; \
 -	$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules; \
 -	echo "NVIDIA: left KBUILD."; \
+-	for module in $(MODULE_OBJECTS); do \
 +	@echo "NVIDIA: calling KBUILD..."
 +	$(MAKE) $(KBUILD_PARAMS) modules
 +	@echo "NVIDIA: left KBUILD."
- 	for module in $(MODULE_OBJECTS); do \
++	@for module in $(MODULE_OBJECTS); do \
  	if ! [ -f $$module ]; then \
  	 echo "$$module failed to build!"; \
+ 	 exit 1; \

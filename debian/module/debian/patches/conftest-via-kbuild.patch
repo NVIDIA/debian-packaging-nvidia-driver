@@ -1,6 +1,6 @@
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -237,20 +237,26 @@ BUILD_SANITY_CHECKS = \
+@@ -237,21 +237,27 @@ BUILD_SANITY_CHECKS = \
  	xen_sanity_check \
  	preempt_rt_sanity_check
  
@@ -12,6 +12,7 @@
  	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
 +	@mkdir -p $(obj)/conftest
  	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
+ 	 echo " CONFTEST: $$SANITY_CHECK"; \
  	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
  	 exit 1; \
  	 fi; \
@@ -29,7 +30,7 @@
  	@echo "NVIDIA: calling KBUILD..."
  	$(MAKE) $(KBUILD_PARAMS) modules
  	@echo "NVIDIA: left KBUILD."
-@@ -349,3 +355,6 @@ clean:
+@@ -350,3 +356,6 @@ clean:
  	@$(RM) -f conftest*.c
  	@$(RM) -rf conftest
  	@$(RM) -rf Module*.symvers .tmp_versions modules.order

@@ -35,12 +35,14 @@ Description: dump the generated conftest headers
  
  $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
  
-@@ -231,6 +238,8 @@ BUILD_SANITY_CHECKS = \
+@@ -231,7 +238,10 @@ BUILD_SANITY_CHECKS = \
  	preempt_rt_sanity_check
  
  build-sanity-checks:
 +	@echo 'CONFTEST=$(CONFTEST)'
 +	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
  	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
++	 echo " CONFTEST: $$SANITY_CHECK"; \
  	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
  	 exit 1; \
+ 	 fi; \
