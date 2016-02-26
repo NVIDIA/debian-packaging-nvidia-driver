@@ -9,3 +9,4 @@ hardening-no-stackprotector
 # These are expected to be built from source and packaged independently
 # from the NVIDIA drivers, soon.
 package-name-doesnt-match-sonames libOpenGL0
+symbols-declares-dependency-on-other-package libopengl0

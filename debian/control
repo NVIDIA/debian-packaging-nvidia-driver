@@ -239,21 +239,34 @@ Pre-Depends:
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libegl1-nvidia,
+Breaks:
+ libegl1-nvidia (<< 355.11-3),
 Replaces:
- libegl1-nvidia,
-Description: NVIDIA binary EGL stub libraries${nvidia:LegacyDesc}
- This package contains the EGL native platform graphics interface library.
+ libegl1-nvidia (<< 355.11-3),
+Description: NVIDIA binary EGL GLVND stub library
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
- for use with other graphics libraries, such as OpenGL|ES and OpenVG.
- .
- See the description of the ${nvidia}-driver package
- or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
+ for use with other graphics libraries, such as OpenGL|ES.
  .
  This package contains a libEGL.so.1 stub that redirects to a vendor
- implementation via libglvnd.
+ implementation via GLVND.
+
+#Package: libegl1-${nvidia}
+Package: libegl1-nvidia
+Section: non-free/oldlibs
+Priority: extra
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ libegl-${nvidia}0 (= ${binary:Version}),
+ ${misc:Depends}
+Description: NVIDIA binary EGL libraries (transitional)${nvidia:LegacyDesc}
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES.
+ .
+ This is a transitional package to aid switching to the GLVND based
+ implementation.
 
 #Package: libegl-${nvidia}0
 Package: libegl-nvidia0
@@ -269,14 +282,14 @@ Depends:
 Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
  This package contains the EGL native platform graphics interface library.
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
- for use with other graphics libraries, such as OpenGL|ES and OpenVG.
+ for use with other graphics libraries, such as OpenGL|ES.
  .
  See the description of the ${nvidia}-driver package
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
  .
  This package contains the driver specific binary EGL implementation by NVIDIA
- that is accessed via libglvnd.
+ that is accessed via GLVND.
 
 #Package: libgles1-${nvidia}
 Package: libgles1-nvidia
@@ -337,7 +350,7 @@ Conflicts:
  libnvidia-eglcore-${nvidia:Version},
 Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
- for use with other graphics libraries, such as OpenGL|ES and OpenVG.
+ for use with other graphics libraries, such as OpenGL|ES.
  .
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
  embedded systems - including consoles, phones, appliances and vehicles.

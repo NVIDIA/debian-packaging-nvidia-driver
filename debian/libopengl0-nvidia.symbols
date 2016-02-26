@@ -1,4 +1,4 @@
-libOpenGL.so.0 #PACKAGE# #MINVER#
+libOpenGL.so.0 libopengl0 | #PACKAGE# #MINVER#
  AllocExecPages@Base 355
  FreeExecPages@Base 355
  entry_generate_default_code@Base 355

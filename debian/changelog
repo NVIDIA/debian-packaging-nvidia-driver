@@ -1,10 +1,14 @@
 nvidia-graphics-drivers (355.11-3) UNRELEASED; urgency=medium
 
-  * Merge changes from 352.79-4.
+  [ Luca Boccassi ]
   * Split libglvnd-nvidia in libopengl0-nvidia and libgldispatch0-nvidia
   * Rename libegl1-nvidia to libegl1-glvnd-nvidia
   * Add dependency from libegl-nvidia0 to libegl1-glvnd-nvidia
   * Switch dependency in nvidia-driver from libegl1-nvidia to libegl-nvidia0
+
+  [ Andreas Beckmann ]
+  * Merge changes from 352.79-4.
+  * Add a transitional libegl1-nvidia package.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 17 Feb 2016 23:36:31 +0000
 
