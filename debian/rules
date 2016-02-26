@@ -175,13 +175,16 @@ build-kernel-source-tree: install-into-tmp
 	# binary packages.
 	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
 
+ifneq (,$(has_uvm))
+	ln -sf ../conftest.sh $(module_source)/uvm
+endif
+
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
 	rm -f $(module_source)/nv-kernel.o
 	$(foreach a,$(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)),cp -a NVIDIA-Linux-$a/kernel/nv-kernel.o $(module_source)/nv-kernel-$a.o_shipped ;)
 
-	# Install a debian/ tree and new conftest files that work purely
-	# with kbuild and don't require root into the module package.
+	# Install a debian/ tree.
 	cp -a debian/module/debian $(module_source)/
 	cp -a debian/copyright $(module_source)/debian/
 	cp -a debian/bug-script $(module_source)/debian/
