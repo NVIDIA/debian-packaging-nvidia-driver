@@ -1,0 +1,13 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: use KBUILD_CFLAGS for conftest
+
+--- a/Kbuild
++++ b/Kbuild
+@@ -94,6 +94,7 @@ NV_CONFTEST_CMD := /bin/sh $(NV_CONFTEST
+  "$(CC)" "$(HOST_CC)" $(ARCH) $(NV_KERNEL_SOURCES) $(NV_KERNEL_OUTPUT)
+ 
+ NV_CONFTEST_CFLAGS := $(shell $(NV_CONFTEST_CMD) build_cflags)
++NV_CONFTEST_CFLAGS += $(KBUILD_CFLAGS)
+ 
+ NV_CONFTEST_COMPILE_TEST_HEADERS := $(obj)/conftest/macros.h
+ NV_CONFTEST_COMPILE_TEST_HEADERS += $(obj)/conftest/functions.h
