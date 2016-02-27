@@ -75,6 +75,7 @@ NVIDIA-Linux-%:
 
 # Unpack all architectures, we may need files from all of them.
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
+	$(if $(filter $(DEB_HOST_ARCH),$(ARCH_LIST)),,$(error Architecture $(DEB_HOST_ARCH) unsupported.))
 	dh_testdir
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
 	ls -al
