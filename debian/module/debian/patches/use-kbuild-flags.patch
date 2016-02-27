@@ -1,5 +1,7 @@
 Author: Andreas Beckmann <anbe@debian.org>
-Description: use KBUILD_CFLAGS for conftest
+Description: use KBUILD_CFLAGS and LDFLAGS
+ allows building a amd64 kernel module with i386 user space
+ skip -Werror=* since that breaks how conftest.sh detects stuff
 
 --- a/Kbuild
 +++ b/Kbuild
@@ -7,7 +9,18 @@ Description: use KBUILD_CFLAGS for conftest
   "$(CC)" "$(HOST_CC)" $(ARCH) $(NV_KERNEL_SOURCES) $(NV_KERNEL_OUTPUT)
  
  NV_CONFTEST_CFLAGS := $(shell $(NV_CONFTEST_CMD) build_cflags)
-+NV_CONFTEST_CFLAGS += $(KBUILD_CFLAGS)
++NV_CONFTEST_CFLAGS += $(filter-out -Werror%,$(KBUILD_CFLAGS))
  
  NV_CONFTEST_COMPILE_TEST_HEADERS := $(obj)/conftest/macros.h
  NV_CONFTEST_COMPILE_TEST_HEADERS += $(obj)/conftest/functions.h
+--- a/nvidia/nvidia.Kbuild
++++ b/nvidia/nvidia.Kbuild
+@@ -87,7 +87,7 @@ NVIDIA_INTERFACE := nvidia/nv-interface.
+ always += $(NVIDIA_INTERFACE)
+ 
+ $(obj)/$(NVIDIA_INTERFACE): $(addprefix $(obj)/,$(NVIDIA_OBJECTS))
+-	$(LD) -r -o $@ $^
++	$(LD) $(LDFLAGS) -r -o $@ $^
+ 
+ 
+ #

@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (355.11-4) UNRELEASED; urgency=medium
+
+  * use-kbuild-flags.patch: New, use KBUILD_CFLAGS and LDFLAGS from Kbuild to
+    support building a 64-bit kernel module with 32-bit userspace.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 27 Feb 2016 02:11:22 +0100
+
 nvidia-graphics-drivers (355.11-3) experimental; urgency=medium
 
   [ Luca Boccassi ]
