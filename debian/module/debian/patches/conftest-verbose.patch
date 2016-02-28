@@ -36,3 +36,17 @@ Description: dump the generated conftest headers
  	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
  	 exit 1; \
  	 fi; \
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2079,6 +2079,11 @@ case "$6" in
+         #
+         shift 5
+ 
++
++	echo "conftest.sh: CC=$CC"
++	echo "conftest.sh: CFLAGS=$CFLAGS"
++	echo "conftest.sh: KBUILD_CFLAGS=$KBUILD_CFLAGS"
++
+         test_headers
+ 
+         for i in $*; do compile_test $i; done

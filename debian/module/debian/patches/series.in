@@ -1,4 +1,5 @@
 use-kbuild-compiler.patch
+use-kbuild-flags.patch
 conftest-verbose.patch
 conftest-via-kbuild.patch
 disable-cc_version_check.patch
