@@ -1,9 +1,14 @@
 nvidia-graphics-drivers (352.79-5) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * nvidia-kernel-source: Use Depends: make:any to allow foreign arch
     installation.
   * use-kbuild-flags.patch: New, use KBUILD_CFLAGS from Kbuild to
     support building a 64-bit kernel module with 32-bit userspace.
+
+  [ Luca Boccassi ]
+  * Update Portuguese debconf translation. Thanks Américo Monteiro!
+    (Closes: #816143)
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 27 Feb 2016 00:35:42 +0100
 
