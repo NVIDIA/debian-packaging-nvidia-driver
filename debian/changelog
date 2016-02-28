@@ -37,6 +37,10 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * arm-outer-sync.patch: backport from trunk to fix kernel module build
     failure on kernel 4.3 and higher on armhf.
+  * unset ARCH in debian/module/debian/rules.in as well as in dkms.conf,
+    otherwise the wrong value is passed to NVIDIA's conftest and build
+    system (expects kernel arch, is set to Debian binary arch). Fixes fail
+    to build module via nvidia-kernel-source package.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 11:34:10 +0100
 
