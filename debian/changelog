@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * Do not run dh_strip_nondeterminism, it may perform modifications not
     permitted by the NVIDIA license.
   * Use #!armhf# and #HAS_UVM# substitutions as in unstable.
@@ -32,6 +33,10 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
     support building a 64-bit kernel module with 32-bit userspace.
   * Bump Standards-Version to 3.9.7. No changes needed.
   * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * arm-outer-sync.patch: backport from trunk to fix kernel module build
+    failure on kernel 4.3 and higher on armhf.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 11:34:10 +0100
 
