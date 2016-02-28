@@ -22,7 +22,7 @@ Description: dump the generated conftest headers
  
  MODULE_GLUE_TARGETS = $(addprefix $(obj)/,$(MODULE_GLUE_OBJS))
  
-@@ -198,7 +204,12 @@ BUILD_SANITY_CHECKS = \
+@@ -198,7 +204,13 @@ BUILD_SANITY_CHECKS = \
  	preempt_rt_sanity_check
  
  build-sanity-checks:
@@ -30,6 +30,7 @@ Description: dump the generated conftest headers
 +	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
 +	@echo 'KBUILD_CFLAGS=$(KBUILD_CFLAGS)'
 +	@echo 'LINUXINCLUDE=$(LINUXINCLUDE)'
++	@echo 'LDFLAGS=$(LDFLAGS)'
  	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
 +	 echo " CONFTEST: $$SANITY_CHECK"; \
  	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \

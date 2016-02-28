@@ -9,7 +9,7 @@
  
  $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
  
-@@ -203,15 +203,19 @@ BUILD_SANITY_CHECKS = \
+@@ -203,18 +203,22 @@ BUILD_SANITY_CHECKS = \
  	xen_sanity_check \
  	preempt_rt_sanity_check
  
@@ -19,6 +19,9 @@
 +$(obj)/conftest/sanity-checks.stamp:
  	@echo 'CONFTEST=$(CONFTEST)'
  	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
+ 	@echo 'KBUILD_CFLAGS=$(KBUILD_CFLAGS)'
+ 	@echo 'LINUXINCLUDE=$(LINUXINCLUDE)'
+ 	@echo 'LDFLAGS=$(LDFLAGS)'
 +	@mkdir -p $(obj)/conftest
  	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
  	 echo " CONFTEST: $$SANITY_CHECK"; \
@@ -30,7 +33,7 @@
  
  #
  # BUILD_MODULE_RULE generates rules for building individual module targets.
-@@ -228,8 +232,10 @@ build-sanity-checks:
+@@ -231,8 +235,10 @@ build-sanity-checks:
  # target below.
  #
  
@@ -42,7 +45,7 @@
  	@echo "NVIDIA: calling KBUILD..."
  	$$(MAKE) NV_MODULE_SUFFIX=$$(strip $(2)) $$(KBUILD_PARAMS) modules
  	@echo "NVIDIA: left KBUILD."
-@@ -337,3 +343,6 @@ clean:
+@@ -340,3 +346,6 @@ clean:
  
  print-module-filename:
  	@echo $(MODULE_OBJECT)
