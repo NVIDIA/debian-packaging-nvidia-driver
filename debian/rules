@@ -29,7 +29,6 @@ current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
 has_uvm			 = $(filter $(DEB_HOST_ARCH),$(UVM_ARCH_LIST))
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
-perfkit			 =
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
 
 # system libdir
@@ -91,6 +90,7 @@ NVIDIA-Linux-%:
 
 # Unpack all architectures, we may need files from all of them.
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
+	$(if $(filter $(DEB_HOST_ARCH),$(ARCH_LIST)),,$(error Architecture $(DEB_HOST_ARCH) unsupported.))
 	dh_testdir
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
 	QUILT_PATCHES=debian/patches QUILT_SERIES=series-postunpack quilt --quiltrc /dev/null push -a || test $$? = 2
@@ -240,10 +240,9 @@ override_dh_gencontrol:
 		-V'libcuda1=$(libcuda1)' \
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
-		-V'nvidia:Perfkit=$(perfkit)' \
 		-V'nvidia-alternative=$(NVIDIA_ALTERNATIVE)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
-		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}$${nvidia:Perfkit}' \
+		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}' \
 		-V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
 		-V'nvidia:kmod:tested:Linux=$(strip $(or $(LINUX_KMOD_TESTED_$(DEB_HOST_ARCH)),$(LINUX_KMOD_TESTED),???))' \
 		-Vnvidia:kmod:Description="`cat debian/control.kmod`" \

@@ -329,7 +329,7 @@ Depends:
 Recommends:
  ${nvidia}-driver (>= ${nvidia:Version}) | ${libcuda1} (>= ${nvidia:Version}),
 Provides:
- ${nvidia}-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia}-kernel-${nvidia:Version},
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  This package builds the NVIDIA Xorg binary kernel module needed by
  ${nvidia}-driver, using DKMS.
