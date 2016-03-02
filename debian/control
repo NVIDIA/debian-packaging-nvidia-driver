@@ -31,7 +31,7 @@ Depends:
  nvidia-vdpau-driver (= ${binary:Version}),
  ${nvidia-alternative} (= ${binary:Version}),
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ | nvidia-kernel-${nvidia:Version},
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -52,7 +52,7 @@ Description: NVIDIA metapackage${nvidia:LegacyDesc}
  Please see the nvidia-kernel${nvidia:Legacy}-dkms or
  nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
+ This will provide nvidia-kernel-${nvidia:Version}.
  .
  ${nvidia:Models}
  .
@@ -73,7 +73,7 @@ Depends:
 Recommends:
  nvidia-vdpau-driver (>= ${nvidia:Version}),
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ | nvidia-kernel-${nvidia:Version},
  ${nvidia-settings},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
@@ -99,7 +99,7 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  Please see the nvidia-kernel${nvidia:Legacy}-dkms or
  nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
+ This will provide nvidia-kernel-${nvidia:Version}.
  .
  ${nvidia:Models}
  .
@@ -129,7 +129,7 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ | nvidia-kernel-${nvidia:Version},
  libxvmcnvidia1,
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
@@ -264,7 +264,7 @@ Recommends:
  nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}),
 Provides:
  nvidia-kernel-dkms,
- nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ nvidia-kernel-${nvidia:Version},
 Conflicts:
  nvidia-kernel-dkms,
 Breaks:
@@ -334,7 +334,7 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ | nvidia-kernel-${nvidia:Version},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
@@ -372,7 +372,7 @@ Description: Video Decode and Presentation API for Unix - NVIDIA driver
  Please see the nvidia-kernel${nvidia:Legacy}-dkms or
  nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
+ This will provide nvidia-kernel-${nvidia:Version}.
 
 Package: nvidia-vdpau-driver-ia32
 Section: non-free/oldlibs
@@ -413,7 +413,7 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ | nvidia-kernel-${nvidia:Version},
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
  | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
@@ -432,7 +432,7 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version}${nvidia:Perfkit},
+ | nvidia-kernel-${nvidia:Version},
  nvidia-smi,
 Suggests:
  nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
@@ -463,7 +463,7 @@ Description: NVIDIA CUDA runtime library
  Please see the nvidia-kernel${nvidia:Legacy}-dkms or
  nvidia-kernel${nvidia:Legacy}-source packages
  for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}${nvidia:Perfkit}.
+ This will provide nvidia-kernel-${nvidia:Version}.
 
 Package: libcuda1-ia32
 Section: non-free/oldlibs
