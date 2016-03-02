@@ -31,6 +31,7 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
   * nvidia-detect: Update list of newer PCI IDs from release 352.79.
   * use-kbuild-flags.patch: New, use KBUILD_CFLAGS from Kbuild to
     support building a 64-bit kernel module with 32-bit userspace.
+  * nvidia-detect: Drop support for squeeze.
   * Bump Standards-Version to 3.9.7. No changes needed.
   * Update lintian overrides.
 
