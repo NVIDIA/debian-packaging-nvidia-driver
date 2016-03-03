@@ -35,6 +35,7 @@ define PACKAGE_STATUS
 	nvidia-modprobe
 	xserver-xorg
 	xserver-xorg-core
+	xserver-xorg-legacy
 	linux-headers
 	bumblebee
 	bumblebee-nvidia

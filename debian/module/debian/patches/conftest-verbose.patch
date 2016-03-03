@@ -35,12 +35,15 @@ Description: dump the generated conftest headers
  
  $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
  
-@@ -231,7 +238,10 @@ BUILD_SANITY_CHECKS = \
+@@ -231,7 +238,13 @@ BUILD_SANITY_CHECKS = \
  	preempt_rt_sanity_check
  
  build-sanity-checks:
 +	@echo 'CONFTEST=$(CONFTEST)'
 +	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
++	@echo 'KBUILD_CFLAGS=$(KBUILD_CFLAGS)'
++	@echo 'LINUXINCLUDE=$(LINUXINCLUDE)'
++	@echo 'LDFLAGS=$(LDFLAGS)'
  	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
 +	 echo " CONFTEST: $$SANITY_CHECK"; \
  	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
