@@ -2,7 +2,6 @@
 [!amd64]: binary-file-built-without-LFS-support
 hardening-no-bindnow
 hardening-no-fortify-functions
-[!amd64]: hardening-no-pie
 hardening-no-relro
 hardening-no-stackprotector
 
