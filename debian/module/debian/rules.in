@@ -44,7 +44,7 @@ build-indep:
 build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
-	$(MAKE) KERNEL_UNAME=$(KVERS) modules
+	unset ARCH; $(MAKE) KERNEL_UNAME=$(KVERS) modules
 	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
 #HAS_UVM#	test "#MODULE#" = "nvidia" || mv nvidia-uvm.ko #MODULE#-uvm.ko
 	touch $@

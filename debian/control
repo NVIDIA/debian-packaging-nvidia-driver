@@ -435,7 +435,7 @@ Depends:
 Recommends:
  ${nvidia}-driver (>= ${nvidia:Version}) [!ppc64el] | ${libcuda1} (>= ${nvidia:Version}),
 Provides:
- ${nvidia}-kernel-${nvidia:Version}${nvidia:Perfkit},
+ ${nvidia}-kernel-${nvidia:Version},
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  This package builds the NVIDIA Xorg binary kernel module needed by
  ${nvidia}-driver, using DKMS.
@@ -807,6 +807,6 @@ Depends:
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-driver, nvidia-legacy-340xx-driver or nvidia-legacy-304xx-driver)
+ (nvidia-driver, nvidia-legacy-340xx-driver, or nvidia-legacy-304xx-driver)
  for installation.
 

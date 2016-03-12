@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (355.11-4) UNRELEASED; urgency=medium
 
+  * Merge changes from 352.79-5.
   * use-kbuild-flags.patch: New, use KBUILD_CFLAGS and LDFLAGS from Kbuild to
     support building a 64-bit kernel module with 32-bit userspace.
 
@@ -99,6 +100,35 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Feb 2016 19:32:35 +0100
+
+nvidia-graphics-drivers (352.79-6) UNRELEASED; urgency=medium
+
+  * Updated Japanese (jp) debconf translations by Takuma Yamada.
+    (Closes: #817867)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 12 Mar 2016 18:22:44 +0100
+
+nvidia-graphics-drivers (352.79-5) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * nvidia-kernel-source: Use Depends: make:any to allow foreign arch
+    installation.
+  * use-kbuild-flags.patch: New, use KBUILD_CFLAGS from Kbuild to
+    support building a 64-bit kernel module with 32-bit userspace.
+    (Closes: #815986)
+  * Drop incomplete Perfkit support.
+  * nvidia-detect: Drop support for squeeze(-lts) (EoL).
+  * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * Update Portuguese debconf translation. Thanks Américo Monteiro!
+    (Closes: #816143)
+  * nvidia-kernel-source: Unconditionally unset ARCH (which may have been set
+    to the Debian architecture by unrelated tools) before building a module
+    since having this set to something different than a kernel architecture
+    will break the build. This was already done for the dkms module build.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 08 Mar 2016 14:07:17 +0100
 
 nvidia-graphics-drivers (352.79-4) unstable; urgency=medium
 
