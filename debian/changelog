@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (352.79-6) UNRELEASED; urgency=medium
+
+  * Updated Japanese (jp) debconf translations by Takuma Yamada.
+    (Closes: #817867)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 12 Mar 2016 18:22:44 +0100
+
 nvidia-graphics-drivers (352.79-5) unstable; urgency=medium
 
   [ Andreas Beckmann ]
