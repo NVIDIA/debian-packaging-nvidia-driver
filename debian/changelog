@@ -11,6 +11,7 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * nvidia-detect: Drop support for lenny.
   * Use an empty nvidia:legacy-check substvar for legacy packages.
   * Use nvidia:kmod:binary and nvidia:kmod:source substvars.
+  * Drop support for backporting to squeeze (EoL).
   * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 13:04:27 +0100

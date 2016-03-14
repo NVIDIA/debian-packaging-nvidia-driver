@@ -13,8 +13,6 @@ WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
 XORG_BOUND		?=
-MULTIARCH		?=
-BACKPORT		?=
 NVIDIA_LEGACY_CHECK	?=
 NVIDIA_SETTINGS		?= nvidia-settings
 NVIDIA_ALTERNATIVE	?= nvidia$(legacy)-alternative
@@ -27,7 +25,7 @@ legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version)
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
 
 # system libdir
-libdir			 = usr/lib$(if $(MULTIARCH),/$(DEB_HOST_MULTIARCH))
+libdir			 = usr/lib/$(DEB_HOST_MULTIARCH)
 # nvidia specific directory below $(libdir)
 nvidia_private		 = nvidia$(if $(legacy),/$(patsubst -%,%,$(legacy)),/current)
 
@@ -55,13 +53,8 @@ dkms_source	 = debian/nvidia-kernel$(legacy)-dkms/usr/src/nvidia-$(version)
 
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
-xorg_depends	+= $(if $(BACKPORT), xserver-xorg-core (<< 2:1.7.7) |)
 xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND)
 xorg_provides	 = xorg-driver-video
-xorg_provides	+= $(if $(filter-out squeeze,$(BACKPORT)), $(comma) xserver-xorg-video-6)
-
-# sanity checks
-$(if $(and $(BACKPORT),$(MULTIARCH)),$(error Oops, backports do not support multiarch.))
 
 
 .PHONY: autogen prepare
@@ -321,23 +314,6 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 file-lists: $(patsubst %,debian/files_$(NVIDIA_RELEASE)_%,$(ARCH_LIST))
 debian/files_$(NVIDIA_RELEASE)_%: NVIDIA-Linux-%
 	(cd $< && find .) | sed 's/$(NVIDIA_RELEASE)/VERSION/g' | sort > $@
-
-############################################################################
-
-prepare-squeeze-backport:
-	echo 8 > debian/compat
-	sed -i 	-e '/^MULTIARCH/ s/^/#/; s/yes/no/' \
-		-e '/^#BACKPORT/ s/^#//' \
-		debian/rules.defs
-	sed -i -e 's/debhelper (>= .*)/debhelper (>= 8)/' \
-	       -e '/^Multi-Arch:/ d' \
-	       -e 's/0.4.1-3/0.4/' \
-	       debian/control
-	sed -i -e '/^package-contains-empty-directory usr\/lib\/tls\// s/^/#/' \
-		debian/libgl1-nvidia-glx.lintian-overrides.in
-	debchange --bpo "Disable multiarch build."
-	debchange -a "Reduce Build-Depends: debhelper and compat level to 8."
-	debchange -a "Note: Please report bugs found in this backported package to the Debian BTS, not the backports mailing list."
 
 ############################################################################
 
