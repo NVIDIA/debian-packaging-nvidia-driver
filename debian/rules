@@ -240,6 +240,8 @@ override_dh_gencontrol:
 		-V'nvidia:legacy-check=$(NVIDIA_LEGACY_CHECK)' \
 		-V'nvidia-alternative=$(NVIDIA_ALTERNATIVE)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
+		-V'nvidia:kmod:binary=nvidia-kernel$${nvidia:Legacy}-dkms (= $${binary:Version}) | nvidia-kernel-$${nvidia:Version}' \
+		-V'nvidia:kmod:source=nvidia-kernel$${nvidia:Legacy}-dkms (>= $${nvidia:Version}) | nvidia-kernel$${nvidia:Legacy}-source (>= $${nvidia:Version})' \
 		-Vnvidia:Models="`cat debian/control.models`"
 
 # Do not run dh_strip here.  The NVIDIA license says:

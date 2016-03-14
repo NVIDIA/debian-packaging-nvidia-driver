@@ -31,16 +31,14 @@ Depends:
  xserver-xorg-video-nvidia${nvidia:Legacy} (= ${binary:Version}),
  nvidia-vdpau-driver (= ${binary:Version}),
  ${nvidia-alternative} (= ${binary:Version}),
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version},
+ ${nvidia:kmod:binary},
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia-settings},
  libgl1-nvidia${nvidia:Legacy}-glx-i386 [amd64],
 Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+ ${nvidia:kmod:source},
 Provides:
  nvidia-glx-any,
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
@@ -74,12 +72,10 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  nvidia-vdpau-driver (>= ${nvidia:Version}),
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version},
+ ${nvidia:kmod:binary},
  ${nvidia-settings},
 Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+ ${nvidia:kmod:source},
 Provides:
  xserver-xorg-video-nvidia-any,
  ${nvidia:xorgProvides},
@@ -131,12 +127,10 @@ Depends:
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version},
+ ${nvidia:kmod:binary},
  libxvmcnvidia1,
 Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+ ${nvidia:kmod:source},
 Provides:
  libgl1-nvidia${nvidia:Legacy}-glx-i386 [i386],
  libgl1-nvidia-glx-any,
@@ -339,11 +333,9 @@ Depends:
  libvdpau1,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version},
+ ${nvidia:kmod:binary},
 Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+ ${nvidia:kmod:source},
 Enhances:
  libvdpau1,
 Provides:
@@ -418,11 +410,9 @@ Depends:
  libnvidia-ml1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version},
+ ${nvidia:kmod:binary},
 Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+ ${nvidia:kmod:source},
 Description: NVIDIA System Management Interface
  The NVIDIA System Management Interface "nvidia-smi" program provides
  system state and diagnostic information for the NVIDIA Tesla Visual
@@ -438,12 +428,10 @@ Depends:
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-kernel${nvidia:Legacy}-dkms (= ${binary:Version})
- | nvidia-kernel-${nvidia:Version},
+ ${nvidia:kmod:binary},
  nvidia-smi,
 Suggests:
- nvidia-kernel${nvidia:Legacy}-dkms (>= ${nvidia:Version})
- | nvidia-kernel${nvidia:Legacy}-source (>= ${nvidia:Version})
+ ${nvidia:kmod:source},
 Provides:
  libcuda1-i386 [i386],
 Conflicts:
