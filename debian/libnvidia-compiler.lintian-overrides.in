@@ -2,7 +2,6 @@
 [i386]: binary-file-built-without-LFS-support
 binary-has-unneeded-section
 shlib-with-executable-stack
-[i386]: shlib-with-non-pic-code
 spelling-error-in-binary
 hardening-no-bindnow
 hardening-no-fortify-functions
