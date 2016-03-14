@@ -4,6 +4,8 @@
 # See Bug#582748.
 export CCACHE_DISABLE := 1
 
+export NV_VERBOSE := 1
+
 CFLAGS = -Wall -g
 ifneq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
     CFLAGS += -O0
