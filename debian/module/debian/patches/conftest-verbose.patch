@@ -3,18 +3,35 @@ Description: dump the generated conftest headers
 
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -150,12 +150,18 @@ CONFTEST_HEADERS := $(obj)/conftest.h $(
+@@ -142,6 +142,14 @@ $(obj)/$(CORE_OBJS):
+ $(obj)/$(VERSION_HEADER):
+ 	@echo \#define NV_COMPILER \"`$(CC) -v 2>&1 | tail -n 1`\" > $@
+ 
++.PHONY: conftest-verbose
++conftest-verbose:
++	@echo 'CONFTEST=$(CONFTEST)'
++	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
++	@echo 'KBUILD_CFLAGS=$(KBUILD_CFLAGS)'
++	@echo 'LINUXINCLUDE=$(LINUXINCLUDE)'
++	@echo 'LDFLAGS=$(LDFLAGS)'
++
+ CONFTEST_COMPILE_TEST_HEADERS := $(obj)/conftest/macros.h \
+ $(obj)/conftest/functions.h $(obj)/conftest/symbols.h $(obj)/conftest/types.h \
+ $(obj)/conftest/generic.h
+@@ -150,12 +158,18 @@ CONFTEST_HEADERS := $(obj)/conftest.h $(
  $(obj)/conftest/patches.h
  
  $(obj)/conftest.h $(CONFTEST_COMPILE_TEST_HEADERS): conftest-compile-test
 +	@echo " CONFTEST $(notdir $@):"
 +	@cat $@
  
- conftest-compile-test: $(src)/conftest.sh
+-conftest-compile-test: $(src)/conftest.sh
++conftest-compile-test: $(src)/conftest.sh conftest-verbose
 +	@echo " CONFTEST: compile_tests"
  	@if ! $(CONFTEST) compile_tests $(COMPILE_TESTS); then exit 1; fi
  
- $(obj)/conftest/patches.h:
+-$(obj)/conftest/patches.h:
++$(obj)/conftest/patches.h: $(src)/conftest.sh conftest-verbose
 +	@echo " CONFTEST: patch_check"
  	@if ! $(CONFTEST) patch_check; then exit 1; fi
 +	@echo " CONFTEST $(notdir $@):"
@@ -22,15 +39,12 @@ Description: dump the generated conftest headers
  
  MODULE_GLUE_TARGETS = $(addprefix $(obj)/,$(MODULE_GLUE_OBJS))
  
-@@ -198,7 +204,13 @@ BUILD_SANITY_CHECKS = \
+@@ -197,8 +211,9 @@ BUILD_SANITY_CHECKS = \
+ 	xen_sanity_check \
  	preempt_rt_sanity_check
  
- build-sanity-checks:
-+	@echo 'CONFTEST=$(CONFTEST)'
-+	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
-+	@echo 'KBUILD_CFLAGS=$(KBUILD_CFLAGS)'
-+	@echo 'LINUXINCLUDE=$(LINUXINCLUDE)'
-+	@echo 'LDFLAGS=$(LDFLAGS)'
+-build-sanity-checks:
++build-sanity-checks: conftest-verbose
  	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
 +	 echo " CONFTEST: $$SANITY_CHECK"; \
  	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
@@ -38,7 +52,7 @@ Description: dump the generated conftest headers
  	 fi; \
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -2079,6 +2079,11 @@ case "$6" in
+@@ -2087,6 +2087,11 @@ case "$6" in
          #
          shift 5
  

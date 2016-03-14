@@ -1,6 +1,6 @@
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -165,7 +165,7 @@ $(obj)/conftest/patches.h:
+@@ -173,7 +173,7 @@ $(obj)/conftest/patches.h: $(src)/confte
  
  MODULE_GLUE_TARGETS = $(addprefix $(obj)/,$(MODULE_GLUE_OBJS))
  
@@ -9,19 +9,14 @@
  
  $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
  
-@@ -203,18 +203,22 @@ BUILD_SANITY_CHECKS = \
+@@ -211,13 +211,17 @@ BUILD_SANITY_CHECKS = \
  	xen_sanity_check \
  	preempt_rt_sanity_check
  
--build-sanity-checks:
+-build-sanity-checks: conftest-verbose
 +build-sanity-checks: $(obj)/conftest/sanity-checks.stamp
 +
-+$(obj)/conftest/sanity-checks.stamp:
- 	@echo 'CONFTEST=$(CONFTEST)'
- 	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
- 	@echo 'KBUILD_CFLAGS=$(KBUILD_CFLAGS)'
- 	@echo 'LINUXINCLUDE=$(LINUXINCLUDE)'
- 	@echo 'LDFLAGS=$(LDFLAGS)'
++$(obj)/conftest/sanity-checks.stamp: conftest-verbose
 +	@mkdir -p $(obj)/conftest
  	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
  	 echo " CONFTEST: $$SANITY_CHECK"; \
@@ -33,7 +28,7 @@
  
  #
  # BUILD_MODULE_RULE generates rules for building individual module targets.
-@@ -231,8 +235,10 @@ build-sanity-checks:
+@@ -234,8 +238,10 @@ build-sanity-checks: conftest-verbose
  # target below.
  #
  
@@ -45,7 +40,7 @@
  	@echo "NVIDIA: calling KBUILD..."
  	$$(MAKE) NV_MODULE_SUFFIX=$$(strip $(2)) $$(KBUILD_PARAMS) modules
  	@echo "NVIDIA: left KBUILD."
-@@ -340,3 +346,6 @@ clean:
+@@ -343,3 +349,6 @@ clean:
  
  print-module-filename:
  	@echo $(MODULE_OBJECT)
