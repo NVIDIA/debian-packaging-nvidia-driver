@@ -15,6 +15,7 @@ WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
 XORG_BOUND		?=
 LINUX_KMOD_TESTED	?=
+NVIDIA_LEGACY_CHECK	?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
 NVIDIA_ALTERNATIVE	?= nvidia$(legacy)-alternative
 ARCH_LIST		?= i386 amd64
@@ -240,6 +241,7 @@ override_dh_gencontrol:
 		-V'libcuda1=$(libcuda1)' \
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
+		-V'nvidia:legacy-check=$(NVIDIA_LEGACY_CHECK)' \
 		-V'nvidia-alternative=$(NVIDIA_ALTERNATIVE)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
 		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}' \
@@ -381,5 +383,5 @@ get-orig-source-pack/%: get-orig-source-files/%
 	mv get-orig-source/$(call get_tarball,$*) .
 
 .PHONY: get-orig-source
-get-orig-source: get-orig-source-pack/main
+get-orig-source: get-orig-source-pack/main $(foreach a,$(filter-out $(ARCH_LIST.main),$(ARCH_LIST)),get-orig-source-pack/$a)
 	rm -rf get-orig-source

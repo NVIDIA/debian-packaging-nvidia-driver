@@ -27,6 +27,7 @@ Section: non-free/x11
 Architecture: i386 amd64 armhf
 Pre-Depends:
  nvidia-installer-cleanup,
+ ${nvidia:legacy-check},
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
  libegl1-${nvidia} (= ${binary:Version}),
@@ -109,6 +110,7 @@ Section: non-free/x11
 Architecture: i386 amd64 armhf
 Pre-Depends:
  nvidia-installer-cleanup,
+ ${nvidia:legacy-check},
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
  ${nvidia-alternative} (= ${binary:Version}),
@@ -117,7 +119,7 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia}-driver (>= ${nvidia:Version}),
- ${nvidia}-vdpau-driver (>= ${nvidia:Version}),
+ nvidia-vdpau-driver (>= ${nvidia:Version}),
  ${nvidia:kmod:binary},
  ${nvidia-settings},
 Suggests:
@@ -145,6 +147,7 @@ Pre-Depends:
  debconf (>= 0.5) | debconf-2.0,
  pciutils,
  nvidia-installer-cleanup,
+ ${nvidia:legacy-check},
  ${misc:Pre-Depends}
 Depends:
  ${nvidia-alternative} (= ${binary:Version}),
@@ -280,6 +283,8 @@ Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
 Package: nvidia-alternative
 Architecture: i386 amd64 armhf
 Multi-Arch: foreign
+Pre-Depends:
+ ${nvidia:legacy-check},
 Depends:
  glx-alternative-nvidia (>= 0.5),
  nvidia-modprobe,
@@ -395,6 +400,7 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
+ ${nvidia:legacy-check},
  ${misc:Pre-Depends}
 Depends:
  libvdpau1,
@@ -471,6 +477,7 @@ Package: libcuda1
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
+ ${nvidia:legacy-check},
  ${misc:Pre-Depends}
 Depends:
  nvidia-support,
