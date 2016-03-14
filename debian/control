@@ -24,6 +24,7 @@ Architecture: i386 amd64
 Pre-Depends:
  dpkg (>= 1.15.7.2),
  nvidia-installer-cleanup,
+ ${nvidia:legacy-check},
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  libxvmcnvidia1 (= ${binary:Version}),
@@ -64,6 +65,7 @@ Section: non-free/x11
 Architecture: i386 amd64
 Pre-Depends:
  nvidia-installer-cleanup,
+ ${nvidia:legacy-check},
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx (= ${binary:Version}),
  ${nvidia-alternative} (= ${binary:Version}),
@@ -122,6 +124,7 @@ Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
+ ${nvidia:legacy-check},
  ${misc:Pre-Depends}
 Depends:
  ${nvidia-alternative},
@@ -229,6 +232,8 @@ Description: please switch to multiarch libgl1-nvidia${nvidia:Legacy}-glx:i386
 Package: nvidia-alternative
 Architecture: i386 amd64
 Multi-Arch: foreign
+Pre-Depends:
+ ${nvidia:legacy-check},
 Depends:
  glx-alternative-nvidia (>= 0.2),
  libgl1-nvidia-alternatives (>= 275.09.07-4),
@@ -328,6 +333,7 @@ Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
+ ${nvidia:legacy-check},
  ${misc:Pre-Depends}
 Depends:
  libvdpau1,
@@ -426,6 +432,7 @@ Package: libcuda1
 Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
+ ${nvidia:legacy-check},
  ${misc:Pre-Depends}
 Depends:
  nvidia-support,
