@@ -283,7 +283,7 @@ Package: nvidia-alternative
 Architecture: i386 amd64 armhf ppc64el
 Multi-Arch: foreign
 Pre-Depends:
- ${nvidia-legacy-check} [!ppc64el],
+ ${nvidia-legacy-check},
 Depends:
  glx-alternative-nvidia (>= 0.7) [!ppc64el],
  ${misc:Depends}
@@ -485,7 +485,7 @@ Package: libcuda1
 Architecture: i386 amd64 armhf ppc64el
 Multi-Arch: same
 Pre-Depends:
- ${nvidia-legacy-check} [!ppc64el],
+ ${nvidia-legacy-check},
  ${misc:Pre-Depends}
 Depends:
  nvidia-support,
