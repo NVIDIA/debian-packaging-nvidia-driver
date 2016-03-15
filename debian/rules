@@ -39,7 +39,7 @@ RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
 			$(patsubst debian/nvidia-alternative%,debian/$(NVIDIA_ALTERNATIVE)%,\
 			$(patsubst debian/xserver-xorg-video-nvidia%,debian/xserver-xorg-video-nvidia$(legacy)%,\
 				$(RENAME_CONTROL))))))
-TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in debian/detect/*.in)
+TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in debian/module/debian/patches/*.in debian/detect/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
