@@ -13,6 +13,11 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * Use nvidia:kmod:binary and nvidia:kmod:source substvars.
   * Drop support for backporting to squeeze (EoL).
   * Update lintian overrides.
+  * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 340.xx onwards.
+  * Pass only the kernel version via KERNEL_UNAME and let the module build
+    system figure out the paths.
+  * Use NVIDIA's conftest.sh script to determine settings during module build
+    instead of our manually maintained conftest.h header.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 13:04:27 +0100
 
