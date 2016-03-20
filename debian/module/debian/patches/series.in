@@ -1,3 +1,4 @@
+separate-makefile-kbuild.patch
 KERNEL_UNAME.patch
 modernize-conftest.patch
 use-kbuild-compiler.patch

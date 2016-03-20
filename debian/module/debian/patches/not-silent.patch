@@ -1,9 +1,9 @@
 Author: Andreas Beckmann <anbe@debian.org>
 Description: make silent commands in NVIDIA's Makefile.kbuild verbose
 
---- a/Kbuild
-+++ b/Kbuild
-@@ -195,10 +195,10 @@ COMPILE_TESTS = \
+--- a/Makefile
++++ b/Makefile
+@@ -214,20 +214,20 @@ COMPILE_TESTS = \
  #
  
  $(obj)/$(CORE_OBJS):
@@ -14,9 +14,21 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
 -	@echo \#define NV_COMPILER \"`$(CC) -v 2>&1 | tail -n 1`\" > $@
 +	$(NVQ)echo \#define NV_COMPILER \"`$(CC) -v 2>&1 | tail -n 1`\" > $@
  
- .PHONY: conftest-verbose
- conftest-verbose:
-@@ -249,20 +249,20 @@ KBUILD_PARAMS += ARCH=$(ARCH)
+ $(obj)/conftest.h: $(src)/conftest.sh conftest-verbose
+ 	@echo " CONFTEST: compile_tests"
+-	@if ! $(CONFTEST) compile_tests $(COMPILE_TESTS); then exit 1; fi
++	@$(CONFTEST) compile_tests $(COMPILE_TESTS)
+ 	@echo " CONFTEST $(notdir $@):"
+ 	@cat $@
+ 
+ $(obj)/patches.h: $(src)/conftest.sh conftest-verbose
+ 	@echo " CONFTEST: patch_check"
+-	@if ! $(CONFTEST) patch_check; then exit 1; fi
++	@$(CONFTEST) patch_check
+ 	@echo " CONFTEST $(notdir $@):"
+ 	@cat $@
+ 
+@@ -264,20 +264,20 @@ KBUILD_PARAMS += ARCH=$(ARCH)
  .PHONY: suser-sanity-check rmmod-sanity-check build-sanity-checks
  
  suser-sanity-check:
@@ -43,9 +55,9 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  
  #
  # Build the NVIDIA kernel module using Linux KBUILD. This target is used by
-@@ -271,9 +271,9 @@ build-sanity-checks: conftest-verbose
- 
- module: build-sanity-checks
+@@ -288,9 +288,9 @@ module: build-sanity-checks
+ module: modules
+ modules:
  	@echo "NVIDIA: calling KBUILD..."
 -	$(MAKE) $(KBUILD_PARAMS) modules
 +	$(NVQ)$(MAKE) $(KBUILD_PARAMS) modules
@@ -55,7 +67,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	 echo "$(MODULE_OBJECT) failed to build!"; \
  	 exit 1; \
  	fi
-@@ -284,7 +284,7 @@ module: build-sanity-checks
+@@ -301,7 +301,7 @@ modules:
  #
  
  module-install: suser-sanity-check module
@@ -64,7 +76,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	install -m 0664 -o root -g root $(MODULE_OBJECT) $(MODULE_ROOT)/video; \
  	PATH="$(PATH):/bin:/sbin" depmod -ae;
  
-@@ -294,7 +294,7 @@ module-install: suser-sanity-check modul
+@@ -311,7 +311,7 @@ module-install: suser-sanity-check modul
  #
  
  package-install: module-install rmmod-sanity-check
@@ -73,7 +85,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	echo "$(MODULE_OBJECT) installed successfully.";
  
  #
-@@ -306,19 +306,19 @@ package-install: module-install rmmod-sa
+@@ -323,19 +323,19 @@ package-install: module-install rmmod-sa
  #
  
  $(KERNEL_GLUE_NAME): module

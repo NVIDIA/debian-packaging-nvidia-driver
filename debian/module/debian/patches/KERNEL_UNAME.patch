@@ -1,9 +1,9 @@
 Author: Andreas Beckmann <anbe@debian.org>
 Description: allow usage of KERNEL_UNAME as in 340.xx onwards
 
---- a/Kbuild
-+++ b/Kbuild
-@@ -80,13 +80,13 @@ obj ?= .
+--- a/Makefile
++++ b/Makefile
+@@ -83,13 +83,13 @@ install: package-install
  # SYSSRC directive; this new directive replaces NVIDIA's SYSINCLUDE.
  #
  
@@ -19,3 +19,11 @@ Description: allow usage of KERNEL_UNAME as in 340.xx onwards
   KERNEL_SOURCES := $(shell test -d $(KERNEL_MODLIB)/source && echo $(KERNEL_MODLIB)/source || echo $(KERNEL_MODLIB)/build)
   KERNEL_HEADERS := $(KERNEL_SOURCES)/include
  endif
+@@ -124,7 +124,6 @@ endif
+ 
+ CONFTEST := /bin/sh $(src)/conftest.sh "$(CC)" "$(HOST_CC)" $(ARCH) $(KERNEL_SOURCES) $(KERNEL_OUTPUT)
+ 
+-KERNEL_UNAME ?= $(shell $(CONFTEST) get_uname)
+ MODULE_ROOT := /lib/modules/$(KERNEL_UNAME)/kernel/drivers
+ 
+ #

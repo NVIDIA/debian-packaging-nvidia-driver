@@ -1,13 +1,12 @@
 Author: Andreas Beckmann <anbe@debian.org>
 Description: dump the generated conftest headers
 
---- a/Kbuild
-+++ b/Kbuild
-@@ -200,11 +200,26 @@ $(obj)/$(CORE_OBJS):
- $(obj)/$(VERSION_HEADER):
- 	@echo \#define NV_COMPILER \"`$(CC) -v 2>&1 | tail -n 1`\" > $@
+--- a/Makefile
++++ b/Makefile
+@@ -139,6 +139,15 @@ TOPDIR ?= $(KERNEL_SOURCES)
  
--$(obj)/conftest.h: $(src)/conftest.sh
+ MODULE_OBJECT := $(MODULE_NAME).ko
+ 
 +.PHONY: conftest-verbose
 +conftest-verbose:
 +	@echo 'CONFTEST=$(CONFTEST)'
@@ -17,6 +16,14 @@ Description: dump the generated conftest headers
 +	@echo 'LDFLAGS=$(LDFLAGS)'
 +	@echo 'ARCH=$(ARCH)'
 +
+ ifneq ($(KERNELRELEASE),)
+ # Begin of Kbuild section
+ 
+@@ -210,11 +219,17 @@ $(obj)/$(CORE_OBJS):
+ $(obj)/$(VERSION_HEADER):
+ 	@echo \#define NV_COMPILER \"`$(CC) -v 2>&1 | tail -n 1`\" > $@
+ 
+-$(obj)/conftest.h: $(src)/conftest.sh
 +$(obj)/conftest.h: $(src)/conftest.sh conftest-verbose
 +	@echo " CONFTEST: compile_tests"
  	@if ! $(CONFTEST) compile_tests $(COMPILE_TESTS); then exit 1; fi
@@ -32,7 +39,7 @@ Description: dump the generated conftest headers
  
  RESMAN_GLUE_TARGETS = $(addprefix $(obj)/,$(RESMAN_GLUE_OBJS))
  
-@@ -240,10 +255,14 @@ suser-sanity-check:
+@@ -254,10 +269,14 @@ suser-sanity-check:
  rmmod-sanity-check:
  	@if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
  

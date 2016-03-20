@@ -1,0 +1,77 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: separate Makefile/Kbuild specific parts within Makefile
+
+--- a/Makefile
++++ b/Makefile
+@@ -27,9 +27,6 @@
+ # Christian Zander (zander@mail.minion.de) (enhancements)
+ #
+ 
+-all: install
+-install: package-install
+-
+ #
+ # The NVIDIA kernel module base name and static file names. KBUILD will go
+ # ahead and append ".o" or ".ko" to form the final module name.
+@@ -74,6 +71,12 @@ EXTRA_CFLAGS += -Wall -MD $(DEFINES) $(I
+ src ?= .
+ obj ?= .
+ 
++ifeq ($(KERNELRELEASE),)
++# Begin of Makefile section
++
++all: modules
++install: package-install
++
+ #
+ # Determine location of the Linux kernel source tree. Allow users to override
+ # the default (i.e. automatically determined) kernel source location with the
+@@ -106,6 +109,11 @@ else
+  endif
+ endif
+ 
++KBUILD_PARAMS	+= KERNEL_SOURCES=$(KERNEL_SOURCES) KERNEL_OUTPUT=$(KERNEL_OUTPUT)
++
++# End of Makefile section
++endif
++
+ CC ?= cc
+ HOST_CC ?= $(CC)
+ LD ?= ld
+@@ -132,6 +140,9 @@ TOPDIR ?= $(KERNEL_SOURCES)
+ 
+ MODULE_OBJECT := $(MODULE_NAME).ko
+ 
++ifneq ($(KERNELRELEASE),)
++# Begin of Kbuild section
++
+ #
+ # NVIDIA specific CFLAGS and #define's.
+ #
+@@ -212,6 +223,10 @@ $(RESMAN_GLUE_TARGETS): $(obj)/conftest.
+ 
+ $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
+ 
++# End of Kbuild section
++else
++# Begin of Makefile section
++
+ #
+ # KBUILD build parameters.
+ #
+@@ -252,6 +267,8 @@ build-sanity-checks:
+ #
+ 
+ module: build-sanity-checks
++module: modules
++modules:
+ 	@echo "NVIDIA: calling KBUILD..."; \
+ 	 $(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules; \
+ 	echo "NVIDIA: left KBUILD."; \
+@@ -309,3 +326,6 @@ clean:
+ 
+ print-module-filename:
+ 	@echo $(MODULE_OBJECT)
++
++# End of Makefile section
++endif

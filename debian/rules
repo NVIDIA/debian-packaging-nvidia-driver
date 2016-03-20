@@ -154,7 +154,7 @@ build-kernel-source-tree: install-into-tmp
 	# We only want Kbuild.
 	rm -f $(module_source)/makefile
 	rm -f $(module_source)/Makefile.nvidia
-	mv $(module_source)/Makefile.kbuild $(module_source)/Kbuild
+	mv $(module_source)/Makefile.kbuild $(module_source)/Makefile
 
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
@@ -163,7 +163,6 @@ build-kernel-source-tree: install-into-tmp
 
 	# Install a debian/ tree.
 	cp -a debian/module/debian $(module_source)/
-	cp -a debian/module/Makefile $(module_source)/
 	cp -a debian/copyright $(module_source)/debian/
 	cp -a debian/bug-script $(module_source)/debian/
 	cp -a debian/bug-control $(module_source)/debian/

@@ -6,8 +6,8 @@ Description: avoid linking the kernel module with ld.gold
  ld.bfd nor ld.gold, but we are not supporting lenny backports anyway.
 Bug-Debian: http://bugs.debian.org/626279
 
---- a/Kbuild
-+++ b/Kbuild
+--- a/Makefile
++++ b/Makefile
 @@ -27,6 +27,9 @@
  # Christian Zander (zander@mail.minion.de) (enhancements)
  #
@@ -15,6 +15,6 @@ Bug-Debian: http://bugs.debian.org/626279
 +# avoid ld.gold, see #626279
 +LD=ld.bfd
 +
- all: install
- install: package-install
- 
+ #
+ # The NVIDIA kernel module base name and static file names. KBUILD will go
+ # ahead and append ".o" or ".ko" to form the final module name.

@@ -5,12 +5,12 @@ Description: let Kbuild set the compiler version
  the kernel itself. Remove the CC parameter from upstream's Makefile's make
  invocation.
 
---- a/Kbuild
-+++ b/Kbuild
-@@ -252,10 +252,10 @@ build-sanity-checks:
- #
- 
+--- a/Makefile
++++ b/Makefile
+@@ -268,10 +268,10 @@ build-sanity-checks:
  module: build-sanity-checks
+ module: modules
+ modules:
 -	@echo "NVIDIA: calling KBUILD..."; \
 -	 $(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules; \
 -	echo "NVIDIA: left KBUILD."; \
