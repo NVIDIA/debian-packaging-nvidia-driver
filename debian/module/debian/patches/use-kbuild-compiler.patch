@@ -7,7 +7,7 @@ Description: let Kbuild set the compiler version
 
 --- a/Makefile
 +++ b/Makefile
-@@ -268,10 +268,10 @@ build-sanity-checks:
+@@ -274,10 +274,10 @@ ifeq ($(KERNELRELEASE),)
  module: build-sanity-checks
  module: modules
  modules:

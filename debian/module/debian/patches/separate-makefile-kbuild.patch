@@ -59,7 +59,26 @@ Description: separate Makefile/Kbuild specific parts within Makefile
  #
  # KBUILD build parameters.
  #
-@@ -252,6 +267,8 @@ build-sanity-checks:
+@@ -228,6 +243,9 @@ KBUILD_PARAMS += KBUILD_VERBOSE=$(NV_VER
+ KBUILD_PARAMS += -C $(KERNEL_SOURCES) SUBDIRS=$(PWD)
+ KBUILD_PARAMS += ARCH=$(ARCH)
+ 
++# End of Makefile section
++endif
++
+ #
+ # NVIDIA sanity checks.
+ #
+@@ -246,12 +264,17 @@ build-sanity-checks:
+ 	@if ! $(CONFTEST) nvidiafb_sanity_check full_output; then exit 1; fi
+ 	@if ! $(CONFTEST) xen_sanity_check 		full_output; then exit 1; fi
+ 
++ifeq ($(KERNELRELEASE),)
++# Begin of Makefile section
++
+ #
+ # Build the NVIDIA kernel module using Linux KBUILD. This target is used by
+ # the "package-install" target below.
  #
  
  module: build-sanity-checks
@@ -68,7 +87,7 @@ Description: separate Makefile/Kbuild specific parts within Makefile
  	@echo "NVIDIA: calling KBUILD..."; \
  	 $(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules; \
  	echo "NVIDIA: left KBUILD."; \
-@@ -309,3 +326,6 @@ clean:
+@@ -309,3 +332,6 @@ clean:
  
  print-module-filename:
  	@echo $(MODULE_OBJECT)

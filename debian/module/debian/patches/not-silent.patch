@@ -28,7 +28,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	@echo " CONFTEST $(notdir $@):"
  	@cat $@
  
-@@ -264,20 +264,20 @@ KBUILD_PARAMS += ARCH=$(ARCH)
+@@ -268,10 +268,10 @@ endif
  .PHONY: suser-sanity-check rmmod-sanity-check build-sanity-checks
  
  suser-sanity-check:
@@ -39,23 +39,9 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
 -	@if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
 +	$(NVQ)$(CONFTEST) rmmod_sanity_check
  
- build-sanity-checks: conftest-verbose
- 	@echo " CONFTEST: cc_version_check"
--	@if ! $(CONFTEST) cc_version_check 		full_output; then exit 1; fi
-+	@$(CONFTEST) cc_version_check 		full_output
- 	@echo " CONFTEST: rivafb_sanity_check"
--	@if ! $(CONFTEST) rivafb_sanity_check 	full_output; then exit 1; fi
-+	@$(CONFTEST) rivafb_sanity_check 	full_output
- 	@echo " CONFTEST: nvidiafb_sanity_check"
--	@if ! $(CONFTEST) nvidiafb_sanity_check full_output; then exit 1; fi
-+	@$(CONFTEST) nvidiafb_sanity_check	full_output
- 	@echo " CONFTEST: xen_sanity_check"
--	@if ! $(CONFTEST) xen_sanity_check 		full_output; then exit 1; fi
-+	@$(CONFTEST) xen_sanity_check 		full_output
- 
- #
- # Build the NVIDIA kernel module using Linux KBUILD. This target is used by
-@@ -288,9 +288,9 @@ module: build-sanity-checks
+ BUILD_SANITY_CHECKS = \
+ 	cc_version_check \
+@@ -302,9 +302,9 @@ ifeq ($(KERNELRELEASE),)
  module: modules
  modules:
  	@echo "NVIDIA: calling KBUILD..."
@@ -67,7 +53,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	 echo "$(MODULE_OBJECT) failed to build!"; \
  	 exit 1; \
  	fi
-@@ -301,7 +301,7 @@ modules:
+@@ -315,7 +315,7 @@ modules:
  #
  
  module-install: suser-sanity-check module
@@ -76,7 +62,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	install -m 0664 -o root -g root $(MODULE_OBJECT) $(MODULE_ROOT)/video; \
  	PATH="$(PATH):/bin:/sbin" depmod -ae;
  
-@@ -311,7 +311,7 @@ module-install: suser-sanity-check modul
+@@ -325,7 +325,7 @@ module-install: suser-sanity-check modul
  #
  
  package-install: module-install rmmod-sanity-check
@@ -85,7 +71,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	echo "$(MODULE_OBJECT) installed successfully.";
  
  #
-@@ -323,19 +323,19 @@ package-install: module-install rmmod-sa
+@@ -337,19 +337,19 @@ package-install: module-install rmmod-sa
  #
  
  $(KERNEL_GLUE_NAME): module

@@ -1,0 +1,21 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: run conftest.sh from within Kbuild
+
+--- a/Makefile
++++ b/Makefile
+@@ -233,6 +233,7 @@ $(obj)/patches.h: $(src)/conftest.sh con
+ 
+ RESMAN_GLUE_TARGETS = $(addprefix $(obj)/,$(RESMAN_GLUE_OBJS))
+ 
++$(RESMAN_GLUE_TARGETS): build-sanity-checks
+ $(RESMAN_GLUE_TARGETS): $(obj)/conftest.h $(obj)/patches.h
+ 
+ $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
+@@ -296,7 +297,6 @@ ifeq ($(KERNELRELEASE),)
+ # the "package-install" target below.
+ #
+ 
+-module: build-sanity-checks
+ module: modules
+ modules:
+ 	@echo "NVIDIA: calling KBUILD..."

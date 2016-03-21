@@ -39,22 +39,17 @@ Description: dump the generated conftest headers
  
  RESMAN_GLUE_TARGETS = $(addprefix $(obj)/,$(RESMAN_GLUE_OBJS))
  
-@@ -254,10 +269,14 @@ suser-sanity-check:
- rmmod-sanity-check:
- 	@if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
+@@ -265,8 +280,9 @@ BUILD_SANITY_CHECKS = \
+ 
+ SKIP_SANITY_CHECKS	 =
  
 -build-sanity-checks:
 +build-sanity-checks: conftest-verbose
-+	@echo " CONFTEST: cc_version_check"
- 	@if ! $(CONFTEST) cc_version_check 		full_output; then exit 1; fi
-+	@echo " CONFTEST: rivafb_sanity_check"
- 	@if ! $(CONFTEST) rivafb_sanity_check 	full_output; then exit 1; fi
-+	@echo " CONFTEST: nvidiafb_sanity_check"
- 	@if ! $(CONFTEST) nvidiafb_sanity_check full_output; then exit 1; fi
-+	@echo " CONFTEST: xen_sanity_check"
- 	@if ! $(CONFTEST) xen_sanity_check 		full_output; then exit 1; fi
- 
- #
+ 	@for SANITY_CHECK in $(filter-out $(SKIP_SANITY_CHECKS),$(BUILD_SANITY_CHECKS)); do \
++	 echo " CONFTEST: $$SANITY_CHECK"; \
+ 	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
+ 	 exit 1; \
+ 	 fi; \
 --- a/conftest.sh
 +++ b/conftest.sh
 @@ -2098,6 +2098,11 @@ case "$6" in
