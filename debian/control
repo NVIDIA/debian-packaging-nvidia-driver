@@ -57,6 +57,8 @@ Description: NVIDIA metapackage${nvidia:LegacyDesc}
  .
  See /usr/share/doc/nvidia-glx${nvidia:Legacy}/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+ .
+ Building the kernel module has been tested up to Linux ${nvidia:kmod:tested:Linux}.
 
 Package: xserver-xorg-video-nvidia
 Section: non-free/x11
@@ -283,6 +285,8 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  .
  See /usr/share/doc/nvidia-kernel${nvidia:Legacy}-dkms/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+ .
+ Building the kernel module has been tested up to Linux ${nvidia:kmod:tested:Linux}.
 
 Package: nvidia-kernel-source
 Section: non-free/kernel
@@ -316,6 +320,8 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  .
  See /usr/share/doc/nvidia-kernel${nvidia:Legacy}-source/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+ .
+ Building the kernel module has been tested up to Linux ${nvidia:kmod:tested:Linux}.
 
 Package: nvidia-vdpau-driver
 Section: non-free/video
