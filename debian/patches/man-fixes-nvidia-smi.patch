@@ -106,13 +106,11 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  Please see the relevant section of the driver README file.
  
  .PP
-@@ -1428,8 +1428,8 @@ Query UUID and persistence mode of all G
- .SS "nvidia\-smi -q -d ECC,POWER -i 0 -l 10 -f out.log"
+@@ -1429,7 +1429,7 @@ Query UUID and persistence mode of all G
  Query ECC errors and power consumption for GPU 0 at a frequency of 10 seconds, indefinitely, and record to the file out.log.
  .SS 
--"nvidia\-smi -c 2 -i GPU\-b2f5f1b745e3d23d\-65a3a26d-097db358\-7303e0b6\-149642ff3d219f8587cde3a8"
+ "nvidia\-smi -c 1 -i GPU\-b2f5f1b745e3d23d\-65a3a26d-097db358\-7303e0b6\-149642ff3d219f8587cde3a8"
 -Set the compute mode to "PROHIBITED" for GPU with UUID "GPU\-b2f5f1b745e3d23d\-65a3a26d-097db358\-7303e0b6\-149642ff3d219f8587cde3a8".
-+"nvidia\-smi -c 1 -i GPU-b2f5f1b745e3d23d-65a3a26d-097db358-7303e0b6-149642ff3d219f8587cde3a8"
 +Set the compute mode to "PROHIBITED" for GPU with UUID "GPU-b2f5f1b745e3d23d-65a3a26d-097db358-7303e0b6-149642ff3d219f8587cde3a8".
  .SS "nvidia\-smi -q -u -x --dtd"
  Query attributes for all Units once, and display in XML format with embedded DTD to stdout.

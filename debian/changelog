@@ -50,6 +50,7 @@ nvidia-graphics-drivers (364.12-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids
   * Update watch file to point to 364 release
   * Update symbols files
+  * Refresh man-fixes-nvidia-smi.patch (fails to apply)
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 21 Mar 2016 20:06:03 +0000
 
