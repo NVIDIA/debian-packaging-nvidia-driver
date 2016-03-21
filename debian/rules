@@ -18,17 +18,22 @@ NVIDIA_LEGACY_CHECK	?=
 NVIDIA_SETTINGS		?= nvidia-settings
 NVIDIA_ALTERNATIVE	?= nvidia$(legacy)-alternative
 ARCH_LIST		?= i386 amd64
+ARCH_DEPS_i386		?=
+
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
 nvidia			 = nvidia$(legacy)
+libcuda1		 = lib$(if $(legacy),$(nvidia)-)cuda1
+module			 = nvidia
+current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
 
 # system libdir
-libdir			 = usr/lib/$(DEB_HOST_MULTIARCH)
-# nvidia specific directory below $(libdir)
-nvidia_private		 = nvidia$(if $(legacy),/$(patsubst -%,%,$(legacy)),/current)
+libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
+# nvidia version specific directory below $(libdir)
+nvidia_private		 = nvidia/$(current)
 
 CONTROL_PREFIXES = nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
 ALL_CONTROL	:= $(wildcard $(patsubst %,debian/%*,$(CONTROL_PREFIXES)))
@@ -224,6 +229,8 @@ override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' \
 		-V'nvidia:xorgDepends=$(xorg_depends)' \
 		-V'nvidia:xorgProvides=$(xorg_provides)' \
+		-V'nvidia=$(nvidia)' \
+		-V'libcuda1=$(libcuda1)' \
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
 		-V'nvidia:legacy-check=$(NVIDIA_LEGACY_CHECK)' \
@@ -258,7 +265,9 @@ override_dh_builddeb:
 	perl -p \
 	-e 's{#VERSION#}{$(version)}g;' \
 	-e 's{#MAJOR#}{$(version_major)}g;' \
+	-e 's{#NVIDIA#}{$(nvidia)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
+	-e 's{#MODULE#}{$(module)}g;' \
 	-e 's{#NVIDIA_ALTERNATIVE#}{$(NVIDIA_ALTERNATIVE)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
