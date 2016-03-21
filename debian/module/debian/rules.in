@@ -47,6 +47,7 @@ build-stamp: configure-stamp
 	$(MAKE) KERNEL_UNAME=$(KVERS) modules
 	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
 	test "#MODULE#" = "nvidia" || mv nvidia-modeset.ko #MODULE#-modeset.ko
+	test "#MODULE#" = "nvidia" || mv nvidia-drm.ko #MODULE#-drm.ko
 #HAS_UVM#	test "#MODULE#" = "nvidia" || mv nvidia-uvm.ko #MODULE#-uvm.ko
 	touch $@
 

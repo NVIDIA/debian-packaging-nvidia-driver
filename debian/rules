@@ -35,6 +35,7 @@ watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?
 
 # this needs the internal names (i.e. upstream's names, not our renamed files)
 unload_modules		 =
+unload_modules		+= nvidia-drm
 unload_modules		+= nvidia-modeset
 unload_modules		+= $(if $(has_uvm),nvidia-uvm)
 unload_modules		+= nvidia

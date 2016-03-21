@@ -51,6 +51,10 @@ nvidia-graphics-drivers (364.12-1) UNRELEASED; urgency=medium
   * Update watch file to point to 364 release
   * Update symbols files
   * Refresh man-fixes-nvidia-smi.patch (fails to apply)
+  * Add new DRM kernel module to DKMS infrastructure and modprobe rules.
+    This new module is distributed without any binary blos. For now modeset is
+    disabled by default, and it can be enabled manually via:
+      sudo modprobe -r nvidia-drm; sudo modprobe nvidia-drm modeset=1
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 21 Mar 2016 20:06:03 +0000
 
