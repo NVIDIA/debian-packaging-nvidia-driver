@@ -1,3 +1,55 @@
+nvidia-graphics-drivers (364.12-1) UNRELEASED; urgency=medium
+
+  * New upstream release 364.12 (2016-03-21).
+    - Added support for the following GPUs: GeForce 920MX, GeForce 930MX
+    - Fixed a regression that caused GPU exceptions and incorrect rendering
+      when using pbuffers with EGLDevice.
+    - Fixed a bug that caused nvidia-settings to crash when pairing glasses
+      with the 3D Vision Pro transmitter on some systems.
+    - Fixed a bug that caused installer manifest entries for some 32-bit
+      compatibility libraries to be duplicated in the installer package.
+    - Fixed a regression that caused the HSync and VSync mode timing polarity
+      flags to be inverted.
+    - Changed the default OpenGL installation type to use the GLVND GLX
+      client libraries rather than the legacy non-GLVND libraries.
+    - Added initial support for Direct Rendering Manager Kernel
+      Modesetting (DRM KMS).  See the DRM KMS section of the README for
+      details.
+    - Added a new kernel module, nvidia-drm.ko, which registers as a DRM
+      driver with both PRIME and DRM KMS support.
+    - Added support for the following EGL extensions:
+        EGL_EXT_platform_wayland
+      to enable Wayland applications to run on NVIDIA's EGL implementation,
+        EGL_WL_bind_wayland_display
+      to enable Wayland compositors to run on NVIDIA's EGL implementation, and
+        EGL_EXT_device_drm
+        EGL_EXT_output_drm
+        EGL_EXT_stream_consumer_egloutput
+      to enable Mir and Wayland compositors to display their content
+      through EGLDevice, EGLOutput, and EGLstreams.
+    - Added a Wayland platform library, libnvidia-egl-wayland.so, to allow
+      Wayland compositors that support EGLDevice, EGLOutput, and EGLstreams
+      to share EGL buffers with Wayland applications.
+    - Fixed a bug that could cause incorrect frame rate reporting on Quadro
+      Sync configurations with multiple GPUs.
+    - Added support for the Vulkan API version 1.0.
+    - Improved X colormap precision from 8 significant bits to 11 on GeForce
+      GPUs.  Quadro GPUs already used 11 bits of precision.
+    - Added a new RandR property, CscMatrix, which specifies a 3x4 color-space
+      conversion matrix.  The matrix is applied after the X colormap and before
+      the gamma ramp.  This property is available on GF119 and newer GPUs.
+    - Improved handling of the X gamma ramp on GF119 and newer GPUs.  On these
+      GPUs, the RandR gamma ramp is always 1024 entries and now applies to the
+      cursor and VDPAU or workstation overlays in addition to the X root window.
+    - Reworked how the NVIDIA driver registers with the Linux
+      kernel's DRM subsystem for PRIME support.  As a result, PRIME
+      support requires Linux kernel version 3.13 or newer (previously,
+      PRIME support required Linux kernel version 3.10 or newer).
+    - Improved the interactivity of applications that use a hardware cursor
+      while G-SYNC is active.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 21 Mar 2016 20:06:03 +0000
+
 nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
