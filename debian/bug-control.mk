@@ -50,5 +50,7 @@ define PACKAGE_STATUS
 	xserver-xorg-video-nouveau
 	ia32-libs
 	make
+	libopencl1
+	opencl-icd
 endef
 
