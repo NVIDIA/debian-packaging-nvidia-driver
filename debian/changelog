@@ -47,6 +47,7 @@ nvidia-graphics-drivers (364.12-1) UNRELEASED; urgency=medium
       PRIME support required Linux kernel version 3.10 or newer).
     - Improved the interactivity of applications that use a hardware cursor
       while G-SYNC is active.
+  * Update nv-readme.ids
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 21 Mar 2016 20:06:03 +0000
 
