@@ -469,6 +469,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glDrawTransformFeedbackNV@Base 361.28
  glDrawTransformFeedbackStream@Base 361.28
  glDrawTransformFeedbackStreamInstanced@Base 361.28
+ glDrawVkImageNV@Base 364.12
  glEdgeFlag@Base 361.28
  glEdgeFlagFormatNV@Base 361.28
  glEdgeFlagPointer@Base 361.28
@@ -977,6 +978,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGetVideoivNV@Base 361.28
  glGetVideoui64vNV@Base 361.28
  glGetVideouivNV@Base 361.28
+ glGetVkProcAddrNV@Base 364.12
  glGetnColorTable@Base 361.28
  glGetnColorTableARB@Base 361.28
  glGetnCompressedTexImage@Base 361.28
@@ -1132,6 +1134,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glLoadTransposeMatrixf@Base 361.28
  glLoadTransposeMatrixfARB@Base 361.28
  glLockArraysEXT@Base 361.28
+ glLogTokenFlushNVX@Base 364.12
  glLogicOp@Base 361.28
  glMakeBufferNonResidentNV@Base 361.28
  glMakeBufferResidentNV@Base 361.28
@@ -1822,6 +1825,8 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glShaderSource@Base 361.28
  glShaderSourceARB@Base 361.28
  glShaderStorageBlockBinding@Base 361.28
+ glSignalVkFenceNV@Base 364.12
+ glSignalVkSemaphoreNV@Base 364.12
  glStateCaptureNV@Base 361.28
  glStencilFillPathInstancedNV@Base 361.28
  glStencilFillPathNV@Base 361.28
@@ -2465,6 +2470,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glViewportSwizzleNV@Base 361.28
  glWaitSync@Base 361.28
  glWaitSyncValueuiNVX@Base 361.28
+ glWaitVkSemaphoreNV@Base 364.12
  glWeightPathsNV@Base 361.28
  glWeightPointerOES@Base 361.28
  glWindowBackBufferHintAutodesk@Base 361.28
@@ -2596,3 +2602,4 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glXWaitX@Base 361.28
  glcuR0d4nX@Base 361.18
  gldbc3cfnX@Base 361.28
+ vk_icdGetInstanceProcAddr@Base 364.12

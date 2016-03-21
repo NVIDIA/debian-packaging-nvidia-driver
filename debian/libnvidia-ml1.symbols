@@ -2,7 +2,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceClearAccountingPids@Base 319
  nvmlDeviceClearCpuAffinity@Base 340
  nvmlDeviceClearEccErrorCounts@Base 270
- nvmlDeviceDiscoverGpus@Base 361.28
+#MISSING: 364.12# nvmlDeviceDiscoverGpus@Base 361.28
  nvmlDeviceFreezeNvLinkUtilizationCounter@Base 361.18
  nvmlDeviceGetAPIRestriction@Base 319.60
  nvmlDeviceGetAccountingBufferSize@Base 319
@@ -90,12 +90,12 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetUtilizationRates@Base 270
  nvmlDeviceGetVbiosVersion@Base 285
  nvmlDeviceGetViolationStatus@Base 340
- nvmlDeviceGetVirtualizationMode@Base 361.28
- nvmlDeviceModifyDrainState@Base 361.28
+#MISSING: 364.12# nvmlDeviceGetVirtualizationMode@Base 361.28
+#MISSING: 364.12# nvmlDeviceModifyDrainState@Base 361.28
  nvmlDeviceOnSameBoard@Base 295
- nvmlDeviceQueryDrainState@Base 361.28
+#MISSING: 364.12# nvmlDeviceQueryDrainState@Base 361.28
  nvmlDeviceRegisterEvents@Base 285
- nvmlDeviceRemoveGpu@Base 361.28
+#MISSING: 364.12# nvmlDeviceRemoveGpu@Base 361.28
  nvmlDeviceResetApplicationsClocks@Base 304.30
  nvmlDeviceResetNvLinkUtilizationCounter@Base 361.18
  nvmlDeviceSetAPIRestriction@Base 319.60
@@ -111,7 +111,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceSetNvLinkUtilizationControl@Base 361.18
  nvmlDeviceSetPersistenceMode@Base 270
  nvmlDeviceSetPowerManagementLimit@Base 304
- nvmlDeviceSetVirtualizationMode@Base 361.28
+#MISSING: 364.12# nvmlDeviceSetVirtualizationMode@Base 361.28
  nvmlDeviceValidateInforom@Base 304
  nvmlErrorString@Base 280
 #MISSING: 295# nvmlEventDataGetEccErrorCount@Base 285

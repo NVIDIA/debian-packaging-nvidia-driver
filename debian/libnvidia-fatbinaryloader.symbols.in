@@ -21,6 +21,7 @@ libnvidia-fatbinaryloader.so.#VERSION# #PACKAGE# #MINVER#
  elf32_named_section_header@Base 361.18
  elf32_next_section_in_segment@Base 361.18
  elf32_program_header@Base 361.18
+ elf32_section_contents@Base 364.12
  elf32_section_header@Base 361.18
  elf32_section_is_in_segment@Base 361.18
  elf32_section_name@Base 361.18
@@ -76,6 +77,9 @@ libnvidia-fatbinaryloader.so.#VERSION# #PACKAGE# #MINVER#
  gpuGetFeaturesProfile@Base 361.18
  gpuInfoRunsOn@Base 361.18
  gpuSupportedArchitectures@Base 361.18
+ gpucompRestoreLogLine@Base 364.12
+ gpucompSetLogLine@Base 364.12
+ gpucompSetTerminators@Base 364.12
  gpuinfMsgIgnoredOption@Base 361.18
  gpuinfMsgInvalidOptionValue@Base 361.18
  gpuinfMsgNoRealProfile@Base 361.18
@@ -114,20 +118,26 @@ libnvidia-fatbinaryloader.so.#VERSION# #PACKAGE# #MINVER#
  memspFree@Base 361.18
  memspMalloc@Base 361.18
  memspPrint@Base 361.18
- msgAddErrorClassPrefixes@Base 361.18
+#MISSING: 364.12# msgAddErrorClassPrefixes@Base 361.18
  msgCppUpdateSourceStruct@Base 361.18
  msgCreateSourceStructure@Base 361.18
  msgDeleteSourceStructure@Base 361.18
- msgDontPrefixErrorLines@Base 361.18
- msgIgnoreWarnings@Base 361.18
+#MISSING: 364.12# msgDontPrefixErrorLines@Base 361.18
+ msgGetIgnoreWarnings@Base 364.12
+ msgGetToolName@Base 364.12
+ msgGetWarnAsError@Base 364.12
+#MISSING: 364.12# msgIgnoreWarnings@Base 361.18
  msgPopInclude@Base 361.18
  msgPushInclude@Base 361.18
  msgReport@Base 361.18
  msgReportWithPos@Base 361.18
- msgToolName@Base 361.18
- msgWarnAsError@Base 361.18
- nvTrace@Base 361.18
- nvTraceLevel@Base 361.18
+ msgSetIgnoreWarnings@Base 364.12
+ msgSetToolName@Base 364.12
+ msgSetWarnAsError@Base 364.12
+#MISSING: 364.12# msgToolName@Base 361.18
+#MISSING: 364.12# msgWarnAsError@Base 361.18
+#MISSING: 364.12# nvTrace@Base 361.18
+#MISSING: 364.12# nvTraceLevel@Base 361.18
  procGetTempName@Base 361.18
  procSetTrapOnError@Base 361.18
  rangemapApply@Base 361.18
@@ -179,6 +189,7 @@ libnvidia-fatbinaryloader.so.#VERSION# #PACKAGE# #MINVER#
  stdSwapMemSpace@Base 361.18
  stdTimerInit@Base 361.18
  stdTokenizeString@Base 361.18
+ stdVSYSLOG@Base 364.12
  stdpInt64Equal@Base 361.18
  stdpInt64Hash@Base 361.18
  stringAddBuf@Base 361.18
@@ -191,7 +202,7 @@ libnvidia-fatbinaryloader.so.#VERSION# #PACKAGE# #MINVER#
  stringSize@Base 361.18
  stringStripToBuf@Base 361.18
  stringToBuf@Base 361.18
- tprintf@Base 361.18
+#MISSING: 364.12# tprintf@Base 361.18
  vectorAddTo@Base 361.18
  vectorCreate@Base 361.18
  vectorDelete@Base 361.18

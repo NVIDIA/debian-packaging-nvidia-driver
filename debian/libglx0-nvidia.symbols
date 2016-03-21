@@ -4,14 +4,14 @@ libGLX.so.0 #PACKAGE# #MINVER#
  AtomicDecrementClampAtZero@Base 361.18
  AtomicIncrement@Base 361.18
  AtomicSwap@Base 361.18
- CurrentContextHashCleanup@Base 361.18
+#MISSING: 364.12# CurrentContextHashCleanup@Base 361.18
  DisplayClosed@Base 361.18
  FindNextExtensionName@Base 361.18
  FreeExecPages@Base 361.18
  GLVND_THREAD_NULL@Base 361.18
  IsExtensionInString@Base 361.18
  ParseClientVersionString@Base 361.18
- TeardownVendor@Base 361.18
+#MISSING: 364.12# TeardownVendor@Base 361.18
  XGLVQueryExtension@Base 361.18
  XGLVQueryScreenVendorMapping@Base 361.18
  XGLVQueryVersion@Base 361.18
@@ -27,7 +27,7 @@ libGLX.so.0 #PACKAGE# #MINVER#
  __glXAddVendorFBConfigMapping@Base 361.28
  __glXDispatchNoop@Base 361.18
  __glXDispatchNoopPtr@Base 361.18
- __glXFetchDispatchEntry@Base 361.18
+#MISSING: 364.12# __glXFetchDispatchEntry@Base 361.18
  __glXFreeDisplay@Base 361.18
  __glXGLLoadGLXFunction@Base 361.18
  __glXGenerateGLXEntrypoint@Base 361.18
@@ -41,8 +41,8 @@ libGLX.so.0 #PACKAGE# #MINVER#
  __glXLookupVendorByName@Base 361.18
  __glXLookupVendorByScreen@Base 361.18
  __glXMappingTeardown@Base 361.18
- __glXNotifyContextDestroyed@Base 361.18
- __glXPthreadFuncs@Base 361.18
+#MISSING: 364.12# __glXNotifyContextDestroyed@Base 361.18
+#MISSING: 364.12# __glXPthreadFuncs@Base 361.18
 #MISSING: 361.28# __glXRemoveScreenContextMapping@Base 361.18
 #MISSING: 361.28# __glXRemoveScreenDrawableMapping@Base 361.18
 #MISSING: 361.28# __glXRemoveScreenFBConfigMapping@Base 361.18
@@ -58,6 +58,7 @@ libGLX.so.0 #PACKAGE# #MINVER#
  __glXVendorFromDrawable@Base 361.18
  __glXVendorFromFBConfig@Base 361.18
  __glXVendorFromVisual@Base 361.18
+ __glvndPthreadFuncs@Base 364.12
  __glvnd_dbg_printf@Base 361.18
  cacheInitializeOnce@Base 361.18
  glXChooseFBConfig@Base 361.18
