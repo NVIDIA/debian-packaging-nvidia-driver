@@ -35,16 +35,29 @@ libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 # nvidia version specific directory below $(libdir)
 nvidia_private		 = nvidia/$(current)
 
-CONTROL_PREFIXES = nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
+CONTROL_PREFIXES	 = nvidia-driver libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
+CONTROL_PREFIXES	+= nvidia-glx
+CONTROL_PREFIXES	+= nvidia-vdpau-driver
+CONTROL_PREFIXES	+= libcuda1
+CONTROL_PREFIXES	+= nvidia-opencl-icd libnvidia-compiler
+CONTROL_PREFIXES	+= libnvidia-ml1 nvidia-smi
+CONTROL_PREFIXES	+= libnvcuvid1
+RENAME_nvidia-glx		 = nvidia-glx$(legacy)
+RENAME_nvidia-alternative	 = $(NVIDIA_ALTERNATIVE)
+RENAME_libnvcuvid1		 = lib$(if $(legacy),${nvidia}-)nvcuvid1
+RENAME_libcuda1			 = $(libcuda1)
+renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
+CONTROL_PREFIXES_RENAMED = $(foreach p,$(CONTROL_PREFIXES),$(call renamed_prefix,$p))
+
+# $1=file, $2=prefix
+applyprefixrename	 = $(patsubst debian/$2%,debian/$(call renamed_prefix,$2)%,$1)
+# $1=file, $2=prefixlist
+applyprefixrenamelist	 = $(if $2,$(call applyprefixrenamelist,$(call applyprefixrename,$1,$(firstword $2)),$(wordlist 2,$(words $2),$2)),$1)
+
 ALL_CONTROL	:= $(wildcard $(patsubst %,debian/%*,$(CONTROL_PREFIXES)))
-LEGACY_CONTROL	:= $(wildcard $(patsubst %,debian/%$(legacy)*,$(CONTROL_PREFIXES)))
+LEGACY_CONTROL	:= $(wildcard $(patsubst %,debian/%*,$(CONTROL_PREFIXES_RENAMED)))
 RENAME_CONTROL	 = $(filter-out $(LEGACY_CONTROL),$(ALL_CONTROL))
-RENAMED_CONTROL	 = $(patsubst debian/nvidia-glx%,debian/nvidia-glx$(legacy)%,\
-			$(patsubst debian/libgl1-nvidia%,debian/libgl1-nvidia$(legacy)%,\
-			$(patsubst debian/nvidia-kernel%,debian/nvidia-kernel$(legacy)%,\
-			$(patsubst debian/nvidia-alternative%,debian/$(NVIDIA_ALTERNATIVE)%,\
-			$(patsubst debian/xserver-xorg-video-nvidia%,debian/xserver-xorg-video-nvidia$(legacy)%,\
-				$(RENAME_CONTROL))))))
+RENAMED_CONTROL	 = $(foreach f,$(RENAME_CONTROL),$(call applyprefixrenamelist,$f,$(CONTROL_PREFIXES)))
 TEMPLATES	:= $(wildcard debian/*.in debian/module/debian/*.in debian/module/debian/patches/*.in debian/detect/*.in)
 AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/module/debian/changelog
@@ -282,11 +295,11 @@ debian/module/debian/changelog: debian/changelog
 
 # Renaming control files for legacy packaging
 define rename-template
-$1$$(legacy)%: $1%
+$2%: $1%
 	cp -a $$< $$@
 endef
 ifneq (,$(legacy))
-$(foreach p,$(CONTROL_PREFIXES),$(eval $(call rename-template,$p)))
+$(foreach p,$(CONTROL_PREFIXES),$(eval $(call rename-template,$p,$(call renamed_prefix,$p))))
 endif
 
 include debian/bug-control.mk
