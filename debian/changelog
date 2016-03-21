@@ -48,6 +48,7 @@ nvidia-graphics-drivers (364.12-1) UNRELEASED; urgency=medium
     - Improved the interactivity of applications that use a hardware cursor
       while G-SYNC is active.
   * Update nv-readme.ids
+  * Update watch file to point to 364 release
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 21 Mar 2016 20:06:03 +0000
 
