@@ -48,10 +48,7 @@ Description: NVIDIA metapackage${nvidia:LegacyDesc}
  OpenGL applications via a direct-rendering X Server.
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
  .
- Please see the nvidia-kernel${nvidia:Legacy}-dkms or
- nvidia-kernel${nvidia:Legacy}-source packages
- for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}.
+ ${nvidia:kmod:Description}
  .
  ${nvidia:Models}
  .
@@ -96,10 +93,7 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  OpenGL applications via a direct-rendering X Server.
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
  .
- Please see the nvidia-kernel${nvidia:Legacy}-dkms or
- nvidia-kernel${nvidia:Legacy}-source packages
- for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}.
+ ${nvidia:kmod:Description}
  .
  ${nvidia:Models}
  .
@@ -369,10 +363,7 @@ Description: Video Decode and Presentation API for Unix - NVIDIA driver
  See /usr/share/doc/nvidia-vdpau-driver/README.txt.gz
  for more information.
  .
- Please see the nvidia-kernel${nvidia:Legacy}-dkms or
- nvidia-kernel${nvidia:Legacy}-source packages
- for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}.
+ ${nvidia:kmod:Description}
 
 Package: nvidia-vdpau-driver-ia32
 Section: non-free/oldlibs
@@ -457,10 +448,7 @@ Description: NVIDIA CUDA runtime library
  Supported NVIDIA devices include GPUs starting from GeForce 8 and Quadro FX
  series, as well as the Tesla computing processors.
  .
- Please see the nvidia-kernel${nvidia:Legacy}-dkms or
- nvidia-kernel${nvidia:Legacy}-source packages
- for building the kernel module required by this package.
- This will provide nvidia-kernel-${nvidia:Version}.
+ ${nvidia:kmod:Description}
 
 Package: libcuda1-ia32
 Section: non-free/oldlibs
