@@ -63,9 +63,7 @@ build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
 	unset ARCH; $(MAKE) modules KERNEL_UNAME=$(KVERS)
-#HAS_UVM#	unset ARCH; $(MAKE) -C uvm modules KERNEL_UNAME=$(KVERS) KBUILD_EXTMOD=$(CURDIR)/uvm
 #	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
-#HAS_UVM#	test "#MODULE#" = "nvidia" || mv uvm/nvidia-uvm.ko uvm/#MODULE#-uvm.ko
 	touch $@
 
 get_built_using	?= $(filter-out (=),$(shell dpkg-query -f='$${source:Package} (=$${source:Version})' -W $1))
@@ -97,7 +95,6 @@ clean:
 	dh_testdir
 	dh_testroot
 	$(MAKE) clean KERNEL_UNAME=$(KVERS) $(KPKG_EXTRAV_ARG)
-#HAS_UVM#	$(MAKE) -C uvm clean KERNEL_UNAME=$(KVERS) $(KPKG_EXTRAV_ARG)
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
 	dh_clean debian/control debian/install
 
