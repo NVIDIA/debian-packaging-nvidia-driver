@@ -294,7 +294,7 @@ override_dh_builddeb:
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog
-	sed '1s/^nvidia-graphics-drivers/nvidia-kernel/g' $< > $@
+	sed '1s/^nvidia-graphics-drivers$(legacy)/$(nvidia)-kernel/g' $< > $@
 
 
 # Renaming control files for legacy packaging

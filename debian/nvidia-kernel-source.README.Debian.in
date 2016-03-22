@@ -18,8 +18,8 @@ KERNEL MODULE INSTRUCTIONS:
   * DKMS will take care of building a new module whenever the driver
     or your kernel headers are updated.
   * Install the linux-headers-* package matching your kernel.
-  * Install the package nvidia-kernel#LEGACY#-dkms instead of
-    nvidia-kernel#LEGACY#-source.
+  * Install the package #NVIDIA#-kernel-dkms instead of
+    #NVIDIA#-kernel-source.
   * STOP reading this file.
 
  METHOD #2: manually, using module-assistant
@@ -28,7 +28,7 @@ KERNEL MODULE INSTRUCTIONS:
     corresponding linux-headers-KVERS package.
   * Run this command every time your kernel or the driver was updated:
 
-        module-assistant auto-install nvidia#LEGACY#
+        module-assistant auto-install #NVIDIA#
 
   * For more information on module-assistant, see its man page and package
     documentation.
@@ -69,10 +69,10 @@ METHOD #3 Using a linux-headers package
 
 As root (or using fakeroot)
 1. cd /usr/src
-   tar xjvf nvidia-kernel#LEGACY#.tar.bz2 -C <YOUR BUILD LOCATION>
+   tar xjvf #NVIDIA#-kernel.tar.bz2 -C <YOUR BUILD LOCATION>
    (It will install in <YOUR BUILD LOCATION>/modules)
    - or -
-   tar xjvf nvidia-kernel#LEGACY#.tar.bz2  (if building in /usr/src)
+   tar xjvf #NVIDIA#-kernel.tar.bz2  (if building in /usr/src)
 
    The standard build location is /usr/src
 
@@ -97,7 +97,7 @@ As root (or using fakeroot)
 
 5. Then build nvidia-kernel package:
 
-   cd <YOUR BUILD LOCATION>/modules/nvidia-kernel#LEGACY#
+   cd <YOUR BUILD LOCATION>/modules/#NVIDIA#-kernel
    debian/rules binary_modules
 
 (You can also combine step 4 and 5 into one line:
@@ -111,7 +111,7 @@ deployed:
 
 7. Install the nvidia-kernel package:
 
-   dpkg -i ../nvidia-kernel#LEGACY#-2.6.14-2-k7_#VERSION#-1+_.Custom_i386.deb
+   dpkg -i ../#NVIDIA#-kernel-2.6.14-2-k7_#VERSION#-1+_.Custom_i386.deb
    ( or similar filename )
 
 Now see GENERAL NOTES below method #4
@@ -119,15 +119,15 @@ Now see GENERAL NOTES below method #4
 METHOD #4: Using your own kernel source headers
 ***********************************************************************
 
-To build the nvidia-kernel#LEGACY# deb you need to first make sure you have
+To build the #NVIDIA#-kernel deb you need to first make sure you have
 kernel-package installed, then do the following:
 
 As root
 1. cd /usr/src
-   tar xjvf nvidia-kernel#LEGACY#.tar.bz2 -C <YOUR BUILD LOCATION>
+   tar xjvf #NVIDIA#-kernel.tar.bz2 -C <YOUR BUILD LOCATION>
    (It will install in <YOUR BUILD LOCATION>/modules)
    - or -
-   tar xjvf nvidia-kernel#LEGACY#.tar.bz2  (if building in /usr/src)
+   tar xjvf #NVIDIA#-kernel.tar.bz2  (if building in /usr/src)
 
 2. If you are NOT using the default modules location /usr/src/modules
    then you must set an environment variable that points to your modules
@@ -151,7 +151,7 @@ installed:
 5. Install the nvidia-kernel package:
 
      cd <YOUR BUILD LOCATION>    (e.g. /usr/src)
-     dpkg -i nvidia-kernel#LEGACY#-KVER*.deb
+     dpkg -i #NVIDIA#-kernel-KVER*.deb
 
 Notes for method #2:
 
@@ -178,7 +178,7 @@ do 'rmmod nvidia' to remove the module from memory.
 
 
 For any news on this package check
-http://bugs.debian.org/nvidia-kernel#LEGACY#-source
+http://bugs.debian.org/#NVIDIA#-kernel-source
 
 
  -- Russ Allbery <rra@debian.org>, Sat, 25 Sep 2010 23:30:28 -0700

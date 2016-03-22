@@ -25,7 +25,6 @@ ifndef KPKG_DEST_DIR
     KPKG_DEST_DIR = ..
 endif
 KVERS := $(shell perl debian/kernel-version $(KSRC))
-export KSRC
 export KVERS
 export KPKG_DEST_DIR
 
@@ -63,7 +62,7 @@ build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
 	unset ARCH; $(MAKE) modules KERNEL_UNAME=$(KVERS)
-#	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
+	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
 	touch $@
 
 get_built_using	?= $(filter-out (=),$(shell dpkg-query -f='$${source:Package} (=$${source:Version})' -W $1))

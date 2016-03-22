@@ -264,7 +264,7 @@ Recommends:
  nvidia-glx${nvidia:Legacy} (>= ${nvidia:Version}),
 Provides:
  nvidia-kernel-dkms,
- nvidia-kernel-${nvidia:Version},
+ ${nvidia}-kernel-${nvidia:Version},
 Conflicts:
  nvidia-kernel-dkms,
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
@@ -415,9 +415,12 @@ Recommends:
 Suggests:
  ${nvidia:kmod:source},
 Description: NVIDIA System Management Interface
- The NVIDIA System Management Interface "nvidia-smi" program provides
- system state and diagnostic information for the NVIDIA Tesla Visual
- Computing Systems.
+ The NVIDIA Management Library (NVML) provides a monitoring and management API.
+ The application "nvidia-smi" is the NVIDIA System Management Interface (NVSMI)
+ and provides a command line interface to this functionality.
+ .
+ See the output from the --help command line option for supported models and
+ further information.
 
 #Package: ${libcuda1}
 Package: libcuda1
@@ -431,7 +434,7 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
- nvidia-smi,
+ ${nvidia}-smi,
 Suggests:
  ${nvidia:kmod:source},
 Provides:
@@ -445,6 +448,9 @@ Replaces:
  nvidia-glx (<< 185.18.14-2),
  nvidia-glx-dev (<< 185.18.14-2),
  libcuda1-dev,
+Provides:
+ libcuda-5.0-1,
+ libcuda-5.0-1-i386 [i386],
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA Driver Library
  .
@@ -553,9 +559,8 @@ Breaks:
  ${nvidia}-smi (<< ${nvidia:Version}),
 Homepage: http://developer.nvidia.com/nvidia-management-library-NVML
 Description: NVIDIA Management Library (NVML) runtime library
- NVML provides programmatic access to static information and monitoring
- data for NVIDIA GPUs, as well as limited management capabilities.
- It is intended for use with Tesla compute products.
+ The NVIDIA Management Library (NVML) provides a monitoring and management API.
+ It provides a direct access to the queries and commands exposed via nvidia-smi.
  .
  This package contains the nvidia-ml runtime library.
 
@@ -565,7 +570,7 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Recommends:
- nvidia-opencl-icd
+ ${nvidia}-opencl-icd
 Breaks:
  nvidia-opencl-icd (<< ${nvidia:Version}),
 Description: NVIDIA OpenCL driver
@@ -599,8 +604,8 @@ Description: NVIDIA OpenCL installable client driver (ICD)
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
  .
- This metapackage provides the NVIDIA installable client driver (ICD) for
- OpenCL.
+ This package provides the NVIDIA installable client driver (ICD) for OpenCL
+ which supports NVIDIA GPUs.
 
 Package: nvidia-opencl-icd-ia32
 Section: non-free/oldlibs
@@ -628,6 +633,7 @@ Recommends:
  opencl-icd | nvidia-opencl-icd,
 Provides:
  libopencl1,
+ libopencl-1.1-1,
  nvidia-libopencl1-i386 [i386],
 Conflicts:
  libopencl1,
@@ -738,6 +744,6 @@ Depends:
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-glx, nvidia-glx-legacy-173xx or nvidia-glx-legacy-96xx) for
- installation.
+ (nvidia-glx, nvidia-glx-legacy-173xx, or nvidia-glx-legacy-96xx)
+ for installation.
 

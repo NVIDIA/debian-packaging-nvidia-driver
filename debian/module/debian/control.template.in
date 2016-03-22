@@ -9,7 +9,8 @@ Homepage: http://www.nvidia.com/
 Package: #NVIDIA#-kernel-#KVERS#
 Architecture: #ARCH_LIST#
 Provides: #NVIDIA#-kernel-#VERSION#
-Depends: nvidia-kernel-common (>= 20110213)
+Depends:
+ nvidia-kernel-common (>= 20110213),
 Recommends: linux-image-#KVERS#
 Built-Using: ${built:using:kernel}, ${built:using:nvidia}
 Description: NVIDIA binary kernel module for Linux #KVERS#

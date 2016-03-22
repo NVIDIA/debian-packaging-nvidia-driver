@@ -63,20 +63,6 @@ Building and Uploading
  -- Russ Allbery <rra@debian.org>, Tue,  6 Apr 2010 23:36:07 -0700
 
 
-Backporting to Squeeze
-
-    For squeeze backports the following changes have to be made:
-      - reduce Build-Depends: debhelper and compat level to 8
-      - disable MULTIARCH variable in debian/rules.defs
-      - enable BACKPORT variable in debian/rules.defs
-      - remove Multi-Arch: lines from debian/control
-    These steps and the creation of an initial bpo-changelog entry have
-    been automated via
-        debian/rules prepare-squeeze-backport
-
- -- Andreas Beckmann <debian@abeckmann.de>  Wed, 10 Aug 2011 23:51:43 +0200
-
-
 Forking a new legacy package
 
     In order to create a new legacy package (e.g. for legacy version 42)
