@@ -16,7 +16,6 @@ XORG_BOUND		?=
 LINUX_KMOD_TESTED	?=
 NVIDIA_LEGACY_CHECK	?=
 NVIDIA_SETTINGS		?= nvidia-settings
-NVIDIA_ALTERNATIVE	?= nvidia$(legacy)-alternative
 ARCH_LIST		?= i386 amd64
 ARCH_DEPS_i386		?=
 
@@ -43,7 +42,6 @@ CONTROL_PREFIXES	+= nvidia-opencl-icd libnvidia-compiler
 CONTROL_PREFIXES	+= libnvidia-ml1 nvidia-smi
 CONTROL_PREFIXES	+= libnvcuvid1
 RENAME_nvidia-glx		 = nvidia-glx$(legacy)
-RENAME_nvidia-alternative	 = $(NVIDIA_ALTERNATIVE)
 RENAME_libnvcuvid1		 = lib$(if $(legacy),${nvidia}-)nvcuvid1
 RENAME_libcuda1			 = $(libcuda1)
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
@@ -248,7 +246,6 @@ override_dh_gencontrol:
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
 		-V'nvidia:legacy-check=$(NVIDIA_LEGACY_CHECK)' \
-		-V'nvidia-alternative=$(NVIDIA_ALTERNATIVE)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
 		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}' \
 		-V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
@@ -283,7 +280,6 @@ override_dh_builddeb:
 	-e 's{#NVIDIA#}{$(nvidia)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
 	-e 's{#MODULE#}{$(module)}g;' \
-	-e 's{#NVIDIA_ALTERNATIVE#}{$(NVIDIA_ALTERNATIVE)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \

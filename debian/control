@@ -32,7 +32,7 @@ Depends:
  libxvmcnvidia1 (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  ${nvidia}-vdpau-driver (= ${binary:Version}),
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  ${nvidia:kmod:binary},
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
@@ -68,7 +68,7 @@ Pre-Depends:
  ${nvidia:legacy-check},
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  nvidia-support (>= 20120630),
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
@@ -123,7 +123,7 @@ Pre-Depends:
  ${nvidia:legacy-check},
  ${misc:Pre-Depends}
 Depends:
- ${nvidia-alternative},
+ ${nvidia}-alternative,
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -175,7 +175,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
  ${misc:Pre-Depends}
 Depends:
- ${nvidia-alternative},
+ ${nvidia}-alternative,
  libgl1-${nvidia}-glx (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Breaks:
@@ -222,7 +222,7 @@ Description: please switch to multiarch libgl1-nvidia${nvidia:Legacy}-glx:i386
  * dpkg --add-architecture i386 ; apt-get update
  * apt-get install libgl1-nvidia${nvidia:Legacy}-glx:i386
 
-#Package: ${nvidia-alternative}
+#Package: ${nvidia}-alternative
 Package: nvidia-alternative
 Architecture: i386 amd64
 Multi-Arch: foreign
@@ -440,7 +440,7 @@ Conflicts:
  libcuda1-dev,
  libcuda1-ia32 [i386],
 Breaks:
- ${nvidia-alternative} (<< ${nvidia:Version}),
+ ${nvidia}-alternative (<< ${nvidia:Version}),
 Replaces:
  nvidia-glx (<< 185.18.14-2),
  nvidia-glx-dev (<< 185.18.14-2),

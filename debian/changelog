@@ -4,6 +4,7 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
     nvidia-graphics-drivers-legacy-173xx and
     nvidia-graphics-drivers-legacy-96xx in favor of a reduced diff to
     nvidia-graphics-drivers-legacy-304xx and newer.
+  * Drop special-casing of the nvidia-alternative substitution.
   * Do not run dh_strip_nondeterminism, it may perform modifications not
     permitted by the NVIDIA license.
   * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
