@@ -1,4 +1,4 @@
-Source: nvidia-kernel#LEGACY#
+Source: #NVIDIA#-kernel
 Section: non-free/kernel
 Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
@@ -6,9 +6,9 @@ Build-Depends: debhelper (>= 8), quilt (>= 0.46-7~)
 Standards-Version: 3.9.0
 Homepage: http://www.nvidia.com/
 
-Package: nvidia-kernel#LEGACY#-#KVERS#
+Package: #NVIDIA#-kernel-#KVERS#
 Architecture: #ARCH_LIST#
-Provides: nvidia-kernel-#VERSION#
+Provides: #NVIDIA#-kernel-#VERSION#
 Depends: nvidia-kernel-common (>= 20110213)
 Recommends: linux-image-#KVERS#
 Built-Using: ${built:using:kernel}, ${built:using:nvidia}

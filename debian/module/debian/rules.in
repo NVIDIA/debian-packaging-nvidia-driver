@@ -75,7 +75,7 @@ binary-arch: build-stamp
 	dh_testroot
 	dh_installdirs
 	dh_install
-	dh_installdocs $(wildcard debian/changelog.nvidia-kernel*-source*)
+	dh_installdocs $(wildcard debian/changelog.nvidia*-kernel*-source*)
 	dh_installchangelogs NVIDIA_Changelog
 	dh_installmodules
 	dh_bugfiles
@@ -86,7 +86,7 @@ binary-arch: build-stamp
 	dh_installdeb
 	dh_gencontrol -- -v`cat debian/VERSION` \
 		-V'built:using:kernel=$(call get_built_using,linux-headers-$(KVERS))' \
-		-V'built:using:nvidia=$(call get_built_using,$(shell dpkg-parsechangelog | sed -nr '/^Source:/s/Source: //p')-source)'
+		-V'built:using:nvidia=$(call get_built_using,#NVIDIA#-kernel-source)'
 	dh_md5sums
 	dh_builddeb --destdir=$(KPKG_DEST_DIR)
 

@@ -66,9 +66,9 @@ AUTOGEN		+= debian/bug-control
 AUTOKEEP	 = debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
-module_source	 = debian/nvidia-kernel$(legacy)-source/usr/src/modules/nvidia-kernel$(legacy)
+module_source	 = debian/$(nvidia)-kernel-source/usr/src/modules/$(nvidia)-kernel
 module_tbz	 = $(subst /modules/,/,$(module_source)).tar.bz2
-dkms_source	 = debian/nvidia-kernel$(legacy)-dkms/usr/src/nvidia-$(version)
+dkms_source	 = debian/$(nvidia)-kernel-dkms/usr/src/$(module)-$(version)
 
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
@@ -185,7 +185,8 @@ build-kernel-source-tree: install-into-tmp
 	cp -a debian/copyright $(module_source)/debian/
 	cp -a debian/bug-script $(module_source)/debian/
 	cp -a debian/bug-control $(module_source)/debian/
-	echo "Submit-As: nvidia-kernel$(legacy)-source" >> $(module_source)/debian/bug-control
+	echo "" >> $(module_source)/debian/bug-control
+	echo "Submit-As: $(nvidia)-kernel-source" >> $(module_source)/debian/bug-control
 
 	# Fix permissions.
 	chmod -R a-sx,u=rwX,go=rX $(module_source)/../..
@@ -249,8 +250,8 @@ override_dh_gencontrol:
 		-V'nvidia:legacy-check=$(NVIDIA_LEGACY_CHECK)' \
 		-V'nvidia-alternative=$(NVIDIA_ALTERNATIVE)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
-		-V'nvidia:kmod:binary=nvidia-kernel$${nvidia:Legacy}-dkms (= $${binary:Version}) | nvidia-kernel-$${nvidia:Version}' \
-		-V'nvidia:kmod:source=nvidia-kernel$${nvidia:Legacy}-dkms (>= $${nvidia:Version}) | nvidia-kernel$${nvidia:Legacy}-source (>= $${nvidia:Version})' \
+		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}' \
+		-V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
 		-V'nvidia:kmod:tested:Linux=$(strip $(or $(LINUX_KMOD_TESTED_$(DEB_HOST_ARCH)),$(LINUX_KMOD_TESTED),???))' \
 		-Vnvidia:kmod:Description="`cat debian/control.kmod`" \
 		-Vnvidia:Models="`cat debian/control.models`"
