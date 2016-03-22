@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (364.12-1) UNRELEASED; urgency=medium
 
-  * New upstream release 364.12 (2016-03-21).
+  * New upstream beta release 364.12 (2016-03-21).
     - Added support for the following GPUs: GeForce 920MX, GeForce 930MX
     - Fixed a regression that caused GPU exceptions and incorrect rendering
       when using pbuffers with EGLDevice.
