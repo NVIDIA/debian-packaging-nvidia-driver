@@ -7,6 +7,8 @@ DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_MULTIARCH	?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog | sed -nr '/^Version:/s/Version: (.*:)?(.*)-(.*)/\2/p')
+BUILD_DATE		:= $(shell dpkg-parsechangelog | sed -nr '/^Date:/s/Date: //p')
+
 include debian/rules.defs
 NVIDIA_LEGACY		?=
 WATCH_VERSION		?= $(NVIDIA_LEGACY)
@@ -189,11 +191,16 @@ build-kernel-source-tree: install-into-tmp
 	# Fix permissions.
 	chmod -R a-sx,u=rwX,go=rX $(module_source)/../..
 	chmod a+x $(module_source)/debian/rules
+	find '$(module_source)/../../modules' -depth -newermt '$(BUILD_DATE)' -print0 | \
+		xargs -0r touch --no-dereference --date='$(BUILD_DATE)'
 
 	# Build the tarball.
-	tar cfj $(module_tbz) \
+	(cd $(module_source)/../.. && find modules -print0) | \
+	  LC_ALL=C sort -z | \
+	  tar cfj $(module_tbz) \
 	    --owner=root --group=src -C $(module_source)/../.. \
-	    --exclude '*.in' --exclude '.svn' modules
+	    --exclude '*.in' --exclude '.svn' \
+	    --no-recursion --null -T -
 	tar tfvj $(module_tbz)
 
 build-kernel-dkms-tree: build-kernel-source-tree
