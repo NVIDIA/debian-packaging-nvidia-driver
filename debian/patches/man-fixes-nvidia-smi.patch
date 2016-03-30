@@ -110,7 +110,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .SS "nvidia\-smi -q -d ECC,POWER -i 0 -l 10 -f out.log"
  Query ECC errors and power consumption for GPU 0 at a frequency of 10 seconds, indefinitely, and record to the file out.log.
  .SS 
--"nvidia\-smi -c 2 -i GPU\-b2f5f1b745e3d23d\-65a3a26d-097db358\-7303e0b6\-149642ff3d219f8587cde3a8"
+-"nvidia\-smi -c 1 -i GPU\-b2f5f1b745e3d23d\-65a3a26d-097db358\-7303e0b6\-149642ff3d219f8587cde3a8"
 -Set the compute mode to "PROHIBITED" for GPU with UUID "GPU\-b2f5f1b745e3d23d\-65a3a26d-097db358\-7303e0b6\-149642ff3d219f8587cde3a8".
 +"nvidia\-smi -c 1 -i GPU-b2f5f1b745e3d23d-65a3a26d-097db358-7303e0b6-149642ff3d219f8587cde3a8"
 +Set the compute mode to "PROHIBITED" for GPU with UUID "GPU-b2f5f1b745e3d23d-65a3a26d-097db358-7303e0b6-149642ff3d219f8587cde3a8".

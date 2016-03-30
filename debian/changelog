@@ -11,6 +11,7 @@ nvidia-graphics-drivers (361.42-1) UNRELEASED; urgency=medium
       with the 3D Vision Pro transmitter on some systems.
     - Fixed a regression that caused the HSync and VSync mode timing polarity
       flags to be inverted.
+  * Refresh man-fixes-nvidia-smi.patch (failed to apply on 361.42).
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 30 Mar 2016 22:21:51 +0100
 
