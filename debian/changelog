@@ -1,3 +1,19 @@
+nvidia-graphics-drivers (361.42-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 361.42 (2016-03-30).
+    - Added support for the following GPUs: GeForce 920MX, GeForce 930MX,
+      Quadro M6000 24GB.
+    - Limited the default concurrency level in nvidia-settings to 32, to avoid
+      hitting the maximum tasks limit on systems with many CPUs.
+    - Fixed a regression that caused GPU exceptions and incorrect rendering
+      when using pbuffers with EGLDevice.
+    - Fixed a bug that caused nvidia-settings to crash when pairing glasses
+      with the 3D Vision Pro transmitter on some systems.
+    - Fixed a regression that caused the HSync and VSync mode timing polarity
+      flags to be inverted.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 30 Mar 2016 22:21:51 +0100
+
 nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
