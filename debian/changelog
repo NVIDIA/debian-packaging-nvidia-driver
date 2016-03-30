@@ -12,6 +12,7 @@ nvidia-graphics-drivers (361.42-1) UNRELEASED; urgency=medium
     - Fixed a regression that caused the HSync and VSync mode timing polarity
       flags to be inverted.
   * Refresh man-fixes-nvidia-smi.patch (failed to apply on 361.42).
+  * Update nv-readme.ids.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 30 Mar 2016 22:21:51 +0100
 
