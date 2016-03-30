@@ -284,6 +284,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuStreamAddCallback_ptsz@Base 346
  cuStreamAttachMemAsync@Base 331.38
  cuStreamAttachMemAsync_ptsz@Base 346
+ cuStreamBatchMemOp@Base 361.42
+ cuStreamBatchMemOp_ptsz@Base 361.42
  cuStreamCreate@Base 169
  cuStreamCreateWithPriority@Base 319
  cuStreamDestroy@Base 169
@@ -298,6 +300,10 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuStreamSynchronize_ptsz@Base 346
  cuStreamWaitEvent@Base 260
  cuStreamWaitEvent_ptsz@Base 346
+ cuStreamWaitValue32@Base 361.42
+ cuStreamWaitValue32_ptsz@Base 361.42
+ cuStreamWriteValue32@Base 361.42
+ cuStreamWriteValue32_ptsz@Base 361.42
  cuSurfObjectCreate@Base 304
  cuSurfObjectDestroy@Base 304
  cuSurfObjectGetResourceDesc@Base 304

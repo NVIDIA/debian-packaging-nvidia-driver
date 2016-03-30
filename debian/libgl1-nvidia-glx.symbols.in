@@ -2,6 +2,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  (arch=!armhf)AllocExecPages@Base 361.18
  (arch=!armhf)FreeExecPages@Base 361.18
  (arch=!armhf)__glXWrapperInit@Base 361.18
+ (arch=armhf)__glx_Main@Base 361.42
  (arch=!armhf)entry_generate_default_code@Base 361.18
  (arch=!armhf)entry_get_patch_addresses@Base 361.18
  (arch=!armhf)entry_get_public@Base 361.18
