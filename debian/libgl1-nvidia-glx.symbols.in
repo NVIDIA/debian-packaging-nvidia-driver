@@ -2,6 +2,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  (arch=!armhf)AllocExecPages@Base 361.18
  (arch=!armhf)FreeExecPages@Base 361.18
  (arch=!armhf)__glXWrapperInit@Base 361.18
+ (arch=armhf)__glx_Main@Base 364.12
  (arch=!armhf)entry_generate_default_code@Base 361.18
  (arch=!armhf)entry_get_patch_addresses@Base 361.18
  (arch=!armhf)entry_get_public@Base 361.18
@@ -616,6 +617,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDrawTransformFeedbackNV@Base 165
  glDrawTransformFeedbackStream@Base 256
  glDrawTransformFeedbackStreamInstanced@Base 285
+ (arch=armhf)glDrawVkImageNV@Base 364.12
  (arch=!armhf)glEGLImageTargetRenderbufferStorageOES@Base 361.18
  (arch=!armhf)glEGLImageTargetTexture2DOES@Base 361.18
  glEdgeFlag@Base 1.0.4349
@@ -1302,6 +1304,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetVideoivNV@Base 173
  glGetVideoui64vNV@Base 173
  glGetVideouivNV@Base 173
+ (arch=armhf)glGetVkProcAddrNV@Base 364.12
  glGetnColorTable@Base 346
  glGetnColorTableARB@Base 260
  glGetnCompressedTexImage@Base 346
@@ -1502,6 +1505,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  (arch=!armhf)glLoadTransposeMatrixxOES@Base 361.18
  glLockArraysEXT@Base 1.0.4349
 #MISSING: 331# glLockStateNV@Base 260
+ (arch=armhf)glLogTokenFlushNVX@Base 364.12
  glLogicOp@Base 1.0.4349
  glMakeBufferNonResidentNV@Base 185
  glMakeBufferResidentNV@Base 185
@@ -2350,6 +2354,8 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glShaderSourceARB@Base 1.0.6106
  glShaderStorageBlockBinding@Base 310
  (arch=!armhf)glSharpenTexFuncSGIS@Base 361.18
+ (arch=armhf)glSignalVkFenceNV@Base 364.12
+ (arch=armhf)glSignalVkSemaphoreNV@Base 364.12
  (arch=!armhf)glSpriteParameterfSGIX@Base 361.18
  (arch=!armhf)glSpriteParameterfvSGIX@Base 361.18
  (arch=!armhf)glSpriteParameteriSGIX@Base 361.18
@@ -3156,6 +3162,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glWaitSync@Base 190.18.05
  (arch=!armhf)glWaitSyncAPPLE@Base 361.18
  glWaitSyncValueuiNVX@Base 285
+ (arch=armhf)glWaitVkSemaphoreNV@Base 364.12
  glWeightPathsNV@Base 275
  (arch=!armhf)glWeightPointerARB@Base 361.18
  glWeightPointerOES@Base 349
@@ -3370,6 +3377,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  (arch=!armhf)stub_get_name@Base 361.18
  (arch=!armhf)stub_get_patch_callbacks@Base 361.18
  (arch=!armhf)stub_get_slot@Base 361.18
+ (arch=armhf)vk_icdGetInstanceProcAddr@Base 364.12
 libnvidia-glcore.so.#VERSION# #PACKAGE# #MINVER#
  (regex)"^_nv\d*glcore@Base$" 0
 libnvidia-tls.so.#VERSION# #PACKAGE# #MINVER#
