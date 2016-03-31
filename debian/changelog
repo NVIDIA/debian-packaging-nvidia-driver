@@ -2,6 +2,7 @@ nvidia-graphics-drivers (358.16-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
   * New upstream short lived branch release 358.16 (2015-11-20).
+    (Closes: #819042)
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
     - Fixed a regression, introduced in 358.09, that caused incorrect
       rendering of OpenGL stereo applications in combination with
