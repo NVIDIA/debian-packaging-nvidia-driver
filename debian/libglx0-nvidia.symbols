@@ -1,37 +1,39 @@
-libGLX.so.0 #PACKAGE# #MINVER#
+libGLX.so.0 libglx0-nvidia #MINVER#
  AllocExecPages@Base 361.18
  AtomicCompareAndSwap@Base 361.18
  AtomicDecrementClampAtZero@Base 361.18
  AtomicIncrement@Base 361.18
  AtomicSwap@Base 361.18
 #MISSING: 364.12# CurrentContextHashCleanup@Base 361.18
- DisplayClosed@Base 361.18
+#MISSING: 364.15# DisplayClosed@Base 361.18
  FindNextExtensionName@Base 361.18
  FreeExecPages@Base 361.18
  GLVND_THREAD_NULL@Base 361.18
  IsExtensionInString@Base 361.18
  ParseClientVersionString@Base 361.18
 #MISSING: 364.12# TeardownVendor@Base 361.18
- XGLVQueryExtension@Base 361.18
- XGLVQueryScreenVendorMapping@Base 361.18
- XGLVQueryVersion@Base 361.18
- XGLVQueryXIDScreenMapping@Base 361.18
- XGLVRegisterCloseDisplayCallback@Base 361.18
- XGLVUnregisterCloseDisplayCallbacks@Base 361.18
+#MISSING: 364.15# XGLVQueryExtension@Base 361.18
+#MISSING: 364.15# XGLVQueryScreenVendorMapping@Base 361.18
+#MISSING: 364.15# XGLVQueryVersion@Base 361.18
+#MISSING: 364.15# XGLVQueryXIDScreenMapping@Base 361.18
+#MISSING: 364.15# XGLVRegisterCloseDisplayCallback@Base 361.18
+#MISSING: 364.15# XGLVUnregisterCloseDisplayCallbacks@Base 361.18
 #MISSING: 361.28# __glXAddScreenContextMapping@Base 361.18
 #MISSING: 361.28# __glXAddScreenDrawableMapping@Base 361.18
 #MISSING: 361.28# __glXAddScreenFBConfigMapping@Base 361.18
- __glXAddScreenVisualMapping@Base 361.18
+#MISSING: 364.15# __glXAddScreenVisualMapping@Base 361.18
  __glXAddVendorContextMapping@Base 361.28
  __glXAddVendorDrawableMapping@Base 361.28
  __glXAddVendorFBConfigMapping@Base 361.28
  __glXDispatchNoop@Base 361.18
  __glXDispatchNoopPtr@Base 361.18
+ __glXDisplayClosed@Base 364.15
 #MISSING: 364.12# __glXFetchDispatchEntry@Base 361.18
- __glXFreeDisplay@Base 361.18
+#MISSING: 364.15# __glXFreeDisplay@Base 361.18
  __glXGLLoadGLXFunction@Base 361.18
  __glXGenerateGLXEntrypoint@Base 361.18
  __glXGetCurrentDynDispatch@Base 361.18
+ __glXGetDrawableScreen@Base 364.15
 #MISSING: 361.28# __glXGetDrawableStaticDispatch@Base 361.18
  __glXGetDynDispatch@Base 361.18
  __glXGetGLDispatch@Base 361.18
@@ -43,10 +45,11 @@ libGLX.so.0 #PACKAGE# #MINVER#
  __glXMappingTeardown@Base 361.18
 #MISSING: 364.12# __glXNotifyContextDestroyed@Base 361.18
 #MISSING: 364.12# __glXPthreadFuncs@Base 361.18
+ __glXQueryServerString@Base 364.15
 #MISSING: 361.28# __glXRemoveScreenContextMapping@Base 361.18
 #MISSING: 361.28# __glXRemoveScreenDrawableMapping@Base 361.18
 #MISSING: 361.28# __glXRemoveScreenFBConfigMapping@Base 361.18
- __glXRemoveScreenVisualMapping@Base 361.18
+#MISSING: 364.15# __glXRemoveScreenVisualMapping@Base 361.18
  __glXRemoveVendorContextMapping@Base 361.28
  __glXRemoveVendorDrawableMapping@Base 361.28
  __glXRemoveVendorFBConfigMapping@Base 361.28
@@ -57,7 +60,7 @@ libGLX.so.0 #PACKAGE# #MINVER#
  __glXVendorFromContext@Base 361.18
  __glXVendorFromDrawable@Base 361.18
  __glXVendorFromFBConfig@Base 361.18
- __glXVendorFromVisual@Base 361.18
+#MISSING: 364.15# __glXVendorFromVisual@Base 361.18
  __glvndPthreadFuncs@Base 364.12
  __glvnd_dbg_printf@Base 361.18
  cacheInitializeOnce@Base 361.18
@@ -115,4 +118,4 @@ libGLX.so.0 #PACKAGE# #MINVER#
  st_mutexattr_settype@Base 361.18
  st_rwlock_destroy@Base 361.18
  st_rwlock_init@Base 361.18
- xglv_ext_name@Base 361.18
+#MISSING: 364.15# xglv_ext_name@Base 361.18
