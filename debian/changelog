@@ -1,5 +1,13 @@
-nvidia-graphics-drivers (364.12-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (364.15-1) UNRELEASED; urgency=medium
 
+  * New upstream beta release 364.15 (2016-04-06).
+    - Fixed several EGL driver interaction problems with resizing windows
+      in Wayland.
+    - Fixed a bug that caused some DRM PRIME configurations to fail when
+      DRM KMS was enabled (i.e., nvidia-drm.ko's modeset kernel module
+      parameter was set to "1").
+    - Fixed a bug that could cause a kernel crash when VDPAU was used
+      while DRM KMS was enabled.
   * New upstream beta release 364.12 (2016-03-21).
     - Added support for the following GPUs: GeForce 920MX, GeForce 930MX
     - Fixed a regression that caused GPU exceptions and incorrect rendering
@@ -58,7 +66,7 @@ nvidia-graphics-drivers (364.12-1) UNRELEASED; urgency=medium
   * Add nvidia_drm_arm_cflags.patch to fix nvidia-drm kernel module build
     failure on armhf.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 21 Mar 2016 20:06:03 +0000
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 06 Apr 2016 22:21:26 +0100
 
 nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
 
