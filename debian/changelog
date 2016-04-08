@@ -4,19 +4,23 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
     nvidia-graphics-drivers-legacy-173xx and
     nvidia-graphics-drivers-legacy-96xx in favor of a reduced diff to
     nvidia-graphics-drivers-legacy-304xx and newer.
-  * Drop special-casing of the nvidia-alternative substitution.
-  * Do not run dh_strip_nondeterminism, it may perform modifications not
-    permitted by the NVIDIA license.
-  * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
+  * Stop special-casing of the nvidia-alternative substitution.
   * rules: Drop support for ancient .run layout.
+  * Drop support for backporting to squeeze (EoL).
+  * Do not run dh_strip_nondeterminism, it may perform modifications not
+    permitted by the NVIDIA license (340.96-4).
+  * nvidia-glx, nvidia-kernel-*: Report the latest tested Linux version
+    that can build the kernel module in the package description (340.76-3).
+  * nvidia-kernel-source: Use reproducible timestamps and file order inside
+    /usr/src/nvidia-kernel.tar.bz2 (340.76-1).
+  * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
   * get-orig-source: Synchronize with unstable (352.79-3).
   * bug-script: Synchronize with unstable (352.79-3).
-  * debian/bug-control.mk: New script to generate bug-control.
-  * conftest.h: Keep only the bits relevant for 304.xx.
+  * bug-control.mk: New script to generate bug-control.
+  * bug-control, bug-script: Collect some information about OpenCL.
   * nvidia-detect: Drop support for lenny.
+  * Use nvidia:kmod:binary and nvidia:kmod:source substvars (304.88-5).
   * Use an empty nvidia:legacy-check substvar for legacy packages.
-  * Use nvidia:kmod:binary and nvidia:kmod:source substvars.
-  * Drop support for backporting to squeeze (EoL).
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
   * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 340.xx onwards.
@@ -24,11 +28,6 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
     system figure out the paths.
   * Use NVIDIA's conftest.sh script to determine settings during module build
     instead of our manually maintained conftest.h header.
-  * bug-control, bug-script: Collect some information about OpenCL.
-  * nvidia-glx, nvidia-kernel-*: Report the latest tested Linux version
-    that can build the kernel module in the package description (340.76-3).
-  * nvidia-kernel-source: Use reproducible timestamps and file order inside
-    /usr/src/nvidia-kernel.tar.bz2 (340.76-1).
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 13:04:27 +0100
 
