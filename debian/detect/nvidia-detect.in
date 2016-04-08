@@ -2,7 +2,7 @@
 # Based on http://wiki.debian.org/NvidiaGraphicsDrivers?action=AttachFile&do=view&target=nvidia-versions.sh
 #
 # Copyright © 2008-2011 Filipus Klutiero <chealer@gmail.com>
-# Copyright © 2011-2013 Andreas Beckmann <anbe@debian.org>
+# Copyright © 2011-2014 Andreas Beckmann <anbe@debian.org>
 #
 # This package is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>
 #
 
-if [ "$1" = "--help" ]; then
+if [ "$1" = "-h" -o "$1" = "--help" ]; then
 	echo "Usage: nvidia-detect [PCIID]"
 	echo "       Reports the Debian packages supporting the NVIDIA GPU that is"
 	echo "       installed on the local system (or given as a PCIID parameter)."
@@ -71,22 +71,22 @@ fi
 
 IDLISTDIR=/usr/share/nvidia
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-71xx.ids
+if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-71xx.ids 2>/dev/null
 then
 	VERSIONS[71]=71.86
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-96xx.ids
+if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-96xx.ids 2>/dev/null
 then
 	VERSIONS[96]=96.43
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-173xx.ids
+if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-173xx.ids 2>/dev/null
 then
 	VERSIONS[173]=173.14
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia.ids
+if grep -q -i $NVGA $IDLISTDIR/nvidia.ids 2>/dev/null
 then
        	# 999 means current
 	VERSIONS[999]=$LATEST
@@ -96,7 +96,7 @@ fi
 if [[ ${#VERSIONS[*]} == 0 ]]; then
        	echo "Uh oh. Your card is not supported by any driver version up to $LATEST."
 	echo "A newer driver may add support for your card."
-	echo "Newer driver releases may be available in backports."
+	echo "Newer driver releases may be available in backports, unstable or experimental."
 	exit 0;
 fi
 
@@ -116,7 +116,7 @@ fi
 				if [[ -n ${VERSIONS[96]} ]]; then
 				       	echo "Your card is supported by all driver versions.";
 				else
-					echo "Your card is supported by the default drivers and version 173.";
+					echo "Your card is supported by the default drivers and legacy driver series 173.";
 				fi;
 			else
 				echo "Your card is supported by the default drivers.";
@@ -128,8 +128,10 @@ fi
 		elif [[ -n ${VERSIONS[96]} ]]; then
 			echo "Your card is only supported up to the 96.43 legacy drivers series.";
 			PACKAGE="nvidia-glx-legacy-96xx"
-		else
+		elif [[ -n ${VERSIONS[71]} ]]; then
 			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite.";
+		else
+			echo "Oops. Internal error 7 ($NVGA)"
 		fi;
 	else
 		echo "Uh oh. Failed to identify your Debian suite.";
