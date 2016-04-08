@@ -92,7 +92,7 @@ or from having used NVIDIA's installer in the past.
 
 These files most likely can be safely moved away from the library directories
 so that they may not cause harm, e.g. being preferred over the current driver
-etc.  Reinstallation of the #NVIDIA_ALTERNATIVE# package is recommended
+etc.  Reinstallation of the #NVIDIA#-alternative package is recommended
 after (re-)moving these files.  This will correct missing/incorrect symbolic
 links.
 

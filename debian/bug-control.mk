@@ -10,7 +10,7 @@ define REPORT_WITH
 	nvidia-glx$(legacy)
 	libgl1-$(nvidia)-glx
 	xserver-xorg-video-$(nvidia)
-	$(NVIDIA_ALTERNATIVE)
+	$(nvidia)-alternative
 	$(nvidia)-kernel-dkms
 	$(nvidia)-kernel-source
 	glx-alternative-nvidia
@@ -50,5 +50,7 @@ define PACKAGE_STATUS
 	xserver-xorg-video-nouveau
 	ia32-libs
 	make
+	libopencl1
+	opencl-icd
 endef
 

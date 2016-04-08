@@ -1,4 +1,4 @@
-interest register-#NVIDIA_ALTERNATIVE#
+interest register-#NVIDIA#-alternative
 
 interest /usr/lib/#PRIVATE#
 interest /usr/lib/i386-linux-gnu/#PRIVATE#
