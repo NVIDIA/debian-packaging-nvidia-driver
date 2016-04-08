@@ -28,6 +28,9 @@ KVERS := $(shell perl debian/kernel-version $(KSRC))
 export KVERS
 export KPKG_DEST_DIR
 
+KERNEL_SPEC	 = $(if $(filter /lib/modules/$(KVERS)/%,$(KSRC)),KERNEL_UNAME="$(KVERS)",SYSSRC="$(KSRC)")
+KERNEL_SPEC	+= $(KPKG_EXTRAV_ARG)
+
 configure: configure-stamp
 configure-stamp:
 	@if [ x"$(KVERS)" = x ] ; then \
@@ -61,7 +64,7 @@ build-indep:
 build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
-	unset ARCH; $(MAKE) modules KERNEL_UNAME=$(KVERS)
+	unset ARCH; $(MAKE) modules $(KERNEL_SPEC)
 	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
 	touch $@
 
@@ -93,7 +96,7 @@ clean:
 	test -f debian/control || cp debian/control.template debian/control
 	dh_testdir
 	dh_testroot
-	$(MAKE) clean KERNEL_UNAME=$(KVERS) $(KPKG_EXTRAV_ARG)
+	$(MAKE) clean $(KERNEL_SPEC)
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
 	dh_clean debian/control debian/install
 
