@@ -15,7 +15,7 @@ Build-Depends:
  libxext6,
  libxvmc1,
  quilt,
-Standards-Version: 3.9.3
+Standards-Version: 3.9.8
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
@@ -569,7 +569,7 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Recommends:
- ${nvidia}-opencl-icd
+ ${nvidia}-opencl-icd,
 Breaks:
  nvidia-opencl-icd (<< ${nvidia:Version}),
 Description: NVIDIA OpenCL driver
