@@ -14,7 +14,7 @@ Description: use KBUILD_CFLAGS
 +    do
 +        case $flag in
 +            -Werror*)   ;;
-+            *)          CFLAGS="$CFLAGS $flag"
++            *)          CFLAGS="$CFLAGS $flag" ;;
 +        esac
 +    done
  }

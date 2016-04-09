@@ -49,10 +49,11 @@ build-indep:
 build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
-	unset ARCH; $(MAKE) module $(KERNEL_SPEC)
-#HAS_UVM#	unset ARCH; $(MAKE) -C uvm module $(KERNEL_SPEC) KBUILD_EXTMOD=$(CURDIR)/uvm
+	unset ARCH; $(MAKE) modules $(KERNEL_SPEC)
+#HAS_UVM#	unset ARCH; $(MAKE) -C uvm modules $(KERNEL_SPEC) KBUILD_EXTMOD=$(CURDIR)/uvm
 ifneq (nvidia,$(MODULE_BASENAME))
 	mv nvidia.ko $(MODULE_BASENAME).ko
+##HAS_UVM#	mv uvm/nvidia-uvm.ko uvm/$(MODULE_BASENAME)-uvm.ko
 endif
 	touch $@
 

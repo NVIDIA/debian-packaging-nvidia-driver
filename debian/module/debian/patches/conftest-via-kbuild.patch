@@ -1,49 +1,22 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: run conftest.sh from within Kbuild
+
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -173,7 +173,7 @@ $(obj)/conftest/patches.h: $(src)/confte
+@@ -184,6 +184,7 @@ $(obj)/conftest/patches.h: $(src)/confte
  
  MODULE_GLUE_TARGETS = $(addprefix $(obj)/,$(MODULE_GLUE_OBJS))
  
--$(MODULE_GLUE_TARGETS): $(CONFTEST_HEADERS)
-+#$(MODULE_GLUE_TARGETS): $(CONFTEST_HEADERS)
++$(MODULE_GLUE_TARGETS): build-sanity-checks
+ $(MODULE_GLUE_TARGETS): $(CONFTEST_HEADERS)
  
  $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
- 
-@@ -211,13 +211,17 @@ BUILD_SANITY_CHECKS = \
- 	xen_sanity_check \
- 	preempt_rt_sanity_check
- 
--build-sanity-checks: conftest-verbose
-+build-sanity-checks: $(obj)/conftest/sanity-checks.stamp
-+
-+$(obj)/conftest/sanity-checks.stamp: conftest-verbose
-+	@mkdir -p $(obj)/conftest
- 	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
- 	 echo " CONFTEST: $$SANITY_CHECK"; \
- 	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
- 	 exit 1; \
- 	 fi; \
- 	done
-+	touch $@
- 
- #
- # BUILD_MODULE_RULE generates rules for building individual module targets.
-@@ -234,8 +238,10 @@ build-sanity-checks: conftest-verbose
- # target below.
+@@ -258,7 +259,7 @@ ifeq ($(KERNELRELEASE),)
  #
  
-+NV_CONFTEST_HEADERS	 = build-sanity-checks $(CONFTEST_HEADERS)
-+
  define BUILD_MODULE_RULE
 - $(1): build-sanity-checks $(3)
 + $(1): $(3)
  	@echo "NVIDIA: calling KBUILD..."
- 	$$(MAKE) NV_MODULE_SUFFIX=$$(strip $(2)) $$(KBUILD_PARAMS) modules
+ 	@$$(MAKE) NV_MODULE_SUFFIX=$$(strip $(2)) $$(KBUILD_PARAMS) modules
  	@echo "NVIDIA: left KBUILD."
-@@ -343,3 +349,6 @@ clean:
- 
- print-module-filename:
- 	@echo $(MODULE_OBJECT)
-+
-+# For any object files that depend on conftest, declare the dependency here.
-+$(MODULE_GLUE_TARGETS): | $(NV_CONFTEST_HEADERS)

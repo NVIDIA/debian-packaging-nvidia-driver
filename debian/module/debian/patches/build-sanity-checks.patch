@@ -1,0 +1,17 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: simplify customizing build-sanity-checks
+
+--- a/nvidia-modules-common.mk
++++ b/nvidia-modules-common.mk
+@@ -214,8 +214,10 @@ BUILD_SANITY_CHECKS = \
+ 	xen_sanity_check \
+ 	preempt_rt_sanity_check
+ 
++SKIP_SANITY_CHECKS	 =
++
+ build-sanity-checks:
+-	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
++	@for SANITY_CHECK in $(filter-out $(SKIP_SANITY_CHECKS),$(BUILD_SANITY_CHECKS)); do \
+ 	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
+ 	 exit 1; \
+ 	 fi; \

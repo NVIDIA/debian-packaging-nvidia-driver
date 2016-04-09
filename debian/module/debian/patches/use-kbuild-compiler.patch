@@ -7,7 +7,7 @@ Description: let Kbuild set the compiler version
 
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -221,10 +221,10 @@ build-sanity-checks:
+@@ -241,10 +241,10 @@ ifeq ($(KERNELRELEASE),)
  
  define BUILD_MODULE_RULE
   $(1): build-sanity-checks $(3)
@@ -16,7 +16,7 @@ Description: let Kbuild set the compiler version
 -	echo "NVIDIA: left KBUILD."; \
 -	if ! [ -f $(1) ]; then \
 +	@echo "NVIDIA: calling KBUILD..."
-+	$$(MAKE) NV_MODULE_SUFFIX=$$(strip $(2)) $$(KBUILD_PARAMS) modules
++	@$$(MAKE) NV_MODULE_SUFFIX=$$(strip $(2)) $$(KBUILD_PARAMS) modules
 +	@echo "NVIDIA: left KBUILD."
 +	@if ! [ -f $(1) ]; then \
  	 echo "$(1) failed to build!"; \

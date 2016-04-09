@@ -434,7 +434,6 @@ Description: Video Decode and Presentation API for Unix - NVIDIA driver
  ${nvidia:kmod:Description}
 
 #Package: ${nvidia}-smi
-#Package: ${nvidia}-smi
 Package: nvidia-smi
 Section: non-free/utils
 Architecture: i386 amd64 armhf

@@ -15,6 +15,6 @@ Bug-Debian: http://bugs.debian.org/626279
 +# avoid ld.gold, see #626279
 +LD=ld.bfd
 +
- all: install
- install: package-install
- 
+ #
+ # The precompiled kernel module build process requires a separation of the
+ # closed source and open source object files.

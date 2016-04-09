@@ -1,0 +1,89 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: separate Makefile/Kbuild specific parts within Makefile
+
+--- a/nvidia-modules-common.mk
++++ b/nvidia-modules-common.mk
+@@ -20,9 +20,6 @@
+ module module-sign module-install package-install clean print-module-filename \
+ conftest-compile-test
+ 
+-all: install
+-install: package-install
+-
+ #
+ # The precompiled kernel module build process requires a separation of the
+ # closed source and open source object files.
+@@ -49,6 +46,13 @@ EXTRA_CFLAGS += -Wall -MD $(DEFINES) $(I
+ src ?= .
+ obj ?= $(src)
+ 
++ifeq ($(KERNELRELEASE),)
++# Begin of Makefile section
++
++all: modules
++install: package-install
++modules: module
++
+ #
+ # Determine location of the Linux kernel source tree. Allow users to override
+ # the default (i.e. automatically determined) kernel source location with the
+@@ -82,6 +86,11 @@ else
+  endif
+ endif
+ 
++KBUILD_PARAMS	+= KERNEL_SOURCES=$(KERNEL_SOURCES) KERNEL_OUTPUT=$(KERNEL_OUTPUT)
++
++# End of Makefile section
++endif
++
+ CC ?= cc
+ HOST_CC ?= $(CC)
+ LD ?= ld
+@@ -112,6 +121,9 @@ TOPDIR ?= $(KERNEL_SOURCES)
+ 
+ MODULE_OBJECT := $(MODULE_NAME).ko
+ 
++ifneq ($(KERNELRELEASE),)
++# Begin of Kbuild section
++
+ #
+ # NVIDIA specific CFLAGS and #define's.
+ #
+@@ -163,6 +175,10 @@ $(MODULE_GLUE_TARGETS): $(CONFTEST_HEADE
+ 
+ $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
+ 
++# End of Kbuild section
++else
++# Begin of Makefile section
++
+ #
+ # KBUILD build parameters.
+ #
+@@ -179,6 +195,9 @@ KBUILD_PARAMS += KBUILD_VERBOSE=$(NV_VER
+ KBUILD_PARAMS += -C $(KERNEL_SOURCES) SUBDIRS=$(PWD)
+ KBUILD_PARAMS += ARCH=$(ARCH)
+ 
++# End of Makefile section
++endif
++
+ #
+ # NVIDIA sanity checks.
+ #
+@@ -204,6 +223,9 @@ build-sanity-checks:
+ 	 fi; \
+ 	done
+ 
++ifeq ($(KERNELRELEASE),)
++# Begin of Makefile section
++
+ #
+ # BUILD_MODULE_RULE generates rules for building individual module targets.
+ #
+@@ -328,3 +350,6 @@ clean:
+ 
+ print-module-filename:
+ 	@echo $(MODULE_OBJECT)
++
++# End of Makefile section
++endif

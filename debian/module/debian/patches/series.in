@@ -1,5 +1,8 @@
+separate-makefile-kbuild.patch
+KERNEL_UNAME.patch
 use-kbuild-compiler.patch
 use-kbuild-flags.patch
+build-sanity-checks.patch
 conftest-verbose.patch
 conftest-via-kbuild.patch
 disable-cc_version_check.patch
