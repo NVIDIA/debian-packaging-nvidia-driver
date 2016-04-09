@@ -7,17 +7,17 @@ Description: let Kbuild set the compiler version
 
 --- a/Makefile
 +++ b/Makefile
-@@ -274,10 +274,10 @@ ifeq ($(KERNELRELEASE),)
+@@ -273,10 +273,10 @@ ifeq ($(KERNELRELEASE),)
+ #
+ 
  module: build-sanity-checks
- module: modules
- modules:
 -	@echo "NVIDIA: calling KBUILD..."; \
 -	 $(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules; \
 -	echo "NVIDIA: left KBUILD."; \
 -	if ! [ -f $(MODULE_OBJECT) ]; then \
 +	@echo "NVIDIA: calling KBUILD..."
-+	$(MAKE) $(KBUILD_PARAMS) modules
-+	echo "NVIDIA: left KBUILD."
++	@$(MAKE) $(KBUILD_PARAMS) modules
++	@echo "NVIDIA: left KBUILD."
 +	@if ! [ -f $(MODULE_OBJECT) ]; then \
  	 echo "$(MODULE_OBJECT) failed to build!"; \
  	 exit 1; \

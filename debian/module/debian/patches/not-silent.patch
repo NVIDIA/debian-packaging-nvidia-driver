@@ -3,7 +3,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
 
 --- a/Makefile
 +++ b/Makefile
-@@ -214,20 +214,20 @@ COMPILE_TESTS = \
+@@ -215,20 +215,20 @@ COMPILE_TESTS = \
  #
  
  $(obj)/$(CORE_OBJS):
@@ -28,7 +28,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	@echo " CONFTEST $(notdir $@):"
  	@cat $@
  
-@@ -268,10 +268,10 @@ endif
+@@ -269,10 +269,10 @@ endif
  .PHONY: suser-sanity-check rmmod-sanity-check build-sanity-checks
  
  suser-sanity-check:
@@ -42,18 +42,18 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  BUILD_SANITY_CHECKS = \
  	cc_version_check \
 @@ -302,9 +302,9 @@ ifeq ($(KERNELRELEASE),)
- module: modules
- modules:
+ 
+ module:
  	@echo "NVIDIA: calling KBUILD..."
--	$(MAKE) $(KBUILD_PARAMS) modules
+-	@$(MAKE) $(KBUILD_PARAMS) modules
 +	$(NVQ)$(MAKE) $(KBUILD_PARAMS) modules
- 	echo "NVIDIA: left KBUILD."
+ 	@echo "NVIDIA: left KBUILD."
 -	@if ! [ -f $(MODULE_OBJECT) ]; then \
 +	$(NVQ)if ! [ -f $(MODULE_OBJECT) ]; then \
  	 echo "$(MODULE_OBJECT) failed to build!"; \
  	 exit 1; \
  	fi
-@@ -315,7 +315,7 @@ modules:
+@@ -315,7 +315,7 @@ module:
  #
  
  module-install: suser-sanity-check module

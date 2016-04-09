@@ -13,7 +13,7 @@ Description: separate Makefile/Kbuild specific parts within Makefile
  #
  # The NVIDIA kernel module base name and static file names. KBUILD will go
  # ahead and append ".o" or ".ko" to form the final module name.
-@@ -74,6 +71,12 @@ EXTRA_CFLAGS += -Wall -MD $(DEFINES) $(I
+@@ -74,6 +71,13 @@ EXTRA_CFLAGS += -Wall -MD $(DEFINES) $(I
  src ?= .
  obj ?= .
  
@@ -22,11 +22,12 @@ Description: separate Makefile/Kbuild specific parts within Makefile
 +
 +all: modules
 +install: package-install
++modules: module
 +
  #
  # Determine location of the Linux kernel source tree. Allow users to override
  # the default (i.e. automatically determined) kernel source location with the
-@@ -106,6 +109,11 @@ else
+@@ -106,6 +110,11 @@ else
   endif
  endif
  
@@ -38,7 +39,7 @@ Description: separate Makefile/Kbuild specific parts within Makefile
  CC ?= cc
  HOST_CC ?= $(CC)
  LD ?= ld
-@@ -132,6 +140,9 @@ TOPDIR ?= $(KERNEL_SOURCES)
+@@ -132,6 +141,9 @@ TOPDIR ?= $(KERNEL_SOURCES)
  
  MODULE_OBJECT := $(MODULE_NAME).ko
  
@@ -48,7 +49,7 @@ Description: separate Makefile/Kbuild specific parts within Makefile
  #
  # NVIDIA specific CFLAGS and #define's.
  #
-@@ -212,6 +223,10 @@ $(RESMAN_GLUE_TARGETS): $(obj)/conftest.
+@@ -212,6 +224,10 @@ $(RESMAN_GLUE_TARGETS): $(obj)/conftest.
  
  $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
  
@@ -59,7 +60,7 @@ Description: separate Makefile/Kbuild specific parts within Makefile
  #
  # KBUILD build parameters.
  #
-@@ -228,6 +243,9 @@ KBUILD_PARAMS += KBUILD_VERBOSE=$(NV_VER
+@@ -228,6 +244,9 @@ KBUILD_PARAMS += KBUILD_VERBOSE=$(NV_VER
  KBUILD_PARAMS += -C $(KERNEL_SOURCES) SUBDIRS=$(PWD)
  KBUILD_PARAMS += ARCH=$(ARCH)
  
@@ -69,7 +70,7 @@ Description: separate Makefile/Kbuild specific parts within Makefile
  #
  # NVIDIA sanity checks.
  #
-@@ -246,12 +264,17 @@ build-sanity-checks:
+@@ -246,6 +265,9 @@ build-sanity-checks:
  	@if ! $(CONFTEST) nvidiafb_sanity_check full_output; then exit 1; fi
  	@if ! $(CONFTEST) xen_sanity_check 		full_output; then exit 1; fi
  
@@ -79,15 +80,7 @@ Description: separate Makefile/Kbuild specific parts within Makefile
  #
  # Build the NVIDIA kernel module using Linux KBUILD. This target is used by
  # the "package-install" target below.
- #
- 
- module: build-sanity-checks
-+module: modules
-+modules:
- 	@echo "NVIDIA: calling KBUILD..."; \
- 	 $(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) modules; \
- 	echo "NVIDIA: left KBUILD."; \
-@@ -309,3 +332,6 @@ clean:
+@@ -309,3 +331,6 @@ clean:
  
  print-module-filename:
  	@echo $(MODULE_OBJECT)

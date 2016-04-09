@@ -3,7 +3,7 @@ Description: simplify customizing build-sanity-checks
 
 --- a/Makefile
 +++ b/Makefile
-@@ -257,11 +257,20 @@ suser-sanity-check:
+@@ -258,11 +258,20 @@ suser-sanity-check:
  rmmod-sanity-check:
  	@if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
  
