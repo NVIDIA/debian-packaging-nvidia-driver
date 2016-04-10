@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (361.42-1) UNRELEASED; urgency=medium
 
+  [ Luca Boccassi ]
   * New upstream long lived branch release 361.42 (2016-03-30).
     - Added support for the following GPUs: GeForce 920MX, GeForce 930MX,
       Quadro M6000 24GB.
@@ -11,15 +12,6 @@ nvidia-graphics-drivers (361.42-1) UNRELEASED; urgency=medium
       with the 3D Vision Pro transmitter on some systems.
     - Fixed a regression that caused the HSync and VSync mode timing polarity
       flags to be inverted.
-  * Refresh man-fixes-nvidia-smi.patch (failed to apply on 361.42).
-  * Update nv-readme.ids.
-  * Update symbols files.
-
- -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 30 Mar 2016 22:21:51 +0100
-
-nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
-
-  [ Luca Boccassi ]
   * New upstream long lived branch release 361.28 (2016-02-09).
     (Closes: #814347)
     - Added support for the following GPU: GeForce 945A.
@@ -57,7 +49,7 @@ nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
       For more information on the GLVND project.
       The Linux OpenGL ABI version 1.0 specification is available at:
         https://www.opengl.org/registry/ABI
-  * Refresh man-fixes-nvidia-smi.patch (failed to apply on 361.18).
+  * Refresh man-fixes-nvidia-smi.patch (failed to apply on 361.18 and 361.42).
   * Update nv-readme.ids.
   * Updated watch version to 361.
   * libgles-nvidia1: New package for the vendor-specific GLESv1 implementation
