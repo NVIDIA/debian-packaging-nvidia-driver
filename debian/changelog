@@ -9,15 +9,6 @@ nvidia-graphics-drivers (364.15-1) UNRELEASED; urgency=medium
     - Fixed a bug that could cause a kernel crash when VDPAU was used
       while DRM KMS was enabled.
   * New upstream beta release 364.12 (2016-03-21).
-    - Added support for the following GPUs: GeForce 920MX, GeForce 930MX
-    - Fixed a regression that caused GPU exceptions and incorrect rendering
-      when using pbuffers with EGLDevice.
-    - Fixed a bug that caused nvidia-settings to crash when pairing glasses
-      with the 3D Vision Pro transmitter on some systems.
-    - Fixed a bug that caused installer manifest entries for some 32-bit
-      compatibility libraries to be duplicated in the installer package.
-    - Fixed a regression that caused the HSync and VSync mode timing polarity
-      flags to be inverted.
     - Changed the default OpenGL installation type to use the GLVND GLX
       client libraries rather than the legacy non-GLVND libraries.
     - Added initial support for Direct Rendering Manager Kernel
