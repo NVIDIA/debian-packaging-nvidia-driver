@@ -5,11 +5,11 @@ Description: use KBUILD_CFLAGS
 
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -97,6 +97,7 @@ endif
+@@ -111,6 +111,7 @@ endif
  CONFTEST := /bin/sh $(src)/conftest.sh "$(CC)" "$(HOST_CC)" $(ARCH) $(KERNEL_SOURCES) $(KERNEL_OUTPUT)
  
  CONFTEST_CFLAGS := $(shell $(CONFTEST) build_cflags)
 +CONFTEST_CFLAGS += $(filter-out -Werror%,$(KBUILD_CFLAGS))
  
- KERNEL_UNAME ?= $(shell $(CONFTEST) get_uname)
  MODULE_ROOT := /lib/modules/$(KERNEL_UNAME)/kernel/drivers
+ 

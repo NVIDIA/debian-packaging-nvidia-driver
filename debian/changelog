@@ -1,7 +1,16 @@
 nvidia-graphics-drivers (352.79-6) UNRELEASED; urgency=medium
 
+  * separate-makefile-kbuild.patch: New, don't make all Makefile targets
+    available to Kbuild.
+  * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 355.xx onwards.
+  * nvidia-kernel-source: Use KERNEL_UNAME=KVERS only if the kernel headers
+    are available via /lib/modules/KVERS/{build,source}.  (Closes: #820260)
+  * Stop special-casing the nvidia-alternative substitution.
+  * bug-control, bug-script: Collect some information about OpenCL.
   * Updated Japanese (jp) debconf translations by Takuma Yamada.
     (Closes: #817867)
+  * Add B-D: dpkg-dev (>= 1.17.0) for dpkg-parsechangelog --show-field.
+  * Bump Standards-Version to 3.9.8. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 12 Mar 2016 18:22:44 +0100
 
@@ -33,7 +42,7 @@ nvidia-graphics-drivers (352.79-4) unstable; urgency=medium
   * [ppc64el] Do not depend on nvidia-kernel-common.
   * rules: Drop support for ancient .run layout.
   * Drop Conflicts+Replaces against transitional packages in wheezy.
-  * nvidia-detect: Drop support for lenny.
+  * nvidia-detect: Drop support for lenny (EoL).
   * debian/bug-control.mk: New script to generate bug-control.
   * Document in nvidia-legacy-check's description that the debconf questions
     can be preseeded to allow for non-interactive installations.

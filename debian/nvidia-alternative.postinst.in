@@ -89,7 +89,7 @@ fi
 if [ "$1" = "configure" ]; then
 
 	# activate our trigger
-	dpkg-trigger register-#NVIDIA_ALTERNATIVE#
+	dpkg-trigger register-#NVIDIA#-alternative
 
 fi
 

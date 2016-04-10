@@ -4,6 +4,10 @@
 # See Bug#582748.
 export CCACHE_DISABLE := 1
 
+export NV_VERBOSE := 1
+
+MODULE_BASENAME	 = #MODULE#
+
 CFLAGS = -Wall -g
 ifneq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
     CFLAGS += -O0
@@ -26,6 +30,9 @@ KVERS := $(shell perl debian/kernel-version $(KSRC))
 export KVERS
 export KPKG_DEST_DIR
 
+KERNEL_SPEC	 = $(if $(filter /lib/modules/$(KVERS)/%,$(KSRC)),KERNEL_UNAME="$(KVERS)",SYSSRC="$(KSRC)")
+KERNEL_SPEC	+= $(KPKG_EXTRAV_ARG)
+
 configure: configure-stamp
 configure-stamp:
 	@if [ x"$(KVERS)" = x ] ; then \
@@ -42,10 +49,12 @@ build-indep:
 build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
-	unset ARCH; $(MAKE) module KERNEL_UNAME=$(KVERS)
-#HAS_UVM#	unset ARCH; $(MAKE) -C uvm module KERNEL_UNAME=$(KVERS) KBUILD_EXTMOD=$(CURDIR)/uvm
-	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
-#HAS_UVM#	test "#MODULE#" = "nvidia" || mv uvm/nvidia-uvm.ko uvm/#MODULE#-uvm.ko
+	unset ARCH; $(MAKE) modules $(KERNEL_SPEC)
+#HAS_UVM#	unset ARCH; $(MAKE) -C uvm modules $(KERNEL_SPEC) KBUILD_EXTMOD=$(CURDIR)/uvm
+ifneq (nvidia,$(MODULE_BASENAME))
+	mv nvidia.ko $(MODULE_BASENAME).ko
+#HAS_UVM#	mv uvm/nvidia-uvm.ko uvm/$(MODULE_BASENAME)-uvm.ko
+endif
 	touch $@
 
 get_built_using	?= $(filter-out (=),$(shell dpkg-query -f='$${source:Package} (=$${source:Version})' -W $1))
@@ -76,8 +85,8 @@ clean:
 	test -f debian/control || cp debian/control.template debian/control
 	dh_testdir
 	dh_testroot
-	$(MAKE) clean KERNEL_UNAME=$(KVERS) $(KPKG_EXTRAV_ARG)
-#HAS_UVM#	$(MAKE) -C uvm clean KERNEL_UNAME=$(KVERS) $(KPKG_EXTRAV_ARG)
+	$(MAKE) clean $(KERNEL_SPEC)
+#HAS_UVM#	$(MAKE) -C uvm clean $(KERNEL_SPEC)
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
 	dh_clean debian/control debian/install
 

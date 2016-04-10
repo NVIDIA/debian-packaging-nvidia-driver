@@ -1,0 +1,100 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: separate Makefile/Kbuild specific parts within Makefile
+
+--- a/nvidia-modules-common.mk
++++ b/nvidia-modules-common.mk
+@@ -19,9 +19,16 @@
+ .PHONY: all install suser-sanity-check rmmod-sanity-check build-sanity-checks \
+ module module-sign module-install package-install clean
+ 
++ifeq ($(KERNELRELEASE),)
++# Begin of Makefile section
++
++modules: module
+ all: install
+ install: package-install
+ 
++# End of Makefile section
++endif
++
+ #
+ # The precompiled kernel module build process requires a separation of the
+ # closed source and open source object files.
+@@ -49,6 +56,9 @@ EXTRA_CFLAGS += -Wall -MD $(DEFINES) $(I
+ src ?= .
+ obj ?= $(src)
+ 
++ifeq ($(KERNELRELEASE),)
++# Begin of Makefile section
++
+ #
+ # Determine location of the Linux kernel source tree. Allow users to override
+ # the default (i.e. automatically determined) kernel source location with the
+@@ -82,6 +92,11 @@ else
+  endif
+ endif
+ 
++KBUILD_PARAMS	+= KERNEL_SOURCES=$(KERNEL_SOURCES) KERNEL_OUTPUT=$(KERNEL_OUTPUT)
++
++# End of Makefile section
++endif
++
+ CC ?= cc
+ HOST_CC ?= $(CC)
+ LD ?= ld
+@@ -114,6 +129,9 @@ TOPDIR ?= $(KERNEL_SOURCES)
+ 
+ MODULE_OBJECTS := $(addsuffix .ko,$(MODULE_NAME))
+ 
++ifneq ($(KERNELRELEASE),)
++# Begin of Kbuild section
++
+ #
+ # NVIDIA specific CFLAGS and #define's.
+ #
+@@ -196,6 +214,12 @@ $(obj)/conftest/headers.h: $(src)/confte
+ 
+ $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
+ 
++# End of Kbuild section
++endif
++
++ifeq ($(KERNELRELEASE),)
++# Begin of Makefile section
++
+ #
+ # KBUILD build parameters.
+ #
+@@ -212,6 +236,12 @@ KBUILD_PARAMS += KBUILD_VERBOSE=$(NV_VER
+ KBUILD_PARAMS += -C $(KERNEL_SOURCES) SUBDIRS=$(PWD)
+ KBUILD_PARAMS += ARCH=$(ARCH)
+ 
++# End of Makefile section
++endif
++
++#ifneq ($(KERNELRELEASE),)
++# Begin of Kbuild section
++
+ #
+ # NVIDIA sanity checks.
+ #
+@@ -237,6 +267,12 @@ build-sanity-checks:
+ 	 fi; \
+ 	done
+ 
++# End of Kbuild section
++#endif
++
++ifeq ($(KERNELRELEASE),)
++# Begin of Makefile section
++
+ #
+ # Call into KBUILD to build the NVIDIA kernel module(s) defined in $(obj-m)
+ #
+@@ -340,3 +376,6 @@ clean:
+ 	@$(RM) -f conftest*.c
+ 	@$(RM) -rf conftest
+ 	@$(RM) -rf Module*.symvers .tmp_versions modules.order
++
++# End of Makefile section
++endif

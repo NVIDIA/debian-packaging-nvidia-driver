@@ -1,42 +1,36 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: run conftest.sh from within Kbuild
+
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -238,24 +238,30 @@ BUILD_SANITY_CHECKS = \
- 	xen_sanity_check \
- 	preempt_rt_sanity_check
+@@ -254,7 +254,7 @@ KBUILD_PARAMS += ARCH=$(ARCH)
+ # End of Makefile section
+ endif
  
--build-sanity-checks:
-+build-sanity-checks: $(obj)/conftest/sanity-checks.stamp
-+
-+$(obj)/conftest/sanity-checks.stamp:
- 	@echo 'CONFTEST=$(CONFTEST)'
- 	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
- 	@echo 'KBUILD_CFLAGS=$(KBUILD_CFLAGS)'
- 	@echo 'LINUXINCLUDE=$(LINUXINCLUDE)'
- 	@echo 'LDFLAGS=$(LDFLAGS)'
-+	@mkdir -p $(obj)/conftest
- 	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
- 	 echo " CONFTEST: $$SANITY_CHECK"; \
- 	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
- 	 exit 1; \
- 	 fi; \
- 	done
-+	touch $@
+-#ifneq ($(KERNELRELEASE),)
++ifneq ($(KERNELRELEASE),)
+ # Begin of Kbuild section
  
  #
+@@ -285,8 +285,11 @@ build-sanity-checks: conftest-verbose
+ 	 fi; \
+ 	done
+ 
++# For any object files that depend on conftest, declare the dependency here.
++$(addprefix $(obj)/,$(MODULE_GLUE_OBJS)): build-sanity-checks $(CONFTEST_HEADERS)
++
+ # End of Kbuild section
+-#endif
++endif
+ 
+ ifeq ($(KERNELRELEASE),)
+ # Begin of Makefile section
+@@ -295,7 +298,7 @@ ifeq ($(KERNELRELEASE),)
  # Call into KBUILD to build the NVIDIA kernel module(s) defined in $(obj-m)
  #
  
 -module: build-sanity-checks $(CONFTEST_HEADERS)
-+NV_CONFTEST_HEADERS	 = build-sanity-checks $(CONFTEST_HEADERS)
-+
 +module:
  	@echo "NVIDIA: calling KBUILD..."
- 	$(MAKE) $(KBUILD_PARAMS) modules
+ 	@$(MAKE) $(KBUILD_PARAMS) modules
  	@echo "NVIDIA: left KBUILD."
-@@ -354,3 +360,6 @@ clean:
- 	@$(RM) -f conftest*.c
- 	@$(RM) -rf conftest
- 	@$(RM) -rf Module*.symvers .tmp_versions modules.order
-+
-+# For any object files that depend on conftest, declare the dependency here.
-+$(addprefix $(obj)/,$(MODULE_GLUE_OBJS)): | $(NV_CONFTEST_HEADERS)

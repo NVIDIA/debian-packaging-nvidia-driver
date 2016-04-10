@@ -12,12 +12,13 @@ Vcs-Svn: svn://anonscm.debian.org/pkg-nvidia/packages/nvidia-graphics-drivers/tr
 Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
  debhelper (>= 9),
+ dpkg-dev (>= 1.17.0),
  xz-utils,
  dkms,
  libxext6 [!ppc64el],
  quilt,
  po-debconf,
-Standards-Version: 3.9.7
+Standards-Version: 3.9.8
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
@@ -34,7 +35,7 @@ Depends:
  ${nvidia}-driver-bin (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  ${nvidia}-vdpau-driver (= ${binary:Version}),
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  ${nvidia:kmod:binary},
  nvidia-support,
  ${misc:Depends}
@@ -72,7 +73,7 @@ Package: nvidia-driver-bin
 Section: non-free/x11
 Architecture: i386 amd64 armhf
 Depends:
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia}-driver,
@@ -102,7 +103,7 @@ Pre-Depends:
  ${nvidia:legacy-check},
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  nvidia-support (>= 20120630),
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
@@ -157,7 +158,7 @@ Pre-Depends:
  ${nvidia:legacy-check},
  ${misc:Pre-Depends}
 Depends:
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  nvidia-installer-cleanup (>= 20130816) [i386],
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
@@ -197,7 +198,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
@@ -216,7 +217,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 1.x libraries${nvidia:LegacyDesc}
@@ -238,7 +239,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 2.x libraries${nvidia:LegacyDesc}
@@ -278,7 +279,7 @@ Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
  This package contains the private core libraries used by the NVIDIA
  implementation of EGL and OpenGL|ES.
 
-#Package: ${nvidia-alternative}
+#Package: ${nvidia}-alternative
 Package: nvidia-alternative
 Architecture: i386 amd64 armhf ppc64el
 Multi-Arch: foreign
@@ -301,7 +302,7 @@ Breaks:
  libnvidia-ml1 (<< 340.46-2~),
  nvidia-smi (<< 340.46-2~),
 Provides:
- ${nvidia-alternative}--kmod-alias,
+ ${nvidia}-alternative--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider
  In setups with several NVIDIA driver versions installed (e.g. current and
  legacy) this metapackage registers an alternative to allow easy switching
@@ -319,8 +320,8 @@ Section: non-free/kernel
 Architecture: i386 amd64 armhf ppc64el
 Multi-Arch: foreign
 Depends:
- ${nvidia-alternative} (= ${binary:Version}),
- ${nvidia-alternative}--kmod-alias,
+ ${nvidia}-alternative (= ${binary:Version}),
+ ${nvidia}-alternative--kmod-alias,
  nvidia-kernel-common (>= 20151021) [!ppc64el],
  nvidia-modprobe,
  ${misc:Depends}
@@ -422,7 +423,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  libvdpau1 (>= 0.9),
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
@@ -439,7 +440,7 @@ Description: Video Decode and Presentation API for Unix - NVIDIA driver
  .
  This package contains the NVIDIA VDPAU driver.
  .
- See /usr/share/doc/nvidia-vdpau-driver/README.txt.gz
+ See /usr/share/doc/${nvidia}-vdpau-driver/README.txt.gz
  for more information.
  .
  ${nvidia:kmod:Description}
@@ -489,7 +490,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  nvidia-support,
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
@@ -633,7 +634,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Breaks:
  ${nvidia}-smi (<< ${nvidia:Version}),
@@ -650,7 +651,7 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Recommends:
- ${nvidia}-opencl-icd
+ ${nvidia}-opencl-icd,
 Description: NVIDIA OpenCL driver
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -668,7 +669,7 @@ Pre-Depends:
 Depends:
  nvidia-opencl-common,
  ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1,
- ${nvidia-alternative} (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  ${libcuda1} (= ${binary:Version}),
  lib${nvidia}-compiler (= ${binary:Version}) [!ppc64el],
  ${shlibs:Depends}, ${misc:Depends}

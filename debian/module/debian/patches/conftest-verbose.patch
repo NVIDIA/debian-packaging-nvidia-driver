@@ -3,15 +3,34 @@ Description: dump the generated conftest headers
 
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -159,6 +159,7 @@ $(CONFTEST_COMPILE_TEST_HEADERS)
+@@ -161,6 +161,15 @@ $(obj)/$(CORE_OBJS):
+ $(obj)/$(VERSION_HEADER):
+ 	@echo \#define NV_COMPILER \"`$(CC) -v 2>&1 | tail -n 1`\" > $@
  
- $(obj)/conftest/compile-tests/%.h: $(src)/conftest.sh $(obj)/conftest/headers.h
++.PHONY: conftest-verbose
++conftest-verbose:
++	@echo 'CONFTEST=$(CONFTEST)'
++	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
++	@echo 'KBUILD_CFLAGS=$(KBUILD_CFLAGS)'
++	@echo 'LINUXINCLUDE=$(LINUXINCLUDE)'
++	@echo 'LDFLAGS=$(LDFLAGS)'
++	@echo 'ARCH=$(ARCH)'
++
+ CONFTEST_COMPILE_TEST_HEADERS := $(obj)/conftest/macros.h \
+ $(obj)/conftest/functions.h $(obj)/conftest/symbols.h $(obj)/conftest/types.h \
+ $(obj)/conftest/generic.h
+@@ -174,8 +183,9 @@ $(CONFTEST_COMPILE_TEST_HEADERS)
+ # file, which is included in the compile test preamble.
+ #
+ 
+-$(obj)/conftest/compile-tests/%.h: $(src)/conftest.sh $(obj)/conftest/headers.h
++$(obj)/conftest/compile-tests/%.h: $(src)/conftest.sh conftest-verbose $(obj)/conftest/headers.h
  	@mkdir -p $(obj)/conftest/compile-tests
 +	@echo " CONFTEST: $(notdir $*)"
  	@$(CONFTEST) compile_tests '$(CONFTEST_CFLAGS)' $(notdir $*) > $@
  
  #
-@@ -173,6 +174,8 @@ $(obj)/conftest/$(1).h: $(addprefix $(ob
+@@ -190,6 +200,8 @@ $(obj)/conftest/$(1).h: $(addprefix $(ob
  	@mkdir -p $(obj)/conftest
  	@# concatenate /dev/null to prevent cat from hanging when $$^ is empty
  	@cat $$^ /dev/null > $$@
@@ -20,14 +39,19 @@ Description: dump the generated conftest headers
  endef
  
  #
-@@ -189,10 +192,14 @@ $(eval $(call GENERATE_COMPILE_TEST_HEAD
- $(obj)/conftest/patches.h: $(src)/conftest.sh
+@@ -203,13 +215,17 @@ $(eval $(call GENERATE_COMPILE_TEST_HEAD
+ $(eval $(call GENERATE_COMPILE_TEST_HEADER,symbols,$(SYMBOL_COMPILE_TESTS)))
+ $(eval $(call GENERATE_COMPILE_TEST_HEADER,types,$(TYPE_COMPILE_TESTS)))
+ 
+-$(obj)/conftest/patches.h: $(src)/conftest.sh
++$(obj)/conftest/patches.h: $(src)/conftest.sh conftest-verbose
  	@mkdir -p $(obj)/conftest
  	@$(CONFTEST) patch_check > $@
 +	@echo " CONFTEST $(notdir $@):"
 +	@cat $@
  
- $(obj)/conftest/headers.h: $(src)/conftest.sh
+-$(obj)/conftest/headers.h: $(src)/conftest.sh
++$(obj)/conftest/headers.h: $(src)/conftest.sh conftest-verbose
  	@mkdir -p $(obj)/conftest
  	@$(CONFTEST) test_kernel_headers > $@
 +	@echo " CONFTEST $(notdir $@):"
@@ -35,16 +59,13 @@ Description: dump the generated conftest headers
  
  $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
  
-@@ -231,7 +238,13 @@ BUILD_SANITY_CHECKS = \
- 	preempt_rt_sanity_check
+@@ -261,8 +277,9 @@ BUILD_SANITY_CHECKS = \
  
- build-sanity-checks:
-+	@echo 'CONFTEST=$(CONFTEST)'
-+	@echo 'CONFTEST_CFLAGS=$(CONFTEST_CFLAGS)'
-+	@echo 'KBUILD_CFLAGS=$(KBUILD_CFLAGS)'
-+	@echo 'LINUXINCLUDE=$(LINUXINCLUDE)'
-+	@echo 'LDFLAGS=$(LDFLAGS)'
- 	@for SANITY_CHECK in $(BUILD_SANITY_CHECKS); do \
+ SKIP_SANITY_CHECKS	 =
+ 
+-build-sanity-checks:
++build-sanity-checks: conftest-verbose
+ 	@for SANITY_CHECK in $(filter-out $(SKIP_SANITY_CHECKS),$(BUILD_SANITY_CHECKS)); do \
 +	 echo " CONFTEST: $$SANITY_CHECK"; \
  	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
  	 exit 1; \

@@ -7,7 +7,8 @@ Description: Select the correct nv-kernel.o blob for the target architecture
 
 --- a/Makefile
 +++ b/Makefile
-@@ -131,4 +131,13 @@ MODULE_GLUE_OBJS := $(patsubst %.c,%.o,$(NVIDIA_SOURCES))
+@@ -133,5 +133,14 @@ MODULE_GLUE_OBJS := $(patsubst %.c,%.o,$
+ 
  $(MODULE_NAME)-objs := $(CORE_OBJS) $(MODULE_GLUE_OBJS)
  
 +$(MODULE_NAME)-objs :=
