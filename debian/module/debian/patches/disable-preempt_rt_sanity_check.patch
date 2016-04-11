@@ -4,7 +4,7 @@ Description: disable preempt_rt_sanity_check
 
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -232,6 +232,7 @@ BUILD_SANITY_CHECKS = \
+@@ -243,6 +243,7 @@ BUILD_SANITY_CHECKS = \
  
  SKIP_SANITY_CHECKS	 =
  SKIP_SANITY_CHECKS	+= cc_version_check

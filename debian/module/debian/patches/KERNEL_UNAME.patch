@@ -3,7 +3,7 @@ Description: allow usage of KERNEL_UNAME as in 340.xx onwards
 
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -59,12 +59,13 @@ modules: module
+@@ -65,12 +65,13 @@ ifeq ($(KERNELRELEASE),)
  # SYSSRC directive; this new directive replaces NVIDIA's SYSINCLUDE.
  #
  
@@ -19,7 +19,7 @@ Description: allow usage of KERNEL_UNAME as in 340.xx onwards
   KERNEL_SOURCES := $(shell test -d $(KERNEL_MODLIB)/source && echo $(KERNEL_MODLIB)/source || echo $(KERNEL_MODLIB)/build)
   KERNEL_HEADERS := $(KERNEL_SOURCES)/include
  endif
-@@ -78,8 +79,6 @@ ifdef SYSOUT
+@@ -84,8 +85,6 @@ ifdef SYSOUT
   KBUILD_PARAMS := KBUILD_OUTPUT=$(KERNEL_OUTPUT)
   endif
  else
@@ -28,7 +28,7 @@ Description: allow usage of KERNEL_UNAME as in 340.xx onwards
   ifeq ($(KERNEL_SOURCES), $(KERNEL_MODLIB)/source)
   KERNEL_OUTPUT := $(KERNEL_MODLIB)/build
   KBUILD_PARAMS := KBUILD_OUTPUT=$(KERNEL_OUTPUT)
-@@ -105,7 +104,6 @@ endif
+@@ -111,7 +110,6 @@ endif
  
  CONFTEST := /bin/sh $(src)/conftest.sh "$(CC)" "$(HOST_CC)" $(ARCH) $(KERNEL_SOURCES) $(KERNEL_OUTPUT)
  

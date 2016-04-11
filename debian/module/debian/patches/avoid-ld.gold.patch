@@ -8,13 +8,13 @@ Bug-Debian: http://bugs.debian.org/626279
 
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -20,6 +20,9 @@
- module module-sign module-install package-install clean print-module-filename \
- conftest-compile-test
+@@ -16,6 +16,9 @@
+ # Christian Zander (zander@mail.minion.de) (enhancements
+ #
  
 +# avoid ld.gold, see #626279
 +LD=ld.bfd
 +
- #
- # The precompiled kernel module build process requires a separation of the
- # closed source and open source object files.
+ .PHONY: all install suser-sanity-check rmmod-sanity-check build-sanity-checks \
+ module module-sign module-install package-install clean print-module-filename \
+ conftest-compile-test

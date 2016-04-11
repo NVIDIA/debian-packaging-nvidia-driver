@@ -7,7 +7,7 @@ Description: let Kbuild set the compiler version
 
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
-@@ -241,10 +241,10 @@ ifeq ($(KERNELRELEASE),)
+@@ -255,10 +255,10 @@ ifeq ($(KERNELRELEASE),)
  
  define BUILD_MODULE_RULE
   $(1): build-sanity-checks $(3)
