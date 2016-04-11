@@ -43,10 +43,7 @@ if [ "$1" = "triggered" ]; then
 
 	slaves="
 		$(add_multiarch_slave /usr/lib nvidia/ libGL.so.1 /usr/lib #PRIVATE#/)
-		$(add_multiarch_slave /usr/lib nvidia/ libGLcore.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib nvidia/ libnvidia-cfg.so.1 /usr/lib #PRIVATE#/)
-		$(add_multiarch_slave /usr/lib nvidia/ libnvidia-tls.so.1 /usr/lib #PRIVATE#/)
-		$(add_multiarch_slave /usr/lib nvidia/tls/ libnvidia-tls.so.1 /usr/lib #PRIVATE#/tls/ tls-)
 		$(add_multiarch_slave /usr/lib nvidia/ libXvMCNVIDIA.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib nvidia/ libXvMCNVIDIA_dynamic.so.1 /usr/lib #PRIVATE#/)
 		$(add_slave /usr/lib/nvidia/libglx.so libglx.so /usr/lib/#PRIVATE#/libglx.so)
