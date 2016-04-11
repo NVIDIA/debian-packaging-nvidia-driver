@@ -16,6 +16,7 @@ Build-Depends:
  xz-utils,
  dkms,
  libxext6,
+ libxvmc1,
  quilt,
 Standards-Version: 3.9.8
 Homepage: http://www.nvidia.com
