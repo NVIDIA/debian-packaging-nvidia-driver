@@ -1,3 +1,35 @@
+nvidia-graphics-drivers (340.96-4) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Do not run dh_strip_nondeterminism, it may perform modifications not
+    permitted by the NVIDIA license.
+  * get-orig-source: Download *.run with wget from http download server to
+    preserve timestamps.
+  * get-orig-source: Generate tarball reproducibly.
+  * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * bug-script: collect Xorg log from journalctl if running on systemd
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Jan 2016 19:55:26 +0100
+
+nvidia-graphics-drivers (340.96-3) unstable; urgency=medium
+
+  * Merge changes from 304.131-1 (wheezy) and 340.96-1 (jessie).
+  * Add slave alternative for libnvcuvid.so.
+  * Use a more generic approach for unloading the modules.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 10:59:42 +0100
+
+nvidia-graphics-drivers (340.96-2) unstable; urgency=medium
+
+  * Merge changes from 340.96-1 (UNRELEASED).
+  * seq-printf.patch: Remove, fixed upstream.
+  * Update lintian overrides.  (Closes: #805388)
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 06:59:25 +0100
+
 nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
@@ -70,6 +102,124 @@ nvidia-graphics-drivers (340.96-1) jessie; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 10:17:49 +0100
 
+nvidia-graphics-drivers (340.93-8) unstable; urgency=medium
+
+  * nvidia-detect: Fix lspci call if there are multiple NVIDIA GPUs installed
+    and report driver support for each of them.  (Closes: #804073)
+  * bug-control: Report status of bumblebee and bumblebee-nvidia.
+  * nvidia-alternative.postinst: Activate the register-glx-alternative-nvidia
+    trigger with --no-await.
+  * Update documentation to use update-glx to configure the 'nvidia' and 'glx'
+    alternatives.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 13 Nov 2015 12:14:46 +0100
+
+nvidia-graphics-drivers (340.93-7) unstable; urgency=medium
+
+  * Ship the NEWS in xserver-xorg-video-nvidia and nvidia-kernel-dkms, too.
+  * Bump glx-alternative-nvidia dependency to (>= 0.7) for Xorg autoconfig.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 02 Nov 2015 12:10:02 +0100
+
+nvidia-graphics-drivers (340.93-6) unstable; urgency=medium
+
+  * nvidia-opencl-icd: Restore the Depends: libcuda1.
+  * d/rules: Move tar option --no-recursion before the list of files.
+  * Bump dependency to nvidia-kernel-common (>= 20151021) which no longer
+    applies non-default permissions on the /dev/nvidia* device nodes.
+    (See: #801598, #801869) (Closes: #801191, #801097)
+  * nvidia-modprobe.conf: Re-enable the PCI ID matching aliases.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 21 Oct 2015 16:22:33 +0200
+
+nvidia-graphics-drivers (340.93-5) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Merge changes from 304.128-1 (wheezy) and 340.93-0+deb8u1 (jessie).
+  * nvidia-kernel-support: Ship nvidia-modprobe.conf (previously in
+    nvidia-alternative), managed via nvidia-alternative.
+  * nvidia-kernel-support: Ship nvidia-blacklists-nouveau.conf and
+    nvidia-load.conf, managed via nvidia-alternative.
+  * Reroute all kernel module dependencies through nvidia-kernel-support.
+    (Closes: #801298)
+  * nvidia-modprobe.conf: Temporarily disable the PCI-ID-match aliases and go
+    back to insecure default permissions (root:root 0666).  (See: #801869)
+  * Xorg autoconfig does not cause the permission issues.  (See: #801598)
+  * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * arm-outer-sync.patch: New patch to fix armhf kernel module build for
+    Linux 4.3.
+  * conftest.h:
+    - Implement new conftest.sh functions hlist_for_each_entry,
+      of_parse_phandle, for_each_online_node, node_end_pfn (358.09).
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 16:00:30 +0200
+
+nvidia-graphics-drivers (340.93-4) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Update lintian overrides.
+  * bug-script: Report device node permissions.
+  * bug-control, bug-script: Report information about CUDA libraries.
+  * libcuda1: Provides: libcuda1-any.
+  * xserver-xorg-video-nvidia: Ship nvidia-drm-outputclass.conf, managed via
+    nvidia-alternative.
+  * Add nvidia-kernel-support package.
+
+  [ Luca Boccassi ]
+  * seq-printf.patch: New patch to fix kernel module build for Linux 4.3.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 09 Oct 2015 01:52:51 +0200
+
+nvidia-graphics-drivers (340.93-3) unstable; urgency=medium
+
+  * Revert glx-alternative-nvidia dependency to (>= 0.5) because Xorg
+    autoconfig causes some permission issues (see: #799948).
+  * Document the permission issues.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 01 Oct 2015 04:26:47 +0200
+
+nvidia-graphics-drivers (340.93-2) unstable; urgency=medium
+
+  * nvidia-modprobe.conf:  (Closes: #798207)
+    - Don't use aliases for the renamed modules, only use install and remove
+      commands.
+    - Remodel the nvidia-uvm -> nvidia dependency via an install command.
+    - Duplicate the module's built-in PCI-ID-match aliases to ensure they
+      cause the virtual "nvidia" module to be loaded instead of a random one.
+  * Drop instructions and debconf notes about manual xorg.conf creation. The
+    driver now integrates with Xorg s.t. it is automatically detected and
+    loaded if selected as the glx alternative.  (Closes: #586502, #612093)
+  * Add NEWS entry about no longer requiring manual xorg.conf creation.
+  * Bump glx-alternative-nvidia dependency to (>= 0.6) for Xorg autoconfig.
+  * libgl1-nvidia-glx: Add Provides+Conflicts:
+    libgl1-nvidia-glx-${nvidia:Version} to forbid co-installation of
+    libgl1-nvidia-legacy-304xx-glx from the same upstream version due to file
+    conflicts on versioned files that are not handled via alternatives.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 24 Sep 2015 04:38:22 +0200
+
+nvidia-graphics-drivers (340.93-1) unstable; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.93 (2015-09-02).
+    * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      (Closes: #800566)
+  * fixes-for-kernel-4.0.0.patch: Remove, fixed upstream.
+  * conftest.h:
+    - Implement new conftest.sh function nvidia_grid_build (352.41).
+  * Update lintian overrides.
+  * nvidia-driver-bin, libnvidia-compiler, libnvidia-eglcore: Add
+    Provides+Conflicts: $pkg-${nvidia:Version} to forbid co-installation with
+    the respective legacy packages from the same upstream version due to file
+    conflicts on versioned files are not handled via alternatives.
+  * bug-script: Report file information in arm-linux-gnueabihf directories.
+  * bug-script: Collect information from /etc/modules{,-load.d/}.
+  * nvidia-driver: Add Recommends: nvidia-persistenced.
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Sep 2015 20:58:29 +0200
+
 nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.93 (2015-09-02).
@@ -111,6 +261,16 @@ nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
   * Upload to jessie.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 13:18:03 +0200
+
+nvidia-graphics-drivers (340.76-5) unstable; urgency=medium
+
+  * Drop obsolete transitional package nvidia-glx.
+  * nvidia-kernel-*: [i386] Drop support for building amd64 kernel modules.
+  * Overhaul arch-specific UVM support.
+  * nvidia-detect: Add support for the upcoming nvidia-legacy-340xx-driver.
+  * Rename nvidia-uvm.ko to nvidia-{current,legacy-*}-uvm.ko.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 11 Aug 2015 18:30:32 +0200
 
 nvidia-graphics-drivers (340.76-4) unstable; urgency=medium
 

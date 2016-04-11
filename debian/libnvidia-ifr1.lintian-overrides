@@ -7,4 +7,3 @@ hardening-no-relro
 
 # Lintian and debhelper disagree w.r.t a library in a private directory.
 postinst-has-useless-call-to-ldconfig
-postrm-has-useless-call-to-ldconfig

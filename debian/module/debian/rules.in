@@ -53,7 +53,7 @@ build-stamp: configure-stamp
 #HAS_UVM#	unset ARCH; $(MAKE) -C uvm modules $(KERNEL_SPEC) KBUILD_EXTMOD=$(CURDIR)/uvm
 ifneq (nvidia,$(MODULE_BASENAME))
 	mv nvidia.ko $(MODULE_BASENAME).ko
-##HAS_UVM#	mv uvm/nvidia-uvm.ko uvm/$(MODULE_BASENAME)-uvm.ko
+#HAS_UVM#	mv uvm/nvidia-uvm.ko uvm/$(MODULE_BASENAME)-uvm.ko
 endif
 	touch $@
 

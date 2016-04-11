@@ -15,14 +15,12 @@ http://bugs.debian.org/#NVIDIA#-driver
 NOTES ABOUT GLX DRIVER AND OPENGL:
 -----------------------------------------------------------------------
 
-Using the nvidia X driver requires some user modification.
+The NVIDIA driver packages now configure the system s.t. Xorg automatically
+detects and uses the NVIDIA driver. Therefore it is no longer necessary to
+manually create an xorg.conf.
 
-The current X Server 1.12 can autodetect many things, so you probably don't
-have a /etc/X11/xorg.conf at all after a fresh installation of Debian wheezy
-or a newer release.
-
-The NVIDIA driver is not autodetected by Xorg, so you will have to create a
-minimal /etc/X11/xorg.conf (or modify an existing one):
+If you still want to manually create an xorg.conf, e.g. to change some other
+driver settings, the following minimal one can serve as a starting point:
 
 	Section "Device"
 	    Identifier     "My GPU"
