@@ -12,6 +12,7 @@ Vcs-Svn: svn://anonscm.debian.org/pkg-nvidia/packages/nvidia-graphics-drivers/tr
 Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
  debhelper (>= 9),
+ dpkg-dev (>= 1.17.0),
  xz-utils,
  dkms,
  libxext6,
@@ -144,7 +145,7 @@ Pre-Depends:
  ${nvidia:legacy-check},
  ${misc:Pre-Depends}
 Depends:
- ${nvidia}-alternative,
+ ${nvidia}-alternative (= ${binary:Version}),
  nvidia-installer-cleanup (>= 20130816) [i386],
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
@@ -193,6 +194,7 @@ Pre-Depends:
  ${nvidia:legacy-check},
 Depends:
  glx-alternative-nvidia (>= 0.4),
+ nvidia-modprobe,
  ${misc:Depends}
 Conflicts:
  libgl1-nvidia-alternatives,
@@ -227,10 +229,9 @@ Depends:
  ${nvidia}-alternative--kmod-alias,
  ${misc:Depends}
 Recommends:
- ${nvidia}-driver (>= ${nvidia:Version}),
+ ${nvidia}-driver (>= ${nvidia:Version}) | ${libcuda1} (>= ${nvidia:Version}),
 Provides:
  ${nvidia}-kernel-${nvidia:Version},
-Conflicts:
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  This package builds the NVIDIA Xorg binary kernel module needed by
  ${nvidia}-driver, using DKMS.
@@ -255,7 +256,7 @@ Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64
 Depends:
- debhelper (>= 8),
+ debhelper (>= 9),
  make,
  quilt,
  xz-utils,
@@ -300,6 +301,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  libvdpau1,
+ ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
@@ -376,10 +378,12 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  nvidia-support,
+ ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
  ${nvidia}-smi,
+ ${libcuda1}-i386 [amd64],
 Suggests:
  nvidia-cuda-mps,
  ${nvidia:kmod:source},
@@ -427,7 +431,10 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-compiler-${nvidia:Version},
 Conflicts:
+ libnvidia-compiler-${nvidia:Version},
  libnvidia-compiler-ia32,
 Replaces:
  libnvidia-compiler-ia32,
@@ -445,6 +452,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
+ ${libcuda1} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA CUDA Video Decoder runtime library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
@@ -463,6 +471,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Breaks:
  ${nvidia}-smi (<< ${nvidia:Version}),
@@ -480,8 +489,6 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia}-opencl-icd,
-Breaks:
- nvidia-opencl-icd (<< ${nvidia:Version}),
 Description: NVIDIA OpenCL driver
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
@@ -497,8 +504,10 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- nvidia-opencl-common (= ${binary:Version}),
+ nvidia-opencl-common,
  ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1,
+ ${nvidia}-alternative (= ${binary:Version}),
+ ${libcuda1} (= ${binary:Version}),
  lib${nvidia}-compiler (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Enhances:
@@ -525,7 +534,7 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- nvidia-opencl-icd | opencl-icd,
+ ${nvidia}-opencl-icd | opencl-icd,
 Provides:
  libopencl1,
  libopencl-1.1-1,

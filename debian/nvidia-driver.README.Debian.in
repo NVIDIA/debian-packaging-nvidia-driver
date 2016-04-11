@@ -17,8 +17,8 @@ NOTES ABOUT GLX DRIVER AND OPENGL:
 
 Using the nvidia X driver requires some user modification.
 
-The current X Server 1.7 can autodetect many things, so you probably don't
-have a /etc/X11/xorg.conf at all after a fresh installation of Debian squeeze
+The current X Server 1.12 can autodetect many things, so you probably don't
+have a /etc/X11/xorg.conf at all after a fresh installation of Debian wheezy
 or a newer release.
 
 The NVIDIA driver is not autodetected by Xorg, so you will have to create a
@@ -27,15 +27,6 @@ minimal /etc/X11/xorg.conf (or modify an existing one):
 	Section "Device"
 	    Identifier     "My GPU"
 	    Driver         "nvidia"
-	EndSection
-
-That is sufficient to load the NVIDIA driver while all other configuration
-is automatically done by the X Server.  If you have multiple displays, you
-may want to enable TwinView, too, by adding this section:
-
-	Section "Screen"
-	    Identifier     "My Screens"
-	    Option         "TwinView" "1"
 	EndSection
 
 There are many more settings that can be tuned in xorg.conf.  For file
@@ -101,7 +92,7 @@ or from having used NVIDIA's installer in the past.
 
 These files most likely can be safely moved away from the library directories
 so that they may not cause harm, e.g. being preferred over the current driver
-etc.  Reinstallation of the #NVIDIA_ALTERNATIVE# package is recommended
+etc.  Reinstallation of the #NVIDIA#-alternative package is recommended
 after (re-)moving these files.  This will correct missing/incorrect symbolic
 links.
 

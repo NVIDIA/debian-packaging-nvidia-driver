@@ -261,7 +261,7 @@ nvidia-graphics-drivers (304.88-7) unstable; urgency=low
   * nvidia-libopencl1.shlibs: Removed in favor of doing the same in .symbols.
   * nvidia-libopencl1.links: Stop shipping libOpenCL.so, will be moved to
     nvidia-opencl-dev.
-  * nvidia-opencl-icd: Depend on 
+  * nvidia-opencl-icd: Depend on
       ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1
     for more deterministic libopencl1 installation.  (Closes: #695883)
   * libgl1-nvidia-glx.symbols: Change the dependency template to always
@@ -348,9 +348,9 @@ nvidia-graphics-drivers (304.88-3) unstable; urgency=low
     cannot be parsed correctly for inserting into Built-Using.
   * nvidia-alternative: Add slave alternatives for nvidia-settings.
     (Closes: #688753)
-  * Recommend nvidia-settings (>= MAJOR). 
+  * Recommend nvidia-settings (>= MAJOR).
   * Use canonical Vcs-* URLs.
-  * Bump Standards-Version to 3.9.4. No changes needed. 
+  * Bump Standards-Version to 3.9.4. No changes needed.
   * Drop transitional packages.  (Closes: #687506)
   * Drop Conflicts/Breaks/Replaces against packages predating wheezy.
   * Drop cleanup code targeting squeeze and wheezy from maintainer scripts.

@@ -1,4 +1,6 @@
 etc/modprobe.d
 usr/lib/#PRIVATE#
+#LIBDIR#/vdpau
 usr/share/applications
 usr/share/man/man1
+usr/share/nvidia

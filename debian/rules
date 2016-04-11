@@ -7,7 +7,7 @@ DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_MULTIARCH	?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog | sed -nr '/^Version:/s/Version: (.*:)?(.*)-(.*)/\2/p')
-BUILD_DATE		:= $(shell dpkg-parsechangelog | sed -nr '/^Date:/s/Date: //p')
+BUILD_DATE		:= $(shell dpkg-parsechangelog --show-field=Date)
 
 include debian/rules.defs
 NVIDIA_LEGACY		?=
@@ -44,7 +44,6 @@ CONTROL_PREFIXES	+= libcuda1
 CONTROL_PREFIXES	+= nvidia-opencl-icd libnvidia-compiler
 CONTROL_PREFIXES	+= libnvidia-ml1 nvidia-smi
 CONTROL_PREFIXES	+= libnvcuvid1
-RENAME_nvidia-glx		 = nvidia-glx$(legacy)
 RENAME_libnvcuvid1		 = lib$(if $(legacy),${nvidia}-)nvcuvid1
 RENAME_libcuda1			 = $(libcuda1)
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
@@ -77,9 +76,10 @@ xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND)
 xorg_provides	 = xorg-driver-video
 
 
-.PHONY: autogen prepare
+.PHONY: autogen prepare patch
 autogen: $(AUTOGEN)
 prepare: autogen unpack-stamp nvidia.ids compare-copyright-license
+patch: prepare
 
 NVIDIA-Linux-%:
 	sh ${NVIDIA_FILENAME_$*} --extract-only
@@ -153,6 +153,7 @@ install-into-tmp:
 	cp -al NVIDIA-Linux/ debian/tmp
 	rm -f debian/tmp/NVIDIA_Changelog
 	cp -al NVIDIA-Linux-amd64/NVIDIA_Changelog debian/tmp/
+	gzip -9fn debian/tmp/nvidia-smi.1
 
 build-kernel-source-tree: install-into-tmp
 	# Build the nvidia-kernel-source tree.

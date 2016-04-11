@@ -1,2 +1,2 @@
-#LIBDIR#/libnvcuvid.so.#VERSION#	#LIBDIR#/libnvcuvid.so.1
-#LIBDIR#/libnvcuvid.so.1		#LIBDIR#/libnvcuvid.so
+#LIBDIR#/#PRIVATE#/libnvcuvid.so.#VERSION#	#LIBDIR#/#PRIVATE#/libnvcuvid.so.1
+#LIBDIR#/#PRIVATE#/libnvcuvid.so.1		#LIBDIR#/#PRIVATE#/libnvcuvid.so

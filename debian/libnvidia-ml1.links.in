@@ -1,2 +1,2 @@
-#LIBDIR#/libnvidia-ml.so.#VERSION#	#LIBDIR#/libnvidia-ml.so.1
-#LIBDIR#/libnvidia-ml.so.1		#LIBDIR#/libnvidia-ml.so
+#LIBDIR#/#PRIVATE#/libnvidia-ml.so.#VERSION#	#LIBDIR#/#PRIVATE#/libnvidia-ml.so.1
+#LIBDIR#/#PRIVATE#/libnvidia-ml.so.1		#LIBDIR#/#PRIVATE#/libnvidia-ml.so

@@ -127,6 +127,10 @@ fi
 				echo "Your card is supported by the default drivers.";
 			fi;
 			PACKAGE="nvidia-glx"
+		elif [[ -n ${VERSIONS[999]} ]]; then
+			echo "Your card is only supported by the updated drivers from wheezy-backports."
+			echo "See http://backports.debian.org for instructions how to use backports."
+			PACKAGE="nvidia-driver/wheezy-backports"
 		elif [[ -n ${VERSIONS[173]} ]]; then
 			echo "Your card is only supported up to the 173.14 legacy drivers series.";
 			PACKAGE="nvidia-glx-legacy-173xx"
@@ -142,15 +146,7 @@ fi
 	then
 		if [[ -n ${VERSIONS[999]} ]]; then
 			if [[ -n ${VERSIONS[304]} ]]; then
-				if [[ -n ${VERSIONS[173]} ]]; then
-					if [[ -n ${VERSIONS[96]} ]]; then
-				       		echo "Your card is supported by all driver versions."
-					else
-						echo "Your card is supported by the default drivers and version 304 and version 173."
-					fi
-				else
-					echo "Your card is supported by the default drivers and version 304."
-				fi
+				echo "Your card is supported by the default drivers and legacy driver series 304."
 			else
 				echo "Your card is supported by the default drivers."
 			fi
@@ -159,13 +155,13 @@ fi
 			echo "Your card is only supported up to the 304 legacy drivers series."
 			PACKAGE="nvidia-legacy-304xx-driver"
 		elif [[ -n ${VERSIONS[173]} ]]; then
-			echo "Your card is only supported up to the 173.14 legacy drivers series."
-			PACKAGE="nvidia-legacy-173xx-driver"
+			echo "Uh oh. Your card is only supported by the 173.14 legacy drivers series, which is not in any current Debian suite."
 		elif [[ -n ${VERSIONS[96]} ]]; then
-			echo "Your card is only supported up to the 96.43 legacy drivers series."
-			PACKAGE="nvidia-legacy-96xx-driver"
-		else
+			echo "Uh oh. Your card is only supported by the 96.43 legacy drivers series, which is not in any current Debian suite."
+		elif [[ -n ${VERSIONS[71]} ]]; then
 			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite."
+		else
+			echo "Oops. Internal error 8 ($NVGA)"
 		fi
 	else
 		echo "Uh oh. Failed to identify your Debian suite.";

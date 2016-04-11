@@ -50,6 +50,84 @@ Building and Uploading
  -- Russ Allbery <rra@debian.org>, Tue,  6 Apr 2010 23:36:07 -0700
 
 
+Using the nks-history.git repository for upstreams changelog and the non-blob
+parts of the kernel module
+
+    This repository is intended to simplify extracting upstream changelog
+    updates and reimplementing the conftest.sh script as conftest.h.
+
+    To setup an initial clone of this repository run these two commands in
+    an empty directory:
+
+      git clone git+ssh://git.debian.org/git/pkg-nvidia/nks-history.git history
+      git clone git+ssh://git.debian.org/git/pkg-nvidia/nks-history.git --reference history -b scripts scripts
+
+    To importing the changelog and module source of a new release follow
+    these instructions:
+
+    * Change to the scripts directory.
+    * Edit 'versions'.
+    * Run ./00import-history
+    * Look at the imported history (in the ../history repository) e.g. using
+      gitk. If something was wrong or a parent was missing, edit 'versions'
+      and run ./00import-history again. Repeat until you are happy.
+    * Commit 'versions' and push both repositories (scripts and history).
+    * Update debian/changelog and conftest.h with data from nks-history.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 09 Nov 2014 14:49:10 +0100
+
+
+Testing kernel module compilation
+
+    The following approach has been useful to test nvidia-kernel-source (or
+    a corresponding legacy variant) against a range of kernel headers. The
+    dkms packages are less suited for semi-automatic testing.
+
+    Initial setup amd64/i386:
+    * setup a minimal sid chroot for the target architecture (debootstrap)
+    * setup a schroot configuration for easy usage
+    * include all releases to be tested in the sources.list
+      (the linux-headers-*-all metapackages from oldstable/stable/backports/
+      testing/ sid/experimental/*-backports are co-installable)
+    * install as many linux-headers-* (meta-)packages as you want to test
+
+    Initial setup armhf:
+    * install the package: qemu-user-static (MUST be version >= 1:2.3)
+    * cowbuilder yields best results compared to chroot/schroot/pbuilder, for
+      detailed instructions see: https://wiki.debian.org/cowbuilder
+    * define or export DEBOOTSTRAP="qemu-debootstrap" ARCH="armhf" before every
+      step
+
+    Testing a new nvidia*-kernel-source package:
+    * enter the chroot as root, update it, install new linux-headers-*
+    * install the new package to be tested with dpkg
+    * run 
+      sh /usr/share/doc/nvidia-kernel-source/build-module-packages.sh
+    * and wait, this will iterate over all available linux-headers
+    * should any fail to build, module-assistant will print an error and
+      wait for return being pressed before continuing
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Aug 2015 11:54:28 +0200
+
+
+Importing a new upstream release that moved support for some legacy cards
+to a new legacy driver
+
+    * Import the new upstream (as usual) into a new branch, first targeting
+      experimental.
+    * Build a list of no longer supported PCI IDs:
+        comm -23 ../../trunk/debian/nv-readme.ids debian/nv-readme.ids > unsupported.ids
+    * Replace the PCI ID list in debian/libgl1-nvidia-glx.preinst.
+    * Build lists of the no longer supported GPU model and chipset names:
+        debian/rules unsupported.names
+        sort -k2 unsupported.names > unsupported.names.sorted
+        sed 's/.*\[/[/' unsupported.names | sort -u > chips-eol.txt
+    * Create an nvidia-driver.NEWS entry about the legacy models.
+    * Update debian/control.models to the still supported ones.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Oct 2014 16:11:22 +0200
+
+
 Forking a new legacy package
 
     In order to create a new legacy package (e.g. for legacy version 42)

@@ -46,15 +46,26 @@ if [ "$1" = "triggered" ]; then
 		$(add_multiarch_slave /usr/lib nvidia/ libnvidia-cfg.so.1 /usr/lib #PRIVATE#/)
 		$(add_slave /usr/lib/nvidia/libglx.so libglx.so /usr/lib/#PRIVATE#/libglx.so)
 		$(add_slave /usr/lib/nvidia/nvidia_drv.so nvidia_drv.so /usr/lib/#PRIVATE#/nvidia_drv.so)
+		$(add_multiarch_slave /usr/lib vdpau/ libvdpau_nvidia.so.1 /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib "" libcuda.so.1 /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib "" libcuda.so /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib "" libnvcuvid.so.1 /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib "" libnvcuvid.so /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib "" libnvidia-ml.so.1 /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib "" libnvidia-opencl.so.1 /usr/lib #PRIVATE#/)
+		$(add_slave /usr/bin/nvidia-smi nvidia-smi /usr/lib/#PRIVATE#/nvidia-smi)
+		$(add_slave /usr/share/man/man1/nvidia-smi.1.gz nvidia-smi.1.gz /usr/lib/#PRIVATE#/nvidia-smi.1.gz)
 		$(add_slave /usr/lib/nvidia/nvidia-bug-report.sh nvidia-bug-report.sh /usr/lib/#PRIVATE#/nvidia-bug-report.sh)
-		$(add_slave /etc/modprobe.d/nvidia.conf nvidia-modprobe.conf /etc/nvidia/#NVIDIA#-modprobe.conf)
 		$(add_slave /usr/bin/nvidia-settings nvidia-settings /usr/lib/#PRIVATE#/nvidia-settings)
 		$(add_slave /usr/bin/nv-control-dpy nv-control-dpy /usr/lib/#PRIVATE#/nv-control-dpy)
 		$(add_slave /usr/share/applications/nvidia-settings.desktop nvidia-settings.desktop /usr/lib/#PRIVATE#/nvidia-settings.desktop)
 		$(add_slave /usr/share/man/man1/nvidia-settings.1.gz nvidia-settings.1.gz /usr/lib/#PRIVATE#/nvidia-settings.1.gz)
 "
+	conf_slaves="
+		$(add_slave /etc/modprobe.d/nvidia.conf nvidia-modprobe.conf /etc/nvidia/#NVIDIA#-modprobe.conf)
+"
 	if echo "$slaves" | grep -q "slave" ; then
-		update-alternatives --install /usr/lib/nvidia/nvidia nvidia /usr/lib/#PRIVATE# #MAJOR# $slaves
+		update-alternatives --install /usr/lib/nvidia/nvidia nvidia /usr/lib/#PRIVATE# #MAJOR# $slaves $conf_slaves
 	else
 		update-alternatives --remove nvidia /usr/lib/#PRIVATE#
 	fi
