@@ -110,6 +110,15 @@ Testing kernel module compilation
  -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Aug 2015 11:54:28 +0200
 
 
+The kernel modules get renamed to allow concurrent installation of the
+current and the legacy drivers. Only one module can be loaded at a time.
+Only the module filename gets renamed, the internal name is kept unchanged,
+otherwise the module seems to get confused. This needs some special care
+for unloading it, which is realized via modprobe configuration.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 11 Aug 2015 18:15:47 +0200
+
+
 Importing a new upstream release that moved support for some legacy cards
 to a new legacy driver
 

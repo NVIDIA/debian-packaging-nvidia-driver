@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
+
+  The NVIDIA driver now automatically integrates with the Xorg configuration.
+  Therefore it is no longer necessary to manually create an xorg.conf to
+  enable it.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Oct 2015 16:00:30 +0200
+
 nvidia-graphics-drivers (177.80-1) unstable; urgency=low
 
   LEGACY GPUs: If you have a GeForce FX (any model), GeForce PCX (any model),

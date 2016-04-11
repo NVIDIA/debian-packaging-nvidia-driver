@@ -31,13 +31,17 @@ legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
 
+# this needs the internal names (i.e. upstream's names, not our renamed files)
+unload_modules		 =
+unload_modules		+= $(if $(has_uvm),nvidia-uvm)
+unload_modules		+= nvidia
+
 # system libdir
 libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 # nvidia version specific directory below $(libdir)
 nvidia_private		 = nvidia/$(current)
 
 CONTROL_PREFIXES	 = nvidia-driver libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
-CONTROL_PREFIXES	+= nvidia-modprobe
 CONTROL_PREFIXES	+= nvidia-vdpau-driver
 CONTROL_PREFIXES	+= libcuda1
 CONTROL_PREFIXES	+= nvidia-opencl-icd libnvidia-compiler
@@ -224,9 +228,6 @@ override_dh_dkms:
 override_dh_bugfiles:
 	dh_bugfiles -A
 
-override_dh_makeshlibs:
-	dh_makeshlibs -Xvdpau/libvdpau_nvidia.so -Xtls/libnvidia-tls.so
-
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir)/$(nvidia_private):$(LD_LIBRARY_PATH) dh_shlibdeps
 
@@ -273,6 +274,7 @@ override_dh_strip_nondeterminism:
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
+	-e 's{#UNLOAD_MODULES#}{$(strip $(unload_modules))}g;' \
 	-e 's{#ARCH_LIST#}{$(ARCH_LIST)}g;' \
 	< $< > $@
 
