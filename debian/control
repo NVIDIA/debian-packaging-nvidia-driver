@@ -390,8 +390,6 @@ Suggests:
 Conflicts:
  libcuda1-ia32,
  nvidia-cuda-proxy,
-Breaks:
- ${nvidia}-alternative (<< ${nvidia:Version}),
 Replaces:
  libcuda1-ia32,
 Provides:
