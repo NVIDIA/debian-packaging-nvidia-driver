@@ -2,7 +2,7 @@ Source: #NVIDIA#-kernel
 Section: non-free/kernel
 Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
-Build-Depends: debhelper (>= 8), quilt (>= 0.46-7~)
+Build-Depends: debhelper (>= 8), quilt
 Standards-Version: 3.9.8
 Homepage: http://www.nvidia.com/
 
@@ -11,6 +11,7 @@ Architecture: #ARCH_LIST#
 Provides: #NVIDIA#-kernel-#VERSION#
 Depends:
  nvidia-kernel-common (>= 20110213),
+ #NVIDIA#-alternative--kmod-alias,
 Recommends: linux-image-#KVERS#
 Built-Using: ${built:using:kernel}, ${built:using:nvidia}
 Description: NVIDIA binary kernel module for Linux #KVERS#

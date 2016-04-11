@@ -1,3 +1,0 @@
-# The diversions are placed here.
-package-contains-empty-directory usr/lib32/nvidia/diversions/
-non-multi-arch-lib-dir usr/lib32/

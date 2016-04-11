@@ -9,7 +9,7 @@ Welcome to the Debian NVIDIA packages. This document has notes on the
 X Server and GL libraries of the NVIDIA driver offering.
 
 For any news on this package check
-http://bugs.debian.org/nvidia-glx#LEGACY#
+http://bugs.debian.org/#NVIDIA#-driver
 
 
 NOTES ABOUT GLX DRIVER AND OPENGL:
@@ -17,8 +17,8 @@ NOTES ABOUT GLX DRIVER AND OPENGL:
 
 Using the nvidia X driver requires some user modification.
 
-The current X Server 1.12 can autodetect many things, so you probably don't
-have a /etc/X11/xorg.conf at all after a fresh installation of Debian wheezy
+The current X Server 1.7 can autodetect many things, so you probably don't
+have a /etc/X11/xorg.conf at all after a fresh installation of Debian squeeze
 or a newer release.
 
 The NVIDIA driver is not autodetected by Xorg, so you will have to create a
@@ -40,7 +40,7 @@ may want to enable TwinView, too, by adding this section:
 
 There are many more settings that can be tuned in xorg.conf.  For file
 format description and general options please see the xorg.conf(5) manpage.
-See /usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz
+See /usr/share/doc/#NVIDIA#-driver/README.txt.gz
 for descriptions of all supported NVIDIA driver specific options.
 
 
@@ -53,7 +53,7 @@ Bugs in the the "graphics functionality" like graphical distortions,
 performance regressions, hardware support, ... can only be fixed upstream
 and should be reported directly to NVIDIA because this includes collecting
 system information (with the nvidia-bug-report.sh script that is included
-in the nvidia-glx#LEGACY# package) on the affected system.
+in the #NVIDIA#-driver package) on the affected system.
 NVIDIA's bug reporting instructions can be found here:
   https://devtalk.nvidia.com/default/topic/522835/linux/if-you-have-a-problem-please-read-this-first/
 You may additionally report the problem in the distribution's bug tracker,
@@ -83,17 +83,6 @@ under the Xen hypervisor (e.g. by using a custom kernel configuration or
 patching the module source), we would like to hear about it.
 
 
-NOTES ABOUT XvMC:
------------------------------------------------------------------------
-
-To enable accelerated XVideo Motion Compensation (XvMC) which is supported
-on GeForce 6 series and GeForce 7 series GPUs, you need to modify
-/etc/X11/XvMCConfig to contain a reference to the NVIDIA library
-    libXvMCNVIDIA_dynamic.so.1
-instead.  For more information about XvMC support see Appendix G in
-/usr/share/doc/nvidia-glx#LEGACY#/README.txt.gz
-
-
 NOTES ABOUT WARNINGS emitted during installation/upgrade:
 -----------------------------------------------------------------------
 
@@ -112,7 +101,7 @@ or from having used NVIDIA's installer in the past.
 
 These files most likely can be safely moved away from the library directories
 so that they may not cause harm, e.g. being preferred over the current driver
-etc.  Reinstallation of the libgl1-nvidia-alternatives package is recommended
+etc.  Reinstallation of the #NVIDIA_ALTERNATIVE# package is recommended
 after (re-)moving these files.  This will correct missing/incorrect symbolic
 links.
 
@@ -132,6 +121,6 @@ In short:
   (otherwise removal will fail), ignore errors
 - remove the driver installed from the *.run file: nvidia-installer --uninstall
 - remove all nvidia.ko still found under /lib/modules
-- reinstall the Debian nvidia-glx packages
+- reinstall the Debian nvidia-driver package
 
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 29 Nov 2010 10:19:36 +0100

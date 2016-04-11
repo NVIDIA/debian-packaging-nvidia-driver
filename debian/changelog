@@ -197,15 +197,174 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 15 Feb 2014 16:11:02 +0100
 
+nvidia-graphics-drivers (304.108-4) unstable; urgency=low
+
+  * Make libgl1-nvidia-glx-i386:i386 a real package depending on
+    libgl1-nvidia-glx:i386 and set M-A: foreign, s.t. the Recommends in
+    libgl1-nvidia-glx:amd64 actually works.  (Closes: #720058)
+  * bug-script: List the renamed nvidia*.ko modules, too.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 16 Sep 2013 14:19:54 +0200
+
+nvidia-graphics-drivers (304.108-3) unstable; urgency=low
+
+  * Rework patching after unpack: rename
+      debian/patches-manual => debian/patches, series => series-postunpack.
+  * conftest.h:
+    - Implement new conftest.sh function get_num_physpages (173.14.38).
+  * linux-3.11.patch: Redone, based on 173.14.38.
+  * Bump glx-alternative-nvidia dependency to 0.4.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Sep 2013 16:36:24 +0200
+
+nvidia-graphics-drivers (304.108-2) unstable; urgency=low
+
+  * Stop building libxvmcnvidia1 package, now built from
+    src:nvidia-graphics-drivers-legacy-304xx.
+  * libgl1-nvidia-glx (<< 310) and libgl1-nvidia-legacy-304xx-glx are not
+    co-installable due to libnvidia-tls.so.304.108.  (Closes: #722288)
+  * Change the virtual package name providing the kernel module to follow the
+    renamed module.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Sep 2013 05:37:09 +0200
+
 nvidia-graphics-drivers (304.108-1) unstable; urgency=low
 
   * New upstream legacy 304xx branch release 304.108 (2013-08-08).
     * Add support for Linux 3.10.
+  * Rename patches.
+  * linux-3.10-{i2c,procfs}.patch: Remove, fixed upstream.
   * debian/module/debian/prep-modules: Sanitize the kernel version. Replace
     underscores (may occur in custom kernels) with dashes to be eligible for
     package names and versions.  (Closes: #710891)
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 22 Aug 2013 03:03:09 +0200
+
+nvidia-graphics-drivers (304.88-7) unstable; urgency=low
+
+  * Add new substvars ${nvidia-alternative}, #NVIDIA_ALTERNATIVE#.
+  * Rename the kernel module to nvidia-current.ko but retain its internal name
+    as 'nvidia'.
+  * nvidia{,-legacy-*}-kernel-dkms are now co-installable.  (Closes: #685617)
+  * nvidia-alternative:
+    - Add /etc/nvidia/nvidia-modprobe.conf (with the nvidia alias) and a slave
+      alternative /etc/modprobe.d/nvidia.conf to the nvidia alternative.
+      (Closes: #685648)
+    - Provides: ${nvidia-alternative}--kmod-alias.
+  * nvidia-kernel-dkms, nvidia-kernel-#KVERS#: Depend on
+    ${nvidia-alternative}--kmod-alias.
+  * nvidia-libopencl1: Provide virtual package libopencl-1.1-1 and update
+    description.
+  * nvidia-libopencl1.symbols: Change the dependency template to always
+    generate a Depends: ocl-icd-libopencl1 | libopencl1, libopencl-1.1-1.
+    (Closes: #717606)
+  * nvidia-libopencl1.shlibs: Removed in favor of doing the same in .symbols.
+  * nvidia-libopencl1.links: Stop shipping libOpenCL.so, will be moved to
+    nvidia-opencl-dev.
+  * nvidia-opencl-icd: Depend on 
+      ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1
+    for more deterministic libopencl1 installation.  (Closes: #695883)
+  * libgl1-nvidia-glx.symbols: Change the dependency template to always
+    generate a Depends: libgl1-mesa-glx | libgl1 and stop manipulating the
+    .shlibs.
+  * libgl1-nvidia-glx:i386: Check for problematic stray /usr/lib32/libGL.so*
+    via Depends: nvidia-installer-cleanup (>= 20130816).  (Closes: #719915)
+  * Don't explicitly request xz compression - dpkg 1.17 does this by default.
+  * Drop empty Description paragraphs that worked around dpkg bug #680871.
+  * conftest.h:
+    - Implement check for drm/drmP.h (319.12).
+    - Implement new conftest.sh functions drm_available (319.12),
+      dom0_kernel_present (325.08),
+      proc_create_data, pde_data, proc_remove (304.108, 325.15).
+    - Implement conftest.sh sanity checks (only emit warning)
+      nvidiafb_sanity_check (1.0-8174), xen_sanity_check (1.0-9746, 177.76),
+      preempt_rt_sanity_check (325.08).
+  * kernel-3.10-{i2c,procfs}.patch: Replace with patches backported from
+    304.108.
+  * kernel-3.11.patch: New patch to fix compilation with Linux 3.11-rc.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 17 Aug 2013 14:41:44 +0200
+
+nvidia-graphics-drivers (304.88-6) unstable; urgency=low
+
+  * kernel-3.10-{i2c,procfs}.patch: New patches to fix compilation with
+    Linux 3.10.  (Closes: #717311, #717361, #714981)
+  * Documentation updates.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 22 Jul 2013 12:52:11 +0200
+
+nvidia-graphics-drivers (304.88-5) unstable; urgency=low
+
+  * nvidia-kernel-source: Compress source tarball with xz. Update B-D, Depends
+    accordingly and Break older module-assistant versions.
+  * conftest.h: Add ARM support.
+  * nvidia-detect: Add support for jessie and 304xx legacy driver series.
+  * debian/control: Drop dependency versioning if satisfied in oldstable.
+  * Do not install nvidia-libopencl1.symbols in favor of redirecting to the
+    virtual libopencl1 via nvidia-libopencl1.shlibs.
+  * debian/rules: Generic handling of architecture lists, unpacking, renaming,
+    and blob dependencies.
+  * Convert module build system to use a more Kbuild friendly way.
+    - Turn debian/module/Makefile into a minimal wrapper.
+    - Rename NVIDIA's Makefile.kbuild to Kbuild.
+    - Use SYSSRC (NVIDIA's variable name) as kernel header override.
+    - Disable silent build.
+  * avoid-ld.gold.patch: Updated.
+  * use-nv-kernel.o.ARCH.patch: Renamed to ...
+  * use-nv-kernel-ARCH.o_shipped.patch: ... and updated.
+  * not-silent.patch: New.
+  * linux3.patch: Removed, obsolete.
+  * Add new substvars nvidia:kmod:source, nvidia:kmod:binary,
+    nvidia:kmod:Description for declaring kernel module relationships.
+  * Change the generic nvidia-kernel-{dkms,source} name to insert a legacy
+    part after 'nvidia' instead of after 'kernel'.
+  * Add support for renaming the kernel module to include a "legacy" part.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 15 Jul 2013 09:29:44 +0200
+
+nvidia-graphics-drivers (304.88-4) unstable; urgency=low
+
+  * Rename metapackage nvidia-glx to nvidia-driver. Add transitional package.
+  * Use new '${nvidia}' substvar instead of 'nvidia${nvidia:Legacy}'.
+  * debian/rules: Generalize control file renaming for legacy builds.
+  * Rename package nvidia-cuda-proxy to nvidia-cuda-mps: Upstream has renamed
+    the programs nvidia-cuda-proxy-* to nvidia-cuda-mps-* in release 319.xx.
+  * libcuda1: Add Suggests: nvidia-cuda-mps.
+  * libcuda1: Add Provides: libcuda-5.0-1.
+  * nvidia-libopencl1: Prefer nvidia-opencl-icd over opencl-icd.
+  * Drop support for backporting to squeeze.
+  * NEWS: Drop news items concerning upgrades to squeeze.
+  * debian/rules: Apply patches from debian/patches-manual/ after unpacking.
+  * man-fixes-nvidia-smi.patch: New patch, fix hyphen vs. minus sign,
+    wrapping, and spelling in nvidia-smi manpage.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 04 Jul 2013 17:32:45 +0200
+
+nvidia-graphics-drivers (304.88-3) unstable; urgency=low
+
+  * nvidia-cuda-proxy: New package for nvidia-cuda-proxy-{control,server}.
+  * nvidia-kernel-source: rules: Use placeholder substitution for the source
+    package name. src:nvidia-graphics-modules rewrites control, s.t. this
+    cannot be parsed correctly for inserting into Built-Using.
+  * nvidia-alternative: Add slave alternatives for nvidia-settings.
+    (Closes: #688753)
+  * Recommend nvidia-settings (>= MAJOR). 
+  * Use canonical Vcs-* URLs.
+  * Bump Standards-Version to 3.9.4. No changes needed. 
+  * Drop transitional packages.  (Closes: #687506)
+  * Drop Conflicts/Breaks/Replaces against packages predating wheezy.
+  * Drop cleanup code targeting squeeze and wheezy from maintainer scripts.
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 12 May 2013 23:44:53 +0200
+
+nvidia-graphics-drivers (304.88-2) unstable; urgency=low
+
+  * Update lintian overrides.
+  * libcuda1: Add missing Depends: nvidia-support. Postinst may fail if
+    nvidia-support is unpacked, but not configured.  (Closes: #675430)
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 02 May 2013 12:20:20 +0200
 
 nvidia-graphics-drivers (304.88-1+deb7u1) wheezy; urgency=low
 

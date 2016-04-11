@@ -28,7 +28,7 @@ Copyright: © 2008-2011 Filipus Klutiero <chealer@gmail.com>
            © 2011-2013 Andreas Beckmann <anbe@debian.org>
 License: GPL-2.0+
 
-Files: debian/module/debian/patches/*
+Files: debian/module/debian/patches/* debian/patches/*
 Copyright: no copyright notice, see License
 License: anbe-public-domain
  The authors hereby relinquish any claim to any copyright that they may

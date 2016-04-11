@@ -69,10 +69,10 @@ METHOD #3 Using a linux-headers package
 
 As root (or using fakeroot)
 1. cd /usr/src
-   tar xjvf #NVIDIA#-kernel.tar.bz2 -C <YOUR BUILD LOCATION>
+   tar xJvf #NVIDIA#-kernel.tar.xz -C <YOUR BUILD LOCATION>
    (It will install in <YOUR BUILD LOCATION>/modules)
    - or -
-   tar xjvf #NVIDIA#-kernel.tar.bz2  (if building in /usr/src)
+   tar xJvf #NVIDIA#-kernel.tar.xz  (if building in /usr/src)
 
    The standard build location is /usr/src
 
@@ -124,10 +124,10 @@ kernel-package installed, then do the following:
 
 As root
 1. cd /usr/src
-   tar xjvf #NVIDIA#-kernel.tar.bz2 -C <YOUR BUILD LOCATION>
+   tar xJvf #NVIDIA#-kernel.tar.xz -C <YOUR BUILD LOCATION>
    (It will install in <YOUR BUILD LOCATION>/modules)
    - or -
-   tar xjvf #NVIDIA#-kernel.tar.bz2  (if building in /usr/src)
+   tar xJvf #NVIDIA#-kernel.tar.xz  (if building in /usr/src)
 
 2. If you are NOT using the default modules location /usr/src/modules
    then you must set an environment variable that points to your modules
@@ -171,7 +171,7 @@ video. You can do this with:
         adduser username video
 
 Also note for AGP issues and further information please see the NVIDIA
-README file (README.gz) in the nvidia-glx#LEGACY# package
+README file (README.gz) in the #NVIDIA#-driver package.
 
 An old nvidia.ko might be already loaded (run 'lsmod' to check) so
 do 'rmmod nvidia' to remove the module from memory.
