@@ -3,7 +3,7 @@ Description: dump the generated conftest headers
 
 --- a/Makefile
 +++ b/Makefile
-@@ -140,6 +140,15 @@ TOPDIR ?= $(KERNEL_SOURCES)
+@@ -146,6 +146,15 @@ TOPDIR ?= $(KERNEL_SOURCES)
  
  MODULE_OBJECT := $(MODULE_NAME).ko
  
@@ -19,7 +19,7 @@ Description: dump the generated conftest headers
  ifneq ($(KERNELRELEASE),)
  # Begin of Kbuild section
  
-@@ -211,11 +220,17 @@ $(obj)/$(CORE_OBJS):
+@@ -217,11 +226,17 @@ $(obj)/$(CORE_OBJS):
  $(obj)/$(VERSION_HEADER):
  	@echo \#define NV_COMPILER \"`$(CC) -v 2>&1 | tail -n 1`\" > $@
  
@@ -39,7 +39,7 @@ Description: dump the generated conftest headers
  
  RESMAN_GLUE_TARGETS = $(addprefix $(obj)/,$(RESMAN_GLUE_OBJS))
  
-@@ -266,8 +281,9 @@ BUILD_SANITY_CHECKS = \
+@@ -277,8 +292,9 @@ BUILD_SANITY_CHECKS = \
  
  SKIP_SANITY_CHECKS	 =
  

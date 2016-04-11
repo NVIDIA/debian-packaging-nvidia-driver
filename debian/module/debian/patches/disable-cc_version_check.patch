@@ -4,7 +4,7 @@ Description: disable cc_version_check
 
 --- a/Makefile
 +++ b/Makefile
-@@ -281,6 +281,7 @@ BUILD_SANITY_CHECKS = \
+@@ -292,6 +292,7 @@ BUILD_SANITY_CHECKS = \
  	xen_sanity_check
  
  SKIP_SANITY_CHECKS	 =

@@ -5,7 +5,7 @@ Description: disable xen_sanity_check
 
 --- a/Makefile
 +++ b/Makefile
-@@ -282,6 +282,7 @@ BUILD_SANITY_CHECKS = \
+@@ -293,6 +293,7 @@ BUILD_SANITY_CHECKS = \
  
  SKIP_SANITY_CHECKS	 =
  SKIP_SANITY_CHECKS	+= cc_version_check

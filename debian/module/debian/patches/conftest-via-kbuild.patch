@@ -3,7 +3,7 @@ Description: run conftest.sh from within Kbuild
 
 --- a/Makefile
 +++ b/Makefile
-@@ -234,6 +234,7 @@ $(obj)/patches.h: $(src)/conftest.sh con
+@@ -240,6 +240,7 @@ $(obj)/patches.h: $(src)/conftest.sh con
  
  RESMAN_GLUE_TARGETS = $(addprefix $(obj)/,$(RESMAN_GLUE_OBJS))
  
@@ -11,7 +11,25 @@ Description: run conftest.sh from within Kbuild
  $(RESMAN_GLUE_TARGETS): $(obj)/conftest.h $(obj)/patches.h
  
  $(obj)/nv.o: $(obj)/$(VERSION_HEADER)
-@@ -297,7 +298,7 @@ ifeq ($(KERNELRELEASE),)
+@@ -281,7 +282,7 @@ suser-sanity-check:
+ rmmod-sanity-check:
+ 	@if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
+ 
+-#ifneq ($(KERNELRELEASE),)
++ifneq ($(KERNELRELEASE),)
+ # Begin of Kbuild section
+ 
+ BUILD_SANITY_CHECKS = \
+@@ -301,7 +302,7 @@ build-sanity-checks: conftest-verbose
+ 	done
+ 
+ # End of Kbuild section
+-#endif
++endif
+ 
+ ifeq ($(KERNELRELEASE),)
+ # Begin of Makefile section
+@@ -311,7 +312,7 @@ ifeq ($(KERNELRELEASE),)
  # the "package-install" target below.
  #
  

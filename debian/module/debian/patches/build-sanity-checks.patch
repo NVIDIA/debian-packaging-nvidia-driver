@@ -3,9 +3,9 @@ Description: simplify customizing build-sanity-checks
 
 --- a/Makefile
 +++ b/Makefile
-@@ -258,11 +258,20 @@ suser-sanity-check:
- rmmod-sanity-check:
- 	@if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
+@@ -269,11 +269,20 @@ rmmod-sanity-check:
+ #ifneq ($(KERNELRELEASE),)
+ # Begin of Kbuild section
  
 +BUILD_SANITY_CHECKS = \
 +	cc_version_check \
@@ -26,5 +26,5 @@ Description: simplify customizing build-sanity-checks
 +	 fi; \
 +	done
  
- ifeq ($(KERNELRELEASE),)
- # Begin of Makefile section
+ # End of Kbuild section
+ #endif

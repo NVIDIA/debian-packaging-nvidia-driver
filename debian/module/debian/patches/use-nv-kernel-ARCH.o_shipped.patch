@@ -7,7 +7,7 @@ Description: Select the correct nv-kernel.o blob for the target architecture
 
 --- a/Makefile
 +++ b/Makefile
-@@ -43,7 +43,10 @@ VERSION_HEADER := nv_compiler.h
+@@ -53,7 +53,10 @@ VERSION_HEADER := nv_compiler.h
  CORE_OBJS := nv-kernel.o
  RESMAN_GLUE_OBJS := $(patsubst %.c,%.o,nv.c nv-acpi.c nv-chrdev.c nv-cray.c nv-drm.c nv-gvi.c nv-i2c.c nv-mempool.c nv-mlock.c nv-mmap.c nv-p2p.c nv-pat.c nv-procfs.c nv-usermap.c nv-vm.c nv-vtophys.c os-agp.c os-interface.c os-mtrr.c os-registry.c os-smp.c os-usermap.c)
  

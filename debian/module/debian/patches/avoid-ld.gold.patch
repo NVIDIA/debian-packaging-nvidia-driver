@@ -15,6 +15,6 @@ Bug-Debian: http://bugs.debian.org/626279
 +# avoid ld.gold, see #626279
 +LD=ld.bfd
 +
- #
- # The NVIDIA kernel module base name and static file names. KBUILD will go
- # ahead and append ".o" or ".ko" to form the final module name.
+ ifeq ($(KERNELRELEASE),)
+ # Begin of Makefile section
+ 
