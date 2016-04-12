@@ -67,7 +67,7 @@ Description: NVIDIA metapackage${nvidia:LegacyDesc}
 #Package: ${nvidia}-driver-bin
 Package: nvidia-driver-bin
 Section: non-free/x11
-Architecture: i386 amd64 armhf
+Architecture: i386 amd64
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
@@ -163,8 +163,10 @@ Conflicts:
  nvidia-glx${nvidia:Legacy}-ia32,
  libgl1-nvidia-glx-ia32-any,
 Breaks:
+ libxvmcnvidia1 (<< 305),
  ia32-libs (<< 1:0),
 Replaces:
+ libxvmcnvidia1 (<< 305),
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
  nvidia-glx${nvidia:Legacy}-ia32,
 Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
