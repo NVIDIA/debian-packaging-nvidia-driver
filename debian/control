@@ -183,7 +183,6 @@ Depends:
  ${misc:Depends}
 Breaks:
  nvidia-settings (<< 304.88-2),
- nvidia-settings-legacy-173xx (<< 173.14.37),
 Provides:
  ${nvidia}-alternative--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider
