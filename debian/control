@@ -290,7 +290,6 @@ Depends:
  ${misc:Depends}
 Breaks:
  nvidia-settings (<< 319.49),
- nvidia-settings-legacy-173xx (<< 173.14.37),
  nvidia-driver (<< 343.22-2~),
  nvidia-vdpau-driver (<< 340.46-2~),
  libcuda1 (<< 352.63),
