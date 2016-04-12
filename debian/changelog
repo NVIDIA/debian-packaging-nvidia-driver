@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (352.79-6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.79-6) unstable; urgency=medium
 
   * separate-makefile-kbuild.patch: New, don't make all Makefile targets
     available to Kbuild.
@@ -12,7 +12,7 @@ nvidia-graphics-drivers (352.79-6) UNRELEASED; urgency=medium
   * Add B-D: dpkg-dev (>= 1.17.0) for dpkg-parsechangelog --show-field.
   * Bump Standards-Version to 3.9.8. No changes needed.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 12 Mar 2016 18:22:44 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Apr 2016 03:07:52 +0200
 
 nvidia-graphics-drivers (352.79-5) unstable; urgency=medium
 
