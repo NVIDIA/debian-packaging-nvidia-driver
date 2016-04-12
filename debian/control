@@ -68,7 +68,7 @@ Description: NVIDIA metapackage${nvidia:LegacyDesc}
 #Package: ${nvidia}-driver-bin
 Package: nvidia-driver-bin
 Section: non-free/x11
-Architecture: i386 amd64 armhf
+Architecture: i386 amd64
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
@@ -152,6 +152,10 @@ Provides:
  libgl1-nvidia-glx-${nvidia:Version},
 Conflicts:
  libgl1-nvidia-glx-${nvidia:Version},
+Breaks:
+ libxvmcnvidia1 (<< 305),
+Replaces:
+ libxvmcnvidia1 (<< 305),
 Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
@@ -199,7 +203,7 @@ Description: allows the selection of NVIDIA as GLX provider
 #Package: ${nvidia}-kernel-support
 Package: nvidia-kernel-support
 Section: non-free/kernel
-Architecture: i386 amd64 armhf
+Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
