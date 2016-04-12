@@ -37,6 +37,7 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
   * Add B-D: dpkg-dev (>= 1.17.0) for dpkg-parsechangelog --show-field.
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
+  * Stop shipping unused pci.ids file.
 
   [ Luca Boccassi ]
   * arm-outer-sync.patch: backport from trunk to fix kernel module build
