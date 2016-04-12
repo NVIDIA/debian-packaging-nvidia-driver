@@ -90,7 +90,7 @@ prepare: autogen unpack-stamp nvidia.ids compare-copyright-license
 patch: prepare
 
 NVIDIA-Linux-%:
-	sh $(wildcard $*/${NVIDIA_FILENAME_$*} ${NVIDIA_FILENAME_$*}) --extract-only
+	sh $(firstword $(wildcard $*/${NVIDIA_FILENAME_$*}) ${NVIDIA_FILENAME_$*}) --extract-only
 	ln -s ${NVIDIA_DIRNAME_$*} $@
 	gunzip $@/*.1.gz
 
