@@ -8,13 +8,13 @@ Bug-Debian: http://bugs.debian.org/626279
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -83,6 +83,9 @@ endif
- # generate the appropriate header files.
- #
+@@ -2,6 +2,9 @@
+ # Kbuild file for NVIDIA Linux GPU driver kernel modules
+ ###########################################################################
  
 +# avoid ld.gold, see #626279
-+LD = ld.bfd
++LD=ld.bfd
 +
- CC ?= cc
- HOST_CC ?= $(CC)
- LD ?= ld
+ #
+ # The parent makefile is expected to define:
+ #

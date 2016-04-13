@@ -84,7 +84,7 @@ clean:
 	test -f debian/control || cp debian/control.template debian/control
 	dh_testdir
 	dh_testroot
-	$(MAKE) KERNEL_UNAME=$(KVERS) $(KPKG_EXTRAV_ARG) clean
+	$(MAKE) clean $(KERNEL_SPEC)
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
 	dh_clean debian/control debian/install
 
