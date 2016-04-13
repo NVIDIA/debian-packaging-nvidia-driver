@@ -1,8 +1,6 @@
 nvidia-graphics-drivers (355.11-4) UNRELEASED; urgency=medium
 
-  * Merge changes from 352.79-5.
-  * use-kbuild-flags.patch: New, use KBUILD_CFLAGS and LDFLAGS from Kbuild to
-    support building a 64-bit kernel module with 32-bit userspace.
+  * Merge changes from 352.79-6.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 27 Feb 2016 02:11:22 +0100
 
@@ -101,12 +99,22 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Feb 2016 19:32:35 +0100
 
-nvidia-graphics-drivers (352.79-6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.79-6) unstable; urgency=medium
 
+  * separate-makefile-kbuild.patch: New, don't make all Makefile targets
+    available to Kbuild.
+  * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 355.xx onwards.
+  * nvidia-kernel-source: Use KERNEL_UNAME=KVERS only if the kernel headers
+    are available via /lib/modules/KVERS/{build,source}.  (Closes: #820260)
+  * Stop special-casing the nvidia-alternative substitution.
+  * bug-control, bug-script: Collect some information about OpenCL.
   * Updated Japanese (jp) debconf translations by Takuma Yamada.
     (Closes: #817867)
+  * Add B-D: dpkg-dev (>= 1.17.0) for dpkg-parsechangelog --show-field.
+  * Bump Standards-Version to 3.9.8. No changes needed.
+  * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 12 Mar 2016 18:22:44 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Apr 2016 03:07:52 +0200
 
 nvidia-graphics-drivers (352.79-5) unstable; urgency=medium
 
@@ -136,7 +144,7 @@ nvidia-graphics-drivers (352.79-4) unstable; urgency=medium
   * [ppc64el] Do not depend on nvidia-kernel-common.
   * rules: Drop support for ancient .run layout.
   * Drop Conflicts+Replaces against transitional packages in wheezy.
-  * nvidia-detect: Drop support for lenny.
+  * nvidia-detect: Drop support for lenny (EoL).
   * debian/bug-control.mk: New script to generate bug-control.
   * Document in nvidia-legacy-check's description that the debconf questions
     can be preseeded to allow for non-interactive installations.

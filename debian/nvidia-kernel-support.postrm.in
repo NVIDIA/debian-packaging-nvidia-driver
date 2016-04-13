@@ -5,7 +5,7 @@ set -e
 if [ "$1" = "remove" ] || [ "$1" = "purge" ] ; then
 
 	# activate our trigger
-	dpkg-trigger register-#NVIDIA_ALTERNATIVE#
+	dpkg-trigger register-#NVIDIA#-alternative
 
 fi
 

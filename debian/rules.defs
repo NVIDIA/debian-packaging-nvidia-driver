@@ -6,15 +6,16 @@ NVIDIA_SETTINGS		 = nvidia-settings (>= $(version_major))
 XORG_ABI_LIST		 = 19 18 15 14 13 12 11 10 8 6.0
 XORG_BOUND		 = (<< 2:1.17.99)
 
-NVIDIA_LEGACY_CHECK	 = nvidia-legacy-check (>= 343)
+NVIDIA_LEGACY_CHECK	 = nvidia-legacy-check (>= 343) [!ppc64el]
 
-LINUX_KMOD_TESTED	 = 4.4
+LINUX_KMOD_TESTED	 = 4.5
 LINUX_KMOD_TESTED_amd64	 =
 LINUX_KMOD_TESTED_i386	 =
 LINUX_KMOD_TESTED_armhf	 =
 LINUX_KMOD_TESTED_ppc64el=
 
-ARCH_LIST		 = i386 amd64 armhf
+ARCH_LIST		 = i386 amd64
+ARCH_LIST		+= armhf
 #ARCH_LIST		+= ppc64el
 ARCH_DEPS_i386		 =
 UVM_ARCH_LIST		 = amd64 ppc64el
