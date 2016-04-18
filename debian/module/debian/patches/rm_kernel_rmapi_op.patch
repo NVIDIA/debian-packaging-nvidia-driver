@@ -1,0 +1,17 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix broken nvidia_modeset_rm_ops_t() prototype definition
+ From kernel 4.6-rc3 -Werror=incompatible-pointer-types is used, which flags
+ a prototype definition in nv-modeset-interface.h which does not match the
+ signature of the proprietary binary blob.
+
+--- a/nv-modeset-interface.h
++++ b/nv-modeset-interface.h
+@@ -54,7 +54,7 @@
+     nvidia_stack_t *(*alloc_stack)(void);
+     void (*free_stack)(nvidia_stack_t *sp);
+ 
+-    void (*op)(nvidia_stack_t *sp, void *ops_cmd);
++    void NV_API_CALL (*op)(nvidia_stack_t *sp, void *ops_cmd);
+ } nvidia_modeset_rm_ops_t;
+ 
+ NV_STATUS nvidia_get_rm_ops(nvidia_modeset_rm_ops_t *rm_ops);

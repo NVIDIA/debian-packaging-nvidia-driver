@@ -12,3 +12,7 @@ use-nv-kernel-ARCH.o_shipped.patch
 include-swiotlb-header-on-arm.patch
 ignore_xen_on_arm.patch
 arm-outer-sync.patch
+page-cache-release.patch
+#HAS_UVM#vm-fault-minor.patch
+#HAS_UVM#uvmnext-isr-top-half.patch
+rm_kernel_rmapi_op.patch
