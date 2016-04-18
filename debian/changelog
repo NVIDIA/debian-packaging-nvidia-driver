@@ -1,6 +1,12 @@
 nvidia-graphics-drivers (355.11-4) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * Merge changes from 352.79-6.
+
+  [ Luca Boccassi ]
+  * Add page-cache-release.patch, vm-fault-minor.patch (uvm only) and
+    uvmnext-isr-top-half.patch (uvm only) to fix kernel module build failure
+    on 4.6.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 27 Feb 2016 02:11:22 +0100
 
