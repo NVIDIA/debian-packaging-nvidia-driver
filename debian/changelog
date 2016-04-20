@@ -40,6 +40,8 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
     building on 4.3 or greater, where the deprecated APIs the kernel module
     uses are no longer exported, causing a failure when the module is
     loaded at runtime. (Closes: #809324)
+  * Add page-cache-release.patch to fix kernel module build failure on
+    Linux 4.6.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 13:04:27 +0100
 
