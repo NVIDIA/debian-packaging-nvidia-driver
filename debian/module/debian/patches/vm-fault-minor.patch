@@ -1,0 +1,16 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Use 0 instead of VM_FAULT_MINOR
+ From kernel 4.6-rc1 and newer VM_FAULT_MINOR was dropped. It has been just 0
+ since 2.6.23-rc1, so just use that instead.
+
+--- a/uvm/nvidia_uvm_lite.c
++++ b/uvm/nvidia_uvm_lite.c
+@@ -785,7 +785,7 @@ int _fault_common(struct vm_area_struct
+         // a reference so that the fault handling logic is correct:
+         //
+         get_page(pTracking->uvmPage);
+-        retValue = VM_FAULT_MINOR;
++        retValue = 0;
+     }
+ 
+     pRecord->isMapped = NV_TRUE;
