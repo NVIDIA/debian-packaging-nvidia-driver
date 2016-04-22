@@ -4,6 +4,8 @@ nvidia-graphics-drivers (355.11-4) UNRELEASED; urgency=medium
   * Drop rm_kernel_rmapi_op.patch, fixed upstream.
   * nvidia-driver-libs: New metapackage for bundling the Depends/Recommends on
     the GL/GLX/EGL packages.
+  * Replace libgl1-nvidia-glx-i386 with new nvidia-driver-libs-i386
+    metapackage.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 27 Feb 2016 02:11:22 +0100
 
