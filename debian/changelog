@@ -1,5 +1,9 @@
-nvidia-graphics-drivers (364.15-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 364.19 (2016-04-22).
+    - Fixed some locking issues in libnvidia-egl-wayland.so.
+    - Fixed several libnvidia-egl-wayland.so interaction problems with
+      buffer management Wayland protocols.
   * New upstream beta release 364.15 (2016-04-06).
     - Fixed several EGL driver interaction problems with resizing windows
       in Wayland.
