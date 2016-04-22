@@ -1,12 +1,7 @@
 nvidia-graphics-drivers (355.11-4) UNRELEASED; urgency=medium
 
-  [ Andreas Beckmann ]
-  * Merge changes from 352.79-6.
-
-  [ Luca Boccassi ]
-  * Add page-cache-release.patch, vm-fault-minor.patch (uvm only) and
-    uvmnext-isr-top-half.patch (uvm only) to fix kernel module build failure
-    on 4.6.
+  * Merge changes from 352.79-7.
+  * Drop rm_kernel_rmapi_op.patch, fixed upstream.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 27 Feb 2016 02:11:22 +0100
 
@@ -104,6 +99,15 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Feb 2016 19:32:35 +0100
+
+nvidia-graphics-drivers (352.79-7) unstable; urgency=medium
+
+  [ Luca Boccassi ]
+  * Add page-cache-release.patch, vm-fault-minor.patch (uvm only),
+    uvmnext-isr-top-half.patch (uvm only) and rm_kernel_rmapi_op.patch
+    to fix kernel module build for Linux 4.6.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 22 Apr 2016 12:26:07 +0200
 
 nvidia-graphics-drivers (352.79-6) unstable; urgency=medium
 
