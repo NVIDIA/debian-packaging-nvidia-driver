@@ -104,6 +104,9 @@ libGLX.so.0 libglx0-nvidia #MINVER#
  glXUseXFont@Base 361.18
  glXWaitGL@Base 361.18
  glXWaitX@Base 361.18
+ glvndAppErrorCheckGetEnabled@Base 364.19
+ glvndAppErrorCheckInit@Base 364.19
+ glvndAppErrorCheckReportError@Base 364.19
  glvndFreeEntrypoints@Base 361.18
  glvndGenerateEntrypoint@Base 361.18
  glvndSetupPthreads@Base 361.18

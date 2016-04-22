@@ -119,7 +119,7 @@ libGLESv1_CM.so.1 libgles1-mesa
  glPointParameterx@Base 331
  glPointParameterxv@Base 331
  glPointSize@Base 331
-#MISSING: 361.18# glPointSizePointerOES@Base 331
+ glPointSizePointerOES@Base 364.19
  glPointSizex@Base 331
  glPolygonOffset@Base 331
  glPolygonOffsetx@Base 331
