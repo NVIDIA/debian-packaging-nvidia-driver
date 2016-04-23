@@ -1,0 +1,17 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Use put_page instead of page_cache_release
+ From kernel 4.6-rc3 and newer page_cache_release was dropped. It has always been
+ an alias of put_page, so just use that instead. UVM source, so need another
+ patch file.
+
+--- a/nvidia-uvm/uvm_full_pagetbl_mgmt.c
++++ b/nvidia-uvm/uvm_full_pagetbl_mgmt.c
+@@ -2937,7 +2937,7 @@
+                     set_page_dirty_lock(tempUserPageArray[i]);
+ 
+             UVM_PANIC_ON(tempUserPageArray[i] == 0);
+-            page_cache_release(tempUserPageArray[i]);
++            put_page(tempUserPageArray[i]);
+             tempUserPageArray[i] = 0;
+         }
+ 

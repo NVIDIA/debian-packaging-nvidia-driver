@@ -74,6 +74,7 @@ nvidia-graphics-drivers (361.42-1) UNRELEASED; urgency=medium
   * Update symbols files
   * Updated libgl1-nvidia-glx package to ship libglvnd's version of libGL.so.1
     on i386 and amd64. Upstream ships only non-libglvnd libraries on ARM.
+  * Add page-cache-release-uvm.patch to fix kernel module build on 4.6
 
   [ Andreas Beckmann ]
   * Update lintian overrides.
