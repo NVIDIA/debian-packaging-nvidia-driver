@@ -60,6 +60,8 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
       sudo modprobe -r nvidia-drm; sudo modprobe nvidia-drm modeset=1
   * Add nvidia_drm_arm_cflags.patch to fix nvidia-drm kernel module build
     failure on armhf.
+  * Add drm_mode_fb_cmd2.patch to fix nvidia-drm kernel module build failure
+    on 4.6
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 06 Apr 2016 22:21:26 +0100
 
