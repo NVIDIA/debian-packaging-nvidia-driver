@@ -8,3 +8,7 @@ hardening-no-stackprotector
 
 # A single symbolic link does not justify the creation of a new package.
 non-dev-pkg-with-shlib-symlink
+
+# Package built with debhelper/wheezy but checked with lintian/sid.
+maintscript-calls-ldconfig
+package-must-activate-ldconfig-trigger

@@ -14,3 +14,7 @@ embedded-library usr/lib*/libcuda.so.#VERSION#: zlib
 
 # libcudart.so.2 does dlopen("libcuda.so").
 non-dev-pkg-with-shlib-symlink
+
+# Package built with debhelper/wheezy but checked with lintian/sid.
+maintscript-calls-ldconfig
+package-must-activate-ldconfig-trigger

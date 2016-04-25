@@ -11,3 +11,7 @@ hardening-no-stackprotector
 
 # This library is only used indirectly via nvidia.icd.
 package-name-doesnt-match-sonames libnvidia-opencl1
+
+# Package built with debhelper/wheezy but checked with lintian/sid.
+maintscript-calls-ldconfig
+package-must-activate-ldconfig-trigger

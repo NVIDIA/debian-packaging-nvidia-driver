@@ -29,7 +29,7 @@ Copyright: © 2008-2011 Filipus Klutiero <chealer@gmail.com>
 License: GPL-2.0+
 
 Files: debian/module/debian/patches/*
-Copyright: no copyright notice, see License
+Copyright: no copyright notice, see License field
 License: anbe-public-domain
  The authors hereby relinquish any claim to any copyright that they may
  have in this work, whether granted under contract or by operation of law
