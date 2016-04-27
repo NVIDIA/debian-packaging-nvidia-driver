@@ -17,3 +17,7 @@ symbols-declares-dependency-on-other-package libgl1
 # implementation of libGL.so.1, so the package name won't ever be able to
 # match the library names it provides.
 package-name-doesnt-match-sonames
+
+# Package built with debhelper/jessie but checked with lintian/sid.
+maintscript-calls-ldconfig
+package-must-activate-ldconfig-trigger
