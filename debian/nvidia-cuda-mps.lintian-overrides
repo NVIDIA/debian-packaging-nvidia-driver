@@ -4,3 +4,6 @@ hardening-no-bindnow
 hardening-no-fortify-functions
 hardening-no-pie
 hardening-no-relro
+
+# this will come in 340.xx
+binary-without-manpage usr/sbin/nvidia-cuda-proxy-server
