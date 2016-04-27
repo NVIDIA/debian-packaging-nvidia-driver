@@ -13,3 +13,7 @@ hardening-no-stackprotector
 # constant SONAME), so don't include the SONAME in the package name to
 # avoid going through NEW with every new upstream release.
 package-name-doesnt-match-sonames libnvidia-eglcore#VERSION# libnvidia-glsi#VERSION#
+
+# Package built with debhelper/jessie but checked with lintian/sid.
+maintscript-calls-ldconfig
+package-must-activate-ldconfig-trigger
