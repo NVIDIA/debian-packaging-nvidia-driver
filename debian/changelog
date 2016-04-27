@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (355.11-4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (355.11-4) experimental; urgency=medium
 
   * Merge changes from 352.79-7.
   * Drop rm_kernel_rmapi_op.patch, fixed upstream.
@@ -8,7 +8,7 @@ nvidia-graphics-drivers (355.11-4) UNRELEASED; urgency=medium
     metapackage.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 27 Feb 2016 02:11:22 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Apr 2016 01:11:51 +0200
 
 nvidia-graphics-drivers (355.11-3) experimental; urgency=medium
 
