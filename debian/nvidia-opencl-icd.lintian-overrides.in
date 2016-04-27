@@ -9,5 +9,5 @@ hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
 
-# Package built with debhelper/jessie but checked with lintian/sid.
+# Lintian and debhelper disagree w.r.t. a library in a private directory.
 maintscript-calls-ldconfig
