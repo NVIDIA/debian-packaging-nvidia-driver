@@ -26,8 +26,11 @@ nvidia-graphics-drivers (177.80-1) unstable; urgency=low
   Quadro NVS 280 PCI, Quadro NVS 280 PCI-E, i.e., any GPU based on the
   NV30/NV31/NV34/NV35/NV36/NV37/NV38 chips or a variant thereof,
   DO NOT INSTALL THIS RELEASE!!!
-  Use the nvidia-legacy-173xx-driver, nvidia-legacy-173xx-kernel-source
-  packages instead.
+  The 173xx legacy drivers were the last NVIDIA driver series that supported
+  these chips. But these drivers neither supported the Xorg X server newer
+  than 1.15.x nor Linux kernels newer than 3.14.x and have been discontinued.
+  You may use the free nouveau Xorg driver (xserver-xorg-video-nouveau)
+  instead.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 02 Jun 2010 09:06:26 +0200
 
@@ -38,8 +41,11 @@ nvidia-graphics-drivers (1.0.9746-1) unstable; urgency=low
   Quadro NVS, Quadro NVS 50 PCI, Quadro NVS 280 SD AGP 8x, i.e., any GPU
   based on the NV11/NV17/NV18/NV20/NV25/NV28 chips or a variant thereof,
   DO NOT INSTALL THIS RELEASE!!!
-  Use the nvidia-legacy-96xx-driver, nvidia-legacy-96xx-kernel-source
-  packages instead.
+  The 96xx legacy drivers were the last NVIDIA driver series that supported
+  these chips. But these drivers neither supported the Xorg X server newer
+  than 1.12.x nor Linux kernels newer than 3.11.x and have been discontinued.
+  You may use the free nouveau Xorg driver (xserver-xorg-video-nouveau)
+  instead.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 02 Jun 2010 09:06:26 +0200
 
@@ -50,9 +56,9 @@ nvidia-graphics-drivers (1.0.7667-2) unstable; urgency=low
   GeForce2 Ultra, Quadro, Quadro2 Pro, i.e., any GPU based on the
   NV4/NV5/NV6/NV10/NV15 chips or a variant thereof,
   DO NOT INSTALL THIS RELEASE!!!
-  Your GPU is no longer supported by the non-free legacy 71xx drivers because
-  these drivers do not support Xorg X server newer than 1.4.x.  The 71xx
-  drivers were the last NVIDIA driver series that supported these chips.
+  The 71xx legacy drivers were the last NVIDIA driver series that supported
+  these chips. But these drivers neither supported the Xorg X server newer
+  than 1.4.x nor Linux kernels newer than 3.7.x and have been discontinued.
   You may use the free nouveau or nv Xorg drivers instead.
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 22 Sep 2010 08:15:26 +0200

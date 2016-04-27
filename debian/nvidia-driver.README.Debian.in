@@ -38,7 +38,7 @@ NOTES ABOUT REPORTING BUGS TO NVIDIA:
 
 The NVIDIA graphics driver is a non-free closed-source product. Therefore
 the package maintainers are limited to fixing bugs in the packaging.
-Bugs in the the "graphics functionality" like graphical distortions,
+Bugs in the "graphics functionality" like graphical distortions,
 performance regressions, hardware support, ... can only be fixed upstream
 and should be reported directly to NVIDIA because this includes collecting
 system information (with the nvidia-bug-report.sh script that is included
