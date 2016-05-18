@@ -1,6 +1,10 @@
 nvidia-graphics-drivers (352.79-8) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * Add get_user_page.patch to fix kernel module build failure on 4.6+.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 27 Apr 2016 18:22:27 +0200
 

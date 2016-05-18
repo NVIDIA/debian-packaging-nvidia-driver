@@ -16,3 +16,4 @@ ignore_xen_on_arm.patch
 arm-outer-sync.patch
 #HAS_UVM#vm-fault-minor.patch
 #HAS_UVM#uvmnext-isr-top-half.patch
+get_user_page.patch
