@@ -1,3 +1,39 @@
+nvidia-graphics-drivers (367.18-1) UNRELEASED; urgency=medium
+
+  * New upstream beta release 367.18 (2016-05-19).
+    - Fixed a bug that would cause OpenGL applications to crash when creating
+      a context on one X display connection, then making it current with no
+      associated drawable on another X display connection.  This fixes a crash
+      when starting some versions of Matlab.
+    - Fixed OpenGL presentation to SDI through the GLX_NV_video_out and
+      GLX_NV_present_video extensions, which was broken by the introduction
+      of the nvidia-modeset kernel module in 358.09.
+    - Fixed a bug that caused an incorrect offset to be applied when using
+      the full composition pipeline on a display whose image has both a
+      rotation and a ViewportOut offset applied.
+    - Fixed a bug that could cause nvidia-settings to crash on some systems
+      when responding to events such as hotplugging DisplayPort devices.
+    - Fixed a bug that could cause crashes in OpenGL applications which use
+      glTextureView() with a non-zero minlevel.
+    - Enhanced the Display Device information page in nvidia-settings with
+      additional information for DisplayPort devices to reflect attributes
+      which are specific to DisplayPort connections.
+    - Fixed a bug which could cause deleted application profiles to appear
+      when editing rules in the nvidia-settings control panel.
+    - Fixed a bug that caused hangs when a G-SYNC monitor is unplugged and a
+      non-G-SYNC monitor is connected while G-SYNC is active.
+    - Fixed a bug that caused "nvidia-modeset: ERROR: GPU:0: Activating G-SYNC
+      failed" to be printed to the system log if a G-SYNC monitor is connected
+      and stereo is enabled in xorg.conf on a configuration that doesn't support
+      it.
+    - Added the NV_robustness_video_memory_purge OpenGL extension, which
+      allows applications to know when a mode switching or power event
+      purged the contents of FBOs and BOs residing in video memory.
+    - Fixed a bug that prevented HDMI 2.0 4K monitors from waking up
+      from sleep or hot-replug.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Fri, 20 May 2016 01:55:24 +0100
+
 nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
 
   * New upstream short lived branch release 364.19 (2016-04-22).
