@@ -263,6 +263,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glCompressedTextureSubImage3D@Base 361.28
  glCompressedTextureSubImage3DEXT@Base 361.28
  glConservativeRasterParameterfNV@Base 361.28
+ glConservativeRasterParameteriNV@Base 367.18
  glConvolutionFilter1D@Base 361.28
  glConvolutionFilter2D@Base 361.28
  glConvolutionParameterf@Base 361.28
@@ -447,7 +448,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glDrawElementsInstancedBaseVertexOES@Base 361.28
  glDrawElementsInstancedEXT@Base 361.28
  glDrawElementsInstancedNV@Base 361.28
- glDrawMeshNV@Base 361.28
+#MISSING: 367.18# glDrawMeshNV@Base 361.28
  glDrawPixels@Base 361.28
  glDrawRangeElements@Base 361.28
  glDrawRangeElementsBaseVertex@Base 361.28

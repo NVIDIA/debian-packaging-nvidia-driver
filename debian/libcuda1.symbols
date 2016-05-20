@@ -156,6 +156,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemHostRegister@Base 270
  cuMemHostRegister_v2@Base 340
  cuMemHostUnregister@Base 270
+ cuMemPrefetchAsync@Base 367.18
+ cuMemPrefetchAsync_ptsz@Base 367.18
  cuMemcpy2D@Base 169
  cuMemcpy2DAsync@Base 169
  cuMemcpy2DAsync_v2@Base 260

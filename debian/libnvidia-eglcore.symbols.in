@@ -263,6 +263,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glCompressedTextureSubImage3D@Base 346
  _glCompressedTextureSubImage3DEXT@Base 346
  _glConservativeRasterParameterfNV@Base 352
+ _glConservativeRasterParameteriNV@Base 367.18
  _glConvolutionFilter1D@Base 346
  _glConvolutionFilter2D@Base 346
  _glConvolutionParameterf@Base 346
@@ -447,7 +448,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDrawElementsInstancedBaseVertexOES@Base 349
  _glDrawElementsInstancedEXT@Base 346
  _glDrawElementsInstancedNV@Base 346
- _glDrawMeshNV@Base 346
+#MISSING: 367.18# _glDrawMeshNV@Base 346
  _glDrawPixels@Base 346
  _glDrawRangeElements@Base 346
  _glDrawRangeElementsBaseVertex@Base 346
