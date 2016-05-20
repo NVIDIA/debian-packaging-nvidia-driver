@@ -34,6 +34,7 @@ nvidia-graphics-drivers (367.18-1) UNRELEASED; urgency=medium
   * Update watch file to point to 367 release
   * Update nv-readme.ids
   * Update symbols files
+  * Drop drm_mode_fb_cmd2.patch, fixed upstream.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Fri, 20 May 2016 01:55:24 +0100
 
