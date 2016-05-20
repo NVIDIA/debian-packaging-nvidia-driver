@@ -32,6 +32,7 @@ nvidia-graphics-drivers (367.18-1) UNRELEASED; urgency=medium
     - Fixed a bug that prevented HDMI 2.0 4K monitors from waking up
       from sleep or hot-replug.
   * Update watch file to point to 367 release
+  * Update nv-readme.ids
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Fri, 20 May 2016 01:55:24 +0100
 
