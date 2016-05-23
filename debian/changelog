@@ -46,8 +46,8 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
     otherwise the wrong value is passed to NVIDIA's conftest and build
     system (expects kernel arch, is set to Debian binary arch). Fixes fail
     to build module via nvidia-kernel-source package.
-  * Add page-cache-release.patch and vm-fault-minor.patch (uvm only) to fix
-    kernel module build failure on Linux 4.6.
+  * Add page-cache-release.patch, vm-fault-minor.patch (uvm only) and
+    get-user-pages.patch to fix kernel module build failure on Linux 4.6.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 11:34:10 +0100
 

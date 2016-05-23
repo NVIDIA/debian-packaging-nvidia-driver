@@ -1,0 +1,20 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: fix get_user_pages, new signature in 4.6+
+ From kernel 4.6-rc5 get_user_pages has a new signature.
+
+--- a/os-mlock.c
++++ b/os-mlock.c
+@@ -116,8 +116,13 @@
+     }
+ 
+     down_read(&mm->mmap_sem);
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,6,0)
+     ret = get_user_pages(current, mm, (unsigned long)address,
+             page_count, write, force, user_pages, NULL);
++#else
++    ret = get_user_pages((unsigned long)address,
++            page_count, write, force, user_pages, NULL);
++#endif
+     up_read(&mm->mmap_sem);
+     pinned = ret;
+ 

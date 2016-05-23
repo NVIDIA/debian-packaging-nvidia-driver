@@ -14,3 +14,4 @@ avoid-ld.gold.patch
 ignore_xen_on_arm.patch
 arm-outer-sync.patch
 #HAS_UVM#vm-fault-minor.patch
+get-user-pages.patch
