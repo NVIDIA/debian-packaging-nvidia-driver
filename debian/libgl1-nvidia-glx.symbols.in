@@ -3364,8 +3364,8 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  (arch=armhf)gldbc3cfnX@Base 325
  (arch=!armhf)glvnd_asprintf@Base 361.18
  (arch=!armhf)glvnd_byte_swap16@Base 361.18
- (arch=!armhf)public_entry_end@Base 361.18
- (arch=!armhf)public_entry_start@Base 361.18
+#MISSING: 361.45.11# (arch=!armhf)public_entry_end@Base 361.18
+#MISSING: 361.45.11# (arch=!armhf)public_entry_start@Base 361.18
  (arch=!armhf)stub_find_public@Base 361.18
  (arch=!armhf)stub_get_addr@Base 361.18
  (arch=!armhf)stub_get_name@Base 361.18

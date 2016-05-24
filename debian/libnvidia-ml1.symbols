@@ -9,6 +9,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetAccountingMode@Base 319
  nvmlDeviceGetAccountingPids@Base 319
  nvmlDeviceGetAccountingStats@Base 319
+ nvmlDeviceGetActiveVgpus@Base 361.45.11
  nvmlDeviceGetApplicationsClock@Base 304.30
  nvmlDeviceGetAutoBoostedClocksEnabled@Base 340
  nvmlDeviceGetBAR1MemoryInfo@Base 331.38
