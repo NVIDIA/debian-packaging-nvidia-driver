@@ -6,3 +6,4 @@ nvidia-modeset-use-ARCH.o_binary.patch
 include-swiotlb-header-on-arm.patch
 ignore_xen_on_arm.patch
 arm-outer-sync.patch
+do-div-cast.patch
