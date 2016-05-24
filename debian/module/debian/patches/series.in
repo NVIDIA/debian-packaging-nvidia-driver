@@ -6,6 +6,6 @@ nvidia-modeset-use-ARCH.o_binary.patch
 include-swiotlb-header-on-arm.patch
 ignore_xen_on_arm.patch
 arm-outer-sync.patch
-nvidia_drm_arm_cflags.patch
-drm_mode_fb_cmd2.patch
-do_div_cast.patch
+nvidia-drm-arm-cflags.patch
+drm-mode-fb-cmd2.patch
+do-div-cast.patch

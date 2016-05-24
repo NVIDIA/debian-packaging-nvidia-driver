@@ -58,11 +58,11 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
     This new module is distributed without any binary blos. For now modeset is
     disabled by default, and it can be enabled manually via:
       sudo modprobe -r nvidia-drm; sudo modprobe nvidia-drm modeset=1
-  * Add nvidia_drm_arm_cflags.patch to fix nvidia-drm kernel module build
+  * Add nvidia-drm-arm-cflags.patch to fix nvidia-drm kernel module build
     failure on armhf.
-  * Add drm_mode_fb_cmd2.patch to fix nvidia-drm kernel module build failure
+  * Add drm-mode-fb-cmd2.patch to fix nvidia-drm kernel module build failure
     on 4.6
-  * Add do_div_cast.patch to fix nvidia-modeset kernel module build failure
+  * Add do-div-cast.patch to fix nvidia-modeset kernel module build failure
     on 4.6
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 06 Apr 2016 22:21:26 +0100
