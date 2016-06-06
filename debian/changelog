@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (352.79-8) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.79-8) unstable; urgency=medium
 
   [ Andreas Beckmann ]
   * cc_version_check-gcc5.patch: New, ignore __GNUC_MINOR__ mismatch from
@@ -9,7 +9,7 @@ nvidia-graphics-drivers (352.79-8) UNRELEASED; urgency=medium
   * Add get-user-pages.patch to fix kernel module build for Linux 4.6.
     (Closes: #826190)
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 27 Apr 2016 18:22:27 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 07 Jun 2016 01:49:35 +0200
 
 nvidia-graphics-drivers (352.79-7) unstable; urgency=medium
 
