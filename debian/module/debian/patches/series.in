@@ -5,6 +5,7 @@ use-kbuild-flags.patch
 build-sanity-checks.patch
 conftest-verbose.patch
 conftest-via-kbuild.patch
+cc_version_check-gcc5.patch
 disable-preempt_rt_sanity_check.patch
 not-silent.patch
 use-nv-kernel-ARCH.o_shipped.patch

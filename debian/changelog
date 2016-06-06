@@ -1,6 +1,8 @@
 nvidia-graphics-drivers (352.79-8) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
+  * cc_version_check-gcc5.patch: New, ignore __GNUC_MINOR__ mismatch from
+    GCC 5 onwards.
   * Update lintian overrides.
 
   [ Luca Boccassi ]
