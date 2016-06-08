@@ -30,7 +30,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
  ${nvidia:legacy-check},
 Depends:
- libgl1-${nvidia}-glx (= ${binary:Version}),
+ ${nvidia}-driver-libs (= ${binary:Version}),
  ${nvidia}-driver-bin (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  ${nvidia}-vdpau-driver (= ${binary:Version}),
@@ -40,7 +40,6 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia-settings},
- libgl1-${nvidia}-glx-i386 [amd64],
  nvidia-persistenced,
 Suggests:
  ${nvidia:kmod:source},
@@ -90,6 +89,20 @@ Description: NVIDIA driver support binaries${nvidia:LegacyDesc}
  AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
  .
  This package contains supporting binaries for the driver.
+
+#Package: ${nvidia}-driver-libs
+Package: nvidia-driver-libs
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Depends:
+ libgl1-${nvidia}-glx (= ${binary:Version}),
+ ${misc:Depends}
+Recommends:
+ libgl1-${nvidia}-glx-i386 [amd64],
+Description: NVIDIA metapackage (GL/GLX libraries)${nvidia:LegacyDesc}
+ This metapackage depends on the NVIDIA binary libraries
+ that provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server.
 
 #Package: xserver-xorg-video-${nvidia}
 Package: xserver-xorg-video-nvidia

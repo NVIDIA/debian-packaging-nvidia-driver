@@ -34,6 +34,8 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * Use NVIDIA's conftest.sh script to determine settings during module build
     instead of our manually maintained conftest.h header.
   * Disable conftest.sh checks cc_version_check, xen_sanity_check.
+  * nvidia-driver-libs: New metapackage for bundling the
+    Depends/Recommends on the GL/GLX packages.
 
   [ Luca Boccassi ]
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
