@@ -1,6 +1,9 @@
 nvidia-graphics-drivers (340.96-4+) UNRELEASED; urgency=medium
 
-  * dummy
+  * nvidia-driver-libs: New metapackage for bundling the
+    Depends/Recommends on the GL/GLX/EGL packages.
+  * Replace libgl1-nvidia-glx-i386 with new
+    nvidia-driver-libs-i386 metapackage.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Apr 2016 16:41:52 +0200
 

@@ -31,7 +31,6 @@ Pre-Depends:
  ${nvidia:legacy-check},
 Depends:
  ${nvidia}-driver-libs (= ${binary:Version}),
- libegl1-${nvidia} (= ${binary:Version}),
  ${nvidia}-driver-bin (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  ${nvidia}-vdpau-driver (= ${binary:Version}),
@@ -41,8 +40,6 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia-settings},
- libgles1-${nvidia} (= ${binary:Version}),
- libgles2-${nvidia} (= ${binary:Version}),
  nvidia-persistenced,
 Suggests:
  ${nvidia:kmod:source},
@@ -95,17 +92,20 @@ Description: NVIDIA driver support binaries${nvidia:LegacyDesc}
 
 #Package: ${nvidia}-driver-libs
 Package: nvidia-driver-libs
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
+ libegl1-${nvidia} (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
-Description: NVIDIA metapackage (GL/GLX libraries)${nvidia:LegacyDesc}
+ libgles1-${nvidia} (= ${binary:Version}),
+ libgles2-${nvidia} (= ${binary:Version}),
+Description: NVIDIA metapackage (GL/GLX/EGL libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
+ OpenGL/GLX/EGL applications via a direct-rendering X Server.
 
 #Package: ${nvidia}-driver-libs-i386
 Package: nvidia-driver-libs-i386
@@ -116,9 +116,9 @@ Depends:
  ${misc:Depends}
 Conflicts:
  libgl1-${nvidia}-glx-i386,
-Description: NVIDIA metapackage (GL/GLX 32-bit libraries)${nvidia:LegacyDesc}
+Description: NVIDIA metapackage (GL/GLX/EGL 32-bit libraries)${nvidia:LegacyDesc}
  This metapackage helps the automatic installation of the 32-bit NVIDIA
- OpenGL/GLX libraries when installing ${nvidia}-driver-libs
+ OpenGL/GLX/EGL libraries when installing ${nvidia}-driver-libs
  on amd64 with foreign architecture i386 enabled.
 
 #Package: xserver-xorg-video-${nvidia}
