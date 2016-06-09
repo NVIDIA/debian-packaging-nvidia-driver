@@ -92,7 +92,7 @@ Description: NVIDIA driver support binaries${nvidia:LegacyDesc}
 
 #Package: ${nvidia}-driver-libs
 Package: nvidia-driver-libs
-Architecture: i386 amd64 armhf
+Architecture: i386 amd64
 Multi-Arch: same
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
