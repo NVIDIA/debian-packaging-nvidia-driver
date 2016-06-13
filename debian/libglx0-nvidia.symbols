@@ -10,6 +10,7 @@ libGLX.so.0 libglx0-nvidia #MINVER#
  FreeExecPages@Base 361.18
  GLVND_THREAD_NULL@Base 361.18
  IsExtensionInString@Base 361.18
+ LOCAL_GLX_DISPATCH_FUNCTIONS@Base 367.27
  ParseClientVersionString@Base 361.18
 #MISSING: 364.12# TeardownVendor@Base 361.18
 #MISSING: 364.15# XGLVQueryExtension@Base 361.18
@@ -25,23 +26,24 @@ libGLX.so.0 libglx0-nvidia #MINVER#
  __glXAddVendorContextMapping@Base 361.28
  __glXAddVendorDrawableMapping@Base 361.28
  __glXAddVendorFBConfigMapping@Base 361.28
- __glXDispatchNoop@Base 361.18
- __glXDispatchNoopPtr@Base 361.18
+#MISSING: 367.27# __glXDispatchNoop@Base 361.18
+#MISSING: 367.27# __glXDispatchNoopPtr@Base 361.18
  __glXDisplayClosed@Base 364.15
 #MISSING: 364.12# __glXFetchDispatchEntry@Base 361.18
 #MISSING: 364.15# __glXFreeDisplay@Base 361.18
  __glXGLLoadGLXFunction@Base 361.18
- __glXGenerateGLXEntrypoint@Base 361.18
+#MISSING: 367.27# __glXGenerateGLXEntrypoint@Base 361.18
  __glXGetCurrentDynDispatch@Base 361.18
  __glXGetDrawableScreen@Base 364.15
 #MISSING: 361.28# __glXGetDrawableStaticDispatch@Base 361.18
  __glXGetDynDispatch@Base 361.18
- __glXGetGLDispatch@Base 361.18
+#MISSING: 367.27# __glXGetGLDispatch@Base 361.18
  __glXGetGLXDispatchAddress@Base 361.18
- __glXGetStaticDispatch@Base 361.18
+#MISSING: 367.27# __glXGetStaticDispatch@Base 361.18
  __glXLookupDisplay@Base 361.18
  __glXLookupVendorByName@Base 361.18
  __glXLookupVendorByScreen@Base 361.18
+ __glXMappingInit@Base 367.27
  __glXMappingTeardown@Base 361.18
 #MISSING: 364.12# __glXNotifyContextDestroyed@Base 361.18
 #MISSING: 364.12# __glXPthreadFuncs@Base 361.18
@@ -62,8 +64,19 @@ libGLX.so.0 libglx0-nvidia #MINVER#
  __glXVendorFromFBConfig@Base 361.18
 #MISSING: 364.15# __glXVendorFromVisual@Base 361.18
  __glvndPthreadFuncs@Base 364.12
+ __glvndWinsysDispatchAllocIndex@Base 367.27
+ __glvndWinsysDispatchCleanup@Base 367.27
+ __glvndWinsysDispatchFindIndex@Base 367.27
+ __glvndWinsysDispatchGetCount@Base 367.27
+ __glvndWinsysDispatchGetDispatch@Base 367.27
+ __glvndWinsysDispatchGetName@Base 367.27
+ __glvndWinsysDispatchInit@Base 367.27
+ __glvndWinsysVendorDispatchAddFunc@Base 367.27
+ __glvndWinsysVendorDispatchCreate@Base 367.27
+ __glvndWinsysVendorDispatchDestroy@Base 367.27
+ __glvndWinsysVendorDispatchLookupFunc@Base 367.27
  __glvnd_dbg_printf@Base 361.18
- cacheInitializeOnce@Base 361.18
+#MISSING: 367.27# cacheInitializeOnce@Base 361.18
  glXChooseFBConfig@Base 361.18
  glXChooseVisual@Base 361.18
  glXCopyContext@Base 361.18
