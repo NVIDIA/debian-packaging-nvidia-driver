@@ -64,10 +64,10 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
     on 4.6
   * Add do-div-cast.patch to fix nvidia-modeset kernel module build failure
     on 4.6
-  * Add new nvidia-vulkan-common package which installs nvidia_icd.json to
-    /usr/share/vulkan/icd.d and make it depend on libvulkan1 (and suggest
-    vulkan-info) in order to support Vulkan. Have libglx-nvidia0 depend on it
-    since that library implements the Vulkan APIs. (Closes: #827188)
+  * Add new nvidia-vulkan-icd package which installs nvidia_icd.json to
+    /usr/share/vulkan/icd.d and make it depend on libglx-nvidia0 since that
+    library implements the Vulkan APIs, libvulkan1 and suggest vulkan-info in
+    order to support Vulkan. (Closes: #827188)
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 06 Apr 2016 22:21:26 +0100
 

@@ -395,7 +395,6 @@ Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  libgl1-${nvidia}-glx (= ${binary:Version}),
  libglx0-${nvidia} (= ${binary:Version}),
- nvidia-vulkan-common,
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary GLX libraries${nvidia:LegacyDesc}
  GLX ("OpenGL Extension to the X Window System") provides an interface between
@@ -851,10 +850,11 @@ Description: NVIDIA Management Library (NVML) runtime library
  .
  This package contains the nvidia-ml runtime library.
 
-Package: nvidia-vulkan-common
+Package: nvidia-vulkan-icd
 Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
+ libglx-${nvidia}0 (= ${binary:Version}),
  libvulkan1,
  ${misc:Depends}
 Suggests:
