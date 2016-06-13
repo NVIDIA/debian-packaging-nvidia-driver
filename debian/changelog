@@ -67,7 +67,7 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
   * Add new nvidia-vulkan-icd package which installs nvidia_icd.json to
     /usr/share/vulkan/icd.d and make it depend on libglx-nvidia0 since that
     library implements the Vulkan APIs, libvulkan1 and suggest vulkan-info in
-    order to support Vulkan. (Closes: #827188)
+    order to support Vulkan. Make nvidia-driver depend on it. (Closes: #827188)
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 06 Apr 2016 22:21:26 +0100
 

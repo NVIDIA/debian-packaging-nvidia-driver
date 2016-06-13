@@ -39,6 +39,7 @@ Depends:
  ${nvidia-alternative} (= ${binary:Version}),
  ${nvidia:kmod:binary},
  nvidia-support,
+ nvidia-vulkan-icd [amd64 i386],
  ${misc:Depends}
 Recommends:
  ${nvidia-settings},
