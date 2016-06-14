@@ -1,0 +1,16 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Use 0 instead of VM_FAULT_MINOR
+ From kernel 4.6-rc1 and newer VM_FAULT_MINOR was dropped. It has been just 0
+ since 2.6.23-rc1, so just use that instead.
+
+--- a/nvidia-uvm/uvm_lite.c
++++ b/nvidia-uvm/uvm_lite.c
+@@ -1240,7 +1240,7 @@
+         // If we already have the page, then we must have earlier copied in the
+         // data from the GPU. Therefore, avoid migrating.
+         //
+-        retValue = VM_FAULT_MINOR;
++        retValue = 0;
+     }
+ 
+     // Increment the page usage count since the kernel automatically

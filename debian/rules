@@ -6,21 +6,22 @@
 DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_MULTIARCH	?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
-NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog | sed -nr '/^Version:/s/Version: (.*:)?(.*)-(.*)/\2/p')
+NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog --show-field=Version | sed -r 's/^[0-9]+://; s/-[^-]+$$//')
 BUILD_DATE		:= $(shell dpkg-parsechangelog --show-field=Date)
+
 include debian/rules.defs
 NVIDIA_LEGACY		?=
 WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
 XORG_BOUND		?=
-NVIDIA_LEGACY_CHECK	?=
 LINUX_KMOD_TESTED	?=
+NVIDIA_LEGACY_CHECK	?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
-NVIDIA_ALTERNATIVE	?= nvidia$(legacy)-alternative
 ARCH_LIST		?= i386 amd64
 ARCH_DEPS_i386		?=
 UVM_ARCH_LIST		?= $(ARCH_LIST)
+
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
 nvidia			 = nvidia$(legacy)
@@ -30,7 +31,6 @@ current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
 has_uvm			 = $(filter $(DEB_HOST_ARCH),$(UVM_ARCH_LIST))
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
-perfkit			 =
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
 
 # this needs the internal names (i.e. upstream's names, not our renamed files)
@@ -44,16 +44,16 @@ libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 # nvidia version specific directory below $(libdir)
 nvidia_private		 = nvidia/$(current)
 
-CONTROL_PREFIXES	 = nvidia-driver nvidia-glx libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
-CONTROL_PREFIXES	+= libnvidia-eglcore libegl1-glvnd-nvidia libgles1-nvidia libgles2-nvidia
+CONTROL_PREFIXES	 = nvidia-driver libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
+CONTROL_PREFIXES	+= libnvidia-eglcore libegl-nvidia0
+CONTROL_PREFIXES	+= libgles1-nvidia libgles2-nvidia
 CONTROL_PREFIXES	+= nvidia-vdpau-driver
 CONTROL_PREFIXES	+= libcuda1
 CONTROL_PREFIXES	+= nvidia-opencl-icd libnvidia-compiler
 CONTROL_PREFIXES	+= libnvidia-ml1 nvidia-smi
+CONTROL_PREFIXES	+= libnvcuvid1
+CONTROL_PREFIXES	+= libnvidia-encode1
 CONTROL_PREFIXES	+= libnvidia-ifr1 libnvidia-fbc1
-CONTROL_PREFIXES	+= libnvidia-encode1 libnvcuvid1
-RENAME_nvidia-glx		 = nvidia-glx$(legacy)
-RENAME_nvidia-alternative	 = $(NVIDIA_ALTERNATIVE)
 RENAME_libnvcuvid1		 = lib$(if $(legacy),${nvidia}-)nvcuvid1
 RENAME_libcuda1			 = $(libcuda1)
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
@@ -98,6 +98,7 @@ NVIDIA-Linux-%:
 
 # Unpack all architectures, we may need files from all of them.
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
+	$(if $(filter $(DEB_HOST_ARCH),$(ARCH_LIST)),,$(error Architecture $(DEB_HOST_ARCH) unsupported.))
 	dh_testdir
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
 	QUILT_PATCHES=debian/patches QUILT_SERIES=series-postunpack quilt --quiltrc /dev/null push -a || test $$? = 2
@@ -185,6 +186,7 @@ build-kernel-source-tree: install-into-tmp
 	cp -a debian/copyright $(module_source)/debian/
 	cp -a debian/bug-script $(module_source)/debian/
 	cp -a debian/bug-control $(module_source)/debian/
+	echo "" >> $(module_source)/debian/bug-control
 	echo "Submit-As: $(nvidia)-kernel-source" >> $(module_source)/debian/bug-control
 
 	# Fix permissions.
@@ -242,11 +244,9 @@ override_dh_gencontrol:
 		-V'libcuda1=$(libcuda1)' \
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
-		-V'nvidia:Perfkit=$(perfkit)' \
-		-V'nvidia-legacy-check=$(NVIDIA_LEGACY_CHECK)' \
-		-V'nvidia-alternative=$(NVIDIA_ALTERNATIVE)' \
+		-V'nvidia:legacy-check=$(NVIDIA_LEGACY_CHECK)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
-		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}$${nvidia:Perfkit}' \
+		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}' \
 		-V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
 		-V'nvidia:kmod:tested:Linux=$(strip $(or $(LINUX_KMOD_TESTED_$(DEB_HOST_ARCH)),$(LINUX_KMOD_TESTED),???))' \
 		-Vnvidia:kmod:Description="`cat debian/control.kmod`" \
@@ -276,7 +276,6 @@ override_dh_strip_nondeterminism:
 	-e 's{#NVIDIA#}{$(nvidia)}g;' \
 	-e 's{#LEGACY#}{$(legacy)}g;' \
 	-e 's{#MODULE#}{$(module)}g;' \
-	-e 's{#NVIDIA_ALTERNATIVE#}{$(NVIDIA_ALTERNATIVE)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
@@ -284,7 +283,6 @@ override_dh_strip_nondeterminism:
 	-e 's{#ARCH_LIST#}{$(ARCH_LIST)}g;' \
 	-e 's{#HAS_UVM#}{$(if $(has_uvm),,#)}g;' \
 	-e 's{#!armhf#}{$(if $(filter armhf,$(DEB_HOST_ARCH)),#)}g;' \
-	-e 's{#!legacy#}{$(if $(legacy),#)}g;' \
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog

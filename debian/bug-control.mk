@@ -10,7 +10,7 @@ define REPORT_WITH
 	nvidia-glx$(legacy)
 	libgl1-$(nvidia)-glx
 	xserver-xorg-video-$(nvidia)
-	$(NVIDIA_ALTERNATIVE)
+	$(nvidia)-alternative
 	$(nvidia)-kernel-dkms
 	$(nvidia)-kernel-source
 	glx-alternative-nvidia
@@ -35,6 +35,7 @@ define PACKAGE_STATUS
 	nvidia-modprobe
 	xserver-xorg
 	xserver-xorg-core
+	xserver-xorg-legacy
 	linux-headers
 	bumblebee
 	bumblebee-nvidia
@@ -43,5 +44,7 @@ define PACKAGE_STATUS
 	libdrm-nouveau2
 	xserver-xorg-video-nouveau
 	make
+	libopencl1
+	opencl-icd
 endef
 

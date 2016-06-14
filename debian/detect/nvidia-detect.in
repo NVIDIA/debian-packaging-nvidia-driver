@@ -2,7 +2,7 @@
 # Based on http://wiki.debian.org/NvidiaGraphicsDrivers?action=AttachFile&do=view&target=nvidia-versions.sh
 #
 # Copyright © 2008-2011 Filipus Klutiero <chealer@gmail.com>
-# Copyright © 2011-2015 Andreas Beckmann <anbe@debian.org>
+# Copyright © 2011-2016 Andreas Beckmann <anbe@debian.org>
 #
 # This package is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -63,16 +63,6 @@ then
 	VERSIONS[340]=340.76
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-195.ids 2>/dev/null
-then
-	VERSIONS[195]=195.36.24
-fi
-
-if grep -q -i $NVGA $IDLISTDIR/nvidia-295.ids 2>/dev/null
-then
-	VERSIONS[295]=295.59
-fi
-
 if grep -q -i $NVGA $IDLISTDIR/nvidia.ids 2>/dev/null
 then
        	# 999 means current
@@ -95,32 +85,7 @@ fi
 		echo "Uh oh. You are running Lenny, which is no longer supported."
 	elif grep -q "squeeze\|^6" /etc/debian_version;
 	then
-		if [[ -n ${VERSIONS[195]} ]]; then
-			if [[ -n ${VERSIONS[173]} ]]; then
-				if [[ -n ${VERSIONS[96]} ]]; then
-				       	echo "Your card is supported by all driver versions.";
-				else
-					echo "Your card is supported by the default drivers and version 173.";
-				fi;
-			else
-				echo "Your card is supported by the default drivers.";
-			fi;
-			PACKAGE="nvidia-glx"
-		elif [[ -n ${VERSIONS[295]} ]]; then
-			echo "Your card is only supported by the updated drivers from squeeze-backports."
-			echo "See http://backports.debian.org for instructions how to use backports."
-			PACKAGE="nvidia-glx/squeeze-backports"
-		elif [[ -n ${VERSIONS[173]} ]]; then
-			echo "Your card is only supported up to the 173.14 legacy drivers series.";
-			PACKAGE="nvidia-glx-legacy-173xx"
-		elif [[ -n ${VERSIONS[96]} ]]; then
-			echo "Your card is only supported up to the 96.43 legacy drivers series.";
-			PACKAGE="nvidia-glx-legacy-96xx"
-		elif [[ -n ${VERSIONS[999]} ]]; then
-			echo "Uh oh. Your card is only supported by a newer version of the current drivers series.";
-		else
-			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite.";
-		fi;
+		echo "Uh oh. You are running Squeeze, which is no longer supported."
 	elif grep -q "wheezy\|^7" /etc/debian_version;
 	then
 		if [[ -n ${VERSIONS[304]} ]]; then

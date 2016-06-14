@@ -38,7 +38,7 @@ NOTES ABOUT REPORTING BUGS TO NVIDIA:
 
 The NVIDIA graphics driver is a non-free closed-source product. Therefore
 the package maintainers are limited to fixing bugs in the packaging.
-Bugs in the the "graphics functionality" like graphical distortions,
+Bugs in the "graphics functionality" like graphical distortions,
 performance regressions, hardware support, ... can only be fixed upstream
 and should be reported directly to NVIDIA because this includes collecting
 system information (with the nvidia-bug-report.sh script that is included
@@ -90,7 +90,7 @@ or from having used NVIDIA's installer in the past.
 
 These files most likely can be safely moved away from the library directories
 so that they may not cause harm, e.g. being preferred over the current driver
-etc.  Reinstallation of the #NVIDIA_ALTERNATIVE# package is recommended
+etc.  Reinstallation of the #NVIDIA#-alternative package is recommended
 after (re-)moving these files.  This will correct missing/incorrect symbolic
 links.
 
