@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (367.27-1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 367.27 (2016-06-13).
+    (Closes: #827391)
     - Added support for VDPAU Feature Set H to the NVIDIA VDPAU driver.
       GPUs with VDPAU Feature Set H are capable of hardware-accelerated
       decoding of 8192x8192 (8k) H.265/HEVC video streams.
