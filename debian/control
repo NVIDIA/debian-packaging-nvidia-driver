@@ -31,8 +31,6 @@ Pre-Depends:
  ${nvidia:legacy-check},
 Depends:
  ${nvidia}-driver-libs (= ${binary:Version}),
- libegl-${nvidia}0 (= ${binary:Version}),
- libglx-${nvidia}0 (= ${binary:Version}),
  ${nvidia}-driver-bin (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  ${nvidia}-vdpau-driver (= ${binary:Version}),
@@ -98,6 +96,7 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
+ libglx-${nvidia}0 (= ${binary:Version}),
  libegl-${nvidia}0 (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
@@ -219,6 +218,45 @@ Description: Vendor neutral GL dispatch library -- libOpenGL
  This package contains the (binary) libOpenGL shared library provided by
  NVIDIA.
 
+Package: libglx0-nvidia
+Architecture: i386 amd64
+Multi-Arch: same
+Conflicts: libglx0
+Replaces: libglx0
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
+ libglvnd-nvidia,
+ ${shlibs:Depends}, ${misc:Depends}
+Description: Vendor neutral GL dispatch library -- libGLX
+ This is an implementation of the vendor-neutral dispatch layer for
+ arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
+ .
+ This package contains the libGLX shared library.
+
+#Package: libglx-${nvidia}0
+Package: libglx-nvidia0
+Architecture: i386 amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
+ libgl1-${nvidia}-glx (= ${binary:Version}),
+ libglx0-${nvidia} (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA binary GLX libraries${nvidia:LegacyDesc}
+ GLX ("OpenGL Extension to the X Window System") provides an interface between
+ OpenGL and the X Window System as well as extensions to OpenGL itself.
+ .
+ See the description of the ${nvidia}-driver package
+ or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
+ for a complete list of supported GPUs and PCI IDs.
+ .
+ This package contains the driver specific binary GLX implementation by NVIDIA
+ that is accessed via libglvnd.
+
 #Package: libgl1-${nvidia}-glx
 Package: libgl1-nvidia-glx
 Architecture: i386 amd64 armhf
@@ -268,6 +306,7 @@ Description: NVIDIA binary EGL GLVND stub library
  This package contains a libEGL.so.1 stub that redirects to a vendor
  implementation via GLVND.
 
+#Package: libegl1-${nvidia}
 Package: libegl1-nvidia
 Section: non-free/oldlibs
 Priority: extra
@@ -308,7 +347,6 @@ Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
  This package contains the driver specific binary EGL implementation by NVIDIA
  that is accessed via GLVND.
 
-#Package: libgles1-glvnd-${nvidia}
 Package: libgles1-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
@@ -334,6 +372,28 @@ Description: NVIDIA binary OpenGL|ES 1.x stub libraries
  .
  This package contains a libGLESv1_CM.so.1 stub that redirects to a vendor
  implementation via libglvnd.
+
+#Package: libgles1-${nvidia}
+Package: libgles1-nvidia
+Section: non-free/oldlibs
+Priority: extra
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ libgles-${nvidia}1 (= ${binary:Version}),
+ ${misc:Depends}
+Description: NVIDIA binary OpenGL|ES 1.x libraries (transitional)${nvidia:LegacyDesc}
+ OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
+ embedded systems - including consoles, phones, appliances and vehicles.
+ It contains a subset of OpenGL plus a number of extensions for the
+ special needs of embedded systems.
+ .
+ OpenGL|ES 1.x provides an API for fixed-function hardware.
+ .
+ This is a transitional package to aid switching to the GLVND based
+ implementation.
 
 #Package: libgles-${nvidia}1
 Package: libgles-nvidia1
@@ -361,7 +421,6 @@ Description: NVIDIA binary OpenGL|ES 1.x libraries${nvidia:LegacyDesc}
  This package contains the driver specific binary OpenGL|ES 1.x implementation
  by NVIDIA that is accessed via libglvnd.
 
-#Package: libgles2-glvnd-${nvidia}
 Package: libgles2-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
@@ -389,6 +448,29 @@ Description: NVIDIA binary OpenGL|ES 2.x stub libraries
  This package contains a libGLESv2.so.2 stub that redirects to a vendor
  implementation via libglvnd.
 
+#Package: libgles2-${nvidia}
+Package: libgles2-nvidia
+Section: non-free/oldlibs
+Priority: extra
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ libgles-${nvidia}2 (= ${binary:Version}),
+ ${misc:Depends}
+Description: NVIDIA binary OpenGL|ES 2.x libraries (transitional)${nvidia:LegacyDesc}
+ OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
+ embedded systems - including consoles, phones, appliances and vehicles.
+ It contains a subset of OpenGL plus a number of extensions for the
+ special needs of embedded systems.
+ .
+ OpenGL|ES 2.x provides an API for programmable hardware including vertex
+ and fragment shaders.
+ .
+ This is a transitional package to aid switching to the GLVND based
+ implementation.
+
 #Package: libgles-${nvidia}2
 Package: libgles-nvidia2
 Architecture: i386 amd64 armhf
@@ -415,46 +497,6 @@ Description: NVIDIA binary OpenGL|ES 2.x libraries${nvidia:LegacyDesc}
  .
  This package contains the driver specific binary OpenGL|ES 2.x implementation
  by NVIDIA that is accessed via libglvnd.
-
-#Package: libglx0-${nvidia}
-Package: libglx0-nvidia
-Architecture: i386 amd64
-Multi-Arch: same
-Conflicts: libglx0
-Replaces: libglx0
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${nvidia}-alternative (= ${binary:Version}),
- libglvnd-nvidia,
- ${shlibs:Depends}, ${misc:Depends}
-Description: Vendor neutral GL dispatch library -- libGLX
- This is an implementation of the vendor-neutral dispatch layer for
- arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
- .
- This package contains the libGLX shared library.
-
-#Package: libglx-${nvidia}0
-Package: libglx-nvidia0
-Architecture: i386 amd64
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${nvidia}-alternative (= ${binary:Version}),
- libgl1-${nvidia}-glx (= ${binary:Version}),
- libglx0-${nvidia} (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA binary GLX libraries${nvidia:LegacyDesc}
- GLX ("OpenGL Extension to the X Window System") provides an interface between
- OpenGL and the X Window System as well as extensions to OpenGL itself.
- .
- See the description of the ${nvidia}-driver package
- or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
- .
- This package contains the driver specific binary GLX implementation by NVIDIA
- that is accessed via libglvnd.
 
 #Package: lib${nvidia}-eglcore
 Package: libnvidia-eglcore
@@ -759,6 +801,21 @@ Description: NVIDIA runtime compiler library
  .
  This package contains the runtime compiler library.
 
+#Package: lib${nvidia}-fatbinaryloader
+Package: libnvidia-fatbinaryloader
+Architecture: i386 amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends},
+Description: NVIDIA FAT binary loader
+ The Compute Unified Device Architecture (CUDA) enables NVIDIA
+ graphics processing units (GPUs) to be used for massively parallel
+ general purpose computation.
+ .
+ This package contains the FAT multiarchitecture binary loader.
+
 #Package: lib${nvidia}-ptxjitcompiler
 Package: libnvidia-ptxjitcompiler
 Architecture: i386 amd64
@@ -774,21 +831,6 @@ Description: NVIDIA PTX JIT Compiler
  general purpose computation.
  .
  This package contains the runtime PTX JIT compiler library.
-
-#Package: lib${nvidia}-fatbinaryloader
-Package: libnvidia-fatbinaryloader
-Architecture: i386 amd64
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${shlibs:Depends}, ${misc:Depends},
-Description: NVIDIA FAT binary loader
- The Compute Unified Device Architecture (CUDA) enables NVIDIA
- graphics processing units (GPUs) to be used for massively parallel
- general purpose computation.
- .
- This package contains the FAT multiarchitecture binary loader.
 
 #Package: lib${nvidia}-nvcuvid1
 Package: libnvcuvid1
