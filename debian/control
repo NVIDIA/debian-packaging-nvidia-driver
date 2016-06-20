@@ -103,6 +103,7 @@ Recommends:
  libopengl0-nvidia (= ${binary:Version}),
  libgles1-${nvidia} (= ${binary:Version}),
  libgles2-${nvidia} (= ${binary:Version}),
+ lib${nvidia}-cfg1 (= ${binary:Version}),
 Description: NVIDIA metapackage (GL/GLX/EGL libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of
@@ -397,6 +398,27 @@ Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
  .
  This package contains the private core libraries used by the NVIDIA
  implementation of EGL and OpenGL|ES.
+
+#Package: lib${nvidia}-cfg1
+Package: libnvidia-cfg1
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Breaks:
+ libgl1-${nvidia}-glx (<< 355.11-5),
+Replaces:
+ libgl1-${nvidia}-glx (<< 355.11-5),
+Provides:
+ libnvidia-cfg1-any,
+Description: NVIDIA binary OpenGL configuration library${nvidia:LegacyDesc}
+ These binary libraries provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server.
+ .
+ This package contains the libnvidia-cfg.so.1 runtime library.
 
 #Package: ${nvidia}-alternative
 Package: nvidia-alternative
