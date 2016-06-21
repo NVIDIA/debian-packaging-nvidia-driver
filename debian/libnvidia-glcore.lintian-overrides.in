@@ -7,9 +7,9 @@ hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
 
-# The libnvidia-{eglcore,glsi}.so.* SONAME changes with every upstream
+# The libnvidia-{glcore,tls}.so.* SONAME changes with every upstream
 # release. But these are private libraries that are only used (and usable)
 # from other NVIDIA libraries with the same upstream version (and a
 # stable SONAME), so don't include the SONAME in the package name to
 # avoid going through NEW with every new upstream release.
-package-name-doesnt-match-sonames libnvidia-eglcore#VERSION# libnvidia-glsi#VERSION#
+package-name-doesnt-match-sonames libnvidia-glcore#VERSION# libnvidia-tls#VERSION#
