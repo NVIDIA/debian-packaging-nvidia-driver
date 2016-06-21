@@ -1,2 +1,1 @@
-#!armhf#libGL.so.1.0.0		#LIBDIR#/#PRIVATE#/
-#armhf#libGL.so.#VERSION#		#LIBDIR#/#PRIVATE#/
+libGL.so.#VERSION#		#LIBDIR#/#PRIVATE#/

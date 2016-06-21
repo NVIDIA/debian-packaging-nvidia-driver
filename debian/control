@@ -228,7 +228,6 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libglvnd-nvidia,
  ${shlibs:Depends}, ${misc:Depends}
 Description: Vendor neutral GL dispatch library -- libGLX
  This is an implementation of the vendor-neutral dispatch layer for
@@ -244,8 +243,8 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libgl1-${nvidia}-glx (= ${binary:Version}),
- libglx0-${nvidia} (= ${binary:Version}),
+ liblibglx0 | libglx0-nvidia,
+ lib${nvidia}-glcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary GLX libraries${nvidia:LegacyDesc}
  GLX ("OpenGL Extension to the X Window System") provides an interface between
@@ -257,6 +256,25 @@ Description: NVIDIA binary GLX libraries${nvidia:LegacyDesc}
  .
  This package contains the driver specific binary GLX implementation by NVIDIA
  that is accessed via libglvnd.
+
+Package: libgl1-glvnd-nvidia-glx
+Architecture: i386 amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Conflicts:
+ libgl1-${nvidia}-glx,
+Replaces:
+ libgl1-${nvidia}-glx,
+Description: NVIDIA binary OpenGL/GLX GLVND stub library
+ These binary libraries provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server.
+ .
+ This package contains a libGL.so.1 stub that redirects to a vendor
+ implementation via GLVND.
 
 #Package: libgl1-${nvidia}-glx
 Package: libgl1-nvidia-glx
@@ -379,7 +397,6 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libglvnd-nvidia,
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 1.x stub libraries
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
@@ -453,7 +470,6 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libglvnd-nvidia,
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 2.x stub libraries
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on

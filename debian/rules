@@ -45,12 +45,14 @@ libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 nvidia_private		 = nvidia/$(current)
 
 CONTROL_PREFIXES	 = nvidia-driver libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
+CONTROL_PREFIXES	+= libnvidia-cfg1
+CONTROL_PREFIXES	+= libnvidia-glcore
 CONTROL_PREFIXES	+= libnvidia-eglcore libegl-nvidia0
-CONTROL_PREFIXES	+= libglx0-nvidia libglx-nvidia0 libgles-nvidia2 libgles-nvidia1
-CONTROL_PREFIXES	+= libnvidia-eglcore libegl1-nvidia libgles1-glvnd-nvidia libgles2-glvnd-nvidia
+CONTROL_PREFIXES	+= libglx-nvidia0 libgles-nvidia2 libgles-nvidia1
 CONTROL_PREFIXES	+= nvidia-vdpau-driver
 CONTROL_PREFIXES	+= libcuda1
 CONTROL_PREFIXES	+= nvidia-opencl-icd libnvidia-compiler
+CONTROL_PREFIXES	+= libnvidia-fatbinaryloader libnvidia-ptxjitcompiler
 CONTROL_PREFIXES	+= libnvidia-ml1 nvidia-smi
 CONTROL_PREFIXES	+= libnvcuvid1
 CONTROL_PREFIXES	+= libnvidia-encode1
@@ -284,7 +286,6 @@ override_dh_strip_nondeterminism:
 	-e 's{#ARCH_LIST#}{$(ARCH_LIST)}g;' \
 	-e 's{#HAS_UVM#}{$(if $(has_uvm),,#)}g;' \
 	-e 's{#!armhf#}{$(if $(filter armhf,$(DEB_HOST_ARCH)),#)}g;' \
-	-e 's{#armhf#}{$(if $(filter-out armhf,$(DEB_HOST_ARCH)),#)}g;' \
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog

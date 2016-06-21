@@ -4,7 +4,7 @@ nvidia-graphics-drivers (361.45.11-1) UNRELEASED; urgency=medium
   * New upstream long lived branch release 361.45.11 (2016-05-24).
     - Fixed a bug that sometimes prevented flipping from being enabled on
       systems with multiple displays.
-    - Fixed a bug that could cause applications to crash when using the 
+    - Fixed a bug that could cause applications to crash when using the
       EGL_EXT_platform_device extension on a system with multiple GPUs.
     - Fixed a bug that could cause nvidia-installer's runtime loader test
       to fail spuriously on some systems.
@@ -33,7 +33,6 @@ nvidia-graphics-drivers (361.45.11-1) UNRELEASED; urgency=medium
   * New upstream long lived branch release 361.28 (2016-02-09).
     (Closes: #814347)
     - Added support for the following GPU: GeForce 945A.
-    *** TODO: ***
     - Added a legacy, non-GLVND libGL.so GLX client library to the NVIDIA
       Linux driver installer package, and the ability to select between a
       GLVND or non-GLVND GLX client library at installation time. This
@@ -84,14 +83,13 @@ nvidia-graphics-drivers (361.45.11-1) UNRELEASED; urgency=medium
     from NVIDIA (libGLX_nvidia.so.0), accessible via libglvnd.
   * libglx0-nvidia: New package for libGLX.so.0, a new (vendor-neutral) stub
     that redirects to libGLX_nvidia.so.0 via libglvnd.
+  * libgl1-glvnd-nvidia-glx: New package for libGL.so.1, a new
+    (vendor-neutral) stub that redirects to ??? via libglvnd (can be used as
+    an alternative to libgl1-nvidia-glx)
   * libnvidia-fatbinaryloader: New package for FAT multiarch binary loader,
-    needed by CUDA PXT JIT compiler.
-  * libnvidia-ptxjitcompiler: New package for the CUDA PXT JIT compiler.
-  * Add dependency to libegl-nvidia package to nvidia-driver, otherwise
-    apt-get install nvidia-driver will not pull it in.
+    needed by CUDA PTX JIT compiler.
+  * libnvidia-ptxjitcompiler: New package for the CUDA PTX JIT compiler.
   * Update symbols files
-  * Updated libgl1-nvidia-glx package to ship libglvnd's version of libGL.so.1
-    on i386 and amd64. Upstream ships only non-libglvnd libraries on ARM.
   * Add do-div-cast.patch to fix nvidia-modeset kernel module build failure
     on 4.6.
 
