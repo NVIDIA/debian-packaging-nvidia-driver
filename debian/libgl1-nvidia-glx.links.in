@@ -1,3 +1,2 @@
 #!armhf##LIBDIR#/#PRIVATE#/libGL.so.1.0.0                 #LIBDIR#/#PRIVATE#/libGL.so.1
 #armhf##LIBDIR#/#PRIVATE#/libGL.so.#VERSION#                 #LIBDIR#/#PRIVATE#/libGL.so.1
-#LIBDIR#/#PRIVATE#/libnvidia-cfg.so.#VERSION#		#LIBDIR#/#PRIVATE#/libnvidia-cfg.so.1
