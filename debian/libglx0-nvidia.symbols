@@ -1,4 +1,4 @@
-libGLX.so.0 #PACKAGE# #MINVER#
+libGLX.so.0 libglx0 | #PACKAGE# #MINVER#
  AllocExecPages@Base 361.18
  AtomicCompareAndSwap@Base 361.18
  AtomicDecrementClampAtZero@Base 361.18

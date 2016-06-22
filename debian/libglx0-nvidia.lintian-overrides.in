@@ -6,7 +6,7 @@ hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
 
-# This package is a strange special case since it provides an alternative
-# implementation of libGLX.so.0, so the package name won't ever be able to
-# match the library names it provides.
-package-name-doesnt-match-sonames
+# These are expected to be built from source and packaged independently
+# from the NVIDIA drivers, soon.
+package-name-doesnt-match-sonames libGLX0
+symbols-declares-dependency-on-other-package libglx0
