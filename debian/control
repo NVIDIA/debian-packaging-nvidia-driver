@@ -193,6 +193,8 @@ Conflicts:
 Replaces:
  libglvnd-nvidia,
  libgldispatch0,
+Provides:
+ libglvnd-abi-${nvidia:Version},
 Description: Vendor neutral GL dispatch library -- libGLdispatch
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.

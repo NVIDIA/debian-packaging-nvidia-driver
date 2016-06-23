@@ -1,4 +1,4 @@
-libGLdispatch.so.0 libgldispatch0 | #PACKAGE# #MINVER#
+libGLdispatch.so.0 libglvnd-abi-#VERSION#, libgldispatch0 | #PACKAGE# #MINVER#
 #MISSING: 361.18# AllocExecPages@Base 355
 #MISSING: 361.18# FreeExecPages@Base 355
 #MISSING: 361.18# GLVND_THREAD_NULL@Base 355
