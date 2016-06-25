@@ -10,3 +10,4 @@ nvidia-drm-arm-cflags.patch
 drm-mode-fb-cmd2.patch
 do-div-cast.patch
 get-user-pages-drm.patch
+drm-gem-object-lookup.patch

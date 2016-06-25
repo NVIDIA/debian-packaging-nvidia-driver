@@ -1,0 +1,34 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix drm_gem_object_lookup call in kernel >= 4.7
+ From kernel 4.7 and newer (commit a8ad0bd84f9) the signature of
+ drm_gem_object_lookup changed and removed two parameters. Use the correct
+ version depending on the kernel build target.
+
+--- a/nvidia-drm/nvidia-drm-fb.c
++++ b/nvidia-drm/nvidia-drm-fb.c
+@@ -114,7 +114,11 @@
+      * We don't support any planar format, pick up first buffer only.
+      */
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,7,0)
+     gem = drm_gem_object_lookup(dev, file, cmd->handles[0]);
++#else
++    gem = drm_gem_object_lookup(file, cmd->handles[0]);
++#endif
+ 
+     if (gem == NULL)
+     {
+--- a/nvidia-drm/nvidia-drm-gem.c
++++ b/nvidia-drm/nvidia-drm-gem.c
+@@ -405,7 +405,11 @@
+ 
+     mutex_lock(&dev->struct_mutex);
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,7,0)
+     gem = drm_gem_object_lookup(dev, file, handle);
++#else
++    gem = drm_gem_object_lookup(file, handle);
++#endif
+ 
+     if (gem == NULL)
+     {

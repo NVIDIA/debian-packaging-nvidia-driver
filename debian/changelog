@@ -64,6 +64,8 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
     kernel module build failure on 4.6.
   * Add do-div-cast.patch to fix nvidia-modeset kernel module build failure
     on 4.6
+  * Add drm-gem-object-lookup.patch to fix nvidia-drm kernel module build
+    failure on 4.7.
   * Add new nvidia-vulkan-icd package which installs nvidia_icd.json to
     /usr/share/vulkan/icd.d and make it depend on libglx-nvidia0 since that
     library implements the Vulkan APIs, libvulkan1 and suggest vulkan-info in
