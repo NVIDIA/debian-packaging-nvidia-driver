@@ -92,6 +92,8 @@ nvidia-graphics-drivers (361.45.11-1) UNRELEASED; urgency=medium
   * Update symbols files
   * Add do-div-cast.patch to fix nvidia-modeset kernel module build failure
     on 4.6.
+  * Add radix-tree-empty.patch to fix nvidia-uvm kernel module build failure
+    on 4.7.
 
   [ Andreas Beckmann ]
   * Update lintian overrides.
