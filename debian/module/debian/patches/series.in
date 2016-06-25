@@ -9,3 +9,4 @@ arm-outer-sync.patch
 nvidia-drm-arm-cflags.patch
 drm-mode-fb-cmd2.patch
 do-div-cast.patch
+get-user-pages-drm.patch

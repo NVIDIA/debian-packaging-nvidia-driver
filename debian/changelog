@@ -60,8 +60,8 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
       sudo modprobe -r nvidia-drm; sudo modprobe nvidia-drm modeset=1
   * Add nvidia-drm-arm-cflags.patch to fix nvidia-drm kernel module build
     failure on armhf.
-  * Add drm-mode-fb-cmd2.patch to fix nvidia-drm kernel module build failure
-    on 4.6
+  * Add drm-mode-fb-cmd2.patch and get-user-pages-drm.patch to fix nvidia-drm
+    kernel module build failure on 4.6.
   * Add do-div-cast.patch to fix nvidia-modeset kernel module build failure
     on 4.6
   * Add new nvidia-vulkan-icd package which installs nvidia_icd.json to
