@@ -6,6 +6,15 @@ Description: Fix drm_gem_object_lookup call in kernel >= 4.7
 
 --- a/nvidia-drm/nvidia-drm-fb.c
 +++ b/nvidia-drm/nvidia-drm-fb.c
+@@ -20,6 +20,8 @@
+  * DEALINGS IN THE SOFTWARE.
+  */
+ 
++#include <linux/version.h>
++
+ #include "conftest.h" /* NV_DRM_ATOMIC_MODESET_AVAILABLE */
+ 
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
 @@ -114,7 +114,11 @@
       * We don't support any planar format, pick up first buffer only.
       */
@@ -20,6 +29,15 @@ Description: Fix drm_gem_object_lookup call in kernel >= 4.7
      {
 --- a/nvidia-drm/nvidia-drm-gem.c
 +++ b/nvidia-drm/nvidia-drm-gem.c
+@@ -20,6 +20,8 @@
+  * DEALINGS IN THE SOFTWARE.
+  */
+ 
++#include <linux/version.h>
++
+ #include "conftest.h" /* NV_DRM_ATOMIC_MODESET_AVAILABLE */
+ 
+ #if defined(NV_DRM_AVAILABLE)
 @@ -405,7 +405,11 @@
  
      mutex_lock(&dev->struct_mutex);

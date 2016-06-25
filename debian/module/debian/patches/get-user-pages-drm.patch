@@ -4,6 +4,14 @@ Description: fix get_user_pages, new signature in 4.6+
 
 --- a/nvidia-drm/nvidia-drm-linux.c
 +++ b/nvidia-drm/nvidia-drm-linux.c
+@@ -23,6 +23,7 @@
+ #include <linux/module.h>
+ #include <linux/slab.h>
+ #include <linux/err.h>
++#include <linux/version.h>
+ 
+ #include "nvidia-drm-os-interface.h"
+ #include "nvidia-drm.h"
 @@ -121,9 +121,14 @@
  
      down_read(&mm->mmap_sem);
