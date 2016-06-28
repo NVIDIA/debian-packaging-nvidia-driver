@@ -1,6 +1,9 @@
-nvidia-graphics-drivers (361.45.11-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
+  * New upstream long lived branch release 361.45.18 (2016-06-28).
+    - Fixed a bug that caused nvidia-smi to report an inaccurate version
+      number.
   * New upstream long lived branch release 361.45.11 (2016-05-24).
     - Fixed a bug that sometimes prevented flipping from being enabled on
       systems with multiple displays.
