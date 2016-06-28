@@ -9,4 +9,4 @@ include-swiotlb-header-on-arm.patch
 ignore_xen_on_arm.patch
 arm-outer-sync.patch
 do-div-cast.patch
-#UVM#radix-tree-empty.patch
+#HAS_UVM#radix-tree-empty.patch
