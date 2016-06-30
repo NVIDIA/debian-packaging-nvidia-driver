@@ -320,7 +320,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuTexRefGetAddressMode@Base 169
  cuTexRefGetAddress_v2@Base 260
  cuTexRefGetArray@Base 169
- cuTexRefGetBorderColor@Base 361
+ cuTexRefGetBorderColor@Base 361.18
  cuTexRefGetFilterMode@Base 169
  cuTexRefGetFlags@Base 169
  cuTexRefGetFormat@Base 177
@@ -336,7 +336,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuTexRefSetAddressMode@Base 169
  cuTexRefSetAddress_v2@Base 260
  cuTexRefSetArray@Base 169
- cuTexRefSetBorderColor@Base 361
+ cuTexRefSetBorderColor@Base 361.18
  cuTexRefSetFilterMode@Base 169
  cuTexRefSetFlags@Base 169
  cuTexRefSetFormat@Base 169

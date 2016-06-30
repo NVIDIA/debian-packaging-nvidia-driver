@@ -132,6 +132,8 @@ libGLX.so.0 libglx0 | #PACKAGE# #MINVER#
  st_mutexattr_destroy@Base 361
  st_mutexattr_init@Base 361
  st_mutexattr_settype@Base 361
+#MISSING: 361.45# public_entry_end@Base 361
+#MISSING: 361.45# public_entry_start@Base 361
  st_rwlock_destroy@Base 361
  st_rwlock_init@Base 361
 #MISSING: 361.45# xglv_ext_name@Base 361

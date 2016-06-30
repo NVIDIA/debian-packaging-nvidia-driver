@@ -1,5 +1,5 @@
 libGL.so.1 libgl1-mesa-glx | libgl1
- __glx_Main@Base 361.42
+ __glx_Main@Base 361.28
  glAccum@Base 1.0.4349
  glActiveProgramEXT@Base 190
  glActiveShaderProgram@Base 260
@@ -2476,7 +2476,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glViewportIndexedfNV@Base 346
  glViewportIndexedfv@Base 260
  glViewportIndexedfvNV@Base 346
- glViewportPositionWScaleNV@Base 361.28
+ glViewportPositionWScaleNV@Base 361
  glViewportSwizzleNV@Base 343
  glWaitSync@Base 190.18.05
  glWaitSyncValueuiNVX@Base 285
