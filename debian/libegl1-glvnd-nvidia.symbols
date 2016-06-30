@@ -44,11 +44,11 @@ libEGL.so.1 libegl1-mesa
 #MISSING: 361.42# glvndSetupPthreads@Base 355
  glvnd_asprintf@Base 355
  glvnd_byte_swap16@Base 355
-#MISSING: 361.42# mt_mutexattr_destroy@Base 361.18
-#MISSING: 361.42# mt_mutexattr_init@Base 361.18
-#MISSING: 361.42# mt_mutexattr_settype@Base 361.18
-#MISSING: 361.42# st_mutexattr_destroy@Base 361.18
-#MISSING: 361.42# st_mutexattr_init@Base 361.18
-#MISSING: 361.42# st_mutexattr_settype@Base 361.18
+#MISSING: 361.42# mt_mutexattr_destroy@Base 361
+#MISSING: 361.42# mt_mutexattr_init@Base 361
+#MISSING: 361.42# mt_mutexattr_settype@Base 361
+#MISSING: 361.42# st_mutexattr_destroy@Base 361
+#MISSING: 361.42# st_mutexattr_init@Base 361
+#MISSING: 361.42# st_mutexattr_settype@Base 361
 #MISSING: 361.42# st_rwlock_destroy@Base 355
 #MISSING: 361.42# st_rwlock_init@Base 355

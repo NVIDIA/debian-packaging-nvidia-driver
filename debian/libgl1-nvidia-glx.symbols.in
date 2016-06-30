@@ -45,7 +45,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glBindFragDataLocation@Base 180
  glBindFragDataLocationEXT@Base 1.0.9746
  glBindFragDataLocationIndexed@Base 256
- glBindFragDataLocationIndexedEXT@Base 361.18
+ glBindFragDataLocationIndexedEXT@Base 361
  glBindFramebuffer@Base 180
  glBindFramebufferEXT@Base 1.0.7664
  glBindFramebufferOES@Base 325
@@ -689,7 +689,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetFloati_vNV@Base 346
  glGetFloatv@Base 1.0.4349
  glGetFragDataIndex@Base 256
- glGetFragDataIndexEXT@Base 361.18
+ glGetFragDataIndexEXT@Base 361
  glGetFragDataLocation@Base 180
  glGetFragDataLocationEXT@Base 1.0.9746
  glGetFramebufferAttachmentParameteriv@Base 180
