@@ -1,10 +1,10 @@
-nvidia-graphics-drivers (355.11-5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (355.11-5) experimental; urgency=medium
 
   * Merge changes from 352.79-8.
   * libnvidia-glcore: New package, split from libgl1-nvidia-glx.
   * libnvidia-cfg1: New package, split from libgl1-nvidia-glx.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Apr 2016 01:16:39 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 05 Jul 2016 21:18:42 +0200
 
 nvidia-graphics-drivers (355.11-4) experimental; urgency=medium
 
