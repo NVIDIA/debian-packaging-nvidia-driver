@@ -1,3 +1,2 @@
 libGL.so.#VERSION#		#LIBDIR#/#PRIVATE#/
-libnvidia-cfg.so.#VERSION#	#LIBDIR#/#PRIVATE#/
 libXvMCNVIDIA.so.#VERSION#	#LIBDIR#/#PRIVATE#/
