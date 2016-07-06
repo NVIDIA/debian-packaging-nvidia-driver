@@ -38,6 +38,7 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
     Depends/Recommends on the GL/GLX packages.
   * Replace libgl1-nvidia-glx-i386 with new
     nvidia-driver-libs-i386 metapackage.
+  * libnvidia-glcore: New package, split from libgl1-nvidia-glx.
 
   [ Luca Boccassi ]
   * Add disable-mtrr.patch to disable MTRR in the kernel module if

@@ -2,7 +2,6 @@
 [!amd64]: binary-file-built-without-LFS-support
 shlib-calls-exit
 [i386]: shlib-with-non-pic-code
-spelling-error-in-binary
 hardening-no-bindnow
 hardening-no-fortify-functions
 hardening-no-relro
@@ -13,7 +12,5 @@ hardening-no-stackprotector
 symbols-declares-dependency-on-other-package libgl1-mesa-glx
 symbols-declares-dependency-on-other-package libgl1
 
-# This package is a strange special case since it provides an alternative
-# implementation of libGL.so.1, so the package name won't ever be able to
-# match the library names it provides.
-package-name-doesnt-match-sonames
+# Lintian and debhelper disagree w.r.t. a library in a private directory.
+package-has-unnecessary-activation-of-ldconfig-trigger
