@@ -22,8 +22,6 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * bug-control, bug-script: Collect some information about OpenCL.
   * Use nvidia:kmod:binary and nvidia:kmod:source substvars (304.88-5).
   * Use an empty nvidia:legacy-check substvar for legacy packages.
-  * Bump Standards-Version to 3.9.8. No changes needed.
-  * Update lintian overrides.
   * separate-makefile-kbuild.patch: New, don't make all Makefile targets
     available to Kbuild.
   * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 340.xx onwards.
@@ -34,7 +32,8 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * Use NVIDIA's conftest.sh script to determine settings during module build
     instead of our manually maintained conftest.h header.
   * Disable conftest.sh checks cc_version_check, xen_sanity_check.
-  * Merge changes from 304.131-1 (jessie).
+  * Bump Standards-Version to 3.9.8. No changes needed.
+  * Update lintian overrides.
 
   [ Luca Boccassi ]
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
