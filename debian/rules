@@ -45,9 +45,9 @@ CONTROL_PREFIXES	+= libcuda1
 CONTROL_PREFIXES	+= libnvcuvid1
 CONTROL_PREFIXES	+= nvidia-smi
 CONTROL_PREFIXES	+= nvidia-opencl-icd
-RENAME_nvidia-glx		 = nvidia-glx$(legacy)
-RENAME_libnvcuvid1		 = lib$(if $(legacy),${nvidia}-)nvcuvid1
-RENAME_libcuda1			 = $(libcuda1)
+RENAME_nvidia-glx	 = nvidia-glx$(legacy)
+RENAME_libcuda1		 = $(libcuda1)
+RENAME_libnvcuvid1	 = lib$(if $(legacy),${nvidia}-)nvcuvid1
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
 CONTROL_PREFIXES_RENAMED = $(foreach p,$(CONTROL_PREFIXES),$(call renamed_prefix,$p))
 
