@@ -126,7 +126,7 @@ to a new legacy driver
       experimental.
     * Build a list of no longer supported PCI IDs:
         comm -23 ../../trunk/debian/nv-readme.ids debian/nv-readme.ids > unsupported.ids
-    * Replace the PCI ID list in debian/libgl1-nvidia-glx.preinst.
+    * Replace the PCI ID list in debian/nvidia-legacy-check.preinst.
     * Build lists of the no longer supported GPU model and chipset names:
         debian/rules unsupported.names
         sort -k2 unsupported.names > unsupported.names.sorted
