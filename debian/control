@@ -103,7 +103,7 @@ Recommends:
 Description: NVIDIA metapackage (OpenGL/GLX libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
+ OpenGL/GLX applications via a direct-rendering X Server.
 
 #Package: ${nvidia}-driver-libs-i386
 Package: nvidia-driver-libs-i386
@@ -192,7 +192,7 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
 
 #Package: lib${nvidia}-glcore
 Package: libnvidia-glcore
-Architecture: i386 amd64 armhf
+Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -216,7 +216,7 @@ Description: NVIDIA binary OpenGL core libraries${nvidia:LegacyDesc}
 
 #Package: lib${nvidia}-cfg1
 Package: libnvidia-cfg1
-Architecture: i386 amd64 armhf
+Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
