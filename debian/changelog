@@ -35,7 +35,7 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
     instead of our manually maintained conftest.h header.
   * Disable conftest.sh checks cc_version_check, xen_sanity_check.
   * nvidia-driver-libs: New metapackage for bundling the
-    Depends/Recommends on the GL/GLX packages.
+    Depends/Recommends on the OpenGL/GLX packages.
   * Replace libgl1-nvidia-glx-i386 with new
     nvidia-driver-libs-i386 metapackage.
   * libnvidia-glcore: New package, split from libgl1-nvidia-glx.

@@ -100,7 +100,7 @@ Depends:
 Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
  lib${nvidia}-cfg1 (= ${binary:Version}),
-Description: NVIDIA metapackage (GL/GLX libraries)${nvidia:LegacyDesc}
+Description: NVIDIA metapackage (OpenGL/GLX libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
@@ -114,7 +114,7 @@ Depends:
  ${misc:Depends}
 Conflicts:
  libgl1-${nvidia}-glx-i386,
-Description: NVIDIA metapackage (GL/GLX 32-bit libraries)${nvidia:LegacyDesc}
+Description: NVIDIA metapackage (OpenGL/GLX 32-bit libraries)${nvidia:LegacyDesc}
  This metapackage helps the automatic installation of the 32-bit NVIDIA
  OpenGL/GLX libraries when installing ${nvidia}-driver-libs
  on amd64 with foreign architecture i386 enabled.
