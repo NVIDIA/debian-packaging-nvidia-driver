@@ -9,7 +9,7 @@ hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
 
-# Use wildcard instead of exact substitution, this is a M-A: same package.
+# Use wildcard instead of exact path substitution, this is a M-A: same package.
 embedded-library usr/lib*/libcuda.so.#VERSION#: zlib
 
 # libcudart.so.2 does dlopen("libcuda.so").

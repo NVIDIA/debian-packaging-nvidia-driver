@@ -4,8 +4,8 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * Drop substitution backward-compatibility with EoL
     nvidia-graphics-drivers-legacy-173xx and
     nvidia-graphics-drivers-legacy-96xx in favor of a reduced diff to
-    nvidia-graphics-drivers-legacy-304xx and newer.
-  * Stop special-casing of the nvidia-alternative substitution.
+    nvidia-graphics-drivers-legacy-304xx and newer (304.88-5).
+  * Stop special-casing of the nvidia-alternative substitution (352.79-6).
   * rules: Drop support for ancient .run layout (352.79-4).
   * Drop support for backporting to squeeze (EoL) (304.88-4).
   * nvidia-detect: Drop support for lenny and squeeze(-lts) (EoL) (352.79-5).
@@ -16,21 +16,23 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * nvidia-kernel-source: Use reproducible timestamps and file order inside
     /usr/src/nvidia-kernel.tar.bz2 (340.76-1).
   * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
+  * rules, control: Synchronize substitutions with unstable (352.79-3).
   * get-orig-source: Synchronize with unstable (352.79-3).
   * bug-script: Synchronize with unstable (352.79-3).
   * bug-control.mk: New script to generate bug-control (352.79-4).
-  * bug-control, bug-script: Collect some information about OpenCL.
+  * bug-control, bug-script: Collect some information about OpenCL (352.79-6).
   * Use nvidia:kmod:binary and nvidia:kmod:source substvars (304.88-5).
-  * Use an empty nvidia:legacy-check substvar for legacy packages.
+  * Use an empty nvidia:legacy-check substvar for legacy packages (352.79-6).
   * separate-makefile-kbuild.patch: New, don't make all Makefile targets
-    available to Kbuild.
-  * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 340.xx onwards.
+    available to Kbuild (352.79-6).
+  * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 340.xx onwards
+    (352.79-6).
   * modernize-conftest.patch: Update the conftest.sh build_cflags() function
     to the one from 352.79.
   * Pass only the kernel version via KERNEL_UNAME and let the module build
-    system figure out the paths.
+    system figure out the paths (352.79-2).
   * Use NVIDIA's conftest.sh script to determine settings during module build
-    instead of our manually maintained conftest.h header.
+    instead of our manually maintained conftest.h header (352.79-2).
   * Disable conftest.sh checks cc_version_check, xen_sanity_check.
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
