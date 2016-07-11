@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (355.11-6) UNRELEASED; urgency=medium
+
+  * Merge changes from 352.79-9.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 11 Jul 2016 11:14:39 +0200
+
 nvidia-graphics-drivers (355.11-5) experimental; urgency=medium
 
   * Merge changes from 352.79-8.
@@ -112,6 +118,18 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Feb 2016 19:32:35 +0100
+
+nvidia-graphics-drivers (352.79-9) UNRELEASED; urgency=medium
+
+  * nvidia-driver-libs: New metapackage for bundling the
+    Depends/Recommends on the GL/GLX/EGL packages.
+  * Replace libgl1-nvidia-glx-i386 with new
+    nvidia-driver-libs-i386 metapackage.
+  * libnvidia-glcore: New package, split from libgl1-nvidia-glx.
+  * libnvidia-cfg1: New package, split from libgl1-nvidia-glx.
+  * Updated Danish (da) debconf translations by Joe Dalton.  (Closes: #830653)
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 11 Jul 2016 10:34:00 +0200
 
 nvidia-graphics-drivers (352.79-8) unstable; urgency=medium
 

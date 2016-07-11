@@ -104,10 +104,10 @@ Recommends:
  libgles1-${nvidia} (= ${binary:Version}),
  libgles2-${nvidia} (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
-Description: NVIDIA metapackage (GL/GLX/EGL libraries)${nvidia:LegacyDesc}
+Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server.
 
 #Package: ${nvidia}-driver-libs-i386
 Package: nvidia-driver-libs-i386
@@ -118,9 +118,9 @@ Depends:
  ${misc:Depends}
 Conflicts:
  libgl1-${nvidia}-glx-i386,
-Description: NVIDIA metapackage (GL/GLX/EGL 32-bit libraries)${nvidia:LegacyDesc}
+Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES 32-bit libraries)${nvidia:LegacyDesc}
  This metapackage helps the automatic installation of the 32-bit NVIDIA
- OpenGL/GLX/EGL libraries when installing ${nvidia}-driver-libs
+ OpenGL/GLX/EGL/GLES libraries when installing ${nvidia}-driver-libs
  on amd64 with foreign architecture i386 enabled.
 
 #Package: xserver-xorg-video-${nvidia}
