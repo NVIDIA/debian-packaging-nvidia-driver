@@ -4,6 +4,7 @@ nvidia-graphics-drivers (340.96-4+) UNRELEASED; urgency=medium
     Depends/Recommends on the GL/GLX/EGL packages.
   * Replace libgl1-nvidia-glx-i386 with new
     nvidia-driver-libs-i386 metapackage.
+  * Updated Danish (da) debconf translations by Joe Dalton.  (Closes: #830653)
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Apr 2016 16:41:52 +0200
 
