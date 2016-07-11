@@ -36,13 +36,15 @@ libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 # nvidia version specific directory below $(libdir)
 nvidia_private		 = nvidia/$(current)
 
-CONTROL_PREFIXES	 = nvidia-driver libgl1-nvidia nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
+CONTROL_PREFIXES	 = nvidia-driver nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
 CONTROL_PREFIXES	+= nvidia-glx
+CONTROL_PREFIXES	+= libnvidia
+CONTROL_PREFIXES	+= libgl1-nvidia
 CONTROL_PREFIXES	+= nvidia-vdpau-driver
 CONTROL_PREFIXES	+= libcuda1
-CONTROL_PREFIXES	+= nvidia-opencl-icd libnvidia-compiler
-CONTROL_PREFIXES	+= libnvidia-ml1 nvidia-smi
 CONTROL_PREFIXES	+= libnvcuvid1
+CONTROL_PREFIXES	+= nvidia-smi
+CONTROL_PREFIXES	+= nvidia-opencl-icd
 RENAME_nvidia-glx		 = nvidia-glx$(legacy)
 RENAME_libnvcuvid1		 = lib$(if $(legacy),${nvidia}-)nvcuvid1
 RENAME_libcuda1			 = $(libcuda1)
