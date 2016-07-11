@@ -102,10 +102,11 @@ Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
  libgles1-${nvidia} (= ${binary:Version}),
  libgles2-${nvidia} (= ${binary:Version}),
-Description: NVIDIA metapackage (GL/GLX/EGL libraries)${nvidia:LegacyDesc}
+ lib${nvidia}-cfg1 (= ${binary:Version}),
+Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of
- OpenGL/GLX/EGL applications via a direct-rendering X Server.
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server.
 
 #Package: ${nvidia}-driver-libs-i386
 Package: nvidia-driver-libs-i386
@@ -116,9 +117,9 @@ Depends:
  ${misc:Depends}
 Conflicts:
  libgl1-${nvidia}-glx-i386,
-Description: NVIDIA metapackage (GL/GLX/EGL 32-bit libraries)${nvidia:LegacyDesc}
+Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES 32-bit libraries)${nvidia:LegacyDesc}
  This metapackage helps the automatic installation of the 32-bit NVIDIA
- OpenGL/GLX/EGL libraries when installing ${nvidia}-driver-libs
+ OpenGL/GLX/EGL/GLES libraries when installing ${nvidia}-driver-libs
  on amd64 with foreign architecture i386 enabled.
 
 #Package: xserver-xorg-video-${nvidia}
@@ -186,6 +187,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
+ lib${nvidia}-glcore (= ${binary:Version}),
  nvidia-installer-cleanup (>= 20130816) [i386],
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
@@ -195,9 +197,6 @@ Suggests:
  ${nvidia:kmod:source},
 Provides:
  libgl1-nvidia-glx-any,
- libgl1-nvidia-glx-${nvidia:Version},
-Conflicts:
- libgl1-nvidia-glx-${nvidia:Version},
 Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
@@ -205,6 +204,30 @@ Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
  See the description of the ${nvidia}-driver package
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+
+#Package: lib${nvidia}-glcore
+Package: libnvidia-glcore
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-glcore-${nvidia:Version},
+Conflicts:
+ libnvidia-glcore-${nvidia:Version},
+ libgl1-nvidia-glx-${nvidia:Version},
+Breaks:
+ libgl1-${nvidia}-glx (<= 340.96-4),
+Replaces:
+ libgl1-${nvidia}-glx (<= 340.96-4),
+Description: NVIDIA binary OpenGL core libraries${nvidia:LegacyDesc}
+ These binary libraries provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server.
+ .
+ This package contains the private core libraries used by the NVIDIA
+ implementation of OpenGL and GLX.
 
 #Package: libegl1-${nvidia}
 Package: libegl1-nvidia
@@ -293,6 +316,27 @@ Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
  .
  This package contains the private core libraries used by the NVIDIA
  implementation of EGL and OpenGL|ES.
+
+#Package: lib${nvidia}-cfg1
+Package: libnvidia-cfg1
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Breaks:
+ libgl1-${nvidia}-glx (<= 340.96-4),
+Replaces:
+ libgl1-${nvidia}-glx (<= 340.96-4),
+Provides:
+ libnvidia-cfg1-any,
+Description: NVIDIA binary OpenGL configuration library${nvidia:LegacyDesc}
+ These binary libraries provide optimized hardware acceleration of
+ OpenGL applications via a direct-rendering X Server.
+ .
+ This package contains the libnvidia-cfg.so.1 runtime library.
 
 #Package: ${nvidia}-alternative
 Package: nvidia-alternative
