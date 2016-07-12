@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (352.79-9) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.79-9) unstable; urgency=medium
 
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the GL/GLX/EGL packages.
@@ -8,7 +8,7 @@ nvidia-graphics-drivers (352.79-9) UNRELEASED; urgency=medium
   * libnvidia-cfg1: New package, split from libgl1-nvidia-glx.
   * Updated Danish (da) debconf translations by Joe Dalton.  (Closes: #830653)
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 11 Jul 2016 10:34:00 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Jul 2016 23:22:15 +0200
 
 nvidia-graphics-drivers (352.79-8) unstable; urgency=medium
 
