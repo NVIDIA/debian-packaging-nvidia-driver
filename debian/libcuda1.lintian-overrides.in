@@ -8,7 +8,7 @@ hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
 
-# Use wildcard instead of exact substitution, this is a M-A: same package.
+# Use wildcard instead of exact path substitution, this is a M-A: same package.
 embedded-library usr/lib*/libcuda.so.#VERSION#: zlib
 
 # Lintian and debhelper disagree w.r.t. a library in a private directory.

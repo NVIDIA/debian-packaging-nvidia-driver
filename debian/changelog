@@ -34,7 +34,7 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
   * nvidia-detect: Update list of newer PCI IDs from release 352.79.
   * use-kbuild-flags.patch: New, use KBUILD_CFLAGS from Kbuild to
     support building a 64-bit kernel module with 32-bit userspace.
-  * Add B-D: dpkg-dev (>= 1.17.0) for dpkg-parsechangelog --show-field.
+  * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field.
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
   * Stop shipping unused pci.ids file.
@@ -56,7 +56,7 @@ nvidia-graphics-drivers (340.96-1) jessie; urgency=medium
   * New upstream legacy 340xx branch release 340.96 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
     * Improved compatibility with recent Linux kernels.
-  * Merge changes from 304.131-1.
+  * Merge changes from 304.131-1 (wheezy).
   * Add xorg-video-abi-20 as alternative dependency.
   * conftest.h:
     - Implement new conftest.sh functions hlist_for_each_entry,
@@ -1478,8 +1478,8 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * Drop substitution backward-compatibility with EoL
     nvidia-graphics-drivers-legacy-173xx and
     nvidia-graphics-drivers-legacy-96xx in favor of a reduced diff to
-    nvidia-graphics-drivers-legacy-304xx and newer.
-  * Stop special-casing of the nvidia-alternative substitution.
+    nvidia-graphics-drivers-legacy-304xx and newer (304.88-5).
+  * Stop special-casing of the nvidia-alternative substitution (352.79-6).
   * rules: Drop support for ancient .run layout (352.79-4).
   * Drop support for backporting to squeeze (EoL) (304.88-4).
   * nvidia-detect: Drop support for lenny and squeeze(-lts) (EoL) (352.79-5).
@@ -1490,24 +1490,41 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * nvidia-kernel-source: Use reproducible timestamps and file order inside
     /usr/src/nvidia-kernel.tar.bz2 (340.76-1).
   * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
+  * rules, control: Synchronize substitutions with unstable (352.79-3).
   * get-orig-source: Synchronize with unstable (352.79-3).
   * bug-script: Synchronize with unstable (352.79-3).
   * bug-control.mk: New script to generate bug-control (352.79-4).
-  * bug-control, bug-script: Collect some information about OpenCL.
+  * bug-control, bug-script: Collect some information about OpenCL (352.79-6).
   * Use nvidia:kmod:binary and nvidia:kmod:source substvars (304.88-5).
-  * Use an empty nvidia:legacy-check substvar for legacy packages.
-  * Bump Standards-Version to 3.9.8. No changes needed.
-  * Update lintian overrides.
+  * Use an empty nvidia:legacy-check substvar for legacy packages (352.79-6).
+  * use-nv-kernel-ARCH.o_shipped.patch: Synchronize with unstable (304.88-5).
   * separate-makefile-kbuild.patch: New, don't make all Makefile targets
-    available to Kbuild.
-  * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 340.xx onwards.
+    available to Kbuild (352.79-6).
+  * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 355.xx onwards
+    (352.79-6).
   * modernize-conftest.patch: Update the conftest.sh build_cflags() function
     to the one from 352.79.
-  * Pass only the kernel version via KERNEL_UNAME and let the module build
-    system figure out the paths.
+  * use-kbuild-compiler.patch: New patch to build with Kbuild's version of the
+    compiler instead of system default, thanks to Luca (352.79-2).
   * Use NVIDIA's conftest.sh script to determine settings during module build
-    instead of our manually maintained conftest.h header.
+    instead of our manually maintained conftest.h header (352.79-2).
+  * conftest-verbose.patch: New patch to dump dynamically generated conftest
+    headers (352.79-2).
+  * conftest-via-kbuild.patch: New patch to call conftest.sh from within
+    kbuild (and therefore with kbuild's compiler and flags) as in 355.xx
+    (352.79-2).
+  * use-kbuild-flags.patch: New, use KBUILD_CFLAGS from Kbuild to
+    support building a 64-bit kernel module with 32-bit userspace (352.79-5).
+  * Pass only the kernel version via KERNEL_UNAME and let the module build
+    system figure out the paths (352.79-2).
+  * Clear ARCH variable from environment before module build, thanks to Luca
+    (352.79-2, 352.79-5).
   * Disable conftest.sh checks cc_version_check, xen_sanity_check.
+  * Bump Standards-Version to 3.9.8. No changes needed.
+  * Update lintian overrides.
+
+  * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
+    (352.79-6).
 
   [ Luca Boccassi ]
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
@@ -1515,7 +1532,7 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
     uses are no longer exported, causing a failure when the module is
     loaded at runtime. (Closes: #809324)
   * Add page-cache-release.patch and get-user-pages.patch to fix kernel module
-    build for Linux 4.6.
+    build for Linux 4.6. (Closes: #826712)
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 13:04:27 +0100
 
