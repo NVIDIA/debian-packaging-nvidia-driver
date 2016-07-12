@@ -44,8 +44,6 @@ libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
 nvidia_private		 = nvidia/$(current)
 
 CONTROL_PREFIXES	 = nvidia-driver nvidia-kernel nvidia-alternative xserver-xorg-video-nvidia
-CONTROL_PREFIXES	+= libnvidia-cfg1
-CONTROL_PREFIXES	+= libnvidia-glcore
 CONTROL_PREFIXES	+= libnvidia
 CONTROL_PREFIXES	+= libgl1-nvidia
 CONTROL_PREFIXES	+= libegl1-nvidia
