@@ -1,14 +1,14 @@
 # Danish translation nvidia-driver.
-# Copyright (C) 2012 nvidia-driver & nedenstående oversættere.
+# Copyright (C) 2016 nvidia-driver & nedenstående oversættere.
 # This file is distributed under the same license as the nvidia-driver package.
-# Joe Hansen <joedalton2@yahoo.dk>, 2010, 2012.
+# Joe Hansen <joedalton2@yahoo.dk>, 2010, 2012, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: nvidia-graphics-drivers\n"
 "Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-12 01:57+0100\n"
-"PO-Revision-Date: 2012-09-30 17:30+01:00\n"
+"PO-Revision-Date: 2016-07-09 17:30+01:00\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -58,6 +58,7 @@ msgstr ""
 msgid ""
 "Use the update-glx command to switch between different installed drivers."
 msgstr ""
+"Brug kommandoen update-glx til at skifte mellem forskellige installerede drivere."
 
 #. Type: boolean
 #. Description
