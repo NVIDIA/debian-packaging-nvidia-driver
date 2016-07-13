@@ -1,8 +1,8 @@
-nvidia-graphics-drivers (355.11-6) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (355.11-6) experimental; urgency=medium
 
   * Merge changes from 352.79-9.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 11 Jul 2016 11:14:39 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 13 Jul 2016 10:38:33 +0200
 
 nvidia-graphics-drivers (355.11-5) experimental; urgency=medium
 
