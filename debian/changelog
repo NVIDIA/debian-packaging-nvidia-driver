@@ -16,10 +16,10 @@ nvidia-graphics-drivers (355.11-4) experimental; urgency=medium
 
   * Merge changes from 352.79-7.
   * Drop rm_kernel_rmapi_op.patch, fixed upstream.
-  * nvidia-driver-libs: New metapackage for bundling the Depends/Recommends on
-    the GL/GLX/EGL packages.
-  * Replace libgl1-nvidia-glx-i386 with new nvidia-driver-libs-i386
-    metapackage.
+  * nvidia-driver-libs: New metapackage for bundling the
+    Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
+  * Replace libgl1-nvidia-glx-i386 with new
+    nvidia-driver-libs-i386 metapackage.
   * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Apr 2016 01:11:51 +0200
@@ -122,7 +122,7 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
 nvidia-graphics-drivers (352.79-9) unstable; urgency=medium
 
   * nvidia-driver-libs: New metapackage for bundling the
-    Depends/Recommends on the GL/GLX/EGL packages.
+    Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
   * Replace libgl1-nvidia-glx-i386 with new
     nvidia-driver-libs-i386 metapackage.
   * libnvidia-glcore: New package, split from libgl1-nvidia-glx.
