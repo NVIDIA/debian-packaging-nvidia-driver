@@ -10,7 +10,7 @@ libGLX.so.0 libglx0 | #PACKAGE# #MINVER#
  FreeExecPages@Base 361
  GLVND_THREAD_NULL@Base 361
  IsExtensionInString@Base 361
- LOCAL_GLX_DISPATCH_FUNCTIONS@Base 361.45.18
+#MISSING: 364# LOCAL_GLX_DISPATCH_FUNCTIONS@Base 361.45.18
  ParseClientVersionString@Base 361
 #MISSING: 361.42# TeardownVendor@Base 361
 #MISSING: 361.45# XGLVQueryExtension@Base 361
@@ -26,24 +26,24 @@ libGLX.so.0 libglx0 | #PACKAGE# #MINVER#
  __glXAddVendorContextMapping@Base 361.28
  __glXAddVendorDrawableMapping@Base 361.28
  __glXAddVendorFBConfigMapping@Base 361.28
-#MISSING: 361.45.18# __glXDispatchNoop@Base 361
-#MISSING: 361.45.18# __glXDispatchNoopPtr@Base 361
+ __glXDispatchNoop@Base 361
+ __glXDispatchNoopPtr@Base 361
  __glXDisplayClosed@Base 361.45
 #MISSING: 361.42# __glXFetchDispatchEntry@Base 361
 #MISSING: 361.45# __glXFreeDisplay@Base 361
  __glXGLLoadGLXFunction@Base 361
-#MISSING: 361.45.18# __glXGenerateGLXEntrypoint@Base 361
+ __glXGenerateGLXEntrypoint@Base 361
  __glXGetCurrentDynDispatch@Base 361
  __glXGetDrawableScreen@Base 361.45
 #MISSING: 361.28# __glXGetDrawableStaticDispatch@Base 361
  __glXGetDynDispatch@Base 361
-#MISSING: 361.45.18# __glXGetGLDispatch@Base 361
+ __glXGetGLDispatch@Base 361
  __glXGetGLXDispatchAddress@Base 361
-#MISSING: 361.45.18# __glXGetStaticDispatch@Base 361
+ __glXGetStaticDispatch@Base 361
  __glXLookupDisplay@Base 361
  __glXLookupVendorByName@Base 361
  __glXLookupVendorByScreen@Base 361
- __glXMappingInit@Base 361.45.18
+#MISSING: 364# __glXMappingInit@Base 361.45.18
  __glXMappingTeardown@Base 361
 #MISSING: 361.42# __glXNotifyContextDestroyed@Base 361
 #MISSING: 361.42# __glXPthreadFuncs@Base 361
@@ -64,19 +64,19 @@ libGLX.so.0 libglx0 | #PACKAGE# #MINVER#
  __glXVendorFromFBConfig@Base 361
 #MISSING: 361.45# __glXVendorFromVisual@Base 361
  __glvndPthreadFuncs@Base 361.42
- __glvndWinsysDispatchAllocIndex@Base 361.45.18
- __glvndWinsysDispatchCleanup@Base 361.45.18
- __glvndWinsysDispatchFindIndex@Base 361.45.18
- __glvndWinsysDispatchGetCount@Base 361.45.18
- __glvndWinsysDispatchGetDispatch@Base 361.45.18
- __glvndWinsysDispatchGetName@Base 361.45.18
- __glvndWinsysDispatchInit@Base 361.45.18
- __glvndWinsysVendorDispatchAddFunc@Base 361.45.18
- __glvndWinsysVendorDispatchCreate@Base 361.45.18
- __glvndWinsysVendorDispatchDestroy@Base 361.45.18
- __glvndWinsysVendorDispatchLookupFunc@Base 361.45.18
+#MISSING: 364# __glvndWinsysDispatchAllocIndex@Base 361.45.18
+#MISSING: 364# __glvndWinsysDispatchCleanup@Base 361.45.18
+#MISSING: 364# __glvndWinsysDispatchFindIndex@Base 361.45.18
+#MISSING: 364# __glvndWinsysDispatchGetCount@Base 361.45.18
+#MISSING: 364# __glvndWinsysDispatchGetDispatch@Base 361.45.18
+#MISSING: 364# __glvndWinsysDispatchGetName@Base 361.45.18
+#MISSING: 364# __glvndWinsysDispatchInit@Base 361.45.18
+#MISSING: 364# __glvndWinsysVendorDispatchAddFunc@Base 361.45.18
+#MISSING: 364# __glvndWinsysVendorDispatchCreate@Base 361.45.18
+#MISSING: 364# __glvndWinsysVendorDispatchDestroy@Base 361.45.18
+#MISSING: 364# __glvndWinsysVendorDispatchLookupFunc@Base 361.45.18
  __glvnd_dbg_printf@Base 361
-#MISSING: 361.45.18# cacheInitializeOnce@Base 361
+ cacheInitializeOnce@Base 361
  glXChooseFBConfig@Base 361
  glXChooseVisual@Base 361
  glXCopyContext@Base 361

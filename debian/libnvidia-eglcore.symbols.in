@@ -469,7 +469,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDrawTransformFeedbackNV@Base 346
  _glDrawTransformFeedbackStream@Base 346
  _glDrawTransformFeedbackStreamInstanced@Base 346
- _glDrawVkImageNV@Base 364.12
+ _glDrawVkImageNV@Base 364
  _glEGLImageTargetRenderbufferStorageOES@Base 346
  _glEGLImageTargetTexture2DOES@Base 346
  _glEdgeFlag@Base 346
@@ -980,7 +980,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetVideoivNV@Base 346
  _glGetVideoui64vNV@Base 346
  _glGetVideouivNV@Base 346
- _glGetVkProcAddrNV@Base 364.12
+ _glGetVkProcAddrNV@Base 364
  _glGetnColorTable@Base 346
  _glGetnColorTableARB@Base 346
  _glGetnCompressedTexImage@Base 346
@@ -1136,7 +1136,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glLoadTransposeMatrixf@Base 346
  _glLoadTransposeMatrixfARB@Base 346
  _glLockArraysEXT@Base 346
- _glLogTokenFlushNVX@Base 364.12
+ _glLogTokenFlushNVX@Base 364
  _glLogicOp@Base 346
  _glMakeBufferNonResidentNV@Base 346
  _glMakeBufferResidentNV@Base 346
@@ -1826,8 +1826,8 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glShaderSource@Base 346
  _glShaderSourceARB@Base 346
  _glShaderStorageBlockBinding@Base 346
- _glSignalVkFenceNV@Base 364.12
- _glSignalVkSemaphoreNV@Base 364.12
+ _glSignalVkFenceNV@Base 364
+ _glSignalVkSemaphoreNV@Base 364
  _glStateCaptureNV@Base 346
  _glStencilFillPathInstancedNV@Base 346
  _glStencilFillPathNV@Base 346
@@ -2461,7 +2461,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glViewportSwizzleNV@Base 346
  _glWaitSync@Base 346
  _glWaitSyncValueuiNVX@Base 346
- _glWaitVkSemaphoreNV@Base 364.12
+ _glWaitVkSemaphoreNV@Base 364
  _glWeightPathsNV@Base 346
  _glWeightPointerOES@Base 349
  _glWindowBackBufferHintAutodesk@Base 346
