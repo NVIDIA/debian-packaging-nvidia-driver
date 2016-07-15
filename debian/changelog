@@ -34,7 +34,7 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
     - Fixed a regression that caused the HSync and VSync mode timing polarity
       flags to be inverted.
   * New upstream long lived branch release 361.28 (2016-02-09).
-    (Closes: #814347)
+    (Closes: #814347, #829043)
     - Added support for the following GPU: GeForce 945A.
     - Added a legacy, non-GLVND libGL.so GLX client library to the NVIDIA
       Linux driver installer package, and the ability to select between a

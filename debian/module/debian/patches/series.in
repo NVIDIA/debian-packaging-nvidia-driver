@@ -4,9 +4,9 @@ conftest-verbose.patch
 cc_version_check-gcc5.patch
 nvidia-use-ARCH.o_binary.patch
 nvidia-modeset-use-ARCH.o_binary.patch
+do-div-cast.patch
 #avoid-ld.gold.patch
 include-swiotlb-header-on-arm.patch
 ignore_xen_on_arm.patch
 arm-outer-sync.patch
-do-div-cast.patch
 #HAS_UVM#radix-tree-empty.patch
