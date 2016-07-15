@@ -44,7 +44,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glBindFragDataLocation@Base 346
  _glBindFragDataLocationEXT@Base 346
  _glBindFragDataLocationIndexed@Base 346
- _glBindFragDataLocationIndexedEXT@Base 361.18
+ _glBindFragDataLocationIndexedEXT@Base 361
  _glBindFramebuffer@Base 346
  _glBindFramebufferEXT@Base 346
  _glBindFramebufferOES@Base 346
@@ -688,7 +688,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetFloati_vNV@Base 346
  _glGetFloatv@Base 346
  _glGetFragDataIndex@Base 346
- _glGetFragDataIndexEXT@Base 361.18
+ _glGetFragDataIndexEXT@Base 361
  _glGetFragDataLocation@Base 346
  _glGetFragDataLocationEXT@Base 346
  _glGetFramebufferAttachmentParameteriv@Base 346
@@ -2457,7 +2457,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glViewportIndexedfNV@Base 346
  _glViewportIndexedfv@Base 346
  _glViewportIndexedfvNV@Base 346
- _glViewportPositionWScaleNV@Base 361.18
+ _glViewportPositionWScaleNV@Base 361
  _glViewportSwizzleNV@Base 346
  _glWaitSync@Base 346
  _glWaitSyncValueuiNVX@Base 346

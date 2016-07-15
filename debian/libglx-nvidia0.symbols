@@ -1,5 +1,5 @@
 libGLX_nvidia.so.0 #PACKAGE# #MINVER#
- __glx_Main@Base 361.18
+ __glx_Main@Base 361
  glAccum@Base 361.28
  glActiveProgramEXT@Base 361.28
  glActiveShaderProgram@Base 361.28
@@ -2600,6 +2600,6 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glXWaitGL@Base 361.28
  glXWaitVideoSyncSGI@Base 361.28
  glXWaitX@Base 361.28
- glcuR0d4nX@Base 361.18
+ glcuR0d4nX@Base 361
  gldbc3cfnX@Base 361.28
  vk_icdGetInstanceProcAddr@Base 364.12

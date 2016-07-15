@@ -1,10 +1,10 @@
 libEGL.so.1 libegl1-mesa
  AllocExecPages@Base 355
  FreeExecPages@Base 355
-#MISSING: 364.12# GLVND_THREAD_NULL@Base 355
+#MISSING: 361.42# GLVND_THREAD_NULL@Base 355
 #MISSING: 355# NvEglRegClientApi@Base 331
  __eglLookupVendorByName@Base 355
-#MISSING: 364.12# __eglPthreadFuncs@Base 355
+#MISSING: 361.42# __eglPthreadFuncs@Base 355
  __eglTeardownVendor@Base 355
  __glvnd_dbg_printf@Base 355
  eglBindAPI@Base 331
@@ -41,14 +41,14 @@ libEGL.so.1 libegl1-mesa
  eglWaitClient@Base 331
  eglWaitGL@Base 331
  eglWaitNative@Base 331
-#MISSING: 364.12# glvndSetupPthreads@Base 355
+#MISSING: 361.42# glvndSetupPthreads@Base 355
  glvnd_asprintf@Base 355
  glvnd_byte_swap16@Base 355
-#MISSING: 364.12# mt_mutexattr_destroy@Base 361.18
-#MISSING: 364.12# mt_mutexattr_init@Base 361.18
-#MISSING: 364.12# mt_mutexattr_settype@Base 361.18
-#MISSING: 364.12# st_mutexattr_destroy@Base 361.18
-#MISSING: 364.12# st_mutexattr_init@Base 361.18
-#MISSING: 364.12# st_mutexattr_settype@Base 361.18
-#MISSING: 364.12# st_rwlock_destroy@Base 355
-#MISSING: 364.12# st_rwlock_init@Base 355
+#MISSING: 361.42# mt_mutexattr_destroy@Base 361
+#MISSING: 361.42# mt_mutexattr_init@Base 361
+#MISSING: 361.42# mt_mutexattr_settype@Base 361
+#MISSING: 361.42# st_mutexattr_destroy@Base 361
+#MISSING: 361.42# st_mutexattr_init@Base 361
+#MISSING: 361.42# st_mutexattr_settype@Base 361
+#MISSING: 361.42# st_rwlock_destroy@Base 355
+#MISSING: 361.42# st_rwlock_init@Base 355

@@ -42,7 +42,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuDeviceGetByPCIBusId@Base 285
  cuDeviceGetCount@Base 169
  cuDeviceGetName@Base 169
- cuDeviceGetP2PAttribute@Base 361.18
+ cuDeviceGetP2PAttribute@Base 361
  cuDeviceGetPCIBusId@Base 285
  cuDeviceGetProperties@Base 169
  cuDevicePrimaryCtxGetState@Base 346
@@ -284,11 +284,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuStreamAddCallback_ptsz@Base 346
  cuStreamAttachMemAsync@Base 331.38
  cuStreamAttachMemAsync_ptsz@Base 346
- cuStreamBatchMemOp@Base 364.12
- cuStreamWaitValue32_ptsz@Base 364.12
- cuStreamWriteValue32@Base 364.12
- cuStreamWriteValue32_ptsz@Base 364.12
- cuStreamBatchMemOp_ptsz@Base 364.12
+ cuStreamBatchMemOp@Base 361.42
+ cuStreamBatchMemOp_ptsz@Base 361.42
  cuStreamCreate@Base 169
  cuStreamCreateWithPriority@Base 319
  cuStreamDestroy@Base 169
@@ -303,7 +300,10 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuStreamSynchronize_ptsz@Base 346
  cuStreamWaitEvent@Base 260
  cuStreamWaitEvent_ptsz@Base 346
- cuStreamWaitValue32@Base 364.12
+ cuStreamWaitValue32@Base 361.42
+ cuStreamWaitValue32_ptsz@Base 361.42
+ cuStreamWriteValue32@Base 361.42
+ cuStreamWriteValue32_ptsz@Base 361.42
  cuSurfObjectCreate@Base 304
  cuSurfObjectDestroy@Base 304
  cuSurfObjectGetResourceDesc@Base 304

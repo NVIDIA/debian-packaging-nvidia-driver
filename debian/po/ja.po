@@ -2,19 +2,22 @@
 # Copyright (C) 2012
 # This file is distributed under the same license as the nvidia-driver package.
 # Kenshi Muto <kmuto@debian.org>, 2012.
+# Takuma Yamada <tyamada@takumayamada.com>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: nvidia-graphics-drivers\n"
 "Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-12 01:57+0100\n"
-"PO-Revision-Date: 2012-09-19 21:15+0900\n"
-"Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
-"Language-Team: debian-japanese <debian-japanese@lists.debian.org>\n"
+"PO-Revision-Date: 2016-03-02 12:53+0900\n"
+"Last-Translator: Takuma Yamada <tyamada@takumayamada.com>\n"
+"Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #. Type: boolean
 #. Description
@@ -59,6 +62,8 @@ msgstr ""
 msgid ""
 "Use the update-glx command to switch between different installed drivers."
 msgstr ""
+"別のインストールされているドライバへ切り替えるには update-glx コマンドを使用"
+"します。"
 
 #. Type: boolean
 #. Description

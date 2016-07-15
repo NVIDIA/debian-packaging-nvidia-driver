@@ -1,0 +1,3 @@
+libnvidia-glcore.so.#VERSION#	#LIBDIR#/
+libnvidia-tls.so.#VERSION#	#LIBDIR#/
+#!armhf#tls/libnvidia-tls.so.#VERSION#	#LIBDIR#/tls/
