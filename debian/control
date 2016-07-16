@@ -337,6 +337,7 @@ Package: nvidia-smi
 Section: non-free/utils
 Architecture: i386 amd64
 Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
  lib${nvidia}-ml1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
