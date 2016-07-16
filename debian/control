@@ -97,7 +97,7 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
  lib${nvidia}-glcore (= ${binary:Version}),
- libgl1-${nvidia}-glx (= ${binary:Version}) | libgl1-glvnd-${nvidia}-glx (= ${binary:Version}),
+ libgl1-glvnd-${nvidia}-glx (= ${binary:Version}) | libgl1-${nvidia}-glx (= ${binary:Version}),
  libegl-${nvidia}0 (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
