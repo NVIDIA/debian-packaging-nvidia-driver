@@ -49,7 +49,8 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
   * nvidia-detect: Update list of newer PCI IDs from release 352.79.
   * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
     (352.79-6).
-  * Stop shipping unused pci.ids file.
+  * Build libnvidia-encode1 and libnvidia-ifr1 for armhf, too.
+  * Stop shipping unused pci.ids file (352.21-1).
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
 

@@ -574,7 +574,7 @@ Description: NVIDIA CUDA Video Decoder runtime library
 
 #Package: lib${nvidia}-encode1
 Package: libnvidia-encode1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -589,7 +589,7 @@ Description: NVENC Video Encoding runtime library
 
 #Package: lib${nvidia}-ifr1
 Package: libnvidia-ifr1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
