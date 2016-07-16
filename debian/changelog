@@ -1,6 +1,5 @@
 nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
 
-  [ Luca Boccassi ]
   * New upstream short lived branch release 364.19 (2016-04-22).
     - Fixed some locking issues in libnvidia-egl-wayland.so.
     - Fixed several libnvidia-egl-wayland.so interaction problems with
@@ -51,9 +50,11 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
       PRIME support required Linux kernel version 3.10 or newer).
     - Improved the interactivity of applications that use a hardware cursor
       while G-SYNC is active.
+
+  [ Luca Boccassi ]
   * Update nv-readme.ids
   * Update symbols control files.
-  * Refresh man-fixes-nvidia-smi.patch (fails to apply)
+  * Refresh man-fixes-nvidia-smi.patch.
   * Add new DRM kernel module to DKMS infrastructure and modprobe rules.
     This new module is distributed without any binary blobs. For now modeset
     is disabled by default, and it can be enabled manually via:
@@ -75,6 +76,7 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * nvidia-driver-libs: Prefer libgl1-glvnd-nvidia-glx over libgl1-nvidia-glx.
   * libnvidia-egl-wayland: New package for libnvidia-egl-wayland.so.$VERSION.
+  * Autoload the new nvidia-drm kernel module for automatic Xorg config.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 06 Apr 2016 22:21:26 +0100
 
