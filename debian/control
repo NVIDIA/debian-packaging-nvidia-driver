@@ -800,6 +800,7 @@ Pre-Depends:
 Depends:
  nvidia-support,
  ${nvidia}-alternative (= ${binary:Version}),
+ lib${nvidia}-fatbinaryloader (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
