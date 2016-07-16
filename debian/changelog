@@ -28,7 +28,7 @@ nvidia-graphics-drivers (355.11-3) experimental; urgency=medium
 
   [ Luca Boccassi ]
   * Split libglvnd-nvidia in libopengl0-nvidia and libgldispatch0-nvidia
-  * Rename libegl1-nvidia to libegl1-glvnd-nvidia
+  * Rename libegl1-nvidia to libegl1-glvnd-nvidia, add transitional package
   * Add dependency from libegl-nvidia0 to libegl1-glvnd-nvidia
   * Switch dependency in nvidia-driver from libegl1-nvidia to libegl-nvidia0
 
@@ -51,7 +51,6 @@ nvidia-graphics-drivers (355.11-2) experimental; urgency=medium
 
 nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
 
-  [ Luca Boccassi ]
   * New upstream release 355.11 (2015-08-31). (Closes: #804547)
     - Fixed a bug that could cause GPU exceptions when using glReadPixels()
       on the depth or stencil buffers of multisample windows while resizing
@@ -90,7 +89,8 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
       the mode list.
     - Added support to make an OpenGL 3.0 and above context current without
       making current to any drawable.
-  * Updated watch version to 355
+
+  [ Luca Boccassi ]
   * Updated kernel module build to adapt to the new upstream build system.
     - Dropped patches that are no longer needed:
       not-silent.patch
@@ -107,14 +107,15 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
     - Removed debian/module/Makefile, debian/module/conftest.sh
     - debian/module/conftest/patches.h is no longer a symlink
   * Update symbols control files.
+  * Restrict watch file to releases from the 355.xx short lived branch.
 
   [ Andreas Beckmann ]
-  * libglvnd-nvidia: New package package for the vendor-neutral GL libraries:
-    libOpenGL.so.0, libGLdispatch.so.0
+  * libglvnd-nvidia: New package package for the vendor-neutral GL libraries
+    (GLVND): libOpenGL.so.0, libGLdispatch.so.0
   * libegl-nvidia0: New package for the vendor-specific EGL implementation
-    from NVIDIA (libEGL_nvidia.so.0), accessible via libglvnd.
-  * libegl1-nvidia: The libEGL.so.1 is now just a (vendor-neutral) stub that
-    redirects to libEGL_nvidia.so.0 via libglvnd.
+    from NVIDIA (libEGL_nvidia.so.0), accessible via GLVND.
+  * libegl1-nvidia: The libEGL.so.1 library is now just a (vendor-neutral)
+    stub that redirects to libEGL_nvidia.so.0 via GLVND.
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Feb 2016 19:32:35 +0100
