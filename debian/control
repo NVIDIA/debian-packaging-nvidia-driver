@@ -395,6 +395,7 @@ Package: nvidia-smi
 Section: non-free/utils
 Architecture: i386 amd64
 Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
  lib${nvidia}-ml1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -538,7 +539,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia}-opencl-icd,
-Description: NVIDIA OpenCL driver
+Description: NVIDIA OpenCL driver - common files
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
