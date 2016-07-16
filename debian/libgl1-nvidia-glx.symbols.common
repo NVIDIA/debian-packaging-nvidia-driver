@@ -1,5 +1,4 @@
 libGL.so.1 libgl1-mesa-glx | libgl1
- __glx_Main@Base 361.28
  glAccum@Base 1.0.4349
  glActiveProgramEXT@Base 190
  glActiveShaderProgram@Base 260
@@ -332,7 +331,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glCreateVertexArrays@Base 346
  glCullFace@Base 1.0.4349
  glCurrentPaletteMatrixOES@Base 349
- glDebugControlNVX@Base 177
  glDebugMessageCallback@Base 310
  glDebugMessageCallbackARB@Base 260
  glDebugMessageCallbackKHR@Base 334
@@ -396,7 +394,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDetachObjectARB@Base 1.0.6106
  glDetachShader@Base 1.0.7664
  glDevtoolsCorrelationIdNVX@Base 337
- glDevtoolsInvokeFunctorNVX@Base 349
  glDevtoolsInvokeStreamedCallbackNVX@Base 337
  glDisable@Base 1.0.4349
  glDisableClientState@Base 1.0.4349
@@ -472,7 +469,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDrawTransformFeedbackNV@Base 165
  glDrawTransformFeedbackStream@Base 256
  glDrawTransformFeedbackStreamInstanced@Base 285
- glDrawVkImageNV@Base 364
  glEdgeFlag@Base 1.0.4349
  glEdgeFlagFormatNV@Base 185
  glEdgeFlagPointer@Base 1.0.4349
@@ -989,7 +985,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glGetVideoivNV@Base 173
  glGetVideoui64vNV@Base 173
  glGetVideouivNV@Base 173
- glGetVkProcAddrNV@Base 364
  glGetnColorTable@Base 346
  glGetnColorTableARB@Base 260
  glGetnCompressedTexImage@Base 346
@@ -1146,7 +1141,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glLoadTransposeMatrixfARB@Base 1.0.4349
  glLockArraysEXT@Base 1.0.4349
 #MISSING: 331# glLockStateNV@Base 260
- glLogTokenFlushNVX@Base 364
  glLogicOp@Base 1.0.4349
  glMakeBufferNonResidentNV@Base 185
  glMakeBufferResidentNV@Base 185
@@ -1705,7 +1699,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glQueryCounter@Base 256
  glQueryCounterEXT@Base 346
  glQueryCounterNV@Base 331
- glQueryResourceNVX@Base 355
  glRasterPos2d@Base 1.0.4349
  glRasterPos2dv@Base 1.0.4349
  glRasterPos2f@Base 1.0.4349
@@ -1837,8 +1830,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glShaderSource@Base 1.0.7664
  glShaderSourceARB@Base 1.0.6106
  glShaderStorageBlockBinding@Base 310
- glSignalVkFenceNV@Base 364
- glSignalVkSemaphoreNV@Base 364
  glStateCaptureNV@Base 346
 #MISSING: 331# glStatePropertiesDynamicNV@Base 260
 #MISSING: 331# glStatePropertyfNV@Base 260
@@ -2482,11 +2473,9 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glViewportIndexedfNV@Base 346
  glViewportIndexedfv@Base 260
  glViewportIndexedfvNV@Base 346
- glViewportPositionWScaleNV@Base 361
  glViewportSwizzleNV@Base 343
  glWaitSync@Base 190.18.05
  glWaitSyncValueuiNVX@Base 285
- glWaitVkSemaphoreNV@Base 364
  glWeightPathsNV@Base 275
  glWeightPointerOES@Base 349
  glWindowBackBufferHintAutodesk@Base 1.0.4349
@@ -2616,6 +2605,3 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glXWaitGL@Base 1.0.4349
  glXWaitVideoSyncSGI@Base 1.0.4349
  glXWaitX@Base 1.0.4349
- glcuR0d4nX@Base 195.36
- gldbc3cfnX@Base 325
- vk_icdGetInstanceProcAddr@Base 364

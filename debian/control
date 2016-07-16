@@ -39,7 +39,6 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${nvidia:kmod:binary},
  nvidia-support,
- nvidia-vulkan-icd [amd64 i386],
  ${misc:Depends}
 Recommends:
  ${nvidia-settings},
@@ -109,6 +108,7 @@ Recommends:
  libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
+ ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of
@@ -590,6 +590,40 @@ Description: NVIDIA binary EGL wayland libraries${nvidia:LegacyDesc}
  This package contains the private wayland libraries used by the NVIDIA
  implementation of EGL.
 
+Package: nvidia-vulkan-common
+Architecture: i386 amd64
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends}
+Recommends:
+ ${nvidia}-vulkan-icd,
+Description: NVIDIA Vulkan driver - common files
+ Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
+ .
+ This package provides the common files for the NVIDIA installable client
+ driver (ICD) for Vulkan.
+
+#Package: ${nvidia}-vulkan-icd
+Package: nvidia-vulkan-icd
+Architecture: i386 amd64
+Multi-Arch: same
+Depends:
+ nvidia-vulkan-common,
+ libvulkan1,
+ libglx-${nvidia}0 (= ${binary:Version}),
+ ${misc:Depends}
+Suggests:
+ vulkan-utils
+Enhances:
+ libvulkan1,
+Provides:
+ vulkan-icd,
+Description: NVIDIA Vulkan installable client driver (ICD)
+ Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
+ .
+ This metapackage provides the NVIDIA installable client driver (ICD) for
+ Vulkan which supports NVIDIA GPUs.
+
 #Package: lib${nvidia}-cfg1
 Package: libnvidia-cfg1
 Architecture: i386 amd64 armhf
@@ -822,6 +856,7 @@ Pre-Depends:
 Depends:
  nvidia-support,
  ${nvidia}-alternative (= ${binary:Version}),
+ lib${nvidia}-fatbinaryloader (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
@@ -845,6 +880,8 @@ Provides:
  libcuda-7.0-1-i386 [i386],
  libcuda-7.5-1,
  libcuda-7.5-1-i386 [i386],
+ libcuda-8.0-1,
+ libcuda-8.0-1-i386 [i386],
 Homepage: http://www.nvidia.com/CUDA
 Description: NVIDIA CUDA Driver Library
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
@@ -1006,21 +1043,6 @@ Description: NVIDIA Management Library (NVML) runtime library
  It provides a direct access to the queries and commands exposed via nvidia-smi.
  .
  This package contains the nvidia-ml runtime library.
-
-Package: nvidia-vulkan-icd
-Architecture: i386 amd64
-Multi-Arch: foreign
-Depends:
- libglx-${nvidia}0 (= ${binary:Version}),
- libvulkan1,
- ${misc:Depends}
-Suggests:
- vulkan-utils
-Description: NVIDIA Vulkan driver
- Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
- .
- This package provides the common files for the NVIDIA installable client
- driver (ICD) for Vulkan.
 
 Package: nvidia-opencl-common
 Architecture: i386 amd64 ppc64el

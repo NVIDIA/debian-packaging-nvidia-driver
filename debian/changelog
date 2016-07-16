@@ -61,7 +61,6 @@ nvidia-graphics-drivers (367.35-1) UNRELEASED; urgency=medium
 
 nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
 
-  [ Luca Boccassi ]
   * New upstream short lived branch release 364.19 (2016-04-22).
     - Fixed some locking issues in libnvidia-egl-wayland.so.
     - Fixed several libnvidia-egl-wayland.so interaction problems with
@@ -112,9 +111,11 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
       PRIME support required Linux kernel version 3.10 or newer).
     - Improved the interactivity of applications that use a hardware cursor
       while G-SYNC is active.
+
+  [ Luca Boccassi ]
   * Update nv-readme.ids
   * Update symbols control files.
-  * Refresh man-fixes-nvidia-smi.patch (fails to apply)
+  * Refresh man-fixes-nvidia-smi.patch.
   * Add new DRM kernel module to DKMS infrastructure and modprobe rules.
     This new module is distributed without any binary blobs. For now modeset
     is disabled by default, and it can be enabled manually via:
@@ -127,21 +128,19 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
     for Linux 4.6
   * Add drm-gem-object-lookup.patch to fix nvidia-drm kernel module build
     failure for Linux 4.7.
-  * Add new nvidia-vulkan-icd package which installs nvidia_icd.json to
-    /usr/share/vulkan/icd.d and make it depend on libglx-nvidia0 since that
-    library implements the Vulkan APIs, libvulkan1 and suggest vulkan-info in
-    order to support Vulkan. Make nvidia-driver depend on it. (Closes: #827188)
   * Restrict watch file to releases from the 364.xx short lived branch.
 
   [ Andreas Beckmann ]
   * nvidia-driver-libs: Prefer libgl1-glvnd-nvidia-glx over libgl1-nvidia-glx.
   * libnvidia-egl-wayland: New package for libnvidia-egl-wayland.so.$VERSION.
+  * Autoload the new nvidia-drm kernel module for automatic Xorg config.
+  * nvidia-vulkan-common, nvidia-vulkan-icd: New packages for Vulkan support.
+    (Closes: #827188)
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 06 Apr 2016 22:21:26 +0100
 
 nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
 
-  [ Luca Boccassi ]
   * New upstream long lived branch release 361.45.18 (2016-06-28).
     - Fixed a bug that caused nvidia-smi to report an inaccurate version
       number.
@@ -173,7 +172,7 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
     - Fixed a regression that caused the HSync and VSync mode timing polarity
       flags to be inverted.
   * New upstream long lived branch release 361.28 (2016-02-09).
-    (Closes: #814347, #829043)
+    (Closes: #814347)
     - Added support for the following GPU: GeForce 945A.
     - Added a legacy, non-GLVND libGL.so GLX client library to the NVIDIA
       Linux driver installer package, and the ability to select between a
@@ -202,6 +201,16 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
       For more information on the GLVND project.
       The Linux OpenGL ABI version 1.0 specification is available at:
         https://www.opengl.org/registry/ABI
+  * New upstream release 352 series.
+    - Fixed a bug that prevented nvidia-bug-report.sh from finding
+      relevant messages in kernel log files.
+  * New upstream release 304 series.
+    - Added /var/log/dmesg to the list of paths which are searched by
+      nvidia-bug-report.sh for kernel messages.
+    - Fixed a bug that caused kernel panics when using the NVIDIA driver
+      on v4.5 and newer Linux kernels built with CONFIG_DEBUG_VM_PGFLAGS.
+
+  [ Luca Boccassi ]
   * Refresh man-fixes-nvidia-smi.patch.
   * Update nv-readme.ids.
   * Update symbols control files.
@@ -233,6 +242,7 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
   * Restrict watch file to releases from the 361.xx long lived branch.
 
   [ Andreas Beckmann ]
+  * libcuda1: Add Provides: libcuda-8.0-1{,-i386}.
   * Update lintian overrides.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
