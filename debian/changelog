@@ -28,15 +28,8 @@ nvidia-graphics-drivers (367.35-1) UNRELEASED; urgency=medium
     - Fixed a bug that caused an incorrect offset to be applied when using
       the full composition pipeline on a display whose image has both a
       rotation and a ViewportOut offset applied.
-    - Fixed a bug that could cause nvidia-settings to crash on some systems
-      when responding to events such as hotplugging DisplayPort devices.
     - Fixed a bug that could cause crashes in OpenGL applications which use
       glTextureView() with a non-zero minlevel.
-    - Enhanced the Display Device information page in nvidia-settings with
-      additional information for DisplayPort devices to reflect attributes
-      which are specific to DisplayPort connections.
-    - Fixed a bug which could cause deleted application profiles to appear
-      when editing rules in the nvidia-settings control panel.
     - Fixed a bug that caused hangs when a G-SYNC monitor is unplugged and a
       non-G-SYNC monitor is connected while G-SYNC is active.
     - Fixed a bug that caused "nvidia-modeset: ERROR: GPU:0: Activating G-SYNC
@@ -48,6 +41,10 @@ nvidia-graphics-drivers (367.35-1) UNRELEASED; urgency=medium
       purged the contents of FBOs and BOs residing in video memory.
     - Fixed a bug that prevented HDMI 2.0 4K monitors from waking up
       from sleep or hot-replug.
+  * New upstream release 361 series.
+    - Added support for querying clock values on Pascal GPUs.
+    - Fixed a bug that could lead to a system crash if there was a peer-to-peer 
+      mapping still active during CUDA context teardown.
 
   [ Luca Boccassi ]
   * Update watch file to point to 367 release
