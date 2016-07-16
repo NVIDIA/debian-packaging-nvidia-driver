@@ -265,7 +265,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glCompressedTextureSubImage3D@Base 346
  glCompressedTextureSubImage3DEXT@Base 180
  glConservativeRasterParameterfNV@Base 352
- glConservativeRasterParameteriNV@Base 367.18
+ glConservativeRasterParameteriNV@Base 367
  glConvolutionFilter1D@Base 1.0.4349
  glConvolutionFilter2D@Base 1.0.4349
  glConvolutionParameterf@Base 1.0.4349

@@ -1,3 +1,3 @@
 libnvidia-encode.so.1 #PACKAGE# #MINVER#
  NvEncodeAPICreateInstance@Base 310
- NvEncodeAPIGetMaxSupportedVersion@Base 367.18
+ NvEncodeAPIGetMaxSupportedVersion@Base 367

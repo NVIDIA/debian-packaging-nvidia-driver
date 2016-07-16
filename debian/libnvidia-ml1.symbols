@@ -156,7 +156,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlVgpuInstanceGetType@Base 367.35
  nvmlVgpuInstanceGetUUID@Base 367.27
  nvmlVgpuInstanceGetVmDriverVersion@Base 367.27
- nvmlVgpuInstanceGetVmID@Base 367.18
+ nvmlVgpuInstanceGetVmID@Base 367
  nvmlVgpuTypeGetClass@Base 361.42
  nvmlVgpuTypeGetDeviceID@Base 361.42
  nvmlVgpuTypeGetFrameRateLimit@Base 367.35
