@@ -1,5 +1,14 @@
-nvidia-graphics-drivers (367.27-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (367.35-1) UNRELEASED; urgency=medium
 
+  * New upstream long lived branch release 367.35 (2016-07-15).
+    - Fixed a regression that could cause console corruption when resuming
+      from suspend.
+    - Improved buffer write performance of the nvidia-drm DRM KMS driver by
+      using write-combined DRM Dumb Buffers where available.
+    - Fixed a bug that caused X to crash when applying changes to the RandR
+      CscMatrix property while VT-switched away from X.
+    - Fixed a bug that caused a crash when exiting nvidia-settings on displays
+      with 8 or 15 bit color depths.
   * New upstream long lived branch release 367.27 (2016-06-13).
     (Closes: #827391)
     - Added support for VDPAU Feature Set H to the NVIDIA VDPAU driver.
@@ -39,12 +48,14 @@ nvidia-graphics-drivers (367.27-1) UNRELEASED; urgency=medium
       purged the contents of FBOs and BOs residing in video memory.
     - Fixed a bug that prevented HDMI 2.0 4K monitors from waking up
       from sleep or hot-replug.
+
+  [ Luca Boccassi ]
   * Update watch file to point to 367 release
   * Update nv-readme.ids
   * Update symbols files
   * Drop drm_mode_fb_cmd2.patch, fixed upstream.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Fri, 20 May 2016 01:55:24 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 16 Jul 2016 14:56:07 +0200
 
 nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
 
