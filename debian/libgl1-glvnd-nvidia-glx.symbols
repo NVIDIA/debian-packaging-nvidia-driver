@@ -2,7 +2,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  AllocExecPages@Base 361
  FreeExecPages@Base 361
  __glXWrapperInit@Base 361
- (arch=armhf)__glx_Main@Base 361.42
  entry_generate_default_code@Base 361
  entry_get_patch_addresses@Base 361
  entry_get_public@Base 361
@@ -447,7 +446,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glCullParameterfvEXT@Base 361
  glCurrentPaletteMatrixARB@Base 361
  glCurrentPaletteMatrixOES@Base 349
- (arch=armhf)glDebugControlNVX@Base 177
  glDebugMessageCallback@Base 310
  glDebugMessageCallbackAMD@Base 361
  glDebugMessageCallbackARB@Base 260
@@ -529,7 +527,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDetachShader@Base 1.0.7664
  glDetailTexFuncSGIS@Base 361
  glDevtoolsCorrelationIdNVX@Base 337
- (arch=armhf)glDevtoolsInvokeFunctorNVX@Base 349
  glDevtoolsInvokeStreamedCallbackNVX@Base 337
  glDisable@Base 1.0.4349
  glDisableClientState@Base 1.0.4349
@@ -2158,7 +2155,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glQueryCounterNV@Base 331
  glQueryMatrixxOES@Base 361
  glQueryObjectParameteruiAMD@Base 361
- (arch=armhf)glQueryResourceNVX@Base 355
  glRasterPos2d@Base 1.0.4349
  glRasterPos2dv@Base 1.0.4349
  glRasterPos2f@Base 1.0.4349
@@ -3152,7 +3148,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glViewportIndexedfNV@Base 346
  glViewportIndexedfv@Base 260
  glViewportIndexedfvNV@Base 346
- (arch=armhf)glViewportPositionWScaleNV@Base 361.28
  glViewportSwizzleNV@Base 343
  glWaitSync@Base 190.18.05
  glWaitSyncAPPLE@Base 361
@@ -3360,8 +3355,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glXWaitGL@Base 1.0.4349
  glXWaitVideoSyncSGI@Base 1.0.4349
  glXWaitX@Base 1.0.4349
- (arch=armhf)glcuR0d4nX@Base 195.36
- (arch=armhf)gldbc3cfnX@Base 325
  glvnd_asprintf@Base 361
  glvnd_byte_swap16@Base 361
 #MISSING: 361.45# public_entry_end@Base 361

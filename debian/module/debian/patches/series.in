@@ -5,7 +5,6 @@ cc_version_check-gcc5.patch
 nvidia-use-ARCH.o_binary.patch
 nvidia-modeset-use-ARCH.o_binary.patch
 do-div-cast.patch
-radix-tree-empty.patch
 drm-mode-fb-cmd2.patch
 get-user-pages-drm.patch
 drm-gem-object-lookup.patch
@@ -14,3 +13,4 @@ include-swiotlb-header-on-arm.patch
 ignore_xen_on_arm.patch
 arm-outer-sync.patch
 nvidia-drm-arm-cflags.patch
+#HAS_UVM#radix-tree-empty.patch

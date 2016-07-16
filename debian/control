@@ -195,7 +195,7 @@ Replaces:
  libglvnd-nvidia,
  libgldispatch0,
 Provides:
- libglvnd-abi-361.45.11,
+ libglvnd-abi-361.45,
 Description: Vendor neutral GL dispatch library -- libGLdispatch
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
@@ -224,7 +224,7 @@ Description: Vendor neutral GL dispatch library -- libOpenGL
  NVIDIA.
 
 Package: libglx0-nvidia
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Conflicts: libglx0
 Replaces: libglx0
@@ -241,7 +241,7 @@ Description: Vendor neutral GL dispatch library -- libGLX
 
 #Package: libglx-${nvidia}0
 Package: libglx-nvidia0
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -262,7 +262,7 @@ Description: NVIDIA binary GLX libraries${nvidia:LegacyDesc}
  that is accessed via libglvnd.
 
 Package: libgl1-glvnd-nvidia-glx
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -871,7 +871,7 @@ Description: NVIDIA runtime compiler library
 
 #Package: lib${nvidia}-fatbinaryloader
 Package: libnvidia-fatbinaryloader
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -886,7 +886,7 @@ Description: NVIDIA FAT binary loader
 
 #Package: lib${nvidia}-ptxjitcompiler
 Package: libnvidia-ptxjitcompiler
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}

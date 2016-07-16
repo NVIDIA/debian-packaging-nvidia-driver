@@ -84,8 +84,6 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
       systems with multiple displays.
     - Fixed a bug that could cause applications to crash when using the
       EGL_EXT_platform_device extension on a system with multiple GPUs.
-    - Fixed a bug that could cause nvidia-installer's runtime loader test
-      to fail spuriously on some systems.
     - The NVIDIA Unified Virtual Memory kernel module, nvidia-uvm.ko, now
       has a minimum kernel requirement of Linux 2.6.32. On older kernel
       versions, nvidia-uvm.ko will be compiled as a stub kernel module
@@ -118,15 +116,9 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
       order to work around compatibility issues which may arise due to GLX
       applications which depend upon behaviors of the NVIDIA GLX client
       driver which are not defined by the Linux OpenGL ABI version 1.0.
-      By default, nvidia-installer will install the legacy, non-GLVND GLX
-      client libraries. The --glvnd-glx-client command line option can be
-      used to override the default, and install the GLVND GLX client
-      libraries instead. Please contact the vendors of any applications
+      Please contact the vendors of any applications
       that are not compatible with GLVND to ensure that their applications
       be updated for compatibility with GLVND.
-      The presence of multiple GLX client libraries in the package has
-      implications for repackagers of the NVIDIA driver; see the libGL.so
-      entry in the "Installed Components" chapter of the README for details.
   * New upstream beta 361.18 (2016-01-13).
   * New upstream beta 361.16 (2016-01-05).
     - The OpenGL Vendor-Neutral Driver (GLVND) infrastructure is now included
@@ -144,34 +136,35 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
       For more information on the GLVND project.
       The Linux OpenGL ABI version 1.0 specification is available at:
         https://www.opengl.org/registry/ABI
-  * Refresh man-fixes-nvidia-smi.patch (failed to apply on 361.18 and 361.42).
+  * Refresh man-fixes-nvidia-smi.patch.
   * Update nv-readme.ids.
-  * Updated watch version to 361.
+  * Update symbols control files.
   * libgles-nvidia1: New package for the vendor-specific GLESv1 implementation
-    from NVIDIA (libGLESv1_CM_nvidia.so.1), accessible via libglvnd.
-  * rename libgles1-nvidia to libgles1-glvnd-nvidia: The libGLESv1_CM.so.1 is
-    now just a (vendor-neutral)
-    stub that redirects to libGLESv1_CM_nvidia.so.1 via libglvnd.
+    from NVIDIA (libGLESv1_CM_nvidia.so.1), accessible via GLVND.
+  * Rename libgles1-nvidia to libgles1-glvnd-nvidia: The libGLESv1_CM.so.1
+    library is now just a (vendor-neutral) stub that redirects to
+    libGLESv1_CM_nvidia.so.1 via GLVND. Add transitional package.
   * libgles-nvidia2: New package for the vendor-specific GLESv2 implementation
-    from NVIDIA (libGLESv2_nvidia.so.2), accessible via libglvnd.
-  * rename libgles2-nvidia to libgles2-glvnd-nvidia: The libGLESv2.so.2 is now
-    just a (vendor-neutral)
-    stub that redirects to libGLESv2_nvidia.so.2 via libglvnd.
+    from NVIDIA (libGLESv2_nvidia.so.2), accessible via GLVND.
+  * Rename libgles2-nvidia to libgles2-glvnd-nvidia: The libGLESv2.so.2
+    library is now just a (vendor-neutral) stub that redirects to
+    libGLESv2_nvidia.so.2 via GLVND. Add transitional package.
   * libglx-nvidia0: New package for the vendor-specific GLX implementation
-    from NVIDIA (libGLX_nvidia.so.0), accessible via libglvnd.
+    from NVIDIA (libGLX_nvidia.so.0), accessible via GLVND.
   * libglx0-nvidia: New package for libGLX.so.0, a new (vendor-neutral) stub
-    that redirects to libGLX_nvidia.so.0 via libglvnd.
+    that redirects to libGLX_nvidia.so.0 via GLVND.
   * libgl1-glvnd-nvidia-glx: New package for libGL.so.1, a new
-    (vendor-neutral) stub that redirects to ??? via libglvnd (can be used as
-    an alternative to libgl1-nvidia-glx)
+    (vendor-neutral) stub that redirects to libGLX_nvidia.so.0 (and
+    libnvidia-glcore.so.$VERSION) via GLVND. This package can be used as an
+    alternative to libgl1-nvidia-glx.
   * libnvidia-fatbinaryloader: New package for FAT multiarch binary loader,
     needed by CUDA PTX JIT compiler.
   * libnvidia-ptxjitcompiler: New package for the CUDA PTX JIT compiler.
-  * Update symbols files
   * Add do-div-cast.patch to fix nvidia-modeset kernel module build failure
-    on 4.6.
+    for Linux 4.6.
   * Add radix-tree-empty.patch to fix nvidia-uvm kernel module build failure
-    on 4.7.
+    for Linux 4.7.
+  * Restrict watch file to releases from the 361.xx long lived branch.
 
   [ Andreas Beckmann ]
   * Update lintian overrides.
