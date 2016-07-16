@@ -6,6 +6,8 @@ export CCACHE_DISABLE := 1
 
 export NV_VERBOSE := 1
 
+MODULE_BASENAME	 = #MODULE#
+
 CFLAGS = -Wall -g
 ifneq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
     CFLAGS += -O0
@@ -28,6 +30,9 @@ KVERS := $(shell perl debian/kernel-version $(KSRC))
 export KVERS
 export KPKG_DEST_DIR
 
+KERNEL_SPEC	 = $(if $(filter /lib/modules/$(KVERS)/%,$(KSRC)),KERNEL_UNAME="$(KVERS)",SYSSRC="$(KSRC)")
+KERNEL_SPEC	+= $(KPKG_EXTRAV_ARG)
+
 configure: configure-stamp
 configure-stamp:
 	@if [ x"$(KVERS)" = x ] ; then \
@@ -44,11 +49,13 @@ build-indep:
 build-stamp: configure-stamp
 	dh_prep
 	dh_quilt_patch
-	$(MAKE) KERNEL_UNAME=$(KVERS) modules
-	test "#MODULE#" = "nvidia" || mv nvidia.ko #MODULE#.ko
-	test "#MODULE#" = "nvidia" || mv nvidia-modeset.ko #MODULE#-modeset.ko
-	test "#MODULE#" = "nvidia" || mv nvidia-drm.ko #MODULE#-drm.ko
-#HAS_UVM#	test "#MODULE#" = "nvidia" || mv nvidia-uvm.ko #MODULE#-uvm.ko
+	unset ARCH; $(MAKE) modules $(KERNEL_SPEC)
+ifneq (nvidia,$(MODULE_BASENAME))
+	mv nvidia.ko $(MODULE_BASENAME).ko
+	mv nvidia-modeset.ko #MODULE#-modeset.ko
+	mv nvidia-drm.ko #MODULE#-drm.ko
+#HAS_UVM#	mv nvidia-uvm.ko $(MODULE_BASENAME)-uvm.ko
+endif
 	touch $@
 
 get_built_using	?= $(filter-out (=),$(shell dpkg-query -f='$${source:Package} (=$${source:Version})' -W $1))
@@ -79,7 +86,7 @@ clean:
 	test -f debian/control || cp debian/control.template debian/control
 	dh_testdir
 	dh_testroot
-	$(MAKE) KERNEL_UNAME=$(KVERS) $(KPKG_EXTRAV_ARG) clean
+	$(MAKE) clean $(KERNEL_SPEC)
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
 	dh_clean debian/control debian/install
 

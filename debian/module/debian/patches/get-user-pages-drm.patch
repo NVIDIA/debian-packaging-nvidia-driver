@@ -1,0 +1,29 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: fix get_user_pages, new signature in 4.6+
+ From kernel 4.6-rc5 get_user_pages has a new signature.
+
+--- a/nvidia-drm/nvidia-drm-linux.c
++++ b/nvidia-drm/nvidia-drm-linux.c
+@@ -23,6 +23,7 @@
+ #include <linux/module.h>
+ #include <linux/slab.h>
+ #include <linux/err.h>
++#include <linux/version.h>
+ 
+ #include "nvidia-drm-os-interface.h"
+ #include "nvidia-drm.h"
+@@ -121,9 +121,14 @@
+ 
+     down_read(&mm->mmap_sem);
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,6,0)
+     pages_pinned = get_user_pages(current, mm,
+                                   address, pages_count, write, force,
+                                   user_pages, NULL);
++#else
++    pages_pinned = get_user_pages(address, pages_count, write, force,
++                                  user_pages, NULL);
++#endif
+     up_read(&mm->mmap_sem);
+ 
+     if (pages_pinned < 0 || (unsigned)pages_pinned < pages_count)

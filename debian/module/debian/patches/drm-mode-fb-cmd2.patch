@@ -1,0 +1,28 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Change drm_mode_fb_cmd2 parameter to const
+ In kernel 4.6 changed the drm_mode_fb_cmd2 parameter of struct drm_framebuffer
+ and made it a const. Change it in nvidia-drm/nvidia-drm-fb.c/h to fix build
+ failure.
+
+--- a/nvidia-drm/nvidia-drm-fb.c
++++ b/nvidia-drm/nvidia-drm-fb.c
+@@ -199,7 +199,7 @@
+ struct drm_framebuffer *nvidia_drm_framebuffer_create
+ (
+     struct drm_device *dev,
+-    struct drm_file *file, struct drm_mode_fb_cmd2 *cmd
++    struct drm_file *file, const struct drm_mode_fb_cmd2 *cmd
+ )
+ {
+     return internal_framebuffer_create(dev, file, cmd, 0, 0);
+--- a/nvidia-drm/nvidia-drm-fb.h
++++ b/nvidia-drm/nvidia-drm-fb.h
+@@ -45,7 +45,7 @@
+ struct drm_framebuffer *nvidia_drm_framebuffer_create
+ (
+     struct drm_device *dev,
+-    struct drm_file *file, struct drm_mode_fb_cmd2 *cmd
++    struct drm_file *file, const struct drm_mode_fb_cmd2 *cmd
+ );
+ 
+ int nvidia_drm_add_nvkms_fb(

@@ -1,5 +1,5 @@
 libGLESv1_CM.so.1 libgles1-mesa
-#MISSING: 361.18# NvGlEsInit@Base 331
+#MISSING: 361# NvGlEsInit@Base 331
  glActiveTexture@Base 331
  glAlphaFunc@Base 331
  glAlphaFuncx@Base 331
@@ -38,14 +38,14 @@ libGLESv1_CM.so.1 libgles1-mesa
  glDisableClientState@Base 331
  glDrawArrays@Base 331
  glDrawElements@Base 331
-#MISSING: 361.18# glDrawTexfOES@Base 331
-#MISSING: 361.18# glDrawTexfvOES@Base 331
-#MISSING: 361.18# glDrawTexiOES@Base 331
-#MISSING: 361.18# glDrawTexivOES@Base 331
-#MISSING: 361.18# glDrawTexsOES@Base 331
-#MISSING: 361.18# glDrawTexsvOES@Base 331
-#MISSING: 361.18# glDrawTexxOES@Base 331
-#MISSING: 361.18# glDrawTexxvOES@Base 331
+#MISSING: 361# glDrawTexfOES@Base 331
+#MISSING: 361# glDrawTexfvOES@Base 331
+#MISSING: 361# glDrawTexiOES@Base 331
+#MISSING: 361# glDrawTexivOES@Base 331
+#MISSING: 361# glDrawTexsOES@Base 331
+#MISSING: 361# glDrawTexsvOES@Base 331
+#MISSING: 361# glDrawTexxOES@Base 331
+#MISSING: 361# glDrawTexxvOES@Base 331
  glEnable@Base 331
  glEnableClientState@Base 331
  glFinish@Base 331
@@ -119,7 +119,7 @@ libGLESv1_CM.so.1 libgles1-mesa
  glPointParameterx@Base 331
  glPointParameterxv@Base 331
  glPointSize@Base 331
- glPointSizePointerOES@Base 364.19
+ glPointSizePointerOES@Base 361.45
  glPointSizex@Base 331
  glPolygonOffset@Base 331
  glPolygonOffsetx@Base 331

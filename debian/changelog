@@ -106,22 +106,59 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
     This new module is distributed without any binary blos. For now modeset is
     disabled by default, and it can be enabled manually via:
       sudo modprobe -r nvidia-drm; sudo modprobe nvidia-drm modeset=1
-  * Add nvidia_drm_arm_cflags.patch to fix nvidia-drm kernel module build
+  * Add nvidia-drm-arm-cflags.patch to fix nvidia-drm kernel module build
     failure on armhf.
-  * Add drm_mode_fb_cmd2.patch to fix nvidia-drm kernel module build failure
+  * Add drm-mode-fb-cmd2.patch and get-user-pages-drm.patch to fix nvidia-drm
+    kernel module build failure on 4.6.
+  * Add do-div-cast.patch to fix nvidia-modeset kernel module build failure
     on 4.6
-  * Add do_div_cast.patch to fix nvidia-modeset kernel module build failure
-    on 4.6
+  * Add drm-gem-object-lookup.patch to fix nvidia-drm kernel module build
+    failure on 4.7.
+  * Add new nvidia-vulkan-icd package which installs nvidia_icd.json to
+    /usr/share/vulkan/icd.d and make it depend on libglx-nvidia0 since that
+    library implements the Vulkan APIs, libvulkan1 and suggest vulkan-info in
+    order to support Vulkan. Make nvidia-driver depend on it. (Closes: #827188)
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 06 Apr 2016 22:21:26 +0100
 
-nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
+  * New upstream long lived branch release 361.45.18 (2016-06-28).
+    - Fixed a bug that caused nvidia-smi to report an inaccurate version
+      number.
+  * New upstream long lived branch release 361.45.11 (2016-05-24).
+    - Fixed a bug that sometimes prevented flipping from being enabled on
+      systems with multiple displays.
+    - Fixed a bug that could cause applications to crash when using the
+      EGL_EXT_platform_device extension on a system with multiple GPUs.
+    - Fixed a bug that could cause nvidia-installer's runtime loader test
+      to fail spuriously on some systems.
+    - The NVIDIA Unified Virtual Memory kernel module, nvidia-uvm.ko, now
+      has a minimum kernel requirement of Linux 2.6.32. On older kernel
+      versions, nvidia-uvm.ko will be compiled as a stub kernel module
+      which does not provide any functionality.
+    - Added support for the following GPUs: Tesla M40 24GB, Quadro M5500,
+      Quadro M2000
+    - Updated the libglvnd snapshot included in the NVIDIA driver
+      package to libglvnd commit b7d75429677eecc00c3701aaa4deac1304bc51ff.
+      This contains a new revision of the libglvnd ABI. The driver is not
+      compatible with a libglvnd older than commit
+      c5bcda3b848fe52d6ae6ef25c917431c06d62d27.
+  * New upstream long lived branch release 361.42 (2016-03-30).
+    - Added support for the following GPUs: GeForce 920MX, GeForce 930MX,
+      Quadro M6000 24GB.
+    - Limited the default concurrency level in nvidia-settings to 32, to avoid
+      hitting the maximum tasks limit on systems with many CPUs.
+    - Fixed a regression that caused GPU exceptions and incorrect rendering
+      when using pbuffers with EGLDevice.
+    - Fixed a bug that caused nvidia-settings to crash when pairing glasses
+      with the 3D Vision Pro transmitter on some systems.
+    - Fixed a regression that caused the HSync and VSync mode timing polarity
+      flags to be inverted.
   * New upstream long lived branch release 361.28 (2016-02-09).
-    (Closes: #814347)
+    (Closes: #814347, #829043)
     - Added support for the following GPU: GeForce 945A.
-    *** TODO: ***
     - Added a legacy, non-GLVND libGL.so GLX client library to the NVIDIA
       Linux driver installer package, and the ability to select between a
       GLVND or non-GLVND GLX client library at installation time. This
@@ -155,7 +192,7 @@ nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
       For more information on the GLVND project.
       The Linux OpenGL ABI version 1.0 specification is available at:
         https://www.opengl.org/registry/ABI
-  * Refresh man-fixes-nvidia-smi.patch (failed to apply on 361.18).
+  * Refresh man-fixes-nvidia-smi.patch (failed to apply on 361.18 and 361.42).
   * Update nv-readme.ids.
   * Updated watch version to 361.
   * libgles-nvidia1: New package for the vendor-specific GLESv1 implementation
@@ -172,24 +209,28 @@ nvidia-graphics-drivers (361.28-1) UNRELEASED; urgency=medium
     from NVIDIA (libGLX_nvidia.so.0), accessible via libglvnd.
   * libglx0-nvidia: New package for libGLX.so.0, a new (vendor-neutral) stub
     that redirects to libGLX_nvidia.so.0 via libglvnd.
+  * libgl1-glvnd-nvidia-glx: New package for libGL.so.1, a new
+    (vendor-neutral) stub that redirects to ??? via libglvnd (can be used as
+    an alternative to libgl1-nvidia-glx)
   * libnvidia-fatbinaryloader: New package for FAT multiarch binary loader,
-    needed by CUDA PXT JIT compiler.
-  * libnvidia-ptxjitcompiler: New package for the CUDA PXT JIT compiler.
-  * Add dependency to libegl-nvidia package to nvidia-driver, otherwise
-    apt-get install nvidia-driver will not pull it in.
+    needed by CUDA PTX JIT compiler.
+  * libnvidia-ptxjitcompiler: New package for the CUDA PTX JIT compiler.
   * Update symbols files
-  * Updated libgl1-nvidia-glx package to ship libglvnd's version of libGL.so.1
-    on i386 and amd64. Upstream ships only non-libglvnd libraries on ARM.
+  * Add do-div-cast.patch to fix nvidia-modeset kernel module build failure
+    on 4.6.
+  * Add radix-tree-empty.patch to fix nvidia-uvm kernel module build failure
+    on 4.7.
 
   [ Andreas Beckmann ]
   * Update lintian overrides.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
 
-nvidia-graphics-drivers (358.16-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (358.16-1) experimental; urgency=medium
 
   [ Luca Boccassi ]
   * New upstream short lived branch release 358.16 (2015-11-20).
+    (Closes: #819042)
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
     - Fixed a regression, introduced in 358.09, that caused incorrect
       rendering of OpenGL stereo applications in combination with
@@ -263,8 +304,49 @@ nvidia-graphics-drivers (358.16-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Updated kernel module build, patches and remaining infrastructure for the
     new nvidia-modeset module.
+  * get-orig-source: Generate .orig-$ARCH.tar.gz for each architecture.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 24 Nov 2015 02:15:05 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 15 Jul 2016 09:36:59 +0200
+
+nvidia-graphics-drivers (355.11-6) experimental; urgency=medium
+
+  * Merge changes from 352.79-9.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 13 Jul 2016 10:38:33 +0200
+
+nvidia-graphics-drivers (355.11-5) experimental; urgency=medium
+
+  * Merge changes from 352.79-8.
+  * libnvidia-glcore: New package, split from libgl1-nvidia-glx.
+  * libnvidia-cfg1: New package, split from libgl1-nvidia-glx.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 05 Jul 2016 21:18:42 +0200
+
+nvidia-graphics-drivers (355.11-4) experimental; urgency=medium
+
+  * Merge changes from 352.79-7.
+  * Drop rm_kernel_rmapi_op.patch, fixed upstream.
+  * nvidia-driver-libs: New metapackage for bundling the
+    Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
+  * Replace libgl1-nvidia-glx-i386 with new
+    nvidia-driver-libs-i386 metapackage.
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Apr 2016 01:11:51 +0200
+
+nvidia-graphics-drivers (355.11-3) experimental; urgency=medium
+
+  [ Luca Boccassi ]
+  * Split libglvnd-nvidia in libopengl0-nvidia and libgldispatch0-nvidia
+  * Rename libegl1-nvidia to libegl1-glvnd-nvidia
+  * Add dependency from libegl-nvidia0 to libegl1-glvnd-nvidia
+  * Switch dependency in nvidia-driver from libegl1-nvidia to libegl-nvidia0
+
+  [ Andreas Beckmann ]
+  * Merge changes from 352.79-4.
+  * Add a transitional libegl1-nvidia package.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 26 Feb 2016 18:07:14 +0100
 
 nvidia-graphics-drivers (355.11-2) experimental; urgency=medium
 
@@ -346,6 +428,93 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Feb 2016 19:32:35 +0100
+
+nvidia-graphics-drivers (352.79-9) unstable; urgency=medium
+
+  * nvidia-driver-libs: New metapackage for bundling the
+    Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
+  * Replace libgl1-nvidia-glx-i386 with new
+    nvidia-driver-libs-i386 metapackage.
+  * libnvidia-glcore: New package, split from libgl1-nvidia-glx.
+  * libnvidia-cfg1: New package, split from libgl1-nvidia-glx.
+  * Updated Danish (da) debconf translations by Joe Dalton.  (Closes: #830653)
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Jul 2016 23:22:15 +0200
+
+nvidia-graphics-drivers (352.79-8) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * cc_version_check-gcc5.patch: New, ignore __GNUC_MINOR__ mismatch from
+    GCC 5 onwards.
+  * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * Add get-user-pages.patch to fix kernel module build for Linux 4.6.
+    (Closes: #826190)
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 07 Jun 2016 01:49:35 +0200
+
+nvidia-graphics-drivers (352.79-7) unstable; urgency=medium
+
+  [ Luca Boccassi ]
+  * Add page-cache-release.patch, vm-fault-minor.patch (uvm only),
+    uvmnext-isr-top-half.patch (uvm only) and rm_kernel_rmapi_op.patch
+    to fix kernel module build for Linux 4.6.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 22 Apr 2016 12:26:07 +0200
+
+nvidia-graphics-drivers (352.79-6) unstable; urgency=medium
+
+  * separate-makefile-kbuild.patch: New, don't make all Makefile targets
+    available to Kbuild.
+  * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 355.xx onwards.
+  * nvidia-kernel-source: Use KERNEL_UNAME=KVERS only if the kernel headers
+    are available via /lib/modules/KVERS/{build,source}.  (Closes: #820260)
+  * Stop special-casing the nvidia-alternative substitution.
+  * bug-control, bug-script: Collect some information about OpenCL.
+  * Updated Japanese (jp) debconf translations by Takuma Yamada.
+    (Closes: #817867)
+  * Add B-D: dpkg-dev (>= 1.17.0) for dpkg-parsechangelog --show-field.
+  * Bump Standards-Version to 3.9.8. No changes needed.
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Apr 2016 03:07:52 +0200
+
+nvidia-graphics-drivers (352.79-5) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * nvidia-kernel-source: Use Depends: make:any to allow foreign arch
+    installation.
+  * use-kbuild-flags.patch: New, use KBUILD_CFLAGS from Kbuild to
+    support building a 64-bit kernel module with 32-bit userspace.
+    (Closes: #815986)
+  * Drop incomplete Perfkit support.
+  * nvidia-detect: Drop support for squeeze(-lts) (EoL).
+  * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * Update Portuguese debconf translation. Thanks Américo Monteiro!
+    (Closes: #816143)
+  * nvidia-kernel-source: Unconditionally unset ARCH (which may have been set
+    to the Debian architecture by unrelated tools) before building a module
+    since having this set to something different than a kernel architecture
+    will break the build. This was already done for the dkms module build.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 08 Mar 2016 14:07:17 +0100
+
+nvidia-graphics-drivers (352.79-4) unstable; urgency=medium
+
+  * nvidia-kernel-source: Switch to debhelper compat level 9.
+  * [ppc64el] Do not depend on nvidia-kernel-common.
+  * rules: Drop support for ancient .run layout.
+  * Drop Conflicts+Replaces against transitional packages in wheezy.
+  * nvidia-detect: Drop support for lenny (EoL).
+  * debian/bug-control.mk: New script to generate bug-control.
+  * Document in nvidia-legacy-check's description that the debconf questions
+    can be preseeded to allow for non-interactive installations.
+    (Closes: #815515)
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 26 Feb 2016 04:40:49 +0100
 
 nvidia-graphics-drivers (352.79-3) unstable; urgency=medium
 
@@ -860,7 +1029,7 @@ nvidia-graphics-drivers (340.96-1) jessie; urgency=medium
   * New upstream legacy 340xx branch release 340.96 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
     * Improved compatibility with recent Linux kernels.
-  * Merge changes from 304.131-1.
+  * Merge changes from 304.131-1 (wheezy).
   * Add xorg-video-abi-20 as alternative dependency.
   * conftest.h:
     - Implement new conftest.sh functions hlist_for_each_entry,
@@ -2560,9 +2729,6 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
   * Use canonical Vcs-* URLs.
   * {libgl1-nvidia-glx,libcuda1}.postinst: Load debconf/confmodule, may be
     used by /usr/lib/nvidia/check* scripts.  (Closes: #722469)
-  * debian/module/debian/prep-modules: Sanitize the kernel version. Replace
-    underscores (may occur in custom kernels) with dashes to be eligible for
-    package names and versions.  (Closes: #710891)
   * Update lintian overrides.
   * Upload to wheezy.
 
