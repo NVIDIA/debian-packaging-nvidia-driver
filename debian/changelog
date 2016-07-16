@@ -51,25 +51,25 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
     - Improved the interactivity of applications that use a hardware cursor
       while G-SYNC is active.
   * Update nv-readme.ids
-  * Update watch file to point to 364 release
-  * Update symbols files
+  * Update symbols control files.
   * Refresh man-fixes-nvidia-smi.patch (fails to apply)
   * Add new DRM kernel module to DKMS infrastructure and modprobe rules.
-    This new module is distributed without any binary blos. For now modeset is
-    disabled by default, and it can be enabled manually via:
+    This new module is distributed without any binary blobs. For now modeset
+    is disabled by default, and it can be enabled manually via:
       sudo modprobe -r nvidia-drm; sudo modprobe nvidia-drm modeset=1
   * Add nvidia-drm-arm-cflags.patch to fix nvidia-drm kernel module build
     failure on armhf.
   * Add drm-mode-fb-cmd2.patch and get-user-pages-drm.patch to fix nvidia-drm
-    kernel module build failure on 4.6.
+    kernel module build failure for Linux 4.6.
   * Add do-div-cast.patch to fix nvidia-modeset kernel module build failure
-    on 4.6
+    for Linux 4.6
   * Add drm-gem-object-lookup.patch to fix nvidia-drm kernel module build
-    failure on 4.7.
+    failure for Linux 4.7.
   * Add new nvidia-vulkan-icd package which installs nvidia_icd.json to
     /usr/share/vulkan/icd.d and make it depend on libglx-nvidia0 since that
     library implements the Vulkan APIs, libvulkan1 and suggest vulkan-info in
     order to support Vulkan. Make nvidia-driver depend on it. (Closes: #827188)
+  * Restrict watch file to releases from the 364.xx short lived branch.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 06 Apr 2016 22:21:26 +0100
 
