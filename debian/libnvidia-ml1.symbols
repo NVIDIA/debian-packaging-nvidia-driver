@@ -95,6 +95,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetUUID@Base 270
  nvmlDeviceGetUtilizationRates@Base 270
  nvmlDeviceGetVbiosVersion@Base 285
+ nvmlDeviceGetVgpuUtilization@Base 367.35
  nvmlDeviceGetViolationStatus@Base 340
  nvmlDeviceGetVirtualizationMode@Base 361.28
 #MISSING: 364# nvmlDeviceModifyDrainState@Base 361.28
@@ -145,18 +146,23 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlUnitGetTemperature@Base 270
  nvmlUnitGetUnitInfo@Base 270
  nvmlUnitSetLedState@Base 270
- nvmlVgpuInstanceGetDecoderUtilization@Base 367.27
- nvmlVgpuInstanceGetEncoderUtilization@Base 367.27
+#MISSING: 367.35# nvmlVgpuInstanceGetDecoderUtilization@Base 367.27
+#MISSING: 367.35# nvmlVgpuInstanceGetEncoderUtilization@Base 367.27
  nvmlVgpuInstanceGetFbUsage@Base 367.27
- nvmlVgpuInstanceGetFbUtilization@Base 367.27
- nvmlVgpuInstanceGetGpuUtilization@Base 367.27
+#MISSING: 367.35# nvmlVgpuInstanceGetFbUtilization@Base 367.27
+ nvmlVgpuInstanceGetFrameRateLimit@Base 367.35
+#MISSING: 367.35# nvmlVgpuInstanceGetGpuUtilization@Base 367.27
+ nvmlVgpuInstanceGetLicenseStatus@Base 367.35
+ nvmlVgpuInstanceGetType@Base 367.35
  nvmlVgpuInstanceGetUUID@Base 367.27
  nvmlVgpuInstanceGetVmDriverVersion@Base 367.27
  nvmlVgpuInstanceGetVmID@Base 367.18
  nvmlVgpuTypeGetClass@Base 361.42
  nvmlVgpuTypeGetDeviceID@Base 361.42
+ nvmlVgpuTypeGetFrameRateLimit@Base 367.35
  nvmlVgpuTypeGetFramebufferSize@Base 361.42
  nvmlVgpuTypeGetLicense@Base 361.42
+ nvmlVgpuTypeGetMaxInstances@Base 367.35
  nvmlVgpuTypeGetName@Base 361.42
  nvmlVgpuTypeGetNumDisplayHeads@Base 361.42
  nvmlVgpuTypeGetResolution@Base 361.42
