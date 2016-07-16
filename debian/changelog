@@ -74,6 +74,7 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * nvidia-driver-libs: Prefer libgl1-glvnd-nvidia-glx over libgl1-nvidia-glx.
+  * libnvidia-egl-wayland: New package for libnvidia-egl-wayland.so.$VERSION.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 06 Apr 2016 22:21:26 +0100
 
