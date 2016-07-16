@@ -47,7 +47,6 @@ nvidia-graphics-drivers (367.35-1) UNRELEASED; urgency=medium
       mapping still active during CUDA context teardown.
 
   [ Luca Boccassi ]
-  * Update watch file to point to 367 release
   * Update nv-readme.ids
   * Update symbols files
 
