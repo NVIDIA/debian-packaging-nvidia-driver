@@ -87,8 +87,8 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
     libGLESv2_nvidia.so.2 via GLVND. Add transitional package.
   * libglx-nvidia0: New package for the vendor-specific GLX implementation
     from NVIDIA (libGLX_nvidia.so.0), accessible via GLVND.
-  * libglx0-nvidia: New package for libGLX.so.0, a new (vendor-neutral) stub
-    that redirects to libGLX_nvidia.so.0 via GLVND.
+  * libglx0-glvnd-nvidia: New package for libGLX.so.0, a new (vendor-neutral)
+    stub that redirects to libGLX_nvidia.so.0 via GLVND.
   * libgl1-glvnd-nvidia-glx: New package for libGL.so.1, a new
     (vendor-neutral) stub that redirects to libGLX_nvidia.so.0 (and
     libnvidia-glcore.so.$VERSION) via GLVND. This package can be used as an

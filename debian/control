@@ -224,11 +224,13 @@ Description: Vendor neutral GL dispatch library -- libOpenGL
  This package contains the (binary) libOpenGL shared library provided by
  NVIDIA.
 
-Package: libglx0-nvidia
+Package: libglx0-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
-Conflicts: libglx0
-Replaces: libglx0
+Conflicts:
+ libglx0,
+Replaces:
+ libglx0,
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
@@ -238,7 +240,8 @@ Description: Vendor neutral GL dispatch library -- libGLX
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
  .
- This package contains the libGLX shared library.
+ This package contains the (binary) libGLX.so.0 shared library provided by
+ NVIDIA.
 
 #Package: libglx-${nvidia}0
 Package: libglx-nvidia0
@@ -248,7 +251,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libglx0 | libglx0-nvidia,
+ libglx0 | libglx0-glvnd-nvidia,
  lib${nvidia}-glcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary GLX libraries${nvidia:LegacyDesc}
