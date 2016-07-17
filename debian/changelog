@@ -170,6 +170,8 @@ nvidia-graphics-drivers (352.79-6) unstable; urgency=medium
   * separate-makefile-kbuild.patch: New, don't make all Makefile targets
     available to Kbuild.
   * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 355.xx onwards.
+  * build-sanity-checks.patch: New, handle the conftest.sh sanity checks in
+    the modernized module build system.
   * nvidia-kernel-source: Use KERNEL_UNAME=KVERS only if the kernel headers
     are available via /lib/modules/KVERS/{build,source}.  (Closes: #820260)
   * Stop special-casing the nvidia-alternative substitution.
