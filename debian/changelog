@@ -120,6 +120,12 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Feb 2016 19:32:35 +0100
 
+nvidia-graphics-drivers (352.79-10) unstable; urgency=medium
+
+  * Build libnvidia-encode1 and libnvidia-ifr1 for armhf, too.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jul 2016 13:40:02 +0200
+
 nvidia-graphics-drivers (352.79-9) unstable; urgency=medium
 
   * nvidia-driver-libs: New metapackage for bundling the

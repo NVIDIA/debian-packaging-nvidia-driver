@@ -131,7 +131,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
  ${nvidia:legacy-check},
 Depends:
- libgl1-${nvidia}-glx (= ${binary:Version}),
+ lib${nvidia}-glcore (= ${binary:Version}),
  ${nvidia}-alternative (= ${binary:Version}),
  nvidia-support (>= 20120630),
  ${nvidia:xorgDepends},
@@ -592,6 +592,7 @@ Package: nvidia-smi
 Section: non-free/utils
 Architecture: i386 amd64 armhf ppc64el
 Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
  lib${nvidia}-ml1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -722,7 +723,7 @@ Description: NVIDIA CUDA Video Decoder runtime library
 
 #Package: lib${nvidia}-encode1
 Package: libnvidia-encode1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -737,7 +738,7 @@ Description: NVENC Video Encoding runtime library
 
 #Package: lib${nvidia}-ifr1
 Package: libnvidia-ifr1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -794,7 +795,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia}-opencl-icd,
-Description: NVIDIA OpenCL driver
+Description: NVIDIA OpenCL driver - common files
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
