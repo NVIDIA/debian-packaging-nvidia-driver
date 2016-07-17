@@ -71,6 +71,8 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
   * Refresh man-fixes-nvidia-smi.patch.
+  * Remove patches that were fixed upstream: get-user-pages.patch,
+    page-cache-release.patch, uvmnext-isr-top-half.patch, vm-fault-minor.patch
   * Update nv-readme.ids.
   * Update symbols control files.
   * libgles-nvidia1: New package for the vendor-specific GLESv1 implementation
