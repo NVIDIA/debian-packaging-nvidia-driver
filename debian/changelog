@@ -104,6 +104,7 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * libcuda1: Add Provides: libcuda-8.0-1{,-i386}.
+  * libglx-nvidia0: Provide the libGLX_indirect.so.0 symlink.
   * Update lintian overrides.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
