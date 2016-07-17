@@ -1,9 +1,9 @@
-nvidia-graphics-drivers (358.16-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (358.16-2) experimental; urgency=medium
 
   * Merge changes from 352.79-10.
   * Rename libopengl0-nvidia to libopengl0-glvnd-nvidia.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jul 2016 16:34:34 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jul 2016 17:08:32 +0200
 
 nvidia-graphics-drivers (358.16-1) experimental; urgency=medium
 
@@ -89,6 +89,7 @@ nvidia-graphics-drivers (358.16-1) experimental; urgency=medium
   [ Andreas Beckmann ]
   * Updated kernel module build, patches and remaining infrastructure for the
     new nvidia-modeset module.
+  * 358.xx supports xorg-video-abi-20.
   * get-orig-source: Generate .orig-$ARCH.tar.gz for each architecture.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 15 Jul 2016 09:36:59 +0200
