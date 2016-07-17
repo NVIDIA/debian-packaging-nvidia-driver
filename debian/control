@@ -221,8 +221,8 @@ Description: Vendor neutral GL dispatch library -- libOpenGL
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
  .
- This package contains the (binary) libOpenGL shared library provided by
- NVIDIA.
+ This package contains the (binary) GLVND libOpenGL.so.0 stub library provided
+ by NVIDIA which redirects to vendor implementations via GLVND.
 
 Package: libglx0-glvnd-nvidia
 Architecture: i386 amd64 armhf
@@ -352,8 +352,8 @@ Description: NVIDIA binary EGL GLVND stub library
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES.
  .
- This package contains a libEGL.so.1 stub that redirects to a vendor
- implementation via GLVND.
+ This package contains the (binary) GLVND libEGL.so.1 stub library provided by
+ NVIDIA which redirects to vendor implementations (libegl_*.so.0) via GLVND.
 
 #Package: libegl1-${nvidia}
 Package: libegl1-nvidia
