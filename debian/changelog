@@ -15,7 +15,10 @@ nvidia-graphics-drivers (355.11-5) experimental; urgency=medium
 nvidia-graphics-drivers (355.11-4) experimental; urgency=medium
 
   * Merge changes from 352.79-7.
-  * Drop rm_kernel_rmapi_op.patch, fixed upstream.
+  * rm_kernel_rmapi_op.patch: Remove, fixed upstream.
+  * separate-makefile-kbuild.patch, build-sanity-checks.patch,
+    KERNEL_UNAME.patch: Remove, these were adjustments and backports from the
+    new 355.xx module build system.
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
   * Replace libgl1-nvidia-glx-i386 with new
@@ -44,6 +47,8 @@ nvidia-graphics-drivers (355.11-2) experimental; urgency=medium
   * Merge changes from 352.79-3.
   * Drop patches conftest-via-kbuild.patch,
     disable-preempt_rt_sanity_check.patch.
+  * Rename use-nv-kernel-ARCH.o_shipped.patch to
+    nvidia-use-ARCH.o_binary.patch for the new module build system.
   * 355.11 does not yet support xorg-video-abi-20.  (Closes: #813565)
   * Update lintian overrides.
 
