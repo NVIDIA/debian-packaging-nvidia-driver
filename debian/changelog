@@ -1,8 +1,8 @@
-nvidia-graphics-drivers (352.79-10) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (352.79-10) unstable; urgency=medium
 
   * Build libnvidia-encode1 and libnvidia-ifr1 for armhf, too.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 16 Jul 2016 23:30:45 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jul 2016 13:40:02 +0200
 
 nvidia-graphics-drivers (352.79-9) unstable; urgency=medium
 
