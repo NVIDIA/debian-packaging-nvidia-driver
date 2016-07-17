@@ -100,7 +100,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
- libopengl0-nvidia (= ${binary:Version}),
+ libopengl0-glvnd-nvidia,
  libgles1-${nvidia} (= ${binary:Version}),
  libgles2-${nvidia} (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
@@ -200,7 +200,7 @@ Description: Vendor neutral GL dispatch library -- libGLdispatch
  This package contains the (binary) libGLdispatch shared library provided by
  NVIDIA.
 
-Package: libopengl0-nvidia
+Package: libopengl0-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
@@ -209,9 +209,11 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libglvnd-nvidia,
+ libopengl0-nvidia,
  libopengl0,
 Replaces:
  libglvnd-nvidia,
+ libopengl0-nvidia,
  libopengl0,
 Description: Vendor neutral GL dispatch library -- libOpenGL
  This is an implementation of the vendor-neutral dispatch layer for
