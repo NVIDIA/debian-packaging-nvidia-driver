@@ -100,7 +100,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
- libopengl0-nvidia (= ${binary:Version}),
+ libopengl0-glvnd-nvidia,
  libgles1-${nvidia} (= ${binary:Version}),
  libgles2-${nvidia} (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
@@ -131,7 +131,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
  ${nvidia:legacy-check},
 Depends:
- libgl1-${nvidia}-glx (= ${binary:Version}),
+ lib${nvidia}-glcore (= ${binary:Version}),
  ${nvidia}-alternative (= ${binary:Version}),
  nvidia-support (>= 20120630),
  ${nvidia:xorgDepends},
@@ -192,7 +192,7 @@ Replaces:
  libglvnd-nvidia,
  libgldispatch0,
 Provides:
- libglvnd-abi-355,
+ glvnd-nvidia-abi-355,
 Description: Vendor neutral GL dispatch library -- libGLdispatch
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
@@ -200,7 +200,7 @@ Description: Vendor neutral GL dispatch library -- libGLdispatch
  This package contains the (binary) libGLdispatch shared library provided by
  NVIDIA.
 
-Package: libopengl0-nvidia
+Package: libopengl0-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
@@ -209,9 +209,11 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libglvnd-nvidia,
+ libopengl0-nvidia,
  libopengl0,
 Replaces:
  libglvnd-nvidia,
+ libopengl0-nvidia,
  libopengl0,
 Description: Vendor neutral GL dispatch library -- libOpenGL
  This is an implementation of the vendor-neutral dispatch layer for
@@ -592,6 +594,7 @@ Package: nvidia-smi
 Section: non-free/utils
 Architecture: i386 amd64 armhf ppc64el
 Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
  lib${nvidia}-ml1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -722,7 +725,7 @@ Description: NVIDIA CUDA Video Decoder runtime library
 
 #Package: lib${nvidia}-encode1
 Package: libnvidia-encode1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -737,7 +740,7 @@ Description: NVENC Video Encoding runtime library
 
 #Package: lib${nvidia}-ifr1
 Package: libnvidia-ifr1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -794,7 +797,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia}-opencl-icd,
-Description: NVIDIA OpenCL driver
+Description: NVIDIA OpenCL driver - common files
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
