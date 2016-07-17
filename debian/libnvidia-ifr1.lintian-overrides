@@ -1,5 +1,5 @@
 # The NVIDIA license does not allow any form of modification.
-[i386]: binary-file-built-without-LFS-support
+[!amd64]: binary-file-built-without-LFS-support
 spelling-error-in-binary
 hardening-no-bindnow
 hardening-no-fortify-functions
