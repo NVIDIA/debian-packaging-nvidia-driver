@@ -106,9 +106,15 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
 
+nvidia-graphics-drivers (358.16-2) experimental; urgency=medium
+
+  * Merge changes from 352.79-10.
+  * Rename libopengl0-nvidia to libopengl0-glvnd-nvidia.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jul 2016 17:08:32 +0200
+
 nvidia-graphics-drivers (358.16-1) experimental; urgency=medium
 
-  [ Luca Boccassi ]
   * New upstream short lived branch release 358.16 (2015-11-20).
     (Closes: #819042)
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
@@ -177,13 +183,16 @@ nvidia-graphics-drivers (358.16-1) experimental; urgency=medium
       by default on 32 bit OpenGL applications with Linux 3.11+ and glibc
       2.19+.  Memory allocated this way will consume space in /dev/shm.
       Setting the environment variable __GL_DevShmPageableAllocations
-      to 2 will disable this feature
-  * Updated watch version to 358
+      to 2 will disable this feature.
+
+  [ Luca Boccassi ]
   * Update symbols control files.
+  * Restrict watch file to releases from the 358.xx short lived branch.
 
   [ Andreas Beckmann ]
   * Updated kernel module build, patches and remaining infrastructure for the
     new nvidia-modeset module.
+  * 358.xx supports xorg-video-abi-20.
   * get-orig-source: Generate .orig-$ARCH.tar.gz for each architecture.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 15 Jul 2016 09:36:59 +0200
@@ -205,7 +214,10 @@ nvidia-graphics-drivers (355.11-5) experimental; urgency=medium
 nvidia-graphics-drivers (355.11-4) experimental; urgency=medium
 
   * Merge changes from 352.79-7.
-  * Drop rm_kernel_rmapi_op.patch, fixed upstream.
+  * rm_kernel_rmapi_op.patch: Remove, fixed upstream.
+  * separate-makefile-kbuild.patch, build-sanity-checks.patch,
+    KERNEL_UNAME.patch: Remove, these were adjustments and backports from the
+    new 355.xx module build system.
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
   * Replace libgl1-nvidia-glx-i386 with new
@@ -218,7 +230,7 @@ nvidia-graphics-drivers (355.11-3) experimental; urgency=medium
 
   [ Luca Boccassi ]
   * Split libglvnd-nvidia in libopengl0-nvidia and libgldispatch0-nvidia
-  * Rename libegl1-nvidia to libegl1-glvnd-nvidia
+  * Rename libegl1-nvidia to libegl1-glvnd-nvidia, add transitional package
   * Add dependency from libegl-nvidia0 to libegl1-glvnd-nvidia
   * Switch dependency in nvidia-driver from libegl1-nvidia to libegl-nvidia0
 
@@ -234,6 +246,8 @@ nvidia-graphics-drivers (355.11-2) experimental; urgency=medium
   * Merge changes from 352.79-3.
   * Drop patches conftest-via-kbuild.patch,
     disable-preempt_rt_sanity_check.patch.
+  * Rename use-nv-kernel-ARCH.o_shipped.patch to
+    nvidia-use-ARCH.o_binary.patch for the new module build system.
   * 355.11 does not yet support xorg-video-abi-20.  (Closes: #813565)
   * Update lintian overrides.
 
@@ -241,7 +255,6 @@ nvidia-graphics-drivers (355.11-2) experimental; urgency=medium
 
 nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
 
-  [ Luca Boccassi ]
   * New upstream release 355.11 (2015-08-31). (Closes: #804547)
     - Fixed a bug that could cause GPU exceptions when using glReadPixels()
       on the depth or stencil buffers of multisample windows while resizing
@@ -280,7 +293,8 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
       the mode list.
     - Added support to make an OpenGL 3.0 and above context current without
       making current to any drawable.
-  * Updated watch version to 355
+
+  [ Luca Boccassi ]
   * Updated kernel module build to adapt to the new upstream build system.
     - Dropped patches that are no longer needed:
       not-silent.patch
@@ -297,17 +311,24 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
     - Removed debian/module/Makefile, debian/module/conftest.sh
     - debian/module/conftest/patches.h is no longer a symlink
   * Update symbols control files.
+  * Restrict watch file to releases from the 355.xx short lived branch.
 
   [ Andreas Beckmann ]
-  * libglvnd-nvidia: New package package for the vendor-neutral GL libraries:
-    libOpenGL.so.0, libGLdispatch.so.0
+  * libglvnd-nvidia: New package package for the vendor-neutral GL libraries
+    (GLVND): libOpenGL.so.0, libGLdispatch.so.0
   * libegl-nvidia0: New package for the vendor-specific EGL implementation
-    from NVIDIA (libEGL_nvidia.so.0), accessible via libglvnd.
-  * libegl1-nvidia: The libEGL.so.1 is now just a (vendor-neutral) stub that
-    redirects to libEGL_nvidia.so.0 via libglvnd.
+    from NVIDIA (libEGL_nvidia.so.0), accessible via GLVND.
+  * libegl1-nvidia: The libEGL.so.1 library is now just a (vendor-neutral)
+    stub that redirects to libEGL_nvidia.so.0 via GLVND.
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 01 Feb 2016 19:32:35 +0100
+
+nvidia-graphics-drivers (352.79-10) unstable; urgency=medium
+
+  * Build libnvidia-encode1 and libnvidia-ifr1 for armhf, too.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jul 2016 13:40:02 +0200
 
 nvidia-graphics-drivers (352.79-9) unstable; urgency=medium
 
@@ -348,6 +369,8 @@ nvidia-graphics-drivers (352.79-6) unstable; urgency=medium
   * separate-makefile-kbuild.patch: New, don't make all Makefile targets
     available to Kbuild.
   * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 355.xx onwards.
+  * build-sanity-checks.patch: New, handle the conftest.sh sanity checks in
+    the modernized module build system.
   * nvidia-kernel-source: Use KERNEL_UNAME=KVERS only if the kernel headers
     are available via /lib/modules/KVERS/{build,source}.  (Closes: #820260)
   * Stop special-casing the nvidia-alternative substitution.
