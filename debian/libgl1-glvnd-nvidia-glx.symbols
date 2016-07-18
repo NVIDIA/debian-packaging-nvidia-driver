@@ -143,6 +143,7 @@
  glDrawElementArrayATI@Base 361
  glDrawElementsInstancedANGLE@Base 361
  glDrawMeshArraysSUN@Base 361
+ glDrawMeshNV@Base 1.0.4349
  glDrawRangeElementArrayAPPLE@Base 361
  glDrawRangeElementArrayATI@Base 361
  glEGLImageTargetRenderbufferStorageOES@Base 361

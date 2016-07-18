@@ -266,7 +266,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glCompressedTextureSubImage3D@Base 346
  glCompressedTextureSubImage3DEXT@Base 180
  glConservativeRasterParameterfNV@Base 352
- glConservativeRasterParameteriNV@Base 367
  glConvolutionFilter1D@Base 1.0.4349
  glConvolutionFilter2D@Base 1.0.4349
  glConvolutionParameterf@Base 1.0.4349
@@ -450,7 +449,6 @@ libGL.so.1 libgl1-mesa-glx | libgl1
  glDrawElementsInstancedBaseVertexOES@Base 349
  glDrawElementsInstancedEXT@Base 1.0.9746
  glDrawElementsInstancedNV@Base 325
-#MISSING: 367.27# (arch=!armhf)glDrawMeshNV@Base 1.0.4349
  glDrawPixels@Base 1.0.4349
  glDrawRangeElements@Base 1.0.4349
  glDrawRangeElementsBaseVertex@Base 190.18.05
