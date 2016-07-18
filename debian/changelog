@@ -18,6 +18,7 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
   * rules, control: Synchronize substvars with unstable (352.79-3).
   * get-orig-source: Synchronize with unstable (352.79-3).
+  * control: Synchronize descriptions with unstable.
   * bug-script: Synchronize with unstable (352.79-3).
   * bug-control.mk: New script to generate bug-control (352.79-4).
   * bug-control, bug-script: Collect some information about OpenCL (352.79-6).
@@ -41,11 +42,15 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
     (352.79-2).
   * use-kbuild-flags.patch: New, use KBUILD_CFLAGS from Kbuild to
     support building a 64-bit kernel module with 32-bit userspace (352.79-5).
+  * build-sanity-checks.patch: New, handle the conftest.sh sanity checks in
+    the modernized module build system (352.79-6).
+  * disable-cc_version_check.patch: New patch to disable a useless check that
+    tests the running kernel instead of the compilation target.
+  * Disable conftest.sh check xen_sanity_check.
   * Pass only the kernel version via KERNEL_UNAME and let the module build
     system figure out the paths (352.79-2).
   * Clear ARCH variable from environment before module build, thanks to Luca
     (352.79-2, 352.79-5).
-  * Disable conftest.sh checks cc_version_check, xen_sanity_check.
   * Add page-cache-release.patch (352.79-7) and get-user-pages.patch
     (352.79-8) to fix kernel module build for Linux 4.6, thanks to Luca.
   * Bump Standards-Version to 3.9.8. No changes needed.

@@ -169,7 +169,7 @@ Replaces:
  libxvmcnvidia1 (<< 305),
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
  nvidia-glx${nvidia:Legacy}-ia32,
-Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL/GLX libraries${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  .
@@ -184,7 +184,7 @@ Multi-Arch: foreign
 Depends:
  libgl1-${nvidia}-glx,
  ${misc:Depends}
-Description: NVIDIA binary OpenGL 32-bit libraries${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL/GLX 32-bit libraries${nvidia:LegacyDesc}
  This metapackage helps the automatic installation of the 32-bit NVIDIA
  OpenGL libraries when installing libgl1-${nvidia}-glx
  on amd64 with foreign architecture i386 enabled.
