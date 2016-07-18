@@ -103,7 +103,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
- libopengl0-nvidia (= ${binary:Version}),
+ libopengl0-glvnd-nvidia,
  libglx-${nvidia}0 (= ${binary:Version}),
  libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
@@ -197,7 +197,7 @@ Replaces:
  libglvnd-nvidia,
  libgldispatch0,
 Provides:
- libglvnd-abi-361.45,
+ glvnd-nvidia-abi-361.45,
 Description: Vendor neutral GL dispatch library -- libGLdispatch
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
@@ -205,7 +205,7 @@ Description: Vendor neutral GL dispatch library -- libGLdispatch
  This package contains the (binary) libGLdispatch shared library provided by
  NVIDIA.
 
-Package: libopengl0-nvidia
+Package: libopengl0-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
@@ -214,22 +214,26 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libglvnd-nvidia,
+ libopengl0-nvidia,
  libopengl0,
 Replaces:
  libglvnd-nvidia,
+ libopengl0-nvidia,
  libopengl0,
 Description: Vendor neutral GL dispatch library -- libOpenGL
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
  .
- This package contains the (binary) libOpenGL shared library provided by
- NVIDIA.
+ This package contains the (binary) GLVND libOpenGL.so.0 stub library provided
+ by NVIDIA which dispatches to vendor implementations via GLVND.
 
-Package: libglx0-nvidia
+Package: libglx0-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
-Conflicts: libglx0
-Replaces: libglx0
+Conflicts:
+ libglx0,
+Replaces:
+ libglx0,
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
@@ -239,7 +243,8 @@ Description: Vendor neutral GL dispatch library -- libGLX
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
  .
- This package contains the libGLX shared library.
+ This package contains the (binary) GLVND libGLX.so.0 stub library provided by
+ NVIDIA which dispatches to vendor implementations (libGLX_*.so.0) via GLVND.
 
 #Package: libglx-${nvidia}0
 Package: libglx-nvidia0
@@ -249,10 +254,10 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libglx0 | libglx0-nvidia,
+ libglx0 | libglx0-glvnd-nvidia,
  lib${nvidia}-glcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA binary GLX libraries${nvidia:LegacyDesc}
+Description: NVIDIA binary GLX library${nvidia:LegacyDesc}
  GLX ("OpenGL Extension to the X Window System") provides an interface between
  OpenGL and the X Window System as well as extensions to OpenGL itself.
  .
@@ -279,8 +284,8 @@ Description: NVIDIA binary OpenGL/GLX GLVND stub library
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  .
- This package contains a libGL.so.1 stub that redirects to a vendor
- implementation via GLVND.
+ This package contains a libGL.so.1 stub that dispatches to vendor
+ implementations via GLVND.
 
 #Package: libgl1-${nvidia}-glx
 Package: libgl1-nvidia-glx
@@ -302,7 +307,7 @@ Suggests:
  ${nvidia:kmod:source},
 Provides:
  libgl1-nvidia-glx-any,
-Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL/GLX libraries${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  .
@@ -327,7 +332,7 @@ Breaks:
  libgl1-${nvidia}-glx (<< 355.11-5),
 Replaces:
  libgl1-${nvidia}-glx (<< 355.11-5),
-Description: NVIDIA binary OpenGL core libraries${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL/GLX core libraries${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  .
@@ -350,8 +355,8 @@ Description: NVIDIA binary EGL GLVND stub library
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES.
  .
- This package contains a libEGL.so.1 stub that redirects to a vendor
- implementation via GLVND.
+ This package contains the (binary) GLVND libEGL.so.1 stub library provided by
+ NVIDIA which dispatches to vendor implementations (libEGL_*.so.0) via GLVND.
 
 #Package: libegl1-${nvidia}
 Package: libegl1-nvidia
@@ -364,7 +369,7 @@ Pre-Depends:
 Depends:
  libegl-${nvidia}0 (= ${binary:Version}),
  ${misc:Depends}
-Description: NVIDIA binary EGL libraries (transitional)${nvidia:LegacyDesc}
+Description: NVIDIA binary EGL library (transitional)${nvidia:LegacyDesc}
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES.
  .
@@ -382,7 +387,7 @@ Depends:
  libegl1-glvnd | libegl1-glvnd-nvidia,
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA binary EGL libraries${nvidia:LegacyDesc}
+Description: NVIDIA binary EGL library${nvidia:LegacyDesc}
  This package contains the EGL native platform graphics interface library.
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES.
@@ -406,7 +411,7 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA binary OpenGL|ES 1.x stub libraries
+Description: NVIDIA binary OpenGL|ES 1.x GLVND stub library
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
  embedded systems - including consoles, phones, appliances and vehicles.
  It contains a subset of OpenGL plus a number of extensions for the
@@ -418,8 +423,9 @@ Description: NVIDIA binary OpenGL|ES 1.x stub libraries
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
  .
- This package contains a libGLESv1_CM.so.1 stub that redirects to a vendor
- implementation via libglvnd.
+ This package contains the (binary) GLVND libGLESv1_CM.so.1 stub library
+ provided by NVIDIA which dispatches to vendor implementations
+ (libGLESv1_CM_*.so.1) via GLVND.
 
 #Package: libgles1-${nvidia}
 Package: libgles1-nvidia
@@ -432,7 +438,7 @@ Pre-Depends:
 Depends:
  libgles-${nvidia}1 (= ${binary:Version}),
  ${misc:Depends}
-Description: NVIDIA binary OpenGL|ES 1.x libraries (transitional)${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL|ES 1.x library (transitional)${nvidia:LegacyDesc}
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
  embedded systems - including consoles, phones, appliances and vehicles.
  It contains a subset of OpenGL plus a number of extensions for the
@@ -454,7 +460,7 @@ Depends:
  libgles1-glvnd | libgles1-glvnd-nvidia,
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA binary OpenGL|ES 1.x libraries${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL|ES 1.x library${nvidia:LegacyDesc}
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
  embedded systems - including consoles, phones, appliances and vehicles.
  It contains a subset of OpenGL plus a number of extensions for the
@@ -481,7 +487,7 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA binary OpenGL|ES 2.x stub libraries
+Description: NVIDIA binary OpenGL|ES 2.x GLVND stub library
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
  embedded systems - including consoles, phones, appliances and vehicles.
  It contains a subset of OpenGL plus a number of extensions for the
@@ -494,8 +500,9 @@ Description: NVIDIA binary OpenGL|ES 2.x stub libraries
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
  .
- This package contains a libGLESv2.so.2 stub that redirects to a vendor
- implementation via libglvnd.
+ This package contains the (binary) GLVND libGLESv2.so.2 stub library
+ provided by NVIDIA which dispatches to vendor implementations
+ (libGLESv2_*.so.2) via GLVND.
 
 #Package: libgles2-${nvidia}
 Package: libgles2-nvidia
@@ -508,7 +515,7 @@ Pre-Depends:
 Depends:
  libgles-${nvidia}2 (= ${binary:Version}),
  ${misc:Depends}
-Description: NVIDIA binary OpenGL|ES 2.x libraries (transitional)${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL|ES 2.x library (transitional)${nvidia:LegacyDesc}
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
  embedded systems - including consoles, phones, appliances and vehicles.
  It contains a subset of OpenGL plus a number of extensions for the
@@ -531,7 +538,7 @@ Depends:
  libgles2-glvnd | libgles2-glvnd-nvidia,
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA binary OpenGL|ES 2.x libraries${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL|ES 2.x library${nvidia:LegacyDesc}
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
  embedded systems - including consoles, phones, appliances and vehicles.
  It contains a subset of OpenGL plus a number of extensions for the
@@ -815,6 +822,7 @@ Package: nvidia-smi
 Section: non-free/utils
 Architecture: i386 amd64 armhf ppc64el
 Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
  lib${nvidia}-ml1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -979,7 +987,7 @@ Description: NVIDIA CUDA Video Decoder runtime library
 
 #Package: lib${nvidia}-encode1
 Package: libnvidia-encode1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -994,7 +1002,7 @@ Description: NVENC Video Encoding runtime library
 
 #Package: lib${nvidia}-ifr1
 Package: libnvidia-ifr1
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -1051,7 +1059,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia}-opencl-icd,
-Description: NVIDIA OpenCL driver
+Description: NVIDIA OpenCL driver - common files
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
