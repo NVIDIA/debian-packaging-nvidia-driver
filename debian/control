@@ -182,7 +182,7 @@ Breaks:
  libxvmcnvidia1 (<< 305),
 Replaces:
  libxvmcnvidia1 (<< 305),
-Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL/GLX libraries${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  .
@@ -207,7 +207,7 @@ Breaks:
  libgl1-${nvidia}-glx (<= 304.131-1),
 Replaces:
  libgl1-${nvidia}-glx (<= 304.131-1),
-Description: NVIDIA binary OpenGL core libraries${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL/GLX core libraries${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  .
@@ -229,7 +229,7 @@ Replaces:
  libgl1-${nvidia}-glx (<= 304.131-1),
 Provides:
  libnvidia-cfg1-any,
-Description: NVIDIA binary OpenGL configuration library${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL/GLX configuration library${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  .
