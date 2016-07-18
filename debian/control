@@ -161,7 +161,7 @@ Replaces:
  nvidia-glx${nvidia:Legacy} (<< 195.36.31),
  libgl1-nvidia${nvidia:Legacy}-dev,
  nvidia-glx${nvidia:Legacy}-dev,
-Description: NVIDIA binary OpenGL libraries${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL/GLX libraries${nvidia:LegacyDesc}
  .
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
