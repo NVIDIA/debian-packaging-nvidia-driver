@@ -19,3 +19,28 @@ Description: Redefine WRITE_COMBINE_FLUSH on ARM on kernel >= 4.3
  #elif defined(NVCPU_AARCH64)
      static inline void nv_flush_cache_cpu(void *info)
      {
+--- a/nvidia-drm/nvidia-drm-linux.c
++++ b/nvidia-drm/nvidia-drm-linux.c
+@@ -23,6 +23,7 @@
+ #include <linux/module.h>
+ #include <linux/slab.h>
+ #include <linux/err.h>
++#include <linux/version.h>
+ 
+ #include "nvidia-drm-os-interface.h"
+ #include "nvidia-drm.h"
+@@ -95,7 +95,13 @@
+   #define WRITE_COMBINE_FLUSH()    asm volatile("sfence":::"memory")
+ #elif defined(NVCPU_FAMILY_ARM)
+   #if defined(NVCPU_ARM)
+-    #define WRITE_COMBINE_FLUSH()  { dsb(); outer_sync(); }
++    #if LINUX_VERSION_CODE < KERNEL_VERSION(4,3,0)
++      #define WRITE_COMBINE_FLUSH()    { dsb(); outer_sync(); }
++    #elif defined(CONFIG_ARM_HEAVY_MB)
++      #define WRITE_COMBINE_FLUSH()    { dsb(); arm_heavy_mb(); }
++    #else
++      #define WRITE_COMBINE_FLUSH()    { dsb(); }
++    #endif
+   #elif defined(NVCPU_AARCH64)
+     #define WRITE_COMBINE_FLUSH()  mb()
+   #endif
