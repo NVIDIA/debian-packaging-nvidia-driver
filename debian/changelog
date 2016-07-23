@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (361.45.18-1) experimental; urgency=medium
 
   * New upstream long lived branch release 361.45.18 (2016-06-28).
     - Fixed a bug that caused nvidia-smi to report an inaccurate version
@@ -26,8 +26,6 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
       hitting the maximum tasks limit on systems with many CPUs.
     - Fixed a regression that caused GPU exceptions and incorrect rendering
       when using pbuffers with EGLDevice.
-    - Fixed a bug that caused nvidia-settings to crash when pairing glasses
-      with the 3D Vision Pro transmitter on some systems.
     - Fixed a regression that caused the HSync and VSync mode timing polarity
       flags to be inverted.
   * New upstream long lived branch release 361.28 (2016-02-09).
@@ -107,7 +105,7 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
   * libglx-nvidia0: Provide the libGLX_indirect.so.0 symlink.
   * Update lintian overrides.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 23 Jul 2016 12:04:00 +0200
 
 nvidia-graphics-drivers (358.16-2) experimental; urgency=medium
 
