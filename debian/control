@@ -590,7 +590,7 @@ Replaces:
  libgl1-${nvidia}-glx (<< 355.11-5),
 Provides:
  libnvidia-cfg1-any,
-Description: NVIDIA binary OpenGL configuration library${nvidia:LegacyDesc}
+Description: NVIDIA binary OpenGL/GLX configuration library${nvidia:LegacyDesc}
  These binary libraries provide optimized hardware acceleration of
  OpenGL applications via a direct-rendering X Server.
  .
