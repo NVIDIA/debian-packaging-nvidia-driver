@@ -229,8 +229,10 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Conflicts:
  libglx0,
+ libglx0-nvidia,
 Replaces:
  libglx0,
+ libglx0-nvidia,
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
