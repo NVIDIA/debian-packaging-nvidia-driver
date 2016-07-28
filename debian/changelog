@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (355.11-7) unstable; urgency=medium
+
+  * Merge changes from 352.79-10.
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Jul 2016 19:28:35 +0200
+
 nvidia-graphics-drivers (355.11-6) experimental; urgency=medium
 
   * Merge changes from 352.79-9.
