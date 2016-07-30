@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (364.19-1) experimental; urgency=medium
 
   * New upstream short lived branch release 364.19 (2016-04-22).
     - Fixed some locking issues in libnvidia-egl-wayland.so.
@@ -74,8 +74,9 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
   * Autoload the new nvidia-drm kernel module for automatic Xorg config.
   * nvidia-vulkan-common, nvidia-vulkan-icd: New packages for Vulkan support.
     (Closes: #827188)
+  * Upload to experimental.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 06 Apr 2016 22:21:26 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 30 Jul 2016 20:01:09 +0200
 
 nvidia-graphics-drivers (361.45.18-2) unstable; urgency=medium
 
