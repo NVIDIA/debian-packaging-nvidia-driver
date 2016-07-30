@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (361.45.18-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 30 Jul 2016 07:27:45 +0200
+
 nvidia-graphics-drivers (361.45.18-1) experimental; urgency=medium
 
   * New upstream long lived branch release 361.45.18 (2016-06-28).
