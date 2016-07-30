@@ -55,7 +55,7 @@ nvidia-graphics-drivers (367.35-1) UNRELEASED; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 16 Jul 2016 14:56:07 +0200
 
-nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (364.19-1) experimental; urgency=medium
 
   * New upstream short lived branch release 364.19 (2016-04-22).
     - Fixed some locking issues in libnvidia-egl-wayland.so.
@@ -109,7 +109,6 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
       while G-SYNC is active.
 
   [ Luca Boccassi ]
-  * Update nv-readme.ids
   * Update symbols control files.
   * Refresh man-fixes-nvidia-smi.patch.
   * Add new DRM kernel module to DKMS infrastructure and modprobe rules.
@@ -132,10 +131,17 @@ nvidia-graphics-drivers (364.19-1) UNRELEASED; urgency=medium
   * Autoload the new nvidia-drm kernel module for automatic Xorg config.
   * nvidia-vulkan-common, nvidia-vulkan-icd: New packages for Vulkan support.
     (Closes: #827188)
+  * Upload to experimental.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 06 Apr 2016 22:21:26 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 30 Jul 2016 20:01:09 +0200
 
-nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (361.45.18-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 30 Jul 2016 07:27:45 +0200
+
+nvidia-graphics-drivers (361.45.18-1) experimental; urgency=medium
 
   * New upstream long lived branch release 361.45.18 (2016-06-28).
     - Fixed a bug that caused nvidia-smi to report an inaccurate version
@@ -163,8 +169,6 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
       hitting the maximum tasks limit on systems with many CPUs.
     - Fixed a regression that caused GPU exceptions and incorrect rendering
       when using pbuffers with EGLDevice.
-    - Fixed a bug that caused nvidia-settings to crash when pairing glasses
-      with the 3D Vision Pro transmitter on some systems.
     - Fixed a regression that caused the HSync and VSync mode timing polarity
       flags to be inverted.
   * New upstream long lived branch release 361.28 (2016-02-09).
@@ -244,7 +248,13 @@ nvidia-graphics-drivers (361.45.18-1) UNRELEASED; urgency=medium
   * libglx-nvidia0: Provide the libGLX_indirect.so.0 symlink.
   * Update lintian overrides.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 07 Feb 2016 16:45:08 +0000
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 23 Jul 2016 12:04:00 +0200
+
+nvidia-graphics-drivers (358.16-3) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 29 Jul 2016 14:58:57 +0200
 
 nvidia-graphics-drivers (358.16-2) experimental; urgency=medium
 
@@ -336,6 +346,12 @@ nvidia-graphics-drivers (358.16-1) experimental; urgency=medium
   * get-orig-source: Generate .orig-$ARCH.tar.gz for each architecture.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 15 Jul 2016 09:36:59 +0200
+
+nvidia-graphics-drivers (355.11-7) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Jul 2016 19:28:35 +0200
 
 nvidia-graphics-drivers (355.11-6) experimental; urgency=medium
 
