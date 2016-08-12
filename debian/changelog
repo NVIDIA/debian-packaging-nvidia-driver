@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (367.35-1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 367.35 (2016-07-15).
+    (Closes: #833615)
     - Fixed a regression that could cause console corruption when resuming
       from suspend.
     - Improved buffer write performance of the nvidia-drm DRM KMS driver by
