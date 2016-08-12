@@ -119,8 +119,6 @@ nvidia-graphics-drivers (364.19-1) experimental; urgency=medium
     failure on armhf.
   * Add drm-mode-fb-cmd2.patch and get-user-pages-drm.patch to fix nvidia-drm
     kernel module build failure for Linux 4.6.
-  * Add do-div-cast.patch to fix nvidia-modeset kernel module build failure
-    for Linux 4.6
   * Add drm-gem-object-lookup.patch to fix nvidia-drm kernel module build
     failure for Linux 4.7.
   * Restrict watch file to releases from the 364.xx short lived branch.
@@ -621,13 +619,14 @@ nvidia-graphics-drivers (352.79-2) unstable; urgency=low
 
 nvidia-graphics-drivers (352.79-1) unstable; urgency=medium
 
-  [ Luca Boccassi ]
   * New upstream long lived branch release 352.79 (2016-01-25).
     - Added support for the following GPUs: Quadro M500M, Tesla M4.
     - Fixed a bug in the EGL driver where a mutex was unlocked more than
       once.  This triggers undefined behavior, and in particular, if
       lock elision is enabled in glibc, may result in a segmentation
       fault.  (Closes: #807244)
+
+  [ Luca Boccassi ]
   * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 27 Jan 2016 17:26:16 +0100
@@ -684,7 +683,6 @@ nvidia-graphics-drivers (352.55-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (352.41-1) experimental; urgency=medium
 
-  [ Andreas Beckmann ]
   * New upstream long lived branch release 352.41 (2015-08-28).
     * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
       (Closes: #800566)
@@ -692,6 +690,8 @@ nvidia-graphics-drivers (352.41-1) experimental; urgency=medium
       Quadro M5000.
     - Fixed a bug that caused VDPAU to only display the top half of a video
       frame when decoding and displaying H.265/HEVC encoded video streams.
+
+  [ Andreas Beckmann ]
   * conftest.h:
     - Implement new conftest.sh function dma_map_ops (352.30).
     - Reorder conftest.h to match conftest.sh.
@@ -715,11 +715,12 @@ nvidia-graphics-drivers (352.41-1) experimental; urgency=medium
 
 nvidia-graphics-drivers (352.30-1) experimental; urgency=medium
 
-  [ Luca Boccassi ]
   * New upstream release 352.30 (2015-07-28). (Closes: #794075)
     - Fixed a bug that caused poor video post-processing performance
       in VDPAU when operating on a large number of video streams
       simultaneously.
+
+  [ Luca Boccassi ]
   * Add new armhf-only libcuda1 symbols.
   * Update nv-readme.ids.
   * Refresh patches.
@@ -748,7 +749,6 @@ nvidia-graphics-drivers (352.21-2) experimental; urgency=medium
 
 nvidia-graphics-drivers (352.21-1) experimental; urgency=medium
 
-  [ Vincent Cheng ]
   * New upstream release 352.21 (2015-06-15). (Closes: #793079)
     - Fixed a bug that caused the kernel to report errors when unmapping
       DMA allocations on kernels with CONFIG_DEBUG_DMA_API enabled.
@@ -782,6 +782,8 @@ nvidia-graphics-drivers (352.21-1) experimental; urgency=medium
     - Enabled G-SYNC by default when Unified Back Buffer (UBB) is disabled.
     - Updated the NVIDIA GPU driver to avoid using video memory already
       in use by vesafb.
+
+  [ Vincent Cheng ]
   * Fix unresolved nvUvm* symbols in nvidia-uvm.ko from dkms package; patch
     cherrypicked from SteamOS and added as debian/patches/uvm-symvers.patch.
     Thanks! (Closes: #789483)
