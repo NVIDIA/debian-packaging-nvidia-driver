@@ -62,8 +62,6 @@ nvidia-graphics-drivers (364.19-1) experimental; urgency=medium
     failure on armhf.
   * Add drm-mode-fb-cmd2.patch and get-user-pages-drm.patch to fix nvidia-drm
     kernel module build failure for Linux 4.6.
-  * Add do-div-cast.patch to fix nvidia-modeset kernel module build failure
-    for Linux 4.6
   * Add drm-gem-object-lookup.patch to fix nvidia-drm kernel module build
     failure for Linux 4.7.
   * Restrict watch file to releases from the 364.xx short lived branch.
