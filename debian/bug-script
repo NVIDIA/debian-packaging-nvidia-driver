@@ -110,6 +110,7 @@ for file in \
 	/etc/modprobe.d/*nvidia*.conf \
 	/etc/X11/xorg.conf \
 	/etc/X11/xorg.conf.d/*.conf \
+	$(ls -dt $HOME/.local/share/xorg/Xorg.*.log* 2>/dev/null | head -n 2) \
 	$(ls -dt /var/log/Xorg.*.log* 2>/dev/null | head -n 2)
 do
 	if [ -f "$file" ] && [ -r "$file" ]; then
