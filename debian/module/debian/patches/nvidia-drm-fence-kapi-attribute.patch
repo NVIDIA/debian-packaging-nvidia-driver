@@ -1,0 +1,17 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Add NVKMS_KAPI_CALL to nvidia_drm_gem_prime_soft_fence_event
+ The version of GCC used to build kernel 4.6 and greater flags a prototype
+ mismatch as an error. The typedef that defines the function prototype uses
+ NVKMS_KAPI_CALL, so update the function signature to use it too so that they
+ match.
+--- a/nvidia-drm/nvidia-drm-fence.c
++++ b/nvidia-drm/nvidia-drm-fence.c
+@@ -325,7 +325,7 @@
+     struct nvidia_drm_gem_object *nv_gem;
+ };
+ 
+-static void nvidia_drm_gem_prime_soft_fence_event
++static void NVKMS_KAPI_CALL nvidia_drm_gem_prime_soft_fence_event
+ (
+     void *dataPtr,
+     NvU32 dataU32
