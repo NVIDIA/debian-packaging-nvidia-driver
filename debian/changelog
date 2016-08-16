@@ -14,6 +14,7 @@ nvidia-graphics-drivers (370.23-0~svn) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
   * Update nv-readme.ids
+  * Update symbols files
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 16 Aug 2016 20:54:02 +0100
 

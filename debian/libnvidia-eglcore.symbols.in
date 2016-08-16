@@ -10,6 +10,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glActiveVaryingNV@Base 346
  _glAlphaFunc@Base 346
  _glAlphaFuncx@Base 346
+ _glAlphaToCoverageDitherControlNV@Base 370.23
  _glAreProgramsResidentNV@Base 346
  _glAreTexturesResident@Base 346
  _glAreTexturesResidentEXT@Base 346
@@ -1829,6 +1830,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glShaderStorageBlockBinding@Base 346
  _glSignalVkFenceNV@Base 364
  _glSignalVkSemaphoreNV@Base 364
+ _glSpecializeShaderARB@Base 367.36.02
  _glStateCaptureNV@Base 346
  _glStencilFillPathInstancedNV@Base 346
  _glStencilFillPathNV@Base 346
@@ -2498,5 +2500,6 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glWindowPos3sARB@Base 346
  _glWindowPos3sv@Base 346
  _glWindowPos3svARB@Base 346
+ _glWindowRectanglesEXT@Base 367.36.02
 libnvidia-glsi.so.#VERSION# #PACKAGE# #MINVER#
  (regex)"^_nv\d*glsi@Base$" 0

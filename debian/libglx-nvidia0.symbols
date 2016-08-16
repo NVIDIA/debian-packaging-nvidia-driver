@@ -10,6 +10,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glActiveVaryingNV@Base 361.28
  glAlphaFunc@Base 361.28
  glAlphaFuncx@Base 361.28
+ glAlphaToCoverageDitherControlNV@Base 370.23
  glAreProgramsResidentNV@Base 361.28
  glAreTexturesResident@Base 361.28
  glAreTexturesResidentEXT@Base 361.28
@@ -1828,6 +1829,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glShaderStorageBlockBinding@Base 361.28
  glSignalVkFenceNV@Base 364
  glSignalVkSemaphoreNV@Base 364
+ glSpecializeShaderARB@Base 367.36.02
  glStateCaptureNV@Base 361.28
  glStencilFillPathInstancedNV@Base 361.28
  glStencilFillPathNV@Base 361.28
@@ -2507,6 +2509,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glWindowPos3sARB@Base 361.28
  glWindowPos3sv@Base 361.28
  glWindowPos3svARB@Base 361.28
+ glWindowRectanglesEXT@Base 367.36.02
  glXAllocateMemoryNV@Base 361.28
  glXBindChannelToWindowSGIX@Base 361.28
  glXBindSwapBarrierNV@Base 361.28

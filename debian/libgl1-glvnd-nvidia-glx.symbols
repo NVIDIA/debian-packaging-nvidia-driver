@@ -710,6 +710,7 @@
  glWindowPos4ivMESA@Base 361
  glWindowPos4sMESA@Base 361
  glWindowPos4svMESA@Base 361
+#MISSING: 370.23# glWindowRectanglesEXT@Base 367.36.02
  glWriteMaskEXT@Base 361
  glXBindHyperpipeSGIX@Base 361
  glXBindSwapBarrierSGIX@Base 361

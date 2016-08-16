@@ -1,5 +1,6 @@
 #include "libgl1-nvidia-glx.symbols.common"
  __glx_Main@Base 361.28
+ glAlphaToCoverageDitherControlNV@Base 370.23
  glConservativeRasterParameteriNV@Base 367
  glDebugControlNVX@Base 177
  glDevtoolsInvokeFunctorNVX@Base 349
@@ -9,8 +10,10 @@
  glQueryResourceNVX@Base 355
  glSignalVkFenceNV@Base 364
  glSignalVkSemaphoreNV@Base 364
+ glSpecializeShaderARB@Base 367.36.02
  glViewportPositionWScaleNV@Base 361
  glWaitVkSemaphoreNV@Base 364
+ glWindowRectanglesEXT@Base 367.36.02
  glcuR0d4nX@Base 195.36
  gldbc3cfnX@Base 325
  vk_icdGetInstanceProcAddr@Base 364
