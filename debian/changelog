@@ -15,7 +15,7 @@ nvidia-graphics-drivers (370.23-0~svn) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Update nv-readme.ids
   * Update symbols files
-  * Drop drm-gem-object-lookup.patch, fixed upstream
+  * drm-gem-object-lookup.patch, radix-tree-empty.patch: Drop, fixed upstream.
   * Add nvidia-drm-fence-kapi-attribute.patch to fix nvidia-drm kernel module
     build failure for i386 Linux 4.6 and 4.7.
 
