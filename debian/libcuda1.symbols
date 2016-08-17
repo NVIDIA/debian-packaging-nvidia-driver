@@ -158,8 +158,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemHostUnregister@Base 270
  cuMemPrefetchAsync@Base 367
  cuMemPrefetchAsync_ptsz@Base 367
- cuMemRangeGetAttribute@Base 370.23
- cuMemRangeGetAttributes@Base 370.23
+ cuMemRangeGetAttribute@Base 370
+ cuMemRangeGetAttributes@Base 370
  cuMemcpy2D@Base 169
  cuMemcpy2DAsync@Base 169
  cuMemcpy2DAsync_v2@Base 260

@@ -52,7 +52,7 @@ libnvidia-fatbinaryloader.so.#VERSION# #PACKAGE# #MINVER#
  elfLink_Errmsg@Base 361
  elfLink_Finish@Base 361
  elfLink_Finish_Reading_Library@Base 361
- elfLink_Free_Fatbinary@Base 370.23
+ elfLink_Free_Fatbinary@Base 370
  elfLink_Free_Host_Object@Base 361
  elfLink_Get_Cubin_From_FatBinary@Base 361
  elfLink_Get_FatBinary_From_Object@Base 361
@@ -60,7 +60,7 @@ libnvidia-fatbinaryloader.so.#VERSION# #PACKAGE# #MINVER#
  elfLink_Next_Library_Member@Base 361
  elfLink_Start@Base 361
  elfLink_Start_Reading_Library@Base 361
- elf_end@Base 370.23
+ elf_end@Base 370
  elf_errmsg@Base 361
  elf_is_64bit@Base 361
  elf_size@Base 361

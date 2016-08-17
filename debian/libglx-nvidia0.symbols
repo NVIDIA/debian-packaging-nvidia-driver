@@ -10,7 +10,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glActiveVaryingNV@Base 361.28
  glAlphaFunc@Base 361.28
  glAlphaFuncx@Base 361.28
- glAlphaToCoverageDitherControlNV@Base 370.23
+ glAlphaToCoverageDitherControlNV@Base 370
  glAreProgramsResidentNV@Base 361.28
  glAreTexturesResident@Base 361.28
  glAreTexturesResidentEXT@Base 361.28

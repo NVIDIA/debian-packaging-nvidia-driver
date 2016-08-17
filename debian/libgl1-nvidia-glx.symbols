@@ -1,6 +1,6 @@
 #include "libgl1-nvidia-glx.symbols.common"
  __glx_Main@Base 361.28
- glAlphaToCoverageDitherControlNV@Base 370.23
+ glAlphaToCoverageDitherControlNV@Base 370
  glConservativeRasterParameteriNV@Base 367
  glDebugControlNVX@Base 177
  glDevtoolsInvokeFunctorNVX@Base 349

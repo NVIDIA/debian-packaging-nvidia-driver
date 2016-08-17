@@ -10,7 +10,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glActiveVaryingNV@Base 346
  _glAlphaFunc@Base 346
  _glAlphaFuncx@Base 346
- _glAlphaToCoverageDitherControlNV@Base 370.23
+ _glAlphaToCoverageDitherControlNV@Base 370
  _glAreProgramsResidentNV@Base 346
  _glAreTexturesResident@Base 346
  _glAreTexturesResidentEXT@Base 346
