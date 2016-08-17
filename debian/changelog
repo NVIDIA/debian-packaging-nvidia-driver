@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (367.35-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (367.35-1) experimental; urgency=medium
 
   * New upstream long lived branch release 367.35 (2016-07-15).
     (Closes: #833615)
@@ -53,8 +53,9 @@ nvidia-graphics-drivers (367.35-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * drm-mode-fb-cmd2.patch, get-user-pages-drm.patch: Drop, fixed upstream.
+  * Upload to experimental.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 16 Jul 2016 14:56:07 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 17 Aug 2016 15:14:44 +0200
 
 nvidia-graphics-drivers (364.19-1) experimental; urgency=medium
 
