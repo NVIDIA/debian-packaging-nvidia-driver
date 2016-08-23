@@ -12,6 +12,9 @@ nvidia-graphics-drivers (367.44-0~svn) UNRELEASED; urgency=medium
       such as ForceCompositionPipeline, ForceFullCompositionPipeline,
       Rotation, Reflection, and Transform.
 
+  [ Luca Boccassi ]
+  * Update nv-readme.ids
+
  -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 23 Aug 2016 19:16:07 +0100
 
 nvidia-graphics-drivers (367.35-1) experimental; urgency=medium
