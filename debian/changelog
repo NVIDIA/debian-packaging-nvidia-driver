@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (367.44-0~svn) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (367.44-1) experimental; urgency=medium
 
   * New upstream long lived branch release 367.44 (2016-08-23).
     - Fixed a regression that caused applications using indirect GLX
@@ -16,8 +16,9 @@ nvidia-graphics-drivers (367.44-0~svn) UNRELEASED; urgency=medium
   * Update nv-readme.ids
   * Update symbols files
   * drm-gem-object-lookup.patch, radix-tree-empty.patch: Drop, fixed upstream.
+  * Upload to experimental.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 23 Aug 2016 19:16:07 +0100
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 23 Aug 2016 21:25:15 +0100
 
 nvidia-graphics-drivers (367.35-1) experimental; urgency=medium
 
