@@ -1,3 +1,19 @@
+nvidia-graphics-drivers (367.44-0~svn) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 367.44 (2016-08-23).
+    - Fixed a regression that caused applications using indirect GLX
+      to crash.
+    - Added support for the following GPUs: TITAN X (Pascal), GeForce GTX
+      1060 6GB, GeForce GTX 1060 3GB.
+    - Fixed a regression introduced in 367.35 that caused the first
+      modeset of the X server to display blank if the features requested
+      in the X configuration file enabled the X driver's composition
+      pipeline.  This would be triggered, e.g., by MetaMode tokens
+      such as ForceCompositionPipeline, ForceFullCompositionPipeline,
+      Rotation, Reflection, and Transform.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 23 Aug 2016 19:16:07 +0100
+
 nvidia-graphics-drivers (367.35-1) experimental; urgency=medium
 
   * New upstream long lived branch release 367.35 (2016-07-15).
