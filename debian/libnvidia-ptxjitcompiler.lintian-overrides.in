@@ -1,11 +1,13 @@
 # The NVIDIA license does not allow any form of modification.
 [!amd64]: binary-file-built-without-LFS-support
-shlib-calls-exit
 [i386]: spelling-error-in-binary
 hardening-no-bindnow
 hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
+
+# Use wildcard instead of exact path substitution, this is a M-A: same package.
+embedded-library usr/lib*/libnvidia-ptxjitcompiler.so.#VERSION#: zlib
 
 # The libnvidia-ptxjitcompiler.so.* SONAME changes with every upstream
 # release.
