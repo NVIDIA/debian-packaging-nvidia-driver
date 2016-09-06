@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (361.45.18-3~svn1) UNRELEASED; urgency=medium
+
+  * Update use-kbuild-flags.patch to add LDFLAGS to nvidia-modeset.Kbuild
+    and Makefile. Fixes x86_64 kernel builds with i386 userspace.
+    (Closes: #834446)
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 06 Sep 2016 20:33:18 +0100
+
 nvidia-graphics-drivers (361.45.18-2) unstable; urgency=medium
 
   * Upload to unstable.
