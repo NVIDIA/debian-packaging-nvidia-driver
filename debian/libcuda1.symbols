@@ -56,6 +56,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  (arch=armhf)cuEGLInit@Base 346
  (arch=armhf)cuEGLStreamConsumerAcquireFrame@Base 346
  (arch=armhf)cuEGLStreamConsumerConnect@Base 346
+ (arch=armhf)cuEGLStreamConsumerConnectWithFlags@Base 367.44
  (arch=armhf)cuEGLStreamConsumerDisconnect@Base 346
  (arch=armhf)cuEGLStreamConsumerReleaseFrame@Base 346
  (arch=armhf)cuEGLStreamProducerConnect@Base 346
