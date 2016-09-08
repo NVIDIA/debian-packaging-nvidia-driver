@@ -1,5 +1,14 @@
-nvidia-graphics-drivers (370.23-0~svn) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (370.28-0~svn1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 370.28 (2016-09-08).
+    - Fixed undefined symbol references in libnvidia-glcore.so.
+    - Fixed a potential hang in Vulkan applications such as vkQuake and DOTA2
+      that use vkFences for present synchronization.
+    - Fixed a bug that caused the driver to not set HDMI YUV 420 4K
+      modes correctly on some TVs, such as the VIZIO D40u-D1.
+    - Updated CurrentMetaMode reporting via the NV-CONTROL API to reflect
+      whether ForceCompositionPipeline or ForceFullCompositionPipeline are
+      set in the current MetaMode.
   * New upstream beta release 370.23 (2016-08-15).
     - Added the ability to over- and under-clock certain GeForce
       GPUs in the GeForce GTX 1000 series and later.  For GPUs that allow it,
@@ -7,6 +16,10 @@ nvidia-graphics-drivers (370.23-0~svn) UNRELEASED; urgency=medium
       all performance levels.  This clock manipulation is done at the
       user's own risk.  See the README documentation of the "CoolBits"
       X configuration option for more details.
+    - Implemented initial support for PRIME Synchronization to synchronize
+      flipping between an NVIDIA PRIME display source and a separate PRIME
+      display sink. This support is experimental and currently requires a
+      prerelease X.org X server.
     - Fixed a bug that prevented Vulkan applications from presenting from
       multiple queues to the same X11 swapchain.
     - Added the "PixelShiftMode" MetaMode option, enabling support for 4K and
