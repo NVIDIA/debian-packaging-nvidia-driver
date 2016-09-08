@@ -335,6 +335,6 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  The MPS server creates the shared GPU context, manages its clients, and issues work to
 -the GPU on behalf of its clients. An MPS server can support upto 16 client CUDA contexts
 +the GPU on behalf of its clients. An MPS server can support up to 16 client CUDA contexts
- at a time. MPS is transparent to CUDA programs, with all the complexity of communication
+ per GPU at a time. MPS is transparent to CUDA programs, with all the complexity of communication
  between the client process, the server and the control daemon hidden within the driver binaries.
  .PP
