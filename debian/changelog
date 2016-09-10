@@ -1,7 +1,12 @@
 nvidia-graphics-drivers (367.44-2) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * Update symbols control files.
   * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * Add nvidia-drm-master-dev.patch to fix nvidia-drm kernel module build
+    failure for Linux 4.8.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 06 Sep 2016 19:34:10 +0200
 
