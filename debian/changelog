@@ -76,6 +76,20 @@ nvidia-graphics-drivers (364.19-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 30 Jul 2016 20:01:09 +0200
 
+nvidia-graphics-drivers (361.45.18-3) unstable; urgency=medium
+
+  [ Luca Boccassi ]
+  * Update use-kbuild-flags.patch to add LDFLAGS to nvidia-modeset.Kbuild
+    and Makefile. Fixes x86_64 kernel builds with i386 userspace.
+    (Closes: #834446)
+
+  [ Andreas Beckmann ]
+  * nvidia-legacy-check.preinst: Hint to reboot with 'acpi=off' if the
+    installation hangs. Document the issue in the script.  (Closes: #819869)
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 18 Sep 2016 20:24:14 +0200
+
 nvidia-graphics-drivers (361.45.18-2) unstable; urgency=medium
 
   * Upload to unstable.
