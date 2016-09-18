@@ -268,9 +268,6 @@ find_unsupported_gpus()
 {
 	# Check for GPUs that are only supported up to $LEGACY_DRIVER
 	if lspci --version > /dev/null 2>&1; then
-		echo "Checking for legacy NVIDIA GPUs..." >&2
-		echo "If this appears to hang, try rebooting with 'acpi=off' added to the" >&2
-		echo "kernel boot options in the GRUB configuration." >&2
 		lspci -mn \
 		| awk '{ gsub("\"",""); if ($2 == "0300") { print $1 " " $3$4 } }' \
 		| tr '[:lower:]' '[:upper:]' \
@@ -293,12 +290,24 @@ check_for_unsupported_gpus()
 	# allow to disable the check via preseeding
 	db_get nvidia-driver/check-for-unsupported-gpu
 	test "$RET" = "true" || return 0
+	
+	(
+		sleep 30 &
+		sleeppid=$!
+		trap 'kill $sleeppid 2>/dev/null || true' TERM
+		trap ':' EXIT
+		wait $sleeppid
+		echo "Checking for legacy NVIDIA GPUs appears to hang, try rebooting with 'acpi=off'" >&2
+	       	echo "added to the kernel boot options in the GRUB configuration." >&2
+	) &
+	msgpid=$!
 
 	UNSUPPORTED_DEVICES="$(find_unsupported_gpus)"
+	UNSUPPORTED="$(for dev in $UNSUPPORTED_DEVICES ; do lspci -nn -s "$dev" ; done)"
+
+	kill $msgpid 2>/dev/null || true
 
 	test -n "$UNSUPPORTED_DEVICES" || return 0
-
-	UNSUPPORTED="$(for dev in $UNSUPPORTED_DEVICES ; do lspci -nn -s "$dev" ; done)"
 
 	db_subst nvidia-driver/install-even-if-unsupported-gpu-exists vendor "NVIDIA"
 	db_subst nvidia-driver/install-even-if-unsupported-gpu-exists driver "#NVIDIA#-driver"

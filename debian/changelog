@@ -6,8 +6,8 @@ nvidia-graphics-drivers (361.45.18-3~svn1) UNRELEASED; urgency=medium
     (Closes: #834446)
 
   [ Andreas Beckmann ]
-  * nvidia-legacy-check: Hint to reboot with 'acpi=off' if the installation
-    hangs. Document the issue in the preinst script.  (Closes: #819869)
+  * nvidia-legacy-check.preinst: Hint to reboot with 'acpi=off' if the
+    installation hangs. Document the issue in the script.  (Closes: #819869)
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 06 Sep 2016 20:33:18 +0100
 
