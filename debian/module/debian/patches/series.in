@@ -14,3 +14,4 @@ ignore_xen_on_arm.patch
 arm-outer-sync.patch
 nvidia-drm-arm-cflags.patch
 #HAS_UVM#radix-tree-empty.patch
+nvidia-drm-master-dev.patch

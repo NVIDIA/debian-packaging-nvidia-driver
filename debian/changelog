@@ -1,7 +1,12 @@
 nvidia-graphics-drivers (364.19-2~svn) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * Merge changes from 361.45.18-3.
   * Upload to unstable.
+
+  [ Luca Boccassi ]
+  * Add nvidia-drm-master-dev.patch to fix nvidia-drm kernel module build
+    failure for Linux 4.8.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 18 Sep 2016 20:58:10 +0200
 
