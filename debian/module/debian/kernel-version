@@ -4,6 +4,8 @@
 # kernel source path as its only argument.  If the version header couldn't be
 # found, print nothing and exit quietly.
 
+use warnings;
+
 my $ksrc = shift;
 unless ($ksrc && (-f "$ksrc/include/linux/version.h" || -f "$ksrc/include/generated/uapi/linux/version.h")) {
     exit 0;
@@ -11,7 +13,7 @@ unless ($ksrc && (-f "$ksrc/include/linux/version.h" || -f "$ksrc/include/genera
 my $found = 0;
 my $line;
 if (open (VERSION, "$ksrc/include/linux/version.h")) {
-    if ($line = <VERSION>) {
+    if (defined(VERSION) && ($line = <VERSION>)) {
         if ($line =~ /"(.+)"/) {
             print "$1\n";
             $found = 1;
@@ -20,7 +22,7 @@ if (open (VERSION, "$ksrc/include/linux/version.h")) {
 }
 exit 0 if $found;
 if (open (VERSION, "$ksrc/include/generated/utsrelease.h")) {
-    if ($line = <VERSION>) {
+    if (defined(VERSION) && ($line = <VERSION>)) {
         if ($line =~ /UTS_RELEASE *"(.+)"/) {
             print "$1\n";
             $found = 1;
@@ -32,7 +34,7 @@ exit 0 if $found;
 unless (open (VERSION, "$ksrc/include/config/kernel.release")) {
     exit 0;
 }
-if ($line = <VERSION>) {
+if (defined(VERSION) && ($line = <VERSION>)) {
     print "$line";
 }
 exit 0;
