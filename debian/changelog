@@ -1,4 +1,11 @@
-nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.132-1+) UNRELEASED; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.132 (2016-09-26).
+    - Added /var/log/dmesg to the list of paths which are searched by
+      nvidia-bug-report.sh for kernel messages.
+    - Fixed a bug that caused kernel panics when using the NVIDIA driver on
+      v4.5 and newer Linux kernels built with CONFIG_DEBUG_VM_PGFLAGS.
+    - Updated nvidia-installer to support ncurses version 6.x.
 
   [ Andreas Beckmann ]
   * Drop substitution backward-compatibility with EoL
