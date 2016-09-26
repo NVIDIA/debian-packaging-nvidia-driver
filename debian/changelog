@@ -25,6 +25,8 @@ nvidia-graphics-drivers (304.132-1+) UNRELEASED; urgency=medium
   * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
   * rules, control: Synchronize substvars with unstable (352.79-3).
   * get-orig-source: Synchronize with unstable (352.79-3).
+  * get-orig-source: Generate .orig-$ARCH.tar.gz for each architecture
+    (358.16-1).
   * control: Synchronize descriptions with unstable.
   * bug-script: Synchronize with unstable (352.79-3).
   * bug-control.mk: New script to generate bug-control (352.79-4).
