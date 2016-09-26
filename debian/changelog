@@ -1,11 +1,11 @@
-nvidia-graphics-drivers (304.132-1+) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.132-0~svn4wheezy) UNRELEASED; urgency=medium
 
   * New upstream legacy 304xx branch release 304.132 (2016-09-26).
     - Added /var/log/dmesg to the list of paths which are searched by
       nvidia-bug-report.sh for kernel messages.
     - Fixed a bug that caused kernel panics when using the NVIDIA driver on
       v4.5 and newer Linux kernels built with CONFIG_DEBUG_VM_PGFLAGS.
-    - Updated nvidia-installer to support ncurses version 6.x.
+    * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
   * Drop substitution backward-compatibility with EoL
@@ -60,8 +60,6 @@ nvidia-graphics-drivers (304.132-1+) UNRELEASED; urgency=medium
     system figure out the paths (352.79-2).
   * Clear ARCH variable from environment before module build, thanks to Luca
     (352.79-2, 352.79-5).
-  * Add page-cache-release.patch (352.79-7) and get-user-pages.patch
-    (352.79-8) to fix kernel module build for Linux 4.6, thanks to Luca.
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
 
@@ -70,7 +68,6 @@ nvidia-graphics-drivers (304.132-1+) UNRELEASED; urgency=medium
     building on 4.3 or greater, where the deprecated APIs the kernel module
     uses are no longer exported, causing a failure when the module is
     loaded at runtime. (Closes: #809324)
-  * page-cache-release.patch, get-user-pages.patch: drop, fixed upstream.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 13:04:27 +0100
 
