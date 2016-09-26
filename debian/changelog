@@ -1,11 +1,12 @@
-nvidia-graphics-drivers (367.44-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (367.44-2) unstable; urgency=medium
 
   * Merge changes from 364.19-2.
   * Update symbols control files.
   * Update lintian overrides.
   * Restrict watch file to releases from the 367.xx long lived branch.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 06 Sep 2016 19:34:10 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 26 Sep 2016 15:02:35 +0200
 
 nvidia-graphics-drivers (367.44-1) experimental; urgency=medium
 
