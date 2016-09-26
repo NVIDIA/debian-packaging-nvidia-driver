@@ -63,6 +63,8 @@ nvidia-graphics-drivers (340.98-1+) UNRELEASED; urgency=medium
   * Update lintian overrides.
 
   [ Luca Boccassi ]
+  * page-cache-release.patch, get-user-pages.patch, vm-fault-minor.patch:
+    drop, fixed upstream.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 11:34:10 +0100
 
