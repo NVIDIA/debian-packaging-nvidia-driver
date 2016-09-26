@@ -335,7 +335,7 @@ debian/files_$(NVIDIA_RELEASE)_%: NVIDIA-Linux-%
 
 # only invoked manually
 check-whitespace:
-	grep -r --exclude-dir=.svn --exclude-dir=.git --exclude '*.patch' -E '\s$$' debian/* || true
+	grep -r --exclude-dir=.svn --exclude-dir=.git --exclude '*.patch' -E '\s$$' debian || true
 
 ############################################################################
 
