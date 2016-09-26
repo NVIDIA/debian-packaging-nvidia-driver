@@ -1,4 +1,9 @@
-nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.98-1+) UNRELEASED; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.98 (2016-09-26).
+    - Added support for the screen_info.ext_lfb_base field, on kernels that
+      have it, in order to properly handle UEFI framebuffer consoles with
+      physical addresses above 4GB.
 
   [ Andreas Beckmann ]
   * Stop special-casing of the nvidia-alternative substitution (352.79-6).
