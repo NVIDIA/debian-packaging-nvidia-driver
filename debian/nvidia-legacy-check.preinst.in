@@ -290,7 +290,7 @@ check_for_unsupported_gpus()
 	# allow to disable the check via preseeding
 	db_get nvidia-driver/check-for-unsupported-gpu
 	test "$RET" = "true" || return 0
-	
+
 	(
 		sleep 30 &
 		sleeppid=$!

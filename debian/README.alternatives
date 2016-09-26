@@ -33,7 +33,7 @@ Note: AMD provides similar proprietary replacements in their fglrx driver.
 Several additional requests have risen over time, e.g. from live systems:
  * allow parallel installation of several drivers (even from different
    vendors)
- * allow driver selection at runtime 
+ * allow driver selection at runtime
  * allow switching back to the free Xorg/MESA implementation without having
    to uninstall the accelerated driver and libraries
 
