@@ -342,6 +342,10 @@ file-lists: $(patsubst %,debian/files_$(NVIDIA_RELEASE)_%,$(ARCH_LIST))
 debian/files_$(NVIDIA_RELEASE)_%: NVIDIA-Linux-%
 	(cd $< && find .) | sed 's/$(NVIDIA_RELEASE)/VERSION/g' | sort > $@
 
+# only invoked manually
+check-whitespace:
+	grep -r --exclude-dir=.svn --exclude-dir=.git --exclude '*.patch' -E '\s$$' debian || true
+
 ############################################################################
 
 CACHE			?= ../.cache
