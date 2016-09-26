@@ -17,5 +17,5 @@ All package relationships introduced for squeeze as well as all
 remain in the package until wheezy is released.  That way backports to
 squeeze can be done easily without requiring the package being upgraded
 from is recent enough.  The removed transitional packages do not matter
-as the old packages are now having Conflicts/Replaces in new packages 
+as the old packages are now having Conflicts/Replaces in new packages
 that are going to be installed.
