@@ -1,20 +1,20 @@
 libnvidia-fatbinaryloader.so.#VERSION# #PACKAGE# #MINVER#
-#MISSING: 370.28# _cmdoptGetOptionValue@Base 361
-#MISSING: 370.28# adler32@Base 361
-#MISSING: 370.28# cmdoptAddOption@Base 361
-#MISSING: 370.28# cmdoptCreate@Base 361
-#MISSING: 370.28# cmdoptOnCommandLine@Base 361
-#MISSING: 370.28# cmdoptParse@Base 361
-#MISSING: 370.28# cmdoptPrint@Base 361
-#MISSING: 370.28# ctCommonExit@Base 361
-#MISSING: 370.28# ctCommonInit@Base 361
-#MISSING: 370.28# ctGetEnv@Base 361
-#MISSING: 370.28# ctHandleInputFromStdin@Base 361
-#MISSING: 370.28# ctLogFinish@Base 361
-#MISSING: 370.28# ctLogInitialize@Base 361
-#MISSING: 370.28# ctMsgCreateSourcePos@Base 361
-#MISSING: 370.28# ctParseArchVersion@Base 361
-#MISSING: 370.28# ctToolkitVersion@Base 361
+#MISSING: 367.44# _cmdoptGetOptionValue@Base 361
+#MISSING: 367.44# adler32@Base 361
+#MISSING: 367.44# cmdoptAddOption@Base 361
+#MISSING: 367.44# cmdoptCreate@Base 361
+#MISSING: 367.44# cmdoptOnCommandLine@Base 361
+#MISSING: 367.44# cmdoptParse@Base 361
+#MISSING: 367.44# cmdoptPrint@Base 361
+#MISSING: 367.44# ctCommonExit@Base 361
+#MISSING: 367.44# ctCommonInit@Base 361
+#MISSING: 367.44# ctGetEnv@Base 361
+#MISSING: 367.44# ctHandleInputFromStdin@Base 361
+#MISSING: 367.44# ctLogFinish@Base 361
+#MISSING: 367.44# ctLogInitialize@Base 361
+#MISSING: 367.44# ctMsgCreateSourcePos@Base 361
+#MISSING: 367.44# ctParseArchVersion@Base 361
+#MISSING: 367.44# ctToolkitVersion@Base 361
  elf32_file_header@Base 361
  elf32_first_section_in_segment@Base 361
  elf32_get_entry_symbol_index@Base 361
@@ -52,7 +52,7 @@ libnvidia-fatbinaryloader.so.#VERSION# #PACKAGE# #MINVER#
  elfLink_Errmsg@Base 361
  elfLink_Finish@Base 361
  elfLink_Finish_Reading_Library@Base 361
- elfLink_Free_Fatbinary@Base 370
+ elfLink_Free_Fatbinary@Base 367.44
  elfLink_Free_Host_Object@Base 361
  elfLink_Get_Cubin_From_FatBinary@Base 361
  elfLink_Get_FatBinary_From_Object@Base 361
@@ -60,160 +60,160 @@ libnvidia-fatbinaryloader.so.#VERSION# #PACKAGE# #MINVER#
  elfLink_Next_Library_Member@Base 361
  elfLink_Start@Base 361
  elfLink_Start_Reading_Library@Base 361
- elf_end@Base 370
+ elf_end@Base 367.44
  elf_errmsg@Base 361
  elf_is_64bit@Base 361
  elf_size@Base 361
-#MISSING: 370.28# enablePerfMeasuring@Base 361
+#MISSING: 367.44# enablePerfMeasuring@Base 361
  fatBinaryCtl@Base 361
  fatBinaryCtl_Compile@Base 361
  fatBinaryCtl_Create@Base 361
  fatBinaryCtl_Delete@Base 361
  fatBinaryCtl_Errmsg@Base 361
  fatBinaryCtl_PickCandidate@Base 361
-#MISSING: 370.28# fnamDecomposePath@Base 361
-#MISSING: 370.28# getDebugLevel@Base 361
-#MISSING: 370.28# getFileLineInfo@Base 361
-#MISSING: 370.28# getOutStream@Base 361
-#MISSING: 370.28# gpuDefaultProfile@Base 361
-#MISSING: 370.28# gpuGetFeaturesProfile@Base 361
+#MISSING: 367.44# fnamDecomposePath@Base 361
+#MISSING: 367.44# getDebugLevel@Base 361
+#MISSING: 367.44# getFileLineInfo@Base 361
+#MISSING: 367.44# getOutStream@Base 361
+#MISSING: 367.44# gpuDefaultProfile@Base 361
+#MISSING: 367.44# gpuGetFeaturesProfile@Base 361
  gpuInfoRunsOn@Base 361
-#MISSING: 370.28# gpuSupportedArchitectures@Base 361
+#MISSING: 367.44# gpuSupportedArchitectures@Base 361
  gpucompRestoreLogLine@Base 361.42
  gpucompSetLogLine@Base 361.42
  gpucompSetTerminators@Base 361.42
-#MISSING: 370.28# gpuinfMsgIgnoredOption@Base 361
-#MISSING: 370.28# gpuinfMsgInvalidOptionValue@Base 361
-#MISSING: 370.28# gpuinfMsgNoRealProfile@Base 361
-#MISSING: 370.28# gpuinfMsgUnknownOption@Base 361
-#MISSING: 370.28# gpuinfMsgUnsupportedOption@Base 361
-#MISSING: 370.28# isDebugGroupPresent@Base 361
-#MISSING: 370.28# isLoggerInitialized@Base 361
-#MISSING: 370.28# listAddTo@Base 361
-#MISSING: 370.28# listConcat@Base 361
-#MISSING: 370.28# listCons@Base 361
-#MISSING: 370.28# listContains@Base 361
-#MISSING: 370.28# listDelete@Base 361
-#MISSING: 370.28# listDeleteFrom@Base 361
-#MISSING: 370.28# listIndex@Base 361
-#MISSING: 370.28# listReverse@Base 361
-#MISSING: 370.28# listSize@Base 361
-#MISSING: 370.28# listSort@Base 361
-#MISSING: 370.28# listToSet@Base 361
-#MISSING: 370.28# listTraverse@Base 361
-#MISSING: 370.28# mapAnyRange@Base 361
-#MISSING: 370.28# mapApply@Base 361
-#MISSING: 370.28# mapCreate@Base 361
-#MISSING: 370.28# mapDefine@Base 361
-#MISSING: 370.28# mapDelete@Base 361
-#MISSING: 370.28# mapDomainTraverse@Base 361
-#MISSING: 370.28# mapEmpty@Base 361
-#MISSING: 370.28# mapIsDefined@Base 361
-#MISSING: 370.28# mapRangeToList@Base 361
-#MISSING: 370.28# mapRangeTraverse@Base 361
-#MISSING: 370.28# mapSize@Base 361
-#MISSING: 370.28# mapToList@Base 361
-#MISSING: 370.28# mapTraverse@Base 361
-#MISSING: 370.28# mapUndefine@Base 361
-#MISSING: 370.28# memspCreate@Base 361
-#MISSING: 370.28# memspDelete@Base 361
-#MISSING: 370.28# memspFree@Base 361
-#MISSING: 370.28# memspMalloc@Base 361
-#MISSING: 370.28# memspPrint@Base 361
+#MISSING: 367.44# gpuinfMsgIgnoredOption@Base 361
+#MISSING: 367.44# gpuinfMsgInvalidOptionValue@Base 361
+#MISSING: 367.44# gpuinfMsgNoRealProfile@Base 361
+#MISSING: 367.44# gpuinfMsgUnknownOption@Base 361
+#MISSING: 367.44# gpuinfMsgUnsupportedOption@Base 361
+#MISSING: 367.44# isDebugGroupPresent@Base 361
+#MISSING: 367.44# isLoggerInitialized@Base 361
+#MISSING: 367.44# listAddTo@Base 361
+#MISSING: 367.44# listConcat@Base 361
+#MISSING: 367.44# listCons@Base 361
+#MISSING: 367.44# listContains@Base 361
+#MISSING: 367.44# listDelete@Base 361
+#MISSING: 367.44# listDeleteFrom@Base 361
+#MISSING: 367.44# listIndex@Base 361
+#MISSING: 367.44# listReverse@Base 361
+#MISSING: 367.44# listSize@Base 361
+#MISSING: 367.44# listSort@Base 361
+#MISSING: 367.44# listToSet@Base 361
+#MISSING: 367.44# listTraverse@Base 361
+#MISSING: 367.44# mapAnyRange@Base 361
+#MISSING: 367.44# mapApply@Base 361
+#MISSING: 367.44# mapCreate@Base 361
+#MISSING: 367.44# mapDefine@Base 361
+#MISSING: 367.44# mapDelete@Base 361
+#MISSING: 367.44# mapDomainTraverse@Base 361
+#MISSING: 367.44# mapEmpty@Base 361
+#MISSING: 367.44# mapIsDefined@Base 361
+#MISSING: 367.44# mapRangeToList@Base 361
+#MISSING: 367.44# mapRangeTraverse@Base 361
+#MISSING: 367.44# mapSize@Base 361
+#MISSING: 367.44# mapToList@Base 361
+#MISSING: 367.44# mapTraverse@Base 361
+#MISSING: 367.44# mapUndefine@Base 361
+#MISSING: 367.44# memspCreate@Base 361
+#MISSING: 367.44# memspDelete@Base 361
+#MISSING: 367.44# memspFree@Base 361
+#MISSING: 367.44# memspMalloc@Base 361
+#MISSING: 367.44# memspPrint@Base 361
 #MISSING: 361.42# msgAddErrorClassPrefixes@Base 361
-#MISSING: 370.28# msgCppUpdateSourceStruct@Base 361
-#MISSING: 370.28# msgCreateSourceStructure@Base 361
-#MISSING: 370.28# msgDeleteSourceStructure@Base 361
+#MISSING: 367.44# msgCppUpdateSourceStruct@Base 361
+#MISSING: 367.44# msgCreateSourceStructure@Base 361
+#MISSING: 367.44# msgDeleteSourceStructure@Base 361
 #MISSING: 361.42# msgDontPrefixErrorLines@Base 361
-#MISSING: 370.28# msgGetIgnoreWarnings@Base 361.42
-#MISSING: 370.28# msgGetToolName@Base 361.42
-#MISSING: 370.28# msgGetWarnAsError@Base 361.42
+#MISSING: 367.44# msgGetIgnoreWarnings@Base 361.42
+#MISSING: 367.44# msgGetToolName@Base 361.42
+#MISSING: 367.44# msgGetWarnAsError@Base 361.42
 #MISSING: 361.42# msgIgnoreWarnings@Base 361
-#MISSING: 370.28# msgPopInclude@Base 361
-#MISSING: 370.28# msgPushInclude@Base 361
-#MISSING: 370.28# msgReport@Base 361
-#MISSING: 370.28# msgReportWithPos@Base 361
-#MISSING: 370.28# msgSetIgnoreWarnings@Base 361.42
-#MISSING: 370.28# msgSetToolName@Base 361.42
-#MISSING: 370.28# msgSetWarnAsError@Base 361.42
+#MISSING: 367.44# msgPopInclude@Base 361
+#MISSING: 367.44# msgPushInclude@Base 361
+#MISSING: 367.44# msgReport@Base 361
+#MISSING: 367.44# msgReportWithPos@Base 361
+#MISSING: 367.44# msgSetIgnoreWarnings@Base 361.42
+#MISSING: 367.44# msgSetToolName@Base 361.42
+#MISSING: 367.44# msgSetWarnAsError@Base 361.42
 #MISSING: 361.42# msgToolName@Base 361
 #MISSING: 361.42# msgWarnAsError@Base 361
 #MISSING: 361.42# nvTrace@Base 361
 #MISSING: 361.42# nvTraceLevel@Base 361
-#MISSING: 370.28# procGetTempName@Base 361
-#MISSING: 370.28# procSetTrapOnError@Base 361
-#MISSING: 370.28# rangemapApply@Base 361
-#MISSING: 370.28# rangemapCreate@Base 361
-#MISSING: 370.28# rangemapDefine@Base 361
-#MISSING: 370.28# rangemapDelete@Base 361
-#MISSING: 370.28# rangemapTraverse@Base 361
-#MISSING: 370.28# rangemapUndefine@Base 361
-#MISSING: 370.28# setAddTo@Base 361
-#MISSING: 370.28# setAnyElement@Base 361
-#MISSING: 370.28# setContains@Base 361
-#MISSING: 370.28# setCreate@Base 361
-#MISSING: 370.28# setDelete@Base 361
-#MISSING: 370.28# setDeleteFrom@Base 361
-#MISSING: 370.28# setElement@Base 361
-#MISSING: 370.28# setEmpty@Base 361
-#MISSING: 370.28# setInPlaceUnion@Base 361
-#MISSING: 370.28# setInsert@Base 361
-#MISSING: 370.28# setIntersection@Base 361
-#MISSING: 370.28# setOverlaps@Base 361
-#MISSING: 370.28# setRemove@Base 361
-#MISSING: 370.28# setSize@Base 361
-#MISSING: 370.28# setToList@Base 361
-#MISSING: 370.28# setTraverse@Base 361
-#MISSING: 370.28# stdABORT@Base 361
-#MISSING: 370.28# stdASSERTLOGFAIL@Base 361
-#MISSING: 370.28# stdASSERTLOGSETPOS@Base 361
-#MISSING: 370.28# stdCreateObfuscation@Base 361
-#MISSING: 370.28# stdDeleteObfuscation@Base 361
-#MISSING: 370.28# stdDeobfuscate@Base 361
-#MISSING: 370.28# stdEXIT@Base 361
-#MISSING: 370.28# stdFreeFun@Base 361
-#MISSING: 370.28# stdGetMemUsage@Base 361
-#MISSING: 370.28# stdGetPeakMemUsage@Base 361
+#MISSING: 367.44# procGetTempName@Base 361
+#MISSING: 367.44# procSetTrapOnError@Base 361
+#MISSING: 367.44# rangemapApply@Base 361
+#MISSING: 367.44# rangemapCreate@Base 361
+#MISSING: 367.44# rangemapDefine@Base 361
+#MISSING: 367.44# rangemapDelete@Base 361
+#MISSING: 367.44# rangemapTraverse@Base 361
+#MISSING: 367.44# rangemapUndefine@Base 361
+#MISSING: 367.44# setAddTo@Base 361
+#MISSING: 367.44# setAnyElement@Base 361
+#MISSING: 367.44# setContains@Base 361
+#MISSING: 367.44# setCreate@Base 361
+#MISSING: 367.44# setDelete@Base 361
+#MISSING: 367.44# setDeleteFrom@Base 361
+#MISSING: 367.44# setElement@Base 361
+#MISSING: 367.44# setEmpty@Base 361
+#MISSING: 367.44# setInPlaceUnion@Base 361
+#MISSING: 367.44# setInsert@Base 361
+#MISSING: 367.44# setIntersection@Base 361
+#MISSING: 367.44# setOverlaps@Base 361
+#MISSING: 367.44# setRemove@Base 361
+#MISSING: 367.44# setSize@Base 361
+#MISSING: 367.44# setToList@Base 361
+#MISSING: 367.44# setTraverse@Base 361
+#MISSING: 367.44# stdABORT@Base 361
+#MISSING: 367.44# stdASSERTLOGFAIL@Base 361
+#MISSING: 367.44# stdASSERTLOGSETPOS@Base 361
+#MISSING: 367.44# stdCreateObfuscation@Base 361
+#MISSING: 367.44# stdDeleteObfuscation@Base 361
+#MISSING: 367.44# stdDeobfuscate@Base 361
+#MISSING: 367.44# stdEXIT@Base 361
+#MISSING: 367.44# stdFreeFun@Base 361
+#MISSING: 367.44# stdGetMemUsage@Base 361
+#MISSING: 367.44# stdGetPeakMemUsage@Base 361
  stdGetThreadContext@Base 361
-#MISSING: 370.28# stdGetTimer@Base 361
-#MISSING: 370.28# stdIntEqual@Base 361
-#MISSING: 370.28# stdIntHash@Base 361
-#MISSING: 370.28# stdLOG2@Base 361
-#MISSING: 370.28# stdOutOfMemory@Base 361
-#MISSING: 370.28# stdPointerEqual@Base 361
-#MISSING: 370.28# stdPointerHash@Base 361
-#MISSING: 370.28# stdResetTimer@Base 361
-#MISSING: 370.28# stdSYSLOG@Base 361
-#MISSING: 370.28# stdSetLogLine@Base 361
-#MISSING: 370.28# stdStringEqual@Base 361
-#MISSING: 370.28# stdStringHash@Base 361
-#MISSING: 370.28# stdStringIsPrefix@Base 361
-#MISSING: 370.28# stdSwapMemSpace@Base 361
- stdThreadDetach@Base 370.28
-#MISSING: 370.28# stdTimerInit@Base 361
-#MISSING: 370.28# stdTokenizeString@Base 361
-#MISSING: 370.28# stdVSYSLOG@Base 361.42
-#MISSING: 370.28# stdpInt64Equal@Base 361
-#MISSING: 370.28# stdpInt64Hash@Base 361
-#MISSING: 370.28# stringAddBuf@Base 361
-#MISSING: 370.28# stringAddChar@Base 361
-#MISSING: 370.28# stringAddFormat@Base 361
-#MISSING: 370.28# stringCopy@Base 361
-#MISSING: 370.28# stringCreate@Base 361
-#MISSING: 370.28# stringDelete@Base 361
-#MISSING: 370.28# stringEmpty@Base 361
-#MISSING: 370.28# stringSize@Base 361
-#MISSING: 370.28# stringStripToBuf@Base 361
-#MISSING: 370.28# stringToBuf@Base 361
+#MISSING: 367.44# stdGetTimer@Base 361
+#MISSING: 367.44# stdIntEqual@Base 361
+#MISSING: 367.44# stdIntHash@Base 361
+#MISSING: 367.44# stdLOG2@Base 361
+#MISSING: 367.44# stdOutOfMemory@Base 361
+#MISSING: 367.44# stdPointerEqual@Base 361
+#MISSING: 367.44# stdPointerHash@Base 361
+#MISSING: 367.44# stdResetTimer@Base 361
+#MISSING: 367.44# stdSYSLOG@Base 361
+#MISSING: 367.44# stdSetLogLine@Base 361
+#MISSING: 367.44# stdStringEqual@Base 361
+#MISSING: 367.44# stdStringHash@Base 361
+#MISSING: 367.44# stdStringIsPrefix@Base 361
+#MISSING: 367.44# stdSwapMemSpace@Base 361
+ stdThreadDetach@Base 367.44
+#MISSING: 367.44# stdTimerInit@Base 361
+#MISSING: 367.44# stdTokenizeString@Base 361
+#MISSING: 367.44# stdVSYSLOG@Base 361.42
+#MISSING: 367.44# stdpInt64Equal@Base 361
+#MISSING: 367.44# stdpInt64Hash@Base 361
+#MISSING: 367.44# stringAddBuf@Base 361
+#MISSING: 367.44# stringAddChar@Base 361
+#MISSING: 367.44# stringAddFormat@Base 361
+#MISSING: 367.44# stringCopy@Base 361
+#MISSING: 367.44# stringCreate@Base 361
+#MISSING: 367.44# stringDelete@Base 361
+#MISSING: 367.44# stringEmpty@Base 361
+#MISSING: 367.44# stringSize@Base 361
+#MISSING: 367.44# stringStripToBuf@Base 361
+#MISSING: 367.44# stringToBuf@Base 361
 #MISSING: 361.42# tprintf@Base 361
-#MISSING: 370.28# vectorAddTo@Base 361
-#MISSING: 370.28# vectorCreate@Base 361
-#MISSING: 370.28# vectorDelete@Base 361
-#MISSING: 370.28# vectorIndex@Base 361
-#MISSING: 370.28# vectorSetElement@Base 361
-#MISSING: 370.28# vectorSize@Base 361
-#MISSING: 370.28# vectorTop@Base 361
-#MISSING: 370.28# wtrCreateFileWriter@Base 361
-#MISSING: 370.28# wtrCreateStringWriter@Base 361
-#MISSING: 370.28# wtrDelete@Base 361
-#MISSING: 370.28# wtrWrite@Base 361
+#MISSING: 367.44# vectorAddTo@Base 361
+#MISSING: 367.44# vectorCreate@Base 361
+#MISSING: 367.44# vectorDelete@Base 361
+#MISSING: 367.44# vectorIndex@Base 361
+#MISSING: 367.44# vectorSetElement@Base 361
+#MISSING: 367.44# vectorSize@Base 361
+#MISSING: 367.44# vectorTop@Base 361
+#MISSING: 367.44# wtrCreateFileWriter@Base 361
+#MISSING: 367.44# wtrCreateStringWriter@Base 361
+#MISSING: 367.44# wtrDelete@Base 361
+#MISSING: 367.44# wtrWrite@Base 361

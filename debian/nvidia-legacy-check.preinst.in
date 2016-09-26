@@ -1,6 +1,19 @@
 #!/bin/sh
 set -e
 
+# This script checks whether NVIDIA GPUs that are only supported by a
+# previous legacy driver are present in the system.
+# Unfortunately, there were several reports that this does not work
+# on some systems because lspci hangs. That seems to be a hardware
+# dependent issue. See e.g. #819869 for details.
+#
+# A possible workaround is to reboot with 'acpi=off' added to the
+# kernel boot options in the GRUB configuration.
+#
+# Alternatively this check can be disabled by preseeding:
+#   echo "nvidia-driver/check-for-unsupported-gpu boolean false" | debconf-set-selections
+
+
 . /usr/share/debconf/confmodule
 
 LEGACY_DRIVER="nvidia-legacy-340xx-driver"
@@ -278,11 +291,23 @@ check_for_unsupported_gpus()
 	db_get nvidia-driver/check-for-unsupported-gpu
 	test "$RET" = "true" || return 0
 
+	(
+		sleep 30 &
+		sleeppid=$!
+		trap 'kill $sleeppid 2>/dev/null || true' TERM
+		trap ':' EXIT
+		wait $sleeppid
+		echo "Checking for legacy NVIDIA GPUs appears to hang, try rebooting with 'acpi=off'" >&2
+	       	echo "added to the kernel boot options in the GRUB configuration." >&2
+	) &
+	msgpid=$!
+
 	UNSUPPORTED_DEVICES="$(find_unsupported_gpus)"
+	UNSUPPORTED="$(for dev in $UNSUPPORTED_DEVICES ; do lspci -nn -s "$dev" ; done)"
+
+	kill $msgpid 2>/dev/null || true
 
 	test -n "$UNSUPPORTED_DEVICES" || return 0
-
-	UNSUPPORTED="$(for dev in $UNSUPPORTED_DEVICES ; do lspci -nn -s "$dev" ; done)"
 
 	db_subst nvidia-driver/install-even-if-unsupported-gpu-exists vendor "NVIDIA"
 	db_subst nvidia-driver/install-even-if-unsupported-gpu-exists driver "#NVIDIA#-driver"
