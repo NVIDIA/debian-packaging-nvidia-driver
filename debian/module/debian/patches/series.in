@@ -10,8 +10,6 @@ disable-cc_version_check.patch
 disable-xen_sanity_check.patch
 not-silent.patch
 use-nv-kernel-ARCH.o_shipped.patch
-page-cache-release.patch
-get-user-pages.patch
 avoid-ld.gold.patch
 fix-typos.patch
 disable-mtrr.patch
