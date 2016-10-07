@@ -944,6 +944,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
+ lib${nvidia}-ptxjitcompiler (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA FAT binary loader
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
@@ -959,7 +960,6 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- lib${nvidia}-fatbinaryloader (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA PTX JIT Compiler
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
