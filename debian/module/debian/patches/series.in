@@ -9,9 +9,6 @@ disable-cc_version_check.patch
 disable-preempt_rt_sanity_check.patch
 not-silent.patch
 use-nv-kernel-ARCH.o_shipped.patch
-page-cache-release.patch
-get-user-pages.patch
 avoid-ld.gold.patch
 ignore_xen_on_arm.patch
 arm-outer-sync.patch
-#HAS_UVM#vm-fault-minor.patch

@@ -1,4 +1,10 @@
-nvidia-graphics-drivers (340.96-4+) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.98-0~svn4stretch) UNRELEASED; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.98 (2016-09-26).
+    - Added support for the screen_info.ext_lfb_base field, on kernels that
+      have it, in order to properly handle UEFI framebuffer consoles with
+      physical addresses above 4GB.
+    * Improved compatibility with recent Linux kernels.
 
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
@@ -10,39 +16,7 @@ nvidia-graphics-drivers (340.96-4+) UNRELEASED; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Apr 2016 16:41:52 +0200
 
-nvidia-graphics-drivers (340.96-4) unstable; urgency=medium
-
-  [ Andreas Beckmann ]
-  * Do not run dh_strip_nondeterminism, it may perform modifications not
-    permitted by the NVIDIA license.
-  * get-orig-source: Download *.run with wget from http download server to
-    preserve timestamps.
-  * get-orig-source: Generate tarball reproducibly.
-  * Update lintian overrides.
-
-  [ Luca Boccassi ]
-  * bug-script: collect Xorg log from journalctl if running on systemd
-
- -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Jan 2016 19:55:26 +0100
-
-nvidia-graphics-drivers (340.96-3) unstable; urgency=medium
-
-  * Merge changes from 304.131-1 (wheezy) and 340.96-1 (jessie).
-  * Add slave alternative for libnvcuvid.so.
-  * Use a more generic approach for unloading the modules.
-
- -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 10:59:42 +0100
-
-nvidia-graphics-drivers (340.96-2) unstable; urgency=medium
-
-  * Merge changes from 340.96-1 (UNRELEASED).
-  * seq-printf.patch: Remove, fixed upstream.
-  * Update lintian overrides.  (Closes: #805388)
-  * Upload to unstable.
-
- -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 06:59:25 +0100
-
-nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.98-0~svn4jessie) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Stop special-casing of the nvidia-alternative substitution (352.79-6).
@@ -55,6 +29,8 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
   * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
   * rules, control: Synchronize substvars with unstable (352.79-3).
   * get-orig-source: Synchronize with unstable (352.79-3).
+  * get-orig-source: Generate .orig-$ARCH.tar.gz for each architecture
+    (358.16-1).
   * control: Synchronize descriptions with unstable.
   * bug-script: Synchronize with unstable (352.79-3).
   * bug-control.mk: New script to generate bug-control (352.79-4).
@@ -90,9 +66,6 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
   * ignore_xen_on_arm.patch: Update to add workaround for conftest.sh to fix
     kernel module build failure on armhf by forcing XEN_PRESENT=0 when
     building on armhf, thanks to Luca (352.79-2).
-  * Add page-cache-release.patch (352.79-7), vm-fault-minor.patch (uvm only)
-    (352.79-7) and get-user-pages.patch (352.79-8) to fix kernel module build
-    for Linux 4.6, thanks to Luca.
   * nvidia-detect: Update list of newer PCI IDs from release 352.79.
   * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
     (352.79-6).
@@ -101,9 +74,39 @@ nvidia-graphics-drivers (340.96-1+) UNRELEASED; urgency=medium
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
 
-  [ Luca Boccassi ]
-
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 11:34:10 +0100
+
+nvidia-graphics-drivers (340.96-4) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Do not run dh_strip_nondeterminism, it may perform modifications not
+    permitted by the NVIDIA license.
+  * get-orig-source: Download *.run with wget from http download server to
+    preserve timestamps.
+  * get-orig-source: Generate tarball reproducibly.
+  * Update lintian overrides.
+
+  [ Luca Boccassi ]
+  * bug-script: collect Xorg log from journalctl if running on systemd
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Jan 2016 19:55:26 +0100
+
+nvidia-graphics-drivers (340.96-3) unstable; urgency=medium
+
+  * Merge changes from 304.131-1 (wheezy) and 340.96-1 (jessie).
+  * Add slave alternative for libnvcuvid.so.
+  * Use a more generic approach for unloading the modules.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 14 Dec 2015 10:59:42 +0100
+
+nvidia-graphics-drivers (340.96-2) unstable; urgency=medium
+
+  * Merge changes from 340.96-1 (UNRELEASED).
+  * seq-printf.patch: Remove, fixed upstream.
+  * Update lintian overrides.  (Closes: #805388)
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Nov 2015 06:59:25 +0100
 
 nvidia-graphics-drivers (340.96-1) jessie; urgency=medium
 
@@ -1654,7 +1657,14 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
-nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.132-0~svn4stretch) UNRELEASED; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.132 (2016-09-26).
+    - Added /var/log/dmesg to the list of paths which are searched by
+      nvidia-bug-report.sh for kernel messages.
+    - Fixed a bug that caused kernel panics when using the NVIDIA driver on
+      v4.5 and newer Linux kernels built with CONFIG_DEBUG_VM_PGFLAGS.
+    * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
   * Drop substitution backward-compatibility with EoL
@@ -1674,6 +1684,8 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
   * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
   * rules, control: Synchronize substvars with unstable (352.79-3).
   * get-orig-source: Synchronize with unstable (352.79-3).
+  * get-orig-source: Generate .orig-$ARCH.tar.gz for each architecture
+    (358.16-1).
   * control: Synchronize descriptions with unstable.
   * bug-script: Synchronize with unstable (352.79-3).
   * bug-control.mk: New script to generate bug-control (352.79-4).
@@ -1707,8 +1719,6 @@ nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
     system figure out the paths (352.79-2).
   * Clear ARCH variable from environment before module build, thanks to Luca
     (352.79-2, 352.79-5).
-  * Add page-cache-release.patch (352.79-7) and get-user-pages.patch
-    (352.79-8) to fix kernel module build for Linux 4.6, thanks to Luca.
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
 

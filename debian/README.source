@@ -101,7 +101,7 @@ Testing kernel module compilation
     Testing a new nvidia*-kernel-source package:
     * enter the chroot as root, update it, install new linux-headers-*
     * install the new package to be tested with dpkg
-    * run 
+    * run
       sh /usr/share/doc/nvidia-kernel-source/build-module-packages.sh
     * and wait, this will iterate over all available linux-headers
     * should any fail to build, module-assistant will print an error and
