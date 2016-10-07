@@ -1,9 +1,9 @@
-nvidia-graphics-drivers (367.44-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (367.44-3) unstable; urgency=medium
 
   * Let libnvidia-fatbinaryloader depend on libnvidia-ptxjitcompiler.
     (Closes: #839193)
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 07 Oct 2016 17:01:25 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 07 Oct 2016 22:01:17 +0200
 
 nvidia-graphics-drivers (367.44-2) unstable; urgency=medium
 
