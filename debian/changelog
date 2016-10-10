@@ -10,6 +10,7 @@ nvidia-graphics-drivers (367.57-0~svn1) UNRELEASED; urgency=medium
     - Fixed a bug that allowed nvidia-installer to attempt loading kernel
       modules that were built against non-running kernels.
   * Update nv-readme.ids.
+  * man-fixes-nvidia-smi.patch: refresh, fails to apply on 367.57.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 10 Oct 2016 18:53:52 +0100
 
