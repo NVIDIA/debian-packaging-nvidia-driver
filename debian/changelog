@@ -1,3 +1,17 @@
+nvidia-graphics-drivers (367.57-0~svn1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 367.57 (2016-10-10).
+    - Fixed a bug that could prevent systems with GPUs configured in SLI from
+      resuming correctly from ACPI S3/S4 sleep/hibernate states.
+    - Added support for NVIDIA 3D Vision 2 Stereo on Linux. This IR emitter
+      can be used with stereo mode "10" set in the X configuration file.
+    - Fixed a bug in nvidia-persistenced that caused it to incorrectly delete
+      the PID file if a second instance of the daemon is started.
+    - Fixed a bug that allowed nvidia-installer to attempt loading kernel
+      modules that were built against non-running kernels.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 10 Oct 2016 18:53:52 +0100
+
 nvidia-graphics-drivers (367.44-3) unstable; urgency=medium
 
   * Let libnvidia-fatbinaryloader depend on libnvidia-ptxjitcompiler.
