@@ -7,11 +7,14 @@ libGLX.so.0 libglx0 | #PACKAGE# #MINVER#
 #MISSING: 361.42# CurrentContextHashCleanup@Base 361
 #MISSING: 361.45# DisplayClosed@Base 361
  FindNextExtensionName@Base 361
+ FindNextStringToken@Base 375
  FreeExecPages@Base 361
  GLVND_THREAD_NULL@Base 361
  IsExtensionInString@Base 361
+ IsTokenInString@Base 375
  LOCAL_GLX_DISPATCH_FUNCTIONS@Base 361.45.18
  ParseClientVersionString@Base 361
+ SplitString@Base 375
 #MISSING: 361.42# TeardownVendor@Base 361
 #MISSING: 361.45# XGLVQueryExtension@Base 361
 #MISSING: 361.45# XGLVQueryScreenVendorMapping@Base 361
@@ -126,6 +129,7 @@ libGLX.so.0 libglx0 | #PACKAGE# #MINVER#
  glvndUpdateEntrypoints@Base 361
  glvnd_asprintf@Base 361
  glvnd_byte_swap16@Base 361
+ glvnd_vasprintf@Base 375
  mt_mutexattr_destroy@Base 361
  mt_mutexattr_init@Base 361
  mt_mutexattr_settype@Base 361

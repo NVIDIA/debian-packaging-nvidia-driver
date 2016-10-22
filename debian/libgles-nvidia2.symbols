@@ -19,11 +19,16 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glBindTransformFeedback@Base 361
  glBindVertexArray@Base 361
  glBindVertexBuffer@Base 361
+ glBlendBarrier@Base 375
  glBlendColor@Base 361
  glBlendEquation@Base 361
  glBlendEquationSeparate@Base 361
+ glBlendEquationSeparatei@Base 375
+ glBlendEquationi@Base 375
  glBlendFunc@Base 361
  glBlendFuncSeparate@Base 361
+ glBlendFuncSeparatei@Base 375
+ glBlendFunci@Base 375
  glBlitFramebuffer@Base 361
  glBufferData@Base 361
  glBufferSubData@Base 361
@@ -38,12 +43,14 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glClearStencil@Base 361
  glClientWaitSync@Base 361
  glColorMask@Base 361
+ glColorMaski@Base 375
  glCompileShader@Base 361
  glCompressedTexImage2D@Base 361
  glCompressedTexImage3D@Base 361
  glCompressedTexSubImage2D@Base 361
  glCompressedTexSubImage3D@Base 361
  glCopyBufferSubData@Base 361
+ glCopyImageSubData@Base 375
  glCopyTexImage2D@Base 361
  glCopyTexSubImage2D@Base 361
  glCopyTexSubImage3D@Base 361
@@ -51,6 +58,9 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glCreateShader@Base 361
  glCreateShaderProgramv@Base 361
  glCullFace@Base 361
+ glDebugMessageCallback@Base 375
+ glDebugMessageControl@Base 375
+ glDebugMessageInsert@Base 375
  glDeleteBuffers@Base 361
  glDeleteFramebuffers@Base 361
  glDeleteProgram@Base 361
@@ -69,6 +79,7 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glDetachShader@Base 361
  glDisable@Base 361
  glDisableVertexAttribArray@Base 361
+ glDisablei@Base 375
  glDispatchCompute@Base 361
  glDispatchComputeIndirect@Base 361
  glDrawArrays@Base 361
@@ -76,11 +87,15 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glDrawArraysInstanced@Base 361
  glDrawBuffers@Base 361
  glDrawElements@Base 361
+ glDrawElementsBaseVertex@Base 375
  glDrawElementsIndirect@Base 361
  glDrawElementsInstanced@Base 361
+ glDrawElementsInstancedBaseVertex@Base 375
  glDrawRangeElements@Base 361
+ glDrawRangeElementsBaseVertex@Base 375
  glEnable@Base 361
  glEnableVertexAttribArray@Base 361
+ glEnablei@Base 375
  glEndQuery@Base 361
  glEndTransformFeedback@Base 361
  glFenceSync@Base 361
@@ -90,6 +105,7 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glFramebufferParameteri@Base 361
  glFramebufferRenderbuffer@Base 361
  glFramebufferTexture2D@Base 361
+ glFramebufferTexture@Base 375
  glFramebufferTextureLayer@Base 361
  glFrontFace@Base 361
  glGenBuffers@Base 361
@@ -114,17 +130,22 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glGetBufferParameteri64v@Base 361
  glGetBufferParameteriv@Base 361
  glGetBufferPointerv@Base 361
+ glGetDebugMessageLog@Base 375
  glGetError@Base 361
  glGetFloatv@Base 361
  glGetFragDataLocation@Base 361
  glGetFramebufferAttachmentParameteriv@Base 361
  glGetFramebufferParameteriv@Base 361
+ glGetGraphicsResetStatus@Base 375
  glGetInteger64i_v@Base 361
  glGetInteger64v@Base 361
  glGetIntegeri_v@Base 361
  glGetIntegerv@Base 361
  glGetInternalformativ@Base 361
  glGetMultisamplefv@Base 361
+ glGetObjectLabel@Base 375
+ glGetObjectPtrLabel@Base 375
+ glGetPointerv@Base 375
  glGetProgramBinary@Base 361
  glGetProgramInfoLog@Base 361
  glGetProgramInterfaceiv@Base 361
@@ -138,6 +159,8 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glGetQueryObjectuiv@Base 361
  glGetQueryiv@Base 361
  glGetRenderbufferParameteriv@Base 361
+ glGetSamplerParameterIiv@Base 375
+ glGetSamplerParameterIuiv@Base 375
  glGetSamplerParameterfv@Base 361
  glGetSamplerParameteriv@Base 361
  glGetShaderInfoLog@Base 361
@@ -149,6 +172,8 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glGetSynciv@Base 361
  glGetTexLevelParameterfv@Base 361
  glGetTexLevelParameteriv@Base 361
+ glGetTexParameterIiv@Base 375
+ glGetTexParameterIuiv@Base 375
  glGetTexParameterfv@Base 361
  glGetTexParameteriv@Base 361
  glGetTransformFeedbackVarying@Base 361
@@ -163,11 +188,15 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glGetVertexAttribPointerv@Base 361
  glGetVertexAttribfv@Base 361
  glGetVertexAttribiv@Base 361
+ glGetnUniformfv@Base 375
+ glGetnUniformiv@Base 375
+ glGetnUniformuiv@Base 375
  glHint@Base 361
  glInvalidateFramebuffer@Base 361
  glInvalidateSubFramebuffer@Base 361
  glIsBuffer@Base 361
  glIsEnabled@Base 361
+ glIsEnabledi@Base 375
  glIsFramebuffer@Base 361
  glIsProgram@Base 361
  glIsProgramPipeline@Base 361
@@ -184,9 +213,15 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glMapBufferRange@Base 361
  glMemoryBarrier@Base 361
  glMemoryBarrierByRegion@Base 361
+ glMinSampleShading@Base 375
+ glObjectLabel@Base 375
+ glObjectPtrLabel@Base 375
+ glPatchParameteri@Base 375
  glPauseTransformFeedback@Base 361
  glPixelStorei@Base 361
  glPolygonOffset@Base 361
+ glPopDebugGroup@Base 375
+ glPrimitiveBoundingBox@Base 375
  glProgramBinary@Base 361
  glProgramParameteri@Base 361
  glProgramUniform1f@Base 361
@@ -222,14 +257,18 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glProgramUniformMatrix4fv@Base 361
  glProgramUniformMatrix4x2fv@Base 361
  glProgramUniformMatrix4x3fv@Base 361
+ glPushDebugGroup@Base 375
  glReadBuffer@Base 361
  glReadPixels@Base 361
+ glReadnPixels@Base 375
  glReleaseShaderCompiler@Base 361
  glRenderbufferStorage@Base 361
  glRenderbufferStorageMultisample@Base 361
  glResumeTransformFeedback@Base 361
  glSampleCoverage@Base 361
  glSampleMaski@Base 361
+ glSamplerParameterIiv@Base 375
+ glSamplerParameterIuiv@Base 375
  glSamplerParameterf@Base 361
  glSamplerParameterfv@Base 361
  glSamplerParameteri@Base 361
@@ -243,8 +282,12 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glStencilMaskSeparate@Base 361
  glStencilOp@Base 361
  glStencilOpSeparate@Base 361
+ glTexBuffer@Base 375
+ glTexBufferRange@Base 375
  glTexImage2D@Base 361
  glTexImage3D@Base 361
+ glTexParameterIiv@Base 375
+ glTexParameterIuiv@Base 375
  glTexParameterf@Base 361
  glTexParameterfv@Base 361
  glTexParameteri@Base 361
@@ -252,6 +295,7 @@ libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  glTexStorage2D@Base 361
  glTexStorage2DMultisample@Base 361
  glTexStorage3D@Base 361
+ glTexStorage3DMultisample@Base 375
  glTexSubImage2D@Base 361
  glTexSubImage3D@Base 361
  glTransformFeedbackVaryings@Base 361
