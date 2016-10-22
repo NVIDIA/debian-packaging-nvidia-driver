@@ -18,6 +18,7 @@ nvidia-graphics-drivers (375.10-0~svn1) UNRELEASED; urgency=medium
       messages in kernel log files.
     - Fixed a bug that allowed nvidia-installer to attempt loading kernel
       modules that were built against non-running kernels.
+  * Update nv-readme.ids
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sat, 22 Oct 2016 13:51:08 +0100
 
