@@ -1,3 +1,26 @@
+nvidia-graphics-drivers (375.10-0~svn1) UNRELEASED; urgency=medium
+
+  * New upstream short lived branch release 375.10 (2016-10-20).
+    - Added support for the following GPUs: Quadro P6000, Quadro P5000,
+      GeForce GTX 1050, GeForce GTX 1050 Ti
+    - Added new X configuration options:
+        ForceCompositionPipeline
+        ForceFullCompositionPipeline
+      which override the MetaMode tokens with the same names.
+    - Fixed a bug that caused issues with panning and cursor constraining when
+      mixing PRIME-driven displays with natively driven displays.
+    - Fixed a bug that caused long delays when leaving the VT or disabling a
+      display device while an OpenGL application is running.
+    - Improved console restore behavior on systems that use the UEFI Graphics
+      Output Protocol, and most vesafb modes.
+    - Added support for the RandR TILE property added in RandR 1.5.
+    - Fixed a bug that prevented nvidia-bug-report.sh from finding relevant
+      messages in kernel log files.
+    - Fixed a bug that allowed nvidia-installer to attempt loading kernel
+      modules that were built against non-running kernels.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sat, 22 Oct 2016 13:51:08 +0100
+
 nvidia-graphics-drivers (370.28-1) experimental; urgency=medium
 
   * New upstream short lived branch release 370.28 (2016-09-08).
