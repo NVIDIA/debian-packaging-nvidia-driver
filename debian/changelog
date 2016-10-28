@@ -1,14 +1,14 @@
 nvidia-graphics-drivers (367.57-0~svn1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 367.57 (2016-10-10).
-    - Fixed a bug that could prevent systems with GPUs configured in SLI from
-      resuming correctly from ACPI S3/S4 sleep/hibernate states.
-    - Added support for NVIDIA 3D Vision 2 Stereo on Linux. This IR emitter
-      can be used with stereo mode "10" set in the X configuration file.
-    - Fixed a bug in nvidia-persistenced that caused it to incorrectly delete
-      the PID file if a second instance of the daemon is started.
-    - Fixed a bug that allowed nvidia-installer to attempt loading kernel
-      modules that were built against non-running kernels.
+    - Added support for the following GPUs: Quadro P6000, Tesla P40,
+      Quadro P5000.
+    - Added support for NVIDIA 3D Vision 2 Stereo on Linux. This IR emitter can
+      be used with stereo mode "10" set in the X configuration file.
+  * New upstream legacy 340xx branch release 340.98 (2016-09-26).
+    - Added support for the screen_info.ext_lfb_base field, on kernels that have
+      it, in order to properly handle UEFI framebuffer consoles with physical
+      addresses above 4GB.
   * Update nv-readme.ids.
   * man-fixes-nvidia-smi.patch: refresh, fails to apply on 367.57.
 
@@ -293,7 +293,7 @@ nvidia-graphics-drivers (361.45.18-1) experimental; urgency=medium
   * New upstream release 352 series.
     - Fixed a bug that prevented nvidia-bug-report.sh from finding
       relevant messages in kernel log files.
-  * New upstream release 304 series.
+  * New upstream legacy 304xx branch release 304.132 (2016-09-26).
     - Added /var/log/dmesg to the list of paths which are searched by
       nvidia-bug-report.sh for kernel messages.
     - Fixed a bug that caused kernel panics when using the NVIDIA driver
@@ -996,6 +996,8 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
     - Fixed a bug that artificially limited the maximum pixel clock on
       displays in some SLI Mosaic configurations.
   * New upstream release 346.47 (2015-02-24).
+    - Fixed a bug that could cause quad-buffered stereo applications to
+      crash when disabling displays.
     - Fixed a bug that could cause rendering corruption in GLX clients using
       PBOs and/or VBOs when using GLX indirect rendering.
     - Fixed a bug that could cause glXSwapBuffers() to block for longer than
