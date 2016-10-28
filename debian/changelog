@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (367.57-0~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (367.57-1) unstable; urgency=medium
 
   * New upstream long lived branch release 367.57 (2016-10-10).
     - Added support for the following GPUs: Quadro P6000, Tesla P40,
@@ -9,10 +9,12 @@ nvidia-graphics-drivers (367.57-0~svn1) UNRELEASED; urgency=medium
     - Added support for the screen_info.ext_lfb_base field, on kernels that have
       it, in order to properly handle UEFI framebuffer consoles with physical
       addresses above 4GB.
+
+  [ Luca Boccassi ]
   * Update nv-readme.ids.
   * man-fixes-nvidia-smi.patch: refresh, fails to apply on 367.57.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 10 Oct 2016 18:53:52 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 28 Oct 2016 13:00:00 +0200
 
 nvidia-graphics-drivers (367.44-3) unstable; urgency=medium
 
