@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.131-1+) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.132-1) UNRELEASED; urgency=medium
 
   The NVIDIA driver now automatically integrates with the Xorg configuration.
   Therefore it is no longer necessary to manually create an xorg.conf to
