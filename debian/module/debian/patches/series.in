@@ -12,4 +12,5 @@ not-silent.patch
 use-nv-kernel-ARCH.o_shipped.patch
 avoid-ld.gold.patch
 fix-typos.patch
+nvidia-user-pages.patch
 disable-mtrr.patch
