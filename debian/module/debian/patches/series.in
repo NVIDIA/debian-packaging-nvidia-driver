@@ -1,3 +1,7 @@
+# kernel support
+nvidia-user-pages.patch
+
+# build system updates
 separate-makefile-kbuild.patch
 KERNEL_UNAME.patch
 modernize-conftest.patch
@@ -12,5 +16,6 @@ not-silent.patch
 use-nv-kernel-ARCH.o_shipped.patch
 avoid-ld.gold.patch
 fix-typos.patch
-nvidia-user-pages.patch
+
+# 304xx specific
 disable-mtrr.patch
