@@ -1,9 +1,10 @@
-nvidia-graphics-drivers (367.57-2~svn0) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (367.57-2) unstable; urgency=medium
 
+  [ Luca Boccassi ]
   * Add nvidia-user-pages.patch to fix nvidia kernel module build failure
     for Linux 4.9.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 08 Nov 2016 20:26:23 +0000
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 11 Nov 2016 14:58:38 +0100
 
 nvidia-graphics-drivers (367.57-1) unstable; urgency=medium
 
