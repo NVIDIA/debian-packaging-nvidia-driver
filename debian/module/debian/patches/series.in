@@ -1,11 +1,17 @@
+# kernel support
+do-div-cast.patch
+nvidia-drm-master-dev.patch
+nvidia-user-pages.patch
+
+# build system updates
 use-kbuild-compiler.patch
 use-kbuild-flags.patch
 conftest-verbose.patch
 cc_version_check-gcc5.patch
 nvidia-use-ARCH.o_binary.patch
 nvidia-modeset-use-ARCH.o_binary.patch
-do-div-cast.patch
-nvidia-drm-master-dev.patch
+
+# armhf support
 include-swiotlb-header-on-arm.patch
 ignore_xen_on_arm.patch
 arm-outer-sync.patch
