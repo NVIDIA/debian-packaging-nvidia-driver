@@ -54,6 +54,8 @@ nvidia-graphics-drivers (340.98-0~svn4jessie) UNRELEASED; urgency=medium
   * ignore_xen_on_arm.patch: Update to add workaround for conftest.sh to fix
     kernel module build failure on armhf by forcing XEN_PRESENT=0 when
     building on armhf, thanks to Luca (352.79-2).
+  * Add nvidia-user-pages.patch to fix nvidia kernel module build failure
+    for Linux 4.9, thanks to Luca (367.57-2).
   * nvidia-detect: Update list of newer PCI IDs from release 352.79.
   * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
     (352.79-6).
@@ -1558,6 +1560,8 @@ nvidia-graphics-drivers (304.132-0~svn4jessie) UNRELEASED; urgency=medium
     building on 4.3 or greater, where the deprecated APIs the kernel module
     uses are no longer exported, causing a failure when the module is
     loaded at runtime. (Closes: #809324)
+  * Add nvidia-user-pages.patch to fix nvidia kernel module build failure
+    for Linux 4.9 (367.57-2).
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 13:04:27 +0100
 
