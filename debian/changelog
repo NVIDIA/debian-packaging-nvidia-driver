@@ -1,8 +1,6 @@
 nvidia-graphics-drivers (375.10-0~svn1) UNRELEASED; urgency=medium
 
   * New upstream short lived branch release 375.10 (2016-10-20).
-    - Added support for the following GPUs: Quadro P6000, Quadro P5000,
-      GeForce GTX 1050, GeForce GTX 1050 Ti
     - Added new X configuration options:
         ForceCompositionPipeline
         ForceFullCompositionPipeline
@@ -14,11 +12,6 @@ nvidia-graphics-drivers (375.10-0~svn1) UNRELEASED; urgency=medium
     - Improved console restore behavior on systems that use the UEFI Graphics
       Output Protocol, and most vesafb modes.
     - Added support for the RandR TILE property added in RandR 1.5.
-    - Fixed a bug that prevented nvidia-bug-report.sh from finding relevant
-      messages in kernel log files.
-    - Fixed a bug that allowed nvidia-installer to attempt loading kernel
-      modules that were built against non-running kernels.
-  * Update nv-readme.ids
   * Update symbols files
   * nvidia-drm-master-dev.patch: refresh, fails to apply on 375.10.
 
@@ -71,6 +64,8 @@ nvidia-graphics-drivers (367.57-2) unstable; urgency=medium
 nvidia-graphics-drivers (367.57-1) unstable; urgency=medium
 
   * New upstream long lived branch release 367.57 (2016-10-10).
+    - Fixed a bug that could prevent systems with GPUs configured in SLI from
+      resuming correctly from ACPI S3/S4 sleep/hibernate states.
     - Added support for the following GPUs: Quadro P6000, Tesla P40,
       Quadro P5000.
     - Added support for NVIDIA 3D Vision 2 Stereo on Linux. This IR emitter can
