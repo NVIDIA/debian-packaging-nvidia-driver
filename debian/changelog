@@ -44,6 +44,7 @@ nvidia-graphics-drivers (375.20-0~svn1) UNRELEASED; urgency=medium
   * Update symbols files
   * nvidia-drm-master-dev.patch: refresh, fails to apply on 375.10.
   * Update nv-readme.ids
+  * nvidia-user-pages.patch: drop, fixed upstream.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sat, 22 Oct 2016 13:51:08 +0100
 

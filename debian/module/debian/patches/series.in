@@ -1,7 +1,6 @@
 # kernel support
 do-div-cast.patch
 nvidia-drm-master-dev.patch
-nvidia-user-pages.patch
 
 # build system updates
 use-kbuild-compiler.patch
