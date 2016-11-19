@@ -4,13 +4,16 @@ libEGL.so.1 libegl1-mesa
  (arch=i386)AtomicDecrementClampAtZero@Base 375
  (arch=i386)AtomicIncrement@Base 375
  (arch=i386)AtomicSwap@Base 375
+ (arch=i386)CheckFork@Base 375.20
  (arch=i386)FindNextStringToken@Base 375
  (arch=i386)FreeExecPages@Base 375
  (arch=i386)GLVND_THREAD_NULL@Base 375
  (arch=i386)InitDeviceListInternal@Base 375
+ (arch=i386)IntersectionExtensionStrings@Base 375.20
  (arch=i386)IsTokenInString@Base 375
 #MISSING: 355# NvEglRegClientApi@Base 331
  (arch=i386)SplitString@Base 375
+ (arch=i386)UnionExtensionStrings@Base 375.20
  (arch=i386)__EGL_DISPATCH_FUNCS@Base 375
  (arch=i386)__EGL_DISPATCH_FUNC_COUNT@Base 375
  (arch=i386)__EGL_DISPATCH_FUNC_INDICES@Base 375

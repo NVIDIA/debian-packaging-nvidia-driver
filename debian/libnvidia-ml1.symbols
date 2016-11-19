@@ -66,6 +66,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetNvLinkUtilizationControl@Base 361.42
  nvmlDeviceGetNvLinkUtilizationCounter@Base 361
  nvmlDeviceGetNvLinkVersion@Base 361
+ nvmlDeviceGetP2PStatus@Base 375.20
  nvmlDeviceGetPciInfo@Base 270
  nvmlDeviceGetPciInfo_v2@Base 285
  nvmlDeviceGetPcieReplayCounter@Base 346

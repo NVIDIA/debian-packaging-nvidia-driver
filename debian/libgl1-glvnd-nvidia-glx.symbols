@@ -2,8 +2,10 @@
  AllocExecPages@Base 361
  FindNextStringToken@Base 375
  FreeExecPages@Base 361
+ IntersectionExtensionStrings@Base 375.20
  IsTokenInString@Base 375
  SplitString@Base 375
+ UnionExtensionStrings@Base 375.20
  __glXWrapperInit@Base 361
  entry_generate_default_code@Base 361
  entry_get_patch_addresses@Base 361

@@ -2500,6 +2500,6 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glWindowPos3sARB@Base 346
  _glWindowPos3sv@Base 346
  _glWindowPos3svARB@Base 346
- _glWindowRectanglesEXT@Base 367.36.02
+#MISSING: 375.20# _glWindowRectanglesEXT@Base 367.36.02
 libnvidia-glsi.so.#VERSION# #PACKAGE# #MINVER#
  (regex)"^_nv\d*glsi@Base$" 0
