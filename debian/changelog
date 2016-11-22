@@ -47,6 +47,7 @@ nvidia-graphics-drivers (375.20-0~svn1) UNRELEASED; urgency=medium
   * Update nv-readme.ids
   * nvidia-user-pages.patch: drop, fixed upstream.
   * Add support for the xorg-video-abi-23 in the xserver-xorg-video-nvidia package.
+  * Ship non-glvnd EGL library in the libegl1-nvidia packages.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sat, 22 Oct 2016 13:51:08 +0100
 

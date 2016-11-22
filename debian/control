@@ -349,10 +349,10 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Breaks:
- libegl1-nvidia (<< 355.11-3),
+Conflicts:
+ libegl1-nvidia,
 Replaces:
- libegl1-nvidia (<< 355.11-3),
+ libegl1-nvidia,
 Description: NVIDIA binary EGL GLVND stub library
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES.
@@ -369,14 +369,18 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- libegl-${nvidia}0 (= ${binary:Version}),
+ ${nvidia}-alternative (= ${binary:Version}),
  ${misc:Depends}
+Conflicts:
+ libegl1-glvnd-nvidia,
+Replaces:
+ libegl1-glvnd-nvidia,
 Description: NVIDIA binary EGL library (transitional)${nvidia:LegacyDesc}
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES.
  .
- This is a transitional package to aid switching to the GLVND based
- implementation.
+ This package contains the driver specific binary EGL implementation by NVIDIA
+ as a non-glvnd alternative.
 
 #Package: libegl-${nvidia}0
 Package: libegl-nvidia0
@@ -386,7 +390,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libegl1-glvnd | libegl1-glvnd-nvidia,
+ libegl1-glvnd | libegl1-glvnd-nvidia | libegl1-${nvidia} (= ${binary:Version}),
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary EGL library${nvidia:LegacyDesc}
