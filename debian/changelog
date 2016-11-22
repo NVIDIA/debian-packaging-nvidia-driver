@@ -46,6 +46,7 @@ nvidia-graphics-drivers (375.20-0~svn1) UNRELEASED; urgency=medium
   * nvidia-drm-master-dev.patch: refresh, fails to apply on 375.10.
   * Update nv-readme.ids
   * nvidia-user-pages.patch: drop, fixed upstream.
+  * Add support for the xorg-video-abi-23 in the xserver-xorg-video-nvidia package.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sat, 22 Oct 2016 13:51:08 +0100
 
