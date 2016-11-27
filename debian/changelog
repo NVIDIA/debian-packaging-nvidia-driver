@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (375.20-0~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
 
   * New upstream long lived branch release 375.20 (2016-11-18).
     (Closes: #845000)
@@ -49,7 +49,7 @@ nvidia-graphics-drivers (375.20-0~svn1) UNRELEASED; urgency=medium
   * Add support for the xorg-video-abi-23 in the xserver-xorg-video-nvidia package.
   * Ship non-glvnd EGL library in the libegl1-nvidia packages.
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Sat, 22 Oct 2016 13:51:08 +0100
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 27 Nov 2016 12:14:53 +0000
 
 nvidia-graphics-drivers (370.28-1) experimental; urgency=medium
 
