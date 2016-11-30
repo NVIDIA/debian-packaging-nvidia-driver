@@ -9,6 +9,7 @@ nvidia-graphics-drivers (367.57-2) unstable; urgency=medium
 nvidia-graphics-drivers (367.57-1) unstable; urgency=medium
 
   * New upstream long lived branch release 367.57 (2016-10-10).
+    * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
     - Added support for the following GPUs: Quadro P6000, Tesla P40,
       Quadro P5000.
     - Added support for NVIDIA 3D Vision 2 Stereo on Linux. This IR emitter can
