@@ -91,9 +91,9 @@ then
 	VERSIONS[304]=304.123
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-352.ids 2>/dev/null
+if grep -q -i $NVGA $IDLISTDIR/nvidia-367.ids 2>/dev/null
 then
-	VERSIONS[352]=352.79
+	VERSIONS[367]=367.57
 fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia.ids 2>/dev/null
@@ -159,7 +159,7 @@ fi
 		elif [[ -n ${VERSIONS[304]} ]]; then
 			echo "Your card is only supported up to the 304 legacy drivers series."
 			PACKAGE="nvidia-legacy-304xx-driver"
-		elif [[ -n ${VERSIONS[352]} ]]; then
+		elif [[ -n ${VERSIONS[367]} ]]; then
 			echo "Your card is only supported by a newer driver that is available in jessie-backports."
 			echo "See http://backports.debian.org for instructions how to use backports."
 			echo "You may also find newer driver packages in experimental."
