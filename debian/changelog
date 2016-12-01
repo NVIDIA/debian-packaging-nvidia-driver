@@ -9,35 +9,22 @@ nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
 
   * New upstream long lived branch release 375.20 (2016-11-18).
     (Closes: #845000)
-    - Added support for the following GPUs: GeForce GTX 1050,
-      GeForce GTX 1050 Ti, Quadro M620, Quadro M5000 SE, Quadro M3000 SE
     - Fixed a bug that could cause displays in SLI Mosaic to blank when
       applying a transformation matrix.
     - Added EGL support to the GL Vendor Neutral Dispatch Library (libGLVND).
       The installer package now includes both GLVND and non-GLVND versions of
       the EGL libraries: the --glvnd-egl-client and --no-glvnd-egl-client
       options in nvidia-installer can be used to select which to install.
+    - Added support for the following GPUs: GeForce GTX 1050,
+      GeForce GTX 1050 Ti, Quadro M620, Quadro M5000 SE, Tesla P100-PCIE-12GB,
+      Tesla P100-PCIE-16GB, Tesla P100-SXM2-16GB, Tesla P4.
     - Fixed a bug that prevented G-SYNC from working on notebook displays.
     - Fixed a bug that caused DisplayPort multistream devices to go blank after
       the console is restored.
-    - Fixed a bug that caused a kernel crash when starting X for the second
-      time when more than one DisplayPort multistream device is connected to a
-      single DisplayPort connector via a branch device.
-    - Updated nvidia-settings to not have a build-time dependence on an
-      external nvml development package (a regression introduced in 375.10).
-    - Fixed a crash in nvidia-settings when adding Application Profile Rule and
-      Profile entries.
-    - Removed the "Enable Tooltip" option in nvidia-settings for the GTK 2
-      interface.
-    - Added support for the RandR TILE property added in RandR 1.5.
-    - Raised the on-disk OpenGL shader cache size from 64MB to 128MB. Refer to
-      the "Specifying OpenGL Environment Variable Settings" section of the
-      driver README for details on how to select its location or disable it.
-    - Fixed a bug in synchronization primitives shared between X and OpenGL.
-    - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
-    - Fixed a bug that allowed nvidia-installer to attempt loading kernel
-      modules that were built against non-running kernels.
-  * New upstream short lived branch release 375.10 (2016-10-20).
+    - Fixed a bug that caused a kernel crash when starting X for the second time
+      when more than one DisplayPort multistream device is connected to a single
+      DisplayPort connector via a branch device.
+  * New upstream beta 375.10 (2016-10-20).
     - Added new X configuration options:
         ForceCompositionPipeline
         ForceFullCompositionPipeline
@@ -49,6 +36,15 @@ nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
     - Improved console restore behavior on systems that use the UEFI Graphics
       Output Protocol, and most vesafb modes.
     - Added support for the RandR TILE property added in RandR 1.5.
+    - Raised the on-disk OpenGL shader cache size from 64MB to 128MB. Refer to
+      the "Specifying OpenGL Environment Variable Settings" section of the
+      driver README for details on how to select its location or disable it.
+  * New upstream release 367 series.
+    - Fixed a bug in synchronization primitives shared between X and OpenGL.
+  * New upstream legacy 304xx branch release series.
+    - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
+
+  [ Luca Boccassi ]
   * Update symbols files
   * nvidia-drm-master-dev.patch: refresh, fails to apply on 375.10.
   * Update nv-readme.ids
