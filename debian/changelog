@@ -92,7 +92,7 @@ nvidia-graphics-drivers (367.35-1) experimental; urgency=medium
     - Added support for the following GPUs: GeForce GTX 1080, GeForce GTX 1070.
     - Fixed a bug that caused the X server to sometimes skip displaying Vulkan
       frames when the Composite extension is enabled.
-  * New upstream beta release 367.18 (2016-05-19).
+  * New upstream beta 367.18 (2016-05-19).
     - Fixed a bug that would cause OpenGL applications to crash when creating
       a context on one X display connection, then making it current with no
       associated drawable on another X display connection.  This fixes a crash
@@ -149,7 +149,7 @@ nvidia-graphics-drivers (364.19-1) experimental; urgency=medium
     - Fixed some locking issues in libnvidia-egl-wayland.so.
     - Fixed several libnvidia-egl-wayland.so interaction problems with
       buffer management Wayland protocols.
-  * New upstream beta release 364.15 (2016-04-06).
+  * New upstream beta 364.15 (2016-04-06).
     - Fixed several EGL driver interaction problems with resizing windows
       in Wayland.
     - Fixed a bug that caused some DRM PRIME configurations to fail when
@@ -157,7 +157,7 @@ nvidia-graphics-drivers (364.19-1) experimental; urgency=medium
       parameter was set to "1").
     - Fixed a bug that could cause a kernel crash when VDPAU was used
       while DRM KMS was enabled.
-  * New upstream beta release 364.12 (2016-03-21).
+  * New upstream beta 364.12 (2016-03-21).
     - Changed the default OpenGL installation type to use the GLVND GLX
       client libraries rather than the legacy non-GLVND libraries.
     - Added initial support for Direct Rendering Manager Kernel
