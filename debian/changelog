@@ -9,7 +9,7 @@ nvidia-graphics-drivers (370.28-1) experimental; urgency=medium
     - Updated CurrentMetaMode reporting via the NV-CONTROL API to reflect
       whether ForceCompositionPipeline or ForceFullCompositionPipeline are
       set in the current MetaMode.
-  * New upstream beta release 370.23 (2016-08-15).
+  * New upstream beta 370.23 (2016-08-15).
     - Added the ability to over- and under-clock certain GeForce
       GPUs in the GeForce GTX 1000 series and later.  For GPUs that allow it,
       an offset can be applied to clock values in some clock domains of
@@ -26,9 +26,7 @@ nvidia-graphics-drivers (370.28-1) experimental; urgency=medium
       8K pixel shift displays.  See the README for details.
 
   [ Luca Boccassi ]
-  * Update nv-readme.ids
   * Update symbols files
-  * drm-gem-object-lookup.patch, radix-tree-empty.patch: Drop, fixed upstream.
   * man-fixes-nvidia-smi.patch: refresh, fails to apply on 370.28.
   * Upload to experimental.
 
