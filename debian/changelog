@@ -752,6 +752,8 @@ nvidia-graphics-drivers (352.63-1) experimental; urgency=medium
     - Fixed a bug that could prevent X from starting when configured with
       multiple X screens, some of which scan out to display devices, and
       some of which do not.
+
+  [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * Merge changes from 340.96-2.
 
@@ -776,6 +778,8 @@ nvidia-graphics-drivers (352.55-1) experimental; urgency=medium
     - Fixed a bug that caused applications using OpenCL or CUDA with OpenGL
       interopability to crash when using GLX indirect rendering.
     * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
   * Merge changes from 340.93-5.
   * seq-printf.patch: Remove, fixed upstream.
   * libcuda1: Add Provides: libcuda-7.5-1{,-i386}.
@@ -943,6 +947,8 @@ nvidia-graphics-drivers (349.16-1) unstable; urgency=low
       some X configuration options when a display device name was given
       with a GPU UUID qualifier.
     * Add support for OpenCL 1.2.
+
+  [ Andreas Beckmann ]
   * Update symbols control files.
   * nvidia-libopencl1: Add Provides: libopencl-1.2-1.
   * Restrict watch file to releases from the 349.xx short lived branch.
@@ -961,6 +967,8 @@ nvidia-graphics-drivers (346.96-1) unstable; urgency=low
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
       GeForce GTX 980 Ti.
+
+  [ Andreas Beckmann ]
   * Merge changes from 343.36-3.
   * Update nv-readme.ids.
   * UVM is no longer available on 32-bit architectures.
@@ -985,6 +993,8 @@ nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
       allows for this (the source or destination lines will be overlapping).
       Previously, our implementation of Pixel Buffer Objects did not support
       this case and would throw an error.
+
+  [ Vincent Cheng ]
   * Fix conftest.sh function write_cr4.
   * Update lintian overrides.
   * Apply patch provided by Luca Boccassi, cherrypicked from SteamOS; also
@@ -1072,6 +1082,8 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
     - Removed the limit on the maximum number of OpenGL Framebuffer Objects.
     - Updated the NVIDIA OpenGL driver to prefer $XDG_CACHE_HOME over
       $HOME as the default location for storing the GL shader disk cache.
+
+  [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * f_path.dentry.patch: Remove, fixed upstream.
   * Refresh patches.
@@ -1106,6 +1118,8 @@ nvidia-graphics-drivers (343.36-1) experimental; urgency=medium
     - Fixed a bug that rendered very bright garbage data onto some textures
       in UnrealEngine 4 applications. This issue is known as the "disco bug"
       by the UnrealEngine 4 Linux community.
+
+  [ Andreas Beckmann ]
   * Merge changes from 340.65-1.
   * nvidia-opencl-icd: Restore the Depends: libcuda1.
 
@@ -1144,6 +1158,8 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
       chipsets based on them. Ongoing support for new Linux kernels
       and X servers, as well as fixes for critical bugs, will be
       included in 340.* legacy releases through the end of 2019.
+
+  [ Andreas Beckmann ]
   * Update symbols control files.
   * Update nv-readme.ids.
   * conftest.h: Implement extensions to conftest.sh function
