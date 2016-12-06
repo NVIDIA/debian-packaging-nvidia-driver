@@ -603,6 +603,40 @@ Description: NVIDIA binary EGL wayland libraries${nvidia:LegacyDesc}
  This package contains the private wayland libraries used by the NVIDIA
  implementation of EGL.
 
+Package: nvidia-egl-common
+Architecture: i386 amd64 armhf
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends}
+Recommends:
+ libegl-${nvidia}0,
+Description: NVIDIA binary EGL driver - common files
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES.
+ .
+ This package provides the common files for the NVIDIA installable client
+ driver (ICD) for EGL via GLVND.
+
+#Package: ${nvidia}-egl-icd
+Package: nvidia-egl-icd
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Depends:
+ nvidia-egl-common,
+ libegl1-glvnd | libegl1-glvnd-nvidia,
+ libegl-${nvidia}0 (= ${binary:Version}),
+ ${misc:Depends}
+Enhances:
+ libegl1-glvnd,
+Provides:
+ egl-icd,
+Description: NVIDIA EGL installable client driver (ICD)
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES.
+ .
+ This metapackage provides the NVIDIA installable client driver (ICD) for
+ EGL via GLVND which supports NVIDIA GPUs.
+
 Package: nvidia-vulkan-common
 Architecture: i386 amd64
 Multi-Arch: foreign
