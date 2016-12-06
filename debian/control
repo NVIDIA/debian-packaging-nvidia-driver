@@ -97,9 +97,8 @@ Package: nvidia-driver-libs
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
- lib${nvidia}-glcore (= ${binary:Version}),
  libgl1-${nvidia}-glvnd-glx (= ${binary:Version}) | libgl1-${nvidia}-glx (= ${binary:Version}),
- libegl-${nvidia}0 (= ${binary:Version}),
+ ${nvidia}-egl-icd (= ${binary:Version}) | libegl1-${nvidia} (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
@@ -389,6 +388,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
+ libegl-${nvidia}0 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary EGL library (non-GLVND variant)${nvidia:LegacyDesc}
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
@@ -405,7 +405,6 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libegl1-glvnd | libegl1-glvnd-nvidia | libegl1-${nvidia} (= ${binary:Version}),
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary EGL library${nvidia:LegacyDesc}
