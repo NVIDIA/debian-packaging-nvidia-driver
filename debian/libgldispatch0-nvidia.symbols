@@ -1,4 +1,4 @@
-libGLdispatch.so.0 glvnd-nvidia-abi-361.45, libgldispatch0 | #PACKAGE# #MINVER#
+libGLdispatch.so.0 glvnd-nvidia-abi-375.20, libgldispatch0 | #PACKAGE# #MINVER#
 #MISSING: 361# AllocExecPages@Base 355
 #MISSING: 361# FreeExecPages@Base 355
 #MISSING: 361# GLVND_THREAD_NULL@Base 355
