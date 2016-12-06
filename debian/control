@@ -350,9 +350,9 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
- libegl1-nvidia,
+ libegl1-${nvidia},
 Replaces:
- libegl1-nvidia,
+ libegl1-${nvidia},
 Description: NVIDIA binary EGL GLVND stub library
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES.
@@ -362,25 +362,19 @@ Description: NVIDIA binary EGL GLVND stub library
 
 #Package: libegl1-${nvidia}
 Package: libegl1-nvidia
-Section: non-free/oldlibs
-Priority: extra
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- ${misc:Depends}
-Conflicts:
- libegl1-glvnd-nvidia,
-Replaces:
- libegl1-glvnd-nvidia,
-Description: NVIDIA binary EGL library (transitional)${nvidia:LegacyDesc}
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA binary EGL library (non-GLVND variant)${nvidia:LegacyDesc}
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES.
  .
  This package contains the driver specific binary EGL implementation by NVIDIA
- as a non-glvnd alternative.
+ as a non-GLVND alternative.
 
 #Package: libegl-${nvidia}0
 Package: libegl-nvidia0

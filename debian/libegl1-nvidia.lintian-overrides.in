@@ -1,7 +1,5 @@
 # The NVIDIA license does not allow any form of modification.
 [!amd64]: binary-file-built-without-LFS-support
-shlib-calls-exit
-[i386]: shlib-with-non-pic-code
 hardening-no-bindnow
 hardening-no-fortify-functions
 hardening-no-relro
@@ -9,7 +7,7 @@ hardening-no-stackprotector
 
 # Packages built against the NVIDIA libEGL should declare dependencies on
 # the free version for Debian's purposes.
-symbols-declares-dependency-on-other-package libegl1
+symbols-declares-dependency-on-other-package libegl1-mesa
 
 # Lintian and debhelper disagree w.r.t. a library in a private directory.
 package-has-unnecessary-activation-of-ldconfig-trigger
