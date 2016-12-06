@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (375.20-3) UNRELEASED; urgency=medium
 
   * nvidia-egl-common, nvidia-egl-icd: New packages for EGL as ICD via GLVND.
+  * libgl1-nvidia-glvnd-glx: New metapackage for the GLVND variant.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 06 Dec 2016 10:46:42 +0100
 
