@@ -73,6 +73,7 @@ nvidia-graphics-drivers (304.132-0~svn4stretch) UNRELEASED; urgency=medium
     nvidia-driver-libs-i386 metapackage.
   * libnvidia-glcore: New package, split from libgl1-nvidia-glx.
   * libnvidia-cfg1: New package, split from libgl1-nvidia-glx.
+  * Overhaul package descriptions.
 
   [ Luca Boccassi ]
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
