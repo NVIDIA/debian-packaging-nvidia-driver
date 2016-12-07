@@ -52,7 +52,7 @@ Replaces:
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary driver and libraries
  that provide optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server.
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server.
  .
  ${nvidia:kmod:Description}
  .
@@ -84,8 +84,8 @@ Replaces:
  nvidia-glx${nvidia:Legacy} (<< 319),
 Description: NVIDIA driver support binaries${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  This package contains supporting binaries for the driver.
 
@@ -150,8 +150,8 @@ Replaces:
  glx-alternative-nvidia (<< 0.6.91),
 Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  ${nvidia:kmod:Description}
  .
@@ -198,8 +198,8 @@ Provides:
  libgl1-nvidia-glx-any,
 Description: NVIDIA binary OpenGL/GLX library${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  See the description of the ${nvidia}-driver package
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
@@ -224,8 +224,8 @@ Replaces:
  libgl1-${nvidia}-glx (<= 340.96-4),
 Description: NVIDIA binary OpenGL/GLX core libraries${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  This package contains the private core libraries used by the NVIDIA
  implementation of OpenGL and GLX.
@@ -335,8 +335,8 @@ Provides:
  libnvidia-cfg1-any,
 Description: NVIDIA binary OpenGL/GLX configuration library${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  This package contains the libnvidia-cfg.so.1 runtime library.
 
@@ -394,8 +394,8 @@ Replaces:
  glx-alternative-nvidia (<< 0.6.91),
 Description: NVIDIA binary kernel module support files${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  This package provides supporting configuration for the kernel module.
 
@@ -422,8 +422,8 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  any new kernel headers that are installed.
  .
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  ${nvidia:Models}
  .
@@ -455,8 +455,8 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  for use by module-assistant or kernel-package.
  .
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  PLEASE read /usr/share/doc/${nvidia}-kernel-source/README.Debian.gz
  for building information.  If you want the kernel module to be automatically
@@ -641,7 +641,7 @@ Pre-Depends:
 Depends:
  ${libcuda1} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVENC Video Encoding runtime library
+Description: NVENC Video Encoding runtime library${nvidia:LegacyDesc}
  The NVENC Video Encoding library provides an interface to video encoder
  hardware on supported NVIDIA GPUs.
  .
@@ -656,7 +656,7 @@ Pre-Depends:
 Depends:
  ${libcuda1} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA OpenGL-based Inband Frame Readback runtime library
+Description: NVIDIA OpenGL-based Inband Frame Readback runtime library${nvidia:LegacyDesc}
  The NVIDIA OpenGL-based Inband Frame Readback (NvIFROpenGL) library provides
  a high performance, low latency interface to capture and optionally encode an
  OpenGL framebuffer. NvIFROpenGL is a private API that is only available to
@@ -673,7 +673,7 @@ Pre-Depends:
 Depends:
  ${libcuda1} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA OpenGL-based Framebuffer Capture runtime library
+Description: NVIDIA OpenGL-based Framebuffer Capture runtime library${nvidia:LegacyDesc}
  The NVIDIA OpenGL-based Framebuffer Capture (NvFBCOpenGL) library provides
  a high performance, low latency interface to capture and optionally encode an
  OpenGL framebuffer. NvFBCOpenGL is a private API that is only available to
