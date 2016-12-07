@@ -190,10 +190,8 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
- libglvnd-nvidia,
  libgldispatch0,
 Replaces:
- libglvnd-nvidia,
  libgldispatch0,
 Provides:
  glvnd-nvidia-abi-361.45,
@@ -212,12 +210,8 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
- libglvnd-nvidia,
- libopengl0-nvidia,
  libopengl0,
 Replaces:
- libglvnd-nvidia,
- libopengl0-nvidia,
  libopengl0,
 Description: Vendor neutral GL dispatch library -- libOpenGL
  This is an implementation of the vendor-neutral dispatch layer for
@@ -231,10 +225,8 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Conflicts:
  libglx0,
- libglx0-nvidia,
 Replaces:
  libglx0,
- libglx0-nvidia,
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
