@@ -1,12 +1,13 @@
-nvidia-graphics-drivers (370.28-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (370.28-2) unstable; urgency=medium
 
   * Updated Italian (it) debconf translations by Beatrice Torracca.
     (Closes: #846933)
   * Overhaul package descriptions.
   * Add (Build)-Conflicts against currently incompatible libglvnd0 and
     libglvnd-dev from src:libglvnd.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 07 Dec 2016 12:48:50 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 07 Dec 2016 13:03:23 +0100
 
 nvidia-graphics-drivers (370.28-1) experimental; urgency=medium
 
