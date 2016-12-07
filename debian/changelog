@@ -2,6 +2,7 @@ nvidia-graphics-drivers (375.20-3) UNRELEASED; urgency=medium
 
   * nvidia-egl-common, nvidia-egl-icd: New packages for EGL as ICD via GLVND.
   * libgl1-nvidia-glvnd-glx: New metapackage for the GLVND variant.
+  * Merge changes from 370.28-2.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 06 Dec 2016 10:46:42 +0100
 
@@ -61,6 +62,17 @@ nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 27 Nov 2016 12:14:53 +0000
 
+nvidia-graphics-drivers (370.28-2) unstable; urgency=medium
+
+  * Updated Italian (it) debconf translations by Beatrice Torracca.
+    (Closes: #846933)
+  * Overhaul package descriptions.
+  * Add (Build)-Conflicts against currently incompatible libglvnd0 and
+    libglvnd-dev from src:libglvnd.
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 07 Dec 2016 13:03:23 +0100
+
 nvidia-graphics-drivers (370.28-1) experimental; urgency=medium
 
   * New upstream short lived branch release 370.28 (2016-09-08).
@@ -72,7 +84,7 @@ nvidia-graphics-drivers (370.28-1) experimental; urgency=medium
     - Updated CurrentMetaMode reporting via the NV-CONTROL API to reflect
       whether ForceCompositionPipeline or ForceFullCompositionPipeline are
       set in the current MetaMode.
-  * New upstream beta release 370.23 (2016-08-15).
+  * New upstream beta 370.23 (2016-08-15).
     - Added the ability to over- and under-clock certain GeForce
       GPUs in the GeForce GTX 1000 series and later.  For GPUs that allow it,
       an offset can be applied to clock values in some clock domains of
@@ -89,9 +101,7 @@ nvidia-graphics-drivers (370.28-1) experimental; urgency=medium
       8K pixel shift displays.  See the README for details.
 
   [ Luca Boccassi ]
-  * Update nv-readme.ids
   * Update symbols files
-  * drm-gem-object-lookup.patch, radix-tree-empty.patch: Drop, fixed upstream.
   * man-fixes-nvidia-smi.patch: refresh, fails to apply on 370.28.
   * Upload to experimental.
 
@@ -110,14 +120,24 @@ nvidia-graphics-drivers (367.57-1) unstable; urgency=medium
   * New upstream long lived branch release 367.57 (2016-10-10).
     - Fixed a bug that could prevent systems with GPUs configured in SLI from
       resuming correctly from ACPI S3/S4 sleep/hibernate states.
+    * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
     - Added support for the following GPUs: Quadro P6000, Tesla P40,
       Quadro P5000.
     - Added support for NVIDIA 3D Vision 2 Stereo on Linux. This IR emitter can
       be used with stereo mode "10" set in the X configuration file.
   * New upstream legacy 340xx branch release 340.98 (2016-09-26).
-    - Added support for the screen_info.ext_lfb_base field, on kernels that have
-      it, in order to properly handle UEFI framebuffer consoles with physical
-      addresses above 4GB.
+    * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
+    - Added support for the screen_info.ext_lfb_base field, on kernels that
+      have it, in order to properly handle UEFI framebuffer consoles with
+      physical addresses above 4GB.
+    * Improved compatibility with recent Linux kernels.
+  * New upstream legacy 304xx branch release 304.132 (2016-09-26).
+    * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
+    - Added /var/log/dmesg to the list of paths which are searched by
+      nvidia-bug-report.sh for kernel messages.
+    - Fixed a bug that caused kernel panics when using the NVIDIA driver on
+      v4.5 and newer Linux kernels built with CONFIG_DEBUG_VM_PGFLAGS.
+    * Improved compatibility with recent Linux kernels.
 
   [ Luca Boccassi ]
   * Update nv-readme.ids.
@@ -192,7 +212,7 @@ nvidia-graphics-drivers (367.35-1) experimental; urgency=medium
     - Added support for the following GPUs: GeForce GTX 1080, GeForce GTX 1070.
     - Fixed a bug that caused the X server to sometimes skip displaying Vulkan
       frames when the Composite extension is enabled.
-  * New upstream beta release 367.18 (2016-05-19).
+  * New upstream beta 367.18 (2016-05-19).
     - Fixed a bug that would cause OpenGL applications to crash when creating
       a context on one X display connection, then making it current with no
       associated drawable on another X display connection.  This fixes a crash
@@ -249,7 +269,7 @@ nvidia-graphics-drivers (364.19-1) experimental; urgency=medium
     - Fixed some locking issues in libnvidia-egl-wayland.so.
     - Fixed several libnvidia-egl-wayland.so interaction problems with
       buffer management Wayland protocols.
-  * New upstream beta release 364.15 (2016-04-06).
+  * New upstream beta 364.15 (2016-04-06).
     - Fixed several EGL driver interaction problems with resizing windows
       in Wayland.
     - Fixed a bug that caused some DRM PRIME configurations to fail when
@@ -257,7 +277,7 @@ nvidia-graphics-drivers (364.19-1) experimental; urgency=medium
       parameter was set to "1").
     - Fixed a bug that could cause a kernel crash when VDPAU was used
       while DRM KMS was enabled.
-  * New upstream beta release 364.12 (2016-03-21).
+  * New upstream beta 364.12 (2016-03-21).
     - Changed the default OpenGL installation type to use the GLVND GLX
       client libraries rather than the legacy non-GLVND libraries.
     - Added initial support for Direct Rendering Manager Kernel
@@ -852,6 +872,8 @@ nvidia-graphics-drivers (352.63-1) experimental; urgency=medium
     - Fixed a bug that could prevent X from starting when configured with
       multiple X screens, some of which scan out to display devices, and
       some of which do not.
+
+  [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * Merge changes from 340.96-2.
 
@@ -876,6 +898,8 @@ nvidia-graphics-drivers (352.55-1) experimental; urgency=medium
     - Fixed a bug that caused applications using OpenCL or CUDA with OpenGL
       interopability to crash when using GLX indirect rendering.
     * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
   * Merge changes from 340.93-5.
   * seq-printf.patch: Remove, fixed upstream.
   * libcuda1: Add Provides: libcuda-7.5-1{,-i386}.
@@ -1043,6 +1067,8 @@ nvidia-graphics-drivers (349.16-1) unstable; urgency=low
       some X configuration options when a display device name was given
       with a GPU UUID qualifier.
     * Add support for OpenCL 1.2.
+
+  [ Andreas Beckmann ]
   * Update symbols control files.
   * nvidia-libopencl1: Add Provides: libopencl-1.2-1.
   * Restrict watch file to releases from the 349.xx short lived branch.
@@ -1061,6 +1087,8 @@ nvidia-graphics-drivers (346.96-1) unstable; urgency=low
     - Added support for the following GPUs: Tesla K40t, GeForce 720A,
       GeForce 920A, GeForce 930A, GeForce 940A, GeForce GTX 950A,
       GeForce GTX 980 Ti.
+
+  [ Andreas Beckmann ]
   * Merge changes from 343.36-3.
   * Update nv-readme.ids.
   * UVM is no longer available on 32-bit architectures.
@@ -1085,6 +1113,8 @@ nvidia-graphics-drivers (346.72-1) experimental; urgency=medium
       allows for this (the source or destination lines will be overlapping).
       Previously, our implementation of Pixel Buffer Objects did not support
       this case and would throw an error.
+
+  [ Vincent Cheng ]
   * Fix conftest.sh function write_cr4.
   * Update lintian overrides.
   * Apply patch provided by Luca Boccassi, cherrypicked from SteamOS; also
@@ -1172,6 +1202,8 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
     - Removed the limit on the maximum number of OpenGL Framebuffer Objects.
     - Updated the NVIDIA OpenGL driver to prefer $XDG_CACHE_HOME over
       $HOME as the default location for storing the GL shader disk cache.
+
+  [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * f_path.dentry.patch: Remove, fixed upstream.
   * Refresh patches.
@@ -1206,6 +1238,8 @@ nvidia-graphics-drivers (343.36-1) experimental; urgency=medium
     - Fixed a bug that rendered very bright garbage data onto some textures
       in UnrealEngine 4 applications. This issue is known as the "disco bug"
       by the UnrealEngine 4 Linux community.
+
+  [ Andreas Beckmann ]
   * Merge changes from 340.65-1.
   * nvidia-opencl-icd: Restore the Depends: libcuda1.
 
@@ -1244,6 +1278,8 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
       chipsets based on them. Ongoing support for new Linux kernels
       and X servers, as well as fixes for critical bugs, will be
       included in 340.* legacy releases through the end of 2019.
+
+  [ Andreas Beckmann ]
   * Update symbols control files.
   * Update nv-readme.ids.
   * conftest.h: Implement extensions to conftest.sh function
@@ -1294,6 +1330,8 @@ nvidia-graphics-drivers (340.96-1) jessie; urgency=medium
   * New upstream legacy 340xx branch release 340.96 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
     * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
   * Merge changes from 304.131-1 (wheezy).
   * Add xorg-video-abi-20 as alternative dependency.
   * conftest.h:
@@ -1452,6 +1490,8 @@ nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
     - Fixed a bug that prevented OpenGL from properly recovering from
       hardware errors or sync object waits that had timed out.
     * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
   * fixes-for-kernel-4.0.0.patch: Remove, fixed upstream.
   * conftest.h:
     - Implement new conftest.sh function nvidia_grid_build (352.41).
@@ -1547,6 +1587,8 @@ nvidia-graphics-drivers (340.76-1) unstable; urgency=medium
     - Fixed a bug that caused audio over HDMI to not work on some GPUs while
       using a display that supports HDMI 3D.
     * Improved compatibility with recent Linux kernels.  (Closes: #778698)
+
+  [ Andreas Beckmann ]
   * nvidia-kernel-source: Use reproducible timestamps and file order inside
     /usr/src/nvidia-kernel.tar.xz.
   * conftest.h:
@@ -1574,6 +1616,8 @@ nvidia-graphics-drivers (340.65-1) unstable; urgency=medium
     - Fixed a bug that could cause X to freeze when using Base Mosaic.
     - Fixed a regression that prevented the NVIDIA X driver from recognizing
       Base Mosaic layouts generated by the nvidia-settings control panel.
+
+  [ Andreas Beckmann ]
   * Merge changes from 304.125 (UNRELEASED).
   * Add xorg-video-abi-19 as alternative dependency.
 
@@ -1598,6 +1642,8 @@ nvidia-graphics-drivers (340.58-1) unstable; urgency=medium
     - Added the "AllowIndirectGLXProtocol" X config option.  This option can
       be used to disallow use of GLX protocol.  See "Appendix B. X Config
       Options" in the README for more details.
+
+  [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * conftest.h:
     - Implement check for drm/drm_gem.h (340.58).
@@ -1685,7 +1731,6 @@ nvidia-graphics-drivers (340.46-2) unstable; urgency=medium
 
 nvidia-graphics-drivers (340.46-1) unstable; urgency=medium
 
-  [ Vincent Cheng ]
   * New upstream long lived branch release 340.46 (2014-09-30).
     - Fixed a crash with UnrealEngine 4 when the application was started
       with the -opengl4 commandline switch.
@@ -1696,6 +1741,8 @@ nvidia-graphics-drivers (340.46-1) unstable; urgency=medium
       evaluating some expressions when compiling shaders.
     - Added option UseSysmemPixmapAccel to control the use of GPU acceleration
       for X drawing operations on pixmaps allocated in system memory.
+
+  [ Vincent Cheng ]
   * Unload uvm module when nvidia is unloaded. (Closes: #749018)
   * conftest.h:
     - Tighten conftest.h check for drm/drmP.h.
@@ -1750,6 +1797,8 @@ nvidia-graphics-drivers (340.32-1) unstable; urgency=medium
       a G-SYNC monitor is unplugged and replaced by a non-G-SYNC monitor.
     - Fixed a bug that prevented G-SYNC from working when a G-SYNC monitor
       was unplugged and plugged back in without a modeset.
+
+  [ Vincent Cheng ]
   * Refresh debian/patches/man-fixes-nvidia-smi.patch and patches applied to
     nvidia-kernel-dkms.
   * Update nv-readme.ids.
@@ -1767,7 +1816,6 @@ nvidia-graphics-drivers (340.24-2) unstable; urgency=high
 
 nvidia-graphics-drivers (340.24-1) unstable; urgency=medium
 
-  [ Vincent Cheng ]
   * New upstream long lived branch release 340.24 (2014-07-08).
     - Fixed a regression, introduced in the 340.17 public beta release,
       that caused the NVIDIA X driver to access freed memory when exiting
@@ -1809,6 +1857,8 @@ nvidia-graphics-drivers (340.24-1) unstable; urgency=medium
       using the OpenGL compositing backend.
     - Fixed a regression that could cause OpenGL rendering corruption on X
       screens with 30 bit per pixel color.
+
+  [ Vincent Cheng ]
   * Refresh debian/patches/man-fixes-nvidia-smi.patch.
   * Add myself to Uploaders.
   * Add xorg-video-abi-18 as alternative dependency.
@@ -2847,6 +2897,8 @@ nvidia-graphics-drivers (304.131-1) wheezy; urgency=medium
       simultaneously running graphical and compute workloads.
     - Added support for X.Org xserver ABI 20 (xorg-server 1.18).
     * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
   * Add xorg-video-abi-20 as alternative dependency.
   * conftest.h:
     - Implement new conftest.sh functions hlist_for_each_entry,
@@ -2865,6 +2917,8 @@ nvidia-graphics-drivers (304.128-1) wheezy; urgency=medium
     * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
       (Closes: #800566)
     * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
   * libgl1-nvidia-glx: Add Provides+Conflicts:
     libgl1-nvidia-glx-${nvidia:Version} to forbid co-installation of
     libgl1-nvidia-legacy-304xx-glx from the same upstream version due to file
@@ -2901,6 +2955,8 @@ nvidia-graphics-drivers (304.125-1) wheezy; urgency=medium
     - Added the "AllowIndirectGLXProtocol" X config option.  This option can
       be used to disallow use of GLX protocol.  See "Appendix B. X Config
       Options" in the README for more details.
+
+  [ Andreas Beckmann ]
   * Refresh patches.
   * Add xorg-video-abi-19, xorg-video-abi-18 as alternative dependencies.
   * conftest.h:
@@ -2974,6 +3030,8 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
     - Updated a fallback of writing temporary files to $HOME/.nvidia to
       use $HOME/.nv instead, as the latter path is already used for other
       NVIDIA driver related files.
+
+  [ Andreas Beckmann ]
   * Refresh patches.
   * conftest.h:
     - conftest.h: Add ARM support.
@@ -3034,6 +3092,8 @@ nvidia-graphics-drivers (304.108-1) unstable; urgency=low
 
   * New upstream legacy 304xx branch release 304.108 (2013-08-08).
     * Add support for Linux 3.10.
+
+  [ Andreas Beckmann ]
   * Rename patches.
   * linux-3.10-{i2c,procfs}.patch: Remove, fixed upstream.
   * debian/module/debian/prep-modules: Sanitize the kernel version. Replace
@@ -3210,6 +3270,8 @@ nvidia-graphics-drivers (304.84-1) unstable; urgency=low
     - Added a new X configuration option, "UseHotplugEvents", to allow the
       suppression of RandR events when adding or removing non-DisplayPort
       displays. See the "X Config Options" appendix of the README for details.
+
+  [ Andreas Beckmann ]
   * Add xorg-video-abi-14 as alternative dependency.
   * kernel-3.7.patch: Remove, fixed upstream.
   * Fix debian/module/debian/kernel-version to cope with $KSRC/linux/version.h
@@ -3276,6 +3338,8 @@ nvidia-graphics-drivers (304.64-1) unstable; urgency=low
       Tesla, and VGX products.
     - Added support for the following GPUs: VGX K1, VGX K2, Tesla K20c,
       Tesla K20m.
+
+  [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * conftest.h: Implement new conftest.sh function set_memory_array_uc.
   * build-module-packages.sh: Build modules only for the variant (current or
@@ -3311,6 +3375,8 @@ nvidia-graphics-drivers (304.60-1) unstable; urgency=low
       an NVIDIA X screen with xserver ABI 12 (xorg-server 1.12) or newer.
     - Fixed a bug that caused GLX to leak memory when Xinerama is
       enabled.
+
+  [ Andreas Beckmann ]
   * Upload to unstable.
   * Restrict watch file to releases from the 304.xx long lived branch.
   * libgl1-nvidia-glx:i386: Breaks: ia32-libs (<< 1:0), versioning was fixed.
@@ -3342,6 +3408,8 @@ nvidia-graphics-drivers (304.51-1) experimental; urgency=low
     - Gamma ramp and colormap adjustments now apply correctly when screen
       transformations such as rotation and keystone correction are in use.
     * Closes: #688660.
+
+  [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * Upload to experimental.
 
@@ -3385,6 +3453,8 @@ nvidia-graphics-drivers (304.48-1) unstable; urgency=low
       when a rotation or a transformation was applied on some older X
       server versions.
     - Enabled FXAA with Unified Back Buffers.
+
+  [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * Update symbols control files.
   * get-orig-source: Skip downloading if cached files are in ../.cache/
@@ -3405,6 +3475,8 @@ nvidia-graphics-drivers (304.43-1) unstable; urgency=low
     - Added support for the following GPUs: GeForce GTX 660 Ti,
       Quadro K5000, Quadro K5000M, Quadro K4000M, Quadro K3000M, NVS 510.
     * Closes: #684123.
+
+  [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * conftest.h:
     - Implement check for linux/screen_info.h (302.17).
@@ -3439,6 +3511,8 @@ nvidia-graphics-drivers (304.37-1) unstable; urgency=low
     - Implemented hotfix for a privilege escalation vulnerability reported on
       August 1, 2012.  For more details, see:
       http://nvidia.custhelp.com/app/answers/detail/a_id/3140
+
+  [ Andreas Beckmann ]
   * nvidia-kernel-source: Add Built-Using attribute to the generated module
     packages to record the exact versions of linux and nvidia-graphics-drivers
     that were used during the build.
@@ -3462,6 +3536,8 @@ nvidia-graphics-drivers (304.32-1) experimental; urgency=low
     - Modified handling of RRSetScreenSize requests to ignore requests that
       do not actually resize the screen.  This reduces screen flicker in certain
       cases when using GNOME.
+
+  [ Andreas Beckmann ]
   * debian/rules: get-orig-source: Make --pasv overridable.
   * Add xorg-video-abi-13 as alternative dependency.
   * Update symbols control files.
@@ -3513,6 +3589,8 @@ nvidia-graphics-drivers (304.30-1) experimental; urgency=low
       laptop internal panel to show six small copies of the desktop.
       (Closes: #681453)
     - Added support for FXAA, Fast Approximate Anti-Aliasing.
+
+  [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * Update symbols control files.
   * xserver-xorg-video-nvidia.postrm: Do not fail if the debconf templates
@@ -3597,6 +3675,8 @@ nvidia-graphics-drivers (304.22-1) experimental; urgency=low
     - Fixed a bug that prevented NVIDIA 3D Vision Pro from working
       properly when switching between X servers on different VTs.
     * Closes: #682618
+
+  [ Andreas Beckmann ]
   * Upload to experimental.
   * Update nv-readme.ids.
   * Update symbols control files.
