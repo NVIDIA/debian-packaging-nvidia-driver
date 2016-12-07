@@ -3,6 +3,8 @@ nvidia-graphics-drivers (367.57-3) UNRELEASED; urgency=medium
   * Updated Italian (it) debconf translations by Beatrice Torracca.
     (Closes: #846933)
   * Overhaul package descriptions.
+  * Add (Build)-Conflicts against currently incompatible libglvnd0 and
+    libglvnd-dev from src:libglvnd.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 07 Dec 2016 10:42:07 +0100
 

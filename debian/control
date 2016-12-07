@@ -20,6 +20,8 @@ Build-Depends:
  libxext6 [!ppc64el],
  quilt,
  po-debconf,
+Build-Conflicts:
+ libglvnd-dev,
 Standards-Version: 3.9.8
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
@@ -190,6 +192,7 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
+ libglvnd0,
  libgldispatch0,
 Replaces:
  libgldispatch0,
