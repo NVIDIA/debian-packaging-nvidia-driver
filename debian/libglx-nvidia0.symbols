@@ -2509,7 +2509,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glWindowPos3sARB@Base 361.28
  glWindowPos3sv@Base 361.28
  glWindowPos3svARB@Base 361.28
- glWindowRectanglesEXT@Base 367.36.02
+#MISSING: 375.20# glWindowRectanglesEXT@Base 367.36.02
  glXAllocateMemoryNV@Base 361.28
  glXBindChannelToWindowSGIX@Base 361.28
  glXBindSwapBarrierNV@Base 361.28

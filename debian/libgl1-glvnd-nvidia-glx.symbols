@@ -1,6 +1,11 @@
 #include "libgl1-nvidia-glx.symbols.common"
  AllocExecPages@Base 361
+ FindNextStringToken@Base 375
  FreeExecPages@Base 361
+ IntersectionExtensionStrings@Base 375.20
+ IsTokenInString@Base 375
+ SplitString@Base 375
+ UnionExtensionStrings@Base 375.20
  __glXWrapperInit@Base 361
  entry_generate_default_code@Base 361
  entry_get_patch_addresses@Base 361
@@ -754,6 +759,7 @@
  glXWaitForSbcOML@Base 361
  glvnd_asprintf@Base 361
  glvnd_byte_swap16@Base 361
+ glvnd_vasprintf@Base 375
 #MISSING: 361.45# public_entry_end@Base 361
 #MISSING: 361.45# public_entry_start@Base 361
  stub_find_public@Base 361

@@ -1,3 +1,67 @@
+nvidia-graphics-drivers (375.20-3) experimental; urgency=medium
+
+  * nvidia-egl-common, nvidia-egl-icd: New packages for EGL as ICD via GLVND.
+  * libgl1-nvidia-glvnd-glx: New metapackage for the GLVND variant.
+  * Merge changes from 370.28-2.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 07 Dec 2016 13:39:43 +0100
+
+nvidia-graphics-drivers (375.20-2) experimental; urgency=medium
+
+  * Bump xserver-xorg-core dependency to << 2:1.19.99 for ABI 23.
+    (Closes: #846030)
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Mon, 28 Nov 2016 09:55:32 +0000
+
+nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
+
+  * New upstream long lived branch release 375.20 (2016-11-18).
+    (Closes: #845000)
+    - Fixed a bug that could cause displays in SLI Mosaic to blank when
+      applying a transformation matrix.
+    - Added EGL support to the GL Vendor Neutral Dispatch Library (libGLVND).
+      The installer package now includes both GLVND and non-GLVND versions of
+      the EGL libraries: the --glvnd-egl-client and --no-glvnd-egl-client
+      options in nvidia-installer can be used to select which to install.
+    - Added support for the following GPUs: GeForce GTX 1050,
+      GeForce GTX 1050 Ti, Quadro M620, Quadro M5000 SE, Tesla P100-PCIE-12GB,
+      Tesla P100-PCIE-16GB, Tesla P100-SXM2-16GB, Tesla P4.
+    - Fixed a bug that prevented G-SYNC from working on notebook displays.
+    - Fixed a bug that caused DisplayPort multistream devices to go blank after
+      the console is restored.
+    - Fixed a bug that caused a kernel crash when starting X for the second time
+      when more than one DisplayPort multistream device is connected to a single
+      DisplayPort connector via a branch device.
+  * New upstream beta 375.10 (2016-10-20).
+    - Added new X configuration options:
+        ForceCompositionPipeline
+        ForceFullCompositionPipeline
+      which override the MetaMode tokens with the same names.
+    - Fixed a bug that caused issues with panning and cursor constraining when
+      mixing PRIME-driven displays with natively driven displays.
+    - Fixed a bug that caused long delays when leaving the VT or disabling a
+      display device while an OpenGL application is running.
+    - Improved console restore behavior on systems that use the UEFI Graphics
+      Output Protocol, and most vesafb modes.
+    - Added support for the RandR TILE property added in RandR 1.5.
+    - Raised the on-disk OpenGL shader cache size from 64MB to 128MB. Refer to
+      the "Specifying OpenGL Environment Variable Settings" section of the
+      driver README for details on how to select its location or disable it.
+  * New upstream release 367 series.
+    - Fixed a bug in synchronization primitives shared between X and OpenGL.
+  * New upstream legacy 304xx branch release series.
+    - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
+
+  [ Luca Boccassi ]
+  * Update symbols files
+  * nvidia-drm-master-dev.patch: refresh, fails to apply on 375.10.
+  * Update nv-readme.ids
+  * nvidia-user-pages.patch: drop, fixed upstream.
+  * Add support for the xorg-video-abi-23 in the xserver-xorg-video-nvidia package.
+  * Ship non-glvnd EGL library in the libegl1-nvidia packages.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 27 Nov 2016 12:14:53 +0000
+
 nvidia-graphics-drivers (370.28-2) unstable; urgency=medium
 
   * Updated Italian (it) debconf translations by Beatrice Torracca.
@@ -54,6 +118,8 @@ nvidia-graphics-drivers (367.57-2) unstable; urgency=medium
 nvidia-graphics-drivers (367.57-1) unstable; urgency=medium
 
   * New upstream long lived branch release 367.57 (2016-10-10).
+    - Fixed a bug that could prevent systems with GPUs configured in SLI from
+      resuming correctly from ACPI S3/S4 sleep/hibernate states.
     * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
     - Added support for the following GPUs: Quadro P6000, Tesla P40,
       Quadro P5000.
