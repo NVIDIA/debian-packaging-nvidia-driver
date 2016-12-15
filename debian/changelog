@@ -1,3 +1,28 @@
+nvidia-graphics-drivers (375.26-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 375.26 (2016-12-14).
+    * Fixed CVE-2016-7382.  (Closes: #848195)
+    - Fixed a regression that prevented the backlight on some notebook
+      computer displays from turning back on after being shut off.
+    - Fixed a regression that prevented the console from being restored
+      properly when using SLI.
+    - Fixed a regression that prevented the GLX_NV_swap_group extension from
+      working when using SLI or Quadro Sync.
+    - Fixed a long-standing bug that caused the NVIDIA X driver to not
+      correctly detect AC/battery hotplug events on notebooks.
+    - Added support for the following GPU(s): Quadro M3000 SE.
+    - Fixed an interaction problem between the Linux kernel's
+      CONFIG_HARDENED_USERCOPY feature (new in Linux kernel 4.8)
+      and nvidia-drm.ko with modeset=1 enabled.  This problem caused
+      CONFIG_HARDENED_USERCOPY to erroneously halt the system, issuing
+      reports of the form:
+        usercopy: kernel memory overwrite attempt detected to ffff8803e8ec7ce0
+                  (<process stack>) (8 bytes)
+    * Fixed issues with OpenGL applications running simultaneously.
+      (Closes: #847057)
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 11:52:43 +0100
+
 nvidia-graphics-drivers (375.20-4) unstable; urgency=medium
 
   * Upload to unstable.  (Closes: #845638)
