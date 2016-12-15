@@ -1,5 +1,8 @@
-nvidia-graphics-drivers (304.132-0~svn4wheezy) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.134-0~svn4wheezy) UNRELEASED; urgency=medium
 
+  * New upstream legacy 304xx branch release 304.134 (2016-12-14).
+    * Fixed CVE-2016-7382.  (Closes: #848197)
+    - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
   * New upstream legacy 304xx branch release 304.132 (2016-09-26).
     * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
     - Added /var/log/dmesg to the list of paths which are searched by
@@ -72,7 +75,7 @@ nvidia-graphics-drivers (304.132-0~svn4wheezy) UNRELEASED; urgency=medium
   * Add nvidia-user-pages.patch to fix nvidia kernel module build failure
     for Linux 4.9 (367.57-2).
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 13:04:27 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
 nvidia-graphics-drivers (304.131-1) wheezy; urgency=medium
 
