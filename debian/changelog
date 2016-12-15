@@ -2,6 +2,7 @@ nvidia-graphics-drivers (340.101-0~svn4jessie) UNRELEASED; urgency=medium
 
   * New upstream legacy 340xx branch release 340.101 (2016-12-14).
     * Fixed CVE-2016-7382.  (Closes: #848195)
+    * Improved compatibility with recent Linux kernels.
   * New upstream legacy 340xx branch release 340.98 (2016-09-26).
     * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
     - Added support for the screen_info.ext_lfb_base field, on kernels that

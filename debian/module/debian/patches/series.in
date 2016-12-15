@@ -1,5 +1,4 @@
 # kernel support
-nvidia-user-pages.patch
 
 # build system updates
 separate-makefile-kbuild.patch
