@@ -65,6 +65,7 @@ nvidia-graphics-drivers (340.101-0~svn4jessie) UNRELEASED; urgency=medium
     (352.79-6).
   * Build libnvidia-encode1 and libnvidia-ifr1 for armhf, too (352.79-10).
   * Stop shipping unused pci.ids file (352.21-1).
+  * Add xorg-video-abi-23 as alternative dependency (375.20-1).
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
 
