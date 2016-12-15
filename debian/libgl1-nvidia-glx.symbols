@@ -13,7 +13,7 @@
  glSpecializeShaderARB@Base 367.36.02
  glViewportPositionWScaleNV@Base 361
  glWaitVkSemaphoreNV@Base 364
-#MISSING: 375.20# glWindowRectanglesEXT@Base 367.36.02
+ glWindowRectanglesEXT@Base 375.26
  glcuR0d4nX@Base 195.36
  gldbc3cfnX@Base 325
  vk_icdGetInstanceProcAddr@Base 364

@@ -96,6 +96,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetUUID@Base 270
  nvmlDeviceGetUtilizationRates@Base 270
  nvmlDeviceGetVbiosVersion@Base 285
+ nvmlDeviceGetVgpuMetadata@Base 375.26
  nvmlDeviceGetVgpuUtilization@Base 375
  nvmlDeviceGetViolationStatus@Base 340
  nvmlDeviceGetVirtualizationMode@Base 361.28
@@ -129,6 +130,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlEventSetCreate@Base 285
  nvmlEventSetFree@Base 285
  nvmlEventSetWait@Base 285
+ nvmlGetVgpuCompatibility@Base 375.26
  nvmlInit@Base 270
  nvmlInit_v2@Base 319
  nvmlInternalGetExportTable@Base 280
@@ -154,6 +156,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlVgpuInstanceGetFrameRateLimit@Base 375
 #MISSING: 375# nvmlVgpuInstanceGetGpuUtilization@Base 370
  nvmlVgpuInstanceGetLicenseStatus@Base 375
+ nvmlVgpuInstanceGetMetadata@Base 375.26
  nvmlVgpuInstanceGetType@Base 375
  nvmlVgpuInstanceGetUUID@Base 367.27
  nvmlVgpuInstanceGetVmDriverVersion@Base 367.27

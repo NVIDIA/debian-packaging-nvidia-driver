@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (375.26-1) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * New upstream long lived branch release 375.26 (2016-12-14).
     * Fixed CVE-2016-7382.  (Closes: #848195)
     - Fixed a regression that prevented the backlight on some notebook
@@ -20,6 +21,9 @@ nvidia-graphics-drivers (375.26-1) UNRELEASED; urgency=medium
                   (<process stack>) (8 bytes)
     * Fixed issues with OpenGL applications running simultaneously.
       (Closes: #847057)
+
+  [ Luca Boccassi ]
+  * Update symbols files
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 11:52:43 +0100
 
