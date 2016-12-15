@@ -1,5 +1,7 @@
-nvidia-graphics-drivers (340.98-0~svn4jessie) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.101-0~svn4jessie) UNRELEASED; urgency=medium
 
+  * New upstream legacy 340xx branch release 340.101 (2016-12-14).
+    * Fixed CVE-2016-7382.  (Closes: #848195)
   * New upstream legacy 340xx branch release 340.98 (2016-09-26).
     * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
     - Added support for the screen_info.ext_lfb_base field, on kernels that
@@ -65,7 +67,7 @@ nvidia-graphics-drivers (340.98-0~svn4jessie) UNRELEASED; urgency=medium
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 11:34:10 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 11:21:31 +0100
 
 nvidia-graphics-drivers (340.96-1) jessie; urgency=medium
 
