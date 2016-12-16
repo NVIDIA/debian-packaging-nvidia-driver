@@ -58,7 +58,7 @@ nvidia-graphics-drivers (340.101-0~svn4jessie) UNRELEASED; urgency=medium
   * ignore_xen_on_arm.patch: Update to add workaround for conftest.sh to fix
     kernel module build failure on armhf by forcing XEN_PRESENT=0 when
     building on armhf, thanks to Luca (352.79-2).
-  * nvidia-detect: Update list of newer PCI IDs from release 367.57.
+  * nvidia-detect: Update list of newer PCI IDs from release 375.26.
   * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
     (352.79-6).
   * Build libnvidia-encode1 and libnvidia-ifr1 for armhf, too (352.79-10).
