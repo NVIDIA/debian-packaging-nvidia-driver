@@ -9,6 +9,8 @@ nvidia-graphics-drivers (340.98-0~svn4stretch) UNRELEASED; urgency=medium
   * Updated Danish (da) debconf translations by Joe Dalton.  (Closes: #830653)
   * Updated Italian (it) debconf translations by Beatrice Torracca.
     (Closes: #846933)
+  * Updated Dutch (nl) debconf translations by Frans Spiesschaert.
+    (Closes: #848380)
   * Overhaul package descriptions.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Apr 2016 16:41:52 +0200
