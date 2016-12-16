@@ -52,8 +52,7 @@ Replaces:
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary driver and libraries
  that provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
- AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
+ OpenGL/GLX applications via a direct-rendering X Server.
  .
  ${nvidia:kmod:Description}
  .
@@ -85,8 +84,8 @@ Replaces:
  nvidia-glx${nvidia:Legacy} (<< 319),
 Description: NVIDIA driver support binaries${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
- AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
+ OpenGL/GLX applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  This package contains supporting binaries for the driver.
 
@@ -126,9 +125,9 @@ Provides:
  xserver-xorg-video-nvidia-any,
  ${nvidia:xorgProvides},
 Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
- These binary drivers provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
- AGP, PCIe, SLI, TV-out and flat panel displays are also supported.
+ The NVIDIA binary driver provides optimized hardware acceleration of
+ OpenGL/GLX applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  ${nvidia:kmod:Description}
  .
@@ -170,12 +169,16 @@ Replaces:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
  nvidia-glx${nvidia:Legacy}-ia32,
 Description: NVIDIA binary OpenGL/GLX libraries${nvidia:LegacyDesc}
- These binary libraries provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server.
+ The NVIDIA binary driver provides optimized hardware acceleration of
+ OpenGL/GLX applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  See the description of the ${nvidia}-driver package
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+ .
+ This package contains the driver specific binary OpenGL/GLX implementation
+ provided by NVIDIA.
 
 #Package: libgl1-${nvidia}-glx-i386
 Package: libgl1-nvidia-glx-i386
@@ -208,7 +211,7 @@ Breaks:
  nvidia-settings-legacy-173xx (<< 173.14.37),
 Provides:
  ${nvidia}-alternative--kmod-alias,
-Description: allows the selection of NVIDIA as GLX provider
+Description: allows the selection of NVIDIA as GLX provider${nvidia:LegacyDesc}
  In setups with several NVIDIA driver versions installed (e.g. current and
  legacy) this metapackage registers an alternative to allow easy switching
  between the different versions.
@@ -242,10 +245,9 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  module will be built for your running kernel and automatically rebuilt for
  any new kernel headers that are installed.
  .
- The NVIDIA binary drivers provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.  AGP, PCIe, SLI, TV-out and flat panel displays
- are also supported.
+ The NVIDIA binary driver provides optimized hardware acceleration of
+ OpenGL/GLX applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  ${nvidia:Models}
  .
@@ -277,10 +279,9 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  needed by ${nvidia}-driver in a form suitable
  for use by module-assistant or kernel-package.
  .
- The NVIDIA binary drivers provide optimized hardware acceleration of
- OpenGL applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.  AGP, PCIe, SLI, TV-out and flat panel displays
- are also supported.
+ The NVIDIA binary driver provides optimized hardware acceleration of
+ OpenGL/GLX applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  PLEASE read /usr/share/doc/${nvidia}-kernel-source/README.Debian.gz
  for building information.  If you want the kernel module to be automatically
@@ -320,7 +321,7 @@ Breaks:
  libvdpau1 (<< 0.4.1-3),
 Replaces:
  nvidia-vdpau-driver-ia32,
-Description: Video Decode and Presentation API for Unix - NVIDIA driver
+Description: Video Decode and Presentation API for Unix - NVIDIA driver${nvidia:LegacyDesc}
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
  graphics cards.
@@ -344,7 +345,7 @@ Recommends:
  ${nvidia:kmod:binary},
 Suggests:
  ${nvidia:kmod:source},
-Description: NVIDIA System Management Interface
+Description: NVIDIA System Management Interface${nvidia:LegacyDesc}
  The NVIDIA Management Library (NVML) provides a monitoring and management API.
  The application "nvidia-smi" is the NVIDIA System Management Interface (NVSMI)
  and provides a command line interface to this functionality.
@@ -400,7 +401,7 @@ Provides:
  libcuda-5.0-1,
  libcuda-5.0-1-i386 [i386],
 Homepage: http://www.nvidia.com/CUDA
-Description: NVIDIA CUDA Driver Library
+Description: NVIDIA CUDA Driver Library${nvidia:LegacyDesc}
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
  general purpose computation.
@@ -440,7 +441,7 @@ Conflicts:
  libnvidia-compiler-ia32,
 Replaces:
  libnvidia-compiler-ia32,
-Description: NVIDIA runtime compiler library
+Description: NVIDIA runtime compiler library${nvidia:LegacyDesc}
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
  general purpose computation.
@@ -456,7 +457,7 @@ Pre-Depends:
 Depends:
  ${libcuda1} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA CUDA Video Decoder runtime library
+Description: NVIDIA CUDA Video Decoder runtime library${nvidia:LegacyDesc}
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
  general purpose computation.
@@ -478,7 +479,7 @@ Depends:
 Breaks:
  ${nvidia}-smi (<< ${nvidia:Version}),
 Homepage: http://developer.nvidia.com/nvidia-management-library-NVML
-Description: NVIDIA Management Library (NVML) runtime library
+Description: NVIDIA Management Library (NVML) runtime library${nvidia:LegacyDesc}
  The NVIDIA Management Library (NVML) provides a monitoring and management API.
  It provides a direct access to the queries and commands exposed via nvidia-smi.
  .
@@ -520,7 +521,7 @@ Replaces:
  nvidia-opencl-icd-ia32,
 Provides:
  opencl-icd,
-Description: NVIDIA OpenCL installable client driver (ICD)
+Description: NVIDIA OpenCL installable client driver (ICD)${nvidia:LegacyDesc}
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
  CPUs, GPUs and other processors.
