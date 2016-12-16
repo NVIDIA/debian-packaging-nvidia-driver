@@ -1,5 +1,5 @@
 # kernel support
-nvidia-user-pages.patch
+fix-typos.patch
 
 # build system updates
 separate-makefile-kbuild.patch
@@ -15,7 +15,6 @@ disable-xen_sanity_check.patch
 not-silent.patch
 use-nv-kernel-ARCH.o_shipped.patch
 avoid-ld.gold.patch
-fix-typos.patch
 
 # 304xx specific
 disable-mtrr.patch

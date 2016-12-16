@@ -84,8 +84,8 @@ Replaces:
  nvidia-glx${nvidia:Legacy} (<< 319),
 Description: NVIDIA driver support binaries${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  This package contains supporting binaries for the driver.
 
@@ -147,8 +147,8 @@ Replaces:
  glx-alternative-nvidia (<< 0.6.91),
 Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  ${nvidia:kmod:Description}
  .
@@ -183,12 +183,15 @@ Replaces:
  libxvmcnvidia1 (<< 305),
 Description: NVIDIA binary OpenGL/GLX library${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  See the description of the ${nvidia}-driver package
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+ .
+ This package contains the driver specific binary OpenGL/GLX implementation
+ provided by NVIDIA.
 
 #Package: lib${nvidia}-glcore
 Package: libnvidia-glcore
@@ -309,8 +312,8 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
  any new kernel headers that are installed.
  .
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  ${nvidia:Models}
  .
@@ -342,8 +345,8 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  for use by module-assistant or kernel-package.
  .
  The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX applications via a direct-rendering X Server for graphics cards
- using NVIDIA chip sets.
+ OpenGL/GLX applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
  .
  PLEASE read /usr/share/doc/${nvidia}-kernel-source/README.Debian.gz
  for building information.  If you want the kernel module to be automatically
