@@ -1,7 +1,7 @@
 nvidia-graphics-drivers (304.134-0~svn4jessie) UNRELEASED; urgency=medium
 
   * New upstream legacy 304xx branch release 304.134 (2016-12-14).
-    * Fixed CVE-2016-7382.  (Closes: #848195)
+    * Fixed CVE-2016-8826.  (Closes: #848195)
     - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
     * Improved compatibility with recent Linux kernels.
   * New upstream legacy 304xx branch release 304.132 (2016-09-26).
