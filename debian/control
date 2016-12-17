@@ -362,7 +362,7 @@ Replaces:
  nvidia-libvdpau-dev,
  nvidia-libvdpau1,
  nvidia-libvdpau1-driver,
-Description: Video Decode and Presentation API for Unix - NVIDIA driver${nvidia:LegacyDesc}
+Description: Video Decode and Presentation API for Unix - NVIDIA driver${nvidia:LegacyDescShort}
  .
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
