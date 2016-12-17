@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.98-0~svn4stretch) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.101-0~svn4stretch) UNRELEASED; urgency=medium
 
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
@@ -15,8 +15,11 @@ nvidia-graphics-drivers (340.98-0~svn4stretch) UNRELEASED; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Apr 2016 16:41:52 +0200
 
-nvidia-graphics-drivers (340.98-0~svn4jessie) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.101-0~svn4jessie) UNRELEASED; urgency=medium
 
+  * New upstream legacy 340xx branch release 340.101 (2016-12-14).
+    * Fixed CVE-2016-8826.  (Closes: #848195)
+    * Improved compatibility with recent Linux kernels.
   * New upstream legacy 340xx branch release 340.98 (2016-09-26).
     * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
     - Added support for the screen_info.ext_lfb_base field, on kernels that
@@ -72,17 +75,17 @@ nvidia-graphics-drivers (340.98-0~svn4jessie) UNRELEASED; urgency=medium
   * ignore_xen_on_arm.patch: Update to add workaround for conftest.sh to fix
     kernel module build failure on armhf by forcing XEN_PRESENT=0 when
     building on armhf, thanks to Luca (352.79-2).
-  * Add nvidia-user-pages.patch to fix nvidia kernel module build failure
-    for Linux 4.9, thanks to Luca (367.57-2).
-  * nvidia-detect: Update list of newer PCI IDs from release 367.57.
+  * nvidia-detect: Update list of newer PCI IDs from release 375.26.
   * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
     (352.79-6).
   * Build libnvidia-encode1 and libnvidia-ifr1 for armhf, too (352.79-10).
   * Stop shipping unused pci.ids file (352.21-1).
+  * control: Synchronize descriptions with unstable (370.28-2).
+  * Add xorg-video-abi-23 as alternative dependency (375.20-1).
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Jan 2016 11:34:10 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 11:21:31 +0100
 
 nvidia-graphics-drivers (340.96-4) unstable; urgency=medium
 

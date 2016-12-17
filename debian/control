@@ -244,13 +244,15 @@ Depends:
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary EGL library${nvidia:LegacyDesc}
- This package contains the EGL native platform graphics interface library.
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES.
  .
  See the description of the ${nvidia}-driver package
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+ .
+ This package contains the driver specific binary EGL implementation provided
+ by NVIDIA.
 
 #Package: libgles1-${nvidia}
 Package: libgles1-nvidia
