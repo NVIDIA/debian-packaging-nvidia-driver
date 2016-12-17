@@ -70,7 +70,7 @@ nvidia-graphics-drivers (340.101-0~svn4jessie) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
   * Add drm-driver-legacy.patch to fix nvidia kernel module load issue on
-    Linux 4.9 and newer.
+    Linux 4.9 and newer. (Closes: #848514)
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 11:21:31 +0100
 
