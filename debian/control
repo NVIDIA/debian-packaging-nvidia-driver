@@ -204,6 +204,9 @@ Description: NVIDIA binary OpenGL/GLX library${nvidia:LegacyDesc}
  See the description of the ${nvidia}-driver package
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
+ .
+ This package contains the driver specific binary OpenGL/GLX implementation
+ provided by NVIDIA.
 
 #Package: lib${nvidia}-glcore
 Package: libnvidia-glcore
