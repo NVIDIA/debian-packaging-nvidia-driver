@@ -1,8 +1,7 @@
 nvidia-graphics-drivers (375.26-1) UNRELEASED; urgency=medium
 
-  [ Andreas Beckmann ]
   * New upstream long lived branch release 375.26 (2016-12-14).
-    * Fixed CVE-2016-7382.  (Closes: #848195)
+    * Fixed CVE-2016-8826.  (Closes: #848195)
     - Fixed a regression that prevented the backlight on some notebook
       computer displays from turning back on after being shut off.
     - Fixed a regression that prevented the console from being restored
@@ -21,6 +20,17 @@ nvidia-graphics-drivers (375.26-1) UNRELEASED; urgency=medium
                   (<process stack>) (8 bytes)
     * Fixed issues with OpenGL applications running simultaneously.
       (Closes: #847057)
+  * New upstream legacy 340xx branch release 340.101 (2016-12-14).
+    * Fixed CVE-2016-8826.
+    * Improved compatibility with recent Linux kernels.
+  * New upstream legacy 304xx branch release 304.134 (2016-12-14).
+    * Fixed CVE-2016-8826.
+    - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
+    * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
+  * Updated Dutch (nl) debconf translations by Frans Spiesschaert.
+    (Closes: #848380)
 
   [ Luca Boccassi ]
   * Update symbols files
@@ -84,8 +94,6 @@ nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
       driver README for details on how to select its location or disable it.
   * New upstream release 367 series.
     - Fixed a bug in synchronization primitives shared between X and OpenGL.
-  * New upstream legacy 304xx branch release series.
-    - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
 
   [ Luca Boccassi ]
   * Update symbols files

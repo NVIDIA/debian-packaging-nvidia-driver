@@ -123,7 +123,7 @@ Depends:
  ${misc:Depends}
 Conflicts:
  libgl1-${nvidia}-glx-i386,
-Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES 32-bit libraries)${nvidia:LegacyDesc}
+Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES 32-bit libraries)${nvidia:LegacyDescShort}
  This metapackage helps the automatic installation of the 32-bit NVIDIA
  OpenGL/GLX/EGL/GLES libraries when installing ${nvidia}-driver-libs
  on amd64 with foreign architecture i386 enabled.
@@ -333,8 +333,8 @@ Description: NVIDIA binary OpenGL/GLX library (non-GLVND variant)${nvidia:Legacy
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
  .
- This package contains the driver specific binary OpenGL/GLX implementation by
- NVIDIA as a non-GLVND alternative.
+ This package contains the driver specific binary OpenGL/GLX implementation
+ provided by NVIDIA as a non-GLVND alternative.
 
 #Package: lib${nvidia}-glcore
 Package: libnvidia-glcore
@@ -415,8 +415,8 @@ Description: NVIDIA binary EGL library${nvidia:LegacyDesc}
  or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
  for a complete list of supported GPUs and PCI IDs.
  .
- This package contains the driver specific binary EGL implementation by NVIDIA
- that is accessed via GLVND.
+ This package contains the driver specific binary EGL implementation provided
+ by NVIDIA that is accessed via GLVND.
 
 Package: libgles1-glvnd-nvidia
 Architecture: i386 amd64 armhf
@@ -856,7 +856,7 @@ Enhances:
  libvdpau1,
 Provides:
  vdpau-driver,
-Description: Video Decode and Presentation API for Unix - NVIDIA driver${nvidia:LegacyDesc}
+Description: Video Decode and Presentation API for Unix - NVIDIA driver${nvidia:LegacyDescShort}
  These libraries provide the Video Decode and Presentation API for Unix.
  They provide accelerated video playback (incl. H.264) for the supported
  graphics cards.
@@ -1060,7 +1060,7 @@ Pre-Depends:
 Depends:
  ${libcuda1} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA OpenGL-based Inband Frame Readback runtime library${nvidia:LegacyDesc}
+Description: NVIDIA OpenGL-based Inband Frame Readback runtime library${nvidia:LegacyDescShort}
  The NVIDIA OpenGL-based Inband Frame Readback (NvIFROpenGL) library provides
  a high performance, low latency interface to capture and optionally encode an
  OpenGL framebuffer. NvIFROpenGL is a private API that is only available to
