@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (375.26-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (375.26-1) unstable; urgency=medium
 
   * New upstream long lived branch release 375.26 (2016-12-14).
     * Fixed CVE-2016-8826.  (Closes: #848195)
@@ -35,7 +35,7 @@ nvidia-graphics-drivers (375.26-1) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Update symbols files
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 11:52:43 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 17 Dec 2016 18:39:19 +0100
 
 nvidia-graphics-drivers (375.20-4) unstable; urgency=medium
 
