@@ -1,4 +1,5 @@
 # kernel support
+drm-driver-legacy.patch
 
 # build system updates
 separate-makefile-kbuild.patch
