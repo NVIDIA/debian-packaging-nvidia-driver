@@ -293,6 +293,7 @@ Pre-Depends:
  ${nvidia:legacy-check},
 Depends:
  glx-alternative-nvidia (>= 0.5),
+ glx-alternative-nvidia (<< 0.7),
  nvidia-modprobe,
  ${misc:Depends}
 Conflicts:

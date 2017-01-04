@@ -65,6 +65,10 @@ nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
   * Stop shipping unused pci.ids file (352.21-1).
   * control: Synchronize descriptions with unstable (370.28-2).
   * Add xorg-video-abi-23 as alternative dependency (375.20-1).
+  * nvidia-alternative: Restrict Depends: glx-alternative-nvidia to (<< 0.7).
+    Uploading a new upstream legacy release to stable will invalidate package
+    relationships in unstable, thus permitting some (partial) upgrade paths
+    that will fail.
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
   * Upload to jessie.
