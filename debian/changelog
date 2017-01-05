@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (375.26-2) UNRELEASED; urgency=medium
+
+  * nvidia-alternative: Add alternative for 
+    /usr/share/nvidia/nvidia-application-profiles-key-documentation
+    (Closes: #825637)
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Jan 2017 14:35:53 +0100
+
 nvidia-graphics-drivers (375.26-1) unstable; urgency=medium
 
   * New upstream long lived branch release 375.26 (2016-12-14).
