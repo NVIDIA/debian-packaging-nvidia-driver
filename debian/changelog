@@ -73,6 +73,7 @@ nvidia-graphics-drivers (304.134-0~svn4stretch) UNRELEASED; urgency=medium
   * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
     (352.79-6).
 
+  * Depend on a setuid root Xserver.  (Closes: #805554) 
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the OpenGL/GLX packages.
   * Replace libgl1-nvidia-glx-i386 with new

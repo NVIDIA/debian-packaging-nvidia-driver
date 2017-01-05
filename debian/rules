@@ -78,6 +78,7 @@ dkms_source	 = debian/$(nvidia)-kernel-dkms/usr/src/$(module)-$(version)
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
 xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND)
+xorg_depends	+= $(comma) xserver-xorg-legacy | xserver-xorg-core (<< 2:1.18)
 xorg_provides	 = xorg-driver-video
 
 
