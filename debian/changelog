@@ -1,5 +1,34 @@
-nvidia-graphics-drivers (375.26-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (378.09-1~svn1) UNRELEASED; urgency=medium
 
+  * New upstream beta 378.09 (2017-01-18).
+    - Added support for the following GPUs: Quadro M1200, Quadro M2200.
+    - Added support for the ARB_parallel_shader_compile extension to allow
+      multi-threaded compilation of GLSL shaders.
+    - Updated the X driver to ignore any Virtual Reality Head Mounted Displays
+      (HMDs).  See the "AllowHMD" X configuration option in the README for
+      details.
+    - The driver will now advertise GLX FBConfigs with no depth bits on depth
+      30 X screens.
+    - Added support in nvidia-settings to view configured PRIME displays. To
+      enable PRIME displays, see "Offloading Graphics Display with RandR 1.4"
+      in the README.
+    - Added infrastructure which enables the NVIDIA EGL driver to load EGL
+      external platform libraries that add client-side support for new window
+      systems, beyond the existing libnvidia-egl-wayland.so.1. For more
+      details, see:
+        https://github.com/NVIDIA/eglexternalplatform
+        https://github.com/NVIDIA/egl-wayland
+    - Added support for the following Vulkan extensions: VK_KHR_display,
+      VK_KHR_display_swapchain
+    - Enabled OpenGL threaded optimizations by default in the driver. Refer to
+      the "Threaded Optimizations" section in the "Specifying OpenGL
+      Environment Variable Settings" chapter of the README for details. These
+      optimizations will self-disable when they are degrading performance. As a
+      result, performance should be unchanged for many applications, and
+      increased for those that benefit from threaded optimizations and were not
+      already forcing them enabled.
+  
+  [ Andreas Beckmann ]
   * nvidia-alternative: Add alternative for 
     /usr/share/nvidia/nvidia-application-profiles-key-documentation
     (Closes: #825637)
