@@ -75,6 +75,8 @@ nvidia-graphics-drivers (304.134-0~svn4wheezy) UNRELEASED; urgency=medium
     building on 4.3 or greater, where the deprecated APIs the kernel module
     uses are no longer exported, causing a failure when the module is
     loaded at runtime. (Closes: #809324)
+  * Add drm-driver-legacy.patch to fix nvidia kernel module load issue on
+    Linux 4.9 and newer.  (Closes: #852152)
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
