@@ -100,6 +100,7 @@ Multi-Arch: same
 Depends:
  libgl1-${nvidia}-glvnd-glx (= ${binary:Version}) | libgl1-${nvidia}-glx (= ${binary:Version}),
  ${nvidia}-egl-icd (= ${binary:Version}) | libegl1-${nvidia} (= ${binary:Version}),
+ ${nvidia}-egl-wayland-icd (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
@@ -597,24 +598,51 @@ Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
  This package contains the private core libraries used by the NVIDIA
  implementation of EGL and OpenGL|ES.
 
-#Package: lib${nvidia}-egl-wayland
-Package: libnvidia-egl-wayland
+#Package: lib${nvidia}-egl-wayland1
+Package: libnvidia-egl-wayland1
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-egl-wayland-${nvidia:Version},
-Conflicts:
- libnvidia-egl-wayland-${nvidia:Version},
 Description: NVIDIA binary EGL wayland libraries${nvidia:LegacyDesc}
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES.
  .
  This package contains the private wayland libraries used by the NVIDIA
  implementation of EGL.
+
+Package: nvidia-egl-wayland-common
+Architecture: i386 amd64 armhf
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends}
+Recommends:
+ lib${nvidia}-egl-wayland1,
+Description: NVIDIA binary EGL driver - common files
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES.
+ .
+ This package provides the common files for the NVIDIA installable client
+ driver (ICD) for Wayland via EGL.
+
+#Package: ${nvidia}-egl-wayland-icd
+Package: nvidia-egl-wayland-icd
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Depends:
+ nvidia-egl-wayland-common,
+ lib${nvidia}-egl-wayland1 (= ${binary:Version}),
+ ${misc:Depends}
+Provides:
+ egl-wayland-icd,
+Description: NVIDIA EGL installable client driver (ICD)
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES.
+ .
+ This metapackage provides the NVIDIA installable client driver (ICD) for
+ Wayland via EGL which supports NVIDIA GPUs.
 
 Package: nvidia-egl-common
 Architecture: i386 amd64 armhf
