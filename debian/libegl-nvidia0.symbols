@@ -1,3 +1,4 @@
 libEGL_nvidia.so.0 #PACKAGE# #MINVER#
+ NvEglRegClientApi@Base 378
  __egl_Main@Base 355
  __egl_MainInternal@Base 375

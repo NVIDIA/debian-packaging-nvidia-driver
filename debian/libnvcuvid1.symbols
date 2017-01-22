@@ -12,6 +12,7 @@ libnvcuvid.so.1 #PACKAGE# #MINVER#
  cuvidDestroyDecoder@Base 260
  cuvidDestroyVideoParser@Base 260
  cuvidDestroyVideoSource@Base 275
+ cuvidGetDecoderCaps@Base 378
  cuvidGetSourceAudioFormat@Base 275
  cuvidGetSourceVideoFormat@Base 275
  cuvidGetVideoSourceState@Base 275

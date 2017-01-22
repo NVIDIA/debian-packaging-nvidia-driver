@@ -3,17 +3,27 @@
  glAlphaToCoverageDitherControlNV@Base 370
  glConservativeRasterParameteriNV@Base 367
  glDebugControlNVX@Base 177
+ glDepthRangeArrayfvOES@Base 378
+ glDepthRangeIndexedfOES@Base 378
  glDevtoolsInvokeFunctorNVX@Base 349
  glDrawVkImageNV@Base 364
+ glGetFloati_vOES@Base 378
  glGetVkProcAddrNV@Base 364
  glLogTokenFlushNVX@Base 364
  glQueryResourceNVX@Base 355
+ glScissorArrayvOES@Base 378
+ glScissorIndexedOES@Base 378
+ glScissorIndexedvOES@Base 378
  glSignalVkFenceNV@Base 364
  glSignalVkSemaphoreNV@Base 364
  glSpecializeShaderARB@Base 367.36.02
+ glViewportArrayvOES@Base 378
+ glViewportIndexedfOES@Base 378
+ glViewportIndexedfvOES@Base 378
  glViewportPositionWScaleNV@Base 361
  glWaitVkSemaphoreNV@Base 364
  glWindowRectanglesEXT@Base 375.26
  glcuR0d4nX@Base 195.36
  gldbc3cfnX@Base 325
  vk_icdGetInstanceProcAddr@Base 364
+ vk_icdNegotiateLoaderICDInterfaceVersion@Base 378

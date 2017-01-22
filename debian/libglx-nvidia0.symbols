@@ -385,10 +385,12 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glDepthRange@Base 361.28
  glDepthRangeArraydvNV@Base 361.28
  glDepthRangeArrayfvNV@Base 361.28
+ glDepthRangeArrayfvOES@Base 378
  glDepthRangeArrayv@Base 361.28
  glDepthRangeIndexed@Base 361.28
  glDepthRangeIndexeddNV@Base 361.28
  glDepthRangeIndexedfNV@Base 361.28
+ glDepthRangeIndexedfOES@Base 378
  glDepthRangedNV@Base 361.28
  glDepthRangef@Base 361.28
  glDepthRangex@Base 361.28
@@ -686,6 +688,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGetFloati_v@Base 361.28
  glGetFloati_vEXT@Base 361.28
  glGetFloati_vNV@Base 361.28
+ glGetFloati_vOES@Base 378
  glGetFloatv@Base 361.28
  glGetFragDataIndex@Base 361.28
  glGetFragDataIndexEXT@Base 361.28
@@ -1776,10 +1779,13 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glScissor@Base 361.28
  glScissorArrayv@Base 361.28
  glScissorArrayvNV@Base 361.28
+ glScissorArrayvOES@Base 378
  glScissorIndexed@Base 361.28
  glScissorIndexedNV@Base 361.28
+ glScissorIndexedOES@Base 378
  glScissorIndexedv@Base 361.28
  glScissorIndexedvNV@Base 361.28
+ glScissorIndexedvOES@Base 378
  glSecondaryColor3b@Base 361.28
  glSecondaryColor3bEXT@Base 361.28
  glSecondaryColor3bv@Base 361.28
@@ -2465,10 +2471,13 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glViewport@Base 361.28
  glViewportArrayv@Base 361.28
  glViewportArrayvNV@Base 361.28
+ glViewportArrayvOES@Base 378
  glViewportIndexedf@Base 361.28
  glViewportIndexedfNV@Base 361.28
+ glViewportIndexedfOES@Base 378
  glViewportIndexedfv@Base 361.28
  glViewportIndexedfvNV@Base 361.28
+ glViewportIndexedfvOES@Base 378
  glViewportPositionWScaleNV@Base 361.28
  glViewportSwizzleNV@Base 361.28
  glWaitSync@Base 361.28
@@ -2607,3 +2616,4 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glcuR0d4nX@Base 361
  gldbc3cfnX@Base 361.28
  vk_icdGetInstanceProcAddr@Base 364
+ vk_icdNegotiateLoaderICDInterfaceVersion@Base 378

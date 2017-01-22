@@ -1,2 +1,12 @@
 libnvidia-ptxjitcompiler.so.#VERSION# #PACKAGE# #MINVER#
  __cuda_CallJitEntryPoint@Base 361
+ nvPTXCompilerCompile@Base 378
+ nvPTXCompilerCreate@Base 378
+ nvPTXCompilerDestroy@Base 378
+ nvPTXCompilerGetCompiledProgram@Base 378
+ nvPTXCompilerGetCompiledProgramSize@Base 378
+ nvPTXCompilerGetErrorLog@Base 378
+ nvPTXCompilerGetErrorLogSize@Base 378
+ nvPTXCompilerGetInfoLog@Base 378
+ nvPTXCompilerGetInfoLogSize@Base 378
+ nvPTXCompilerGetVersion@Base 378

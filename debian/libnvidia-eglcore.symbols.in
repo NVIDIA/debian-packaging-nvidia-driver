@@ -385,10 +385,12 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDepthRange@Base 346
  _glDepthRangeArraydvNV@Base 346
  _glDepthRangeArrayfvNV@Base 346
+ _glDepthRangeArrayfvOES@Base 378
  _glDepthRangeArrayv@Base 346
  _glDepthRangeIndexed@Base 346
  _glDepthRangeIndexeddNV@Base 346
  _glDepthRangeIndexedfNV@Base 346
+ _glDepthRangeIndexedfOES@Base 378
  _glDepthRangedNV@Base 346
  _glDepthRangef@Base 346
  _glDepthRangex@Base 346
@@ -688,6 +690,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetFloati_v@Base 346
  _glGetFloati_vEXT@Base 346
  _glGetFloati_vNV@Base 346
+ _glGetFloati_vOES@Base 378
  _glGetFloatv@Base 346
  _glGetFragDataIndex@Base 346
  _glGetFragDataIndexEXT@Base 361
@@ -1777,10 +1780,13 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glScissor@Base 346
  _glScissorArrayv@Base 346
  _glScissorArrayvNV@Base 346
+ _glScissorArrayvOES@Base 378
  _glScissorIndexed@Base 346
  _glScissorIndexedNV@Base 346
+ _glScissorIndexedOES@Base 378
  _glScissorIndexedv@Base 346
  _glScissorIndexedvNV@Base 346
+ _glScissorIndexedvOES@Base 378
  _glSecondaryColor3b@Base 346
  _glSecondaryColor3bEXT@Base 346
  _glSecondaryColor3bv@Base 346
@@ -2456,10 +2462,13 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glViewport@Base 346
  _glViewportArrayv@Base 346
  _glViewportArrayvNV@Base 346
+ _glViewportArrayvOES@Base 378
  _glViewportIndexedf@Base 346
  _glViewportIndexedfNV@Base 346
+ _glViewportIndexedfOES@Base 378
  _glViewportIndexedfv@Base 346
  _glViewportIndexedfvNV@Base 346
+ _glViewportIndexedfvOES@Base 378
  _glViewportPositionWScaleNV@Base 361
  _glViewportSwizzleNV@Base 346
  _glWaitSync@Base 346
@@ -2500,6 +2509,6 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glWindowPos3sARB@Base 346
  _glWindowPos3sv@Base 346
  _glWindowPos3svARB@Base 346
- _glWindowRectanglesEXT@Base 375.26
+ _glWindowRectanglesEXT@Base 378
 libnvidia-glsi.so.#VERSION# #PACKAGE# #MINVER#
  (regex)"^_nv\d*glsi@Base$" 0
