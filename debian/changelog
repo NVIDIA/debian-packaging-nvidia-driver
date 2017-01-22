@@ -34,7 +34,7 @@ nvidia-graphics-drivers (378.09-1~svn1) UNRELEASED; urgency=medium
     (Closes: #825637)
 
   [ Luca Boccassi ]
-  * Update nv-readme.ids fro 378.09
+  * Update nv-readme.ids for 378.09
   * Refresh nvidia-drm-master-dev.patch for 378.09 to remove fuzz
   * Update symbols files for 378.09
   * Add support and virtual provides for OpenCL 2.0. Although 2.0 symbols have
