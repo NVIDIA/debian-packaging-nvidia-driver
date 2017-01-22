@@ -5,7 +5,7 @@ Description: Fix drm master device API usage for kernel >= 4.8
  build failure.
 --- a/nvidia-drm/nvidia-drm-modeset.c
 +++ b/nvidia-drm/nvidia-drm-modeset.c
-@@ -76,6 +76,8 @@
+@@ -85,6 +85,8 @@
  }
  #endif
  
@@ -14,7 +14,7 @@ Description: Fix drm master device API usage for kernel >= 4.8
  /*
   * In kernel versions before the addition of
   * drm_crtc_state::connectors_changed, connector changes were
-@@ -794,7 +796,11 @@
+@@ -775,7 +777,11 @@
          }
      }
  
@@ -24,5 +24,5 @@ Description: Fix drm master device API usage for kernel >= 4.8
 +    drm_atomic_helper_swap_state(state, true);
 +#endif
  
-     NVIDIA_DRM_INIT_WORK(&nv_commit_task->work,
-                          nvidia_drm_atomic_commit_task_callback);
+     INIT_WORK(&nv_commit_task->work,
+               nvidia_drm_atomic_commit_task_callback);
