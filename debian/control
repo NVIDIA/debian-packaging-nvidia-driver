@@ -1156,6 +1156,7 @@ Provides:
  libopencl1,
  libopencl-1.1-1,
  libopencl-1.2-1,
+ libopencl-2.0-1,
 Conflicts:
  libopencl1,
 Breaks:
