@@ -77,10 +77,10 @@ Provides:
 Conflicts:
  nvidia-driver-bin-${nvidia:Version},
 Breaks:
- ${nvidia}-driver (<< ${Version:post-jessie}),
+ ${nvidia}-driver (<< ${nvidia:Deb-Version-After:jessie}),
  nvidia-glx${nvidia:Legacy} (<< 319),
 Replaces:
- ${nvidia}-driver (<< ${Version:post-jessie}),
+ ${nvidia}-driver (<< ${nvidia:Deb-Version-After:jessie}),
  nvidia-glx${nvidia:Legacy} (<< 319),
 Description: NVIDIA driver support binaries${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
@@ -207,9 +207,9 @@ Conflicts:
  libnvidia-glcore-${nvidia:Version},
  libgl1-nvidia-glx-${nvidia:Version},
 Breaks:
- libgl1-${nvidia}-glx (<< ${Version:post-jessie}),
+ libgl1-${nvidia}-glx (<< ${nvidia:Deb-Version-After:jessie}),
 Replaces:
- libgl1-${nvidia}-glx (<< ${Version:post-jessie}),
+ libgl1-${nvidia}-glx (<< ${nvidia:Deb-Version-After:jessie}),
 Description: NVIDIA binary OpenGL/GLX core libraries${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX applications via a direct-rendering X Server for graphics cards
@@ -228,9 +228,9 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Breaks:
- libgl1-${nvidia}-glx (<< ${Version:post-jessie}),
+ libgl1-${nvidia}-glx (<< ${nvidia:Deb-Version-After:jessie}),
 Replaces:
- libgl1-${nvidia}-glx (<< ${Version:post-jessie}),
+ libgl1-${nvidia}-glx (<< ${nvidia:Deb-Version-After:jessie}),
 Provides:
  libnvidia-cfg1-any,
 Description: NVIDIA binary OpenGL/GLX configuration library${nvidia:LegacyDesc}
