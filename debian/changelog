@@ -1,5 +1,12 @@
 nvidia-graphics-drivers (304.134-0~svn4stretch) UNRELEASED; urgency=medium
 
+  * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
+    (352.79-6).
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
+
+nvidia-graphics-drivers (304.134-0~svn4wheezy) UNRELEASED; urgency=medium
+
   * New upstream legacy 304xx branch release 304.134 (2016-12-14).
     * Fixed CVE-2016-8826.  (Closes: #848195)
     - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
@@ -70,9 +77,6 @@ nvidia-graphics-drivers (304.134-0~svn4stretch) UNRELEASED; urgency=medium
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
 
-  * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
-    (352.79-6).
-
   * Depend on a setuid root Xserver.  (Closes: #805554) 
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the OpenGL/GLX packages.
@@ -90,6 +94,8 @@ nvidia-graphics-drivers (304.134-0~svn4stretch) UNRELEASED; urgency=medium
     building on 4.3 or greater, where the deprecated APIs the kernel module
     uses are no longer exported, causing a failure when the module is
     loaded at runtime. (Closes: #809324)
+  * Add drm-driver-legacy.patch to fix nvidia kernel module load issue on
+    Linux 4.9 and newer.  (Closes: #852152)
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
