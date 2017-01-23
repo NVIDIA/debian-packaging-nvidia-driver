@@ -83,6 +83,7 @@ nvidia-graphics-drivers (304.134-0~svn4stretch) UNRELEASED; urgency=medium
   * Add ${nvidia:Deb-Version-After:jessie} substvar to simplify adjusting
     Breaks/Replaces for new upstream releases in stable.
   * Overhaul package descriptions.
+  * Switch to debhelper compat level 10.
 
   [ Luca Boccassi ]
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
