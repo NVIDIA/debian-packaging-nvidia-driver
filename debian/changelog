@@ -1,5 +1,12 @@
 nvidia-graphics-drivers (304.134-0~svn4jessie) UNRELEASED; urgency=medium
 
+  * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
+    (352.79-6).
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
+
+nvidia-graphics-drivers (304.134-0~svn4wheezy) UNRELEASED; urgency=medium
+
   * New upstream legacy 304xx branch release 304.134 (2016-12-14).
     * Fixed CVE-2016-8826.  (Closes: #848195)
     - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
@@ -69,9 +76,6 @@ nvidia-graphics-drivers (304.134-0~svn4jessie) UNRELEASED; urgency=medium
   * Add xorg-video-abi-23 as alternative dependency (375.20-1).
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
-
-  * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
-    (352.79-6).
 
   [ Luca Boccassi ]
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
