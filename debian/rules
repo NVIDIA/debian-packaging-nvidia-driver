@@ -23,6 +23,7 @@ ARCH_DEPS_i386		?=
 
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
+version_post_jessie	 = $(VERSION_POST_jessie)
 nvidia			 = nvidia$(legacy)
 libcuda1		 = lib$(if $(legacy),$(nvidia)-)cuda1
 module			 = nvidia-$(current)
@@ -236,6 +237,7 @@ override_dh_shlibdeps:
 
 override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' \
+		-V'Version:post-jessie=$(version_post_jessie)' \
 		-V'nvidia:xorgDepends=$(xorg_depends)' \
 		-V'nvidia:xorgProvides=$(xorg_provides)' \
 		-V'nvidia=$(nvidia)' \

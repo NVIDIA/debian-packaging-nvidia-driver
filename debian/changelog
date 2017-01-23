@@ -80,6 +80,8 @@ nvidia-graphics-drivers (304.134-0~svn4stretch) UNRELEASED; urgency=medium
     nvidia-driver-libs-i386 metapackage.
   * libnvidia-glcore: New package, split from libgl1-nvidia-glx.
   * libnvidia-cfg1: New package, split from libgl1-nvidia-glx.
+  * Add ${Version:post-jessie} substvar to simplify adjusting Breaks/Replaces
+    for new upstream releases in stable.
   * Overhaul package descriptions.
 
   [ Luca Boccassi ]
