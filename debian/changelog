@@ -18,7 +18,7 @@ nvidia-graphics-drivers (340.101-0~svn4stretch) UNRELEASED; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Apr 2016 16:41:52 +0200
 
-nvidia-graphics-drivers (340.101-0~svn4jessie) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.101 (2016-12-14).
     * Fixed CVE-2016-8826.  (Closes: #848195)
@@ -85,14 +85,19 @@ nvidia-graphics-drivers (340.101-0~svn4jessie) UNRELEASED; urgency=medium
   * Stop shipping unused pci.ids file (352.21-1).
   * control: Synchronize descriptions with unstable (370.28-2).
   * Add xorg-video-abi-23 as alternative dependency (375.20-1).
+  * nvidia-alternative: Restrict Depends: glx-alternative-nvidia to (<< 0.7).
+    Uploading a new upstream legacy release to stable will invalidate package
+    relationships in unstable, thus permitting some (partial) upgrade paths
+    that will fail.
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
+  * Upload to jessie.
 
   [ Luca Boccassi ]
   * Add drm-driver-legacy.patch to fix nvidia kernel module load issue on
-    Linux 4.9 and newer. (Closes: #848514)
+    Linux 4.9 and newer.  (Closes: #848514)
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 11:21:31 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 04 Jan 2017 13:31:29 +0100
 
 nvidia-graphics-drivers (340.96-4) unstable; urgency=medium
 
