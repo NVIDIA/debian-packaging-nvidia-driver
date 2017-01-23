@@ -3,6 +3,18 @@ nvidia-graphics-drivers (304.134-0~svn4stretch) UNRELEASED; urgency=medium
   * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
     (352.79-6).
 
+  * Depend on a setuid root Xserver.  (Closes: #805554) 
+  * nvidia-driver-libs: New metapackage for bundling the
+    Depends/Recommends on the OpenGL/GLX packages.
+  * Replace libgl1-nvidia-glx-i386 with new
+    nvidia-driver-libs-i386 metapackage.
+  * libnvidia-glcore: New package, split from libgl1-nvidia-glx.
+  * libnvidia-cfg1: New package, split from libgl1-nvidia-glx.
+  * Add ${nvidia:Deb-Version-After:jessie} substvar to simplify adjusting
+    Breaks/Replaces for new upstream releases in stable.
+  * Overhaul package descriptions.
+  * Switch to debhelper compat level 10.
+
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
 nvidia-graphics-drivers (304.134-0~svn4wheezy) UNRELEASED; urgency=medium
@@ -76,18 +88,6 @@ nvidia-graphics-drivers (304.134-0~svn4wheezy) UNRELEASED; urgency=medium
   * Add xorg-video-abi-23 as alternative dependency (375.20-1).
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
-
-  * Depend on a setuid root Xserver.  (Closes: #805554) 
-  * nvidia-driver-libs: New metapackage for bundling the
-    Depends/Recommends on the OpenGL/GLX packages.
-  * Replace libgl1-nvidia-glx-i386 with new
-    nvidia-driver-libs-i386 metapackage.
-  * libnvidia-glcore: New package, split from libgl1-nvidia-glx.
-  * libnvidia-cfg1: New package, split from libgl1-nvidia-glx.
-  * Add ${nvidia:Deb-Version-After:jessie} substvar to simplify adjusting
-    Breaks/Replaces for new upstream releases in stable.
-  * Overhaul package descriptions.
-  * Switch to debhelper compat level 10.
 
   [ Luca Boccassi ]
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
