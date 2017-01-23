@@ -1,5 +1,6 @@
 # kernel support
 fix-typos.patch
+drm-driver-legacy.patch
 
 # build system updates
 separate-makefile-kbuild.patch
