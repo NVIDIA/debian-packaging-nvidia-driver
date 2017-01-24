@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (375.26-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (375.26-2) unstable; urgency=medium
 
   * Merge changes from 340.101-1 (jessie).
   * nvidia-alternative: Add alternative for 
@@ -9,7 +9,7 @@ nvidia-graphics-drivers (375.26-2) UNRELEASED; urgency=medium
     Breaks/Replaces for new upstream releases in stable.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Jan 2017 14:35:53 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 24 Jan 2017 03:53:38 +0100
 
 nvidia-graphics-drivers (375.26-1) unstable; urgency=medium
 
