@@ -1,8 +1,12 @@
 nvidia-graphics-drivers (375.26-2) UNRELEASED; urgency=medium
 
+  * Merge changes from 340.101-1 (jessie).
   * nvidia-alternative: Add alternative for 
     /usr/share/nvidia/nvidia-application-profiles-key-documentation
     (Closes: #825637)
+  * Switch to debhelper compat level 10.
+  * Add ${nvidia:Deb-Version-After:jessie} substvar to simplify adjusting
+    Breaks/Replaces for new upstream releases in stable.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Jan 2017 14:35:53 +0100
 
@@ -28,9 +32,6 @@ nvidia-graphics-drivers (375.26-1) unstable; urgency=medium
                   (<process stack>) (8 bytes)
     * Fixed issues with OpenGL applications running simultaneously.
       (Closes: #847057)
-  * New upstream legacy 340xx branch release 340.101 (2016-12-14).
-    * Fixed CVE-2016-8826.
-    * Improved compatibility with recent Linux kernels.
   * New upstream legacy 304xx branch release 304.134 (2016-12-14).
     * Fixed CVE-2016-8826.
     - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
@@ -1342,6 +1343,87 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
+
+nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.101 (2016-12-14).
+    * Fixed CVE-2016-8826.  (Closes: #848195)
+    * Improved compatibility with recent Linux kernels.
+  * New upstream legacy 340xx branch release 340.98 (2016-09-26).
+    * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
+    - Added support for the screen_info.ext_lfb_base field, on kernels that
+      have it, in order to properly handle UEFI framebuffer consoles with
+      physical addresses above 4GB.
+    * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
+  * Stop special-casing of the nvidia-alternative substitution (352.79-6).
+  * rules: Drop support for ancient .run layout (352.79-4).
+  * nvidia-detect: Drop support for lenny and squeeze(-lts) (EoL) (352.79-5).
+  * Do not run dh_strip_nondeterminism, it may perform modifications not
+    permitted by the NVIDIA license (340.96-4).
+  * Use #!armhf# and #HAS_UVM# substitutions as in unstable (340.76-5).
+  * Add slave alternative for libnvcuvid.so (340.96-3).
+  * rules, rules.defs: Synchronize variable naming with unstable (352.79-3).
+  * rules, control: Synchronize substvars with unstable (352.79-3).
+  * get-orig-source: Synchronize with unstable (352.79-3).
+  * get-orig-source: Generate .orig-$ARCH.tar.gz for each architecture
+    (358.16-1).
+  * control: Synchronize descriptions with unstable.
+  * bug-script: Synchronize with unstable (352.79-3).
+  * bug-control.mk: New script to generate bug-control (352.79-4).
+  * bug-control, bug-script: Collect some information about OpenCL (352.79-6).
+  * Use an empty nvidia:legacy-check substvar for legacy packages (352.79-6).
+  * separate-makefile-kbuild.patch: New, don't make all Makefile targets
+    available to Kbuild (352.79-6).
+  * KERNEL_UNAME.patch: New, allow usage of KERNEL_UNAME as in 355.xx onwards
+    (352.79-6).
+  * use-kbuild-compiler.patch: New patch to build with Kbuild's version of the
+    compiler instead of system default, thanks to Luca (352.79-2).
+  * Use NVIDIA's conftest.sh script to determine settings during module build
+    instead of our manually maintained conftest.h header (352.79-2).
+  * conftest-verbose.patch: New patch to dump dynamically generated conftest
+    headers (352.79-2).
+  * conftest-via-kbuild.patch: New patch to call conftest.sh from within
+    kbuild (and therefore with kbuild's compiler and flags) as in 355.xx
+    (352.79-2).
+  * use-kbuild-flags.patch: New, use KBUILD_CFLAGS from Kbuild to
+    support building a 64-bit kernel module with 32-bit userspace (352.79-5).
+  * build-sanity-checks.patch: New, handle the conftest.sh sanity checks in
+    the modernized module build system (352.79-6).
+  * disable-cc_version_check.patch: New patch to disable a useless check that
+    tests the running kernel instead of the compilation target.
+  * disable-preempt_rt_sanity_check.patch: New patch to disable a check we
+    already skipped in our conftest.h (352.79-2).
+  * Pass only the kernel version via KERNEL_UNAME and let the module build
+    system figure out the paths (352.79-2).
+  * Clear ARCH variable from environment before module build, thanks to Luca
+    (352.79-2, 352.79-5).
+  * arm-outer-sync.patch: New patch to fix armhf kernel module build for
+    Linux 4.3, thanks to Luca (340.93-5).
+  * ignore_xen_on_arm.patch: Update to add workaround for conftest.sh to fix
+    kernel module build failure on armhf by forcing XEN_PRESENT=0 when
+    building on armhf, thanks to Luca (352.79-2).
+  * nvidia-detect: Update list of newer PCI IDs from release 375.26.
+  * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
+    (352.79-6).
+  * Build libnvidia-encode1 and libnvidia-ifr1 for armhf, too (352.79-10).
+  * Stop shipping unused pci.ids file (352.21-1).
+  * control: Synchronize descriptions with unstable (370.28-2).
+  * Add xorg-video-abi-23 as alternative dependency (375.20-1).
+  * nvidia-alternative: Restrict Depends: glx-alternative-nvidia to (<< 0.7).
+    Uploading a new upstream legacy release to stable will invalidate package
+    relationships in unstable, thus permitting some (partial) upgrade paths
+    that will fail.
+  * Bump Standards-Version to 3.9.8. No changes needed.
+  * Update lintian overrides.
+  * Upload to jessie.
+
+  [ Luca Boccassi ]
+  * Add drm-driver-legacy.patch to fix nvidia kernel module load issue on
+    Linux 4.9 and newer.  (Closes: #848514)
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 04 Jan 2017 13:31:29 +0100
 
 nvidia-graphics-drivers (340.96-4) unstable; urgency=medium
 
