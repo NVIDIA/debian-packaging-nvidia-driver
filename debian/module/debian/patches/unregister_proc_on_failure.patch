@@ -1,0 +1,25 @@
+Author: Andreas Beckmann <anbe@debian.org>
+Description: unregister procfs upon failure
+ the error unwinding in nvidia_init_module() is insane
+ (375.26 looks much better)
+ .
+ this is probably not correct in all cases, but the unwinding is
+ not reverse linear in creation and the gotos are all across everything
+ .
+ leaving the proc entries prevents the nvidia module from loading again
+ .
+ accessing the stale proc entries results in
+   BUG: unable to handle kernel paging request at ...
+Bug-Debian: #764639
+
+--- a/nv.c
++++ b/nv.c
+@@ -1040,6 +1040,8 @@ failed3:
+ 
+     pci_unregister_driver(&nv_pci_driver);
+ 
++    nv_unregister_procfs();
++
+ failed5:
+     rm_shutdown_rm(sp);
+ 

@@ -1,5 +1,6 @@
 # kernel support
 drm-driver-legacy.patch
+unregister_proc_on_failure.patch
 
 # build system updates
 separate-makefile-kbuild.patch

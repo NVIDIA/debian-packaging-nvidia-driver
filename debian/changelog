@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (340.101-2~svn4jessie) UNRELEASED; urgency=medium
+
+  * unregister_proc_on_failure.patch: New, try to remove proc entries during
+    error unwind while loading the module.  (Closes: #764639)
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 10 Feb 2017 23:05:58 +0100
+
 nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.101 (2016-12-14).
