@@ -81,6 +81,8 @@ nvidia-graphics-drivers (304.135-0~svn4wheezy) UNRELEASED; urgency=medium
     loaded at runtime. (Closes: #809324)
   * Add drm-driver-legacy.patch to fix nvidia kernel module load issue on
     Linux 4.9 and newer.  (Closes: #852152)
+  * Add deprecated-cpu-events.patch and update disable-mtrr.patch to fix
+    kernel module build on Linux 4.10 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
