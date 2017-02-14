@@ -1,6 +1,8 @@
 # kernel support
 drm-driver-legacy.patch
 unregister_proc_on_failure.patch
+deprecated-cpu-events.patch
+vmf-address.patch
 
 # build system updates
 separate-makefile-kbuild.patch
