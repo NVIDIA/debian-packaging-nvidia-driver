@@ -1,5 +1,11 @@
-nvidia-graphics-drivers (340.101-2~svn4jessie) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.102-1~svn4jessie) UNRELEASED; urgency=medium
 
+  * New upstream legacy 340xx branch release 340.102 (2017-02-14).
+    - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
+    - Fixed a bug that allowed nvidia-installer to attempt loading kernel
+      modules that were built against non-running kernels.
+
+  [ Andreas Beckmann ]
   * unregister_proc_on_failure.patch: New, try to remove proc entries during
     error unwind while loading the module.  (Closes: #764639)
 
