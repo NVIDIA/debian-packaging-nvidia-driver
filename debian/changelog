@@ -1,3 +1,18 @@
+nvidia-graphics-drivers (375.39-1~svn1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 375.39 (2017-02-14).
+    - Added support for the following GPU(s): Quadro GP100, Quadro P4000,
+      Quadro P2000, Quadro P1000, Quadro P600, Quadro P400, Quadro M1200,
+      Quadro M2200
+    - Fixed a bug that caused system hangs when resuming from suspend with
+      some GPUs.
+    - Fixed a regression that could cause corruption when hot-plugging
+      displays.
+    - Fixed a regression that prevented systems with multiple DisplayPort
+      monitors from resuming correctly from suspend.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 14 Feb 2017 23:50:42 +0000
+
 nvidia-graphics-drivers (375.26-2) unstable; urgency=medium
 
   * Merge changes from 340.101-1 (jessie).
