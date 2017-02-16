@@ -1,6 +1,8 @@
 nvidia-graphics-drivers (375.39-1~svn1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 375.39 (2017-02-14).
+    - Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0321,
+      CVE-2017-0318. (Closes: #855277)
     - Added support for the following GPU(s): Quadro GP100, Quadro P4000,
       Quadro P2000, Quadro P1000, Quadro P600, Quadro P400, Quadro M1200,
       Quadro M2200
