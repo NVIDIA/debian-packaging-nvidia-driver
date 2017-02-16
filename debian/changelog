@@ -16,6 +16,8 @@ nvidia-graphics-drivers (375.39-1~svn1) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Update nv-readme.ids
   * Update symbols files
+  * Add deprecated-cpu-events.patch, dma-fence-rename.patch and
+    vmf-address.patch to fix kernel module build on Linux 4.10 and newer.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 14 Feb 2017 23:50:42 +0000
 

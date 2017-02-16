@@ -1,6 +1,9 @@
 # kernel support
 do-div-cast.patch
 nvidia-drm-master-dev.patch
+deprecated-cpu-events.patch
+dma-fence-rename.patch
+vmf-address.patch
 
 # build system updates
 use-kbuild-compiler.patch

@@ -1,0 +1,245 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix kernel module build on 4.10 and greater
+ From kernel 4.10 and newer (commit f54d1867005c3) include/linux/fence.h has
+ been renamed to include/linux/dma-fence.h, and all structures and functions
+ also gained a dma_ prefix.
+--- a/nvidia-drm/nvidia-drm-priv.h
++++ b/nvidia-drm/nvidia-drm-priv.h
+@@ -34,7 +34,12 @@
+ #endif
+ 
+ #if defined(NV_DRM_DRIVER_HAS_GEM_PRIME_RES_OBJ)
++#include <linux/version.h>
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+ #include <linux/fence.h>
++#else
++#include <linux/dma-fence.h>
++#endif
+ #include <linux/reservation.h>
+ #endif
+ 
+--- a/nvidia-drm/nvidia-drm-fence.c
++++ b/nvidia-drm/nvidia-drm-fence.c
+@@ -31,7 +31,11 @@
+ 
+ #if defined(NV_DRM_DRIVER_HAS_GEM_PRIME_RES_OBJ)
+ struct nv_fence {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     struct fence base;
++#else
++    struct dma_fence base;
++#endif
+     spinlock_t lock;
+ 
+     struct nvidia_drm_device *nv_dev;
+@@ -51,7 +55,11 @@
+ 
+ static const char *nvidia_drm_gem_prime_fence_op_get_driver_name
+ (
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     struct fence *fence
++#else
++    struct dma_fence *fence
++#endif
+ )
+ {
+     return "NVIDIA";
+@@ -59,7 +67,11 @@
+ 
+ static const char *nvidia_drm_gem_prime_fence_op_get_timeline_name
+ (
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     struct fence *fence
++#else
++    struct dma_fence *fence
++#endif
+ )
+ {
+     return "nvidia.prime";
+@@ -67,7 +79,11 @@
+ 
+ static bool nvidia_drm_gem_prime_fence_op_signaled
+ (
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     struct fence *fence
++#else
++    struct dma_fence *fence
++#endif
+ )
+ {
+     struct nv_fence *nv_fence = container_of(fence, struct nv_fence, base);
+@@ -99,7 +115,11 @@
+ 
+ static bool nvidia_drm_gem_prime_fence_op_enable_signaling
+ (
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     struct fence *fence
++#else
++    struct dma_fence *fence
++#endif
+ )
+ {
+     bool ret = true;
+@@ -107,7 +127,11 @@
+     struct nvidia_drm_gem_object *nv_gem = nv_fence->nv_gem;
+     struct nvidia_drm_device *nv_dev = nv_fence->nv_dev;
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     if (fence_is_signaled(fence))
++#else
++    if (dma_fence_is_signaled(fence))
++#endif
+     {
+         return false;
+     }
+@@ -136,7 +160,11 @@
+     }
+ 
+     nv_gem->fenceContext.softFence = fence;
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     fence_get(fence);
++#else
++    dma_fence_get(fence);
++#endif
+ 
+ unlock_struct_mutex:
+     mutex_unlock(&nv_dev->dev->struct_mutex);
+@@ -146,7 +174,11 @@
+ 
+ static void nvidia_drm_gem_prime_fence_op_release
+ (
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     struct fence *fence
++#else
++    struct dma_fence *fence
++#endif
+ )
+ {
+     struct nv_fence *nv_fence = container_of(fence, struct nv_fence, base);
+@@ -155,7 +187,11 @@
+ 
+ static signed long nvidia_drm_gem_prime_fence_op_wait
+ (
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     struct fence *fence,
++#else
++    struct dma_fence *fence,
++#endif
+     bool intr,
+     signed long timeout
+ )
+@@ -170,12 +206,22 @@
+      * that it should never get hit during normal operation, but not so long
+      * that the system becomes unresponsive.
+      */
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     return fence_default_wait(fence, intr,
+                               (timeout == MAX_SCHEDULE_TIMEOUT) ?
+                                   msecs_to_jiffies(96) : timeout);
++#else
++    return dma_fence_default_wait(fence, intr,
++                              (timeout == MAX_SCHEDULE_TIMEOUT) ?
++                                  msecs_to_jiffies(96) : timeout);
++#endif
+ }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+ static const struct fence_ops nvidia_drm_gem_prime_fence_ops = {
++#else
++static const struct dma_fence_ops nvidia_drm_gem_prime_fence_ops = {
++#endif
+     .get_driver_name = nvidia_drm_gem_prime_fence_op_get_driver_name,
+     .get_timeline_name = nvidia_drm_gem_prime_fence_op_get_timeline_name,
+     .signaled = nvidia_drm_gem_prime_fence_op_signaled,
+@@ -285,7 +331,11 @@
+     bool force
+ )
+ {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     struct fence *fence = nv_gem->fenceContext.softFence;
++#else
++    struct dma_fence *fence = nv_gem->fenceContext.softFence;
++#endif
+ 
+     WARN_ON(!mutex_is_locked(&nv_dev->dev->struct_mutex));
+ 
+@@ -301,10 +351,17 @@
+ 
+         if (force || nv_fence_ready_to_signal(nv_fence))
+         {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+             fence_signal(&nv_fence->base);
+ 
+             nv_gem->fenceContext.softFence = NULL;
+             fence_put(&nv_fence->base);
++#else
++            dma_fence_signal(&nv_fence->base);
++
++            nv_gem->fenceContext.softFence = NULL;
++            dma_fence_put(&nv_fence->base);
++#endif
+ 
+             nvKms->disableChannelEvent(nv_dev->pDevice,
+                                        nv_gem->fenceContext.cb);
+@@ -320,7 +377,11 @@
+ 
+         nv_fence = container_of(fence, struct nv_fence, base);
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+         fence_signal(&nv_fence->base);
++#else
++        dma_fence_signal(&nv_fence->base);
++#endif
+     }
+ }
+ 
+@@ -513,7 +574,11 @@
+      * fence_context_alloc() cannot fail, so we do not need to check a return
+      * value.
+      */
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     nv_gem->fenceContext.context = fence_context_alloc(1);
++#else
++    nv_gem->fenceContext.context = dma_fence_context_alloc(1);
++#endif
+ 
+     ret = nvidia_drm_gem_prime_fence_import_semaphore(
+               nv_dev, nv_gem, p->index,
+@@ -670,7 +735,11 @@
+     nv_fence->nv_gem = nv_gem;
+ 
+     spin_lock_init(&nv_fence->lock);
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     fence_init(&nv_fence->base, &nvidia_drm_gem_prime_fence_ops,
++#else
++    dma_fence_init(&nv_fence->base, &nvidia_drm_gem_prime_fence_ops,
++#endif
+                &nv_fence->lock, nv_gem->fenceContext.context,
+                p->sem_thresh);
+ 
+@@ -680,7 +749,11 @@
+ 
+     reservation_object_add_excl_fence(&nv_gem->fenceContext.resv,
+                                       &nv_fence->base);
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     fence_put(&nv_fence->base); /* Reservation object has reference */
++#else
++    dma_fence_put(&nv_fence->base); /* Reservation object has reference */
++#endif
+ 
+     ret = 0;
+ 
+--- a/nvidia-drm/nvidia-drm-gem.h
++++ b/nvidia-drm/nvidia-drm-gem.h
+@@ -98,7 +98,11 @@
+         /* Software signaling structures */
+         struct NvKmsKapiChannelEvent *cb;
+         struct nvidia_drm_gem_prime_soft_fence_event_args *cbArgs;
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+         struct fence *softFence; /* Fence for software signaling */
++#else
++        struct dma_fence *softFence; /* Fence for software signaling */
++#endif
+     } fenceContext;
+ #endif
+ };
