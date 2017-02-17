@@ -46,7 +46,7 @@ nvidia-graphics-drivers (378.09-1~svn1) UNRELEASED; urgency=medium
       already forcing them enabled.
 
   [ Luca Boccassi ]
-  * Update nv-readme.ids for 378.09
+  * Update nv-readme.ids
   * Refresh nvidia-drm-master-dev.patch for 378.09 to remove fuzz
   * Update symbols files for 378.09
   * Rename libnvidia-egl-wayland -> libnvidia-egl-wayland1 to follow SONAME
