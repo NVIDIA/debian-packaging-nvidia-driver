@@ -1,5 +1,22 @@
 nvidia-graphics-drivers (378.09-1~svn1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 378.13 (2017-02-14).
+    - Added support for the following GPU(s): Quadro P3000, Quadro GP100,
+      Quadro P4000, Quadro P2000, Quadro P1000, Quadro P600, Quadro P400
+    - Disabled OpenGL threaded optimizations by default under Xinerama.
+    - Fixed a bug that prevented PRIME Sync from working on notebooks with
+      GeForce GTX 4xx and 5xx series GPUs.
+    - Fixed a bug that caused system hangs when resuming from suspend with some
+      GPUs.
+    - Fixed a regression that could cause corruption when hot-plugging displays.
+    - Fixed a regression that prevented systems with multiple DisplayPort
+      monitors from resuming correctly from suspend.
+    - Added support for the screen_info.ext_lfb_base field, on kernels that have
+      it, in order to properly handle UEFI framebuffer consoles with physical
+      addresses above 4GB.
+    - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
+    - Fixed a bug that allowed nvidia-installer to attempt loading kernel
+      modules that were built against non-running kernels.
   * New upstream beta 378.09 (2017-01-18).
     - Added support for the following GPUs: Quadro M1200, Quadro M2200.
     - Added support for the ARB_parallel_shader_compile extension to allow
