@@ -1,4 +1,4 @@
-libnvidia-egl-wayland.so.1.0.0 libnvidia-egl-wayland1 #MINVER#
+libnvidia-egl-wayland.so.1.0.1 libnvidia-egl-wayland1 #MINVER#
 #MISSING: 378# NvWaylandEglBindDisplays@Base 375
 #MISSING: 378# NvWaylandEglChooseConfig@Base 364
 #MISSING: 378# NvWaylandEglCreatePlatformWindowSurface@Base 375
