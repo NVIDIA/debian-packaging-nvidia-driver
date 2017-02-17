@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (378.09-1~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (378.13-1~svn1) UNRELEASED; urgency=medium
 
   * New upstream short lived branch release 378.13 (2017-02-14).
     - Added support for the following GPU(s): Quadro P3000, Quadro GP100,
@@ -53,6 +53,8 @@ nvidia-graphics-drivers (378.09-1~svn1) UNRELEASED; urgency=medium
     change
   * Add new nvidia-egl-wayland-icd and nvidia-egl-wayland-common packages to
     add support for the new EGL external platform infrastructure
+  * Add deprecated-cpu-events.patch, dma-fence-rename.patch and
+    vmf-address.patch to fix kernel module build on Linux 4.10 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Jan 2017 14:35:53 +0100
 

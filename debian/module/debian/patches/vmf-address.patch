@@ -1,0 +1,24 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix kernel module build on 4.10 and greater
+ From kernel 4.10 and newer (commit 1a29d85eb0f19) virtual_address is no longer
+ available as a member of struct vm_fault. Use the address member as suggested
+ by the changelog.
+--- a/common/inc/nv-mm.h
++++ b/common/inc/nv-mm.h
+@@ -24,6 +24,7 @@
+ #define __NV_MM_H__
+ 
+ #include "conftest.h"
++#include <linux/version.h>
+ 
+ /* get_user_pages_remote() was added by:
+  *   2016 Feb 12: 1e9877902dc7e11d2be038371c6fbf2dfcd469d7
+@@ -131,7 +132,7 @@
+ #if defined(NV_VM_FAULT_PRESENT)
+     static inline unsigned long nv_page_fault_va(struct vm_fault *vmf)
+     {
+-    #if defined(NV_VM_FAULT_HAS_ADDRESS)
++    #if defined(NV_VM_FAULT_HAS_ADDRESS) || LINUX_VERSION_CODE >= KERNEL_VERSION(4, 10, 0)
+         return vmf->address;
+     #else
+         return (unsigned long)(uintptr_t)(vmf->virtual_address);
