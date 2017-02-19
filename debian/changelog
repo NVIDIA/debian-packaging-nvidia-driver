@@ -68,6 +68,8 @@ nvidia-graphics-drivers (304.135-0~svn4wheezy) UNRELEASED; urgency=medium
     system figure out the paths (352.79-2).
   * Clear ARCH variable from environment before module build, thanks to Luca
     (352.79-2, 352.79-5).
+  * unregister_procfs_on_failure.patch: New, unregister procfs entries during
+    error unwind if loading the module failed (340.102-1).  (Closes: #764639)
   * control: Synchronize descriptions with unstable (370.28-2).
   * Add xorg-video-abi-23 as alternative dependency (375.20-1).
   * Bump Standards-Version to 3.9.8. No changes needed.
@@ -77,7 +79,7 @@ nvidia-graphics-drivers (304.135-0~svn4wheezy) UNRELEASED; urgency=medium
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
     building on 4.3 or greater, where the deprecated APIs the kernel module
     uses are no longer exported, causing a failure when the module is
-    loaded at runtime. (Closes: #809324)
+    loaded at runtime.  (Closes: #809324)
   * Add drm-driver-legacy.patch to fix nvidia kernel module load issue on
     Linux 4.9 and newer.  (Closes: #852152)
   * Add deprecated-cpu-events.patch and update disable-mtrr.patch to fix

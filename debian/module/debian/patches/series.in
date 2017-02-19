@@ -1,6 +1,7 @@
 # kernel support
 fix-typos.patch
 drm-driver-legacy.patch
+unregister_procfs_on_failure.patch
 deprecated-cpu-events.patch
 
 # build system updates
