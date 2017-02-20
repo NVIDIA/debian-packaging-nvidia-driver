@@ -20,7 +20,8 @@ nvidia-graphics-drivers (375.39-1~svn1) UNRELEASED; urgency=medium
     vmf-address.patch to fix kernel module build on Linux 4.10 and newer.
 
   [ Andreas Beckmann ]
-  * bug-control: Report information about installed vulkan ICDs.
+  * bug-control: Report information about installed Vulkan ICDs.
+  * Restrict watch file to releases from the 375.xx long lived branch.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 14 Feb 2017 23:50:42 +0000
 
