@@ -19,6 +19,9 @@ nvidia-graphics-drivers (375.39-1~svn1) UNRELEASED; urgency=medium
   * Add deprecated-cpu-events.patch, dma-fence-rename.patch and
     vmf-address.patch to fix kernel module build on Linux 4.10 and newer.
 
+  [ Andreas Beckmann ]
+  * bug-control: Report information about installed vulkan ICDs.
+
  -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 14 Feb 2017 23:50:42 +0000
 
 nvidia-graphics-drivers (375.26-2) unstable; urgency=medium
