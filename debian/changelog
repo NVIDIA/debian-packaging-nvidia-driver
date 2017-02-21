@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.134-0~svn4stretch) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.135-0~svn4stretch) UNRELEASED; urgency=medium
 
   * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
     (352.79-6).
@@ -17,8 +17,11 @@ nvidia-graphics-drivers (304.134-0~svn4stretch) UNRELEASED; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
-nvidia-graphics-drivers (304.134-0~svn4wheezy) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.135-0~svn4wheezy) UNRELEASED; urgency=medium
 
+  * New upstream legacy 304xx branch release 304.135 (2017-02-14).
+    * Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0318,
+      CVE-2017-0321.  (Closes: #855277)
   * New upstream legacy 304xx branch release 304.134 (2016-12-14).
     * Fixed CVE-2016-8826.  (Closes: #848195)
     - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
@@ -84,6 +87,8 @@ nvidia-graphics-drivers (304.134-0~svn4wheezy) UNRELEASED; urgency=medium
     system figure out the paths (352.79-2).
   * Clear ARCH variable from environment before module build, thanks to Luca
     (352.79-2, 352.79-5).
+  * unregister_procfs_on_failure.patch: New, unregister procfs entries during
+    error unwind if loading the module failed (340.102-1).  (Closes: #764639)
   * control: Synchronize descriptions with unstable (370.28-2).
   * Add xorg-video-abi-23 as alternative dependency (375.20-1).
   * Bump Standards-Version to 3.9.8. No changes needed.
@@ -93,9 +98,11 @@ nvidia-graphics-drivers (304.134-0~svn4wheezy) UNRELEASED; urgency=medium
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
     building on 4.3 or greater, where the deprecated APIs the kernel module
     uses are no longer exported, causing a failure when the module is
-    loaded at runtime. (Closes: #809324)
+    loaded at runtime.  (Closes: #809324)
   * Add drm-driver-legacy.patch to fix nvidia kernel module load issue on
     Linux 4.9 and newer.  (Closes: #852152)
+  * Add deprecated-cpu-events.patch and update disable-mtrr.patch to fix
+    kernel module build on Linux 4.10 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
