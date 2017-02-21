@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.101-0~svn4stretch) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.102-0~svn4stretch) UNRELEASED; urgency=medium
 
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
@@ -17,6 +17,22 @@ nvidia-graphics-drivers (340.101-0~svn4stretch) UNRELEASED; urgency=medium
     Breaks/Replaces for new upstream releases in stable.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Apr 2016 16:41:52 +0200
+
+nvidia-graphics-drivers (340.102-1~svn4jessie) UNRELEASED; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.102 (2017-02-14).
+    * Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0318,
+      CVE-2017-0321.  (Closes: #855277)
+
+  [ Andreas Beckmann ]
+  * unregister_proc_on_failure.patch: New, unregister procfs entries during
+    error unwind if loading the module failed.  (Closes: #764639)
+
+  [ Luca Boccassi ]
+  * Add deprecated-cpu-events.patch and vmf-address.patch to fix kernel
+    module build on Linux 4.10 and newer.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 10 Feb 2017 23:05:58 +0100
 
 nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
 

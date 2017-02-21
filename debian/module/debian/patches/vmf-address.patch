@@ -1,0 +1,19 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix kernel module build on 4.10 and greater
+ From kernel 4.10 and newer (commit 1a29d85eb0f19) virtual_address is no longer
+ available as a member of struct vm_fault. Use the address member as suggested
+ by the changelog.
+--- a/uvm/nvidia_uvm_lite.c
++++ b/uvm/nvidia_uvm_lite.c
+@@ -820,7 +820,11 @@
+ #if defined(NV_VM_OPERATIONS_STRUCT_HAS_FAULT)
+ int _fault(struct vm_area_struct *vma, struct vm_fault *vmf)
+ {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 10, 0)
+     unsigned long vaddr = (unsigned long)vmf->virtual_address;
++#else
++    unsigned long vaddr = vmf->address;
++#endif
+     struct page *page = NULL;
+     int retval;
+ 
