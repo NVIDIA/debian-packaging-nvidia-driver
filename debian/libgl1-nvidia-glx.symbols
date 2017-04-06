@@ -6,8 +6,10 @@
  glDepthRangeArrayfvOES@Base 378
  glDepthRangeIndexedfOES@Base 378
  glDevtoolsInvokeFunctorNVX@Base 349
+ glDrawTransformFeedbackInstancedEXT@Base 381
  glDrawVkImageNV@Base 364
  glGetFloati_vOES@Base 378
+ glGetVkCoreProcAddrNVX@Base 381
  glGetVkProcAddrNV@Base 364
  glLogTokenFlushNVX@Base 364
  glQueryResourceNVX@Base 355

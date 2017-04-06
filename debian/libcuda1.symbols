@@ -53,18 +53,18 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuDeviceTotalMem@Base 169
  cuDeviceTotalMem_v2@Base 260
  cuDriverGetVersion@Base 185
- (arch=armhf)cuEGLInit@Base 346
- (arch=armhf)cuEGLStreamConsumerAcquireFrame@Base 346
- (arch=armhf)cuEGLStreamConsumerConnect@Base 346
- (arch=armhf)cuEGLStreamConsumerConnectWithFlags@Base 367.44
- (arch=armhf)cuEGLStreamConsumerDisconnect@Base 346
- (arch=armhf)cuEGLStreamConsumerReleaseFrame@Base 346
- (arch=armhf)cuEGLStreamProducerConnect@Base 346
- (arch=armhf)cuEGLStreamProducerDisconnect@Base 346
+ (arch=!i386)cuEGLInit@Base 346
+ (arch=!i386)cuEGLStreamConsumerAcquireFrame@Base 346
+ (arch=!i386)cuEGLStreamConsumerConnect@Base 346
+ (arch=!i386)cuEGLStreamConsumerConnectWithFlags@Base 367.44
+ (arch=!i386)cuEGLStreamConsumerDisconnect@Base 346
+ (arch=!i386)cuEGLStreamConsumerReleaseFrame@Base 346
+ (arch=!i386)cuEGLStreamProducerConnect@Base 346
+ (arch=!i386)cuEGLStreamProducerDisconnect@Base 346
 #MISSING: 349# (arch=armhf)cuEGLStreamProducerPresentArray@Base 346
 #MISSING: 349# (arch=armhf)cuEGLStreamProducerPresentDevicePtr@Base 346
- (arch=armhf)cuEGLStreamProducerPresentFrame@Base 349
- (arch=armhf)cuEGLStreamProducerReturnFrame@Base 349
+ (arch=!i386)cuEGLStreamProducerPresentFrame@Base 349
+ (arch=!i386)cuEGLStreamProducerReturnFrame@Base 349
  cuEventCreate@Base 169
  cuEventDestroy@Base 169
  cuEventDestroy_v2@Base 270
@@ -97,12 +97,12 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGetErrorName@Base 331
  cuGetErrorString@Base 331
  cuGetExportTable@Base 195.30
- (arch=armhf)cuGraphicsEGLRegisterImage@Base 346
+ (arch=!i386)cuGraphicsEGLRegisterImage@Base 346
  cuGraphicsGLRegisterBuffer@Base 195
  cuGraphicsGLRegisterImage@Base 195
  cuGraphicsMapResources@Base 195
  cuGraphicsMapResources_ptsz@Base 346
- (arch=armhf)cuGraphicsResourceGetMappedEglFrame@Base 349
+ (arch=!i386)cuGraphicsResourceGetMappedEglFrame@Base 349
  cuGraphicsResourceGetMappedMipmappedArray@Base 304
  cuGraphicsResourceGetMappedPointer@Base 195
  cuGraphicsResourceGetMappedPointer_v2@Base 260

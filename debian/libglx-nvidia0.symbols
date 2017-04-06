@@ -470,6 +470,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glDrawTransformFeedback@Base 361.28
  glDrawTransformFeedbackEXT@Base 361.28
  glDrawTransformFeedbackInstanced@Base 361.28
+ glDrawTransformFeedbackInstancedEXT@Base 381
  glDrawTransformFeedbackNV@Base 361.28
  glDrawTransformFeedbackStream@Base 361.28
  glDrawTransformFeedbackStreamInstanced@Base 361.28
@@ -983,6 +984,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGetVideoivNV@Base 361.28
  glGetVideoui64vNV@Base 361.28
  glGetVideouivNV@Base 361.28
+ glGetVkCoreProcAddrNVX@Base 381
  glGetVkProcAddrNV@Base 364
  glGetnColorTable@Base 361.28
  glGetnColorTableARB@Base 361.28

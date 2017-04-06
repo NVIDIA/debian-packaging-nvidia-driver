@@ -470,6 +470,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDrawTransformFeedback@Base 346
  _glDrawTransformFeedbackEXT@Base 346
  _glDrawTransformFeedbackInstanced@Base 346
+ _glDrawTransformFeedbackInstancedEXT@Base 381
  _glDrawTransformFeedbackNV@Base 346
  _glDrawTransformFeedbackStream@Base 346
  _glDrawTransformFeedbackStreamInstanced@Base 346
@@ -985,6 +986,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetVideoivNV@Base 346
  _glGetVideoui64vNV@Base 346
  _glGetVideouivNV@Base 346
+ _glGetVkCoreProcAddrNVX@Base 381
  _glGetVkProcAddrNV@Base 364
  _glGetnColorTable@Base 346
  _glGetnColorTableARB@Base 346
