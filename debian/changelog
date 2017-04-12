@@ -18,7 +18,7 @@ nvidia-graphics-drivers (340.102-0~svn4stretch) UNRELEASED; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Apr 2016 16:41:52 +0200
 
-nvidia-graphics-drivers (340.102-1~svn4jessie) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.102-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.102 (2017-02-14).
     * Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0318,
@@ -27,12 +27,13 @@ nvidia-graphics-drivers (340.102-1~svn4jessie) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * unregister_proc_on_failure.patch: New, unregister procfs entries during
     error unwind if loading the module failed.  (Closes: #764639)
+  * Upload to jessie.
 
   [ Luca Boccassi ]
   * Add deprecated-cpu-events.patch and vmf-address.patch to fix kernel
     module build on Linux 4.10 and newer.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 10 Feb 2017 23:05:58 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Apr 2017 22:12:27 +0200
 
 nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
 
@@ -1799,8 +1800,6 @@ nvidia-graphics-drivers (304.135-0~svn4wheezy) UNRELEASED; urgency=medium
     system figure out the paths (352.79-2).
   * Clear ARCH variable from environment before module build, thanks to Luca
     (352.79-2, 352.79-5).
-  * unregister_procfs_on_failure.patch: New, unregister procfs entries during
-    error unwind if loading the module failed (340.102-1).  (Closes: #764639)
   * control: Synchronize descriptions with unstable (370.28-2).
   * Add xorg-video-abi-23 as alternative dependency (375.20-1).
   * Bump Standards-Version to 3.9.8. No changes needed.
