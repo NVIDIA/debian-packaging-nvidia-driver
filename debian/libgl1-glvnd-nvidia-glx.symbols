@@ -764,6 +764,6 @@
 #MISSING: 361.45# public_entry_start@Base 361
  stub_find_public@Base 361
  stub_get_addr@Base 361
- stub_get_name@Base 361
+#MISSING: 375.66# stub_get_name@Base 361
  stub_get_patch_callbacks@Base 361
  stub_get_slot@Base 361

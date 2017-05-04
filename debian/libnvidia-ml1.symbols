@@ -35,6 +35,9 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetDisplayMode@Base 270
  nvmlDeviceGetDriverModel@Base 270
  nvmlDeviceGetEccMode@Base 270
+ nvmlDeviceGetEncoderCapacity@Base 375.66
+ nvmlDeviceGetEncoderSessions@Base 375.66
+ nvmlDeviceGetEncoderStats@Base 375.66
  nvmlDeviceGetEncoderUtilization@Base 340
  nvmlDeviceGetEnforcedPowerLimit@Base 331
  nvmlDeviceGetFanSpeed@Base 270
@@ -79,6 +82,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetPowerManagementMode@Base 270
  nvmlDeviceGetPowerState@Base 270
  nvmlDeviceGetPowerUsage@Base 270
+ nvmlDeviceGetProcessUtilization@Base 375.66
  nvmlDeviceGetRetiredPages@Base 319
  nvmlDeviceGetRetiredPagesPendingStatus@Base 319
  nvmlDeviceGetSamples@Base 340
@@ -97,6 +101,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetUtilizationRates@Base 270
  nvmlDeviceGetVbiosVersion@Base 285
  nvmlDeviceGetVgpuMetadata@Base 375.26
+ nvmlDeviceGetVgpuProcessUtilization@Base 375.66
  nvmlDeviceGetVgpuUtilization@Base 375
  nvmlDeviceGetViolationStatus@Base 340
  nvmlDeviceGetVirtualizationMode@Base 361.28
@@ -151,6 +156,9 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlUnitGetUnitInfo@Base 270
  nvmlUnitSetLedState@Base 270
 #MISSING: 375# nvmlVgpuInstanceGetDecoderUtilization@Base 370
+ nvmlVgpuInstanceGetEncoderCapacity@Base 375.66
+ nvmlVgpuInstanceGetEncoderSessions@Base 375.66
+ nvmlVgpuInstanceGetEncoderStats@Base 375.66
 #MISSING: 375# nvmlVgpuInstanceGetEncoderUtilization@Base 370
  nvmlVgpuInstanceGetFbUsage@Base 367.27
 #MISSING: 375# nvmlVgpuInstanceGetFbUtilization@Base 370
@@ -162,6 +170,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlVgpuInstanceGetUUID@Base 367.27
  nvmlVgpuInstanceGetVmDriverVersion@Base 367.27
  nvmlVgpuInstanceGetVmID@Base 367
+ nvmlVgpuInstanceSetEncoderCapacity@Base 375.66
  nvmlVgpuTypeGetClass@Base 361.42
  nvmlVgpuTypeGetDeviceID@Base 361.42
  nvmlVgpuTypeGetFrameRateLimit@Base 375
