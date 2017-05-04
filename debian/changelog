@@ -47,6 +47,8 @@ nvidia-graphics-drivers (375.66-1~svn1) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Update nv-readme.ids
   * Update symbols files
+  * Drop deprecated-cpu-events.patch, dma-fence-rename.patch and
+    vmf-address.patch, fixed upstream
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 12 Apr 2017 13:47:15 +0200
 
