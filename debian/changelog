@@ -40,7 +40,12 @@ nvidia-graphics-drivers (375.66-1~svn1) UNRELEASED; urgency=medium
       particularly common on Linux 4.10.
     - Fixed a bug that caused PRIME Sync to run slowly on systems with Pascal
       GPUs.
+
+  [ Andreas Beckmann ]
   * Merge changes from 340.102-1 (jessie).
+
+  [ Luca Boccassi ]
+  * Update nv-readme.ids
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 12 Apr 2017 13:47:15 +0200
 
