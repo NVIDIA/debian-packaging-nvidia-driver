@@ -1,5 +1,42 @@
-nvidia-graphics-drivers (381.09-1~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (381.22-1~svn1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 381.22 (2017-05-09).
+    - Fixed a bug that caused the GLX_EXT_buffer_age buffer age extension to
+      return incorrect values for stereo drawables when using passive stereo
+      modes 5 through 9.
+    - Fixed a bug in Vulkan direct to display where DP1.2 monitors were
+      not being enumerated.
+    - Improved compatibility with recent kernels.
+    - Fixed a bug that caused "nvidia-settings --query all" to print many
+      duplicate entries.
+    - Fixed a bug that caused applications to crash in some situations when
+      calling glXMakeCurrent while OpenGL threaded optimizations were enabled.
+      This frequently occurred when Steam was attempting to make a video appear
+      full-screen.
+    - Fixed a bug that caused VDPAU applications to use the blit presentation
+      queue when a previous VDPAU application didn't shut down cleanly.
+    - Fixed hangs and crashes that could occur when an OpenGL context is
+      created while the system is out of available memory.
+    - Fixed a bug that caused corruption when OpenGL windows were moved or
+      resized.
+    - Fixed a bug that caused X screens that use Option "UseDisplayDevice"
+      "none" to be resized to 640x480 when using "xrandr -s" to change the
+      screen configuration.
+    - Fixed a kernel crash that occurred when attempting to map large user
+      memory allocations into CUDA.
+    - Disabled OpenGL threaded optimizations by default, initially enabled in
+      378.09, due to various reports of instability.
+    - Added support for the following Vulkan extensions:
+      VK_EXT_acquire_xlib_display, VK_EXT_display_control,
+      VK_EXT_display_surface_counter, VK_EXT_direct_mode_display,
+      VK_KHX_external_memory, VK_KHX_external_memory_fd,
+      VK_KHX_external_semaphore, VK_KHX_external_semaphore_fd
+      These extensions require a Vulkan loader version >= 1.0.42.
+    - Removed the X driver's logo splash screen and the corresponding NoLogo
+      and LogoPath xorg.conf options.
+    - Added the "ResamplingMethod" MetaMode option, adding support for bicubic
+      resampling methods when scaling screen transformations are in use.
+      See the README for more details.
   * New upstream beta 381.09 (2017-04-06).
     - Added support for the following GPUs: GeForce GTX 1080 Ti, Quadro M520,
       TITAN Xp, Quadro P3000
