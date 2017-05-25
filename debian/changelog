@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (375.66-1~svn1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 375.66 (2017-05-04).
+    (Closes: #863276)
     - Added support for the following GPUs: GeForce GTX 1080 Ti, Quadro P3000,
       Quadro M520, TITAN Xp
     - Fixed a bug that could cause EGL applications to crash when calling
