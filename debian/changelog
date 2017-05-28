@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (375.66-1~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (375.66-1) unstable; urgency=medium
 
   * New upstream long lived branch release 375.66 (2017-05-04).
     * Fixed CVE-2017-0350, CVE-2017-0351, CVE-2017-0352.  (Closes: #863515)
@@ -51,7 +51,7 @@ nvidia-graphics-drivers (375.66-1~svn1) UNRELEASED; urgency=medium
   * Drop deprecated-cpu-events.patch, dma-fence-rename.patch and
     vmf-address.patch, fixed upstream
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 12 Apr 2017 13:47:15 +0200
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 28 May 2017 12:03:11 +0100
 
 nvidia-graphics-drivers (375.39-1) unstable; urgency=medium
 
