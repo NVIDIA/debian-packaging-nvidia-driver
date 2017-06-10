@@ -39,8 +39,88 @@ nvidia-graphics-drivers (378.13-1~svn1) UNRELEASED; urgency=medium
     add support for the new EGL external platform infrastructure
   * Add deprecated-cpu-events.patch, dma-fence-rename.patch and
     vmf-address.patch to fix kernel module build on Linux 4.10 and newer.
+  * Restrict watch file to releases from the 378.xx short lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Jan 2017 14:35:53 +0100
+
+nvidia-graphics-drivers (375.66-1) unstable; urgency=medium
+
+  * New upstream long lived branch release 375.66 (2017-05-04).
+    * Fixed CVE-2017-0350, CVE-2017-0351, CVE-2017-0352.  (Closes: #863515)
+    - Fixed a bug that could cause EGL applications to crash when
+      calling eglInitialize() multiple times on X11-backed displays.
+    - Fixed a regression that could cause rendering corruption on a
+      monitor connected via DisplayPort upon a modeset event (for
+      example, changing resolutions or power cycling the monitor).
+    - Fixed a bug that could cause OpenGL applications to crash when
+      VT switching between multiple X servers.
+    - Fixed a bug that caused the system to become unresponsive after
+      resuming from power management suspend/hibernate.  Additional
+      symptoms of this bug included display flickering and "Xid 56"
+      errors in the kernel log.
+    - Fixed a bug that caused backlight brightness to not be controllable
+      on some notebooks with DisplayPort internal panels.
+    - Added support for the following GPUs: GeForce GTX 1080 Ti, Quadro M520,
+      TITAN Xp, Quadro P3000.
+    - Fixed a bug that left HDMI and DisplayPort audio muted after a framebuffer
+      console mode was restored. For some displays, this caused the display to
+      remain blank.
+    - Fixed a bug that caused audio over DisplayPort to stop working when the
+      monitor was unplugged and plugged back in or awoken from DPMS power-saving
+      mode.
+    - Restored support for the following GPU: GRID K520.
+    - Fixed a regression that caused corruption in certain applications, such as
+      window border shadows in Unity, after resuming from suspend.
+    - Fixed a bug that could cause some applications to crash when
+      running with PRIME Sync.
+    - Fixed a bug that prevented PRIME Sync from working on notebooks
+      with GeForce GTX 4xx and 5xx series GPUs.
+    - Fixed a bug that caused OpenGL apps to have excessive CPU usage when
+      running with PRIME Sync but without native displays enabled.
+    - Fixed a bug that could cause PRIME Sync to deadlock in the kernel,
+      particularly common on Linux 4.10.
+    - Fixed a bug that caused PRIME Sync to run slowly on systems with Pascal
+      GPUs.
+    * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
+  * Merge changes from 340.102-1 (jessie).
+
+  [ Luca Boccassi ]
+  * Update nv-readme.ids
+  * Update symbols files
+  * Drop deprecated-cpu-events.patch, dma-fence-rename.patch and
+    vmf-address.patch, fixed upstream
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 28 May 2017 12:03:11 +0100
+
+nvidia-graphics-drivers (375.39-1) unstable; urgency=medium
+
+  * New upstream long lived branch release 375.39 (2017-02-14).
+    * Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0318,
+      CVE-2017-0321.  (Closes: #855277)
+    - Fixed a bug that caused system hangs when resuming from suspend with
+      some GPUs.
+    - Fixed a regression that could cause corruption when hot-plugging
+      displays.
+    - Fixed a regression that prevented systems with multiple DisplayPort
+      monitors from resuming correctly from suspend.
+    - Added support for the following GPU(s): Quadro GP100, Quadro P4000,
+      Quadro P2000, Quadro P1000, Quadro P600, Quadro P400, Quadro M1200,
+      Quadro M2200.
+
+  [ Luca Boccassi ]
+  * Update nv-readme.ids
+  * Update symbols files
+  * Add deprecated-cpu-events.patch, dma-fence-rename.patch and
+    vmf-address.patch to fix kernel module build on Linux 4.10 and newer.
+    (Closes: #855802)
+
+  [ Andreas Beckmann ]
+  * bug-control: Report information about installed Vulkan ICDs.
+  * Restrict watch file to releases from the 375.xx long lived branch.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 23 Feb 2017 16:36:38 +0100
 
 nvidia-graphics-drivers (375.26-2) unstable; urgency=medium
   
@@ -1388,6 +1468,23 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
+
+nvidia-graphics-drivers (340.102-1) jessie; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.102 (2017-02-14).
+    * Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0318,
+      CVE-2017-0321.  (Closes: #855277)
+
+  [ Andreas Beckmann ]
+  * unregister_proc_on_failure.patch: New, unregister procfs entries during
+    error unwind if loading the module failed.  (Closes: #764639)
+  * Upload to jessie.
+
+  [ Luca Boccassi ]
+  * Add deprecated-cpu-events.patch and vmf-address.patch to fix kernel
+    module build on Linux 4.10 and newer.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Apr 2017 22:12:27 +0200
 
 nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
 
