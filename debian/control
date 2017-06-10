@@ -597,25 +597,6 @@ Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
  This package contains the private core libraries used by the NVIDIA
  implementation of EGL and OpenGL|ES.
 
-#Package: lib${nvidia}-egl-wayland
-Package: libnvidia-egl-wayland
-Architecture: i386 amd64 armhf
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-egl-wayland-${nvidia:Version},
-Conflicts:
- libnvidia-egl-wayland-${nvidia:Version},
-Description: NVIDIA binary EGL wayland libraries${nvidia:LegacyDesc}
- EGL provides a platform-agnostic mechanism for creating rendering surfaces
- for use with other graphics libraries, such as OpenGL|ES.
- .
- This package contains the private wayland libraries used by the NVIDIA
- implementation of EGL.
-
 Package: nvidia-egl-common
 Architecture: i386 amd64 armhf
 Multi-Arch: foreign
@@ -649,6 +630,25 @@ Description: NVIDIA EGL installable client driver (ICD)
  .
  This metapackage provides the NVIDIA installable client driver (ICD) for
  EGL via GLVND which supports NVIDIA GPUs.
+
+#Package: lib${nvidia}-egl-wayland
+Package: libnvidia-egl-wayland
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-egl-wayland-${nvidia:Version},
+Conflicts:
+ libnvidia-egl-wayland-${nvidia:Version},
+Description: NVIDIA binary EGL wayland libraries${nvidia:LegacyDesc}
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES.
+ .
+ This package contains the private wayland libraries used by the NVIDIA
+ implementation of EGL.
 
 Package: nvidia-vulkan-common
 Architecture: i386 amd64
