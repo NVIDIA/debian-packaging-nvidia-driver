@@ -123,9 +123,9 @@ nvidia-graphics-drivers (375.39-1) unstable; urgency=medium
  -- Andreas Beckmann <anbe@debian.org>  Thu, 23 Feb 2017 16:36:38 +0100
 
 nvidia-graphics-drivers (375.26-2) unstable; urgency=medium
-  
+
   * Merge changes from 340.101-1 (jessie).
-  * nvidia-alternative: Add alternative for 
+  * nvidia-alternative: Add alternative for
     /usr/share/nvidia/nvidia-application-profiles-key-documentation
     (Closes: #825637)
   * Switch to debhelper compat level 10.
