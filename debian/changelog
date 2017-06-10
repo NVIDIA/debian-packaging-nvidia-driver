@@ -13,9 +13,10 @@ nvidia-graphics-drivers (378.13-1~svn1) UNRELEASED; urgency=medium
     - Added support in nvidia-settings to view configured PRIME displays. To
       enable PRIME displays, see "Offloading Graphics Display with RandR 1.4"
       in the README.
-    - Added infrastructure which enables the NVIDIA EGL driver to load EGL external
-      platform libraries that add client-side support for new window systems, beyond
-      the existing libnvidia-egl-wayland.so.1. For more details, see:
+    - Added infrastructure which enables the NVIDIA EGL driver to load EGL
+      external platform libraries that add client-side support for new window
+      systems, beyond the existing libnvidia-egl-wayland.so.1. For more
+      details, see:
         - https://github.com/NVIDIA/eglexternalplatform
         - https://github.com/NVIDIA/egl-wayland
     - Added support for the following Vulkan extensions: VK_KHR_display,
@@ -31,6 +32,7 @@ nvidia-graphics-drivers (378.13-1~svn1) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Refresh nvidia-drm-master-dev.patch for 378.09 to remove fuzz
   * Update symbols files
+  * Add support and virtual provides for OpenCL 2.0 in the ICD loader library.
   * Rename libnvidia-egl-wayland -> libnvidia-egl-wayland1 to follow SONAME
     change
   * Add new nvidia-egl-wayland-icd and nvidia-egl-wayland-common packages to
