@@ -1,19 +1,4 @@
-nvidia-graphics-drivers (304.135-0~svn4wheezy) UNRELEASED; urgency=medium
-
-  * New upstream legacy 304xx branch release 304.135 (2017-02-14).
-    * Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0318,
-      CVE-2017-0321.  (Closes: #855277)
-  * New upstream legacy 304xx branch release 304.134 (2016-12-14).
-    * Fixed CVE-2016-8826.  (Closes: #848195)
-    - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
-    * Improved compatibility with recent Linux kernels.
-  * New upstream legacy 304xx branch release 304.132 (2016-09-26).
-    * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
-    - Added /var/log/dmesg to the list of paths which are searched by
-      nvidia-bug-report.sh for kernel messages.
-    - Fixed a bug that caused kernel panics when using the NVIDIA driver on
-      v4.5 and newer Linux kernels built with CONFIG_DEBUG_VM_PGFLAGS.
-    * Improved compatibility with recent Linux kernels.
+nvidia-graphics-drivers (304.135-1~svn4wheezy) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Drop substitution backward-compatibility with EoL
@@ -84,6 +69,25 @@ nvidia-graphics-drivers (304.135-0~svn4wheezy) UNRELEASED; urgency=medium
     kernel module build on Linux 4.10 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
+
+nvidia-graphics-drivers (304.135-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.135 (2017-02-14).
+    * Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0318,
+      CVE-2017-0321.  (Closes: #855277)
+  * New upstream legacy 304xx branch release 304.134 (2016-12-14).
+    * Fixed CVE-2016-8826.  (Closes: #848195)
+    - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
+    * Improved compatibility with recent Linux kernels.
+  * New upstream legacy 304xx branch release 304.132 (2016-09-26).
+    * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
+    - Added /var/log/dmesg to the list of paths which are searched by
+      nvidia-bug-report.sh for kernel messages.
+    - Fixed a bug that caused kernel panics when using the NVIDIA driver on
+      v4.5 and newer Linux kernels built with CONFIG_DEBUG_VM_PGFLAGS.
+    * Improved compatibility with recent Linux kernels.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 14 Jun 2017 17:10:53 +0200
 
 nvidia-graphics-drivers (304.131-1) wheezy; urgency=medium
 
