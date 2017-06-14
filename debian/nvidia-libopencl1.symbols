@@ -14,7 +14,7 @@
 #   nor any other alternative to "#PACKAGE# #MINVER#"
 # * the following ones are for symbols from OpenCL 1.0, 1.1, 1.2, 2.0, ...
 #   They all generate a dependency on the versioned virtual package
-#   "libopencl-VERSION-1" (the last -1 is the soname of current libopencl)
+#   "libopencl-VERSION-1" (the last -1 is the soversion of current libopencl)
 #   Note: as OpenCL 1.0 does not really support ICD and as OpenCL 1.1 is
 #     supported by all current implementation, OpenCL 1.0 is treated as
 #     OpenCL 1.1 with respect to dependencies
