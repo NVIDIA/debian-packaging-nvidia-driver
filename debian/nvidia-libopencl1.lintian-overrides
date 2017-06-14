@@ -11,7 +11,7 @@ package-name-doesnt-match-sonames libOpenCL1
 
 # The free libOpenCL.so.1 library is preferred.
 symbols-declares-dependency-on-other-package ocl-icd-libopencl1
-symbols-declares-dependency-on-other-package ocl-icd-libopencl1 (>= 1.0)
+symbols-declares-dependency-on-other-package ocl-icd-libopencl1 (>= *)
 
 # Package built with debhelper/jessie but checked with lintian/sid.
 maintscript-calls-ldconfig
