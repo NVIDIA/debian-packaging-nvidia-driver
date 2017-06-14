@@ -687,7 +687,7 @@ Description: NVIDIA OpenCL installable client driver (ICD)${nvidia:LegacyDesc}
  CPUs, GPUs and other processors.
  .
  This package provides the NVIDIA installable client driver (ICD) for OpenCL
- which supports NVIDIA GPUs.
+ which supports NVIDIA GPUs. This ICD supports OpenCL 1.x only.
  .
  The ${libcuda1} package may be required additionally to get a working OpenCL
  setup for NVIDIA GPUs.
