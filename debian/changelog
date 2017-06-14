@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (375.66-2) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * nvidia-vulkan-common: Add Conflicts: libgl1-nvidia-glx as a workaround for
     #864477 (wrong library referenced in nvidia_icd.json in non-GLVND setups).
   * nvidia-legacy-check.preinst: Verbose debug output can be enabled by
@@ -7,6 +8,9 @@ nvidia-graphics-drivers (375.66-2) UNRELEASED; urgency=medium
   * nvidia-legacy-check: Bump Pre-Depends: nvidia-installer-cleanup to
     (>= 20151021) for smoother upgrades from jessie.  (See: #864775)
   * Clean up upstream changelog entries.
+
+  [ Luca Boccassi ]
+  * Add README.debian with notes about GLVND vs non-GLVND flavours.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 13 Jun 2017 11:35:36 +0200
 
