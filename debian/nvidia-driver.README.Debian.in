@@ -9,7 +9,36 @@ Welcome to the Debian NVIDIA packages. This document has notes on the
 X Server and GL libraries of the NVIDIA driver offering.
 
 For any news on this package check
-http://bugs.debian.org/#NVIDIA#-driver
+https://bugs.debian.org/#NVIDIA#-driver
+
+
+NOTES ABOUT GLVND VS. NON-GLVND FLAVOURS:
+-----------------------------------------------------------------------
+
+NVIDIA recently created and published an open source vendor-neutral dispatch
+layer for OpenGL. The intention is to allow co-existance of multiple, different
+implementations of OpenGL from multiple vendors on the same system without
+conflicts (EG: Mesa + Nvidia). See Github repository for more details [1].
+
+NVIDIA packages in Debian non-free come in two flavours: glvnd and non-glvnd.
+The reason is that it's still a work in progress, and although it's now very
+stable, there are still bugs found now and then.
+So Debian non-free provides both to allow users to choose and change if a
+problem is encountered.
+The default for new installations is the glvnd flavour, but upgrades from Jessie
+will be kept on non-glvnd until a user manually decides to switch.
+
+To install the glvnd flavour:
+
+  apt install libgl1-nvidia-glvnd-glx nvidia-egl-icd
+
+To install the non-glvnd flavour:
+
+  apt install libgl1-nvidia-glx libegl1-nvidia
+
+And restart the X session.
+
+[1] https://github.com/NVIDIA/libglvnd
 
 
 NOTES ABOUT GLX DRIVER AND OPENGL:
