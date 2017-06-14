@@ -108,7 +108,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetViolationStatus@Base 340
  nvmlDeviceGetVirtualizationMode@Base 361.28
  nvmlDeviceGetXidErrors@Base 381
-#MISSING: 378# nvmlDeviceModifyDrainState@Base 375
+ nvmlDeviceModifyDrainState@Base 381
  nvmlDeviceOnSameBoard@Base 295
  nvmlDeviceQueryDrainState@Base 375
  nvmlDeviceRegisterEvents@Base 285

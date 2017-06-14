@@ -167,6 +167,7 @@ libEGL.so.1 libegl1-mesa
  (arch=i386)glvnd_asprintf@Base 375
  (arch=i386)glvnd_byte_swap16@Base 375
  (arch=i386)glvnd_vasprintf@Base 375
+ (arch=i386)mincore@Base 381.22
  (arch=i386)mt_mutexattr_destroy@Base 375
  (arch=i386)mt_mutexattr_init@Base 375
  (arch=i386)mt_mutexattr_settype@Base 375
