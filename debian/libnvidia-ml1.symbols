@@ -1,4 +1,4 @@
-libnvidia-ml.so.1 libnvidia-ml1 #MINVER#
+libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceClearAccountingPids@Base 319
  nvmlDeviceClearCpuAffinity@Base 340
  nvmlDeviceClearEccErrorCounts@Base 270
@@ -37,6 +37,8 @@ libnvidia-ml.so.1 libnvidia-ml1 #MINVER#
  nvmlDeviceGetDriverModel@Base 270
  nvmlDeviceGetEccMode@Base 270
  nvmlDeviceGetEncoderCapacity@Base 381
+#MISSING: 378# nvmlDeviceGetEncoderSessions@Base 375.66
+#MISSING: 378# nvmlDeviceGetEncoderStats@Base 375.66
  nvmlDeviceGetEncoderUtilization@Base 340
  nvmlDeviceGetEnforcedPowerLimit@Base 331
  nvmlDeviceGetFanSpeed@Base 270
@@ -82,6 +84,7 @@ libnvidia-ml.so.1 libnvidia-ml1 #MINVER#
  nvmlDeviceGetPowerManagementMode@Base 270
  nvmlDeviceGetPowerState@Base 270
  nvmlDeviceGetPowerUsage@Base 270
+#MISSING: 378# nvmlDeviceGetProcessUtilization@Base 375.66
  nvmlDeviceGetRetiredPages@Base 319
  nvmlDeviceGetRetiredPagesPendingStatus@Base 319
  nvmlDeviceGetSamples@Base 340
@@ -100,11 +103,12 @@ libnvidia-ml.so.1 libnvidia-ml1 #MINVER#
  nvmlDeviceGetUtilizationRates@Base 270
  nvmlDeviceGetVbiosVersion@Base 285
  nvmlDeviceGetVgpuMetadata@Base 375.26
+#MISSING: 378# nvmlDeviceGetVgpuProcessUtilization@Base 375.66
  nvmlDeviceGetVgpuUtilization@Base 375
  nvmlDeviceGetViolationStatus@Base 340
  nvmlDeviceGetVirtualizationMode@Base 361.28
  nvmlDeviceGetXidErrors@Base 381
- nvmlDeviceModifyDrainState@Base 375
+#MISSING: 378# nvmlDeviceModifyDrainState@Base 375
  nvmlDeviceOnSameBoard@Base 295
  nvmlDeviceQueryDrainState@Base 375
  nvmlDeviceRegisterEvents@Base 285
@@ -156,6 +160,8 @@ libnvidia-ml.so.1 libnvidia-ml1 #MINVER#
  nvmlUnitSetLedState@Base 270
 #MISSING: 375# nvmlVgpuInstanceGetDecoderUtilization@Base 370
  nvmlVgpuInstanceGetEncoderCapacity@Base 381
+#MISSING: 378# nvmlVgpuInstanceGetEncoderSessions@Base 375.66
+#MISSING: 378# nvmlVgpuInstanceGetEncoderStats@Base 375.66
 #MISSING: 375# nvmlVgpuInstanceGetEncoderUtilization@Base 370
  nvmlVgpuInstanceGetFbUsage@Base 367.27
 #MISSING: 375# nvmlVgpuInstanceGetFbUtilization@Base 370

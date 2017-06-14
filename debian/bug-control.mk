@@ -48,5 +48,7 @@ define PACKAGE_STATUS
 	make
 	libopencl1
 	opencl-icd
+	libvulkan1
+	vulkan-icd
 endef
 
