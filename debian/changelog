@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (304.135-1~svn4wheezy) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Drop substitution backward-compatibility with EoL
