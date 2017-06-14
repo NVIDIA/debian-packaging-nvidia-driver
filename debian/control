@@ -173,7 +173,7 @@ Multi-Arch: foreign
 Pre-Depends:
  debconf (>= 0.5) | debconf-2.0,
  pciutils,
- nvidia-installer-cleanup,
+ nvidia-installer-cleanup (>= 20151021),
 Depends:
  ${misc:Depends}
 Description: check for NVIDIA GPUs requiring a legacy driver
