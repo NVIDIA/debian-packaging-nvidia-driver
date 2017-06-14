@@ -264,6 +264,10 @@ LEGACY_PCIIDS="
 10DE10D8
 "
 
+if [ "$DEBUG_NVIDIA_LEGACY_CHECK" = "yes" ]; then
+	set -x
+fi
+
 find_unsupported_gpus()
 {
 	# Check for GPUs that are only supported up to $LEGACY_DRIVER
