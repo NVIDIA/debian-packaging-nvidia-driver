@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (378.13-1~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (378.13-1) experimental; urgency=medium
 
   * New upstream short lived branch release 378.13 (2017-02-14).
     - Disabled OpenGL threaded optimizations by default under Xinerama.
@@ -40,8 +40,9 @@ nvidia-graphics-drivers (378.13-1~svn1) UNRELEASED; urgency=medium
   * Add deprecated-cpu-events.patch, dma-fence-rename.patch and
     vmf-address.patch to fix kernel module build on Linux 4.10 and newer.
   * Restrict watch file to releases from the 378.xx short lived branch.
+  * Upload to experimental.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Jan 2017 14:35:53 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 14 Jun 2017 19:48:45 +0200
 
 nvidia-graphics-drivers (375.66-2) UNRELEASED; urgency=medium
 
