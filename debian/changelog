@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (378.13-2) UNRELEASED; urgency=medium
 
   * nvidia-kernel-dkms: Honor parallel setting from dkms.  (Closes: #864639)
+  * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze).
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Jun 2017 14:13:00 +0200
 
