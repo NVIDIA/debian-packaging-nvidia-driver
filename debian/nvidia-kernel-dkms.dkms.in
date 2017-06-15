@@ -10,7 +10,7 @@ DEST_MODULE_LOCATION[0]="/updates/dkms"
 AUTOINSTALL=yes
 
 MAKE[0]="unset ARCH; env CCACHE_DISABLE=1 NV_VERBOSE=1 \
-    make modules KERNEL_UNAME=${kernelver}"
+    make ${parallel_jobs+-j$parallel_jobs} modules KERNEL_UNAME=${kernelver}"
 CLEAN="make KERNEL_UNAME=${kernelver} clean"
 
 BUILT_MODULE_NAME[1]="nvidia-modeset"
