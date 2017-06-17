@@ -49,6 +49,7 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * disable-cc_version_check.patch: New patch to disable a useless check that
     tests the running kernel instead of the compilation target.
   * Disable conftest.sh check xen_sanity_check.
+  * not-parallel.patch: New, prevent parallel module build.
   * Pass only the kernel version via KERNEL_UNAME and let the module build
     system figure out the paths (352.79-2).
   * Clear ARCH variable from environment before module build, thanks to Luca

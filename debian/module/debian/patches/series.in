@@ -15,6 +15,7 @@ conftest-via-kbuild.patch
 disable-cc_version_check.patch
 disable-xen_sanity_check.patch
 not-silent.patch
+not-parallel.patch
 use-nv-kernel-ARCH.o_shipped.patch
 avoid-ld.gold.patch
 
