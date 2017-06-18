@@ -11,6 +11,7 @@ nvidia-graphics-drivers (304.135-1~svn4deb9stretch) UNRELEASED; urgency=medium
     Breaks/Replaces for new upstream releases in stable.
   * Overhaul package descriptions.
   * Switch to debhelper compat level 10.
+  * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze).
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
