@@ -15,6 +15,7 @@ nvidia-graphics-drivers (340.102-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Switch to debhelper compat level 10.
   * Add ${nvidia:Deb-Version-After:jessie} substvar to simplify adjusting
     Breaks/Replaces for new upstream releases in stable.
+  * nvidia-kernel-dkms: Honor parallel setting from dkms.  (Closes: #864639)
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Apr 2016 16:41:52 +0200
 
