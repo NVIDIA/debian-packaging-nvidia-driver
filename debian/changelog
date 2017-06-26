@@ -68,6 +68,8 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
     Linux 4.9 and newer.  (Closes: #852152)
   * Add deprecated-cpu-events.patch and update disable-mtrr.patch to fix
     kernel module build on Linux 4.10 and newer.
+  * Add drm-unload.patch to fix kernel module build on Linux 4.11 and newer.
+    (Closes: #865964)
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
