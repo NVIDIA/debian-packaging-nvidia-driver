@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (375.66-3) UNRELEASED; urgency=medium
+
+  * Add support for buster/sid in nvidia-detect. (Closes: #866126)
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 27 Jun 2017 22:28:32 +0100
+
 nvidia-graphics-drivers (375.66-2) unstable; urgency=medium
 
   [ Andreas Beckmann ]

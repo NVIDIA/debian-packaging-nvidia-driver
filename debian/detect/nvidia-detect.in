@@ -139,7 +139,7 @@ fi
 		else
 			echo "Oops. Internal error 8 ($NVGA)"
 		fi
-	elif grep -q "stretch\|^9" /etc/debian_version
+	elif grep -q "stretch\|^9\|buster\|^10" /etc/debian_version
 	then
 		if [[ -n ${VERSIONS[999]} ]]; then
 			if [[ -n ${VERSIONS[340]} ]]; then
