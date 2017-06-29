@@ -20,6 +20,7 @@ Build-Depends:
  libxext6 [!ppc64el],
  quilt,
  po-debconf,
+ dh-exec,
 Build-Conflicts:
  libglvnd-dev,
 Standards-Version: 3.9.8
@@ -691,20 +692,36 @@ Depends:
 Recommends:
  ${nvidia}-vulkan-icd,
 Conflicts:
-# temporary workaround for #864477
- libgl1-${nvidia}-glx,
+ libgl1-nvidia-glx,
+ nvidia-vulkan-non-glvnd-common,
 Description: NVIDIA Vulkan driver - common files
  Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
  .
  This package provides the common files for the NVIDIA installable client
- driver (ICD) for Vulkan.
+ driver (ICD) for Vulkan, GLVND version.
+
+Package: nvidia-vulkan-nonglvnd-common
+Architecture: i386 amd64
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends}
+Recommends:
+ ${nvidia}-vulkan-icd,
+Conflicts:
+ libgl1-nvidia-glvnd-glx,
+ nvidia-vulkan-common,
+Description: NVIDIA Vulkan driver - common files
+ Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
+ .
+ This package provides the common files for the NVIDIA installable client
+ driver (ICD) for Vulkan, non-GLVND version.
 
 #Package: ${nvidia}-vulkan-icd
 Package: nvidia-vulkan-icd
 Architecture: i386 amd64
 Multi-Arch: same
 Depends:
- nvidia-vulkan-common,
+ nvidia-vulkan-common | nvidia-vulkan-nonglvnd-common,
  libvulkan1 (>= 1.0.42),
  libglx-${nvidia}0 (= ${binary:Version}),
  ${misc:Depends}

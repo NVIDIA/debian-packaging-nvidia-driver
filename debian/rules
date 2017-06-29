@@ -92,7 +92,7 @@ xorg_provides	 = xorg-driver-video
 
 .PHONY: autogen prepare patch
 autogen: $(AUTOGEN)
-prepare: autogen unpack-stamp nvidia.ids compare-copyright-license
+prepare: autogen unpack-stamp nvidia.ids compare-copyright-license nvidia_icd.json
 patch: prepare
 
 NVIDIA-Linux-%:
@@ -135,6 +135,13 @@ compare-copyright-license: LICENSE.txt
 	sed -e '/^ \.$$/d' LICENSE.txt > LICENSE.tmp
 	diff -w copyright.tmp LICENSE.tmp
 	rm -f copyright.tmp LICENSE.tmp
+
+# NVIDIA ships a template, the library name depends on whether GLVND or not is used
+nvidia_icd.json: unpack-stamp
+	sed 's/__NV_VK_ICD__/libGLX_nvidia.so.0/' NVIDIA-Linux/nvidia_icd.json.template > \
+		debian/nvidia_icd.json.glvnd
+	sed 's/__NV_VK_ICD__/libGL.so.1/' NVIDIA-Linux/nvidia_icd.json.template > \
+		debian/nvidia_icd.json.nonglvnd
 
 
 .PHONY: binary binary-arch binary-indep build clean install

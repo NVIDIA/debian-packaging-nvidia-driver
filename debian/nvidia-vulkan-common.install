@@ -1,1 +1,2 @@
-nvidia_icd.json	usr/share/vulkan/icd.d
+#! /usr/bin/dh-exec
+debian/nvidia_icd.json.glvnd => usr/share/vulkan/icd.d/nvidia_icd.json
