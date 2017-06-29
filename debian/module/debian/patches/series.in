@@ -3,6 +3,7 @@ drm-driver-legacy.patch
 unregister_procfs_on_failure.patch
 deprecated-cpu-events.patch
 vmf-address.patch
+drm-unload.patch
 
 # build system updates
 separate-makefile-kbuild.patch
