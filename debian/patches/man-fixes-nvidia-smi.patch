@@ -327,14 +327,3 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Added listing of compute running processes 
---- a/NVIDIA-Linux/nvidia-cuda-mps-control.1
-+++ b/NVIDIA-Linux/nvidia-cuda-mps-control.1
-@@ -25,7 +25,7 @@ existing server has terminated, the cont
- id same as that of the queued client process.
- .PP
- The MPS server creates the shared GPU context, manages its clients, and issues work to
--the GPU on behalf of its clients. An MPS server can support upto 16 client CUDA contexts
-+the GPU on behalf of its clients. An MPS server can support up to 16 client CUDA contexts
- per GPU at a time. MPS is transparent to CUDA programs, with all the complexity of communication
- between the client process, the server and the control daemon hidden within the driver binaries.
- .PP
