@@ -1,3 +1,45 @@
+nvidia-graphics-drivers (384.47-1~svn1) UNRELEASED; urgency=medium
+
+  * New upstream beta 384.47 (2017-06-29).
+    - Added support for the following GPUs: GeForce GT 1030, GeForce MX150
+    - Fixed a bug that could cause OpenGL applications to crash after calling
+      glDeleteBuffers on VBOs that have been remapped with
+      ARB_vertex_attrib_binding.
+    - Fixed a bug that could sometimes cause OpenGL applications to lock up
+      until the X server receives input.
+    - Fixed a bug that caused nvidia-settings to drop device BusID values when
+      making changes to an existing X configuration file.
+    - Fixed a regression that prevented nvidia-xconfig from querying some GPUs,
+      e.g. when running `nvidia-xconfig -a`.
+    - Fixed a bug that caused VDPAU playback to be corrupted when extended to
+      coordinates beyond 16384 pixels.
+    - Updated nvidia-persistenced to initialize nvidia-modeset.ko in addition
+      to nvidia.ko when setting persistence mode.
+    - Restored several sanity checks that were inadvertently removed from the
+      kernel module build process in the 355.06 driver.
+    - Added support for a "Nearest" transform filter in the X driver. This
+      causes the X driver to use nearest neighbor filtering when performing
+      screen transformations.  The filter can be requested through the 'filter'
+      argument to RandR's RRSetCrtcTransform, or through the 'ResamplingMethod'
+      MetaMode token.
+    - Fixed a bug where nvidia-installer would install a wrong version of the
+      Vulkan ICD configuration file when GLVND is disabled for the GLX client.
+    - Fixed a bug that could cause driver errors when setting modes on X
+      screens running at Depth 8 or Depth 15.
+    - Fixed a bug that could cause intermittent kernel panics when running with
+      PRIME Sync.
+    - Fixed a bug that caused a kernel panic when hotplugging HDMI displays on
+      some Zotac mini PCs.
+    - Updated nvidia-installer to label kernel modules with SELinux file type
+      'modules_object_t'. Some system SELinux policies only permit loading of
+      kernel modules with this SELinux file type.
+    - Removed support for checking for and downloading updated driver packages
+      and precompiled kernel interfaces from nvidia-installer. This
+      functionality was limited to unencrypted ftp and http, and was
+      implemented using code that is no longer actively maintained.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Thu, 29 Jun 2017 18:50:02 +0100
+
 nvidia-graphics-drivers (381.22-1~svn1) UNRELEASED; urgency=medium
 
   * New upstream short lived branch release 381.22 (2017-05-09).
