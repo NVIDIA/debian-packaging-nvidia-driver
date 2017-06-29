@@ -28,4 +28,5 @@
  glcuR0d4nX@Base 195.36
  gldbc3cfnX@Base 325
  vk_icdGetInstanceProcAddr@Base 364
+ vk_icdGetPhysicalDeviceProcAddr@Base 384
  vk_icdNegotiateLoaderICDInterfaceVersion@Base 378

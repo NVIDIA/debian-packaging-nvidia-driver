@@ -19,6 +19,7 @@ libnvcuvid.so.1 #PACKAGE# #MINVER#
  (arch=amd64)cuvidMapVideoFrame64@Base 270
  cuvidMapVideoFrame@Base 260
  cuvidParseVideoData@Base 260
+ cuvidPrivateOp@Base 384
  cuvidResetDecoder@Base 367
  cuvidSetVideoSourceState@Base 275
  (arch=amd64)cuvidUnmapVideoFrame64@Base 270

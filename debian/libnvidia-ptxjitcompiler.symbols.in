@@ -1,4 +1,4 @@
-libnvidia-ptxjitcompiler.so.#VERSION# #PACKAGE# #MINVER#
+libnvidia-ptxjitcompiler.so.1 #PACKAGE# #MINVER#
  __cuda_CallJitEntryPoint@Base 361
  nvPTXCompilerCompile@Base 378
  nvPTXCompilerCreate@Base 378

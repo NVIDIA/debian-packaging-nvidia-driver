@@ -74,6 +74,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuEventRecord_ptsz@Base 346
  cuEventSynchronize@Base 169
  cuFuncGetAttribute@Base 185
+ cuFuncSetAttribute@Base 384
  cuFuncSetBlockShape@Base 169
  cuFuncSetCacheConfig@Base 195.30
  cuFuncSetSharedMemConfig@Base 295.33
@@ -123,6 +124,9 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuLaunch@Base 169
 #MISSING: 378.13# cuLaunchCooperativeGrid@Base 378
 #MISSING: 378.13# cuLaunchCooperativeGrid_ptsz@Base 378
+ cuLaunchCooperativeKernel@Base 384
+ cuLaunchCooperativeKernelMultiDevice@Base 384
+ cuLaunchCooperativeKernel_ptsz@Base 384
  cuLaunchGrid@Base 169
  cuLaunchGridAsync@Base 169
  cuLaunchKernel@Base 270
@@ -309,12 +313,12 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuStreamWaitEvent_ptsz@Base 346
  cuStreamWaitValue32@Base 361.42
  cuStreamWaitValue32_ptsz@Base 361.42
-#MISSING: 378.13# cuStreamWaitValue64@Base 378
-#MISSING: 378.13# cuStreamWaitValue64_ptsz@Base 378
+ cuStreamWaitValue64@Base 384
+ cuStreamWaitValue64_ptsz@Base 384
  cuStreamWriteValue32@Base 361.42
  cuStreamWriteValue32_ptsz@Base 361.42
-#MISSING: 378.13# cuStreamWriteValue64@Base 378
-#MISSING: 378.13# cuStreamWriteValue64_ptsz@Base 378
+ cuStreamWriteValue64@Base 384
+ cuStreamWriteValue64_ptsz@Base 384
  cuSurfObjectCreate@Base 304
  cuSurfObjectDestroy@Base 304
  cuSurfObjectGetResourceDesc@Base 304

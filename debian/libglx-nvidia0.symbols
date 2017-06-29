@@ -2618,4 +2618,5 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glcuR0d4nX@Base 361
  gldbc3cfnX@Base 361.28
  vk_icdGetInstanceProcAddr@Base 364
+ vk_icdGetPhysicalDeviceProcAddr@Base 384
  vk_icdNegotiateLoaderICDInterfaceVersion@Base 378
