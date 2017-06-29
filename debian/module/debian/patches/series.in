@@ -2,6 +2,7 @@
 fix-typos.patch
 drm-driver-legacy.patch
 deprecated-cpu-events.patch
+drm-unload.patch
 
 # build system updates
 separate-makefile-kbuild.patch
@@ -15,6 +16,7 @@ conftest-via-kbuild.patch
 disable-cc_version_check.patch
 disable-xen_sanity_check.patch
 not-silent.patch
+not-parallel.patch
 use-nv-kernel-ARCH.o_shipped.patch
 avoid-ld.gold.patch
 
