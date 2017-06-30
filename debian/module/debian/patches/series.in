@@ -4,6 +4,8 @@ unregister_procfs_on_failure.patch
 deprecated-cpu-events.patch
 vmf-address.patch
 drm-unload.patch
+fatal-signal.patch
+vm-fault.patch
 
 # build system updates
 separate-makefile-kbuild.patch
