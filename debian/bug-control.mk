@@ -46,6 +46,7 @@ define PACKAGE_STATUS
 	libdrm-nouveau2
 	xserver-xorg-video-nouveau
 	make
+	ccache
 	libopencl1
 	opencl-icd
 endef
