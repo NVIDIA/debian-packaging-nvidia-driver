@@ -1,0 +1,46 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix kernel module load on 4.11 and greater
+ From kernel 4.11 and newer (commit 11b3c20bdd15d) the drm_unload callback return
+ type has changed from int to void.
+
+--- a/nv-drm.c
++++ b/nv-drm.c
+@@ -22,6 +22,8 @@
+ #include <drm/drm_gem.h>
+ #endif
+ 
++#include <linux/version.h>
++
+ extern nv_linux_state_t *nv_linux_devices;
+ 
+ struct nv_gem_object {
+@@ -48,7 +50,11 @@ static int nv_drm_load(
+     return -ENODEV;
+ }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 11, 0)
+ static int nv_drm_unload(
++#else
++static void nv_drm_unload(
++#endif
+     struct drm_device *dev
+ )
+ {
+@@ -60,11 +66,17 @@ static int nv_drm_unload(
+         {
+             BUG_ON(nvl->drm != dev);
+             nvl->drm = NULL;
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 11, 0)
+             return 0;
++#else
++            return;
++#endif
+         }
+     }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 11, 0)
+     return -ENODEV;
++#endif
+ }
+ 
+ static void nv_gem_free(
