@@ -1,8 +1,8 @@
-nvidia-graphics-drivers (375.66-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (375.66-2~deb9u1) stretch; urgency=medium
 
-  * Add support for buster/sid in nvidia-detect. (Closes: #866126)
+  * Rebuild for stretch. 
 
- -- Luca Boccassi <luca.boccassi@gmail.com>  Tue, 27 Jun 2017 22:28:32 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 16 Jul 2017 14:35:22 +0200
 
 nvidia-graphics-drivers (375.66-2) unstable; urgency=medium
 
