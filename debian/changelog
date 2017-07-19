@@ -3,6 +3,7 @@ nvidia-graphics-drivers (375.66-3) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * nvidia-kernel-dkms: Honor parallel setting from dkms.  (Closes: #864639)
   * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze).
+  * Switch watch URL from ftp:// to https://.  (Closes: #868815)
 
   [ Luca Boccassi ]
   * Add support for buster/sid in nvidia-detect.  (Closes: #866126)
