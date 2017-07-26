@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (375.82-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (375.82-1) unstable; urgency=high
 
   * New upstream long lived branch release 375.82 (2017-07-24).
     * Fixed CVE-2017-6257, CVE-2017-6259.  (Closes: #869783)
@@ -36,7 +36,7 @@ nvidia-graphics-drivers (375.82-1~git1) UNRELEASED; urgency=medium
   * Add support for buster/sid in nvidia-detect.  (Closes: #866126)
   * Update symbols files.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 16 Jul 2017 15:14:34 +0200
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 26 Jul 2017 21:42:00 +0100
 
 nvidia-graphics-drivers (375.66-2~deb9u1) stretch; urgency=medium
 
