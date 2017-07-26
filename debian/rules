@@ -138,9 +138,11 @@ compare-copyright-license: LICENSE.txt
 
 # NVIDIA ships a template, the library name depends on whether GLVND or not is used
 nvidia_icd.json: unpack-stamp
-	sed 's/__NV_VK_ICD__/libGLX_nvidia.so.0/' NVIDIA-Linux/nvidia_icd.json.template > \
+	test ! -f NVIDIA-Linux/nvidia_icd.json.template || \
+		sed 's/__NV_VK_ICD__/libGLX_nvidia.so.0/' NVIDIA-Linux/nvidia_icd.json.template > \
 		debian/nvidia_icd.json.glvnd
-	sed 's/__NV_VK_ICD__/libGL.so.1/' NVIDIA-Linux/nvidia_icd.json.template > \
+	test ! -f NVIDIA-Linux/nvidia_icd.json.template || \
+		sed 's/__NV_VK_ICD__/libGL.so.1/' NVIDIA-Linux/nvidia_icd.json.template > \
 		debian/nvidia_icd.json.nonglvnd
 
 
