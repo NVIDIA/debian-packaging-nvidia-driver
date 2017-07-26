@@ -1,4 +1,31 @@
-nvidia-graphics-drivers (375.66-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (375.82-1~git1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 375.82 (2017-07-24).
+    * Fixed CVE-2017-6257, CVE-2017-6259.  (Closes: #869783)
+    - Fix a bug with GLX_EXT_buffer_age where incorrect buffer age values would
+      be reported for SLI AFR configurations. In such configurations buffer age
+      may now be greater than 3, the previous maximum buffer age.
+    - Fixed a bug that could cause hanging and Xids when performing RandR
+      transforms with Overlay and SLI enabled.
+    - Improved handling of framebuffer console restore on systems booted in
+      UEFI mode.
+    - Extended the information reported by the NVIDIA Xinerama X extension to
+      report PRIME displays in addition to directly-connected displays.
+    - Fixed a bug that caused HDMI audio devices to appear or disappear
+      inconsistently when HDMI devices were hotplugged or unplugged.
+    - Fixed a bug that could cause driver errors when setting modes on X
+      screens running at Depth 8 or Depth 15.
+    - Fixed a bug that could cause intermittent kernel panics when running with
+      PRIME Sync.
+    - Fixed a bug that caused a kernel panic when hotplugging HDMI displays on
+      some Zotac mini PCs.
+    - Updated nvidia-installer to label kernel modules with SELinux file type
+      'modules_object_t'. Some system SELinux policies only permit loading of
+      kernel modules with this SELinux file type.
+    - Removed support for checking for and downloading updated driver packages
+      and precompiled kernel interfaces from nvidia-installer. This
+      functionality was limited to unencrypted ftp and http, and was
+      implemented using code that is no longer actively maintained.
 
   [ Andreas Beckmann ]
   * nvidia-kernel-dkms: Honor parallel setting from dkms.  (Closes: #864639)
