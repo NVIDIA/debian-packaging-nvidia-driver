@@ -34,6 +34,7 @@ nvidia-graphics-drivers (375.82-1~git1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
   * Add support for buster/sid in nvidia-detect.  (Closes: #866126)
+  * Update symbols files.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 16 Jul 2017 15:14:34 +0200
 
