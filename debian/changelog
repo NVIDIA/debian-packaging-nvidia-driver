@@ -27,14 +27,14 @@ nvidia-graphics-drivers (375.82-1) unstable; urgency=high
   * Switch watch URL from ftp:// to https://.  (Closes: #868815)
 
   [ Luca Boccassi ]
-  * Add support for buster/sid in nvidia-detect.  (Closes: #866126)
+  * Add support for buster in nvidia-detect.  (Closes: #866126)
   * Update symbols files.
 
  -- Luca Boccassi <luca.boccassi@gmail.com>  Wed, 26 Jul 2017 21:42:00 +0100
 
 nvidia-graphics-drivers (375.66-2~deb9u1) stretch; urgency=medium
 
-  * Rebuild for stretch. 
+  * Rebuild for stretch.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 16 Jul 2017 14:35:22 +0200
 
