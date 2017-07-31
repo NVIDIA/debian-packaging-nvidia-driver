@@ -1,95 +1,33 @@
 nvidia-graphics-drivers (384.59-1~svn1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 384.59 (2017-07-24).
-    - Added support for the following GPUs: GeForce GT 1030, GeForce MX150
-    - Fixed a bug that prevented changes to stereo eye assignment from getting
-      applied from the nvidia-settings control panel.
+    * Fixed CVE-2017-6257, CVE-2017-6259.  (Closes: #869783)
     - Fixed a bug that caused S4 suspend (also known as "hibernate") to hang
       during suspend when SLI was enabled.
-    - Fixed a bug where devices would not be properly enumerated by the Vulkan
-      driver.  See the "Known Issues" section of the README for more details.
-    - Fixed a bug that could cause OpenGL applications to crash after calling
-      glDeleteBuffers on VBOs that have been remapped with
-      ARB_vertex_attrib_binding.
-    - Fixed a bug that could sometimes cause OpenGL applications to lock up
-      until the X server receives input.
-    - Fixed a bug that caused nvidia-settings to drop device BusID values when
-      making changes to an existing X configuration file.
-    - Fixed a regression that prevented nvidia-xconfig from querying some GPUs,
-      e.g. when running `nvidia-xconfig -a`.
-    - Fixed a bug that caused VDPAU playback to be corrupted when extended to
-      coordinates beyond 16384 pixels.
-    - Updated nvidia-persistenced to initialize nvidia-modeset.ko in addition
-      to nvidia.ko when setting persistence mode.
-    - Restored several sanity checks that were inadvertently removed from the
-      kernel module build process in the 355.06 driver.
-    - Added support for a "Nearest" transform filter in the X driver. This
-      causes the X driver to use nearest neighbor filtering when performing
-      screen transformations.  The filter can be requested through the 'filter'
-      argument to RandR's RRSetCrtcTransform, or through the 'ResamplingMethod'
-      MetaMode token.
-    - Fixed a bug where nvidia-installer would install a wrong version of the
-      Vulkan ICD configuration file when GLVND is disabled for the GLX client.
-    - Fix a bug with GLX_EXT_buffer_age where incorrect buffer age values would
-      be reported for SLI AFR configurations. In such configurations buffer age
-      may now be greater than 3, the previous maximum buffer age.
-    - Fixed a bug that could cause hanging and Xids when performing RandR
-      transforms with Overlay and SLI enabled.
-    - Extended the information reported by the NVIDIA Xinerama X extension to
-      report PRIME displays in addition to directly-connected displays.
-    - Fixed a bug that caused HDMI audio devices to appear or disappear
-      inconsistently when HDMI devices were hotplugged or unplugged.
-    - Fixed a bug that could cause driver errors when setting modes on X
-      screens running at Depth 8 or Depth 15.
-    - Fixed a bug that could cause intermittent kernel panics when running with
-      PRIME Sync.
-    - Fixed a bug that caused a kernel panic when hotplugging HDMI displays on
-      some Zotac mini PCs.
-    - Updated nvidia-installer to label kernel modules with SELinux file type
-      'modules_object_t'. Some system SELinux policies only permit loading of
-      kernel modules with this SELinux file type.
-    - Removed support for checking for and downloading updated driver packages
-      and precompiled kernel interfaces from nvidia-installer. This
-      functionality was limited to unencrypted ftp and http, and was
-      implemented using code that is no longer actively maintained.
-
+    - Fixed a bug where devices would not be properly enumerated by
+      the Vulkan driver.  See the "Known Issues" section of the README
+      for more details.
   * New upstream beta 384.47 (2017-06-29).
-    - Added support for the following GPUs: GeForce GT 1030, GeForce MX150
-    - Fixed a bug that could cause OpenGL applications to crash after calling
-      glDeleteBuffers on VBOs that have been remapped with
+    - Fixed a bug that could cause OpenGL applications to crash after
+      calling glDeleteBuffers on VBOs that have been remapped with
       ARB_vertex_attrib_binding.
-    - Fixed a bug that could sometimes cause OpenGL applications to lock up
-      until the X server receives input.
-    - Fixed a bug that caused nvidia-settings to drop device BusID values when
-      making changes to an existing X configuration file.
-    - Fixed a regression that prevented nvidia-xconfig from querying some GPUs,
-      e.g. when running `nvidia-xconfig -a`.
-    - Fixed a bug that caused VDPAU playback to be corrupted when extended to
-      coordinates beyond 16384 pixels.
-    - Updated nvidia-persistenced to initialize nvidia-modeset.ko in addition
-      to nvidia.ko when setting persistence mode.
-    - Restored several sanity checks that were inadvertently removed from the
-      kernel module build process in the 355.06 driver.
-    - Added support for a "Nearest" transform filter in the X driver. This
-      causes the X driver to use nearest neighbor filtering when performing
-      screen transformations.  The filter can be requested through the 'filter'
-      argument to RandR's RRSetCrtcTransform, or through the 'ResamplingMethod'
-      MetaMode token.
-    - Fixed a bug where nvidia-installer would install a wrong version of the
-      Vulkan ICD configuration file when GLVND is disabled for the GLX client.
-    - Fixed a bug that could cause driver errors when setting modes on X
-      screens running at Depth 8 or Depth 15.
-    - Fixed a bug that could cause intermittent kernel panics when running with
-      PRIME Sync.
-    - Fixed a bug that caused a kernel panic when hotplugging HDMI displays on
-      some Zotac mini PCs.
-    - Updated nvidia-installer to label kernel modules with SELinux file type
-      'modules_object_t'. Some system SELinux policies only permit loading of
-      kernel modules with this SELinux file type.
-    - Removed support for checking for and downloading updated driver packages
-      and precompiled kernel interfaces from nvidia-installer. This
-      functionality was limited to unencrypted ftp and http, and was
-      implemented using code that is no longer actively maintained.
+    - Fixed a bug that could sometimes cause OpenGL applications to
+      lock up until the X server receives input.
+    - Fixed a bug that caused VDPAU playback to be corrupted when
+      extended to coordinates beyond 16384 pixels.
+    - Restored several sanity checks that were inadvertently removed from
+      the kernel module build process in the 355.06 driver.
+    - Added support for a "Nearest" transform filter in the X driver.
+      This causes the X driver to use nearest neighbor filtering when
+      performing screen transformations.  The filter can be requested
+      through the 'filter' argument to RandR's RRSetCrtcTransform,
+      or through the 'ResamplingMethod' MetaMode token.
+  * New upstream release 375 series.
+    - Added support for the following GPU: P106-100.
+    - Added support for the following GPUs: GeForce GT 1030, GeForce MX150,
+      P106-100.
+
+  [ Luca Boccassi ]
   * Refresh man-fixes-nvidia-smi.patch for 384.47.
   * Update nv-readme.ids.
   * Update symbols files.
