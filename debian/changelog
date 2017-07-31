@@ -1,5 +1,8 @@
 nvidia-graphics-drivers (340.102-2~svn4deb8jessie) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
+  * Switch watch URL from ftp:// to https:// (375.82-1).
+
   [ Luca Boccassi ]
   * Add drm-unload.patch to fix kernel module build on Linux 4.11 and newer.
     (Closes: #865964)
