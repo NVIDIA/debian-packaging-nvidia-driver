@@ -9,8 +9,8 @@ DEST_MODULE_NAME[0]="$PACKAGE_NAME"
 DEST_MODULE_LOCATION[0]="/updates/dkms"
 AUTOINSTALL=yes
 
-MAKE[0]="unset ARCH; env CCACHE_DISABLE=1 NV_VERBOSE=1 \
-    make modules KERNEL_UNAME=${kernelver}"
+MAKE[0]="unset ARCH; env NV_VERBOSE=1 \
+    make ${parallel_jobs+-j$parallel_jobs} modules KERNEL_UNAME=${kernelver}"
 CLEAN="make KERNEL_UNAME=${kernelver} clean"
 
 BUILT_MODULE_NAME[1]="nvidia-modeset"
