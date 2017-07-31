@@ -66,6 +66,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  (arch=!i386)cuEGLStreamProducerPresentFrame@Base 349
  (arch=!i386)cuEGLStreamProducerReturnFrame@Base 349
  cuEventCreate@Base 169
+ (arch=armhf)cuEventCreateFromEGLSync@Base 384
  cuEventDestroy@Base 169
  cuEventDestroy_v2@Base 270
  cuEventElapsedTime@Base 169
