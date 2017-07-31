@@ -1,2 +1,3 @@
 # The magic is in the preinst script.
+empty-binary-package
 package-contains-no-arch-dependent-files
