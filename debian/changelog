@@ -41,7 +41,9 @@ nvidia-graphics-drivers (381.22-1~svn1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Merge changes from 375.82-1.
   * Bump libvulkan1 dependency to (>= 1.0.42).
+  * Restrict watch file to releases from the 381.xx short lived branch.
   * Update lintian overrides.
+  * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Jan 2017 14:35:53 +0100
 
