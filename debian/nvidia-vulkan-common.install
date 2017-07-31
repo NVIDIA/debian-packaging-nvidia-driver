@@ -1,2 +1,1 @@
-#! /usr/bin/dh-exec
 glvnd/nvidia_icd.json	usr/share/vulkan/icd.d/

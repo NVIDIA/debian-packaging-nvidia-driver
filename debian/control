@@ -20,7 +20,6 @@ Build-Depends:
  libxext6 [!ppc64el],
  quilt,
  po-debconf,
- dh-exec,
 Build-Conflicts:
  libglvnd-dev,
 Standards-Version: 3.9.8
