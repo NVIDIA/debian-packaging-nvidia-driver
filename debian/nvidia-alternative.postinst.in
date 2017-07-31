@@ -57,6 +57,7 @@ if [ "$1" = "triggered" ]; then
 		$(add_multiarch_slave /usr/lib "" libGLESv2_nvidia.so.2 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libcuda.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libcuda.so /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib "" libptxjitcompiler.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libnvcuvid.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libnvcuvid.so /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libnvidia-encode.so.1 /usr/lib #PRIVATE#/)

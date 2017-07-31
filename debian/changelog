@@ -33,6 +33,10 @@ nvidia-graphics-drivers (384.59-1~svn1) UNRELEASED; urgency=medium
   * Update symbols files.
   * Add nvidia-vulkan-nonglvnd-common to ship the non-GLVND Vulkan ICD file.
 
+  [ Andreas Beckmann ]
+  * Rename libnvidia-ptxjitcompiler to libnvidia-ptxjitcompiler1, this library
+    gained a stable SONAME.
+
  -- Luca Boccassi <luca.boccassi@gmail.com>  Thu, 29 Jun 2017 18:50:02 +0100
 
 nvidia-graphics-drivers (381.22-1~svn1) UNRELEASED; urgency=medium

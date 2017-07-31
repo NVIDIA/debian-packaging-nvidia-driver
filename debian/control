@@ -1045,7 +1045,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- lib${nvidia}-ptxjitcompiler (= ${binary:Version}),
+ lib${nvidia}-ptxjitcompiler1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA FAT binary loader${nvidia:LegacyDesc}
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
@@ -1054,8 +1054,8 @@ Description: NVIDIA FAT binary loader${nvidia:LegacyDesc}
  .
  This package contains the FAT multiarchitecture binary loader.
 
-#Package: lib${nvidia}-ptxjitcompiler
-Package: libnvidia-ptxjitcompiler
+#Package: lib${nvidia}-ptxjitcompiler1
+Package: libnvidia-ptxjitcompiler1
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
