@@ -167,6 +167,34 @@ fi
 		else
 			echo "Oops. Internal error 9 ($NVGA)"
 		fi
+	elif grep -q "buster\|^10\|bullseye|^11" /etc/debian_version
+	then
+		if [[ -n ${VERSIONS[999]} ]]; then
+			if [[ -n ${VERSIONS[340]} ]]; then
+				if [[ -n ${VERSIONS[304]} ]]; then
+				       	echo "Your card is supported by all driver versions."
+				else
+					echo "Your card is supported by the default drivers and legacy driver series 340."
+				fi
+			else
+				echo "Your card is supported by the default drivers."
+			fi
+			PACKAGE="nvidia-driver"
+		elif [[ -n ${VERSIONS[340]} ]]; then
+			echo "Your card is only supported up to the 340 legacy drivers series."
+			PACKAGE="nvidia-legacy-340xx-driver"
+		elif [[ -n ${VERSIONS[304]} ]]; then
+			echo "Your card is only supported up to the 304 legacy drivers series."
+			PACKAGE="nvidia-legacy-304xx-driver"
+		elif [[ -n ${VERSIONS[173]} ]]; then
+			echo "Uh oh. Your card is only supported by the 173.14 legacy drivers series, which is not in any current Debian suite."
+		elif [[ -n ${VERSIONS[96]} ]]; then
+			echo "Uh oh. Your card is only supported by the 96.43 legacy drivers series, which is not in any current Debian suite."
+		elif [[ -n ${VERSIONS[71]} ]]; then
+			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite."
+		else
+			echo "Oops. Internal error 10 ($NVGA)"
+		fi
 	else
 		echo "Uh oh. Failed to identify your Debian suite.";
 	fi;
