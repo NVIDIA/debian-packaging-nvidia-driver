@@ -63,6 +63,7 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
     (352.79-2, 352.79-5).
   * control: Synchronize descriptions with unstable (370.28-2).
   * Add xorg-video-abi-23 as alternative dependency (375.20-1).
+  * Switch watch URL from ftp:// to https:// (375.82-1).
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
 
