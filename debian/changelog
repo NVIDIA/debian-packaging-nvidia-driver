@@ -8,6 +8,7 @@ nvidia-graphics-drivers (340.102-2~svn4deb8jessie) UNRELEASED; urgency=medium
     (Closes: #865964)
   * Add fatal-signal.patch and vm-fault.patch to fix kernel module build on
     Linux 4.11 and newer.
+  * Add set-memory.patch to fix kernel module build on Linux 4.12 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 30 Jun 2017 00:14:42 +0200
 
