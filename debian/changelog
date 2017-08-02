@@ -43,6 +43,7 @@ nvidia-graphics-drivers (381.22-1~svn1) UNRELEASED; urgency=medium
   * Bump libvulkan1 dependency to (>= 1.0.42).
   * Add nvidia-nonglvnd-vulkan-icd and nvidia-nonglvnd-vulkan-common for the
     non-GLVND variant of Vulkan support.  (Closes: #864477)
+  * Use nvidia_icd.json as the template to generate the non-GLVND variant.
   * Restrict watch file to releases from the 381.xx short lived branch.
   * Update lintian overrides.
   * Upload to experimental.
