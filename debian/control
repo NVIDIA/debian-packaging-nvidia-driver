@@ -109,7 +109,7 @@ Recommends:
  libgles-${nvidia}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
  nvidia-egl-wayland-icd (= ${binary:Version}),
- ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
+ ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386] | ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of
@@ -705,7 +705,7 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Recommends:
- ${nvidia}-vulkan-icd,
+ ${nvidia}-nonglvnd-vulkan-icd,
 Conflicts:
  libgl1-nvidia-glvnd-glx,
  nvidia-vulkan-common,
@@ -720,12 +720,14 @@ Package: nvidia-vulkan-icd
 Architecture: i386 amd64
 Multi-Arch: same
 Depends:
- nvidia-vulkan-common | nvidia-vulkan-nonglvnd-common,
+ nvidia-vulkan-common,
  libvulkan1 (>= 1.0.42),
  libglx-${nvidia}0 (= ${binary:Version}),
  ${misc:Depends}
 Suggests:
- vulkan-utils
+ vulkan-utils,
+Conflicts:
+ ${nvidia}-nonglvnd-vulkan-icd,
 Enhances:
  libvulkan1,
 Provides:
@@ -734,7 +736,30 @@ Description: NVIDIA Vulkan installable client driver (ICD)${nvidia:LegacyDesc}
  Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
  .
  This metapackage provides the NVIDIA installable client driver (ICD) for
- Vulkan which supports NVIDIA GPUs.
+ Vulkan (GLVND variant) which supports NVIDIA GPUs.
+
+#Package: ${nvidia}-nonglvnd-vulkan-icd
+Package: nvidia-nonglvnd-vulkan-icd
+Architecture: i386 amd64
+Multi-Arch: same
+Depends:
+ nvidia-vulkan-nonglvnd-common,
+ libvulkan1 (>= 1.0.42),
+ libgl1-${nvidia}-glx (= ${binary:Version}),
+ ${misc:Depends}
+Suggests:
+ vulkan-utils,
+Conflicts:
+ ${nvidia}-vulkan-icd,
+Enhances:
+ libvulkan1,
+Provides:
+ vulkan-icd,
+Description: NVIDIA Vulkan installable client driver (ICD) (non-GLVND variant)${nvidia:LegacyDesc}
+ Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
+ .
+ This metapackage provides the NVIDIA installable client driver (ICD) for
+ Vulkan (non-GLVND variant) which supports NVIDIA GPUs.
 
 #Package: lib${nvidia}-cfg1
 Package: libnvidia-cfg1
