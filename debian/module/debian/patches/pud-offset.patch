@@ -1,0 +1,39 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix kernel module load on 4.12 and greater
+ From kernel 4.12 and newer (commit f2a6a7050109e) there is a new fifth page
+ table level.
+
+--- a/nv-linux.h
++++ b/nv-linux.h
+@@ -1379,6 +1379,23 @@
+ #define NV_PMD_UNMAP(pmd) pmd_unmap(pmd);
+ #else
+ #if defined(PUD_SHIFT) /* 4-level pgtable */
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 12, 0)
++#define NV_PMD_OFFSET(address, pgd)                     \
++   ({                                                   \
++        pmd_t *__pmd = NULL;                            \
++        pud_t *__pud;                                   \
++        p4d_t *__p4d;                                   \
++        __p4d = p4d_offset(pgd, address);               \
++        if ((__p4d != NULL) &&                          \
++            !(p4d_bad(*__p4d) || p4d_none(*__p4d))) {   \
++            __pud = pud_offset(__p4d, address);         \
++            if ((__pud != NULL) &&                      \
++                !(pud_bad(*__pud) || pud_none(*__pud))) \
++                __pmd = pmd_offset(__pud, address);     \
++        }                                               \
++        __pmd;                                          \
++    })
++#else
+ #define NV_PMD_OFFSET(address, pgd)                     \
+    ({                                                   \
+         pmd_t *__pmd = NULL;                            \
+@@ -1389,6 +1406,7 @@
+             __pmd = pmd_offset(__pud, address);         \
+         __pmd;                                          \
+     })
++#endif
+ #else /* 3-level pgtable */
+ #define NV_PMD_OFFSET(address, pgd)                     \
+    ({                                                   \
