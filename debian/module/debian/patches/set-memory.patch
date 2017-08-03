@@ -1,0 +1,59 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix kernel module build on 4.12 and greater
+ From kernel 4.12 and newer (commit 299878bac32) the set_memory* functions
+ moved from asm/cacheflush.h to asm/set_memory.h.
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -362,7 +362,11 @@
+             # Determine if the set_memory_uc() function is present.
+             #
+             CODE="
+-            #include <asm/cacheflush.h>
++            #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 12, 0)
++              #include <asm/cacheflush.h>
++            #else
++              #include <asm/set_memory.h>
++            #endif
+             void conftest_set_memory_uc(void) {
+                 set_memory_uc();
+             }"
+@@ -375,7 +379,11 @@
+             # Determine if the set_memory_array_uc() function is present.
+             #
+             CODE="
+-            #include <asm/cacheflush.h>
++            #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 12, 0)
++              #include <asm/cacheflush.h>
++            #else
++              #include <asm/set_memory.h>
++            #endif
+             void conftest_set_memory_array_uc(void) {
+                 set_memory_array_uc();
+             }"
+@@ -388,7 +396,11 @@
+             # Determine if the set_pages_uc() function is present.
+             #
+             CODE="
+-            #include <asm/cacheflush.h>
++            #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 12, 0)
++              #include <asm/cacheflush.h>
++            #else
++              #include <asm/set_memory.h>
++            #endif
+             void conftest_set_pages_uc(void) {
+                 set_pages_uc();
+             }"
+--- a/nv-vm.c
++++ b/nv-vm.c
+@@ -13,6 +13,11 @@
+ #include "nv.h"
+ #include "nv-linux.h"
+ 
++#include <linux/version.h>
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 12, 0)
++#include <asm/set_memory.h>
++#endif
++
+ static inline void nv_set_contig_memory_uc(nv_pte_t *page_ptr, NvU32 num_pages)
+ {
+     if (nv_update_memory_types)
