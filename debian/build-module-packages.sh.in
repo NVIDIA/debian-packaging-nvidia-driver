@@ -4,15 +4,29 @@ test -x /usr/bin/module-assistant || apt-get install module-assistant
 
 cd /usr/src
 
-kernels="$(ls -d1 /lib/modules/*/build 2>/dev/null | cut -d/ -f4)"
+kernels=
+slenrek=
+for k in $(ls -dvr1 /lib/modules/*/build 2>/dev/null | cut -d/ -f4) ; do
+	case $k in
+		*-rt-*)
+			: # skip PREEMPT_RT kernel
+			;;
+		*)
+			kernels="$kernels $k"
+			slenrek="$k $slenrek"
+			;;
+	esac
+done
 modules=#NVIDIA#-kernel
 
 module-assistant clean $modules
-module-assistant build --text-mode --force --kvers-list "$kernels" $modules
+for k in $kernels ; do
+	module-assistant build --text-mode --force --kvers-list "$k" $modules
+done
 
 ls -l *.deb
 for m in $modules ; do
-	for k in $kernels ; do
+	for k in $slenrek ; do
 		echo "* ${m} ${k}:"
 		ls -l ${m}-${k}_*.deb
 	done
