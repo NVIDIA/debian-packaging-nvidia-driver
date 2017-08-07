@@ -4,6 +4,8 @@ nvidia-drm-master-dev.patch
 deprecated-cpu-events.patch
 dma-fence-rename.patch
 vmf-address.patch
+fatal-signal.patch
+set-memory.patch
 
 # build system updates
 use-kbuild-compiler.patch

@@ -1,0 +1,31 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix kernel module load on 4.11 and greater
+ From kernel 4.11 and newer (commit 2a1f062a4ac) the signal_pending functions
+ moved from linux/sched.h to linux/sched/signal.h.
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -1569,7 +1569,12 @@
+             # Determine if fatal_signal_pending is present.
+             #
+             CODE="
++            #include <linux/version.h>
++            #if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
++            #include <linux/sched/signal.h>
++            #else
+             #include <linux/sched.h>
++            #endif
+             void conftest_fatal_signal_pending(void) {
+                 fatal_signal_pending();
+             }"
+--- a/common/inc/nv-linux.h
++++ b/common/inc/nv-linux.h
+@@ -97,6 +97,9 @@
+ #include <linux/poll.h>             /* poll_wait                        */
+ #include <linux/delay.h>            /* mdelay, udelay                   */
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
++#include <linux/sched/signal.h>
++#endif
+ #include <linux/sched.h>            /* suser(), capable() replacement   */
+ #include <linux/moduleparam.h>      /* module_param()                   */
+ #include <asm/tlbflush.h>           /* flush_tlb(), flush_tlb_all()     */
