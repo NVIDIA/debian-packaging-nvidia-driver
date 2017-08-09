@@ -1,0 +1,49 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix kernel module build on 4.11 and greater
+ From kernel 4.11 and newer (commit 11b3c20bdd1) the drm_unload signature
+ changed from returning an int to void.
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -48,6 +48,8 @@
+ #include <drm/drm_auth.h>
+ #endif
+ 
++#include <linux/version.h>
++
+ static struct nvidia_drm_device *dev_list = NULL;
+ 
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
+@@ -398,7 +400,11 @@
+     return 0;
+ }
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
++static void nvidia_drm_unload(struct drm_device *dev)
++#else
+ static int nvidia_drm_unload(struct drm_device *dev)
++#endif
+ {
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
+     struct NvKmsKapiDevice *pDevice = NULL;
+@@ -412,7 +418,11 @@
+ 
+     if (!nvidia_drm_modeset_enabled(dev))
+     {
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
++        return;
++#else
+         return 0;
++#endif
+     }
+ 
+     mutex_lock(&nv_dev->lock);
+@@ -445,7 +455,9 @@
+ 
+ #endif /* NV_DRM_ATOMIC_MODESET_AVAILABLE */
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 11, 0)
+     return 0;
++#endif
+ }
+ 
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)

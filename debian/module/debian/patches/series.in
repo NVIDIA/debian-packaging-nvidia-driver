@@ -6,6 +6,11 @@ dma-fence-rename.patch
 vmf-address.patch
 fatal-signal.patch
 set-memory.patch
+#HAS_UVM#kref-refcount.patch
+drm-encoder.patch
+drm-unload.patch
+drm-helper-mode.patch
+drm-vma-fault.patch
 
 # build system updates
 use-kbuild-compiler.patch

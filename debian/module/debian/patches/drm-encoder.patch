@@ -1,0 +1,17 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix kernel module build on 4.11 and greater
+ From kernel 4.11 and newer (commit 9338203c4f0) struct drm_encoder is declared
+ drm/drm_encoder.h so it needs to be included.
+--- a/nvidia-drm/nvidia-drm-encoder.h
++++ b/nvidia-drm/nvidia-drm-encoder.h
+@@ -30,6 +30,10 @@
+ #include "nvidia-drm-priv.h"
+ 
+ #include <drm/drmP.h>
++#include <linux/version.h>
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
++#include <drm/drm_encoder.h>
++#endif
+ #include "nvkms-kapi.h"
+ 
+ struct nvidia_drm_encoder

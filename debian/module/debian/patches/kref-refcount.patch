@@ -1,0 +1,28 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix kernel module build on 4.11 and greater
+ From kernel 4.11 and newer (commit 10383aea2f4) the kref struct and functions
+ wrap refcount_t instead of atomic_t. Use the kref accessor rather than
+ trying to read directly the atomic var.
+--- a/nvidia-uvm/uvm8_gpu_isr.c
++++ b/nvidia-uvm/uvm8_gpu_isr.c
+@@ -26,6 +26,8 @@
+ #include "uvm8_hal.h"
+ #include "uvm8_next_decl.h"
+ 
++#include <linux/version.h>
++
+ // For use by the nv_kthread_q that is servicing the replayable fault bottom
+ // half, only.
+ static void replayable_faults_isr_bottom_half(void *args);
+@@ -270,7 +272,11 @@
+ 
+ void uvm_gpu_replayable_faults_isr_unlock(uvm_gpu_t *gpu)
+ {
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
++    UVM_ASSERT(kref_read(&gpu->gpu_kref) > 0);
++#else
+     UVM_ASSERT(atomic_read(&gpu->gpu_kref.refcount) > 0);
++#endif
+ 
+     uvm_spin_lock_irqsave(&gpu->isr.replayable_faults.interrupts_lock);
+ 

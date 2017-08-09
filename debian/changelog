@@ -1,9 +1,15 @@
 nvidia-graphics-drivers (378.13-2) UNRELEASED; urgency=medium
 
+  [ Andreas Beckmann ]
   * Merge changes from 375.82-1.
   * Add fatal-signal.patch to fix kernel module build on
     Linux 4.11 and newer.  (Closes: #870677)
   * Add set-memory.patch to fix kernel module build on Linux 4.12 and newer.
+
+  [ Luca Boccassi ]
+  * Add kref-refcount.patch, drm-encoder.patch, drm-unload.patch,
+    drm-helper-mode.patch and drm-vma-fault.patch to fix kernel module build
+    on Linux 4.11 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Jun 2017 14:13:00 +0200
 

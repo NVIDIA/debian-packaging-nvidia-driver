@@ -1,0 +1,43 @@
+Author: Luca Boccassi <luca.boccassi@gmail.com>
+Description: Fix kernel module build on 4.11 and greater
+ From kernel 4.11 and newer (commit a3f913ca989) drm_helper_mode_fill_fb_struct
+ takes a struct drm_device as the first parameter.
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2262,7 +2262,13 @@
+             #
+             CODE="
+             #include <drm/drm_crtc_helper.h>
++            #include <linux/version.h>
++            #if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
++            void drm_helper_mode_fill_fb_struct(struct drm_device *dev,
++                                                struct drm_framebuffer *fb,
++            #else
+             void drm_helper_mode_fill_fb_struct(struct drm_framebuffer *fb,
++            #endif
+                                                 const struct drm_mode_fb_cmd2 *mode_cmd)
+             {
+                 return;
+--- a/nvidia-drm/nvidia-drm-fb.c
++++ b/nvidia-drm/nvidia-drm-fb.c
+@@ -32,6 +32,8 @@
+ 
+ #include <drm/drm_crtc_helper.h>
+ 
++#include <linux/version.h>
++
+ static void nvidia_framebuffer_destroy(struct drm_framebuffer *fb)
+ {
+     struct nvidia_drm_device *nv_dev = fb->dev->dev_private;
+@@ -152,7 +154,11 @@
+ 
+     /* Fill out framebuffer metadata from the userspace fb creation request */
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
++    drm_helper_mode_fill_fb_struct(dev, &nv_fb->base, cmd);
++#else
+     drm_helper_mode_fill_fb_struct(&nv_fb->base, cmd);
++#endif
+ 
+     /* Initialize the base framebuffer object and add it to drm subsystem */
+ 
