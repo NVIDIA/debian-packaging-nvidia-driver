@@ -39,7 +39,6 @@ nvidia-graphics-drivers (381.22-1~svn1) UNRELEASED; urgency=medium
       are in use.  See the README for more details.
 
   [ Andreas Beckmann ]
-  * Merge changes from 375.82-1.
   * Bump libvulkan1 dependency to (>= 1.0.42).
   * Add nvidia-nonglvnd-vulkan-icd and nvidia-nonglvnd-vulkan-common for the
     non-GLVND variant of Vulkan support.  (Closes: #864477)
@@ -49,6 +48,20 @@ nvidia-graphics-drivers (381.22-1~svn1) UNRELEASED; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Jan 2017 14:35:53 +0100
+
+nvidia-graphics-drivers (378.13-2) experimental; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Merge changes from 375.82-1.
+
+  [ Luca Boccassi ]
+  * Add fatal-signal.patch to fix kernel module build on Linux 4.11 and newer.
+  * Add kref-refcount.patch, drm-encoder.patch, drm-unload.patch,
+    drm-helper-mode.patch and drm-vma-fault.patch to fix kernel module build
+    on Linux 4.11 and newer.  (Closes: #870677)
+  * Add set-memory.patch to fix kernel module build on Linux 4.12 and newer.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 10 Aug 2017 19:09:08 +0200
 
 nvidia-graphics-drivers (378.13-1) experimental; urgency=medium
 
@@ -95,6 +108,12 @@ nvidia-graphics-drivers (378.13-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 14 Jun 2017 19:48:45 +0200
+
+nvidia-graphics-drivers (375.82-1~deb9u1) stretch; urgency=medium
+
+  * Rebuild for stretch.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 09 Aug 2017 05:03:52 +0200
 
 nvidia-graphics-drivers (375.82-1) unstable; urgency=high
 
