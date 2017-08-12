@@ -276,8 +276,10 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
+ libgl1,
  libgl1-${nvidia}-glx,
 Replaces:
+ libgl1,
  libgl1-${nvidia}-glx,
 Description: Vendor neutral GL dispatch library -- libGL
  This is an implementation of the vendor-neutral dispatch layer for
@@ -291,7 +293,7 @@ Package: libgl1-nvidia-glvnd-glx
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
- libgl1-glvnd-glx | libgl1-glvnd-nvidia-glx,
+ libgl1 | libgl1-glvnd-nvidia-glx,
  libglx-${nvidia}0 (= ${binary:Version}),
  ${misc:Depends}
 Provides:
@@ -374,8 +376,10 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
+ libegl1,
  libegl1-${nvidia},
 Replaces:
+ libegl1,
  libegl1-${nvidia},
 Description: Vendor neutral GL dispatch library -- libEGL
  This is an implementation of the vendor-neutral dispatch layer for
@@ -621,11 +625,11 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
  nvidia-egl-common,
- libegl1-glvnd | libegl1-glvnd-nvidia,
+ libegl1 | libegl1-glvnd-nvidia,
  libegl-${nvidia}0 (= ${binary:Version}),
  ${misc:Depends}
 Enhances:
- libegl1-glvnd,
+ libegl1,
 Provides:
  egl-icd,
 Description: NVIDIA EGL installable client driver (ICD)
