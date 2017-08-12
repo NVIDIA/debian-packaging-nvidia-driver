@@ -197,9 +197,11 @@ Conflicts:
 Breaks:
  libgldispatch0-nvidia,
 Replaces:
+ libglvnd0,
  libgldispatch0,
  libgldispatch0-nvidia,
 Provides:
+ libglvnd0,
  glvnd-nvidia-abi-375.20,
 Description: Vendor neutral GL dispatch library -- libGLdispatch
  This is an implementation of the vendor-neutral dispatch layer for
@@ -219,6 +221,8 @@ Conflicts:
  libopengl0,
 Replaces:
  libopengl0,
+Provides:
+ libopengl0,
 Description: Vendor neutral GL dispatch library -- libOpenGL
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
@@ -232,6 +236,8 @@ Multi-Arch: same
 Conflicts:
  libglx0,
 Replaces:
+ libglx0,
+Provides:
  libglx0,
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -281,6 +287,8 @@ Conflicts:
 Replaces:
  libgl1,
  libgl1-${nvidia}-glx,
+Provides:
+ libgl1,
 Description: Vendor neutral GL dispatch library -- libGL
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
@@ -381,6 +389,8 @@ Conflicts:
 Replaces:
  libegl1,
  libegl1-${nvidia},
+Provides:
+ libegl1,
 Description: Vendor neutral GL dispatch library -- libEGL
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
