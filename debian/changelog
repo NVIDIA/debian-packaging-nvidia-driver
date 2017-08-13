@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (381.22-1~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (381.22-1) experimental; urgency=medium
 
   * New upstream short lived branch release 381.22 (2017-05-09).
     * Fixed CVE-2017-0350, CVE-2017-0351, CVE-2017-0352.  (Closes: #863515)
@@ -50,7 +50,7 @@ nvidia-graphics-drivers (381.22-1~svn1) UNRELEASED; urgency=medium
   * Update lintian overrides.
   * Upload to experimental.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Jan 2017 14:35:53 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 13 Aug 2017 08:02:13 +0200
 
 nvidia-graphics-drivers (378.13-2) experimental; urgency=medium
 
