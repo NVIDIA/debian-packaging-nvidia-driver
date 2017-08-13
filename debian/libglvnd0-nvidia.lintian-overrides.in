@@ -5,7 +5,5 @@ hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
 
-# These are built from src:libglvnd and packaged independently
-# from the NVIDIA drivers, too.
+# This is also built from src:libglvnd.
 package-name-doesnt-match-sonames libGLdispatch0
-symbols-declares-dependency-on-other-package libglvnd0
