@@ -1,3 +1,18 @@
+nvidia-graphics-drivers (375.82-2) UNRELEASED; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Bump Standards-Version to 4.0.1. No changes needed.
+  * nvidia-alternative: Explicitly use interest-await triggers.
+  * Switch from dh_install --list-missing to dh_missing.
+  * Use dpkg makefile snippets instead of manual parsing.
+  * build-module-packages.sh: Order kernels by descending version.
+
+  [ Luca Boccassi ]
+  * README.source: Add pointer to the wiki for for instructions to build
+    latest packages from SVN.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 18 Aug 2017 12:33:53 +0200
+
 nvidia-graphics-drivers (375.82-1~deb9u1) stretch; urgency=medium
 
   * Rebuild for stretch.
