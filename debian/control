@@ -18,7 +18,7 @@ Build-Depends:
  libxext6,
  libxvmc1,
  quilt,
-Standards-Version: 3.9.8
+Standards-Version: 4.0.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
