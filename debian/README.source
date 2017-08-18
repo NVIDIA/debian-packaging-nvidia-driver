@@ -6,7 +6,7 @@ Building "bleeding edge" from SVN for users
     Users wishing to try to build new version locally can follow the
     instructions on the Debian wiki:
 
-    wiki.debian.org/NvidiaGraphicsDrivers#Building_newer_releases_from_SVN
+    https://wiki.debian.org/NvidiaGraphicsDrivers#Building_newer_releases_from_SVN
 
     WARNING: these will most likely be work in progress, and the final upload
     may be different and may not support clean upgrades from/to the versions
