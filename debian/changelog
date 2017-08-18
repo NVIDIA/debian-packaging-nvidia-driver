@@ -1814,6 +1814,7 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Switch watch URL from ftp:// to https:// (375.82-1).
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
+  * build-module-packages.sh: Order kernels by descending version.
 
   [ Luca Boccassi ]
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
