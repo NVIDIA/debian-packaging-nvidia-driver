@@ -1,6 +1,6 @@
-interest register-#NVIDIA#-alternative
+interest-await register-#NVIDIA#-alternative
 
-interest /etc/#PRIVATE#
-interest /usr/lib/#PRIVATE#
-interest /usr/lib/i386-linux-gnu/#PRIVATE#
-interest /usr/lib/x86_64-linux-gnu/#PRIVATE#
+interest-await /etc/#PRIVATE#
+interest-await /usr/lib/#PRIVATE#
+interest-await /usr/lib/i386-linux-gnu/#PRIVATE#
+interest-await /usr/lib/x86_64-linux-gnu/#PRIVATE#

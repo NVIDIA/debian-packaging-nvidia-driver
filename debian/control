@@ -245,6 +245,7 @@ Package: nvidia-alternative
 Architecture: i386 amd64
 Multi-Arch: foreign
 Pre-Depends:
+ dpkg (>= 1.17.21),
  ${nvidia:legacy-check},
 Depends:
  glx-alternative-nvidia (>= 0.7),
