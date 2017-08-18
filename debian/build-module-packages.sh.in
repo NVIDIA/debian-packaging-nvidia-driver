@@ -8,6 +8,9 @@ kernels=
 slenrek=
 for k in $(ls -dvr1 /lib/modules/*/build 2>/dev/null | cut -d/ -f4) ; do
 	case $k in
+		*-rt-*)
+			: # skip PREEMPT_RT kernel
+			;;
 		*)
 			kernels="$kernels $k"
 			slenrek="$k $slenrek"
