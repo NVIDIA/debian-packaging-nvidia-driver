@@ -18,7 +18,7 @@ Build-Depends:
  libxext6,
  quilt,
  po-debconf,
-Standards-Version: 3.9.8
+Standards-Version: 4.0.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
@@ -350,6 +350,7 @@ Package: nvidia-alternative
 Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Pre-Depends:
+ dpkg (>= 1.17.21),
  ${nvidia:legacy-check},
 Depends:
  glx-alternative-nvidia (>= 0.7),
