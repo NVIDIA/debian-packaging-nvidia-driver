@@ -1,3 +1,17 @@
+Building "bleeding edge" from SVN for users
+
+    As new upstream versions of the proprietary driver are released, upload
+    might not happen immediately. This might be for various reasons, including
+    waiting for new binary packages to clear the NEW queue.
+    Users wishing to try to build new version locally can follow the
+    instructions on the Debian wiki:
+
+    https://wiki.debian.org/NvidiaGraphicsDrivers#Building_newer_releases_from_SVN
+
+    WARNING: these will most likely be work in progress, and the final upload
+    may be different and may not support clean upgrades from/to the versions
+    uploaded in the archive.
+
 Importing a New Upstream Release
 
     The *.orig.tar.gz file for nvidia-graphics-drivers contains just a
