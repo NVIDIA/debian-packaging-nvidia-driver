@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (340.102-2~svn4deb8jessie) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
+  * build-module-packages.sh: Order kernels by descending version.
   * Switch watch URL from ftp:// to https:// (375.82-1).
 
   [ Luca Boccassi ]
