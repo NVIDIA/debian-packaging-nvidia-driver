@@ -1,5 +1,10 @@
-nvidia-graphics-drivers (384.59-1~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (384.69-1~svn1) UNRELEASED; urgency=medium
 
+  * New upstream long lived branch release 384.69 (2017-08-22).
+    - Fixed an intermittent hang when using Vulkan to present directly to
+      display with the VK_KHR_display extension.  SteamVR was particularly
+      affected by that hang.
+    - Added support for the following GPU: Quadro P4000 with Max-Q Design.
   * New upstream long lived branch release 384.59 (2017-07-24).
     * Fixed CVE-2017-6257, CVE-2017-6259.  (Closes: #869783)
     - Fixed a bug that caused S4 suspend (also known as "hibernate") to hang
