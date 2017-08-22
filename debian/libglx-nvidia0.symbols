@@ -116,6 +116,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glBufferPageCommitmentARB@Base 361.28
  glBufferStorage@Base 361.28
  glBufferStorageEXT@Base 361.28
+ glBufferStorageMemEXT@Base 384.69
  glBufferSubData@Base 361.28
  glBufferSubDataARB@Base 361.28
  glCallCommandListNV@Base 361.28
@@ -313,6 +314,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glCreateBuffers@Base 361.28
  glCreateCommandListsNV@Base 361.28
  glCreateFramebuffers@Base 361.28
+ glCreateMemoryObjectsEXT@Base 384.69
  glCreateProgram@Base 361.28
  glCreateProgramObjectARB@Base 361.28
  glCreateProgramPipelines@Base 361.28
@@ -352,6 +354,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glDeleteFramebuffersEXT@Base 361.28
  glDeleteFramebuffersOES@Base 361.28
  glDeleteLists@Base 361.28
+ glDeleteMemoryObjectsEXT@Base 384.69
  glDeleteNamedStringARB@Base 361.28
  glDeleteObjectARB@Base 361.28
  glDeleteOcclusionQueriesNV@Base 361.28
@@ -368,6 +371,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glDeleteRenderbuffersEXT@Base 361.28
  glDeleteRenderbuffersOES@Base 361.28
  glDeleteSamplers@Base 361.28
+ glDeleteSemaphoresEXT@Base 384.69
  glDeleteShader@Base 361.28
  glDeleteStatesNV@Base 361.28
  glDeleteSync@Base 361.28
@@ -604,6 +608,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGenRenderbuffersEXT@Base 361.28
  glGenRenderbuffersOES@Base 361.28
  glGenSamplers@Base 361.28
+ glGenSemaphoresEXT@Base 384.69
  glGenTextures@Base 361.28
  glGenTexturesEXT@Base 361.28
  glGenTransformFeedbacks@Base 361.28
@@ -730,6 +735,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGetMaterialfv@Base 361.28
  glGetMaterialiv@Base 361.28
  glGetMaterialxv@Base 361.28
+ glGetMemoryObjectParameterivEXT@Base 384.69
  glGetMinmax@Base 361.28
  glGetMinmaxParameterfv@Base 361.28
  glGetMinmaxParameteriv@Base 361.28
@@ -866,6 +872,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGetSamplerParameterIuivOES@Base 361.28
  glGetSamplerParameterfv@Base 361.28
  glGetSamplerParameteriv@Base 361.28
+ glGetSemaphoreParameterui64vEXT@Base 384.69
  glGetSeparableFilter@Base 361.28
  glGetShaderInfoLog@Base 361.28
  glGetShaderPrecisionFormat@Base 361.28
@@ -946,6 +953,8 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGetUniformui64vNV@Base 361.28
  glGetUniformuiv@Base 361.28
  glGetUniformuivEXT@Base 361.28
+ glGetUnsignedBytei_vEXT@Base 384.69
+ glGetUnsignedBytevEXT@Base 384.69
  glGetVaryingLocationNV@Base 361.28
  glGetVertexArrayIndexed64iv@Base 361.28
  glGetVertexArrayIndexediv@Base 361.28
@@ -1035,6 +1044,8 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGpuSyncReleaseNVX@Base 361.28
  glHint@Base 361.28
  glHistogram@Base 361.28
+ glImportMemoryFdEXT@Base 384.69
+ glImportSemaphoreFdEXT@Base 384.69
  glImportSyncEXT@Base 361.28
  glIndexFormatNV@Base 361.28
  glIndexMask@Base 361.28
@@ -1078,6 +1089,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glIsImageHandleResidentARB@Base 361.28
  glIsImageHandleResidentNV@Base 361.28
  glIsList@Base 361.28
+ glIsMemoryObjectEXT@Base 384.69
  glIsNamedBufferResidentNV@Base 361.28
  glIsNamedStringARB@Base 361.28
  glIsOcclusionQueryNV@Base 361.28
@@ -1096,6 +1108,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glIsRenderbufferEXT@Base 361.28
  glIsRenderbufferOES@Base 361.28
  glIsSampler@Base 361.28
+ glIsSemaphoreEXT@Base 384.69
  glIsShader@Base 361.28
  glIsStateNV@Base 361.28
  glIsSync@Base 361.28
@@ -1209,6 +1222,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glMemoryBarrier@Base 361.28
  glMemoryBarrierByRegion@Base 361.28
  glMemoryBarrierEXT@Base 361.28
+ glMemoryObjectParameterivEXT@Base 384.69
  glMinSampleShading@Base 361.28
  glMinSampleShadingARB@Base 361.28
  glMinSampleShadingOES@Base 361.28
@@ -1357,6 +1371,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glNamedBufferPageCommitmentEXT@Base 361.28
  glNamedBufferStorage@Base 361.28
  glNamedBufferStorageEXT@Base 361.28
+ glNamedBufferStorageMemEXT@Base 384.69
  glNamedBufferSubData@Base 361.28
  glNamedBufferSubDataEXT@Base 361.28
  glNamedCopyBufferSubDataEXT@Base 361.28
@@ -1828,6 +1843,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glSecondaryColorPointer@Base 361.28
  glSecondaryColorPointerEXT@Base 361.28
  glSelectBuffer@Base 361.28
+ glSemaphoreParameterui64vEXT@Base 384.69
  glSeparableFilter2D@Base 361.28
  glSetFenceNV@Base 361.28
  glShadeModel@Base 361.28
@@ -1835,6 +1851,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glShaderSource@Base 361.28
  glShaderSourceARB@Base 361.28
  glShaderStorageBlockBinding@Base 361.28
+ glSignalSemaphoreEXT@Base 384.69
  glSignalVkFenceNV@Base 364
  glSignalVkSemaphoreNV@Base 364
  glSpecializeShaderARB@Base 367.36.02
@@ -1964,6 +1981,11 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glTexStorage3DEXT@Base 361.28
  glTexStorage3DMultisample@Base 361.28
  glTexStorage3DMultisampleOES@Base 361.28
+ glTexStorageMem1DEXT@Base 384.69
+ glTexStorageMem2DEXT@Base 384.69
+ glTexStorageMem2DMultisampleEXT@Base 384.69
+ glTexStorageMem3DEXT@Base 384.69
+ glTexStorageMem3DMultisampleEXT@Base 384.69
  glTexSubImage1D@Base 361.28
  glTexSubImage2D@Base 361.28
  glTexSubImage3D@Base 361.28
@@ -2006,6 +2028,11 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glTextureStorage3DEXT@Base 361.28
  glTextureStorage3DMultisample@Base 361.28
  glTextureStorage3DMultisampleEXT@Base 361.28
+ glTextureStorageMem1DEXT@Base 384.69
+ glTextureStorageMem2DEXT@Base 384.69
+ glTextureStorageMem2DMultisampleEXT@Base 384.69
+ glTextureStorageMem3DEXT@Base 384.69
+ glTextureStorageMem3DMultisampleEXT@Base 384.69
  glTextureSubImage1D@Base 361.28
  glTextureSubImage1DEXT@Base 361.28
  glTextureSubImage2D@Base 361.28
@@ -2482,6 +2509,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glViewportIndexedfvOES@Base 378
  glViewportPositionWScaleNV@Base 361.28
  glViewportSwizzleNV@Base 361.28
+ glWaitSemaphoreEXT@Base 384.69
  glWaitSync@Base 361.28
  glWaitSyncValueuiNVX@Base 361.28
  glWaitVkSemaphoreNV@Base 364

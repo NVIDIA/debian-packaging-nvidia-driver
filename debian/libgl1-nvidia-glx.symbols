@@ -1,28 +1,56 @@
 #include "libgl1-nvidia-glx.symbols.common"
  __glx_Main@Base 361.28
  glAlphaToCoverageDitherControlNV@Base 370
+ glBufferStorageMemEXT@Base 384.69
  glConservativeRasterParameteriNV@Base 367
+ glCreateMemoryObjectsEXT@Base 384.69
  glDebugControlNVX@Base 177
+ glDeleteMemoryObjectsEXT@Base 384.69
+ glDeleteSemaphoresEXT@Base 384.69
  glDepthRangeArrayfvOES@Base 378
  glDepthRangeIndexedfOES@Base 378
  glDevtoolsInvokeFunctorNVX@Base 349
  glDrawTransformFeedbackInstancedEXT@Base 381
  glDrawVkImageNV@Base 364
+ glGenSemaphoresEXT@Base 384.69
  glGetFloati_vOES@Base 378
+ glGetMemoryObjectParameterivEXT@Base 384.69
+ glGetSemaphoreParameterui64vEXT@Base 384.69
+ glGetUnsignedBytei_vEXT@Base 384.69
+ glGetUnsignedBytevEXT@Base 384.69
  glGetVkCoreProcAddrNVX@Base 381
  glGetVkProcAddrNV@Base 364
+ glImportMemoryFdEXT@Base 384.69
+ glImportSemaphoreFdEXT@Base 384.69
+ glIsMemoryObjectEXT@Base 384.69
+ glIsSemaphoreEXT@Base 384.69
  glLogTokenFlushNVX@Base 364
+ glMemoryObjectParameterivEXT@Base 384.69
+ glNamedBufferStorageMemEXT@Base 384.69
  glQueryResourceNVX@Base 355
  glScissorArrayvOES@Base 378
  glScissorIndexedOES@Base 378
  glScissorIndexedvOES@Base 378
+ glSemaphoreParameterui64vEXT@Base 384.69
+ glSignalSemaphoreEXT@Base 384.69
  glSignalVkFenceNV@Base 364
  glSignalVkSemaphoreNV@Base 364
  glSpecializeShaderARB@Base 367.36.02
+ glTexStorageMem1DEXT@Base 384.69
+ glTexStorageMem2DEXT@Base 384.69
+ glTexStorageMem2DMultisampleEXT@Base 384.69
+ glTexStorageMem3DEXT@Base 384.69
+ glTexStorageMem3DMultisampleEXT@Base 384.69
+ glTextureStorageMem1DEXT@Base 384.69
+ glTextureStorageMem2DEXT@Base 384.69
+ glTextureStorageMem2DMultisampleEXT@Base 384.69
+ glTextureStorageMem3DEXT@Base 384.69
+ glTextureStorageMem3DMultisampleEXT@Base 384.69
  glViewportArrayvOES@Base 378
  glViewportIndexedfOES@Base 378
  glViewportIndexedfvOES@Base 378
  glViewportPositionWScaleNV@Base 361
+ glWaitSemaphoreEXT@Base 384.69
  glWaitVkSemaphoreNV@Base 364
  glWindowRectanglesEXT@Base 375.26
  glcuR0d4nX@Base 195.36

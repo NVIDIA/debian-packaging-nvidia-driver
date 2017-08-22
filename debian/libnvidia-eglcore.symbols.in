@@ -116,6 +116,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glBufferPageCommitmentARB@Base 346
  _glBufferStorage@Base 346
  _glBufferStorageEXT@Base 349
+ _glBufferStorageMemEXT@Base 384.69
  _glBufferSubData@Base 346
  _glBufferSubDataARB@Base 346
  _glCallCommandListNV@Base 346
@@ -313,6 +314,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glCreateBuffers@Base 346
  _glCreateCommandListsNV@Base 346
  _glCreateFramebuffers@Base 346
+ _glCreateMemoryObjectsEXT@Base 384.69
  _glCreateProgram@Base 346
  _glCreateProgramObjectARB@Base 346
  _glCreateProgramPipelines@Base 346
@@ -352,6 +354,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDeleteFramebuffersEXT@Base 346
  _glDeleteFramebuffersOES@Base 346
  _glDeleteLists@Base 346
+ _glDeleteMemoryObjectsEXT@Base 384.69
  _glDeleteNamedStringARB@Base 346
  _glDeleteObjectARB@Base 346
  _glDeleteOcclusionQueriesNV@Base 346
@@ -368,6 +371,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDeleteRenderbuffersEXT@Base 346
  _glDeleteRenderbuffersOES@Base 346
  _glDeleteSamplers@Base 346
+ _glDeleteSemaphoresEXT@Base 384.69
  _glDeleteShader@Base 346
  _glDeleteStatesNV@Base 346
  _glDeleteSync@Base 346
@@ -606,6 +610,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGenRenderbuffersEXT@Base 346
  _glGenRenderbuffersOES@Base 346
  _glGenSamplers@Base 346
+ _glGenSemaphoresEXT@Base 384.69
  _glGenTextures@Base 346
  _glGenTexturesEXT@Base 346
  _glGenTransformFeedbacks@Base 346
@@ -732,6 +737,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetMaterialfv@Base 346
  _glGetMaterialiv@Base 346
  _glGetMaterialxv@Base 346
+ _glGetMemoryObjectParameterivEXT@Base 384.69
  _glGetMinmax@Base 346
  _glGetMinmaxParameterfv@Base 346
  _glGetMinmaxParameteriv@Base 346
@@ -868,6 +874,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetSamplerParameterIuivOES@Base 349
  _glGetSamplerParameterfv@Base 346
  _glGetSamplerParameteriv@Base 346
+ _glGetSemaphoreParameterui64vEXT@Base 384.69
  _glGetSeparableFilter@Base 346
  _glGetShaderInfoLog@Base 346
  _glGetShaderPrecisionFormat@Base 346
@@ -948,6 +955,8 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetUniformui64vNV@Base 346
  _glGetUniformuiv@Base 346
  _glGetUniformuivEXT@Base 346
+ _glGetUnsignedBytei_vEXT@Base 384.69
+ _glGetUnsignedBytevEXT@Base 384.69
  _glGetVaryingLocationNV@Base 346
  _glGetVertexArrayIndexed64iv@Base 346
  _glGetVertexArrayIndexediv@Base 346
@@ -1037,6 +1046,8 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGpuSyncReleaseNVX@Base 346
  _glHint@Base 346
  _glHistogram@Base 346
+ _glImportMemoryFdEXT@Base 384.69
+ _glImportSemaphoreFdEXT@Base 384.69
  _glImportSyncEXT@Base 346
  _glIndexFormatNV@Base 346
  _glIndexMask@Base 346
@@ -1080,6 +1091,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glIsImageHandleResidentARB@Base 346
  _glIsImageHandleResidentNV@Base 346
  _glIsList@Base 346
+ _glIsMemoryObjectEXT@Base 384.69
  _glIsNamedBufferResidentNV@Base 346
  _glIsNamedStringARB@Base 346
  _glIsOcclusionQueryNV@Base 346
@@ -1098,6 +1110,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glIsRenderbufferEXT@Base 346
  _glIsRenderbufferOES@Base 346
  _glIsSampler@Base 346
+ _glIsSemaphoreEXT@Base 384.69
  _glIsShader@Base 346
  _glIsStateNV@Base 346
  _glIsSync@Base 346
@@ -1211,6 +1224,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glMemoryBarrier@Base 346
  _glMemoryBarrierByRegion@Base 346
  _glMemoryBarrierEXT@Base 346
+ _glMemoryObjectParameterivEXT@Base 384.69
  _glMinSampleShading@Base 346
  _glMinSampleShadingARB@Base 346
  _glMinSampleShadingOES@Base 346
@@ -1358,6 +1372,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glNamedBufferPageCommitmentEXT@Base 346
  _glNamedBufferStorage@Base 346
  _glNamedBufferStorageEXT@Base 346
+ _glNamedBufferStorageMemEXT@Base 384.69
  _glNamedBufferSubData@Base 346
  _glNamedBufferSubDataEXT@Base 346
  _glNamedCopyBufferSubDataEXT@Base 346
@@ -1829,6 +1844,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glSecondaryColorPointer@Base 346
  _glSecondaryColorPointerEXT@Base 346
  _glSelectBuffer@Base 346
+ _glSemaphoreParameterui64vEXT@Base 384.69
  _glSeparableFilter2D@Base 346
  _glSetFenceNV@Base 346
  _glShadeModel@Base 346
@@ -1836,6 +1852,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glShaderSource@Base 346
  _glShaderSourceARB@Base 346
  _glShaderStorageBlockBinding@Base 346
+ _glSignalSemaphoreEXT@Base 384.69
  _glSignalVkFenceNV@Base 364
  _glSignalVkSemaphoreNV@Base 364
  _glSpecializeShaderARB@Base 367.36.02
@@ -1965,6 +1982,11 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glTexStorage3DEXT@Base 346
  _glTexStorage3DMultisample@Base 346
  _glTexStorage3DMultisampleOES@Base 346
+ _glTexStorageMem1DEXT@Base 384.69
+ _glTexStorageMem2DEXT@Base 384.69
+ _glTexStorageMem2DMultisampleEXT@Base 384.69
+ _glTexStorageMem3DEXT@Base 384.69
+ _glTexStorageMem3DMultisampleEXT@Base 384.69
  _glTexSubImage1D@Base 346
  _glTexSubImage2D@Base 346
  _glTexSubImage3D@Base 346
@@ -2007,6 +2029,11 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glTextureStorage3DEXT@Base 346
  _glTextureStorage3DMultisample@Base 346
  _glTextureStorage3DMultisampleEXT@Base 346
+ _glTextureStorageMem1DEXT@Base 384.69
+ _glTextureStorageMem2DEXT@Base 384.69
+ _glTextureStorageMem2DMultisampleEXT@Base 384.69
+ _glTextureStorageMem3DEXT@Base 384.69
+ _glTextureStorageMem3DMultisampleEXT@Base 384.69
  _glTextureSubImage1D@Base 346
  _glTextureSubImage1DEXT@Base 346
  _glTextureSubImage2D@Base 346
@@ -2473,6 +2500,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glViewportIndexedfvOES@Base 378
  _glViewportPositionWScaleNV@Base 361
  _glViewportSwizzleNV@Base 346
+ _glWaitSemaphoreEXT@Base 384.69
  _glWaitSync@Base 346
  _glWaitSyncValueuiNVX@Base 346
  _glWaitVkSemaphoreNV@Base 364
