@@ -6,10 +6,12 @@ nvidia-graphics-drivers (375.82-2) UNRELEASED; urgency=medium
   * Switch from dh_install --list-missing to dh_missing.
   * Use dpkg makefile snippets instead of manual parsing.
   * build-module-packages.sh: Order kernels by descending version.
+  * Add nvidia-nonglvnd-vulkan-icd and nvidia-nonglvnd-vulkan-common for the
+    non-GLVND variant of Vulkan support.  (Closes: #864477)
 
   [ Luca Boccassi ]
-  * README.source: Add pointer to the wiki for for instructions to build
-    latest packages from SVN.
+  * README.source: Add pointer to the wiki for instructions to build latest
+    packages from SVN.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.

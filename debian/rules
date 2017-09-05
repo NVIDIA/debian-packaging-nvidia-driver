@@ -18,6 +18,7 @@ NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
 ARCH_LIST		?= i386 amd64
 ARCH_DEPS_i386		?=
 UVM_ARCH_LIST		?= $(ARCH_LIST)
+VULKAN_ARCH_LIST	?= i386 amd64
 
 NVIDIA_RELEASE		 = $(DEB_VERSION_UPSTREAM)
 version			 = $(NVIDIA_RELEASE)
@@ -28,6 +29,7 @@ libcuda1		 = lib$(if $(legacy),$(nvidia)-)cuda1
 module			 = nvidia-$(current)
 current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
 has_uvm			 = $(filter $(DEB_HOST_ARCH),$(UVM_ARCH_LIST))
+has_vulkan		 = $(filter $(DEB_HOST_ARCH),$(VULKAN_ARCH_LIST))
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 legacy_description_short = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy))
@@ -75,6 +77,7 @@ AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOGEN		+= debian/bug-control
+AUTOGEN		+= $(if $(has_vulkan),NVIDIA-Linux/glvnd/nvidia_icd.json NVIDIA-Linux/nonglvnd/nvidia_icd.json)
 AUTOKEEP	 = debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
@@ -106,6 +109,15 @@ unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
 	QUILT_PATCHES=debian/patches QUILT_SERIES=series-postunpack quilt --quiltrc /dev/null push -a || test $$? = 2
 	ls -al
 	touch $@
+
+nvidia_icd.json.template	 = NVIDIA-Linux/nvidia_icd.json
+$(nvidia_icd.json.template): unpack-stamp
+NVIDIA-Linux/glvnd/nvidia_icd.json: $(nvidia_icd.json.template)
+	mkdir -p $(@D)
+	cat $< > $@
+NVIDIA-Linux/nonglvnd/nvidia_icd.json: $(nvidia_icd.json.template)
+	mkdir -p $(@D)
+	sed 's/libGLX_nvidia.so.0/libGL.so.1/' $< > $@
 
 nv-readme.ids: unpack-stamp
 	sed	-e '0,/A. Supported\|APPENDIX A: SUPPORTED/d' \
