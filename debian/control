@@ -182,7 +182,7 @@ Description: check for NVIDIA GPUs requiring a legacy driver
  If such hardware is present, a (preseedable) debconf question will be asked to
  confirm the installation of the current driver line.
 
-Package: libgldispatch0-nvidia
+Package: libglvnd0-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
@@ -192,8 +192,11 @@ Depends:
 Conflicts:
  libglvnd0,
  libgldispatch0,
+Breaks:
+ libgldispatch0-nvidia,
 Replaces:
  libgldispatch0,
+ libgldispatch0-nvidia,
 Provides:
  glvnd-nvidia-abi-375.20,
 Description: Vendor neutral GL dispatch library -- libGLdispatch

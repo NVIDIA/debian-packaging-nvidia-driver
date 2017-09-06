@@ -8,6 +8,8 @@ nvidia-graphics-drivers (375.82-2) UNRELEASED; urgency=medium
   * build-module-packages.sh: Order kernels by descending version.
   * Add nvidia-nonglvnd-vulkan-icd and nvidia-nonglvnd-vulkan-common for the
     non-GLVND variant of Vulkan support.  (Closes: #864477)
+  * Use nvidia_icd.json as the template to generate the non-GLVND variant.
+  * Rename libgldispatch0-nvidia to libglvnd0-nvidia, matching libglvnd0.
 
   [ Luca Boccassi ]
   * README.source: Add pointer to the wiki for instructions to build latest

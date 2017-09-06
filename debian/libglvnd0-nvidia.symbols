@@ -1,0 +1,18 @@
+libGLdispatch.so.0 libglvnd0 | glvnd-nvidia-abi-375.20, libglvnd0 | #PACKAGE# #MINVER#
+ __glDispatchCheckMultithreaded@Base 355
+ __glDispatchCreateTable@Base 355
+ __glDispatchDestroyTable@Base 355
+ __glDispatchFini@Base 355
+ __glDispatchForceUnpatch@Base 375.20
+ __glDispatchGetABIVersion@Base 355
+ __glDispatchGetCurrentThreadState@Base 361.45
+ __glDispatchGetProcAddress@Base 355
+ __glDispatchInit@Base 355
+ __glDispatchLoseCurrent@Base 355
+ __glDispatchMakeCurrent@Base 355
+ __glDispatchNewVendorID@Base 355
+ __glDispatchRegisterStubCallbacks@Base 355
+ __glDispatchReset@Base 355
+ __glDispatchUnregisterStubCallbacks@Base 355
+ _glapi_Current@Base 355
+ _glapi_get_current@Base 361
