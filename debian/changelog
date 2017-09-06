@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (375.82-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (375.82-2) unstable; urgency=medium
 
   [ Andreas Beckmann ]
   * Bump Standards-Version to 4.1.0. No changes needed.
@@ -21,7 +21,7 @@ nvidia-graphics-drivers (375.82-2) UNRELEASED; urgency=medium
   [ Russ Allbery ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 18 Aug 2017 12:33:53 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 06 Sep 2017 15:03:09 +0200
 
 nvidia-graphics-drivers (375.82-1~deb9u1) stretch; urgency=medium
 
