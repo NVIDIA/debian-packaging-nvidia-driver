@@ -227,12 +227,12 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-cfg1-any,
 Breaks:
  libgl1-${nvidia}-glx (<< ${nvidia:Deb-Version-After:jessie}),
 Replaces:
  libgl1-${nvidia}-glx (<< ${nvidia:Deb-Version-After:jessie}),
-Provides:
- libnvidia-cfg1-any,
 Description: NVIDIA binary OpenGL/GLX configuration library${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX applications via a direct-rendering X Server for graphics cards
@@ -250,10 +250,10 @@ Pre-Depends:
 Depends:
  glx-alternative-nvidia (>= 0.7),
  ${misc:Depends}
-Breaks:
- nvidia-settings (<< 304.88-2),
 Provides:
  ${nvidia}-alternative--kmod-alias,
+Breaks:
+ nvidia-settings (<< 304.88-2),
 Description: allows the selection of NVIDIA as GLX provider${nvidia:LegacyDesc}
  In setups with several NVIDIA driver versions installed (e.g. current and
  legacy) this metapackage registers an alternative to allow easy switching
