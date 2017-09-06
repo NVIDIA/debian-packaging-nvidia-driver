@@ -4,10 +4,9 @@ Section: non-free/libs
 Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Uploaders:
- Russ Allbery <rra@debian.org>,
  Andreas Beckmann <anbe@debian.org>,
  Vincent Cheng <vcheng@debian.org>,
- Luca Boccassi <luca.boccassi@gmail.com>,
+ Luca Boccassi <bluca@debian.org>,
 Vcs-Svn: svn://anonscm.debian.org/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
 Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
@@ -18,7 +17,7 @@ Build-Depends:
  libxext6,
  quilt,
  po-debconf,
-Standards-Version: 4.0.1
+Standards-Version: 4.1.0
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
@@ -332,12 +331,12 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-cfg1-any,
 Breaks:
  libgl1-${nvidia}-glx (<< ${nvidia:Deb-Version-After:jessie}),
 Replaces:
  libgl1-${nvidia}-glx (<< ${nvidia:Deb-Version-After:jessie}),
-Provides:
- libnvidia-cfg1-any,
 Description: NVIDIA binary OpenGL/GLX configuration library${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
@@ -355,6 +354,8 @@ Pre-Depends:
 Depends:
  glx-alternative-nvidia (>= 0.7),
  ${misc:Depends}
+Provides:
+ ${nvidia}-alternative--kmod-alias,
 Breaks:
  nvidia-settings (<< 319.49),
  nvidia-driver (<< 340.46-4~),
@@ -367,8 +368,6 @@ Breaks:
  libnvcuvid1 (<< 340.46-2~),
  libnvidia-ml1 (<< 340.46-2~),
  nvidia-smi (<< 340.46-2~),
-Provides:
- ${nvidia}-alternative--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider${nvidia:LegacyDesc}
  In setups with several NVIDIA driver versions installed (e.g. current and
  legacy) this metapackage registers an alternative to allow easy switching

@@ -29,11 +29,15 @@ nvidia-graphics-drivers (340.102-2~svn4deb8jessie) UNRELEASED; urgency=medium
   * Switch watch URL from ftp:// to https:// (375.82-1).
 
   [ Luca Boccassi ]
+  * Switch to my debian.org email address in Uploaders.
   * Add drm-unload.patch to fix kernel module build on Linux 4.11 and newer.
     (Closes: #865964)
   * Add fatal-signal.patch and vm-fault.patch to fix kernel module build on
     Linux 4.11 and newer.
   * Add set-memory.patch to fix kernel module build on Linux 4.12 and newer.
+
+  [ Russ Allbery ]
+  * Remove myself from Uploaders.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 30 Jun 2017 00:14:42 +0200
 
@@ -1732,7 +1736,7 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
 nvidia-graphics-drivers (304.135-1~svn4deb9stretch) UNRELEASED; urgency=medium
 
-  * Depend on a setuid root Xserver.  (Closes: #805554) 
+  * Depend on a setuid root Xserver.  (Closes: #805554)
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the OpenGL/GLX packages.
   * Replace libgl1-nvidia-glx-i386 with new
@@ -1745,7 +1749,7 @@ nvidia-graphics-drivers (304.135-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Switch to debhelper compat level 10.
   * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze)
     (375.82-1).
-  * Bump Standards-Version to 4.0.1. No changes needed.
+  * Bump Standards-Version to 4.1.0. No changes needed.
   * nvidia-alternative: Explicitly use interest-await triggers.
   * Switch from dh_install --list-missing to dh_missing.
   * Use dpkg makefile snippets instead of manual parsing.
@@ -1823,6 +1827,7 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * build-module-packages.sh: Order kernels by descending version.
 
   [ Luca Boccassi ]
+  * Switch to my debian.org email address in Uploaders.
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
     building on 4.3 or greater, where the deprecated APIs the kernel module
     uses are no longer exported, causing a failure when the module is
@@ -1834,6 +1839,9 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Add drm-unload.patch to fix kernel module build on Linux 4.11 and newer.
     (Closes: #865964)
   * Add pud-offset.patch to fix kernel module build on Linux 4.12 and newer.
+
+  [ Russ Allbery ]
+  * Remove myself from Uploaders.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
