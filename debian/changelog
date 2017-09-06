@@ -1,7 +1,7 @@
 nvidia-graphics-drivers (375.82-2) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
-  * Bump Standards-Version to 4.0.1. No changes needed.
+  * Bump Standards-Version to 4.1.0. No changes needed.
   * nvidia-alternative: Explicitly use interest-await triggers.
   * Switch from dh_install --list-missing to dh_missing.
   * Use dpkg makefile snippets instead of manual parsing.
@@ -16,6 +16,7 @@ nvidia-graphics-drivers (375.82-2) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * README.source: Add pointer to the wiki for instructions to build latest
     packages from SVN.
+  * Switch to my debian.org email address in Uploaders.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
