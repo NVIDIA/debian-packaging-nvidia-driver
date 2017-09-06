@@ -62,6 +62,7 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * build-module-packages.sh: Order kernels by descending version.
 
   [ Luca Boccassi ]
+  * Switch to my debian.org email address in Uploaders.
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
     building on 4.3 or greater, where the deprecated APIs the kernel module
     uses are no longer exported, causing a failure when the module is
@@ -76,9 +77,6 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
-
-  [ Luca Boccassi ]
-  * Switch to debian.org email address in Uploaders.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
