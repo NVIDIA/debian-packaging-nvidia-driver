@@ -189,16 +189,17 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ glvnd-nvidia-abi-375.20,
 Conflicts:
  libglvnd0,
  libgldispatch0,
 Breaks:
  libgldispatch0-nvidia,
 Replaces:
+ libglvnd0,
  libgldispatch0,
  libgldispatch0-nvidia,
-Provides:
- glvnd-nvidia-abi-375.20,
 Description: Vendor neutral GL dispatch library -- libGLdispatch
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
@@ -274,8 +275,10 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
+ libgl1,
  libgl1-${nvidia}-glx,
 Replaces:
+ libgl1,
  libgl1-${nvidia}-glx,
 Description: Vendor neutral GL dispatch library -- libGL
  This is an implementation of the vendor-neutral dispatch layer for
@@ -289,7 +292,7 @@ Package: libgl1-nvidia-glvnd-glx
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
- libgl1-glvnd-glx | libgl1-glvnd-nvidia-glx,
+ libgl1 | libgl1-glvnd-nvidia-glx,
  libglx-${nvidia}0 (= ${binary:Version}),
  ${misc:Depends}
 Provides:
@@ -372,8 +375,10 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
+ libegl1,
  libegl1-${nvidia},
 Replaces:
+ libegl1,
  libegl1-${nvidia},
 Description: Vendor neutral GL dispatch library -- libEGL
  This is an implementation of the vendor-neutral dispatch layer for
@@ -423,15 +428,18 @@ Description: NVIDIA binary EGL library${nvidia:LegacyDesc}
 Package: libgles1-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
-Breaks:
- libgles1-nvidia (<< 361),
-Replaces:
- libgles1-nvidia (<< 361),
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Conflicts:
+ libgles1,
+Breaks:
+ libgles1-nvidia (<< 361),
+Replaces:
+ libgles1,
+ libgles1-nvidia (<< 361),
 Description: NVIDIA binary OpenGL|ES 1.x GLVND stub library
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
  embedded systems - including consoles, phones, appliances and vehicles.
@@ -478,7 +486,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libgles1-glvnd | libgles1-glvnd-nvidia,
+ libgles1 | libgles1-glvnd-nvidia,
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 1.x library${nvidia:LegacyDesc}
@@ -499,15 +507,18 @@ Description: NVIDIA binary OpenGL|ES 1.x library${nvidia:LegacyDesc}
 Package: libgles2-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
-Breaks:
- libgles2-nvidia (<< 361),
-Replaces:
- libgles2-nvidia (<< 361),
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Conflicts:
+ libgles2,
+Breaks:
+ libgles2-nvidia (<< 361),
+Replaces:
+ libgles2,
+ libgles2-nvidia (<< 361),
 Description: NVIDIA binary OpenGL|ES 2.x GLVND stub library
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
  embedded systems - including consoles, phones, appliances and vehicles.
@@ -556,7 +567,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libgles2-glvnd | libgles2-glvnd-nvidia,
+ libgles2 | libgles2-glvnd-nvidia,
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 2.x library${nvidia:LegacyDesc}
@@ -619,11 +630,11 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
  nvidia-egl-common,
- libegl1-glvnd | libegl1-glvnd-nvidia,
+ libegl1 | libegl1-glvnd-nvidia,
  libegl-${nvidia}0 (= ${binary:Version}),
  ${misc:Depends}
 Enhances:
- libegl1-glvnd,
+ libegl1,
 Provides:
  egl-icd,
 Description: NVIDIA EGL installable client driver (ICD)
@@ -679,12 +690,12 @@ Depends:
  ${misc:Depends}
 Suggests:
  vulkan-utils,
-Conflicts:
- ${nvidia}-nonglvnd-vulkan-icd,
 Enhances:
  libvulkan1,
 Provides:
  vulkan-icd,
+Conflicts:
+ ${nvidia}-nonglvnd-vulkan-icd,
 Description: NVIDIA Vulkan installable client driver (ICD)${nvidia:LegacyDesc}
  Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
  .
@@ -718,12 +729,12 @@ Depends:
  ${misc:Depends}
 Suggests:
  vulkan-utils,
-Conflicts:
- ${nvidia}-vulkan-icd,
 Enhances:
  libvulkan1,
 Provides:
  vulkan-icd,
+Conflicts:
+ ${nvidia}-vulkan-icd,
 Description: NVIDIA Vulkan installable client driver (ICD) (non-GLVND variant)${nvidia:LegacyDesc}
  Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
  .
@@ -739,12 +750,12 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-cfg1-any,
 Breaks:
  libgl1-${nvidia}-glx (<< 355.11-5),
 Replaces:
  libgl1-${nvidia}-glx (<< 355.11-5),
-Provides:
- libnvidia-cfg1-any,
 Description: NVIDIA binary OpenGL/GLX configuration library${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
@@ -762,6 +773,8 @@ Pre-Depends:
 Depends:
  glx-alternative-nvidia (>= 0.7) [!ppc64el],
  ${misc:Depends}
+Provides:
+ ${nvidia}-alternative--kmod-alias,
 Breaks:
  nvidia-settings (<< 319.49),
  nvidia-driver (<< 343.22-2~),
@@ -774,8 +787,6 @@ Breaks:
  libnvcuvid1 (<< 340.46-2~),
  libnvidia-ml1 (<< 340.46-2~),
  nvidia-smi (<< 340.46-2~),
-Provides:
- ${nvidia}-alternative--kmod-alias,
 Description: allows the selection of NVIDIA as GLX provider${nvidia:LegacyDesc}
  In setups with several NVIDIA driver versions installed (e.g. current and
  legacy) this metapackage registers an alternative to allow easy switching
