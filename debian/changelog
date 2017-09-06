@@ -69,6 +69,7 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * build-module-packages.sh: Order kernels by descending version.
 
   [ Luca Boccassi ]
+  * Switch to my debian.org email address in Uploaders.
   * Add disable-mtrr.patch to disable MTRR in the kernel module if
     building on 4.3 or greater, where the deprecated APIs the kernel module
     uses are no longer exported, causing a failure when the module is
@@ -80,6 +81,9 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Add drm-unload.patch to fix kernel module build on Linux 4.11 and newer.
     (Closes: #865964)
   * Add pud-offset.patch to fix kernel module build on Linux 4.12 and newer.
+
+  [ Russ Allbery ]
+  * Remove myself from Uploaders.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
