@@ -323,7 +323,7 @@ check_for_unsupported_gpus()
 	db_subst nvidia-driver/install-even-if-unsupported-gpu-exists legacy_driver "$LEGACY_DRIVER"
 	db_subst nvidia-driver/install-even-if-unsupported-gpu-exists free_name "Nouveau"
 	db_subst nvidia-driver/install-even-if-unsupported-gpu-exists free_driver "xserver-xorg-video-nouveau"
-	db_subst nvidia-driver/install-even-if-unsupported-gpu-exists unsupported-device "$UNSUPPORTED"
+	db_subst nvidia-driver/install-even-if-unsupported-gpu-exists unsupported-device "$(echo "$UNSUPPORTED" | sed -r 's/$/; /' | tr -d '\n' | sed -r 's/; $//')"
 
 	# ensure the question is asked again unless it was accepted previously for the same $LEGACY_DRIVER
 	db_get nvidia-driver/supported-in-legacy-driver-name
