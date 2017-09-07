@@ -176,6 +176,8 @@ override_dh_auto_install: install-into-tmp build-kernel-source-tree build-kernel
 install-into-tmp:
 	# "Install" into debian/tmp.
 	cp -al NVIDIA-Linux/ debian/tmp
+	rm -rf debian/tmp/32
+	rm -rf debian/tmp/libglvnd_install_checker
 	rm -f debian/tmp/NVIDIA_Changelog
 	cp -al NVIDIA-Linux-amd64/NVIDIA_Changelog debian/tmp/
 	gzip -9fn debian/tmp/nvidia-smi.1
