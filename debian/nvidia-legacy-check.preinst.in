@@ -270,6 +270,11 @@ fi
 
 find_unsupported_gpus()
 {
+	if [ -n "$OVERRIDE_NVIDIA_LEGACY_CHECK_UNSUPPORTED_DEVICES" ]; then
+		echo "$OVERRIDE_NVIDIA_LEGACY_CHECK_UNSUPPORTED_DEVICES"
+		return
+	fi
+
 	# Check for GPUs that are only supported up to $LEGACY_DRIVER
 	if lspci --version > /dev/null 2>&1; then
 		lspci -mn \
