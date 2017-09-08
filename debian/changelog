@@ -3,6 +3,8 @@ nvidia-graphics-drivers (375.82-3) UNRELEASED; urgency=medium
   * nvidia-legacy-check: Fix debconf errors if more than one legacy NVIDIA
     device is present.  (Closes: #869817, #864406, #812595)
   * GLVND stub libs: Provide the libglvnd package names.
+  * Mark GRID K340, GRID K1, GRID K2 as legacy GPUs supported only up to
+    340xx.  (Closes: #873050)
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Sep 2017 00:22:25 +0200
 
@@ -272,6 +274,7 @@ nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
     - Raised the on-disk OpenGL shader cache size from 64MB to 128MB. Refer to
       the "Specifying OpenGL Environment Variable Settings" section of the
       driver README for details on how to select its location or disable it.
+    * Removed support for the following GPUs: GRID K340, GRID K1, GRID K2.
   * New upstream release 367 series.
     - Fixed a bug in synchronization primitives shared between X and OpenGL.
 
