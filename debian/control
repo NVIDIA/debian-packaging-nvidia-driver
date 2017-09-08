@@ -260,6 +260,8 @@ Depends:
  libglx0 | libglx0-glvnd-nvidia,
  lib${nvidia}-glcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libglx-vendor,
 Description: NVIDIA binary GLX library${nvidia:LegacyDesc}
  GLX ("OpenGL Extension to the X Window System") provides an interface between
  OpenGL and the X Window System as well as extensions to OpenGL itself.
@@ -649,6 +651,7 @@ Depends:
 Enhances:
  libegl1,
 Provides:
+ libegl-vendor,
  egl-icd,
 Description: NVIDIA EGL installable client driver (ICD)
  EGL provides a platform-agnostic mechanism for creating rendering surfaces

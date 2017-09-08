@@ -2,9 +2,10 @@ nvidia-graphics-drivers (375.82-3) UNRELEASED; urgency=medium
 
   * nvidia-legacy-check: Fix debconf errors if more than one legacy NVIDIA
     device is present.  (Closes: #869817, #864406, #812595)
+  * Mark GRID K1, GRID K2, GRID K340 as legacy GPUs supported only up to
+    nvidia-legacy-340xx-driver.  (Closes: #873050)
   * GLVND stub libs: Provide the libglvnd package names.
-  * Mark GRID K340, GRID K1, GRID K2 as legacy GPUs supported only up to
-    340xx.  (Closes: #873050)
+  * Provide libglx-vendor, libegl-vendor for libglvnd compatibility.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Sep 2017 00:22:25 +0200
 
