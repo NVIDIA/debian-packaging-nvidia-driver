@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (375.82-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (375.82-3) unstable; urgency=medium
 
   * nvidia-legacy-check: Fix debconf errors if more than one legacy NVIDIA
     device is present.  (Closes: #869817, #864406, #812595)
@@ -7,7 +7,7 @@ nvidia-graphics-drivers (375.82-3) UNRELEASED; urgency=medium
   * GLVND stub libs: Provide the libglvnd package names.
   * Provide libglx-vendor, libegl-vendor for libglvnd compatibility.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Sep 2017 00:22:25 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Sep 2017 17:58:46 +0200
 
 nvidia-graphics-drivers (375.82-2) unstable; urgency=medium
 
