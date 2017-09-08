@@ -7,4 +7,3 @@ hardening-no-stackprotector
 
 # This is also built from src:libglvnd.
 package-name-doesnt-match-sonames libOpenGL0
-symbols-declares-dependency-on-other-package libopengl0

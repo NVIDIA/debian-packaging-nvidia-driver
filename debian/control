@@ -102,7 +102,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
- libopengl0-glvnd-nvidia,
+ libopengl0 | libopengl0-glvnd-nvidia,
  libglx-${nvidia}0 (= ${binary:Version}),
  libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
@@ -190,6 +190,7 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
+ libglvnd0,
  glvnd-nvidia-abi-375.20,
 Conflicts:
  libglvnd0,
@@ -214,6 +215,8 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libopengl0,
 Conflicts:
  libopengl0,
 Replaces:
@@ -228,15 +231,17 @@ Description: Vendor neutral GL dispatch library -- libOpenGL
 Package: libglx0-glvnd-nvidia
 Architecture: i386 amd64 armhf
 Multi-Arch: same
-Conflicts:
- libglx0,
-Replaces:
- libglx0,
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libglx0,
+Conflicts:
+ libglx0,
+Replaces:
+ libglx0,
 Description: Vendor neutral GL dispatch library -- libGLX
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
@@ -274,6 +279,8 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libgl1,
 Conflicts:
  libgl1,
  libgl1-${nvidia}-glx,
@@ -374,6 +381,8 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libegl1,
 Conflicts:
  libegl1,
  libegl1-${nvidia},
@@ -433,6 +442,8 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libgles1,
 Conflicts:
  libgles1,
 Breaks:
@@ -512,6 +523,8 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libgles2,
 Conflicts:
  libgles2,
 Breaks:
