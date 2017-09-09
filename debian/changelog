@@ -7,6 +7,8 @@ nvidia-graphics-drivers (384.69-1~svn1) UNRELEASED; urgency=medium
     - Added support for the following GPU: Quadro P4000 with Max-Q Design.
   * New upstream long lived branch release 384.59 (2017-07-24).
     * Fixed CVE-2017-6257, CVE-2017-6259.  (Closes: #869783)
+    - Added support for the following GPUs: GeForce GT 1030, GeForce MX150,
+      P104-100, P106-100.
     - Fixed a bug that caused S4 suspend (also known as "hibernate") to hang
       during suspend when SLI was enabled.
     - Fixed a bug where devices would not be properly enumerated by
@@ -28,9 +30,10 @@ nvidia-graphics-drivers (384.69-1~svn1) UNRELEASED; urgency=medium
       through the 'filter' argument to RandR's RRSetCrtcTransform,
       or through the 'ResamplingMethod' MetaMode token.
   * New upstream release 375 series.
-    - Added support for the following GPU: P106-100.
-    - Added support for the following GPUs: GeForce GT 1030, GeForce MX150,
-      P106-100.
+    - Disabled G-SYNC in desktop environments, such as Budgie, that use
+      libmutter-0.so.
+      An existing rule to disable G-SYNC for libmutter.so no longer applied
+      after the library was renamed to libmutter-0.so.
 
   [ Luca Boccassi ]
   * Refresh man-fixes-nvidia-smi.patch for 384.47.
@@ -40,8 +43,6 @@ nvidia-graphics-drivers (384.69-1~svn1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Rename libnvidia-ptxjitcompiler to libnvidia-ptxjitcompiler1, this library
     gained a stable SONAME.
-  * build-module-packages.sh: Skip PREEMPT_RT (*-rt-*) kernels, unsupported
-    upstream.
   * Update lintian overrides.
   * Upload to experimental.
 
