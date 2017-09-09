@@ -3,11 +3,8 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
-DEB_HOST_MULTIARCH	?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
-
-NVIDIA_RELEASE		:= $(shell dpkg-parsechangelog --show-field=Version | sed -r 's/^[0-9]+://; s/-[^-]+$$//')
-BUILD_DATE		:= $(shell dpkg-parsechangelog --show-field=Date)
+include /usr/share/dpkg/architecture.mk
+include /usr/share/dpkg/pkg-info.mk
 
 include debian/rules.defs
 NVIDIA_LEGACY		?=
@@ -23,6 +20,7 @@ ARCH_DEPS_i386		?=
 UVM_ARCH_LIST		?= $(ARCH_LIST)
 VULKAN_ARCH_LIST	?= i386 amd64
 
+NVIDIA_RELEASE		 = $(DEB_VERSION_UPSTREAM)
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
 deb_version_after_jessie = $(DEB_VERSION_AFTER_jessie)
@@ -112,11 +110,12 @@ unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
 	ls -al
 	touch $@
 
-NVIDIA-Linux/nvidia_icd.json.template: unpack-stamp
-NVIDIA-Linux/glvnd/nvidia_icd.json: NVIDIA-Linux/nvidia_icd.json.template
+nvidia_icd.json.template	 = NVIDIA-Linux/nvidia_icd.json.template
+$(nvidia_icd.json.template): unpack-stamp
+NVIDIA-Linux/glvnd/nvidia_icd.json: $(nvidia_icd.json.template)
 	mkdir -p $(@D)
 	sed 's/__NV_VK_ICD__/libGLX_nvidia.so.0/' $< > $@
-NVIDIA-Linux/nonglvnd/nvidia_icd.json: NVIDIA-Linux/nvidia_icd.json.template
+NVIDIA-Linux/nonglvnd/nvidia_icd.json: $(nvidia_icd.json.template)
 	mkdir -p $(@D)
 	sed 's/__NV_VK_ICD__/libGL.so.1/' $< > $@
 
@@ -176,6 +175,8 @@ override_dh_auto_install: install-into-tmp build-kernel-source-tree build-kernel
 install-into-tmp:
 	# "Install" into debian/tmp.
 	cp -al NVIDIA-Linux/ debian/tmp
+	rm -rf debian/tmp/32
+	rm -rf debian/tmp/libglvnd_install_checker
 	rm -f debian/tmp/NVIDIA_Changelog
 	cp -al NVIDIA-Linux-amd64/NVIDIA_Changelog debian/tmp/
 	gzip -9fn debian/tmp/nvidia-smi.1
@@ -206,8 +207,8 @@ build-kernel-source-tree: install-into-tmp
 	# Fix permissions.
 	chmod -R a-sx,u=rwX,go=rX $(module_source)/../..
 	chmod a+x $(module_source)/debian/rules
-	find '$(module_source)/../../modules' -depth -newermt '$(BUILD_DATE)' -print0 | \
-		xargs -0r touch --no-dereference --date='$(BUILD_DATE)'
+	find '$(module_source)/../../modules' -depth -newermt '@$(SOURCE_DATE_EPOCH)' -print0 | \
+		xargs -0r touch --no-dereference --date='@$(SOURCE_DATE_EPOCH)'
 
 	# Build the tarball.
 	(cd $(module_source)/../.. && find modules -print0) | \
@@ -235,9 +236,6 @@ kernel-source-tree: prepare build-kernel-source-tree
 	cp -a $(module_source) $@
 	cd $@ && QUILT_PATCHES=../debian/module/debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2
 
-override_dh_install:
-	dh_install --list-missing
-
 override_dh_installchangelogs:
 	dh_installchangelogs debian/tmp/NVIDIA_Changelog
 
@@ -246,6 +244,9 @@ override_dh_dkms:
 
 override_dh_bugfiles:
 	dh_bugfiles -A
+
+override_dh_missing:
+	dh_missing --list-missing
 
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir)/$(nvidia_private):$(LD_LIBRARY_PATH) dh_shlibdeps

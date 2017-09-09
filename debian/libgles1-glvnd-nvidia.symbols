@@ -1,4 +1,4 @@
-libGLESv1_CM.so.1 libgles1-mesa
+libGLESv1_CM.so.1 libgles1 | libgles1-mesa
 #MISSING: 361# NvGlEsInit@Base 331
  glActiveTexture@Base 331
  glAlphaFunc@Base 331

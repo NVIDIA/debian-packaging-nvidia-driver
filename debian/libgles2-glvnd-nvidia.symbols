@@ -1,4 +1,4 @@
-libGLESv2.so.2 libgles2-mesa
+libGLESv2.so.2 libgles2 | libgles2-mesa
 #MISSING: 361# NvClientRedirInit@Base 331
 #MISSING: 361# NvGlEs2Init@Base 331
 #MISSING: 361# glActiveShaderProgram@Base 346
