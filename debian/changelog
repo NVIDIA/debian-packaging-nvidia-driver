@@ -19,6 +19,8 @@ nvidia-graphics-drivers (340.102-2~svn4deb9stretch) UNRELEASED; urgency=medium
   * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze)
     (375.82-1).
   * disable-preempt_rt_sanity_check.patch: Remove, unsupported upstream.
+  * build-module-packages.sh: Skip PREEMPT_RT (*-rt-*) kernels, unsupported
+    upstream.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Apr 2016 16:41:52 +0200
 
