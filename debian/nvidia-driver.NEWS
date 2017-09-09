@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
+
+  LEGACY GPUs: If you have a GRID K340/K1/K2
+  DO NOT INSTALL THIS RELEASE!!!
+  Use the nvidia-legacy-340xx-driver, nvidia-legacy-340xx-kernel-dkms
+  packages instead.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 27 Nov 2016 12:14:53 +0000
+
 nvidia-graphics-drivers (352.55-1) experimental; urgency=medium
 
   The NVIDIA driver now automatically integrates with the Xorg configuration.
