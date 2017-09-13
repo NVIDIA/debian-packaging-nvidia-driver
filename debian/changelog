@@ -88,7 +88,7 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Switch watch URL from ftp:// to https:// (375.82-1).
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
-  * build-module-packages.sh: Order kernels by descending version.
+  * build-module-packages.sh: Order kernels by descending version (375.82-2).
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
@@ -103,6 +103,9 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Add drm-unload.patch to fix kernel module build on Linux 4.11 and newer.
     (Closes: #865964)
   * Add pud-offset.patch to fix kernel module build on Linux 4.12 and newer.
+  * Update pud-offset.patch to fix runtime error on Linux 4.12 and newer.
+    Original patch: https://bugzilla.rpmfusion.org/show_bug.cgi?id=4629#c11
+    (Closes: #875425)
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
