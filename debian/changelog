@@ -59,7 +59,7 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Switch watch URL from ftp:// to https:// (375.82-1).
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
-  * build-module-packages.sh: Order kernels by descending version.
+  * build-module-packages.sh: Order kernels by descending version (375.82-2).
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
