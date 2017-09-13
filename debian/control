@@ -338,6 +338,8 @@ Suggests:
  ${nvidia:kmod:source},
 Provides:
  libgl1-nvidia-glx-any,
+Breaks:
+ libgl1-${nvidia}-glvnd-glx (>= 0),
 Description: NVIDIA binary OpenGL/GLX library (non-GLVND variant)${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server

@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (375.82-4) UNRELEASED; urgency=medium
+
+  * Prevent mixing libgl1-nvidia-glx with libgl1-nvidia-glvnd-glx.
+    (Closes: #875683)
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 13 Sep 2017 22:36:56 +0200
+
 nvidia-graphics-drivers (375.82-3) unstable; urgency=medium
 
   * nvidia-legacy-check: Fix debconf errors if more than one legacy NVIDIA
