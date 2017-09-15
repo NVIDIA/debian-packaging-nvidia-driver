@@ -2,6 +2,8 @@ nvidia-graphics-drivers (375.82-4) UNRELEASED; urgency=medium
 
   * Prevent mixing libgl1-nvidia-glx with libgl1-nvidia-glvnd-glx.
     (Closes: #875683)
+  * Make relationships with packages from src:libglvnd versioned s.t. they
+    cannot be satisfied by virtual packages provided from src:mesa.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 13 Sep 2017 22:36:56 +0200
 
