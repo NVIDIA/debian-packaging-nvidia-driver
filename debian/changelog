@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (375.82-4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (375.82-4) unstable; urgency=medium
 
   * Prevent mixing libgl1-nvidia-glx with libgl1-nvidia-glvnd-glx.
   * Use versioned Provides/Breaks/Replaces on the packages also built from
@@ -8,7 +8,7 @@ nvidia-graphics-drivers (375.82-4) UNRELEASED; urgency=medium
     packages in mesa (for compatibility with mesa (<< 17) still in testing).
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 13 Sep 2017 22:36:56 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 20 Sep 2017 08:19:58 +0200
 
 nvidia-graphics-drivers (375.82-3) unstable; urgency=medium
 
