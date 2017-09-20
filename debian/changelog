@@ -29,6 +29,7 @@ nvidia-graphics-drivers (375.82-2) unstable; urgency=medium
   * Switch from dh_install --list-missing to dh_missing.
   * Use dpkg makefile snippets instead of manual parsing.
   * build-module-packages.sh: Order kernels by descending version.
+    Skip PREEMPT_RT (*-rt-*) kernels, unsupported upstream.
   * Add nvidia-nonglvnd-vulkan-icd and nvidia-nonglvnd-vulkan-common for the
     non-GLVND variant of Vulkan support.  (Closes: #864477)
   * Use nvidia_icd.json as the template to generate the non-GLVND variant.
