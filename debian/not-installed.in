@@ -28,3 +28,5 @@ pci.ids
 pkg-history.txt
 tls_test
 tls_test_dso.so
+
+NVIDIA_Changelog
