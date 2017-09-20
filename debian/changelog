@@ -1,4 +1,6 @@
-nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.137 (2017-09-19).
 
   [ Andreas Beckmann ]
   * Drop substitution backward-compatibility with EoL
