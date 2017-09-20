@@ -79,6 +79,8 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Update pud-offset.patch to fix runtime error on Linux 4.12 and newer.
     Original patch: https://bugzilla.rpmfusion.org/show_bug.cgi?id=4629#c11
     (Closes: #875425)
+  * Drop drm-driver-legacy.patch, deprecated-cpu-events.patch and
+    drm-unload.patch, fixed upstream.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
