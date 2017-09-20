@@ -81,6 +81,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
     (Closes: #875425)
   * Drop drm-driver-legacy.patch, deprecated-cpu-events.patch and
     drm-unload.patch, fixed upstream.
+  * Refresh disable-mtrr.patch to remove fuzz from upstream changes.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
