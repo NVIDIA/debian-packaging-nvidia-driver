@@ -20,6 +20,7 @@ nvidia-graphics-drivers (384.90-1~svn1) UNRELEASED; urgency=medium
     - Fixed a bug that prevented nvidia-installer from displaying a
       targeted error message when optional kernel modules fail to load.
   * Refresh man-fixes-nvidia-smi.patch.
+  * Update nv-readme.ids.
 
  -- Luca Boccassi <bluca@debian.org>  Thu, 21 Sep 2017 20:58:01 +0100
 
