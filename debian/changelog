@@ -1,9 +1,9 @@
 nvidia-graphics-drivers (375.82-4) unstable; urgency=medium
 
   * Prevent mixing libgl1-nvidia-glx with libgl1-nvidia-glvnd-glx.
-  * Use versioned Provides/Breaks/Replaces on the packages also built from
-    src:libglvnd s.t. they cannot be satisfied by virtual packages provided
-    from src:mesa (<< 17).  (Closes: #875683, #876100)
+  * Use versioned Depends and Provides/Breaks/Replaces on the packages also
+    built from src:libglvnd s.t. they cannot be satisfied by virtual packages
+    provided from src:mesa (<< 17).  (Closes: #875683, #876100)
   * Do not yet provide the libglvnd package names that were also virtual
     packages in mesa (for compatibility with mesa (<< 17) still in testing).
   * Update lintian overrides.
