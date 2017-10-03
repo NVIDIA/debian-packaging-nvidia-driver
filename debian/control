@@ -475,7 +475,6 @@ Description: NVIDIA binary OpenGL|ES 1.x GLVND stub library
 #Package: libgles1-${nvidia}
 Package: libgles1-nvidia
 Section: non-free/oldlibs
-Priority: extra
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
@@ -556,7 +555,6 @@ Description: NVIDIA binary OpenGL|ES 2.x GLVND stub library
 #Package: libgles2-${nvidia}
 Package: libgles2-nvidia
 Section: non-free/oldlibs
-Priority: extra
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
