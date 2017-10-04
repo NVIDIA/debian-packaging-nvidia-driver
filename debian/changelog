@@ -33,7 +33,7 @@ nvidia-graphics-drivers (375.82-2) unstable; urgency=medium
   * Bump Standards-Version to 4.1.0. No changes needed.
   * nvidia-alternative: Explicitly use interest-await triggers.
   * Switch from dh_install --list-missing to dh_missing.
-  * Use dpkg makefile snippets instead of manual parsing.
+  * Use dpkg makefile snippets instead of manual changelog parsing.
   * build-module-packages.sh: Order kernels by descending version.
     Skip PREEMPT_RT (*-rt-*) kernels, unsupported upstream.
   * Add nvidia-nonglvnd-vulkan-icd and nvidia-nonglvnd-vulkan-common for the
