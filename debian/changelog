@@ -16,7 +16,7 @@ nvidia-graphics-drivers (304.135-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Bump Standards-Version to 4.1.1. No changes needed.
   * nvidia-alternative: Explicitly use interest-await triggers.
   * Switch from dh_install --list-missing to dh_missing.
-  * Use dpkg makefile snippets instead of manual parsing.
+  * Use dpkg makefile snippets instead of manual changelog parsing.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
 
