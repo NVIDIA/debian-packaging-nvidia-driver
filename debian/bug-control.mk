@@ -51,5 +51,11 @@ define PACKAGE_STATUS
 	opencl-icd
 	libvulkan1
 	vulkan-icd
+	libglvnd0
+	libglx0
+	libopencl0
+	libgl1
+	libegl1
+	libgles2
 endef
 
