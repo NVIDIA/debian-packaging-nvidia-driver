@@ -60,6 +60,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
   * build-module-packages.sh: Order kernels by descending version (375.82-2).
+  * bug-control: report-with needs arch qualification for M-A:same packages.
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
