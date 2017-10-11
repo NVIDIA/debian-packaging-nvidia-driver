@@ -5,6 +5,7 @@ nvidia-graphics-drivers (340.104-1~svn4deb8jessie) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * build-module-packages.sh: Order kernels by descending version (375.82-2).
   * Switch watch URL from ftp:// to https:// (375.82-1).
+  * bug-control: report-with needs arch qualification for M-A:same packages.
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
@@ -1555,6 +1556,13 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
       efi_enabled (310.14).
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
+
+nvidia-graphics-drivers (304.137-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.137 (2017-09-19).
+    - Improved compatibility with recent Linux kernels.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 08 Oct 2017 21:52:50 +0200
 
 nvidia-graphics-drivers (304.135-1) UNRELEASED; urgency=medium
 
