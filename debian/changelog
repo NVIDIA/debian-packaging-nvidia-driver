@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.102-2~svn4deb9stretch) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.104-2~svn4deb9stretch) UNRELEASED; urgency=medium
 
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
@@ -22,13 +22,14 @@ nvidia-graphics-drivers (340.102-2~svn4deb9stretch) UNRELEASED; urgency=medium
   * build-module-packages.sh: Skip PREEMPT_RT (*-rt-*) kernels, unsupported
     upstream.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Apr 2016 16:41:52 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 03:48:48 +0200
 
-nvidia-graphics-drivers (340.102-2~svn4deb8jessie) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.104-1~svn4deb8jessie) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * build-module-packages.sh: Order kernels by descending version (375.82-2).
   * Switch watch URL from ftp:// to https:// (375.82-1).
+  * bug-control: report-with needs arch qualification for M-A:same packages.
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
@@ -37,11 +38,22 @@ nvidia-graphics-drivers (340.102-2~svn4deb8jessie) UNRELEASED; urgency=medium
   * Add fatal-signal.patch and vm-fault.patch to fix kernel module build on
     Linux 4.11 and newer.
   * Add set-memory.patch to fix kernel module build on Linux 4.12 and newer.
+  * Drop drm-driver-legacy.patch, deprecated-cpu-events.patch,
+    vmf-address.patch, drm-unload.patch, fatal-signal.patch and
+    set-memory.patch, fixed upstream.
+  * Refresh vm-fault.patch to remove fuzz from upstream changes.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 30 Jun 2017 00:14:42 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 03:05:24 +0200
+
+nvidia-graphics-drivers (340.104-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.104 (2017-09-19).
+    * Improved compatibility with recent Linux kernels.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 03:02:32 +0200
 
 nvidia-graphics-drivers (340.102-1) jessie; urgency=medium
 
