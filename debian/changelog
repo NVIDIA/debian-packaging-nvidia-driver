@@ -81,6 +81,8 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Drop drm-driver-legacy.patch, deprecated-cpu-events.patch and
     drm-unload.patch, fixed upstream.
   * Refresh disable-mtrr.patch to remove fuzz from upstream changes.
+  * Add nvidia-drm-pci-init.patch to fix kernel module build on Linux 4.14
+    and newer.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
