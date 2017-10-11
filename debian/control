@@ -21,7 +21,7 @@ Build-Depends:
  po-debconf,
 Build-Conflicts:
  libglvnd-dev,
-Standards-Version: 4.1.0
+Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
