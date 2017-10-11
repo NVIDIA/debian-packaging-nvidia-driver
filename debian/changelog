@@ -1736,7 +1736,7 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
 
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
-nvidia-graphics-drivers (304.135-1~svn4deb9stretch) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
 
   * Depend on a setuid root Xserver.  (Closes: #805554)
   * nvidia-driver-libs: New metapackage for bundling the
@@ -1751,21 +1751,22 @@ nvidia-graphics-drivers (304.135-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Switch to debhelper compat level 10.
   * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze)
     (375.82-1).
-  * Bump Standards-Version to 4.1.0. No changes needed.
+  * Bump Standards-Version to 4.1.1. No changes needed.
   * nvidia-alternative: Explicitly use interest-await triggers.
   * Switch from dh_install --list-missing to dh_missing.
-  * Use dpkg makefile snippets instead of manual parsing.
+  * Use dpkg makefile snippets instead of manual changelog parsing.
+  * Simplify upstream changelog handling.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 02:02:40 +0200
 
-nvidia-graphics-drivers (304.135-1~svn4deb8jessie) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.137-1~svn4deb8jessie) UNRELEASED; urgency=medium
 
   * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
     (352.79-6).
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 01:41:52 +0200
 
-nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Drop substitution backward-compatibility with EoL
@@ -1827,6 +1828,7 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
   * build-module-packages.sh: Order kernels by descending version (375.82-2).
+  * bug-control: report-with needs arch qualification for M-A:same packages.
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
@@ -1844,11 +1846,21 @@ nvidia-graphics-drivers (304.135-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Update pud-offset.patch to fix runtime error on Linux 4.12 and newer.
     Original patch: https://bugzilla.rpmfusion.org/show_bug.cgi?id=4629#c11
     (Closes: #875425)
+  * Drop drm-driver-legacy.patch, deprecated-cpu-events.patch and
+    drm-unload.patch, fixed upstream.
+  * Refresh disable-mtrr.patch to remove fuzz from upstream changes.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 15 Dec 2016 02:42:52 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 08 Oct 2017 22:04:28 +0200
+
+nvidia-graphics-drivers (304.137-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 304xx branch release 304.137 (2017-09-19).
+    - Improved compatibility with recent Linux kernels.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 08 Oct 2017 21:52:50 +0200
 
 nvidia-graphics-drivers (304.135-1) UNRELEASED; urgency=medium
 

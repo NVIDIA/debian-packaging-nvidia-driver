@@ -17,7 +17,7 @@ Build-Depends:
  libxext6,
  quilt,
  po-debconf,
-Standards-Version: 4.1.0
+Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
