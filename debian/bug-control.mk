@@ -9,10 +9,10 @@ debian/bug-control: debian/bug-control.mk debian/rules debian/rules.defs
 
 define REPORT_WITH
 	$(nvidia)-driver
-	$(nvidia)-driver-libs
+	$(nvidia)-driver-libs:any
 	nvidia-glx$(legacy)
 	libgl1-$(nvidia)-glx:any
-	libgl1-glvnd-$(nvidia)-glx
+	libgl1-glvnd-$(nvidia)-glx:any
 	xserver-xorg-video-$(nvidia)
 	$(nvidia)-alternative
 	$(nvidia)-kernel-dkms
