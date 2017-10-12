@@ -3,7 +3,9 @@ nvidia-graphics-drivers (340.104-1~svn4deb8jessie) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * build-module-packages.sh: Order kernels by descending version (375.82-2).
   * Switch watch URL from ftp:// to https:// (375.82-1).
-  * bug-control: report-with needs arch qualification for M-A:same packages.
+  * bug-control: Add arch qualification to M-A:same packages in report-with
+    list otherwise reportbug will ignore them if more than one is installed
+    (375.82-5).
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
