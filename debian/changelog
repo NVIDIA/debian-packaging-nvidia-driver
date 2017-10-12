@@ -14,10 +14,10 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze)
     (375.82-1).
   * Bump Standards-Version to 4.1.1. No changes needed.
-  * nvidia-alternative: Explicitly use interest-await triggers.
-  * Switch from dh_install --list-missing to dh_missing.
-  * Use dpkg makefile snippets instead of manual changelog parsing.
-  * Simplify upstream changelog handling.
+  * nvidia-alternative: Explicitly use interest-await triggers (375.82-2).
+  * Switch from dh_install --list-missing to dh_missing (375.82-2).
+  * Use dpkg makefile snippets instead of manual changelog parsing (375.82-2).
+  * Simplify upstream changelog handling (375.82-5).
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 02:02:40 +0200
 
