@@ -1,6 +1,7 @@
 # kernel support
 fix-typos.patch
 pud-offset.patch
+nvidia-drm-pci-init.patch
 
 # build system updates
 separate-makefile-kbuild.patch
