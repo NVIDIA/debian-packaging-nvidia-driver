@@ -1,6 +1,7 @@
 # kernel support
 unregister_procfs_on_failure.patch
 vm-fault.patch
+nvidia-drm-pci-init.patch
 
 # build system updates
 separate-makefile-kbuild.patch

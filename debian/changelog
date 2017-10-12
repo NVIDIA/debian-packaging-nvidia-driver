@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.104-2~svn4deb9stretch) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.104-1~svn4deb9stretch) UNRELEASED; urgency=medium
 
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
@@ -11,16 +11,21 @@ nvidia-graphics-drivers (340.104-2~svn4deb9stretch) UNRELEASED; urgency=medium
     (Closes: #846933)
   * Updated Dutch (nl) debconf translations by Frans Spiesschaert.
     (Closes: #848380)
-  * Overhaul package descriptions.
-  * Switch to debhelper compat level 10.
   * Add ${nvidia:Deb-Version-After:jessie} substvar to simplify adjusting
     Breaks/Replaces for new upstream releases in stable.
+  * Overhaul package descriptions.
+  * Switch to debhelper compat level 10.
   * nvidia-kernel-dkms: Honor parallel setting from dkms (375.82-1).
   * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze)
     (375.82-1).
   * disable-preempt_rt_sanity_check.patch: Remove, unsupported upstream.
   * build-module-packages.sh: Skip PREEMPT_RT (*-rt-*) kernels, unsupported
     upstream.
+  * Bump Standards-Version to 4.1.1. No changes needed.
+  * nvidia-alternative: Explicitly use interest-await triggers (375.82-2).
+  * Switch from dh_install --list-missing to dh_missing (375.82-2).
+  * Use dpkg makefile snippets instead of manual changelog parsing (375.82-2).
+  * Simplify upstream changelog handling (375.82-5).
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 03:48:48 +0200
 
@@ -29,7 +34,9 @@ nvidia-graphics-drivers (340.104-1~svn4deb8jessie) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * build-module-packages.sh: Order kernels by descending version (375.82-2).
   * Switch watch URL from ftp:// to https:// (375.82-1).
-  * bug-control: report-with needs arch qualification for M-A:same packages.
+  * bug-control: Add arch qualification to M-A:same packages in report-with
+    list otherwise reportbug will ignore them if more than one is installed
+    (375.82-5).
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
@@ -42,6 +49,8 @@ nvidia-graphics-drivers (340.104-1~svn4deb8jessie) UNRELEASED; urgency=medium
     vmf-address.patch, drm-unload.patch, fatal-signal.patch and
     set-memory.patch, fixed upstream.
   * Refresh vm-fault.patch to remove fuzz from upstream changes.
+  * Add nvidia-drm-pci-init.patch to fix kernel module build on Linux 4.14
+    and newer.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
@@ -1764,10 +1773,10 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze)
     (375.82-1).
   * Bump Standards-Version to 4.1.1. No changes needed.
-  * nvidia-alternative: Explicitly use interest-await triggers.
-  * Switch from dh_install --list-missing to dh_missing.
-  * Use dpkg makefile snippets instead of manual changelog parsing.
-  * Simplify upstream changelog handling.
+  * nvidia-alternative: Explicitly use interest-await triggers (375.82-2).
+  * Switch from dh_install --list-missing to dh_missing (375.82-2).
+  * Use dpkg makefile snippets instead of manual changelog parsing (375.82-2).
+  * Simplify upstream changelog handling (375.82-5).
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 02:02:40 +0200
 
@@ -1840,7 +1849,9 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
   * build-module-packages.sh: Order kernels by descending version (375.82-2).
-  * bug-control: report-with needs arch qualification for M-A:same packages.
+  * bug-control: Add arch qualification to M-A:same packages in report-with
+    list otherwise reportbug will ignore them if more than one is installed
+    (375.82-5).
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
@@ -1861,6 +1872,8 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Drop drm-driver-legacy.patch, deprecated-cpu-events.patch and
     drm-unload.patch, fixed upstream.
   * Refresh disable-mtrr.patch to remove fuzz from upstream changes.
+  * Add nvidia-drm-pci-init.patch to fix kernel module build on Linux 4.14
+    and newer.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
