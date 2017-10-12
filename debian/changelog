@@ -90,7 +90,9 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
   * build-module-packages.sh: Order kernels by descending version (375.82-2).
-  * bug-control: report-with needs arch qualification for M-A:same packages.
+  * bug-control: Add arch qualification to M-A:same packages in report-with
+    list otherwise reportbug will ignore them if more than one is installed
+    (375.82-5).
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
@@ -111,6 +113,8 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Drop drm-driver-legacy.patch, deprecated-cpu-events.patch and
     drm-unload.patch, fixed upstream.
   * Refresh disable-mtrr.patch to remove fuzz from upstream changes.
+  * Add nvidia-drm-pci-init.patch to fix kernel module build on Linux 4.14
+    and newer.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
