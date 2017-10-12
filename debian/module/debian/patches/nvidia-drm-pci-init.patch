@@ -1,0 +1,39 @@
+Author: Luca Boccassi <bluca@debian.org>
+Description: Fix drm_pci_init/exit API calls for kernel >= 4.14
+ From kernel 4.14 and newer (commit 10631d724deff7) the drm_pci_init/exit
+ function have been deprecated and renamed to _legacy.
+--- a/nv-drm.c
++++ b/nv-drm.c
+@@ -22,6 +22,8 @@
+ #include <drm/drm_gem.h>
+ #endif
+ 
++#include <linux/version.h>
++
+ extern nv_linux_state_t *nv_linux_devices;
+ 
+ struct nv_gem_object {
+@@ -173,7 +175,11 @@
+ {
+     int ret = 0;
+ #if defined(NV_DRM_AVAILABLE)
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 14, 0)
+     ret = drm_pci_init(&nv_drm_driver, pci_driver);
++#else
++    ret = drm_legacy_pci_init(&nv_drm_driver, pci_driver);
++#endif
+ #endif
+     return ret;
+ }
+@@ -183,7 +189,11 @@
+ )
+ {
+ #if defined(NV_DRM_AVAILABLE)
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 14, 0)
+     drm_pci_exit(&nv_drm_driver, pci_driver);
++#else
++    drm_legacy_pci_exit(&nv_drm_driver, pci_driver);
++#endif
+ #endif
+ }
+ 
