@@ -8,6 +8,7 @@ hardening-no-stackprotector
 
 # Packages built against the NVIDIA libGL should declare dependencies on
 # the free version for Debian's purposes.
+symbols-declares-dependency-on-other-package libgl1 (*)
 symbols-declares-dependency-on-other-package libgl1-mesa-glx
 
 # Lintian and debhelper disagree w.r.t. a library in a private directory.

@@ -21,7 +21,7 @@ Build-Depends:
  po-debconf,
 Build-Conflicts:
  libglvnd-dev,
-Standards-Version: 4.1.0
+Standards-Version: 4.1.1
 Homepage: http://www.nvidia.com
 XS-Autobuild: yes
 
@@ -283,12 +283,13 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
- libgl1,
+# libgl1 (= 0.2.999),
 Conflicts:
- libgl1,
  libgl1-${nvidia}-glx,
+Breaks:
+ libgl1 (>> 0),
 Replaces:
- libgl1,
+ libgl1 (>> 0),
  libgl1-${nvidia}-glx,
 Description: Vendor neutral GL dispatch library -- libGL
  This is an implementation of the vendor-neutral dispatch layer for
@@ -302,7 +303,7 @@ Package: libgl1-nvidia-glvnd-glx
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
- libgl1 | libgl1-glvnd-nvidia-glx,
+ libgl1 (>= 0.2.999) | libgl1-glvnd-nvidia-glx,
  libglx-${nvidia}0 (= ${binary:Version}),
  ${misc:Depends}
 Provides:
@@ -339,6 +340,8 @@ Suggests:
  ${nvidia:kmod:source},
 Provides:
  libgl1-nvidia-glx-any,
+Breaks:
+ libgl1-${nvidia}-glvnd-glx (>= 0),
 Description: NVIDIA binary OpenGL/GLX library (non-GLVND variant)${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
@@ -385,12 +388,13 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
- libegl1,
+# libegl1 (= 0.2.999),
 Conflicts:
- libegl1,
  libegl1-${nvidia},
+Breaks:
+ libegl1 (>> 0),
 Replaces:
- libegl1,
+ libegl1 (>> 0),
  libegl1-${nvidia},
 Description: Vendor neutral GL dispatch library -- libEGL
  This is an implementation of the vendor-neutral dispatch layer for
@@ -446,13 +450,12 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
- libgles1,
-Conflicts:
- libgles1,
+# libgles1 (= 0.2.999),
 Breaks:
+ libgles1 (>> 0),
  libgles1-nvidia (<< 361),
 Replaces:
- libgles1,
+ libgles1 (>> 0),
  libgles1-nvidia (<< 361),
 Description: NVIDIA binary OpenGL|ES 1.x GLVND stub library
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
@@ -473,7 +476,6 @@ Description: NVIDIA binary OpenGL|ES 1.x GLVND stub library
 #Package: libgles1-${nvidia}
 Package: libgles1-nvidia
 Section: non-free/oldlibs
-Priority: extra
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
@@ -500,7 +502,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libgles1 | libgles1-glvnd-nvidia,
+ libgles1 (>= 0.2.999) | libgles1-glvnd-nvidia,
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 1.x library${nvidia:LegacyDesc}
@@ -527,13 +529,12 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
- libgles2,
-Conflicts:
- libgles2,
+# libgles2 (= 0.2.999),
 Breaks:
+ libgles2 (>> 0),
  libgles2-nvidia (<< 361),
 Replaces:
- libgles2,
+ libgles2 (>> 0),
  libgles2-nvidia (<< 361),
 Description: NVIDIA binary OpenGL|ES 2.x GLVND stub library
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
@@ -555,7 +556,6 @@ Description: NVIDIA binary OpenGL|ES 2.x GLVND stub library
 #Package: libgles2-${nvidia}
 Package: libgles2-nvidia
 Section: non-free/oldlibs
-Priority: extra
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
@@ -583,7 +583,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libgles2 | libgles2-glvnd-nvidia,
+ libgles2 (>= 0.2.999) | libgles2-glvnd-nvidia,
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 2.x library${nvidia:LegacyDesc}
@@ -646,7 +646,7 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
  nvidia-egl-common,
- libegl1 | libegl1-glvnd-nvidia,
+ libegl1 (>= 0.2.999) | libegl1-glvnd-nvidia,
  libegl-${nvidia}0 (= ${binary:Version}),
  ${misc:Depends}
 Enhances:

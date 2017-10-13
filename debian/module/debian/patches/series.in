@@ -11,6 +11,7 @@ drm-encoder.patch
 drm-unload.patch
 drm-helper-mode.patch
 drm-vma-fault.patch
+nvidia-drm-crtc.patch
 
 # build system updates
 use-kbuild-compiler.patch
