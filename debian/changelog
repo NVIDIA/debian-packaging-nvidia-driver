@@ -3,7 +3,8 @@ nvidia-graphics-drivers (375.82-5) unstable; urgency=medium
   [ Andreas Beckmann ]
   * Use Priority: optional for transitional packages.
   * Bump Standards-Version to 4.1.1.
-  * bug-control: report-with needs arch qualification for M-A:same packages.
+  * bug-control: Add arch qualification to M-A:same packages in report-with
+    list otherwise reportbug will ignore them if more than one is installed.
   * bug-control: Report status of libglvnd packages.
   * Simplify upstream changelog handling.
 
