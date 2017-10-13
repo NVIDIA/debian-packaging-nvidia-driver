@@ -1,16 +1,18 @@
+multiarchify	 = $(if $(filter %:any,$1),$(foreach a,$(ARCH_LIST),$(1:any=$a)),$1)
+
 debian/bug-control: debian/bug-control.mk debian/rules debian/rules.defs
 	$(RM) $@
-	echo "report-with: $(foreach x,$(REPORT_WITH),$(strip $x))" > $@
+	echo "report-with: $(foreach x,$(REPORT_WITH),$(call multiarchify,$(strip $x)))" > $@
 	echo "" >> $@
 	echo "package-status: $(foreach x,$(PACKAGE_STATUS),$(strip $x))" >> $@
 
 
 define REPORT_WITH
 	$(nvidia)-driver
-	$(nvidia)-driver-libs
+	$(nvidia)-driver-libs:any
 	nvidia-glx$(legacy)
-	libgl1-$(nvidia)-glx
-	libgl1-glvnd-$(nvidia)-glx
+	libgl1-$(nvidia)-glx:any
+	libgl1-glvnd-$(nvidia)-glx:any
 	xserver-xorg-video-$(nvidia)
 	$(nvidia)-alternative
 	$(nvidia)-kernel-dkms
@@ -51,5 +53,12 @@ define PACKAGE_STATUS
 	opencl-icd
 	libvulkan1
 	vulkan-icd
+	libglvnd0
+	libglx0
+	libopencl0
+	libgl1
+	libegl1
+	libgles1
+	libgles2
 endef
 

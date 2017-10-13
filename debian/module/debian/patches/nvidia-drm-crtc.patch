@@ -1,0 +1,71 @@
+Author: Luca Boccassi <bluca@debian.org>
+Description: Fix drm_crtc API usage for kernel >= 4.14
+ From kernel 4.14 and newer (commit 0b20a0f8c3cb6f) the drm_crtc_helper_funcs
+ "enable" has been changed to "atomic_enable".
+ From commit e6fc3b68558e4c6d a new parameter has been added to
+ drm_universal_plane_init, a pointer to a format modifier that is not used yet.
+--- a/nvidia-drm/nvidia-drm-crtc.c
++++ b/nvidia-drm/nvidia-drm-crtc.c
+@@ -33,6 +33,8 @@
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
+ 
++#include <linux/version.h>
++
+ static const u32 nv_default_supported_plane_drm_formats[] = {
+     DRM_FORMAT_ARGB1555,
+     DRM_FORMAT_XRGB1555,
+@@ -162,7 +164,11 @@
+ 
+ }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,14,0)
+ static void nvidia_crtc_enable(struct drm_crtc *crtc)
++#else
++static void nvidia_crtc_enable(struct drm_crtc *crtc, struct drm_crtc_state *old_crtc_state)
++#endif
+ {
+ 
+ }
+@@ -170,7 +176,11 @@
+ static const struct drm_crtc_helper_funcs nv_crtc_helper_funcs = {
+     .prepare    = nvidia_crtc_prepare,
+     .commit     = nvidia_crtc_commit,
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,14,0)
+     .enable     = nvidia_crtc_enable,
++#else
++    .atomic_enable = nvidia_crtc_enable,
++#endif
+     .disable    = nvidia_crtc_disable,
+     .mode_fixup = nvidia_crtc_mode_fixup,
+ };
+@@ -223,6 +233,9 @@
+         dev,
+         plane, crtc_mask, funcs,
+         formats, formats_count,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,14,0)
++        NULL,
++#endif
+         plane_type
+ #if defined(NV_DRM_INIT_FUNCTIONS_HAVE_NAME_ARG)
+         , NULL
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2183,6 +2183,7 @@
+             #
+             CODE="
+             #include <drm/drmP.h>
++            #include <linux/version.h>
+             int conftest_drm_init_functions_have_name_arg(void) {
+                 return
+                     drm_universal_plane_init(
+@@ -2192,6 +2193,9 @@
+                             NULL,  /* const struct drm_plane_funcs *funcs */
+                             NULL,  /* const uint32_t *formats */
+                             0,     /* unsigned int format_count */
++                            #if LINUX_VERSION_CODE >= KERNEL_VERSION(4,14,0)
++                            NULL,
++                            #endif
+                             DRM_PLANE_TYPE_PRIMARY,
+                             NULL)  /* const char *name */
+                         &&
