@@ -1,2 +1,2 @@
-libnvidia-egl-wayland.so.1.0.1 #PACKAGE# #MINVER#
+libnvidia-egl-wayland.so.1.0.2 #PACKAGE# #MINVER#
  loadEGLExternalPlatform@Base 378
