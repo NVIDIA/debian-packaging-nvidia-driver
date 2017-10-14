@@ -59,6 +59,8 @@ nvidia-graphics-drivers (387.12-1~svn1) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Update d/copyright with new 6.3 paragraph in Nvidia's license, which warns
     that the drivers are licensed for usage with Nvidia hardware.
+  * Drop nvidia-drm-crtc.patch, fixed upstream, and refresh
+    nvidia-drm-master-dev.patch and use-kbuild-compiler.patch to remove fuzz.
 
  -- Luca Boccassi <bluca@debian.org>  Sat, 14 Oct 2017 14:34:12 +0100
 
