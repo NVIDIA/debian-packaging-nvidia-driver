@@ -1,3 +1,63 @@
+nvidia-graphics-drivers (387.12-1~svn1) UNRELEASED; urgency=medium
+
+  * New upstream beta 387.12 (2017-10-03).
+    - Fixed a bug that sometimes prevented the "Reset Default Configuration"
+      button in the nvidia-settings "ECC Settings" page from being available
+      when the ECC configuration is set to a non-default state.
+    - Fixed a bug that caused nvidia-settings to enforce overly aggressive
+      limits on display positions in the "X Server Display Configuration"
+      page under some circumstances.
+    - Fixed a bug that could cause the "Enable Base Mosaic (Surround)"
+      checkbox in nvidia-settings to disappear when an X screen, rather than
+      a display, is selected in the "X Server Display Configuration" page.
+    - Fixed a race condition that could lead to crashes when OpenGL programs
+      manipulated vertex buffer objects from multiple threads simultaneously.
+    - Fixed a bug that caused the nvidia-settings control panel to retain
+      some settings that had been applied, but not confirmed. This resulted
+      in unwanted settings being applied to subsequent settings changes.
+    - Improved performance of fullscreen Vulkan applications using X11
+      swapchains.  This optimization will cause more events that trigger
+      an out-of-date swapchain, such as when entering or leaving
+      fullscreen mode.  (This is commonly encountered when using the
+      alt-tab key combination, for example.)   Applications that do not
+      properly respond to the VK_ERROR_OUT_OF_DATE_KHR return code may
+      not function properly when these events occur.  See section 30.8
+      of the Vulkan specification.
+    - Added support for YUV 4:2:0 compression for monitors connected via
+      DisplayPort in configurations where either the display or GPU is
+      incapable of driving the current mode in RGB 4:4:4.  See the
+      description in the "Programming Modes" appendix for details.
+    - Added framebuffer console hot plug handling to nvidia-modeset.
+      Note that hot plugging is only handled when nvidia-modeset is initialized;
+      for example, when Xorg or nvidia-persistenced is running or when
+      nvidia-drm is loaded with the "modeset=1" parameter.
+    - Added an "AllowGSYNC" MetaMode attribute that can be used to disable
+      G-SYNC completely. This can be use to allow enabling features that are
+      incompatible with G-SYNC, such as Ultra Low Motion Blur or Frame Lock.
+    - Fixed several problems that prevented the "cc_version_check" sanity
+      test from running correctly when building the NVIDIA kernel modules.
+      As these problems would have masked mismatches between the compiler
+      versions used to build the kernel and the NVIDIA kernel modules for
+      an extended period of time, nvidia-installer has been updated to
+      ignore CC version mismatches by default when they are detected.
+    - Updated nvidia-installer to use the init_module syscall directly to
+      test load kernel modules instead of libkmod/insmod. This removes
+      libkmod as a build dependency of nvidia-installer, and insmod as
+      a run-time dependency.
+    - Tiled monitors formerly resulted in a separate Xinerama screen being
+      reported for each tile. They will now, by default, be combined into a
+      single large Xinerama screen.
+    - The individual panels in a tiled monitor will now be arranged based
+      on the layout information provided in the monitor's EDID. This can be
+      overridden by either manually specifying offsets or using the
+      "MetaModeOrientation" option.
+    - Disabled interlaced modes over DisplayPort by default due to incomplete
+      support in the GPU. Added "AllowDpInterlaced" mode validation token to
+      override this default behavior and allow interlaced modes over
+      DisplayPort protocol anyway.
+
+ -- Luca Boccassi <bluca@debian.org>  Sat, 14 Oct 2017 14:34:12 +0100
+
 nvidia-graphics-drivers (384.90-1) experimental; urgency=medium
 
   * New upstream long lived branch release 384.90 (2017-09-21).
