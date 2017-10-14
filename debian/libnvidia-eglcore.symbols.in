@@ -156,7 +156,9 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glClearNamedFramebufferuiv@Base 346
  _glClearStencil@Base 346
  _glClearTexImage@Base 346
+ _glClearTexImageEXT@Base 387
  _glClearTexSubImage@Base 346
+ _glClearTexSubImageEXT@Base 387
  _glClientActiveTexture@Base 346
  _glClientActiveTextureARB@Base 346
  _glClientAttribDefaultEXT@Base 346
@@ -367,6 +369,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDeleteQueries@Base 346
  _glDeleteQueriesARB@Base 346
  _glDeleteQueriesEXT@Base 346
+ _glDeleteQueryResourceTagNV@Base 387
  _glDeleteRenderbuffers@Base 346
  _glDeleteRenderbuffersEXT@Base 346
  _glDeleteRenderbuffersOES@Base 346
@@ -606,6 +609,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGenQueries@Base 346
  _glGenQueriesARB@Base 346
  _glGenQueriesEXT@Base 346
+ _glGenQueryResourceTagNV@Base 387
  _glGenRenderbuffers@Base 346
  _glGenRenderbuffersEXT@Base 346
  _glGenRenderbuffersOES@Base 346
@@ -1221,6 +1225,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glMatrixTranslatedEXT@Base 346
  _glMatrixTranslatefEXT@Base 346
  _glMaxShaderCompilerThreadsARB@Base 358
+ _glMaxShaderCompilerThreadsKHR@Base 387
  _glMemoryBarrier@Base 346
  _glMemoryBarrierByRegion@Base 346
  _glMemoryBarrierEXT@Base 346
@@ -1243,6 +1248,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glMultiDrawArraysIndirectAMD@Base 346
  _glMultiDrawArraysIndirectBindlessCountNV@Base 346
  _glMultiDrawArraysIndirectBindlessNV@Base 346
+ _glMultiDrawArraysIndirectCount@Base 387
  _glMultiDrawArraysIndirectCountARB@Base 346
  _glMultiDrawArraysIndirectEXT@Base 346
  _glMultiDrawElements@Base 346
@@ -1252,6 +1258,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glMultiDrawElementsIndirectAMD@Base 346
  _glMultiDrawElementsIndirectBindlessCountNV@Base 346
  _glMultiDrawElementsIndirectBindlessNV@Base 346
+ _glMultiDrawElementsIndirectCount@Base 387
  _glMultiDrawElementsIndirectCountARB@Base 346
  _glMultiDrawElementsIndirectEXT@Base 346
  _glMultiTexBufferEXT@Base 346
@@ -1499,6 +1506,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glPolygonMode@Base 346
  _glPolygonModeNV@Base 349
  _glPolygonOffset@Base 346
+ _glPolygonOffsetClamp@Base 387
  _glPolygonOffsetClampEXT@Base 346
  _glPolygonOffsetx@Base 346
  _glPolygonStipple@Base 346
@@ -1716,7 +1724,9 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glQueryCounter@Base 346
  _glQueryCounterEXT@Base 346
  _glQueryCounterNV@Base 346
- _glQueryResourceNVX@Base 355
+ _glQueryResourceNV@Base 387
+#MISSING: 387# _glQueryResourceNVX@Base 355
+ _glQueryResourceTagNV@Base 387
  _glRasterPos2d@Base 346
  _glRasterPos2dv@Base 346
  _glRasterPos2f@Base 346
@@ -1855,6 +1865,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glSignalSemaphoreEXT@Base 384.69
  _glSignalVkFenceNV@Base 364
  _glSignalVkSemaphoreNV@Base 364
+ _glSpecializeShader@Base 387
  _glSpecializeShaderARB@Base 367.36.02
  _glStateCaptureNV@Base 346
  _glStencilFillPathInstancedNV@Base 346

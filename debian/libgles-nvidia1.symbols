@@ -1,5 +1,6 @@
 libGLESv1_CM_nvidia.so.1 #PACKAGE# #MINVER#
- NvGlEsInit@Base 361
+ NvGlApiInit@Base 387
+#MISSING: 387# NvGlEsInit@Base 361
  glActiveTexture@Base 361
  glAlphaFunc@Base 361
  glAlphaFuncx@Base 361

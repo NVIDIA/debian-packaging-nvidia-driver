@@ -156,7 +156,9 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glClearNamedFramebufferuiv@Base 361.28
  glClearStencil@Base 361.28
  glClearTexImage@Base 361.28
+ glClearTexImageEXT@Base 387
  glClearTexSubImage@Base 361.28
+ glClearTexSubImageEXT@Base 387
  glClientActiveTexture@Base 361.28
  glClientActiveTextureARB@Base 361.28
  glClientAttribDefaultEXT@Base 361.28
@@ -367,6 +369,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glDeleteQueries@Base 361.28
  glDeleteQueriesARB@Base 361.28
  glDeleteQueriesEXT@Base 361.28
+ glDeleteQueryResourceTagNV@Base 387
  glDeleteRenderbuffers@Base 361.28
  glDeleteRenderbuffersEXT@Base 361.28
  glDeleteRenderbuffersOES@Base 361.28
@@ -604,6 +607,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGenQueries@Base 361.28
  glGenQueriesARB@Base 361.28
  glGenQueriesEXT@Base 361.28
+ glGenQueryResourceTagNV@Base 387
  glGenRenderbuffers@Base 361.28
  glGenRenderbuffersEXT@Base 361.28
  glGenRenderbuffersOES@Base 361.28
@@ -1219,6 +1223,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glMatrixTranslatedEXT@Base 361.28
  glMatrixTranslatefEXT@Base 361.28
  glMaxShaderCompilerThreadsARB@Base 361.28
+ glMaxShaderCompilerThreadsKHR@Base 387
  glMemoryBarrier@Base 361.28
  glMemoryBarrierByRegion@Base 361.28
  glMemoryBarrierEXT@Base 361.28
@@ -1241,6 +1246,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glMultiDrawArraysIndirectAMD@Base 361.28
  glMultiDrawArraysIndirectBindlessCountNV@Base 361.28
  glMultiDrawArraysIndirectBindlessNV@Base 361.28
+ glMultiDrawArraysIndirectCount@Base 387
  glMultiDrawArraysIndirectCountARB@Base 361.28
  glMultiDrawArraysIndirectEXT@Base 361.28
  glMultiDrawElements@Base 361.28
@@ -1250,6 +1256,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glMultiDrawElementsIndirectAMD@Base 361.28
  glMultiDrawElementsIndirectBindlessCountNV@Base 361.28
  glMultiDrawElementsIndirectBindlessNV@Base 361.28
+ glMultiDrawElementsIndirectCount@Base 387
  glMultiDrawElementsIndirectCountARB@Base 361.28
  glMultiDrawElementsIndirectEXT@Base 361.28
  glMultiTexBufferEXT@Base 361.28
@@ -1498,6 +1505,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glPolygonMode@Base 361.28
  glPolygonModeNV@Base 361.28
  glPolygonOffset@Base 361.28
+ glPolygonOffsetClamp@Base 387
  glPolygonOffsetClampEXT@Base 361.28
  glPolygonOffsetx@Base 361.28
  glPolygonStipple@Base 361.28
@@ -1715,7 +1723,9 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glQueryCounter@Base 361.28
  glQueryCounterEXT@Base 361.28
  glQueryCounterNV@Base 361.28
- glQueryResourceNVX@Base 361.28
+ glQueryResourceNV@Base 387
+#MISSING: 387# glQueryResourceNVX@Base 361.28
+ glQueryResourceTagNV@Base 387
  glRasterPos2d@Base 361.28
  glRasterPos2dv@Base 361.28
  glRasterPos2f@Base 361.28
@@ -1854,6 +1864,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glSignalSemaphoreEXT@Base 384.69
  glSignalVkFenceNV@Base 364
  glSignalVkSemaphoreNV@Base 364
+ glSpecializeShader@Base 387
  glSpecializeShaderARB@Base 367.36.02
  glStateCaptureNV@Base 361.28
  glStencilFillPathInstancedNV@Base 361.28

@@ -12,14 +12,21 @@ libEGL.so.1 libegl1-mesa
  eglBindAPI@Base 331
  eglBindTexImage@Base 331
  eglChooseConfig@Base 331
+ eglClientWaitSync@Base 387
  eglCopyBuffers@Base 331
  eglCreateContext@Base 331
+ eglCreateImage@Base 387
  eglCreatePbufferFromClientBuffer@Base 331
  eglCreatePbufferSurface@Base 331
  eglCreatePixmapSurface@Base 331
+ eglCreatePlatformPixmapSurface@Base 387
+ eglCreatePlatformWindowSurface@Base 387
+ eglCreateSync@Base 387
  eglCreateWindowSurface@Base 331
  eglDestroyContext@Base 331
+ eglDestroyImage@Base 387
  eglDestroySurface@Base 331
+ eglDestroySync@Base 387
  eglGetConfigAttrib@Base 331
  eglGetConfigs@Base 331
  eglGetCurrentContext@Base 331
@@ -27,7 +34,9 @@ libEGL.so.1 libegl1-mesa
  eglGetCurrentSurface@Base 331
  eglGetDisplay@Base 331
  eglGetError@Base 331
+ eglGetPlatformDisplay@Base 387
  eglGetProcAddress@Base 331
+ eglGetSyncAttrib@Base 387
  eglInitialize@Base 331
  eglMakeCurrent@Base 331
  eglQueryAPI@Base 331
@@ -43,6 +52,7 @@ libEGL.so.1 libegl1-mesa
  eglWaitClient@Base 331
  eglWaitGL@Base 331
  eglWaitNative@Base 331
+ eglWaitSync@Base 387
 #MISSING: 384# (arch=i386)glvnd_asprintf@Base 375
 #MISSING: 384# (arch=i386)glvnd_byte_swap16@Base 375
 #MISSING: 384# (arch=i386)glvnd_vasprintf@Base 375

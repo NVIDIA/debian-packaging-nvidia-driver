@@ -63,6 +63,7 @@ nvidia-graphics-drivers (387.12-1~svn1) UNRELEASED; urgency=medium
     nvidia-drm-master-dev.patch and use-kbuild-compiler.patch to remove fuzz.
   * Adjust filenames for new minor ABI revision of libnvidia-egl-wayland1
     (libnvidia-egl-wayland.so.1.0.1 -> libnvidia-egl-wayland.so.1.0.2).
+  * Update symbols files.
 
  -- Luca Boccassi <bluca@debian.org>  Sat, 14 Oct 2017 14:34:12 +0100
 

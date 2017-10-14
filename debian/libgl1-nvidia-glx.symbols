@@ -2,16 +2,20 @@
  __glx_Main@Base 361.28
  glAlphaToCoverageDitherControlNV@Base 370
  glBufferStorageMemEXT@Base 384.69
+ glClearTexImageEXT@Base 387
+ glClearTexSubImageEXT@Base 387
  glConservativeRasterParameteriNV@Base 367
  glCreateMemoryObjectsEXT@Base 384.69
  glDebugControlNVX@Base 177
  glDeleteMemoryObjectsEXT@Base 384.69
+ glDeleteQueryResourceTagNV@Base 387
  glDeleteSemaphoresEXT@Base 384.69
  glDepthRangeArrayfvOES@Base 378
  glDepthRangeIndexedfOES@Base 378
  glDevtoolsInvokeFunctorNVX@Base 349
  glDrawTransformFeedbackInstancedEXT@Base 381
  glDrawVkImageNV@Base 364
+ glGenQueryResourceTagNV@Base 387
  glGenSemaphoresEXT@Base 384.69
  glGetFloati_vOES@Base 378
  glGetMemoryObjectParameterivEXT@Base 384.69
@@ -25,9 +29,15 @@
  glIsMemoryObjectEXT@Base 384.69
  glIsSemaphoreEXT@Base 384.69
  glLogTokenFlushNVX@Base 364
+ glMaxShaderCompilerThreadsKHR@Base 387
  glMemoryObjectParameterivEXT@Base 384.69
+ glMultiDrawArraysIndirectCount@Base 387
+ glMultiDrawElementsIndirectCount@Base 387
  glNamedBufferStorageMemEXT@Base 384.69
- glQueryResourceNVX@Base 355
+ glPolygonOffsetClamp@Base 387
+ glQueryResourceNV@Base 387
+#MISSING: 387# glQueryResourceNVX@Base 355
+ glQueryResourceTagNV@Base 387
  glScissorArrayvOES@Base 378
  glScissorIndexedOES@Base 378
  glScissorIndexedvOES@Base 378
@@ -35,6 +45,7 @@
  glSignalSemaphoreEXT@Base 384.69
  glSignalVkFenceNV@Base 364
  glSignalVkSemaphoreNV@Base 364
+ glSpecializeShader@Base 387
  glSpecializeShaderARB@Base 367.36.02
  glTexStorageMem1DEXT@Base 384.69
  glTexStorageMem2DEXT@Base 384.69
