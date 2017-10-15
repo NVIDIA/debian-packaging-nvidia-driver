@@ -1,0 +1,15 @@
+Author: Tomas Janousek <tomi@nomi.cz>
+Description: ignore GCC plugins
+ fixes build failure when a kernel is built with CONFIG_GCC_PLUGINS,
+ CONFIG_GCC_PLUGIN_STRUCTLEAK and CONFIG_GCC_PLUGIN_RANDSTRUCT.
+--- a/Kbuild
++++ b/Kbuild
+@@ -94,7 +94,7 @@ NV_CONFTEST_CMD := /bin/sh $(NV_CONFTEST
+  "$(CC)" "$(HOST_CC)" $(ARCH) $(NV_KERNEL_SOURCES) $(NV_KERNEL_OUTPUT)
+ 
+ NV_CONFTEST_CFLAGS := $(shell $(NV_CONFTEST_CMD) build_cflags)
+-NV_CONFTEST_CFLAGS += $(filter-out -Werror%,$(KBUILD_CFLAGS))
++NV_CONFTEST_CFLAGS += $(filter-out -Werror% $(GCC_PLUGINS_CFLAGS),$(KBUILD_CFLAGS))
+ 
+ NV_CONFTEST_COMPILE_TEST_HEADERS := $(obj)/conftest/macros.h
+ NV_CONFTEST_COMPILE_TEST_HEADERS += $(obj)/conftest/functions.h
