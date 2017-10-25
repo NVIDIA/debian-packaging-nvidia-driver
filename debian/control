@@ -190,7 +190,7 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
- libglvnd0,
+# libglvnd0,
  glvnd-nvidia-abi-375.20,
 Conflicts:
  libglvnd0,
@@ -237,7 +237,7 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
- libglx0,
+# libglx0,
 Conflicts:
  libglx0,
 Replaces:
@@ -387,7 +387,7 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
- libegl1 (= 0.2.999),
+# libegl1 (= 0.2.999),
 Conflicts:
  libegl1-${nvidia},
 Breaks:
