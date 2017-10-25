@@ -6,7 +6,7 @@ hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
 
-# Packages built against the NVIDIA libGL should declare dependencies on
+# Packages built against the NVIDIA libEGL should declare dependencies on
 # the free version for Debian's purposes.
 symbols-declares-dependency-on-other-package libegl1 (*)
 symbols-declares-dependency-on-other-package libegl1-mesa
