@@ -1,7 +1,12 @@
 nvidia-graphics-drivers (375.82-6~svn1) UNRELEASED; urgency=medium
 
+  [ Luca Boccassi ]
   * Add use-kbuild-gcc-plugins.patch to fix kernel module build failure
     when the kernel is built with CONFIG_GCC_PLUGIN*. (Closes: #878677)
+
+  [ Andreas Beckmann ]
+  * Provide libglvnd package names, mesa 17.x is now in testing.
+    (Closes: #876766)
 
  -- Luca Boccassi <bluca@debian.org>  Sun, 15 Oct 2017 22:16:51 +0100
 

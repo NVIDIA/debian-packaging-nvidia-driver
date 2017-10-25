@@ -282,7 +282,7 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
-# libgl1 (= 0.2.999),
+ libgl1 (= 0.2.999),
 Conflicts:
  libgl1-${nvidia}-glx,
 Breaks:
@@ -387,7 +387,7 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
-# libegl1 (= 0.2.999),
+ libegl1 (= 0.2.999),
 Conflicts:
  libegl1-${nvidia},
 Breaks:
@@ -449,7 +449,7 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
-# libgles1 (= 0.2.999),
+ libgles1 (= 0.2.999),
 Breaks:
  libgles1 (>> 0),
  libgles1-nvidia (<< 361),
@@ -528,7 +528,7 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
-# libgles2 (= 0.2.999),
+ libgles2 (= 0.2.999),
 Breaks:
  libgles2 (>> 0),
  libgles2-nvidia (<< 361),
