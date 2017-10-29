@@ -1,5 +1,7 @@
 nvidia-graphics-drivers (375.82-7) UNRELEASED; urgency=medium
 
+  * Use Conflicts+Replaces+Provides on the provided libglvnd package names,
+    Breaks does not work for M-A: same packages.  (Closes: #879821)
   * Use debian/substvars for substitutions by dpkg-genchanges (dpkg 1.19).
   * nvidia-detect: Detect devices in PCI classes 0301 (XGA compatible
     controller) and 0302 (3D controller), too.  (Closes: #879792)

@@ -284,9 +284,8 @@ Depends:
 Provides:
  libgl1 (= 0.2.999),
 Conflicts:
- libgl1-${nvidia}-glx,
-Breaks:
  libgl1 (>> 0),
+ libgl1-${nvidia}-glx,
 Replaces:
  libgl1 (>> 0),
  libgl1-${nvidia}-glx,
@@ -339,8 +338,8 @@ Suggests:
  ${nvidia:kmod:source},
 Provides:
  libgl1-nvidia-glx-any,
-Breaks:
- libgl1-${nvidia}-glvnd-glx (>= 0),
+Conflicts:
+ libgl1-${nvidia}-glvnd-glx,
 Description: NVIDIA binary OpenGL/GLX library (non-GLVND variant)${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
@@ -389,9 +388,8 @@ Depends:
 Provides:
 # libegl1 (= 0.2.999),
 Conflicts:
- libegl1-${nvidia},
-Breaks:
  libegl1 (>> 0),
+ libegl1-${nvidia},
 Replaces:
  libegl1 (>> 0),
  libegl1-${nvidia},
@@ -450,8 +448,9 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libgles1 (= 0.2.999),
-Breaks:
+Conflicts:
  libgles1 (>> 0),
+Breaks:
  libgles1-nvidia (<< 361),
 Replaces:
  libgles1 (>> 0),
@@ -529,8 +528,9 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libgles2 (= 0.2.999),
-Breaks:
+Conflicts:
  libgles2 (>> 0),
+Breaks:
  libgles2-nvidia (<< 361),
 Replaces:
  libgles2 (>> 0),
