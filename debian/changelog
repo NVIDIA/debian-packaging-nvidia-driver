@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (375.82-7) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (375.82-7) unstable; urgency=medium
 
   * Use Conflicts+Replaces+Provides on the provided libglvnd package names,
     Breaks does not work for M-A: same packages.  (Closes: #879821)
@@ -7,7 +7,7 @@ nvidia-graphics-drivers (375.82-7) UNRELEASED; urgency=medium
     controller) and 0302 (3D controller), too.  (Closes: #879792)
   * bug-script: List these devices, too.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 29 Oct 2017 16:20:58 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 29 Oct 2017 19:33:44 +0100
 
 nvidia-graphics-drivers (375.82-6) unstable; urgency=high
 
@@ -17,9 +17,10 @@ nvidia-graphics-drivers (375.82-6) unstable; urgency=high
 
   [ Andreas Beckmann ]
   * Provide libglvnd package names, mesa 17.x is now in testing.
-    (Closes: #876766)
+    (Closes: #876766, #389971)
   * Do not provide libglvnd package names where the NVIDIA provided binaries
-    are missing symbols w.r.t. to the libglvnd packages.  (Closes: #879264)
+    are missing symbols w.r.t. to the libglvnd packages.
+    (Closes: #879264, #879013)
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 25 Oct 2017 13:43:16 +0200
 
