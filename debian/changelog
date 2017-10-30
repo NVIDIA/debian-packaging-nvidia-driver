@@ -1,6 +1,26 @@
-nvidia-graphics-drivers (387.12-1~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (387.22-1~svn1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 387.22 (2017-10-30).
+    - Fixed a regression that could cause driver errors when setting modes
+      that include DisplayPort Multi-Stream Transport devices.
+    - Added an nvidia.ko kernel module parameter, NVreg_EnableBacklightHandler,
+      which can be used to enable experimental handling of laptop backlight
+      brightness through /sys/class/backlight/. This handler overrides the
+      ACPI-based one provided by the video.ko kernel module.
+      NVreg_EnableBacklightHandler is disabled by default.
+    - Added G-SYNC to all supported Vulkan swapchains for Maxwell and up.
+      G-SYNC is enabled by default when using G-SYNC-ready monitors.  For
+      direct-to-display swapchains, an application profile with "GLGSYNCAllowed"
+      setting set to 'false' can be used to disable this feature:
+        {
+          "rules" : [
+            { "pattern" : [], "profile" : [ "GLGSYNCAllowed", false ] }
+          ]
+        }
   * New upstream beta 387.12 (2017-10-03).
+    - Fixed a regression that caused some display connectors on some GPUs to not
+      report a connected HDMI or DisplayPort audio device even if the connected
+      monitor supports audio.
     - Fixed a bug that sometimes prevented the "Reset Default Configuration"
       button in the nvidia-settings "ECC Settings" page from being available
       when the ECC configuration is set to a non-default state.
