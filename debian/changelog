@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (384.90-2) UNRELEASED; urgency=medium
 
+  * Merge changes from 375.82-7.  (Closes: #876766)
   * libcuda1: Add Provides: libcuda-9.0-1{,-i386}.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 25 Oct 2017 14:22:06 +0200
@@ -203,6 +204,32 @@ nvidia-graphics-drivers (378.13-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 14 Jun 2017 19:48:45 +0200
+
+nvidia-graphics-drivers (375.82-7) unstable; urgency=medium
+
+  * Use Conflicts+Replaces+Provides on the provided libglvnd package names,
+    Breaks does not work for M-A: same packages.  (Closes: #879821)
+  * Use debian/substvars for substitutions by dpkg-genchanges (dpkg 1.19).
+  * nvidia-detect: Detect devices in PCI classes 0301 (XGA compatible
+    controller) and 0302 (3D controller), too.  (Closes: #879792)
+  * bug-script: List these devices, too.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 29 Oct 2017 19:33:44 +0100
+
+nvidia-graphics-drivers (375.82-6) unstable; urgency=high
+
+  [ Luca Boccassi ]
+  * Add use-kbuild-gcc-plugins.patch to fix kernel module build failure
+    when the kernel is built with CONFIG_GCC_PLUGIN*. (Closes: #878677)
+
+  [ Andreas Beckmann ]
+  * Provide libglvnd package names, mesa 17.x is now in testing.
+    (Closes: #876766, #389971)
+  * Do not provide libglvnd package names where the NVIDIA provided binaries
+    are missing symbols w.r.t. to the libglvnd packages.
+    (Closes: #879264, #879013)
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 25 Oct 2017 13:43:16 +0200
 
 nvidia-graphics-drivers (375.82-5) unstable; urgency=medium
 

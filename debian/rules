@@ -77,6 +77,7 @@ AUTOGEN		+= $(patsubst %.in,%,$(TEMPLATES))
 AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOGEN		+= debian/bug-control
+AUTOGEN		+= debian/substvars
 AUTOGEN		+= $(if $(has_vulkan),NVIDIA-Linux/glvnd/nvidia_icd.json NVIDIA-Linux/nonglvnd/nvidia_icd.json)
 AUTOKEEP	 = debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
@@ -270,6 +271,11 @@ override_dh_gencontrol:
 		-V'nvidia:kmod:tested:Linux=$(strip $(or $(LINUX_KMOD_TESTED_$(DEB_HOST_ARCH)),$(LINUX_KMOD_TESTED),???))' \
 		-Vnvidia:kmod:Description="`cat debian/control.kmod`" \
 		-Vnvidia:Models="`cat debian/control.models`"
+
+# used by dpkg-genchanges
+debian/substvars:
+	echo 'nvidia:LegacyDesc=$(legacy_description)' > $@
+	echo 'nvidia:LegacyDescShort=$(legacy_description_short)' >> $@
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
