@@ -16,6 +16,7 @@ nvidia-drm-crtc.patch
 # build system updates
 use-kbuild-compiler.patch
 use-kbuild-flags.patch
+use-kbuild-gcc-plugins.patch
 conftest-verbose.patch
 cc_version_check-gcc5.patch
 nvidia-use-ARCH.o_binary.patch
