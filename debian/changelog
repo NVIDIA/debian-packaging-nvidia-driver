@@ -1,9 +1,9 @@
-nvidia-graphics-drivers (384.90-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (384.90-2) experimental; urgency=medium
 
   * Merge changes from 375.82-7.  (Closes: #876766)
   * libcuda1: Add Provides: libcuda-9.0-1{,-i386}.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 25 Oct 2017 14:22:06 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 30 Oct 2017 02:16:27 +0100
 
 nvidia-graphics-drivers (384.90-1) experimental; urgency=medium
 
@@ -24,6 +24,7 @@ nvidia-graphics-drivers (384.90-1) experimental; urgency=medium
     - Fixed a bug that caused the X driver to not correctly report the
       "BlendOrder" MetaMode token when querying the MetaMode through, e.g.,
       `nvidia-settings --query CurrentMetaMode`.
+    * Closes: #877971.
 
   [ Luca Boccassi ]
   * Refresh man-fixes-nvidia-smi.patch.
