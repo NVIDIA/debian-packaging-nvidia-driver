@@ -85,6 +85,7 @@ nvidia-graphics-drivers (387.22-1~svn1) UNRELEASED; urgency=medium
     (libnvidia-egl-wayland.so.1.0.1 -> libnvidia-egl-wayland.so.1.0.2).
   * Update symbols files.
   * Update nv-readme.ids.
+  * Refresh nvidia-use-ARCH.o_binary.patch to remove fuzz from 387.22.
 
  -- Luca Boccassi <bluca@debian.org>  Sat, 14 Oct 2017 14:34:12 +0100
 
