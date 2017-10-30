@@ -84,6 +84,7 @@ nvidia-graphics-drivers (387.22-1~svn1) UNRELEASED; urgency=medium
   * Adjust filenames for new minor ABI revision of libnvidia-egl-wayland1
     (libnvidia-egl-wayland.so.1.0.1 -> libnvidia-egl-wayland.so.1.0.2).
   * Update symbols files.
+  * Update nv-readme.ids.
 
  -- Luca Boccassi <bluca@debian.org>  Sat, 14 Oct 2017 14:34:12 +0100
 
