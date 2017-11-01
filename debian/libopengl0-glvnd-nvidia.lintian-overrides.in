@@ -7,3 +7,7 @@ hardening-no-stackprotector
 
 # This is also built from src:libglvnd.
 package-name-doesnt-match-sonames libOpenGL0
+
+# Packages built against the NVIDIA libOpenGL should declare dependencies on
+# the free version for Debian's purposes.
+#symbols-declares-dependency-on-other-package libopengl0
