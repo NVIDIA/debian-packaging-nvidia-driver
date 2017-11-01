@@ -18,6 +18,6 @@ NVIDIA_DIRNAME_amd64	 = NVIDIA-Linux-x86_64-${NVIDIA_RELEASE}
 NVIDIA_FILENAME_i386	 = ${NVIDIA_DIRNAME_i386}.run
 NVIDIA_FILENAME_amd64	 = ${NVIDIA_DIRNAME_amd64}.run
 
-HTTPURL_PREFIX		 = http://http.download.nvidia.com/XFree86
+HTTPURL_PREFIX		 = https://http.download.nvidia.com/XFree86
 HTTPURL_ARCHDIR_i386	 = Linux-x86
 HTTPURL_ARCHDIR_amd64	 = Linux-x86_64
