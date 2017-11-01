@@ -18,6 +18,8 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Switch from dh_install --list-missing to dh_missing (375.82-2).
   * Use dpkg makefile snippets instead of manual changelog parsing (375.82-2).
   * Simplify upstream changelog handling (375.82-5).
+  * Use debian/substvars for substitutions by dpkg-genchanges (dpkg 1.19)
+    (375.82-7).
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 02:02:40 +0200
 
