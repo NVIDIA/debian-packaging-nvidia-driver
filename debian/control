@@ -18,7 +18,7 @@ Build-Depends:
  quilt,
  po-debconf,
 Standards-Version: 4.1.1
-Homepage: http://www.nvidia.com
+Homepage: https://www.nvidia.com
 XS-Autobuild: yes
 
 #Package: ${nvidia}-driver
@@ -573,7 +573,7 @@ Provides:
  libcuda-6.0-1-i386 [i386],
  libcuda-6.5-1,
  libcuda-6.5-1-i386 [i386],
-Homepage: http://www.nvidia.com/CUDA
+Homepage: https://www.nvidia.com/CUDA
 Description: NVIDIA CUDA Driver Library${nvidia:LegacyDesc}
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -697,7 +697,7 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Breaks:
  ${nvidia}-smi (<< ${nvidia:Version}),
-Homepage: http://developer.nvidia.com/nvidia-management-library-NVML
+Homepage: https://developer.nvidia.com/nvidia-management-library-NVML
 Description: NVIDIA Management Library (NVML) runtime library${nvidia:LegacyDesc}
  The NVIDIA Management Library (NVML) provides a monitoring and management API.
  It provides a direct access to the queries and commands exposed via nvidia-smi.

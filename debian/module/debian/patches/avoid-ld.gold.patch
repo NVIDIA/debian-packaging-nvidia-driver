@@ -4,7 +4,7 @@ Description: avoid linking the kernel module with ld.gold
  problems with the nvidia kernel module.  Therefore explicitly link with
  ld.bfd.  This patch is not compatible with lenny which does neither have
  ld.bfd nor ld.gold, but we are not supporting lenny backports anyway.
-Bug-Debian: http://bugs.debian.org/626279
+Bug-Debian: https://bugs.debian.org/626279
 
 --- a/nvidia-modules-common.mk
 +++ b/nvidia-modules-common.mk
