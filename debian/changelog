@@ -111,12 +111,15 @@ nvidia-graphics-drivers (304.135-1) UNRELEASED; urgency=medium
   * New upstream legacy 304xx branch release 304.135 (2017-02-14).
     * Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0318,
       CVE-2017-0321.  (Closes: #855277)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4398
   * New upstream legacy 304xx branch release 304.134 (2016-12-14).
     * Fixed CVE-2016-8826.  (Closes: #848195)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4278
     - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
     * Improved compatibility with recent Linux kernels.
   * New upstream legacy 304xx branch release 304.132 (2016-09-26).
     * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4246
     - Added /var/log/dmesg to the list of paths which are searched by
       nvidia-bug-report.sh for kernel messages.
     - Fixed a bug that caused kernel panics when using the NVIDIA driver on
@@ -129,6 +132,7 @@ nvidia-graphics-drivers (304.131-1) wheezy; urgency=medium
 
   * New upstream legacy 304xx branch release 304.131 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3808
     - Fixed a bug that could cause texture corruption in some OpenGL
       applications when video memory is exhausted by a combination of
       simultaneously running graphical and compute workloads.
@@ -152,6 +156,7 @@ nvidia-graphics-drivers (304.128-1) wheezy; urgency=medium
 
   * New upstream legacy 304xx branch release 304.128 (2015-08-31).
     * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3763
       (Closes: #800566)
     * Improved compatibility with recent Linux kernels.
 
@@ -182,6 +187,7 @@ nvidia-graphics-drivers (304.125-1) wheezy; urgency=medium
 
   * New upstream legacy 304xx branch release 304.125 (2014-12-05).
     * Fixes CVE-2014-8298.  (Closes: #772971)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3610
     - Added support for X.Org xserver ABI 19 (xorg-server 1.17).
     - Improved compatibility with recent Linux kernels.
     - Implemented support for disabling indirect GLX context creation using
@@ -2433,6 +2439,7 @@ nvidia-graphics-drivers (195.36.31-6squeeze2) stable-proposed-updates; urgency=l
     Add upstream patch nvidia-blacklist-vga-pmu-registers-195.diff:
     Fix exploitable local privilege escalation through VGA window manipulation
     via the device nodes that allows access to arbitrary physical memory.
+    https://nvidia.custhelp.com/app/answers/detail/a_id/3140
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 17 Aug 2012 00:43:36 +0200
 
