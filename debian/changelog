@@ -39,6 +39,7 @@ nvidia-graphics-drivers (340.102-1) jessie; urgency=medium
   * New upstream legacy 340xx branch release 340.102 (2017-02-14).
     * Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0318,
       CVE-2017-0321.  (Closes: #855277)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4398
 
   [ Andreas Beckmann ]
   * unregister_proc_on_failure.patch: New, unregister procfs entries during
@@ -55,9 +56,11 @@ nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.101 (2016-12-14).
     * Fixed CVE-2016-8826.  (Closes: #848195)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4278
     * Improved compatibility with recent Linux kernels.
   * New upstream legacy 340xx branch release 340.98 (2016-09-26).
     * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4246
     - Added support for the screen_info.ext_lfb_base field, on kernels that
       have it, in order to properly handle UEFI framebuffer consoles with
       physical addresses above 4GB.
@@ -136,6 +139,7 @@ nvidia-graphics-drivers (340.96-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.96 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3808
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
@@ -160,6 +164,7 @@ nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.93 (2015-09-02).
     * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3763
       (Closes: #800566)
     - Fixed a bug that caused the X server to crash if an OpenGL application
       tried to allocate a drawable when GPU-accessible memory is exhausted.
@@ -286,6 +291,7 @@ nvidia-graphics-drivers (340.65-1) unstable; urgency=medium
 
   * New upstream legacy 340xx branch release 340.65 (2014-12-08).
     * Fixes CVE-2014-8298.  (Closes: #772971)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3610
     - Fixed a bug that prevented internal 4K panels on some laptops from being
       driven at a sufficient bandwidth to support their native resolutions.
     - Fixed a regression that prevented the NVIDIA kernel module from loading
@@ -690,6 +696,7 @@ nvidia-graphics-drivers (331.113-1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 331.113 (2014-12-05).
     * Fixes CVE-2014-8298.
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3610
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 12 Dec 2014 08:27:26 +0100
 
