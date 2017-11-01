@@ -178,7 +178,7 @@ do 'rmmod nvidia' to remove the module from memory.
 
 
 For any news on this package check
-http://bugs.debian.org/#NVIDIA#-kernel-source
+https://bugs.debian.org/#NVIDIA#-kernel-source
 
 
  -- Russ Allbery <rra@debian.org>, Sat, 25 Sep 2010 23:30:28 -0700
