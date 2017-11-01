@@ -20,6 +20,9 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Simplify upstream changelog handling (375.82-5).
   * Use debian/substvars for substitutions by dpkg-genchanges (dpkg 1.19)
     (375.82-7).
+  * nvidia-detect: Detect devices in PCI classes 0301 (XGA compatible
+    controller) and 0302 (3D controller), too (375.82-7).
+  * bug-script: List these devices, too (375.82-7).
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 02:02:40 +0200
 

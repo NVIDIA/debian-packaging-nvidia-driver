@@ -2,7 +2,7 @@
 # Based on http://wiki.debian.org/NvidiaGraphicsDrivers?action=AttachFile&do=view&target=nvidia-versions.sh
 #
 # Copyright © 2008-2011 Filipus Klutiero <chealer@gmail.com>
-# Copyright © 2011-2016 Andreas Beckmann <anbe@debian.org>
+# Copyright © 2011-2017 Andreas Beckmann <anbe@debian.org>
 #
 # This package is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -187,7 +187,7 @@ if [ -z "$1" ]; then
 		exit 1
 	fi
 
-	NV_DEVICES=$(lspci -mn | awk '{ gsub("\"",""); if ($2 == "0300" && ($3 == "10de" || $3 == "12d2")) { print $1 } }')
+	NV_DEVICES=$(lspci -mn | awk '{ gsub("\"",""); if (($2 ~ "030[0-2]") && ($3 == "10de" || $3 == "12d2")) { print $1 } }')
 
 	if [ -z "$NV_DEVICES" ]; then
 		echo "No NVIDIA GPU detected."
