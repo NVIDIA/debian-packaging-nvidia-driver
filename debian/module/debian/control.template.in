@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Build-Depends: debhelper (>= 10), quilt
 Standards-Version: 3.9.8
-Homepage: http://www.nvidia.com/
+Homepage: https://www.nvidia.com/
 
 Package: #NVIDIA#-kernel-#KVERS#
 Architecture: #ARCH_LIST#
