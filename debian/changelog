@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (375.82-8) UNRELEASED; urgency=medium
 
-  * Switch most URLs to https://
+  * Do not provide libglvnd package names at all.
+  * Use https:// URLs where possible.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 01 Nov 2017 12:48:59 +0100
 
