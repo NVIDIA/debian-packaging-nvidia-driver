@@ -22,7 +22,7 @@ Build-Depends:
 Build-Conflicts:
  libglvnd-dev,
 Standards-Version: 4.1.1
-Homepage: http://www.nvidia.com
+Homepage: https://www.nvidia.com
 XS-Autobuild: yes
 
 #Package: ${nvidia}-driver
@@ -109,6 +109,14 @@ Recommends:
  lib${nvidia}-cfg1 (= ${binary:Version}),
  nvidia-egl-wayland-icd (= ${binary:Version}),
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386] | ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
+Conflicts:
+ libglvnd0-nvidia,
+ libopengl0-glvnd-nvidia,
+ libglx0-glvnd-nvidia,
+ libgl1-glvnd-nvidia-glx,
+ libegl1-glvnd-nvidia,
+# libgles1-glvnd-nvidia,
+ libgles2-glvnd-nvidia,
 Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of
@@ -191,7 +199,6 @@ Pre-Depends:
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
-# libglvnd0,
  glvnd-nvidia-abi-375.20,
 Conflicts:
  libglvnd0,
@@ -216,8 +223,6 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libopengl0,
 Conflicts:
  libopengl0,
 Replaces:
@@ -237,8 +242,6 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Provides:
-# libglx0,
 Conflicts:
  libglx0,
 Replaces:
@@ -282,8 +285,6 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libgl1 (= 0.2.999),
 Conflicts:
  libgl1 (>> 0),
  libgl1-${nvidia}-glx,
@@ -386,8 +387,6 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Provides:
-# libegl1 (= 0.2.999),
 Conflicts:
  libegl1 (>> 0),
  libegl1-${nvidia},
@@ -447,8 +446,6 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libgles1 (= 0.2.999),
 Conflicts:
  libgles1 (>> 0),
 Breaks:
@@ -527,8 +524,6 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libgles2 (= 0.2.999),
 Conflicts:
  libgles2 (>> 0),
 Breaks:
@@ -1048,7 +1043,7 @@ Provides:
  libcuda-7.5-1-i386 [i386],
  libcuda-8.0-1,
  libcuda-8.0-1-i386 [i386],
-Homepage: http://www.nvidia.com/CUDA
+Homepage: https://www.nvidia.com/CUDA
 Description: NVIDIA CUDA Driver Library${nvidia:LegacyDesc}
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
@@ -1203,7 +1198,7 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Breaks:
  ${nvidia}-smi (<< ${nvidia:Version}),
-Homepage: http://developer.nvidia.com/nvidia-management-library-NVML
+Homepage: https://developer.nvidia.com/nvidia-management-library-NVML
 Description: NVIDIA Management Library (NVML) runtime library${nvidia:LegacyDesc}
  The NVIDIA Management Library (NVML) provides a monitoring and management API.
  It provides a direct access to the queries and commands exposed via nvidia-smi.

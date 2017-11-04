@@ -84,7 +84,7 @@ NOTES ABOUT 'EQ overflowing. The server is probably stuck in an infinite loop.'
 If you see this error in /var/log/Xorg.0.log, please ensure that the versions
 of linux-image-* and the corresponding linux-headers-* are identical up to
 the last digit.  Rebuild the module for this exactly matching kernel+header
-pair and reboot.  See http://bugs.debian.org/642497 for details.
+pair and reboot.  See https://bugs.debian.org/642497 for details.
 
 
 NOTES ABOUT XEN:
@@ -94,7 +94,7 @@ The non-free NVIDIA graphics driver does not work in a Xen kernel (e.g.
 linux-image-*-xen-*) running under the Xen hypervisor (xen-hypervisor-*).
 It does work however if this kernel is running standalone.
 Xen is currently not supported by NVIDIA.  For more information, please
-see http://bugs.debian.org/570365
+see https://bugs.debian.org/570365
 
 If you manage to get the NVIDIA driver to function properly when running
 under the Xen hypervisor (e.g. by using a custom kernel configuration or
