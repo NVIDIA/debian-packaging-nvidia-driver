@@ -108,6 +108,14 @@ Recommends:
  libgles-${nvidia}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386] | ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
+Conflicts:
+ libglvnd0-nvidia,
+ libopengl0-glvnd-nvidia,
+ libglx0-glvnd-nvidia,
+ libgl1-glvnd-nvidia-glx,
+ libegl1-glvnd-nvidia,
+# libgles1-glvnd-nvidia,
+ libgles2-glvnd-nvidia,
 Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of

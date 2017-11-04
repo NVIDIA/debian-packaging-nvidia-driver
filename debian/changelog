@@ -1,6 +1,8 @@
 nvidia-graphics-drivers (375.82-8) UNRELEASED; urgency=medium
 
   * Do not provide libglvnd package names at all.
+  * nvidia-driver-libs: Add Conflicts against *-glvnd-nvidia to force
+    switching to the libglvnd packages.  (Closes: #878035, #879261, 875438)
   * Use https:// URLs where possible.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 01 Nov 2017 12:48:59 +0100
