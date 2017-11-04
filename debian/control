@@ -735,7 +735,7 @@ Architecture: i386 amd64
 Multi-Arch: same
 Depends:
  nvidia-nonglvnd-vulkan-common,
- libvulkan1 (>= 1.0.42),
+ libvulkan1,
  libgl1-${nvidia}-glx (= ${binary:Version}),
  ${misc:Depends}
 Suggests:
