@@ -1,5 +1,5 @@
 #!/bin/bash
-# Based on http://wiki.debian.org/NvidiaGraphicsDrivers?action=AttachFile&do=view&target=nvidia-versions.sh
+# Based on https://wiki.debian.org/NvidiaGraphicsDrivers?action=AttachFile&do=view&target=nvidia-versions.sh
 #
 # Copyright © 2008-2011 Filipus Klutiero <chealer@gmail.com>
 # Copyright © 2011-2017 Andreas Beckmann <anbe@debian.org>
@@ -15,7 +15,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>
+# along with this program. If not, see <https://www.gnu.org/licenses/>
 #
 
 if [ "$1" = "-h" -o "$1" = "--help" ]; then
@@ -101,7 +101,7 @@ fi
 			PACKAGE="nvidia-glx"
 		elif [[ -n ${VERSIONS[999]} ]]; then
 			echo "Your card is only supported by the updated drivers from wheezy-backports."
-			echo "See http://backports.debian.org for instructions how to use backports."
+			echo "See https://backports.debian.org for instructions how to use backports."
 			PACKAGE="nvidia-driver/wheezy-backports"
 		elif [[ -n ${VERSIONS[173]} ]]; then
 			echo "Your card is only supported up to the 173.14 legacy drivers series.";
@@ -125,7 +125,7 @@ fi
 			PACKAGE="nvidia-driver"
 		elif [[ -n ${VERSIONS[999]} ]]; then
 			echo "Your card is only supported by the updated drivers from jessie-backports."
-			echo "See http://backports.debian.org for instructions how to use backports."
+			echo "See https://backports.debian.org for instructions how to use backports."
 			PACKAGE="nvidia-driver/jessie-backports"
 		elif [[ -n ${VERSIONS[304]} ]]; then
 			echo "Your card is only supported up to the 304 legacy drivers series."

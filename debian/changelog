@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (378.13-3) UNRELEASED; urgency=medium
 
-  * Merge changes from 375.82-7.
+  * Merge changes from 375.82-8.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Sep 2017 18:25:57 +0200
 
@@ -63,6 +63,15 @@ nvidia-graphics-drivers (378.13-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 14 Jun 2017 19:48:45 +0200
+
+nvidia-graphics-drivers (375.82-8) unstable; urgency=medium
+
+  * Do not provide libglvnd package names at all.
+  * nvidia-driver-libs: Add Conflicts against *-glvnd-nvidia to force
+    switching to the libglvnd packages.  (Closes: #878035, #879261, 875438)
+  * Use https:// URLs where possible.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 04 Nov 2017 20:34:10 +0100
 
 nvidia-graphics-drivers (375.82-7) unstable; urgency=medium
 
@@ -1634,6 +1643,7 @@ nvidia-graphics-drivers (340.102-1) jessie; urgency=medium
   * New upstream legacy 340xx branch release 340.102 (2017-02-14).
     * Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0318,
       CVE-2017-0321.  (Closes: #855277)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4398
 
   [ Andreas Beckmann ]
   * unregister_proc_on_failure.patch: New, unregister procfs entries during
@@ -1650,9 +1660,11 @@ nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.101 (2016-12-14).
     * Fixed CVE-2016-8826.  (Closes: #848195)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4278
     * Improved compatibility with recent Linux kernels.
   * New upstream legacy 340xx branch release 340.98 (2016-09-26).
     * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4246
     - Added support for the screen_info.ext_lfb_base field, on kernels that
       have it, in order to properly handle UEFI framebuffer consoles with
       physical addresses above 4GB.
@@ -1764,6 +1776,7 @@ nvidia-graphics-drivers (340.96-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.96 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3808
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
@@ -1906,6 +1919,7 @@ nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.93 (2015-09-02).
     * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3763
       (Closes: #800566)
     - Fixed a bug that caused the X server to crash if an OpenGL application
       tried to allocate a drawable when GPU-accessible memory is exhausted.
@@ -2042,6 +2056,7 @@ nvidia-graphics-drivers (340.65-1) unstable; urgency=medium
 
   * New upstream legacy 340xx branch release 340.65 (2014-12-08).
     * Fixes CVE-2014-8298.  (Closes: #772971)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3610
     - Fixed a bug that prevented internal 4K panels on some laptops from being
       driven at a sufficient bandwidth to support their native resolutions.
     - Fixed a regression that prevented the NVIDIA kernel module from loading
@@ -2275,7 +2290,7 @@ nvidia-graphics-drivers (340.24-1) unstable; urgency=medium
       system configurations that disallow writing to executable memory.
     - Added initial support for G-SYNC monitors.  Additional details and system
       requirements can be found at:
-        http://www.geforce.com/hardware/technology/g-sync
+        https://www.geforce.com/hardware/technology/g-sync
     - Improved support for running the NVIDIA driver in configurations where
       writing to executable memory is disallowed.  Driver optimizations that
       require writing to executable memory can be forcefully disabled using the
@@ -2341,7 +2356,7 @@ nvidia-graphics-drivers (337.19-1) experimental; urgency=medium
       GeForce 845M, GeForce GTX 850M.
     - Renamed the RandR output property _GUID to GUID now that it is an official
       property documented in randrproto.txt:
-        http://cgit.freedesktop.org/xorg/proto/randrproto/commit/?id=19fc4c5a72eb9919d720ad66734029d9f8e313b1
+        https://cgit.freedesktop.org/xorg/proto/randrproto/commit/?id=19fc4c5a72eb9919d720ad66734029d9f8e313b1
     - Reduced CPU utilization and GPU memory utilization of the NVIDIA
       EGL driver.
     - Added support for the following EGL extensions:
@@ -2375,7 +2390,7 @@ nvidia-graphics-drivers (334.21-1) experimental; urgency=medium
     - Fixed a regression in the NVIDIA kernel module which caused it to
       improperly dereference a userspace pointer. This potential security
       issue was initially reported to the public at:
-        http://forums.grsecurity.net/viewtopic.php?f=3&t=3922
+        https://forums.grsecurity.net/viewtopic.php?f=3&t=3922
       The regression did not affect NVIDIA GPU drivers before release 334.
     - Fixed a bug that could cause OpenGL programs to hang after calling
       fork(2).
@@ -2446,6 +2461,7 @@ nvidia-graphics-drivers (331.113-1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 331.113 (2014-12-05).
     * Fixes CVE-2014-8298.
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3610
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 12 Dec 2014 08:27:26 +0100
 
@@ -2673,7 +2689,7 @@ nvidia-graphics-drivers (331.13-1) experimental; urgency=low
     - Changed the clipping behavior of the NVIDIA X driver on Trapezoids
       and Triangles for some RENDER operations to match the behavior in
       newer versions of Pixman:
-      http://lists.freedesktop.org/archives/pixman/2013-April/002755.html
+      https://lists.freedesktop.org/archives/pixman/2013-April/002755.html
     - Fixed a bug in MetaMode tracking that could cause spurious error
       messages to be printed when attempting to add or delete Metamodes
       via NV-CONTROL.
@@ -3141,7 +3157,7 @@ nvidia-graphics-drivers (313.30-1) experimental; urgency=low
       an X server segmentation fault), or could be exploited to achieve
       arbitrary code execution.  (Closes: #704547)
       For more details, see:
-      http://nvidia.custhelp.com/app/answers/detail/a_id/3290
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3290
   * Merge changes from 304.88-1 and 310.44 (UNRELEASED).
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 05 Apr 2013 03:57:30 +0200
@@ -3221,7 +3237,7 @@ nvidia-graphics-drivers (310.44-1) UNRELEASED; urgency=low
       an X server segmentation fault), or could be exploited to achieve
       arbitrary code execution.
       For more details, see:
-      http://nvidia.custhelp.com/app/answers/detail/a_id/3290
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3290
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 05 Apr 2013 02:41:13 +0200
 
@@ -3335,12 +3351,15 @@ nvidia-graphics-drivers (304.135-1) UNRELEASED; urgency=medium
   * New upstream legacy 304xx branch release 304.135 (2017-02-14).
     * Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0318,
       CVE-2017-0321.  (Closes: #855277)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4398
   * New upstream legacy 304xx branch release 304.134 (2016-12-14).
     * Fixed CVE-2016-8826.  (Closes: #848195)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4278
     - Added support for X.Org xserver ABI 23 (xorg-server 1.19)
     * Improved compatibility with recent Linux kernels.
   * New upstream legacy 304xx branch release 304.132 (2016-09-26).
     * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4246
     - Added /var/log/dmesg to the list of paths which are searched by
       nvidia-bug-report.sh for kernel messages.
     - Fixed a bug that caused kernel panics when using the NVIDIA driver on
@@ -3353,6 +3372,7 @@ nvidia-graphics-drivers (304.131-1) wheezy; urgency=medium
 
   * New upstream legacy 304xx branch release 304.131 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3808
     - Fixed a bug that could cause texture corruption in some OpenGL
       applications when video memory is exhausted by a combination of
       simultaneously running graphical and compute workloads.
@@ -3376,6 +3396,7 @@ nvidia-graphics-drivers (304.128-1) wheezy; urgency=medium
 
   * New upstream legacy 304xx branch release 304.128 (2015-08-31).
     * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3763
       (Closes: #800566)
     * Improved compatibility with recent Linux kernels.
 
@@ -3406,6 +3427,7 @@ nvidia-graphics-drivers (304.125-1) wheezy; urgency=medium
 
   * New upstream legacy 304xx branch release 304.125 (2014-12-05).
     * Fixes CVE-2014-8298.  (Closes: #772971)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3610
     - Added support for X.Org xserver ABI 19 (xorg-server 1.17).
     - Improved compatibility with recent Linux kernels.
     - Implemented support for disabling indirect GLX context creation using
@@ -3483,7 +3505,7 @@ nvidia-graphics-drivers (304.117-1) wheezy; urgency=medium
     - Fixed a security vulnerability in the microcode for microcontrollers
       that are part of NVIDIA GPUs.  This vulnerability could be exploited
       to take control of a system, and it is described in greater detail at:
-      http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-5987
+      https://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-5987
       (Closes: #735271)
     - Improved compatibility with recent Linux kernels.
     - Updated the NVIDIA OpenGL driver to write temporary files to $TMPDIR
@@ -3707,7 +3729,7 @@ nvidia-graphics-drivers (304.88-1) unstable; urgency=low
       an X server segmentation fault), or could be exploited to achieve
       arbitrary code execution.  (Closes: #704547)
       For more details, see:
-      http://nvidia.custhelp.com/app/answers/detail/a_id/3290
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3290
     * Fixes display turned off on VT text consoles.  (Closes: #703313)
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 02 Apr 2013 22:43:31 +0200
@@ -3971,7 +3993,7 @@ nvidia-graphics-drivers (304.37-1) unstable; urgency=low
     * CVE-2012-4225  (Closes: 684781)
     - Implemented hotfix for a privilege escalation vulnerability reported on
       August 1, 2012.  For more details, see:
-      http://nvidia.custhelp.com/app/answers/detail/a_id/3140
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3140
 
   [ Andreas Beckmann ]
   * nvidia-kernel-source: Add Built-Using attribute to the generated module
@@ -4394,7 +4416,7 @@ nvidia-graphics-drivers (295.40-1) unstable; urgency=medium
   * New upstream long-lived branch release 295.40 (2012-04-11).
     - Closed a security vulnerability which made it possible for attackers to
       reconfigure GPUs to gain access to arbitrary system memory. For further
-      details, see: http://nvidia.custhelp.com/app/answers/detail/a_id/3109
+      details, see: https://nvidia.custhelp.com/app/answers/detail/a_id/3109
       CVE-2012-0946
     - Fixed a bug that caused DisplayPort devices to occasionally fail to turn
       back on after the system is resumed from suspend.
@@ -4744,7 +4766,7 @@ nvidia-graphics-drivers (280.13-4) unstable; urgency=low
     packages.  (Closes: #640539)
   * Add a nvidia-detect package with a script 'nvidia-detect' to detect NVIDIA
     GPUs and recommend a driver meta package to install.  (Closes: #614825)
-    Based on the script from http://wiki.debian.org/NvidiaGraphicsDrivers
+    Based on the script from https://wiki.debian.org/NvidiaGraphicsDrivers
 
  -- Andreas Beckmann <debian@abeckmann.de>  Tue, 06 Sep 2011 06:26:50 +0200
 
@@ -5007,7 +5029,7 @@ nvidia-graphics-drivers (275.09.04-1) experimental; urgency=low
       generate the appropriate jack unplug events to applications.
     - Added support for the GL_EXT_x11_sync_object extension.  See the
       extension specification in the OpenGL registry here:
-        http://www.opengl.org/registry/specs/EXT/x11_sync_object.txt
+        https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_x11_sync_object.txt
       for more details.
     - Improved performance of window resize operations in KDE 4 on systems
       with slow CPUs.
@@ -5657,6 +5679,7 @@ nvidia-graphics-drivers (195.36.31-6squeeze2) stable-proposed-updates; urgency=l
     Add upstream patch nvidia-blacklist-vga-pmu-registers-195.diff:
     Fix exploitable local privilege escalation through VGA window manipulation
     via the device nodes that allows access to arbitrary physical memory.
+    https://nvidia.custhelp.com/app/answers/detail/a_id/3140
 
  -- Andreas Beckmann <debian@abeckmann.de>  Fri, 17 Aug 2012 00:43:36 +0200
 
@@ -5670,7 +5693,7 @@ nvidia-graphics-drivers (195.36.31-6squeeze1) stable-proposed-updates; urgency=m
     Add upstream patch nvidia-blacklist-register-mapping-195.diff:
     Closed a security vulnerability which made it possible for attackers to
     reconfigure GPUs to gain access to arbitrary system memory. For further
-    details, see: http://nvidia.custhelp.com/app/answers/detail/a_id/3109
+    details, see: https://nvidia.custhelp.com/app/answers/detail/a_id/3109
   * Let the bug-script collect detailed information about OpenGL and NVIDIA
     libraries and their symlinks, diversions and alternatives currently found
     on the system.  Also list files remaining from using the nvidia-installer.
