@@ -37,7 +37,7 @@ nvidia-graphics-drivers (340.104-1~svn4deb8jessie) UNRELEASED; urgency=medium
   * bug-control: Add arch qualification to M-A:same packages in report-with
     list otherwise reportbug will ignore them if more than one is installed
     (375.82-5).
-  * Switch most URLs to https://
+  * Use https:// URLs where possible (375.82-8).
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
@@ -58,7 +58,7 @@ nvidia-graphics-drivers (340.104-1~svn4deb8jessie) UNRELEASED; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 03:05:24 +0200
 
-nvidia-graphics-drivers (340.104-0) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.104-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 340xx branch release 340.104 (2017-09-19).
     * Improved compatibility with recent Linux kernels.
@@ -1865,7 +1865,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * bug-control: Add arch qualification to M-A:same packages in report-with
     list otherwise reportbug will ignore them if more than one is installed
     (375.82-5).
-  * Switch most URLs to https://
+  * Use https:// URLs where possible (375.82-8).
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
