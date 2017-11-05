@@ -1,3 +1,23 @@
+nvidia-graphics-drivers (384.98-1~svn1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 384.98 (2017-11-02).
+    - Added support for the following GPUs: P104-101, P106-090, Tesla
+      V100-SXM2-16GB, Tesla V100-PCIE-16GB
+    - Fixed a bug that could cause some eDP G-SYNC displays to flicker at low
+      refresh rates.
+    - Fixed a bug that could cause OpenGL applications to crash after a
+      prolonged DPMS sleep state on a monitor driven with PRIME Sync.
+    - Fixed a bug that artificially limited the maximum pixel clock to 300 MHz
+      when using certain more capable DisplayPort to HDMI adapters.
+    - Fixed a bug that prevented the NVIDIA kernel modules from building for
+      non-SMP Linux kernels.
+    - Updated the output of `nvidia-smi nvlink --status` to include reporting
+      NVLink speed.
+    - Fixed a bug that caused incorrect PCI topology reporting in nvidia-smi
+      on Intel Skylake systems.
+
+ -- Luca Boccassi <bluca@debian.org>  Sun, 05 Nov 2017 13:53:59 +0000
+
 nvidia-graphics-drivers (384.90-2) experimental; urgency=medium
 
   * Merge changes from 375.82-7.  (Closes: #876766)
