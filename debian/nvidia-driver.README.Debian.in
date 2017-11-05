@@ -30,8 +30,7 @@ will be kept on non-glvnd until a user manually decides to switch.
 
 To install the glvnd flavour:
 
-  apt install libgl1-glvnd-nvidia-glx libglx0-glvnd-nvidia nvidia-egl-icd
-              libegl1-glvnd-nvidia nvidia-vulkan-common
+  apt install nvidia-egl-icd nvidia-vulkan-common
 
 To install the non-glvnd flavour:
 
