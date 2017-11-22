@@ -1,9 +1,9 @@
-nvidia-graphics-drivers (375.82-9) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (375.82-9) unstable; urgency=medium
 
   * B-D: dpkg-dev (>= 1.18.8) for SOURCE_DATE_EPOCH in pkg-info.mk.
   * Set Rules-Requires-Root: no.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 22 Nov 2017 09:47:03 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 22 Nov 2017 09:50:24 +0100
 
 nvidia-graphics-drivers (375.82-8) unstable; urgency=medium
 
