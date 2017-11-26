@@ -1,5 +1,13 @@
-nvidia-graphics-drivers (387.22-1~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (387.34-1~svn1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 387.34 (2017-11-24).
+    - Fixed a bug that caused Vulkan X11 swapchains to fail on GPUs without a
+      display engine, such as some Tesla-branded graphics cards and some Optimus
+      laptops.
+    - Fixed a bug that caused fullscreen Vulkan applications to hang on some
+      Kepler GPUs, such as the GeForce GTX 680.
+    - Fixed a bug where the G-SYNC indicator was reporting "normal" instead
+      of "G-SYNC" on Vulkan applications when G-SYNC was enabled.
   * New upstream short lived branch release 387.22 (2017-10-30).
     - Fixed a regression that could cause driver errors when setting modes
       that include DisplayPort Multi-Stream Transport devices.
