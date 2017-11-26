@@ -24,6 +24,7 @@ libGLX.so.0 libglx0 | #PACKAGE# #MINVER#
 #MISSING: 361.45# XGLVQueryXIDScreenMapping@Base 361
 #MISSING: 361.45# XGLVRegisterCloseDisplayCallback@Base 361
 #MISSING: 361.45# XGLVUnregisterCloseDisplayCallbacks@Base 361
+ __GLXGL_CORE_FUNCTIONS@Base 387.34
 #MISSING: 361.28# __glXAddScreenContextMapping@Base 361
 #MISSING: 361.28# __glXAddScreenDrawableMapping@Base 361
 #MISSING: 361.28# __glXAddScreenFBConfigMapping@Base 361
