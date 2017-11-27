@@ -1,8 +1,9 @@
-nvidia-graphics-drivers (378.13-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (378.13-3) unstable; urgency=medium
 
   * Merge changes from 375.82-9.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 08 Sep 2017 18:25:57 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 27 Nov 2017 16:29:16 +0100
 
 nvidia-graphics-drivers (378.13-2) experimental; urgency=medium
 
