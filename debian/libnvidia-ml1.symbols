@@ -36,7 +36,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetDisplayMode@Base 270
  nvmlDeviceGetDriverModel@Base 270
  nvmlDeviceGetEccMode@Base 270
- nvmlDeviceGetEncoderCapacity@Base 381
+ nvmlDeviceGetEncoderCapacity@Base 375.66
 #MISSING: 378# nvmlDeviceGetEncoderSessions@Base 375.66
 #MISSING: 378# nvmlDeviceGetEncoderStats@Base 375.66
  nvmlDeviceGetEncoderUtilization@Base 340
@@ -44,7 +44,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetFanSpeed@Base 270
  nvmlDeviceGetGpuOperationMode@Base 304.48
  nvmlDeviceGetGraphicsRunningProcesses@Base 346
- nvmlDeviceGetGridLicensableFeatures@Base 381
+ nvmlDeviceGetGridLicensableFeatures@Base 375.82
  nvmlDeviceGetHandleByIndex@Base 270
  nvmlDeviceGetHandleByIndex_v2@Base 319
  nvmlDeviceGetHandleByPciBusId@Base 270
@@ -107,8 +107,8 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetVgpuUtilization@Base 375
  nvmlDeviceGetViolationStatus@Base 340
  nvmlDeviceGetVirtualizationMode@Base 361.28
- nvmlDeviceGetXidErrors@Base 381
- nvmlDeviceModifyDrainState@Base 381
+ nvmlDeviceGetXidErrors@Base 375.39
+ nvmlDeviceModifyDrainState@Base 375
  nvmlDeviceOnSameBoard@Base 295
  nvmlDeviceQueryDrainState@Base 375
  nvmlDeviceRegisterEvents@Base 285
@@ -159,7 +159,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlUnitGetUnitInfo@Base 270
  nvmlUnitSetLedState@Base 270
 #MISSING: 375# nvmlVgpuInstanceGetDecoderUtilization@Base 370
- nvmlVgpuInstanceGetEncoderCapacity@Base 381
+ nvmlVgpuInstanceGetEncoderCapacity@Base 375.66
 #MISSING: 378# nvmlVgpuInstanceGetEncoderSessions@Base 375.66
 #MISSING: 378# nvmlVgpuInstanceGetEncoderStats@Base 375.66
 #MISSING: 375# nvmlVgpuInstanceGetEncoderUtilization@Base 370
@@ -173,7 +173,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlVgpuInstanceGetUUID@Base 367.27
  nvmlVgpuInstanceGetVmDriverVersion@Base 367.27
  nvmlVgpuInstanceGetVmID@Base 367
- nvmlVgpuInstanceSetEncoderCapacity@Base 381
+ nvmlVgpuInstanceSetEncoderCapacity@Base 375.66
  nvmlVgpuTypeGetClass@Base 361.42
  nvmlVgpuTypeGetDeviceID@Base 361.42
  nvmlVgpuTypeGetFrameRateLimit@Base 375
