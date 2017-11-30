@@ -97,6 +97,15 @@ nvidia-graphics-drivers (387.34-1~svn1) UNRELEASED; urgency=medium
 
  -- Luca Boccassi <bluca@debian.org>  Sat, 14 Oct 2017 14:34:12 +0100
 
+nvidia-graphics-drivers (384.98-2) unstable; urgency=medium
+
+  * Merge changes from 381.22-3.
+  * Restrict watch file to releases from the 384.xx long lived branch.
+  * Fix circular dependency between stamp and generated nvidia_icd.json.
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 30 Nov 2017 07:29:38 +0100
+
 nvidia-graphics-drivers (384.98-1) experimental; urgency=medium
 
   * New upstream long lived branch release 384.98 (2017-11-02).
@@ -214,6 +223,13 @@ nvidia-graphics-drivers (384.69-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 09 Sep 2017 13:14:08 +0200
 
+nvidia-graphics-drivers (381.22-3) unstable; urgency=medium
+
+  * Merge changes from 378.13-3.
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 28 Nov 2017 17:17:35 +0100
+
 nvidia-graphics-drivers (381.22-2) experimental; urgency=medium
 
   * Merge changes from 375.82-3.
@@ -274,6 +290,13 @@ nvidia-graphics-drivers (381.22-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 13 Aug 2017 08:02:13 +0200
 
+nvidia-graphics-drivers (378.13-3) unstable; urgency=medium
+
+  * Merge changes from 375.82-9.
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 27 Nov 2017 16:29:16 +0100
+
 nvidia-graphics-drivers (378.13-2) experimental; urgency=medium
 
   [ Andreas Beckmann ]
@@ -333,6 +356,13 @@ nvidia-graphics-drivers (378.13-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 14 Jun 2017 19:48:45 +0200
+
+nvidia-graphics-drivers (375.82-9) unstable; urgency=medium
+
+  * B-D: dpkg-dev (>= 1.18.8) for SOURCE_DATE_EPOCH in pkg-info.mk.
+  * Set Rules-Requires-Root: no.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 22 Nov 2017 09:50:24 +0100
 
 nvidia-graphics-drivers (375.82-8) unstable; urgency=medium
 
