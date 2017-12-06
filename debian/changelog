@@ -97,6 +97,12 @@ nvidia-graphics-drivers (387.34-1~svn1) UNRELEASED; urgency=medium
 
  -- Luca Boccassi <bluca@debian.org>  Sat, 14 Oct 2017 14:34:12 +0100
 
+nvidia-graphics-drivers (384.98-3) unstable; urgency=medium
+
+  * Fix libnvidia-ptxjitcompiler.so.1 alternative link.  (Closes: #883303)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 02 Dec 2017 21:50:28 +0100
+
 nvidia-graphics-drivers (384.98-2) unstable; urgency=medium
 
   * Merge changes from 381.22-3.
