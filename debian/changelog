@@ -29,20 +29,8 @@ nvidia-graphics-drivers (387.34-1~svn1) UNRELEASED; urgency=medium
     - Fixed a regression that caused some display connectors on some GPUs to not
       report a connected HDMI or DisplayPort audio device even if the connected
       monitor supports audio.
-    - Fixed a bug that sometimes prevented the "Reset Default Configuration"
-      button in the nvidia-settings "ECC Settings" page from being available
-      when the ECC configuration is set to a non-default state.
-    - Fixed a bug that caused nvidia-settings to enforce overly aggressive
-      limits on display positions in the "X Server Display Configuration"
-      page under some circumstances.
-    - Fixed a bug that could cause the "Enable Base Mosaic (Surround)"
-      checkbox in nvidia-settings to disappear when an X screen, rather than
-      a display, is selected in the "X Server Display Configuration" page.
     - Fixed a race condition that could lead to crashes when OpenGL programs
       manipulated vertex buffer objects from multiple threads simultaneously.
-    - Fixed a bug that caused the nvidia-settings control panel to retain
-      some settings that had been applied, but not confirmed. This resulted
-      in unwanted settings being applied to subsequent settings changes.
     - Improved performance of fullscreen Vulkan applications using X11
       swapchains.  This optimization will cause more events that trigger
       an out-of-date swapchain, such as when entering or leaving
@@ -68,10 +56,6 @@ nvidia-graphics-drivers (387.34-1~svn1) UNRELEASED; urgency=medium
       versions used to build the kernel and the NVIDIA kernel modules for
       an extended period of time, nvidia-installer has been updated to
       ignore CC version mismatches by default when they are detected.
-    - Updated nvidia-installer to use the init_module syscall directly to
-      test load kernel modules instead of libkmod/insmod. This removes
-      libkmod as a build dependency of nvidia-installer, and insmod as
-      a run-time dependency.
     - Tiled monitors formerly resulted in a separate Xinerama screen being
       reported for each tile. They will now, by default, be combined into a
       single large Xinerama screen.
@@ -83,6 +67,12 @@ nvidia-graphics-drivers (387.34-1~svn1) UNRELEASED; urgency=medium
       support in the GPU. Added "AllowDpInterlaced" mode validation token to
       override this default behavior and allow interlaced modes over
       DisplayPort protocol anyway.
+  * New upstream release 384 series.
+    - Fixed a regression that prevented displays connected via some types of
+      passive adapters (e.g. DMS-59 to VGA or DVI) from working correctly.
+      The regression was introduced with driver version 384.98.
+    - Fixed a bug that caused Quadro M2200 GPUs to enter the lowest available
+      PowerMizer performance level when under load.
 
   [ Luca Boccassi ]
   * Update d/copyright with new 6.3 paragraph in Nvidia's license, which warns
