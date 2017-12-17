@@ -35,7 +35,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
  ${nvidia:legacy-check},
 Depends:
- ${nvidia}-driver-libs (= ${binary:Version}),
+ ${nvidia}-driver-libs (= ${binary:Version}) | ${nvidia}-driver-libs-nonglvnd (= ${binary:Version}),
  ${nvidia}-driver-bin (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  ${nvidia}-vdpau-driver (= ${binary:Version}),
@@ -99,18 +99,18 @@ Package: nvidia-driver-libs
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
- libgl1-${nvidia}-glvnd-glx (= ${binary:Version}) | libgl1-${nvidia}-glx (= ${binary:Version}),
- ${nvidia}-egl-icd (= ${binary:Version}) | libegl1-${nvidia} (= ${binary:Version}),
+ libgl1-${nvidia}-glvnd-glx (= ${binary:Version}),
+ ${nvidia}-egl-icd (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
  libopengl0 | libopengl0-glvnd-nvidia,
  libglx-${nvidia}0 (= ${binary:Version}),
- libgles-${nvidia}1 (= ${binary:Version}),
+# libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
  nvidia-egl-wayland-icd (= ${binary:Version}),
- ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386] | ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
+ ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
  libglvnd0-nvidia,
  libopengl0-glvnd-nvidia,
@@ -136,6 +136,49 @@ Conflicts:
 Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES 32-bit libraries)${nvidia:LegacyDescShort}
  This metapackage helps the automatic installation of the 32-bit NVIDIA
  OpenGL/GLX/EGL/GLES libraries when installing ${nvidia}-driver-libs
+ on amd64 with foreign architecture i386 enabled.
+
+#Package: ${nvidia}-driver-nonglvnd-libs
+Package: nvidia-driver-libs-nonglvnd
+Architecture: i386 amd64 armhf
+Multi-Arch: same
+Depends:
+ libgl1-${nvidia}-glx (= ${binary:Version}),
+ libegl1-${nvidia} (= ${binary:Version}),
+ ${misc:Depends}
+Recommends:
+ ${nvidia}-driver-libs-nonglvnd-i386 [amd64],
+ libglx-${nvidia}0 (= ${binary:Version}),
+ libgles-${nvidia}1 (= ${binary:Version}),
+ libgles-${nvidia}2 (= ${binary:Version}),
+ lib${nvidia}-cfg1 (= ${binary:Version}),
+ nvidia-egl-wayland-icd (= ${binary:Version}),
+ ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
+Conflicts:
+ libglvnd0-nvidia,
+ libopengl0-glvnd-nvidia,
+ libglx0-glvnd-nvidia,
+ libgl1-glvnd-nvidia-glx,
+ libegl1-glvnd-nvidia,
+# libgles1-glvnd-nvidia,
+ libgles2-glvnd-nvidia,
+Description: NVIDIA metapackage (non-GLVND OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
+ This metapackage depends on the (non-GLVND) NVIDIA binary libraries
+ that provide optimized hardware acceleration of
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server.
+
+#Package: ${nvidia}-driver-libs-nonglvnd-i386
+Package: nvidia-driver-libs-nonglvnd-i386
+Architecture: i386
+Multi-Arch: foreign
+Depends:
+ ${nvidia}-driver-libs-nonglvnd,
+ ${misc:Depends}
+Conflicts:
+ libgl1-${nvidia}-glx-i386,
+Description: NVIDIA metapackage (non-GLVND OpenGL/GLX/EGL/GLES 32-bit libraries)${nvidia:LegacyDescShort}
+ This metapackage helps the automatic installation of the 32-bit NVIDIA
+ OpenGL/GLX/EGL/GLES libraries when installing ${nvidia}-driver-libs-nonglvnd
  on amd64 with foreign architecture i386 enabled.
 
 #Package: xserver-xorg-video-${nvidia}
