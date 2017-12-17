@@ -26,6 +26,7 @@ nvidia-graphics-drivers (340.104-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Switch from dh_install --list-missing to dh_missing (375.82-2).
   * Use dpkg makefile snippets instead of manual changelog parsing (375.82-2).
   * Simplify upstream changelog handling (375.82-5).
+  * Add #tls# substitution for the tls/ source directory.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 03:48:48 +0200
 
@@ -1780,7 +1781,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Switch to debhelper compat level 10.
   * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze)
     (375.82-1).
-  * Bump Standards-Version to 4.1.1. No changes needed.
+  * Bump Standards-Version to 4.1.2. No changes needed.
   * nvidia-alternative: Explicitly use interest-await triggers (375.82-2).
   * Switch from dh_install --list-missing to dh_missing (375.82-2).
   * Use dpkg makefile snippets instead of manual changelog parsing (375.82-2).
@@ -1792,6 +1793,8 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
     controller) and 0302 (3D controller), too (375.82-7).
   * bug-script: List these devices, too (375.82-7).
   * Set Rules-Requires-Root: no (375.82-9).
+  * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
+    Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 02:02:40 +0200
 

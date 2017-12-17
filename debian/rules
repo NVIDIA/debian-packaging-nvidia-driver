@@ -295,6 +295,7 @@ override_dh_strip_nondeterminism:
 	-e 's{#ARCH_LIST#}{$(ARCH_LIST)}g;' \
 	-e 's{#HAS_UVM#}{$(if $(has_uvm),,#)}g;' \
 	-e 's{#!armhf#}{$(if $(filter armhf,$(DEB_HOST_ARCH)),#)}g;' \
+	-e 's{#tls#}{$(if $(filter armhf,$(DEB_HOST_ARCH)),,tls/)}g;' \
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog

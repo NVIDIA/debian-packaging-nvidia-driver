@@ -5,6 +5,7 @@ glext.h
 glx.h
 glxext.h
 libGL.la
+#!armhf#libnvidia-tls.so.#VERSION#
 libnvidia-wfb.so.#VERSION#
 libvdpau.so.#VERSION#
 libvdpau_trace.so.#VERSION#
