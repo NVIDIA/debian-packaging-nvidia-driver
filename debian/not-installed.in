@@ -6,6 +6,7 @@ glx.h
 glxext.h
 libGL.la
 libXvMCNVIDIA.a
+libnvidia-tls.so.#VERSION#
 libnvidia-wfb.so.#VERSION#
 makeself-help-script.sh
 makeself.sh
