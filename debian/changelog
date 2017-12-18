@@ -15,6 +15,7 @@ nvidia-graphics-drivers (387.34-2) experimental; urgency=medium
 nvidia-graphics-drivers (387.34-1) experimental; urgency=medium
 
   * New upstream short lived branch release 387.34 (2017-11-24).
+    (Closes: #881164)
     - Fixed a bug that caused Vulkan X11 swapchains to fail on GPUs without a
       display engine, such as some Tesla-branded graphics cards and some Optimus
       laptops.
