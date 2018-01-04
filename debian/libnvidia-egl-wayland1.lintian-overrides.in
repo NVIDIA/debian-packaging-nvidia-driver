@@ -3,6 +3,3 @@ hardening-no-bindnow
 hardening-no-fortify-functions
 hardening-no-relro
 hardening-no-stackprotector
-
-# NVIDIA probably messed this up.
-package-name-doesnt-match-sonames libnvidia-egl-wayland1.0.2
