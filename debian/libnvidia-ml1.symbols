@@ -118,6 +118,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceQueryDrainState@Base 375
  nvmlDeviceRegisterEvents@Base 285
  nvmlDeviceRemoveGpu@Base 375
+ nvmlDeviceRemoveGpu_v2@Base 384.111
  nvmlDeviceResetApplicationsClocks@Base 304.30
  nvmlDeviceResetNvLinkErrorCounters@Base 361.42
  nvmlDeviceResetNvLinkUtilizationCounter@Base 361
