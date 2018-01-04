@@ -31,6 +31,7 @@ nvidia-graphics-drivers (390.12-1~svn1) UNRELEASED; urgency=medium
     - Modified the driver to avoid restoring framebuffer console modes
       on virtual reality head-mounted displays.
   * Update nv-readme.ids.
+  * Update symbols files.
 
  -- Luca Boccassi <bluca@debian.org>  Thu, 04 Jan 2018 23:05:11 +0000
 

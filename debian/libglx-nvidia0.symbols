@@ -164,6 +164,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glClientAttribDefaultEXT@Base 361.28
  glClientWaitSync@Base 361.28
  glClientWaitSyncValueuiNVX@Base 361.28
+ glClipControlEXT@Base 390
  glClipControl@Base 361.28
  glClipPlane@Base 361.28
  glClipPlanef@Base 361.28
@@ -574,6 +575,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glFramebufferTexture1DEXT@Base 361.28
  glFramebufferTexture2D@Base 361.28
  glFramebufferTexture2DEXT@Base 361.28
+ glFramebufferTexture2DMultisampleEXT@Base 390
  glFramebufferTexture2DOES@Base 361.28
  glFramebufferTexture3D@Base 361.28
  glFramebufferTexture3DEXT@Base 361.28

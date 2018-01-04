@@ -562,6 +562,7 @@ libGL.so.1 libgl1-mesa-glx | libgl1 (>= 0.2.999)
  glFramebufferTexture1DEXT@Base 1.0.7664
  glFramebufferTexture2D@Base 180
  glFramebufferTexture2DEXT@Base 1.0.7664
+ glFramebufferTexture2DMultisampleEXT@Base 390
  glFramebufferTexture2DOES@Base 325
  glFramebufferTexture3D@Base 180
  glFramebufferTexture3DEXT@Base 1.0.7664

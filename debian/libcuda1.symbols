@@ -53,7 +53,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuDeviceTotalMem@Base 169
  cuDeviceTotalMem_v2@Base 260
  cuDriverGetVersion@Base 185
- (arch=!i386)cuEGLInit@Base 346
+ (arch=!i386)cuEGLApiInit@Base 390
+#MISSING: 390# (arch=!i386)cuEGLInit@Base 346
  (arch=!i386)cuEGLStreamConsumerAcquireFrame@Base 346
  (arch=!i386)cuEGLStreamConsumerConnect@Base 346
  (arch=!i386)cuEGLStreamConsumerConnectWithFlags@Base 367.44

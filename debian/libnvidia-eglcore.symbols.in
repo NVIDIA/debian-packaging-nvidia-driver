@@ -1,4 +1,5 @@
 libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
+ NvGlEglApiInit@Base 390
  NvGlEglGetFunctions@Base 331
  _glAccum@Base 346
  _glActiveProgramEXT@Base 346
@@ -165,6 +166,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glClientWaitSync@Base 346
  _glClientWaitSyncValueuiNVX@Base 346
  _glClipControl@Base 346
+ _glClipControlEXT@Base 390
  _glClipPlane@Base 346
  _glClipPlanef@Base 346
  _glClipPlanex@Base 346
@@ -576,6 +578,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glFramebufferTexture1DEXT@Base 346
  _glFramebufferTexture2D@Base 346
  _glFramebufferTexture2DEXT@Base 346
+ _glFramebufferTexture2DMultisampleEXT@Base 390
  _glFramebufferTexture2DOES@Base 346
  _glFramebufferTexture3D@Base 346
  _glFramebufferTexture3DEXT@Base 346

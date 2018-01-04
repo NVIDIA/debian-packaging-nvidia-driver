@@ -4,6 +4,7 @@
  glBufferStorageMemEXT@Base 384.69
  glClearTexImageEXT@Base 387
  glClearTexSubImageEXT@Base 387
+ glClipControlEXT@Base 390
  glConservativeRasterParameteriNV@Base 367
  glCreateMemoryObjectsEXT@Base 384.69
  glDebugControlNVX@Base 177

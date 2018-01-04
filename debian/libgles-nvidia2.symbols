@@ -1,6 +1,6 @@
 libGLESv2_nvidia.so.2 #PACKAGE# #MINVER#
  NvClientRedirInit@Base 361
- NvGlApiInit@Base 387
+#MISSING: 390# NvGlApiInit@Base 387
 #MISSING: 387# NvGlEs2Init@Base 361
  glActiveShaderProgram@Base 361
  glActiveTexture@Base 361
