@@ -33,6 +33,8 @@ nvidia-graphics-drivers (390.12-1~svn1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Update symbols files.
   * Update lintian overrides.
+  * nvidia-kernel-dkms: add dependency to libelf-dev [amd64] to fix kernel
+    modules builds failures due to new config used by the kernel.
 
  -- Luca Boccassi <bluca@debian.org>  Thu, 04 Jan 2018 23:05:11 +0000
 
