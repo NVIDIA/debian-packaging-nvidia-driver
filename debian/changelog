@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (384.111-1~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (384.111-1) unstable; urgency=medium
 
   * New upstream long lived branch release 384.111 (2018-01-04).
     - Added support for the following GPUs: GeForce MX130, GeForce MX110,
@@ -32,7 +32,7 @@ nvidia-graphics-drivers (384.111-1~svn1) UNRELEASED; urgency=medium
   * Update Russian debconf translation. Thank you Lev Lamberov!
     (Closes: #886005)
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 17 Dec 2017 20:15:00 +0100
+ -- Luca Boccassi <bluca@debian.org>  Sat, 06 Jan 2018 20:05:47 +0000
 
 nvidia-graphics-drivers (384.98-3) unstable; urgency=medium
 
