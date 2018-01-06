@@ -8,6 +8,7 @@ nvidia-graphics-drivers (384.111-1~svn1) UNRELEASED; urgency=medium
       The regression was introduced with driver version 384.98.
     - Fixed a bug that caused Quadro M2200 GPUs to enter the lowest available
       PowerMizer performance level when under load.
+    * Closes: #886470
 
   [ Andreas Beckmann ]
   * Support easier and consistent switching between GLVND/non-GLVND variants.
