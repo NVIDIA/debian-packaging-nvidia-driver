@@ -1,7 +1,7 @@
 # Translation of debconf tempates for the nvidia-driver package into german
 # Copyright (C) 2012 Holger Wansing
 # This file is distributed under the same license as the nvidia-driver package.
-# Holger Wansing <linux@wansing-online.de>, 2012.
+# Holger Wansing <linux@wansing-online.de>, 2012, 2017.
 #
 #
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: nvidia-graphics-drivers\n"
 "Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-12 01:57+0100\n"
-"PO-Revision-Date: 2012-09-23 09:21+0200\n"
+"PO-Revision-Date: 2017-12-29 20:36+0200\n"
 "Last-Translator: Holger Wansing <linux@wansing-online.de>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "Language: de\n"
@@ -58,6 +58,8 @@ msgstr ""
 msgid ""
 "Use the update-glx command to switch between different installed drivers."
 msgstr ""
+"Verwenden Sie den Befehl update-glx, um zwischen mehreren verschiedenen "
+"installierten Treibern hin- und herzuschalten."
 
 #. Type: boolean
 #. Description
