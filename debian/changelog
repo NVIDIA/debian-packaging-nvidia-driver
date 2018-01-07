@@ -86,6 +86,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Refresh disable-mtrr.patch to remove fuzz from upstream changes.
   * Add nvidia-drm-pci-init.patch to fix kernel module build on Linux 4.14
     and newer.
+  * Add timer.patch to fix kernel module build on Linux 4.15 and newer.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
