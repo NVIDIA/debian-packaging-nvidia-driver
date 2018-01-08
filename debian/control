@@ -262,6 +262,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  dkms (>= 2.1),
+ libelf-dev [amd64],
  nvidia-kernel-common (>= 20110213),
  ${misc:Depends}
 Recommends:
