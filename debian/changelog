@@ -13,7 +13,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Switch to debhelper compat level 10.
   * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze)
     (375.82-1).
-  * Bump Standards-Version to 4.1.2. No changes needed.
+  * Bump Standards-Version to 4.1.3. No changes needed.
   * nvidia-alternative: Explicitly use interest-await triggers (375.82-2).
   * Switch from dh_install --list-missing to dh_missing (375.82-2).
   * Use dpkg makefile snippets instead of manual changelog parsing (375.82-2).

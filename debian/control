@@ -18,7 +18,7 @@ Build-Depends:
  libxvmc1,
  quilt,
 Rules-Requires-Root: no
-Standards-Version: 4.1.2
+Standards-Version: 4.1.3
 Homepage: https://www.nvidia.com
 XS-Autobuild: yes
 
