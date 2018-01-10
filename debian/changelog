@@ -1781,7 +1781,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Switch to debhelper compat level 10.
   * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze)
     (375.82-1).
-  * Bump Standards-Version to 4.1.2. No changes needed.
+  * Bump Standards-Version to 4.1.3. No changes needed.
   * nvidia-alternative: Explicitly use interest-await triggers (375.82-2).
   * Switch from dh_install --list-missing to dh_missing (375.82-2).
   * Use dpkg makefile snippets instead of manual changelog parsing (375.82-2).
@@ -1794,7 +1794,8 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * bug-script: List these devices, too (375.82-7).
   * Set Rules-Requires-Root: no (375.82-9).
   * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
-    Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir.
+    Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir
+    (384.111-1).
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 02:02:40 +0200
 
@@ -1893,6 +1894,10 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Refresh disable-mtrr.patch to remove fuzz from upstream changes.
   * Add nvidia-drm-pci-init.patch to fix kernel module build on Linux 4.14
     and newer.
+  * Add timer.patch to fix kernel module build on Linux 4.15 and newer.
+  * nvidia-kernel-dkms: add dependency to libelf-dev [amd64] to fix kernel
+    modules builds failures due to new config used by the kernel (384.111-1).
+    Workaround for #886474.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.

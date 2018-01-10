@@ -18,7 +18,7 @@ Build-Depends:
  quilt,
  po-debconf,
 Rules-Requires-Root: no
-Standards-Version: 4.1.2
+Standards-Version: 4.1.3
 Homepage: https://www.nvidia.com
 XS-Autobuild: yes
 
@@ -414,6 +414,7 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  dkms,
+ libelf-dev [amd64],
  ${nvidia}-kernel-support--v1,
  ${misc:Depends}
 Recommends:
