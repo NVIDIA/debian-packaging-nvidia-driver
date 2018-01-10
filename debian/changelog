@@ -106,6 +106,45 @@ nvidia-graphics-drivers (387.34-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 07 Dec 2017 01:57:08 +0100
 
+nvidia-graphics-drivers (384.111-1) unstable; urgency=medium
+
+  * New upstream long lived branch release 384.111 (2018-01-04).
+    * Fixed CVE-2017-5753, CVE-2017-5715 (spectre), CVE-2017-5754 (meltdown).
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4611
+      (Closes: #886852)
+    - Added support for the following GPUs: GeForce MX130, GeForce MX110,
+      GeForce GTX 1050 Ti with Max-Q Design, Quadro P500.
+    - Fixed a regression that prevented displays connected via some types of
+      passive adapters (e.g. DMS-59 to VGA or DVI) from working correctly.
+      The regression was introduced with driver version 384.98.
+    - Fixed a bug that caused Quadro M2200 GPUs to enter the lowest available
+      PowerMizer performance level when under load.
+    * Improved compatibility with recent Linux kernels.  (Closes: #886470)
+
+  [ Andreas Beckmann ]
+  * Support easier and consistent switching between GLVND/non-GLVND variants.
+  * nvidia-driver-libs{,-i386}: Depend only on the GLVND variants.
+  * nvidia-driver-libs-nonglvnd{,-i386}: New metapackages depending only on
+    the non-GLVND variants.  (Closes: #864497)
+  * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
+    Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir.
+    (Closes: #883615)
+  * Add #tls# substitution for the tls/ source directory.
+  * Bump Standards-Version to 4.1.2. No changes needed.
+
+  [ Luca Boccassi ]
+  * Update nv-readme.ids.
+  * Update symbols files.
+  * nvidia-kernel-dkms: add dependency to libelf-dev [amd64] to fix kernel
+    modules builds failures due to new config used by the kernel.
+    Workaround for #886474.
+  * Update German debconf translation. Thank you Holger Wansing!
+    (Closes: #885925)
+  * Update Russian debconf translation. Thank you Lev Lamberov!
+    (Closes: #886005)
+
+ -- Luca Boccassi <bluca@debian.org>  Sat, 06 Jan 2018 20:05:47 +0000
+
 nvidia-graphics-drivers (384.98-3) unstable; urgency=medium
 
   * Fix libnvidia-ptxjitcompiler.so.1 alternative link.  (Closes: #883303)
@@ -161,6 +200,7 @@ nvidia-graphics-drivers (384.90-1) experimental; urgency=medium
 
   * New upstream long lived branch release 384.90 (2017-09-21).
     * Fixed CVE-2017-6266, CVE-2017-6267, CVE-2017-6272. (Closes: #876414)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4544
     - Fixed a regression that caused display flickering at lower PowerMizer
       performance levels on some GPUs.
     - Fixed a regression that prevented console restoration after a VT switch
@@ -197,6 +237,7 @@ nvidia-graphics-drivers (384.69-1) experimental; urgency=medium
     - Added support for the following GPU: Quadro P4000 with Max-Q Design.
   * New upstream long lived branch release 384.59 (2017-07-24).
     * Fixed CVE-2017-6257, CVE-2017-6259.  (Closes: #869783)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4525
     - Added support for the following GPUs: GeForce GT 1030, GeForce MX150,
       P104-100, P106-100.
     - Fixed a bug that caused S4 suspend (also known as "hibernate") to hang
@@ -255,6 +296,7 @@ nvidia-graphics-drivers (381.22-1) experimental; urgency=medium
 
   * New upstream short lived branch release 381.22 (2017-05-09).
     * Fixed CVE-2017-0350, CVE-2017-0351, CVE-2017-0352.  (Closes: #863515)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4462
     - Fixed a bug that caused the GLX_EXT_buffer_age buffer age extension to
       return incorrect values for stereo drawables when using passive stereo
       modes 5 through 9.
@@ -489,6 +531,7 @@ nvidia-graphics-drivers (375.82-1) unstable; urgency=high
 
   * New upstream long lived branch release 375.82 (2017-07-24).
     * Fixed CVE-2017-6257, CVE-2017-6259.  (Closes: #869783)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4525
     - Fix a bug with GLX_EXT_buffer_age where incorrect buffer age values
       would be reported for SLI AFR configurations. In such configurations
       buffer age may now be greater than 3, the previous maximum buffer age.
@@ -545,6 +588,7 @@ nvidia-graphics-drivers (375.66-1) unstable; urgency=medium
 
   * New upstream long lived branch release 375.66 (2017-05-04).
     * Fixed CVE-2017-0350, CVE-2017-0351, CVE-2017-0352.  (Closes: #863515)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4462
     - Fixed a bug that could cause EGL applications to crash when
       calling eglInitialize() multiple times on X11-backed displays.
     - Fixed a regression that could cause rendering corruption on a
@@ -597,6 +641,7 @@ nvidia-graphics-drivers (375.39-1) unstable; urgency=medium
   * New upstream long lived branch release 375.39 (2017-02-14).
     * Fixed CVE-2017-0309, CVE-2017-0310, CVE-2017-0311, CVE-2017-0318,
       CVE-2017-0321.  (Closes: #855277)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4398
     - Fixed a bug that caused system hangs when resuming from suspend with
       some GPUs.
     - Fixed a regression that could cause corruption when hot-plugging
@@ -637,6 +682,7 @@ nvidia-graphics-drivers (375.26-1) unstable; urgency=medium
 
   * New upstream long lived branch release 375.26 (2016-12-14).
     * Fixed CVE-2016-8826.  (Closes: #848195)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4278
     - Fixed a regression that prevented the backlight on some notebook
       computer displays from turning back on after being shut off.
     - Fixed a regression that prevented the console from being restored
@@ -790,9 +836,10 @@ nvidia-graphics-drivers (367.57-2) unstable; urgency=medium
 nvidia-graphics-drivers (367.57-1) unstable; urgency=medium
 
   * New upstream long lived branch release 367.57 (2016-10-10).
+    * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4246
     - Fixed a bug that could prevent systems with GPUs configured in SLI from
       resuming correctly from ACPI S3/S4 sleep/hibernate states.
-    * Fixed CVE-2016-7382, CVE-2016-7389.  (Closes: #846331)
     - Added support for the following GPUs: Quadro P6000, Tesla P40,
       Quadro P5000.
     - Added support for NVIDIA 3D Vision 2 Stereo on Linux. This IR emitter can
@@ -1142,6 +1189,7 @@ nvidia-graphics-drivers (358.16-1) experimental; urgency=medium
   * New upstream short lived branch release 358.16 (2015-11-20).
     (Closes: #819042)
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3808
     - Fixed a regression, introduced in 358.09, that caused incorrect
       rendering of OpenGL stereo applications in combination with
       Quadro Sync on certain GPUs.
@@ -1518,6 +1566,7 @@ nvidia-graphics-drivers (352.63-1) experimental; urgency=medium
 
   * New upstream long lived branch release 352.63 (2015-11-16).
     * Fixed CVE-2015-7869: Unsanitized User Mode Input.  (Closes: #805917)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3808
     - Added support for the following GPUs: GeForce 940MX, GeForce 945M,
       Quadro M5000M, Quadro M4000M, Quadro M3000M, Quadro M2000M,
       Quadro M1000M, Quadro M600M, NVS 810, Tesla M40.
@@ -1565,6 +1614,7 @@ nvidia-graphics-drivers (352.41-1) experimental; urgency=medium
 
   * New upstream long lived branch release 352.41 (2015-08-28).
     * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3763
       (Closes: #800566)
     - Added support for the following GPUs: GeForce GTX 950, Quadro M4000,
       Quadro M5000.
@@ -1733,6 +1783,7 @@ nvidia-graphics-drivers (346.96-1) unstable; urgency=low
 
   * New upstream release 346.96 (2015-09-01).  (Closes: #811349)
     * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3763
       (Closes: #800566)
     - Added support for the following GPU: Tesla K80.
   * New upstream release 346.87 (2015-07-21).
@@ -1826,6 +1877,7 @@ nvidia-graphics-drivers (346.59-1) experimental; urgency=medium
       G-SYNC display attached to a Kepler-based GPU.
   * New upstream beta 346.22 (2014-12-08).
     * Fixes CVE-2014-8298.
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3610
   * New upstream beta 346.16 (2014-11-13).
     - Fixed a bug that caused a blank screen when setting a mode requiring YUV
       4:2:0 compression. These modes are not currently supported.
@@ -1889,6 +1941,7 @@ nvidia-graphics-drivers (343.36-1) experimental; urgency=medium
 
   * New upstream short lived branch release 343.36 (2014-12-05).
     * Fixes CVE-2014-8298.  (Closes: #772971)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3610
     - Fixed a bug that rendered very bright garbage data onto some textures
       in UnrealEngine 4 applications. This issue is known as the "disco bug"
       by the UnrealEngine 4 Linux community.
@@ -2214,6 +2267,7 @@ nvidia-graphics-drivers (340.93-1) unstable; urgency=medium
 
   * New upstream legacy 340xx branch release 340.93 (2015-09-02).
     * Fixed CVE-2015-5950: Memory corruption due to an unsanitized pointer.
+      https://nvidia.custhelp.com/app/answers/detail/a_id/3763
       (Closes: #800566)
   * fixes-for-kernel-4.0.0.patch: Remove, fixed upstream.
   * conftest.h:
