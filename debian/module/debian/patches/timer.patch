@@ -1,0 +1,61 @@
+Author: Luca Boccassi <bluca@debian.org>
+Description: Fix timer API calls for kernel >= 4.15
+ From kernel 4.15 and newer (commit 7eeb6b893bd28c) the init_timer APIs have
+ been retired and replaced by new timer_list APIs.
+
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -32,6 +32,8 @@
+ #include "nv-kthread-q.h"
+ #include "nv-pat.h"
+ 
++#include <linux/version.h>
++
+ /*
+  * The module information macros for Linux single-module builds
+  * are present in nv-frontend.c.
+@@ -320,7 +322,11 @@ static irqreturn_t   nvidia_isr
+ #else
+ static irqreturn_t   nvidia_isr             (int, void *);
+ #endif
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
+ static void          nvidia_rc_timer        (unsigned long);
++#else
++static void          nvidia_rc_timer        (struct timer_list *t_list);
++#endif
+ 
+ static int           nvidia_ctl_open        (struct inode *, struct file *);
+ static int           nvidia_ctl_close       (struct inode *, struct file *);
+@@ -2472,10 +2478,18 @@ nvidia_isr_bh_unlocked(
+ 
+ static void
+ nvidia_rc_timer(
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
+     unsigned long data
++#else
++    struct timer_list *t_list
++#endif
+ )
+ {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
+     nv_linux_state_t *nvl = (nv_linux_state_t *) data;
++#else
++    nv_linux_state_t *nvl = from_timer(nvl, t_list, rc_timer);
++#endif
+     nv_state_t *nv = NV_STATE_PTR(nvl);
+     nvidia_stack_t *sp = nvl->sp[NV_DEV_STACK_TIMER];
+ 
+@@ -3386,9 +3400,13 @@ int NV_API_CALL nv_start_rc_timer(
+         return -1;
+ 
+     nv_printf(NV_DBG_INFO, "NVRM: initializing rc timer\n");
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
+     init_timer(&nvl->rc_timer);
+     nvl->rc_timer.function = nvidia_rc_timer;
+     nvl->rc_timer.data = (unsigned long) nvl;
++#else
++    timer_setup(&nvl->rc_timer, nvidia_rc_timer, 0);
++#endif
+     nv->rc_timer_enabled = 1;
+     mod_timer(&nvl->rc_timer, jiffies + HZ); /* set our timeout for 1 second */
+     nv_printf(NV_DBG_INFO, "NVRM: rc timer initialized\n");
