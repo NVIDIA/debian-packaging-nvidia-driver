@@ -1,6 +1,9 @@
 nvidia-graphics-drivers (390.12-1~svn1) UNRELEASED; urgency=medium
 
   * New upstream beta 390.12 (2018-01-04).
+    * Fixed CVE-2017-5753, CVE-2017-5715 (spectre), CVE-2017-5754 (meltdown).
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4611
+      (Closes: #886852)
     - Added new application profile settings, "EGLVisibleDGPUDevices" and
       "EGLVisibleTegraDevices", to control which discrete and Tegra GPU
       devices, respectively, may be enumerated by EGL. See the "Application
@@ -13,14 +16,10 @@ nvidia-graphics-drivers (390.12-1~svn1) UNRELEASED; urgency=medium
       kernels that allow the handler for this event to be overridden,
       to improve interaction between the NVIDIA driver and acpi_video
       on display hotplug events.
-    - Updated the SLI Mosaic layout page in the nvidia-settings control
-      panel to support topologies with up to 32 displays.
     - Fixed a bug that prevented Xinerama Info from being handled properly
       in SLI or Base Mosaic layouts with more than 24 displays.
     - Updated the X driver's composition pipeline (used for rotation,
       warp and blend, transformation matrices, etc) to also support stereo.
-    - Added an OpenGL stereo preview feature to the screen page in
-      nvidia-settings.
     - Fixed a bug where GetTexSubImage() would read incorrect data into
       a pixel buffer object when supplied with a target of
       GL_TEXTURE_1D_ARRAY and a non-zero yoffset value.
@@ -30,13 +29,17 @@ nvidia-graphics-drivers (390.12-1~svn1) UNRELEASED; urgency=medium
       Options" in the README for more information.
     - Modified the driver to avoid restoring framebuffer console modes
       on virtual reality head-mounted displays.
+  * New upstream release 387 series.
+    - Added support for the following GPUs: TITAN Xp COLLECTORS EDITION,
+      GeForce GTX 1070 Ti, TITAN V [amd64].
+    - Fixed a bug that could cause a system crash when using the new
+      NVreg_EnableBacklightHandler kernel module parameter on GPUs with no
+      displays connected.
 
   [ Luca Boccassi ]
   * Update nv-readme.ids.
   * Update symbols files.
   * Update lintian overrides.
-  * nvidia-kernel-dkms: add dependency to libelf-dev [amd64] to fix kernel
-    modules builds failures due to new config used by the kernel.
 
   [ Andreas Beckmann ]
   * Split nv-readme.ids into nv-readme.ids.common and nv-readme.ids.$ARCH, the
@@ -129,12 +132,6 @@ nvidia-graphics-drivers (387.34-1) experimental; urgency=medium
       support in the GPU. Added "AllowDpInterlaced" mode validation token to
       override this default behavior and allow interlaced modes over
       DisplayPort protocol anyway.
-  * New upstream release 384 series.
-    - Fixed a regression that prevented displays connected via some types of
-      passive adapters (e.g. DMS-59 to VGA or DVI) from working correctly.
-      The regression was introduced with driver version 384.98.
-    - Fixed a bug that caused Quadro M2200 GPUs to enter the lowest available
-      PowerMizer performance level when under load.
 
   [ Luca Boccassi ]
   * Update d/copyright with new 6.3 paragraph in Nvidia's license, which warns
@@ -655,7 +652,7 @@ nvidia-graphics-drivers (375.66-1) unstable; urgency=medium
       console mode was restored. For some displays, this caused the display to
       remain blank.
     - Fixed a bug that caused audio over DisplayPort to stop working when the
-      monitor was unplugged and plugged back in or awoken from DPMS power-saving
+      monitor was unplugged and plugged back in or woken from DPMS power-saving
       mode.
     - Restored support for the following GPU: GRID K520.
     - Fixed a regression that caused corruption in certain applications, such as
@@ -664,8 +661,8 @@ nvidia-graphics-drivers (375.66-1) unstable; urgency=medium
       running with PRIME Sync.
     - Fixed a bug that prevented PRIME Sync from working on notebooks
       with GeForce GTX 4xx and 5xx series GPUs.
-    - Fixed a bug that caused OpenGL apps to have excessive CPU usage when
-      running with PRIME Sync but without native displays enabled.
+    - Fixed a bug that caused OpenGL applications to have excessive CPU usage
+      when running with PRIME Sync but without native displays enabled.
     - Fixed a bug that could cause PRIME Sync to deadlock in the kernel,
       particularly common on Linux 4.10.
     - Fixed a bug that caused PRIME Sync to run slowly on systems with Pascal
@@ -793,11 +790,11 @@ nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
       GeForce GTX 1050 Ti, Quadro M620, Quadro M5000 SE, Tesla P100-PCIE-12GB,
       Tesla P100-PCIE-16GB, Tesla P100-SXM2-16GB, Tesla P4.
     - Fixed a bug that prevented G-SYNC from working on notebook displays.
-    - Fixed a bug that caused DisplayPort multistream devices to go blank after
+    - Fixed a bug that caused DisplayPort multi-stream devices to go blank after
       the console is restored.
     - Fixed a bug that caused a kernel crash when starting X for the second time
-      when more than one DisplayPort multistream device is connected to a single
-      DisplayPort connector via a branch device.
+      when more than one DisplayPort multi-stream device is connected to a
+      single DisplayPort connector via a branch device.
   * New upstream beta 375.10 (2016-10-20).
     - Added new X configuration options:
         ForceCompositionPipeline
@@ -859,7 +856,7 @@ nvidia-graphics-drivers (370.28-1) experimental; urgency=medium
     - Implemented initial support for PRIME Synchronization to synchronize
       flipping between an NVIDIA PRIME display source and a separate PRIME
       display sink. This support is experimental and currently requires a
-      prerelease X.org X server.
+      pre-release X.org X server.
     - Fixed a bug that prevented Vulkan applications from presenting from
       multiple queues to the same X11 swapchain.
     - Added the "PixelShiftMode" MetaMode option, enabling support for 4K and
@@ -969,7 +966,7 @@ nvidia-graphics-drivers (367.35-1) experimental; urgency=medium
     - Fixed a bug that would cause OpenGL applications to crash when creating
       a context on one X display connection, then making it current with no
       associated drawable on another X display connection.  This fixes a crash
-      when starting some versions of Matlab.
+      when starting some versions of MATLAB.
     - Fixed OpenGL presentation to SDI through the GLX_NV_video_out and
       GLX_NV_present_video extensions, which was broken by the introduction
       of the nvidia-modeset kernel module in 358.09.
@@ -977,7 +974,7 @@ nvidia-graphics-drivers (367.35-1) experimental; urgency=medium
       the full composition pipeline on a display whose image has both a
       rotation and a ViewportOut offset applied.
     - Fixed a bug that could cause crashes in OpenGL applications which use
-      glTextureView() with a non-zero minlevel.
+      glTextureView() with a non-zero minimum level.
     - Fixed a bug that caused hangs when a G-SYNC monitor is unplugged and a
       non-G-SYNC monitor is connected while G-SYNC is active.
     - Fixed a bug that caused "nvidia-modeset: ERROR: GPU:0: Activating G-SYNC
@@ -986,9 +983,9 @@ nvidia-graphics-drivers (367.35-1) experimental; urgency=medium
       it.
     - Added the NV_robustness_video_memory_purge OpenGL extension, which
       allows applications to know when a mode switching or power event
-      purged the contents of FBOs and BOs residing in video memory.
+      purged the contents of FBOs and buffer objects residing in video memory.
     - Fixed a bug that prevented HDMI 2.0 4K monitors from waking up
-      from sleep or hot-replug.
+      from sleep or hot-re-plug.
   * New upstream release 361 series.
     - Added support for querying clock values on Pascal GPUs.
     - Fixed a bug that could lead to a system crash if there was a peer-to-peer
@@ -1646,7 +1643,7 @@ nvidia-graphics-drivers (352.55-1) experimental; urgency=medium
   * New upstream long lived branch release 352.55 (2015-10-12).
     - Added support for the following GPUs: GeForce 805A, GeForce GTX 960A.
     - Fixed a bug that caused applications using OpenCL or CUDA with OpenGL
-      interopability to crash when using GLX indirect rendering.
+      interoperability to crash when using GLX indirect rendering.
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
@@ -2343,7 +2340,7 @@ nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
       playback application using the overlay presentation queue in VDPAU.
     - Fixed a rare deadlock condition when running applications that use
       OpenGL in multiple threads on a Quadro GPU.
-    - Fixed a bug which caused truncation of the EGLAttribEXT value returned
+    - Fixed a bug which caused truncation of the EGLAttrib value returned
       by eglQueryDeviceAttribEXT() on 64-bit systems.
     - Fixed a kernel memory leak that occurred when looping hardware-
       accelerated video decoding with VDPAU on Maxwell-based GPUs.
@@ -3352,9 +3349,9 @@ nvidia-graphics-drivers (319.49-1) UNRELEASED; urgency=low
       to the Linux driver package. This library provides a high performance,
       low latency interface to capture and optionally encode an individual
       OpenGL framebuffer. NvIFROpenGL captures pixels rendered by OpenGL only
-      and is ideally suited to application capture and remoting.
-    - Fixed a bug that caused applications using CUDA-GL interop to crash
-      when run on X servers with Xinerama enabled.
+      and is ideally suited to application capture and remote access.
+    - Fixed a bug that caused applications using CUDA-GL interoperability to
+      crash when run on X servers with Xinerama enabled.
     - Fixed a bug that could prevent some double-bit ECC errors from being
       properly reported.
     - Fixed a bug which could cause a blank screen when changing house sync
@@ -3525,7 +3522,7 @@ nvidia-graphics-drivers (319.17-1) experimental; urgency=low
       Quadro GPUs.
     - Added support for dynamic mode management through RandR, e.g. via
       the --newmode, --rmmode, and --delmode options in xrandr(1).
-    - Increased the number of pages that are shareable across multiple
+    - Increased the number of pages that can be shared across multiple
       processes in the x86 build of libnvidia-glcore.so, by reducing its
       R_386_PC32 relocation count.
     - Fixed a bug that caused XVideo applications to receive BadAlloc errors
@@ -3603,7 +3600,7 @@ nvidia-graphics-drivers (313.18-1) experimental; urgency=low
     - Fixed several OpenGL driver bugs related to stencil-only framebuffer
       objects.
   * New upstream beta 313.09 (2012-12-11).
-    - Updated the NVIDIA X driver to reprobe displays when VT-switching to
+    - Updated the NVIDIA X driver to re-probe displays when VT-switching to
       X, to allow reporting of hotplug events when displays are connected
       or disconnected while VT-switched away from X.
     - Added unofficial GLX protocol support (i.e for GLX indirect rendering)
@@ -3676,7 +3673,7 @@ nvidia-graphics-drivers (310.40-1) UNRELEASED; urgency=low
     - Updated the reporting of HDMI 3D framerates and pixel clocks to be
       more consistent with how they are reported by HDMI 3D displays.
     - Fixed a bug that could cause applications using GL_NV_vdpau_interop
-      to crash during modeswitches.
+      to crash during mode switches.
     - Fixed a regression that could cause OpenGL applications to crash
       while compiling shaders.
     - Added a kernel module parameter, "NVreg_EnablePCIeGen3", which can be
@@ -4162,7 +4159,7 @@ nvidia-graphics-drivers (304.84-1) unstable; urgency=low
       unplugging the last connected monitor.
     - Added support for X.org xserver ABI 14 (xorg-server 1.14).
     - Fixed font rendering performance and corruption problems on X servers with
-      backported support for the new glyph cache functionality added to Pixman
+      back-ported support for the new glyph cache functionality added to Pixman
       0.27.
     - Fixed a potential X server crash during initialization, when a
       graphics card with a TV connector has no TV connected.
@@ -4269,7 +4266,7 @@ nvidia-graphics-drivers (304.60-1) unstable; urgency=low
     - Added support for the "Backlight" RandR output property for
       configuring the brightness of some notebook internal panels.
     - Fixed a bug that prevented the Ubuntu Unity launcher panel from
-      unhiding: https://bugs.launchpad.net/unity/+bug/1057000
+      revealing: https://bugs.launchpad.net/unity/+bug/1057000
     - Fixed a bug that caused incorrect input transformation after resizing
       an NVIDIA X screen with xserver ABI 12 (xorg-server 1.12) or newer.
     - Fixed a bug that caused GLX to leak memory when Xinerama is
@@ -4303,7 +4300,7 @@ nvidia-graphics-drivers (304.51-1) experimental; urgency=low
       without support for DRI2.
     - Fixed a regression that broke color controls on older X servers.
     - Fixed a bug that prevented panning from working correctly after a
-      modeswitch on some X servers with support for cursor constraining.
+      mode switch on some X servers with support for cursor constraining.
     - Gamma ramp and colormap adjustments now apply correctly when screen
       transformations such as rotation and keystone correction are in use.
     * Closes: #688660.
@@ -4339,7 +4336,7 @@ nvidia-graphics-drivers (304.48-2) unstable; urgency=low
 nvidia-graphics-drivers (304.48-1) unstable; urgency=low
 
   * New upstream long lived branch release 304.48 (2012-09-11).
-    - Fixed RandR per-CRTC gamma persistence across modeswitches and
+    - Fixed RandR per-CRTC gamma persistence across mode-switches and
       VT-switches.
     - Fixed a bug that caused the X server to sometimes hang in response to
       input events.  (Closes: #684941)
@@ -5479,7 +5476,7 @@ nvidia-graphics-drivers (275.09-1) experimental; urgency=low
     - Fixed a bug that caused corruption on the menus in OpenOffice.org when the
       screen is rotated.
     - Improved performance of certain memory allocations.
-    - Fixed a bug that caused Java2D widgets to disappear when Java is
+    - Fixed a bug that caused Java 2D widgets to disappear when Java is
       configured to render using FBOs.
     - Added a new X configuration option "BaseMosaic" which can be used to
       extend a single X screen transparently across all of the available
@@ -5607,7 +5604,7 @@ nvidia-graphics-drivers (270.30-1) experimental; urgency=low
       moved to /proc/driver/nvidia/gpus/0..N/information
     - Added new shared library: libnvidia-ml.so.
       NVML provides programmatic access to static information and monitoring
-      data for NVIDIA GPUs, as well as limited managment capabilities. It is
+      data for NVIDIA GPUs, as well as limited management capabilities. It is
       intended for use with Tesla compute products.
       See web-based documentation and associated nvml.h header for more info.
     - Added a new X configuration option "3DVisionDisplayType" to specify
@@ -5748,8 +5745,8 @@ nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
   * New upstream release 260.19.06 (2010-09-15).
     - Fixed an interaction problem with a change in X server behavior that
       caused slow text rendering on X.Org xserver 1.9.
-    - Enhanced VDPAU to support interop with CUDA and OpenGL when Xinerama
-      is active.
+    - Enhanced VDPAU to support interoperability with CUDA and OpenGL when
+      Xinerama is active.
     - Fixed a bug in VDPAU that prevented temporal-spatial de-interlacing from
       operating when temporal de-interlacing was not also enabled.
     - Added support for configuring the dithering depth used when driving
@@ -5772,7 +5769,7 @@ nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
       using multiple NVIDIA GPUs from different major hardware generations
       on X with ABI 4 or greater.
     - Fixed a bug in the OpenGL driver's Xinerama support.
-      Rendering should have ocurred to all physical X screens driven by an
+      Rendering should have occurred to all physical X screens driven by an
       NVIDIA GPU compatible with the NVIDIA GPU driving physical X screen 0.
       However, if some physical X screen did not satisfy that requirement,
       then not only would that physical X screen not be rendered to (as
@@ -5789,6 +5786,19 @@ nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
       a flat panel with a GeForce 8 family or Quadro 4600/5600 or
       newer GPU.  See the "Dithering Controls" in the Flat Panel page
       in nvidia-settings.
+    - Added unofficial GLX protocol support (i.e., for GLX indirect
+      rendering) for the following OpenGL extensions: GL_EXT_texture_integer,
+      GL_ARB_stencil_two_side, GL_EXT_transform_feedback2,
+      GL_NV_transform_feedback2, GL_NV_conditional_render.
+    - Added GLX protocol support (i.e., for GLX indirect rendering)
+      for the following OpenGL extensions: GL_NV_point_sprite,
+      GL_EXT_stencil_two_side, GL_EXT_point_parameters,
+      GL_ARB_transpose_matrix, GL_EXT_framebuffer_blit,
+      GL_EXT_framebuffer_multisample.
+    - GLX protocol for the following OpenGL extension is promoted
+      from unofficial GLX protocol to ARB approved GLX protocol:
+      GL_EXT_geometry_shader4, GL_ARB_shader_objects, GL_ARB_vertex_shader,
+      GL_ARB_fragment_shader.
     - Added support for configuring individual displays as any eye in passive
       stereo mode "4" when using TwinView or SLI Mosaic through extensions to
       the MetaMode syntax.
