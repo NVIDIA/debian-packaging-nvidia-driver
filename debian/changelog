@@ -30,11 +30,18 @@ nvidia-graphics-drivers (390.12-1~svn1) UNRELEASED; urgency=medium
       Options" in the README for more information.
     - Modified the driver to avoid restoring framebuffer console modes
       on virtual reality head-mounted displays.
+
+  [ Luca Boccassi ]
   * Update nv-readme.ids.
   * Update symbols files.
   * Update lintian overrides.
   * nvidia-kernel-dkms: add dependency to libelf-dev [amd64] to fix kernel
     modules builds failures due to new config used by the kernel.
+
+  [ Andreas Beckmann ]
+  * Split nv-readme.ids into nv-readme.ids.common and nv-readme.ids.$ARCH, the
+    GPUs with VDPAU feature set I, e.g. Tesla V100 and Titan V, are only
+    supported on amd64.
 
  -- Luca Boccassi <bluca@debian.org>  Thu, 04 Jan 2018 23:05:11 +0000
 
@@ -204,7 +211,7 @@ nvidia-graphics-drivers (384.98-1) experimental; urgency=medium
 
   * New upstream long lived branch release 384.98 (2017-11-02).
     - Added support for the following GPUs: P104-101, P106-090,
-      Tesla V100-SXM2-16GB, Tesla V100-PCIE-16GB.
+      Tesla V100-SXM2-16GB [amd64], Tesla V100-PCIE-16GB [amd64].
     - Fixed a bug that could cause some eDP G-SYNC displays to flicker at low
       refresh rates.
     - Fixed a bug that could cause OpenGL applications to crash after a
