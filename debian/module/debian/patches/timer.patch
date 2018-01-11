@@ -14,7 +14,7 @@ Description: Fix timer API calls for kernel >= 4.15
  /*
   * The module information macros for Linux single-module builds
   * are present in nv-frontend.c.
-@@ -320,7 +322,11 @@ static irqreturn_t   nvidia_isr
+@@ -320,7 +322,11 @@
  #else
  static irqreturn_t   nvidia_isr             (int, void *);
  #endif
@@ -26,7 +26,7 @@ Description: Fix timer API calls for kernel >= 4.15
  
  static int           nvidia_ctl_open        (struct inode *, struct file *);
  static int           nvidia_ctl_close       (struct inode *, struct file *);
-@@ -2472,10 +2478,18 @@ nvidia_isr_bh_unlocked(
+@@ -2472,10 +2478,18 @@
  
  static void
  nvidia_rc_timer(
@@ -45,7 +45,7 @@ Description: Fix timer API calls for kernel >= 4.15
      nv_state_t *nv = NV_STATE_PTR(nvl);
      nvidia_stack_t *sp = nvl->sp[NV_DEV_STACK_TIMER];
  
-@@ -3386,9 +3400,13 @@ int NV_API_CALL nv_start_rc_timer(
+@@ -3386,9 +3400,13 @@
          return -1;
  
      nv_printf(NV_DBG_INFO, "NVRM: initializing rc timer\n");
@@ -59,3 +59,47 @@ Description: Fix timer API calls for kernel >= 4.15
      nv->rc_timer_enabled = 1;
      mod_timer(&nvl->rc_timer, jiffies + HZ); /* set our timeout for 1 second */
      nv_printf(NV_DBG_INFO, "NVRM: rc timer initialized\n");
+--- a/nvidia-modeset/nvidia-modeset-linux.c
++++ b/nvidia-modeset/nvidia-modeset-linux.c
+@@ -21,6 +21,7 @@
+ #include <linux/random.h>
+ #include <linux/file.h>
+ #include <linux/list.h>
++#include <linux/version.h>
+ 
+ #include "nvstatus.h"
+ 
+@@ -566,9 +567,17 @@
+     WARN_ON(!ret);
+ }
+ 
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
+ static void nvkms_timer_callback(unsigned long arg)
++#else
++static void nvkms_timer_callback(struct timer_list *t_list)
++#endif
+ {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
+     struct nvkms_timer_t *timer = (struct nvkms_timer_t *) arg;
++#else
++    struct nvkms_timer_t *timer = (struct nvkms_timer_t *) from_timer(timer, t_list, kernel_timer);
++#endif
+ 
+     /* In softirq context, so schedule nvkms_kthread_q_callback(). */
+     nvkms_queue_work(&nvkms_kthread_q, &timer->nv_kthread_q_item);
+@@ -606,10 +615,14 @@
+         timer->kernel_timer_created = NV_FALSE;
+         nvkms_queue_work(&nvkms_kthread_q, &timer->nv_kthread_q_item);
+     } else {
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
+         init_timer(&timer->kernel_timer);
+-        timer->kernel_timer_created = NV_TRUE;
+         timer->kernel_timer.function = nvkms_timer_callback;
+         timer->kernel_timer.data = (unsigned long) timer;
++#else
++        timer_setup(&timer->kernel_timer, nvkms_timer_callback, 0);
++#endif
++        timer->kernel_timer_created = NV_TRUE;
+         mod_timer(&timer->kernel_timer, jiffies + NVKMS_USECS_TO_JIFFIES(usec));
+     }
+     spin_unlock_irqrestore(&nvkms_timers.lock, flags);
