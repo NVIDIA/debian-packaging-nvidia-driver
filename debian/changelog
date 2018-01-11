@@ -101,8 +101,8 @@ nvidia-graphics-drivers (387.34-1) experimental; urgency=medium
       PowerMizer performance level when under load.
 
   [ Luca Boccassi ]
-  * Update d/copyright with new 6.3 paragraph in Nvidia's license, which warns
-    that the drivers are licensed for usage with Nvidia hardware.
+  * Update d/copyright with new 6.3 paragraph in NVIDIA's license, which warns
+    that the drivers are licensed for usage with NVIDIA hardware.
   * Drop nvidia-drm-crtc.patch, fixed upstream, and refresh
     nvidia-drm-master-dev.patch and use-kbuild-compiler.patch to remove fuzz.
   * Adjust filenames for new minor ABI revision of libnvidia-egl-wayland1
