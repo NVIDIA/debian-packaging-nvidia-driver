@@ -48,6 +48,17 @@ nvidia-graphics-drivers (390.12-1~svn1) UNRELEASED; urgency=medium
 
  -- Luca Boccassi <bluca@debian.org>  Thu, 04 Jan 2018 23:05:11 +0000
 
+nvidia-graphics-drivers (387.34-3) experimental; urgency=medium
+
+  [ Luca Boccassi ]
+  * Add timer.patch to fix kernel module build on Linux 4.15 and newer.
+
+  [ Andreas Beckmann ]
+  * Merge changes from 384.111-1.
+  * Restrict watch file to releases from the 387.xx long lived branch.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 12 Jan 2018 12:30:17 +0100
+
 nvidia-graphics-drivers (387.34-2) experimental; urgency=medium
 
   * Support easier and consistent switching between GLVND/non-GLVND variants.
@@ -134,8 +145,8 @@ nvidia-graphics-drivers (387.34-1) experimental; urgency=medium
       DisplayPort protocol anyway.
 
   [ Luca Boccassi ]
-  * Update d/copyright with new 6.3 paragraph in Nvidia's license, which warns
-    that the drivers are licensed for usage with Nvidia hardware.
+  * Update d/copyright with new 6.3 paragraph in NVIDIA's license, which warns
+    that the drivers are licensed for usage with NVIDIA hardware.
   * Drop nvidia-drm-crtc.patch, fixed upstream, and refresh
     nvidia-drm-master-dev.patch and use-kbuild-compiler.patch to remove fuzz.
   * Adjust filenames for new minor ABI revision of libnvidia-egl-wayland1
