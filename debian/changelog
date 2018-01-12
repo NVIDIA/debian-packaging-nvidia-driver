@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (387.34-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (387.34-3) experimental; urgency=medium
 
   [ Luca Boccassi ]
   * Add timer.patch to fix kernel module build on Linux 4.15 and newer.
@@ -7,7 +7,7 @@ nvidia-graphics-drivers (387.34-3) UNRELEASED; urgency=medium
   * Merge changes from 384.111-1.
   * Restrict watch file to releases from the 387.xx long lived branch.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 11 Jan 2018 00:48:43 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 12 Jan 2018 12:30:17 +0100
 
 nvidia-graphics-drivers (387.34-2) experimental; urgency=medium
 
