@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (390.12-1~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.12-1) experimental; urgency=medium
 
   * New upstream beta 390.12 (2018-01-04).
     * Fixed CVE-2017-5753, CVE-2017-5715 (spectre), CVE-2017-5754 (meltdown).
@@ -45,8 +45,9 @@ nvidia-graphics-drivers (390.12-1~svn1) UNRELEASED; urgency=medium
   * Split nv-readme.ids into nv-readme.ids.common and nv-readme.ids.$ARCH, the
     GPUs with VDPAU feature set I, e.g. Tesla V100 and Titan V, are only
     supported on amd64.
+  * Upload to experimental.
 
- -- Luca Boccassi <bluca@debian.org>  Thu, 04 Jan 2018 23:05:11 +0000
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 13 Jan 2018 06:45:31 +0100
 
 nvidia-graphics-drivers (387.34-3) experimental; urgency=medium
 
