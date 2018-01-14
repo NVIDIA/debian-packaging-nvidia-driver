@@ -1,6 +1,7 @@
-nvidia-graphics-drivers (384.111-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (384.111-2) UNRELEASED; urgency=medium
 
   * Bump Standards-Version to 4.1.3. No changes needed.
+  * Add Breaks between nvidia-driver-libs and nvidia-driver-libs-nonglvnd.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 10 Jan 2018 22:57:40 +0100
 
@@ -24,6 +25,7 @@ nvidia-graphics-drivers (384.111-1) unstable; urgency=medium
   * nvidia-driver-libs{,-i386}: Depend only on the GLVND variants.
   * nvidia-driver-libs-nonglvnd{,-i386}: New metapackages depending only on
     the non-GLVND variants.  (Closes: #864497)
+  * nvidia-driver-libs: Stop recommending the GLES1 library, dropped by MESA.
   * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
     Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir.
     (Closes: #883615)
