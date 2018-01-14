@@ -119,6 +119,8 @@ Conflicts:
  libegl1-glvnd-nvidia,
 # libgles1-glvnd-nvidia,
  libgles2-glvnd-nvidia,
+Breaks:
+ ${nvidia}-driver-libs-nonglvnd,
 Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of
@@ -138,7 +140,7 @@ Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES 32-bit libraries)${nvidia:L
  OpenGL/GLX/EGL/GLES libraries when installing ${nvidia}-driver-libs
  on amd64 with foreign architecture i386 enabled.
 
-#Package: ${nvidia}-driver-nonglvnd-libs
+#Package: ${nvidia}-driver-libs-nonglvnd
 Package: nvidia-driver-libs-nonglvnd
 Architecture: i386 amd64 armhf
 Multi-Arch: same
@@ -162,6 +164,8 @@ Conflicts:
  libegl1-glvnd-nvidia,
 # libgles1-glvnd-nvidia,
  libgles2-glvnd-nvidia,
+Breaks:
+ ${nvidia}-driver-libs,
 Description: NVIDIA metapackage (non-GLVND OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
  This metapackage depends on the (non-GLVND) NVIDIA binary libraries
  that provide optimized hardware acceleration of
