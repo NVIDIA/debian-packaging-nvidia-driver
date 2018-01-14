@@ -1,9 +1,9 @@
-nvidia-graphics-drivers (384.111-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (384.111-2) unstable; urgency=medium
 
   * Bump Standards-Version to 4.1.3. No changes needed.
   * Add Breaks between nvidia-driver-libs and nvidia-driver-libs-nonglvnd.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 10 Jan 2018 22:57:40 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 14 Jan 2018 16:18:39 +0100
 
 nvidia-graphics-drivers (384.111-1) unstable; urgency=medium
 
