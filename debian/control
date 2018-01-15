@@ -121,6 +121,9 @@ Conflicts:
  libgles2-glvnd-nvidia,
 Breaks:
  ${nvidia}-driver-libs-nonglvnd,
+ libgl1-${nvidia}-glx,
+ libegl1-${nvidia},
+ ${nvidia}-nonglvnd-vulkan-icd,
 Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of
@@ -166,6 +169,9 @@ Conflicts:
  libgles2-glvnd-nvidia,
 Breaks:
  ${nvidia}-driver-libs,
+ libgl1-${nvidia}-glvnd-glx,
+ libegl1-glvnd-nvidia,
+ ${nvidia}-vulkan-icd,
 Description: NVIDIA metapackage (non-GLVND OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
  This metapackage depends on the (non-GLVND) NVIDIA binary libraries
  that provide optimized hardware acceleration of

@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (384.111-3) UNRELEASED; urgency=medium
+
+  * Add more Breaks to nvidia-driver-libs and nvidia-driver-libs-nonglvnd to
+    ease upgrade paths and switching.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 15 Jan 2018 22:11:49 +0100
+
 nvidia-graphics-drivers (384.111-2) unstable; urgency=medium
 
   * Bump Standards-Version to 4.1.3. No changes needed.
