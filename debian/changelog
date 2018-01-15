@@ -134,9 +134,6 @@ nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
   * Add drm-driver-legacy.patch to fix nvidia kernel module load issue on
     Linux 4.9 and newer.  (Closes: #848514)
   * Add timer.patch to fix kernel module build on Linux 4.15 and newer.
-  * nvidia-kernel-dkms: add dependency to libelf-dev [amd64] to fix kernel
-    modules builds failures due to new config used by the kernel.
-    Workaround for #886474.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 04 Jan 2017 13:31:29 +0100
 
