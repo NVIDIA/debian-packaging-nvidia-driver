@@ -28,6 +28,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
     Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir
     (384.111-1).
+  * nvidia-alternative: Trigger register-glx-alternative-nvidia upon removal.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 02:02:40 +0200
 
