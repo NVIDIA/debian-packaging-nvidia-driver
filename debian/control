@@ -230,7 +230,6 @@ Pre-Depends:
  nvidia-installer-cleanup,
 Depends:
  dkms,
- libelf-dev [amd64],
  nvidia-kernel-common (>= 20110213),
  ${nvidia}-alternative--kmod-alias,
  ${misc:Depends}

@@ -94,9 +94,6 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Add nvidia-drm-pci-init.patch to fix kernel module build on Linux 4.14
     and newer.
   * Add timer.patch to fix kernel module build on Linux 4.15 and newer.
-  * nvidia-kernel-dkms: add dependency to libelf-dev [amd64] to fix kernel
-    modules builds failures due to new config used by the kernel.
-    Workaround for #886474.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
