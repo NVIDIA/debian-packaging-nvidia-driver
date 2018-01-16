@@ -5,6 +5,9 @@ nvidia-graphics-drivers (340.106-1~svn4deb8jessie) UNRELEASED; urgency=medium
        https://nvidia.custhelp.com/app/answers/detail/a_id/4611
        (Closes: #886852)
 
+  [ Luca Boccassi ]
+  * Drop nvidia-drm-pci-init.patch and timer.patch, fixed upstream.
+
  -- Luca Boccassi <bluca@debian.org>  Tue, 16 Jan 2018 21:08:01 +0000
 
 nvidia-graphics-drivers (340.104-1~svn4deb8jessie) UNRELEASED; urgency=medium
