@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (340.106-1~svn4deb8jessie) UNRELEASED; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.106 (2018-01-16).
+     * Fixed CVE-2017-5753, CVE-2017-5715 (spectre), CVE-2017-5754 (meltdown).
+       https://nvidia.custhelp.com/app/answers/detail/a_id/4611
+       (Closes: #886852)
+
+ -- Luca Boccassi <bluca@debian.org>  Tue, 16 Jan 2018 21:08:01 +0000
+
 nvidia-graphics-drivers (340.104-1~svn4deb8jessie) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
