@@ -170,7 +170,6 @@ Conflicts:
 Breaks:
  ${nvidia}-driver-libs,
  libgl1-${nvidia}-glvnd-glx,
- libegl1-glvnd-nvidia,
  ${nvidia}-vulkan-icd,
 Description: NVIDIA metapackage (non-GLVND OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
  This metapackage depends on the (non-GLVND) NVIDIA binary libraries

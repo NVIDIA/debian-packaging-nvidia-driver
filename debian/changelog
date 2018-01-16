@@ -1,16 +1,16 @@
-nvidia-graphics-drivers (384.111-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (384.111-3) unstable; urgency=medium
 
   * Add more Breaks to nvidia-driver-libs and nvidia-driver-libs-nonglvnd to
     ease upgrade paths and switching.
   * nvidia-alternative.prerm: Trigger register-glx-alternative-nvidia upon
-    removal.
+    removal.  (Closes: #883637)
   * libgl1-nvidia-glx.prerm: Do not forcibly remove the nvidia alternative,
     this would reset it from manual mode to auto mode while it could still
     be needed by other packages, e.g. libcuda1. Let the nvidia-alternative
     triggers handle it instead.
   * nvidia-kernel-dkms: Remove libelf-dev workaround, fixed in src:linux.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 15 Jan 2018 22:11:49 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 16 Jan 2018 01:43:41 +0100
 
 nvidia-graphics-drivers (384.111-2) unstable; urgency=medium
 
