@@ -4,13 +4,7 @@ nvidia-graphics-drivers (340.106-1~svn4deb8jessie) UNRELEASED; urgency=medium
      * Fixed CVE-2017-5753, CVE-2017-5715 (spectre), CVE-2017-5754 (meltdown).
        https://nvidia.custhelp.com/app/answers/detail/a_id/4611
        (Closes: #886852)
-
-  [ Luca Boccassi ]
-  * Drop nvidia-drm-pci-init.patch and timer.patch, fixed upstream.
-
- -- Luca Boccassi <bluca@debian.org>  Tue, 16 Jan 2018 21:08:01 +0000
-
-nvidia-graphics-drivers (340.104-1~svn4deb8jessie) UNRELEASED; urgency=medium
+    * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
   * build-module-packages.sh: Order kernels by descending version (375.82-2).
@@ -34,13 +28,14 @@ nvidia-graphics-drivers (340.104-1~svn4deb8jessie) UNRELEASED; urgency=medium
   * Add nvidia-drm-pci-init.patch to fix kernel module build on Linux 4.14
     and newer.
   * Add timer.patch to fix kernel module build on Linux 4.15 and newer.
+  * Drop nvidia-drm-pci-init.patch and timer.patch, fixed upstream.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 03:05:24 +0200
+ -- Luca Boccassi <bluca@debian.org>  Tue, 16 Jan 2018 21:08:01 +0000
 
-nvidia-graphics-drivers (340.104-0) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.104-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 340xx branch release 340.104 (2017-09-19).
     * Improved compatibility with recent Linux kernels.
