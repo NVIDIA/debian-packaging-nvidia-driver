@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.106-1~svn4deb8jessie) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.106-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 340xx branch release 340.106 (2018-01-16).
      * Fixed CVE-2017-5753, CVE-2017-5715 (spectre), CVE-2017-5754 (meltdown).
@@ -13,22 +13,13 @@ nvidia-graphics-drivers (340.106-1~svn4deb8jessie) UNRELEASED; urgency=medium
     list otherwise reportbug will ignore them if more than one is installed
     (375.82-5).
   * Use https:// URLs where possible (375.82-8).
+  * Upload to jessie.
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
-  * Add drm-unload.patch to fix kernel module build on Linux 4.11 and newer.
-    (Closes: #865964)
-  * Add fatal-signal.patch and vm-fault.patch to fix kernel module build on
-    Linux 4.11 and newer.
-  * Add set-memory.patch to fix kernel module build on Linux 4.12 and newer.
-  * Drop drm-driver-legacy.patch, deprecated-cpu-events.patch,
-    vmf-address.patch, drm-unload.patch, fatal-signal.patch and
-    set-memory.patch, fixed upstream.
-  * Refresh vm-fault.patch to remove fuzz from upstream changes.
-  * Add nvidia-drm-pci-init.patch to fix kernel module build on Linux 4.14
-    and newer.
-  * Add timer.patch to fix kernel module build on Linux 4.15 and newer.
-  * Drop nvidia-drm-pci-init.patch and timer.patch, fixed upstream.
+  * Drop drm-driver-legacy.patch, deprecated-cpu-events.patch and
+    vmf-address.patch, fixed upstream.
+  * Add vm-fault.patch to fix kernel module build on Linux 4.11 and newer.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
@@ -140,7 +131,6 @@ nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
   [ Luca Boccassi ]
   * Add drm-driver-legacy.patch to fix nvidia kernel module load issue on
     Linux 4.9 and newer.  (Closes: #848514)
-  * Add timer.patch to fix kernel module build on Linux 4.15 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 04 Jan 2017 13:31:29 +0100
 
