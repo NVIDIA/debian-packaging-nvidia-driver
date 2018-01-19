@@ -64,6 +64,8 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
     list otherwise reportbug will ignore them if more than one is installed
     (375.82-5).
   * Use https:// URLs where possible (375.82-8).
+  * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
+    long Description.
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
