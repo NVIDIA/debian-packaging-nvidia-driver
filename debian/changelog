@@ -8,6 +8,7 @@ nvidia-graphics-drivers (390.25-1~svn1) UNRELEASED; urgency=medium
       hard lockup messages in the system log when screen transformations are in
       use.
   * Update nv-readme.ids.
+  * Update symbols files.
 
  -- Luca Boccassi <bluca@debian.org>  Mon, 29 Jan 2018 22:16:40 +0000
 
