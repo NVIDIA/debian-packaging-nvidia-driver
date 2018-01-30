@@ -105,7 +105,6 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
 
 Package: nvidia-glx-ia32
 Section: non-free/oldlibs
-Priority: extra
 Architecture: amd64
 Depends:
  libgl1-nvidia${nvidia:Legacy}-glx-ia32,
@@ -195,7 +194,6 @@ Description: NVIDIA binary XvMC library${nvidia:LegacyDesc}
 
 Package: libgl1-nvidia-glx-ia32
 Section: non-free/oldlibs
-Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
@@ -380,7 +378,6 @@ Description: Video Decode and Presentation API for Unix - NVIDIA driver${nvidia:
 
 Package: nvidia-vdpau-driver-ia32
 Section: non-free/oldlibs
-Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
@@ -473,7 +470,6 @@ Description: NVIDIA CUDA Driver Library${nvidia:LegacyDesc}
 
 Package: libcuda1-ia32
 Section: non-free/oldlibs
-Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
@@ -515,7 +511,6 @@ Description: NVIDIA runtime compiler library${nvidia:LegacyDesc}
 
 Package: libnvidia-compiler-ia32
 Section: non-free/oldlibs
-Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
@@ -614,7 +609,6 @@ Description: NVIDIA OpenCL installable client driver (ICD)${nvidia:LegacyDesc}
 
 Package: nvidia-opencl-icd-ia32
 Section: non-free/oldlibs
-Priority: extra
 Architecture: amd64
 Depends:
  ${misc:Depends}
@@ -662,7 +656,6 @@ Description: NVIDIA OpenCL ICD Loader library
 
 Package: nvidia-libopencl1-ia32
 Section: non-free/oldlibs
-Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
@@ -705,7 +698,6 @@ Description: transition libGL.so* diversions to glx-alternative-nvidia
  This package can be safely removed from the system once nothing depends on it.
 
 Package: libgl1-nvidia-alternatives-ia32
-Priority: extra
 Architecture: amd64
 Pre-Depends:
  libc6-i386 (>= 2.9-18),
