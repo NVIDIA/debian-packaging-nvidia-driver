@@ -17,6 +17,7 @@ NVIDIA_LEGACY_CHECK	?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
 ARCH_LIST		?= i386 amd64
 ARCH_DEPS_i386		?=
+BLOB_ARCH_LIST		?= $(strip $(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)))
 UVM_ARCH_LIST		?= $(ARCH_LIST)
 VULKAN_ARCH_LIST	?= i386 amd64
 
@@ -87,6 +88,8 @@ module_source	 = debian/$(nvidia)-kernel-source/usr/src/modules/$(nvidia)-kernel
 module_txz	 = $(subst /modules/,/,$(module_source)).tar.xz
 dkms_source	 = debian/$(nvidia)-kernel-dkms/usr/src/$(module)-$(version)
 
+empty		 =
+space		 = $(empty) $(empty)
 comma		 = ,
 xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
 xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND)
@@ -200,9 +203,9 @@ build-kernel-source-tree: install-into-tmp
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
 	rm -f $(module_source)/nvidia/nv-kernel.o_binary
-	$(foreach a,$(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)),cp -a NVIDIA-Linux-$a/kernel/nvidia/nv-kernel.o_binary $(module_source)/nvidia/nv-kernel-$a.o_binary ;)
+	$(foreach a,$(BLOB_ARCH_LIST),cp -a NVIDIA-Linux-$a/kernel/nvidia/nv-kernel.o_binary $(module_source)/nvidia/nv-kernel-$a.o_binary ;)
 	rm -f $(module_source)/nvidia-modeset/nv-modeset-kernel.o_binary
-	$(foreach a,$(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)),cp -a NVIDIA-Linux-$a/kernel/nvidia-modeset/nv-modeset-kernel.o_binary $(module_source)/nvidia-modeset/nv-modeset-kernel-$a.o_binary ;)
+	$(foreach a,$(BLOB_ARCH_LIST),cp -a NVIDIA-Linux-$a/kernel/nvidia-modeset/nv-modeset-kernel.o_binary $(module_source)/nvidia-modeset/nv-modeset-kernel-$a.o_binary ;)
 
 	# Install a debian/ tree.
 	cp -a debian/module/debian $(module_source)/
@@ -254,7 +257,7 @@ override_dh_bugfiles:
 	dh_bugfiles -A
 
 override_dh_missing:
-	dh_missing --list-missing
+	dh_missing --fail-missing
 
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir)/$(nvidia_private):$(LD_LIBRARY_PATH) dh_shlibdeps
@@ -274,6 +277,7 @@ override_dh_gencontrol:
 		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}' \
 		-V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
 		-V'nvidia:kmod:tested:Linux=$(strip $(or $(LINUX_KMOD_TESTED_$(DEB_HOST_ARCH)),$(LINUX_KMOD_TESTED),???))' \
+		-V'nvidia:kmod:blob:archlist=$(subst $(space),$(comma)$(space),$(BLOB_ARCH_LIST)) architecture$(if $(filter 1,$(words $(BLOB_ARCH_LIST))),,s)' \
 		-Vnvidia:kmod:Description="`cat debian/control.kmod`" \
 		-Vnvidia:Models="`cat debian/control.models`"
 

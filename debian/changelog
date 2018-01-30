@@ -11,9 +11,15 @@ nvidia-graphics-drivers (390.25-1~svn1) UNRELEASED; urgency=medium
     - Fixed a bug which could cause X servers that export a Video Driver
       ABI earlier than 0.8 to crash when running X11 applications which
       call XRenderAddTraps().
+
+  [ Luca Boccassi ]
   * Update nv-readme.ids.
   * Update symbols files.
   * Refresh nvidia-use-ARCH.o_binary.patch to remove fuzz.
+
+  [ Andreas Beckmann ]
+  * libcuda1: Add Provides: libcuda-9.1-1{,-i386}.
+  * Merge changes from 384.111-4.
 
  -- Luca Boccassi <bluca@debian.org>  Mon, 29 Jan 2018 22:16:40 +0000
 
@@ -181,6 +187,36 @@ nvidia-graphics-drivers (387.34-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 07 Dec 2017 01:57:08 +0100
 
+nvidia-graphics-drivers (384.111-4) unstable; urgency=medium
+
+  * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
+    long Description.
+  * Use dh_missing --fail-missing.
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 30 Jan 2018 20:37:47 +0100
+
+nvidia-graphics-drivers (384.111-3) unstable; urgency=medium
+
+  * Add more Breaks to nvidia-driver-libs and nvidia-driver-libs-nonglvnd to
+    ease upgrade paths and switching.
+  * nvidia-alternative.prerm: Trigger register-glx-alternative-nvidia upon
+    removal.  (Closes: #883637)
+  * libgl1-nvidia-glx.prerm: Do not forcibly remove the nvidia alternative,
+    this would reset it from manual mode to auto mode while it could still
+    be needed by other packages, e.g. libcuda1. Let the nvidia-alternative
+    triggers handle it instead.
+  * nvidia-kernel-dkms: Remove libelf-dev workaround, fixed in src:linux.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 16 Jan 2018 01:43:41 +0100
+
+nvidia-graphics-drivers (384.111-2) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.1.3. No changes needed.
+  * Add Breaks between nvidia-driver-libs and nvidia-driver-libs-nonglvnd.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 14 Jan 2018 16:18:39 +0100
+
 nvidia-graphics-drivers (384.111-1) unstable; urgency=medium
 
   * New upstream long lived branch release 384.111 (2018-01-04).
@@ -201,6 +237,7 @@ nvidia-graphics-drivers (384.111-1) unstable; urgency=medium
   * nvidia-driver-libs{,-i386}: Depend only on the GLVND variants.
   * nvidia-driver-libs-nonglvnd{,-i386}: New metapackages depending only on
     the non-GLVND variants.  (Closes: #864497)
+  * nvidia-driver-libs: Stop recommending the GLES1 library, dropped by MESA.
   * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
     Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir.
     (Closes: #883615)
@@ -484,6 +521,8 @@ nvidia-graphics-drivers (378.13-1) experimental; urgency=medium
     add support for the new EGL external platform infrastructure
   * Add deprecated-cpu-events.patch, dma-fence-rename.patch and
     vmf-address.patch to fix kernel module build on Linux 4.10 and newer.
+
+  [ Andreas Beckmann ]
   * Restrict watch file to releases from the 378.xx short lived branch.
   * Upload to experimental.
 
@@ -1467,8 +1506,8 @@ nvidia-graphics-drivers (355.11-1) experimental; urgency=medium
   * Restrict watch file to releases from the 355.xx short lived branch.
 
   [ Andreas Beckmann ]
-  * libglvnd-nvidia: New package package for the vendor-neutral GL libraries
-    (GLVND): libOpenGL.so.0, libGLdispatch.so.0
+  * libglvnd-nvidia: New package for the vendor-neutral GL libraries (GLVND):
+    libOpenGL.so.0, libGLdispatch.so.0
   * libegl-nvidia0: New package for the vendor-specific EGL implementation
     from NVIDIA (libEGL_nvidia.so.0), accessible via GLVND.
   * libegl1-nvidia: The libEGL.so.1 library is now just a (vendor-neutral)
@@ -3070,7 +3109,7 @@ nvidia-graphics-drivers (331.20-2) experimental; urgency=low
   * libnvidia-fbc1: New package for NvFBCOpenGL (libnvidia-fbc.so.1).
   * [i386, armhf] lib{egl1,gles1,gles2}-nvidia, libnvidia-eglcore:
     New packages for EGL, OpenGL|ES 1.x, OpenGL|ES 2.x.
-    These packages do not yet utilize the the diversion/alternatives system,
+    These packages do not yet utilize the diversion/alternatives system,
     so you need to add /usr/lib/<triplet>/nvidia/current to LD_LIBRARY_PATH to
     use them.
   * Add libcuda1-i386:i386 package that can be recommended from amd64 packages
@@ -3784,6 +3823,11 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
 nvidia-graphics-drivers (304.137-1) UNRELEASED; urgency=medium
+
+  * The 304.xx legacy driver series has been declared as End-of-Life by
+    NVIDIA. No further updates fixing security issues, critical bugs, or
+    adding support for new Xorg or Linux releases will be issued.
+    https://nvidia.custhelp.com/app/answers/detail/a_id/3142
 
   * New upstream legacy 304xx branch release 304.137 (2017-09-19).
     - Improved compatibility with recent Linux kernels.
