@@ -1,11 +1,11 @@
-nvidia-graphics-drivers (384.111-4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (384.111-4) unstable; urgency=medium
 
   * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
     long Description.
   * Use dh_missing --fail-missing.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 30 Jan 2018 14:05:35 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 30 Jan 2018 20:37:47 +0100
 
 nvidia-graphics-drivers (384.111-3) unstable; urgency=medium
 
