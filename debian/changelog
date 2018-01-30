@@ -1,9 +1,20 @@
 nvidia-graphics-drivers (340.106-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 340xx branch release 340.106 (2018-01-16).
-     * Fixed CVE-2017-5753, CVE-2017-5715 (spectre), CVE-2017-5754 (meltdown).
-       https://nvidia.custhelp.com/app/answers/detail/a_id/4611
-       (Closes: #886852)
+    * Fixed CVE-2017-5753, CVE-2017-5715 (spectre), CVE-2017-5754 (meltdown).
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4611
+      (Closes: #886852)
+    - Fixed a compatibility problem between the nvidia.ko's Page Attribute
+      Table (PAT) support and the kernel Page Table Isolation (PTI) patches.
+      To optimize stores to memory, nvidia.ko contains support for
+      configuring the CPU's PAT registers, as a fallback for Linux kernels
+      that predate kernel native PAT support.  On any recent kernel
+      with CONFIG_X86_PAT enabled, the driver will detect that setup has
+      already been done and skip its PAT setup.  However, a static inline
+      function called by nvidia.ko's PAT fallback support was updated in
+      the PTI patches to use the EXPORT_SYMBOL_GPL symbol 'cpu_tlbstate'.
+      nvidia.ko was updated to only contain its PAT fallback support,
+      at build time, on kernels without CONFIG_X86_PAT.
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
@@ -860,7 +871,7 @@ nvidia-graphics-drivers (331.20-2) experimental; urgency=low
   * libnvidia-fbc1: New package for NvFBCOpenGL (libnvidia-fbc.so.1).
   * [i386, armhf] lib{egl1,gles1,gles2}-nvidia, libnvidia-eglcore:
     New packages for EGL, OpenGL|ES 1.x, OpenGL|ES 2.x.
-    These packages do not yet utilize the the diversion/alternatives system,
+    These packages do not yet utilize the diversion/alternatives system,
     so you need to add /usr/lib/<triplet>/nvidia/current to LD_LIBRARY_PATH to
     use them.
   * Add libcuda1-i386:i386 package that can be recommended from amd64 packages
