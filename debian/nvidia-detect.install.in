@@ -1,3 +1,4 @@
 debian/detect/nvidia-detect	usr/bin/
 #!armhf#debian/detect/*.ids		usr/share/nvidia/
 nvidia.ids			usr/share/nvidia/
+nvidia-amd64.ids		usr/share/nvidia/

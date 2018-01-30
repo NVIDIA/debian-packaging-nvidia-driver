@@ -80,6 +80,7 @@ AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOGEN		+= debian/bug-control
 AUTOGEN		+= debian/substvars
 AUTOGEN		+= debian/nv-readme.ids
+AUTOGEN		+= nvidia-amd64.ids
 AUTOGEN		+= $(if $(has_vulkan),glvnd/nvidia_icd.json nonglvnd/nvidia_icd.json)
 AUTOKEEP	 = debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
@@ -144,6 +145,9 @@ nv-readme.ids: unpack-stamp debian/nv-readme.ids
 	fi
 
 nvidia.ids: nv-readme.ids
+	cp $< $@
+
+nvidia-amd64.ids: debian/nv-readme.ids.amd64
 	cp $< $@
 
 # Reformat the LICENSE to the format needed for debian/copyright.
