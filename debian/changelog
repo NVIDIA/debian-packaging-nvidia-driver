@@ -8,7 +8,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * libnvidia-glcore: New package, split from libgl1-nvidia-glx.
   * libnvidia-cfg1: New package, split from libgl1-nvidia-glx.
   * Add ${nvidia:Deb-Version-After:jessie} substvar to simplify adjusting
-    Breaks/Replaces for new upstream releases in stable.
+    Breaks/Replaces for new upstream releases in oldstable.
   * Overhaul package descriptions.
   * Switch to debhelper compat level 10.
   * Do not prevent ccache usage. The bug was fixed in ccache 3.0 (in squeeze)
@@ -35,6 +35,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
     be needed by other packages, e.g. libcuda1. Let the nvidia-alternative
     triggers handle it instead (384.111-3).
   * Use dh_missing --fail-missing.
+  * Include again the amd64 blob to build amd64 kernel modules on i386.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 02:02:40 +0200
 
