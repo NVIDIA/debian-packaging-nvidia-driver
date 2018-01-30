@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (304.137-1) UNRELEASED; urgency=medium
+
+  The 304.xx legacy driver series has been declared as End-of-Life by NVIDIA.
+  No further updates fixing security issues, critical bugs, or adding support
+  for new Xorg or Linux releases will be issued.
+  https://nvidia.custhelp.com/app/answers/detail/a_id/3142
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 30 Jan 2018 01:32:38 +0100
+
 nvidia-graphics-drivers (304.135-1) UNRELEASED; urgency=medium
 
   The NVIDIA driver now automatically integrates with the Xorg configuration.

@@ -112,6 +112,8 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
     list otherwise reportbug will ignore them if more than one is installed
     (375.82-5).
   * Use https:// URLs where possible (375.82-8).
+  * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
+    long Description.
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
@@ -142,6 +144,11 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
  -- Andreas Beckmann <anbe@debian.org>  Sun, 08 Oct 2017 22:04:28 +0200
 
 nvidia-graphics-drivers (304.137-1) UNRELEASED; urgency=medium
+
+  * The 304.xx legacy driver series has been declared as End-of-Life by
+    NVIDIA. No further updates fixing security issues, critical bugs, or
+    adding support for new Xorg or Linux releases will be issued.
+    https://nvidia.custhelp.com/app/answers/detail/a_id/3142
 
   * New upstream legacy 304xx branch release 304.137 (2017-09-19).
     - Improved compatibility with recent Linux kernels.
