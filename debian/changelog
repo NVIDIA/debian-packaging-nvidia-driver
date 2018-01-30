@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (390.25-1~svn1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.25-1) experimental; urgency=medium
 
   * New upstream long lived branch release 390.25 (2018-01-29).
     - Fixed a regression introduced in 390.12 that prevented displays from
@@ -23,7 +23,7 @@ nvidia-graphics-drivers (390.25-1~svn1) UNRELEASED; urgency=medium
   * nvidia-detect: Report devices only supported on amd64.
   * nvidia-detect: Add PCI ID list for 384.111 in stretch.
 
- -- Luca Boccassi <bluca@debian.org>  Mon, 29 Jan 2018 22:16:40 +0000
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 31 Jan 2018 00:40:05 +0100
 
 nvidia-graphics-drivers (390.12-1) experimental; urgency=medium
 
