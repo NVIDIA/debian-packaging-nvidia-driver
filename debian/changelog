@@ -24,6 +24,9 @@ nvidia-graphics-drivers (340.106-1) UNRELEASED; urgency=medium
     list otherwise reportbug will ignore them if more than one is installed
     (375.82-5).
   * Use https:// URLs where possible (375.82-8).
+  * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
+    long Description.
+  * Update lintian overrides.
   * Upload to jessie.
 
   [ Luca Boccassi ]
@@ -138,8 +141,6 @@ nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
   * Upload to jessie.
-  * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
-    long Description.
 
   [ Luca Boccassi ]
   * Add drm-driver-legacy.patch to fix nvidia kernel module load issue on
