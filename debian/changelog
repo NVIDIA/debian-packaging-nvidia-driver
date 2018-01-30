@@ -21,6 +21,7 @@ nvidia-graphics-drivers (390.25-1~svn1) UNRELEASED; urgency=medium
   * libcuda1: Add Provides: libcuda-9.1-1{,-i386}.
   * Merge changes from 384.111-4.
   * nvidia-detect: Report devices only supported on amd64.
+  * nvidia-detect: Add PCI ID list for 384.111 in stretch.
 
  -- Luca Boccassi <bluca@debian.org>  Mon, 29 Jan 2018 22:16:40 +0000
 
