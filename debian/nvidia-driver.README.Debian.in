@@ -30,14 +30,16 @@ will be kept on non-glvnd until a user manually decides to switch.
 
 To install the glvnd flavour:
 
-  apt install nvidia-egl-icd nvidia-vulkan-common
+  aptitude install nvidia-driver-libs nvidia-vulkan-common nvidia-driver-libs-nonglvnd- nvidia-nonglvnd-vulkan-common-
 
 To install the non-glvnd flavour:
 
-  apt install libgl1-nvidia-glx libegl1-nvidia nvidia-nonglvnd-vulkan-common
+  aptitude install nvidia-driver-libs-nonglvnd nvidia-nonglvnd-vulkan-common nvidia-driver-libs- nvidia-vulkan-common-
 
 And restart the X session. If multiarch (amd64 + i386) is used, also install
-the :i386 version of the lib* packages.
+the :i386 version of the nvidia-driver-libs* package.
+
+Bumblebee users: only the nonglvnd flavour is supported.
 
 [1] https://github.com/NVIDIA/libglvnd
 
