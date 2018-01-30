@@ -138,6 +138,8 @@ nvidia-graphics-drivers (340.101-1) jessie; urgency=medium
   * Bump Standards-Version to 3.9.8. No changes needed.
   * Update lintian overrides.
   * Upload to jessie.
+  * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
+    long Description.
 
   [ Luca Boccassi ]
   * Add drm-driver-legacy.patch to fix nvidia kernel module load issue on
@@ -1585,6 +1587,11 @@ nvidia-graphics-drivers (310.14-1) experimental; urgency=low
  -- Andreas Beckmann <debian@abeckmann.de>  Wed, 17 Oct 2012 19:54:34 +0200
 
 nvidia-graphics-drivers (304.137-1) UNRELEASED; urgency=medium
+
+  * The 304.xx legacy driver series has been declared as End-of-Life by
+    NVIDIA. No further updates fixing security issues, critical bugs, or
+    adding support for new Xorg or Linux releases will be issued.
+    https://nvidia.custhelp.com/app/answers/detail/a_id/3142
 
   * New upstream legacy 304xx branch release 304.137 (2017-09-19).
     - Improved compatibility with recent Linux kernels.
