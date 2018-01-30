@@ -232,7 +232,7 @@ override_dh_bugfiles:
 	dh_bugfiles -A
 
 override_dh_missing:
-	dh_missing --list-missing
+	dh_missing --fail-missing
 
 override_dh_shlibdeps:
 	LD_LIBRARY_PATH=/$(libdir)/$(nvidia_private):$(LD_LIBRARY_PATH) dh_shlibdeps
