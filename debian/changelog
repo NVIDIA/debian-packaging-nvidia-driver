@@ -50,14 +50,18 @@ nvidia-graphics-drivers (340.106-1~svn4deb8jessie) UNRELEASED; urgency=medium
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
-  * build-module-packages.sh: Order kernels by descending version (375.82-2).
   * Switch watch URL from ftp:// to https:// (375.82-1).
+  * build-module-packages.sh: Order kernels by descending version (375.82-2).
   * bug-control: Add arch qualification to M-A:same packages in report-with
     list otherwise reportbug will ignore them if more than one is installed
     (375.82-5).
   * Use https:// URLs where possible (375.82-8).
+  * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
+    Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir
+    (384.111-1).  (Closes: #883615)
+  * Add #tls# substitution for the tls/ source directory (384.111-1).
   * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
-    long Description.
+    long Description (384.111-4).
   * Update lintian overrides.
   * Upload to jessie.
 
@@ -1807,16 +1811,13 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
     controller) and 0302 (3D controller), too (375.82-7).
   * bug-script: List these devices, too (375.82-7).
   * Set Rules-Requires-Root: no (375.82-9).
-  * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
-    Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir
-    (384.111-1).
   * nvidia-alternative.prerm: Trigger register-glx-alternative-nvidia upon
     removal (384.111-3).
   * libgl1-nvidia-glx.prerm: Do not forcibly remove the nvidia alternative,
     this would reset it from manual mode to auto mode while it could still
     be needed by other packages, e.g. libcuda1. Let the nvidia-alternative
     triggers handle it instead (384.111-3).
-  * Use dh_missing --fail-missing.
+  * Use dh_missing --fail-missing (384.111-4).
   * Include again the amd64 blob to build amd64 kernel modules on i386.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 02:02:40 +0200
@@ -1825,6 +1826,9 @@ nvidia-graphics-drivers (304.137-1~svn4deb8jessie) UNRELEASED; urgency=medium
 
   * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
     (352.79-6).
+  * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
+    Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir
+    (384.111-1).
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 01:41:52 +0200
 
@@ -1895,7 +1899,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
     (375.82-5).
   * Use https:// URLs where possible (375.82-8).
   * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
-    long Description.
+    long Description (384.111-4).
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
