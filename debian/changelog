@@ -25,9 +25,6 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
     controller) and 0302 (3D controller), too (375.82-7).
   * bug-script: List these devices, too (375.82-7).
   * Set Rules-Requires-Root: no (375.82-9).
-  * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
-    Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir
-    (384.111-1).
   * nvidia-alternative.prerm: Trigger register-glx-alternative-nvidia upon
     removal (384.111-3).
   * libgl1-nvidia-glx.prerm: Do not forcibly remove the nvidia alternative,
@@ -43,6 +40,9 @@ nvidia-graphics-drivers (304.137-1~svn4deb8jessie) UNRELEASED; urgency=medium
 
   * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
     (352.79-6).
+  * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
+    Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir
+    (384.111-1).
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 01:41:52 +0200
 
@@ -113,7 +113,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
     (375.82-5).
   * Use https:// URLs where possible (375.82-8).
   * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
-    long Description.
+    long Description (384.111-4).
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
