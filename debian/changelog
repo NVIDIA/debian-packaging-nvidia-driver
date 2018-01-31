@@ -2,6 +2,9 @@ nvidia-graphics-drivers (304.137-1~svn4deb8jessie) UNRELEASED; urgency=medium
 
   * Add B-D: dpkg-dev (>= 1.17) for dpkg-parsechangelog --show-field
     (352.79-6).
+  * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
+    Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir
+    (384.111-1).
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 01:41:52 +0200
 
