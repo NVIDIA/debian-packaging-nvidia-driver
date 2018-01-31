@@ -14,7 +14,7 @@ Build-Depends:
  dpkg-dev (>= 1.18.8),
  xz-utils,
  dkms,
- libvulkan1 (>= 1.0.42),
+ libvulkan1,
  libwayland-client0,
  libwayland-server0,
  libxext6 [!ppc64el],
@@ -106,19 +106,19 @@ Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
  libopengl0 | libopengl0-glvnd-nvidia,
  libglx-${nvidia}0 (= ${binary:Version}),
-# libgles-${nvidia}1 (= ${binary:Version}),
+ libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
  nvidia-egl-wayland-icd (= ${binary:Version}),
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
-Conflicts:
- libglvnd0-nvidia,
- libopengl0-glvnd-nvidia,
- libglx0-glvnd-nvidia,
- libgl1-glvnd-nvidia-glx,
- libegl1-glvnd-nvidia,
+#Conflicts:
+# libglvnd0-nvidia,
+# libopengl0-glvnd-nvidia,
+# libglx0-glvnd-nvidia,
+# libgl1-glvnd-nvidia-glx,
+# libegl1-glvnd-nvidia,
 # libgles1-glvnd-nvidia,
- libgles2-glvnd-nvidia,
+# libgles2-glvnd-nvidia,
 Breaks:
  ${nvidia}-driver-libs-nonglvnd,
  libgl1-${nvidia}-glx,
@@ -160,13 +160,13 @@ Recommends:
  nvidia-egl-wayland-icd (= ${binary:Version}),
  ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
- libglvnd0-nvidia,
- libopengl0-glvnd-nvidia,
- libglx0-glvnd-nvidia,
+# libglvnd0-nvidia,
+# libopengl0-glvnd-nvidia,
+# libglx0-glvnd-nvidia,
  libgl1-glvnd-nvidia-glx,
  libegl1-glvnd-nvidia,
 # libgles1-glvnd-nvidia,
- libgles2-glvnd-nvidia,
+# libgles2-glvnd-nvidia,
 Breaks:
  ${nvidia}-driver-libs,
  libgl1-${nvidia}-glvnd-glx,
@@ -783,7 +783,7 @@ Architecture: i386 amd64
 Multi-Arch: same
 Depends:
  nvidia-vulkan-common,
- libvulkan1 (>= 1.0.42),
+ libvulkan1,
  libglx-${nvidia}0 (= ${binary:Version}),
  ${misc:Depends}
 Suggests:
@@ -822,7 +822,7 @@ Architecture: i386 amd64
 Multi-Arch: same
 Depends:
  nvidia-nonglvnd-vulkan-common,
- libvulkan1 (>= 1.0.42),
+ libvulkan1,
  libgl1-${nvidia}-glx (= ${binary:Version}),
  ${misc:Depends}
 Suggests:

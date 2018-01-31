@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (384.111-4~deb9u1) UNRELEASED; urgency=medium
+
+  * Rebuild for stretch.
+  * Relax the libvulkan1 (build-)dependency.
+  * Do not conflict with *-glvnd-nvidia, there is no libglvnd in stretch.
+  * Continue recommending the GLESv1 library for stretch.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 31 Jan 2018 03:17:46 +0100
+
 nvidia-graphics-drivers (384.111-4) unstable; urgency=medium
 
   * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
