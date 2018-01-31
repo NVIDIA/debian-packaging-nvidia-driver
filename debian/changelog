@@ -18,14 +18,18 @@ nvidia-graphics-drivers (340.106-1) UNRELEASED; urgency=medium
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
-  * build-module-packages.sh: Order kernels by descending version (375.82-2).
   * Switch watch URL from ftp:// to https:// (375.82-1).
+  * build-module-packages.sh: Order kernels by descending version (375.82-2).
   * bug-control: Add arch qualification to M-A:same packages in report-with
     list otherwise reportbug will ignore them if more than one is installed
     (375.82-5).
   * Use https:// URLs where possible (375.82-8).
+  * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
+    Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir
+    (384.111-1).  (Closes: #883615)
+  * Add #tls# substitution for the tls/ source directory (384.111-1).
   * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
-    long Description.
+    long Description (384.111-4).
   * Update lintian overrides.
   * Upload to jessie.
 
