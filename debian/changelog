@@ -1,8 +1,18 @@
 nvidia-graphics-drivers (384.111-5) UNRELEASED; urgency=medium
 
   * nvidia-modprobe.conf: Consistently handle nvidia-modeset.
+  * Merge changes from 384.111-4~deb9u1 (stretch).
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 26 Feb 2018 02:11:43 +0100
+
+nvidia-graphics-drivers (384.111-4~deb9u1) stretch; urgency=medium
+
+  * Rebuild for stretch.
+  * Relax the libvulkan1 (build-)dependency.
+  * Do not conflict with *-glvnd-nvidia, there is no libglvnd in stretch.
+  * Continue recommending the GLESv1 library for stretch.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 26 Feb 2018 01:45:42 +0100
 
 nvidia-graphics-drivers (384.111-4) unstable; urgency=medium
 
