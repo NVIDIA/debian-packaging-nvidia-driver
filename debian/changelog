@@ -4,6 +4,7 @@ nvidia-graphics-drivers (387.34-4) UNRELEASED; urgency=medium
   * nvidia-modprobe.conf: Consistently handle nvidia-modeset.
   * Merge changes from 384.111-4.
   * Merge changes from 384.111-4~deb9u1 (stretch).
+  * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 20 Jan 2018 04:38:03 +0100
 
