@@ -1,7 +1,9 @@
 nvidia-graphics-drivers (387.34-4) UNRELEASED; urgency=medium
 
   * libcuda1: Add Provides: libcuda-9.1-1{,-i386}.
+  * nvidia-modprobe.conf: Consistently handle nvidia-modeset.
   * Merge changes from 384.111-4.
+  * Merge changes from 384.111-4~deb9u1 (stretch).
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 20 Jan 2018 04:38:03 +0100
 
@@ -12,7 +14,7 @@ nvidia-graphics-drivers (387.34-3) experimental; urgency=medium
 
   [ Andreas Beckmann ]
   * Merge changes from 384.111-1.
-  * Restrict watch file to releases from the 387.xx long lived branch.
+  * Restrict watch file to releases from the 387.xx short lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 12 Jan 2018 12:30:17 +0100
 
@@ -123,6 +125,15 @@ nvidia-graphics-drivers (387.34-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 07 Dec 2017 01:57:08 +0100
+
+nvidia-graphics-drivers (384.111-4~deb9u1) stretch; urgency=medium
+
+  * Rebuild for stretch.
+  * Relax the libvulkan1 (build-)dependency.
+  * Do not conflict with *-glvnd-nvidia, there is no libglvnd in stretch.
+  * Continue recommending the GLESv1 library for stretch.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 26 Feb 2018 01:45:42 +0100
 
 nvidia-graphics-drivers (384.111-4) unstable; urgency=medium
 

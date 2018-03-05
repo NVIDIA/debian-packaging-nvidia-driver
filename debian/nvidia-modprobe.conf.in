@@ -2,11 +2,13 @@ install nvidia modprobe -i #MODULE# $CMDLINE_OPTS
 
 install nvidia-modeset modprobe nvidia ; modprobe -i #MODULE#-modeset $CMDLINE_OPTS
 
-install nvidia-drm modprobe #MODULE#-modeset ; modprobe -i #MODULE#-drm $CMDLINE_OPTS
+install nvidia-drm modprobe nvidia-modeset ; modprobe -i #MODULE#-drm $CMDLINE_OPTS
 
 #HAS_UVM#install nvidia-uvm modprobe nvidia ; modprobe -i #MODULE#-uvm $CMDLINE_OPTS
 
 remove nvidia modprobe -r -i #UNLOAD_MODULES#
+
+remove nvidia-modeset modprobe -r -i nvidia-drm nvidia-modeset
 
 # These aliases are defined in *all* nvidia modules.
 # Duplicating them here sets higher precedence and ensures the selected
