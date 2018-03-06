@@ -76,7 +76,7 @@ nvidia-graphics-drivers (390.12-1) experimental; urgency=medium
 
   [ Andreas Beckmann ]
   * Split nv-readme.ids into nv-readme.ids.common and nv-readme.ids.$ARCH, the
-    GPUs with VDPAU feature set I, e.g. Tesla V100 and Titan V, are only
+    Volta GPUs (VDPAU feature set I), e.g. Tesla V100 and Titan V, are only
     supported on amd64.
   * Upload to experimental.
 
@@ -86,8 +86,7 @@ nvidia-graphics-drivers (387.34-4) unstable; urgency=medium
 
   * libcuda1: Add Provides: libcuda-9.1-1{,-i386}.
   * nvidia-modprobe.conf: Consistently handle nvidia-modeset.
-  * Merge changes from 384.111-4.
-  * Merge changes from 384.111-4~deb9u1 (stretch).
+  * Merge changes from 384.111-4 (unstable), 384.111-4~deb9u1 (stretch).
   * Update lintian overrides.
   * Upload to unstable.
 
