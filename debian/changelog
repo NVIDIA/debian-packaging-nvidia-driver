@@ -1,8 +1,9 @@
-nvidia-graphics-drivers (390.25-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.25-2) unstable; urgency=medium
 
   * Merge changes from 387.34-4.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 05 Mar 2018 05:37:00 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 07 Mar 2018 03:00:11 +0100
 
 nvidia-graphics-drivers (390.25-1) experimental; urgency=medium
 
