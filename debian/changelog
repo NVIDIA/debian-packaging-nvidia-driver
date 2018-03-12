@@ -17,6 +17,7 @@ nvidia-graphics-drivers (390.42-1) UNRELEASED; urgency=medium
   * Install the renamed GLVND libraries and add SONAME symlinks.
   * Update symbols files.
   * Add linux-4.15 patch from Archlinux.  (Closes: #892413)
+  * Remove obsolete bits from README.source.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Mar 2018 16:44:24 +0100
 
