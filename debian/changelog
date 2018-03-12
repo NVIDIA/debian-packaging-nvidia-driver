@@ -1,8 +1,22 @@
-nvidia-graphics-drivers (390.25-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.42-1) UNRELEASED; urgency=medium
 
+  * New upstream long lived branch release 390.42 (2018-03-12).
+    - Fixed a regression, introduced in 390.12, that caused occasional
+      flicker when using the X driver's composition pipeline, for
+      example when using screen transformations like rotation, or the
+      "ForceCompositionPipeline" or "ForceFullCompositionPipeline"
+      options."
+  * New upstream release 384 series.
+    - Fixed a string concatenation bug that caused libGL to accidentally try to
+      create the directory "$HOME.nv" rather than "$HOME/.nv" in some cases
+      where /tmp isn't accessible.  (Closes: #888028)
+    - Increased the version numbers of the GLVND libGL, libGLESv1_CM,
+      libGLESv2, and libEGL libraries, to prevent concurrently installed
+      non-GLVND libraries from taking precedence in the dynamic linker
+      cache.
   * Add linux-4.15 patch from Archlinux.  (Closes: #892413)
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Mar 2018 07:56:46 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Mar 2018 16:44:24 +0100
 
 nvidia-graphics-drivers (390.25-2) unstable; urgency=medium
 
