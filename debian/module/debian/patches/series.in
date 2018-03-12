@@ -1,5 +1,6 @@
 # kernel support
 do-div-cast.patch
+linux-4.15.patch
 
 # build system updates
 use-kbuild-compiler.patch
