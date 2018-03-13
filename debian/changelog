@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (390.42-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.42-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.42 (2018-03-12).
     - Fixed a regression, introduced in 390.12, that caused occasional
@@ -19,7 +19,7 @@ nvidia-graphics-drivers (390.42-1) UNRELEASED; urgency=medium
   * Add linux-4.15 patch from Archlinux.  (Closes: #892413)
   * Remove obsolete bits from README.source.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Mar 2018 16:44:24 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 13 Mar 2018 06:30:27 +0100
 
 nvidia-graphics-drivers (390.25-2) unstable; urgency=medium
 
