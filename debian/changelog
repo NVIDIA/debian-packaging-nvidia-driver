@@ -13,6 +13,9 @@ nvidia-graphics-drivers (384.130-0svn1) UNRELEASED; urgency=medium
       non-GLVND libraries from taking precedence in the dynamic linker
       cache.
 
+  [ Luca Boccassi ]
+  * Install the renamed GLVND libraries and add SONAME symlinks.
+
  -- Luca Boccassi <bluca@debian.org>  Thu, 29 Mar 2018 11:24:33 +0100
 
 nvidia-graphics-drivers (384.111-4~deb9u1) stretch; urgency=medium
