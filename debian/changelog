@@ -17,6 +17,7 @@ nvidia-graphics-drivers (390.48-1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
   * Update nv-readme.ids.
+  * Drop linux-4.15.patch, merged upstream.
 
  -- Luca Boccassi <bluca@debian.org>  Thu, 29 Mar 2018 10:52:32 +0100
 
