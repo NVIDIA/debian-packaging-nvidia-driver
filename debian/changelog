@@ -1,6 +1,9 @@
 nvidia-graphics-drivers (384.130-0svn1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 384.130 (2018-03-28).
+    * Fixed CVE-2018-6249, CVE-2018-625.
+      http://nvidia.custhelp.com/app/answers/detail/a_id/4649
+      (Closes: #894338)
     - Improved compatibility with recent Linux kernels.
     - Fixed a string concatenation bug that caused libGL to accidentally try to
       create the directory "$HOME.nv" rather than "$HOME/.nv" in some cases
