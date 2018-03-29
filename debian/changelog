@@ -15,6 +15,9 @@ nvidia-graphics-drivers (390.48-1) UNRELEASED; urgency=medium
       driver's composition pipeline.  This was mostly fixed in 390.42,
       but now the fix should be more complete.
 
+  [ Luca Boccassi ]
+  * Update nv-readme.ids.
+
  -- Luca Boccassi <bluca@debian.org>  Thu, 29 Mar 2018 10:52:32 +0100
 
 nvidia-graphics-drivers (390.42-1) unstable; urgency=medium
