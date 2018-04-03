@@ -19,6 +19,9 @@ nvidia-graphics-drivers (390.48-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Drop linux-4.15.patch, merged upstream.
 
+  [ Andreas Beckmann ]
+  * Merge changes from 384.130-1 (UNRELEASED).
+
  -- Luca Boccassi <bluca@debian.org>  Thu, 29 Mar 2018 10:52:32 +0100
 
 nvidia-graphics-drivers (390.42-1) unstable; urgency=medium
@@ -29,14 +32,8 @@ nvidia-graphics-drivers (390.42-1) unstable; urgency=medium
       example when using screen transformations like rotation, or the
       "ForceCompositionPipeline" or "ForceFullCompositionPipeline"
       options."
-  * New upstream release 384 series.
-    - Fixed a string concatenation bug that caused libGL to accidentally try to
-      create the directory "$HOME.nv" rather than "$HOME/.nv" in some cases
-      where /tmp isn't accessible.  (Closes: #888028)
-    - Increased the version numbers of the GLVND libGL, libGLESv1_CM,
-      libGLESv2, and libEGL libraries, to prevent concurrently installed
-      non-GLVND libraries from taking precedence in the dynamic linker
-      cache.
+
+  [ Andreas Beckmann ]
   * Install the renamed GLVND libraries and add SONAME symlinks.
   * Update symbols files.
   * Add linux-4.15 patch from Archlinux.  (Closes: #892413)
@@ -60,10 +57,6 @@ nvidia-graphics-drivers (390.25-1) experimental; urgency=medium
     - Fixed a regression introduced in 390.12 that caused occasional hangs and
       hard lockup messages in the system log when screen transformations are in
       use.
-  * New upstream release 340 series.
-    - Fixed a bug which could cause X servers that export a Video Driver
-      ABI earlier than 0.8 to crash when running X11 applications which
-      call XRenderAddTraps().
 
   [ Luca Boccassi ]
   * Update nv-readme.ids.
@@ -251,6 +244,34 @@ nvidia-graphics-drivers (387.34-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 07 Dec 2017 01:57:08 +0100
+
+nvidia-graphics-drivers (384.130-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 384.130 (2018-03-28).
+    * Fixed CVE-2018-6249, CVE-2018-625.
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4649
+      (Closes: #894338)
+    - Improved compatibility with recent Linux kernels.
+    - Fixed a string concatenation bug that caused libGL to accidentally try to
+      create the directory "$HOME.nv" rather than "$HOME/.nv" in some cases
+      where /tmp isn't accessible.  (Closes: #888028)
+    - Increased the version numbers of the GLVND libGL, libGLESv1_CM,
+      libGLESv2, and libEGL libraries, to prevent concurrently installed
+      non-GLVND libraries from taking precedence in the dynamic linker
+      cache.
+  * New upstream release 340 series.
+    - Fixed a bug which could cause X servers that export a Video Driver
+      ABI earlier than 0.8 to crash when running X11 applications which
+      call XRenderAddTraps().
+
+  [ Luca Boccassi ]
+  * Install the renamed GLVND libraries and add SONAME symlinks.
+
+  [ Andreas Beckmann ]
+  * Bump the required glx-diversions/glx-alternative-nvidia version for the
+    renamed GLVND libraries.
+
+ -- Luca Boccassi <bluca@debian.org>  Thu, 29 Mar 2018 11:24:33 +0100
 
 nvidia-graphics-drivers (384.111-4~deb9u1) stretch; urgency=medium
 
@@ -2186,6 +2207,27 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
+
+nvidia-graphics-drivers (340.106-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.106 (2018-01-16).
+    * Fixed CVE-2017-5753, CVE-2017-5715 (spectre), CVE-2017-5754 (meltdown).
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4611
+      (Closes: #886852)
+    - Fixed a compatibility problem between the nvidia.ko's Page Attribute
+      Table (PAT) support and the kernel Page Table Isolation (PTI) patches.
+      To optimize stores to memory, nvidia.ko contains support for
+      configuring the CPU's PAT registers, as a fallback for Linux kernels
+      that predate kernel native PAT support.  On any recent kernel
+      with CONFIG_X86_PAT enabled, the driver will detect that setup has
+      already been done and skip its PAT setup.  However, a static inline
+      function called by nvidia.ko's PAT fallback support was updated in
+      the PTI patches to use the EXPORT_SYMBOL_GPL symbol 'cpu_tlbstate'.
+      nvidia.ko was updated to only contain its PAT fallback support,
+      at build time, on kernels without CONFIG_X86_PAT.
+    * Improved compatibility with recent Linux kernels.
+
+ -- Luca Boccassi <bluca@debian.org>  Tue, 16 Jan 2018 21:08:01 +0000
 
 nvidia-graphics-drivers (340.104-1) UNRELEASED; urgency=medium
 
