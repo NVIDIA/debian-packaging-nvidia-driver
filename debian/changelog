@@ -1,11 +1,11 @@
-nvidia-graphics-drivers (390.48-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.48-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.48 (2018-03-28).
     * Fixed CVE-2018-6249, CVE-2018-625.
-      http://nvidia.custhelp.com/app/answers/detail/a_id/4649
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4649
       (Closes: #894338)
-    - Added support for the following GPUs: Quadro GV100, Tesla V100-SXM2-32GB,
-      Tesla V100-PCIE-32GB, Tesla V100-DGXS-32GB.
+    - Added support for the following GPUs: Quadro GV100, Tesla
+      V100-SXM2-32GB, Tesla V100-PCIE-32GB, Tesla V100-DGXS-32GB.
     - Updated the driver to prevent G-SYNC from being enabled when a
       Quadro Sync board is installed. G-SYNC and Quadro Sync were always
       mutually incompatible features, and this change makes it easier to
@@ -22,7 +22,7 @@ nvidia-graphics-drivers (390.48-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Merge changes from 384.130-1 (UNRELEASED).
 
- -- Luca Boccassi <bluca@debian.org>  Thu, 29 Mar 2018 10:52:32 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Apr 2018 16:17:45 +0200
 
 nvidia-graphics-drivers (390.42-1) unstable; urgency=medium
 
