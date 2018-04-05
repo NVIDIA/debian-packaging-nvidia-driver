@@ -1,7 +1,7 @@
 nvidia-graphics-drivers (390.48-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.48 (2018-03-28).
-    * Fixed CVE-2018-6249, CVE-2018-625.
+    * Fixed CVE-2018-6249, CVE-2018-6253.
       https://nvidia.custhelp.com/app/answers/detail/a_id/4649
       (Closes: #894338)
     - Added support for the following GPUs: Quadro GV100, Tesla
