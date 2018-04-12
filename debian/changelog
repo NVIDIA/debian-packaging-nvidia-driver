@@ -1,3 +1,38 @@
+nvidia-graphics-drivers (396.18-0~svn1) UNRELEASED; urgency=medium
+
+  * New upstream beta 396.18 (2018-04-10).
+    - Updated the SLI Mosaic configuration page in nvidia-settings to make
+      more layout configurations available, including configurations that
+      do not utilize all of the available displays.
+    - Added reporting of EGL information to nvidia-settings.
+    - Added support for a new Vulkan SPIR-V compiler which reduces shader
+      compilation time and shader system memory consumption.
+      A new environment variable can be used to enable (1) (default) or
+      disable (0) the new compiler if errors in existing applications
+      are found: __GL_NextGenCompiler=<int>
+      The following application profile setting with the same definition
+      is also available:
+          { "pattern" : [], "profile" : [ "NextGenCompiler", <int> ] }
+      The old compiler is deprecated and will be removed in a future
+      release.
+    - Updated nvidia-installer to recognize partial libglvnd installations
+      which are missing only optional libraries. This allows the installer
+      to continue installation by default when libglvnd is installed without
+      libOpenGL.so, as is frequently the case with distribution-provided
+      libglvnd installations.
+    - Improved performance of the following Vulkan APIs:
+        * vkAllocateMemory()
+        * vkBindBufferMemory()
+        * vkBindImageMemory()
+    - Fixed a bug that caused the NV_CTRL_STEREO_SWAP_MODE setting for
+      quad-buffered stereo visuals to not be preserved across modesets
+      or VT switches.
+    - Added a new global X configuration option "AllowExternalGpus", which
+      defaults to disabled, but can be enabled to allow eGPUs and other
+      surprise-removable GPUs to be configured with X screens.
+
+ -- Luca Boccassi <bluca@debian.org>  Thu, 12 Apr 2018 23:41:10 +0100
+
 nvidia-graphics-drivers (390.48-2~svn1) UNRELEASED; urgency=medium
 
   * Fix loading nvidia kernel module on Linux 4.16 due to missing symbol.
