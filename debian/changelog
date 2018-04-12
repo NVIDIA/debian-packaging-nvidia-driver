@@ -35,6 +35,7 @@ nvidia-graphics-drivers (396.18-0~svn1) UNRELEASED; urgency=medium
   * Update libnvidia-egl-wayland ABI version to 1.0.3.
   * Update symbols files.
   * Add libnvidia-glvkspirv package for SPIR-V compiler support.
+  * Drop swiotlb.patch, merged upstream.
 
  -- Luca Boccassi <bluca@debian.org>  Thu, 12 Apr 2018 23:41:10 +0100
 
