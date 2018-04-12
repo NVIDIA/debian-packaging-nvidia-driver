@@ -785,6 +785,7 @@ Depends:
  nvidia-vulkan-common,
  libvulkan1 (>= 1.0.42),
  libglx-${nvidia}0 (= ${binary:Version}),
+ lib${nvidia}-glvkspirv (= ${binary:Version}),
  ${misc:Depends}
 Suggests:
  vulkan-utils,
@@ -824,6 +825,7 @@ Depends:
  nvidia-nonglvnd-vulkan-common,
  libvulkan1 (>= 1.0.42),
  libgl1-${nvidia}-glx (= ${binary:Version}),
+ lib${nvidia}-glvkspirv (= ${binary:Version}),
  ${misc:Depends}
 Suggests:
  vulkan-utils,
@@ -838,6 +840,23 @@ Description: NVIDIA Vulkan installable client driver (ICD) (non-GLVND variant)${
  .
  This metapackage provides the NVIDIA installable client driver (ICD) for
  Vulkan (non-GLVND variant) which supports NVIDIA GPUs.
+
+#Package: lib${nvidia}-glvkspirv
+Package: libnvidia-glvkspirv
+Architecture: amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA binary Vulkan Spir-V compiler library${nvidia:LegacyDesc}
+ Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
+ .
+ THis library provides a NVIDIA Vulkan Spir-V compiler which reduces shader
+ compilation time and shader system memory consumption. 
+ .
+ This package contains the private Spir-V libraries used by the NVIDIA
+ implementation of Vulkan.
 
 #Package: lib${nvidia}-cfg1
 Package: libnvidia-cfg1
