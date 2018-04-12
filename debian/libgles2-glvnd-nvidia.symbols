@@ -1,6 +1,21 @@
 libGLESv2.so.2 libgles2 (>= 0.2.999) | libgles2-mesa
+ AllocExecPages@Base 396
+ FindNextStringToken@Base 396
+ FreeExecPages@Base 396
+ IntersectionExtensionStrings@Base 396
+ IsTokenInString@Base 396
 #MISSING: 361# NvClientRedirInit@Base 331
 #MISSING: 361# NvGlEs2Init@Base 331
+ SplitString@Base 396
+ UnionExtensionStrings@Base 396
+ entry_generate_default_code@Base 396
+ entry_get_patch_addresses@Base 396
+ entry_get_public@Base 396
+ entry_init_public@Base 396
+ entry_patch_finish@Base 396
+ entry_patch_start@Base 396
+ entry_stub_size@Base 396
+ entry_type@Base 396
  glActiveShaderProgram@Base 384.111
  glActiveTexture@Base 331
  glAttachShader@Base 331
@@ -359,3 +374,10 @@ libGLESv2.so.2 libgles2 (>= 0.2.999) | libgles2-mesa
  glVertexBindingDivisor@Base 384.111
  glViewport@Base 331
  glWaitSync@Base 337
+ glvnd_asprintf@Base 396
+ glvnd_byte_swap16@Base 396
+ glvnd_vasprintf@Base 396
+ stub_find_public@Base 396
+ stub_get_addr@Base 396
+ stub_get_patch_callbacks@Base 396
+ stub_get_slot@Base 396

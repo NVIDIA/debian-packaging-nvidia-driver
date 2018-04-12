@@ -18,6 +18,7 @@
  glDrawVkImageNV@Base 364
  glGenQueryResourceTagNV@Base 387
  glGenSemaphoresEXT@Base 384.69
+ glGetFeatureivNV@Base 396
  glGetFloati_vOES@Base 378
  glGetMemoryObjectParameterivEXT@Base 384.69
  glGetSemaphoreParameterui64vEXT@Base 384.69
@@ -48,6 +49,7 @@
  glSignalVkSemaphoreNV@Base 364
  glSpecializeShader@Base 387
  glSpecializeShaderARB@Base 367.36.02
+ glTexParametervNVX@Base 396
  glTexStorageMem1DEXT@Base 384.69
  glTexStorageMem2DEXT@Base 384.69
  glTexStorageMem2DMultisampleEXT@Base 384.69

@@ -578,7 +578,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glFramebufferTexture1DEXT@Base 346
  _glFramebufferTexture2D@Base 346
  _glFramebufferTexture2DEXT@Base 346
- _glFramebufferTexture2DMultisampleEXT@Base 390
+#MISSING: 396# _glFramebufferTexture2DMultisampleEXT@Base 390
  _glFramebufferTexture2DOES@Base 346
  _glFramebufferTexture3D@Base 346
  _glFramebufferTexture3DEXT@Base 346
@@ -695,6 +695,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetDoublei_vEXT@Base 346
  _glGetDoublev@Base 346
  _glGetError@Base 346
+ _glGetFeatureivNV@Base 396
  _glGetFenceivNV@Base 346
  _glGetFinalCombinerInputParameterfvNV@Base 346
  _glGetFinalCombinerInputParameterivNV@Base 346
@@ -1984,6 +1985,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glTexParameterfv@Base 346
  _glTexParameteri@Base 346
  _glTexParameteriv@Base 346
+ _glTexParametervNVX@Base 396
  _glTexParameterx@Base 346
  _glTexParameterxv@Base 346
  _glTexRenderbufferNV@Base 346

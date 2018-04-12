@@ -45,6 +45,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuDeviceGetP2PAttribute@Base 361
  cuDeviceGetPCIBusId@Base 285
  cuDeviceGetProperties@Base 169
+ cuDeviceGetUuid@Base 396
  cuDevicePrimaryCtxGetState@Base 346
  cuDevicePrimaryCtxRelease@Base 346
  cuDevicePrimaryCtxReset@Base 346
@@ -303,6 +304,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuStreamCreateWithPriority@Base 319
  cuStreamDestroy@Base 169
  cuStreamDestroy_v2@Base 270
+ cuStreamGetCtx@Base 396
+ cuStreamGetCtx_ptsz@Base 396
  cuStreamGetFlags@Base 319
  cuStreamGetFlags_ptsz@Base 346
  cuStreamGetPriority@Base 319
