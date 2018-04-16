@@ -42,7 +42,7 @@ Importing a New Upstream Release
 Building and Uploading
 
     The easiest way to do this is to pick the architecture on which one
-    can easily build and test (either i386 or amd64) and ensure the
+    can easily build and test (amd64) and ensure the
     package is working there.  Then, do a final package build for upload.
     Note that you don't need an
     NVIDIA card on the system where you're doing the build, but of course
@@ -87,7 +87,7 @@ Testing kernel module compilation
     a corresponding legacy variant) against a range of kernel headers. The
     dkms packages are less suited for semi-automatic testing.
 
-    Initial setup amd64/i386:
+    Initial setup amd64:
     * setup a minimal sid chroot for the target architecture (debootstrap)
     * setup a schroot configuration for easy usage
     * include all releases to be tested in the sources.list

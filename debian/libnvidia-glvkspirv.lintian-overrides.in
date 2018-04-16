@@ -1,10 +1,8 @@
 # The NVIDIA license does not allow any form of modification.
 [!amd64]: binary-file-built-without-LFS-support
-[i386]: shlib-with-non-pic-code
 spelling-error-in-binary
 hardening-no-bindnow
 hardening-no-fortify-functions
-hardening-no-relro
 hardening-no-stackprotector
 
 # The libnvidia-glvkspirv.so.* SONAME changes with every upstream

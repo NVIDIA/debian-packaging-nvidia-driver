@@ -1,6 +1,5 @@
 Author: Andreas Beckmann <anbe@debian.org>
 Description: use KBUILD_CFLAGS and LDFLAGS
- allows building a amd64 kernel module with i386 user space
  skip -Werror=* since that breaks how conftest.sh detects stuff
 
 --- a/Kbuild
