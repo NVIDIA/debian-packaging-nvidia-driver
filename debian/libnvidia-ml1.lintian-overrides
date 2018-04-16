@@ -1,6 +1,5 @@
 # The NVIDIA license does not allow any form of modification.
-[armhf]: binary-file-built-without-LFS-support
-[amd64]: spelling-error-in-binary
+spelling-error-in-binary
 hardening-no-bindnow
 hardening-no-fortify-functions
 hardening-no-relro

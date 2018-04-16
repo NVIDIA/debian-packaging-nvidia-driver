@@ -1,5 +1,4 @@
 # The NVIDIA license does not allow any form of modification.
-[armhf]: binary-file-built-without-LFS-support
 embedded-library usr/lib/#PRIVATE#/nvidia-smi: zlib
 spelling-error-in-binary
 hardening-no-bindnow

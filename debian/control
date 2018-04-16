@@ -30,7 +30,7 @@ XS-Autobuild: yes
 #Package: ${nvidia}-driver
 Package: nvidia-driver
 Section: non-free/x11
-Architecture: amd64 armhf
+Architecture: amd64
 Pre-Depends:
  nvidia-installer-cleanup,
  ${nvidia:legacy-check},
@@ -71,7 +71,7 @@ Description: NVIDIA metapackage${nvidia:LegacyDesc}
 #Package: ${nvidia}-driver-bin
 Package: nvidia-driver-bin
 Section: non-free/x11
-Architecture: amd64 armhf
+Architecture: amd64
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
@@ -96,7 +96,7 @@ Description: NVIDIA driver support binaries${nvidia:LegacyDesc}
 
 #Package: ${nvidia}-driver-libs
 Package: nvidia-driver-libs
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Depends:
  libgl1-${nvidia}-glvnd-glx (= ${binary:Version}),
@@ -130,7 +130,7 @@ Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDe
 
 #Package: ${nvidia}-driver-libs-nonglvnd
 Package: nvidia-driver-libs-nonglvnd
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Depends:
  libgl1-${nvidia}-glx (= ${binary:Version}),
@@ -163,7 +163,7 @@ Description: NVIDIA metapackage (non-GLVND OpenGL/GLX/EGL/GLES libraries)${nvidi
 #Package: xserver-xorg-video-${nvidia}
 Package: xserver-xorg-video-nvidia
 Section: non-free/x11
-Architecture: amd64 armhf
+Architecture: amd64
 Pre-Depends:
  nvidia-installer-cleanup,
  ${nvidia:legacy-check},
@@ -200,7 +200,7 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  for a complete list of supported GPUs and PCI IDs.
 
 Package: nvidia-legacy-check
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: foreign
 Pre-Depends:
  debconf (>= 0.5) | debconf-2.0,
@@ -216,7 +216,7 @@ Description: check for NVIDIA GPUs requiring a legacy driver
  confirm the installation of the current driver line.
 
 Package: libglvnd0-nvidia
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -241,7 +241,7 @@ Description: Vendor neutral GL dispatch library -- libGLdispatch
  provided by NVIDIA.
 
 Package: libopengl0-glvnd-nvidia
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -259,7 +259,7 @@ Description: Vendor neutral GL dispatch library -- libOpenGL
  by NVIDIA which dispatches to vendor implementations via GLVND.
 
 Package: libglx0-glvnd-nvidia
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -279,7 +279,7 @@ Description: Vendor neutral GL dispatch library -- libGLX
 
 #Package: libglx-${nvidia}0
 Package: libglx-nvidia0
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -302,7 +302,7 @@ Description: NVIDIA binary GLX library${nvidia:LegacyDesc}
  that is accessed via GLVND.
 
 Package: libgl1-glvnd-nvidia-glx
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -324,7 +324,7 @@ Description: Vendor neutral GL dispatch library -- libGL
 
 #Package: libgl1-${nvidia}-glvnd-glx
 Package: libgl1-nvidia-glvnd-glx
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Depends:
  libgl1 (>= 0.2.999) | libgl1-glvnd-nvidia-glx,
@@ -346,7 +346,7 @@ Description: NVIDIA binary OpenGL/GLX library (GLVND variant)${nvidia:LegacyDesc
 
 #Package: libgl1-${nvidia}-glx
 Package: libgl1-nvidia-glx
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
@@ -379,7 +379,7 @@ Description: NVIDIA binary OpenGL/GLX library (non-GLVND variant)${nvidia:Legacy
 
 #Package: lib${nvidia}-glcore
 Package: libnvidia-glcore
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -403,7 +403,7 @@ Description: NVIDIA binary OpenGL/GLX core libraries${nvidia:LegacyDesc}
  implementation of OpenGL and GLX.
 
 Package: libegl1-glvnd-nvidia
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -425,7 +425,7 @@ Description: Vendor neutral GL dispatch library -- libEGL
 
 #Package: libegl1-${nvidia}
 Package: libegl1-nvidia
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -442,7 +442,7 @@ Description: NVIDIA binary EGL library (non-GLVND variant)${nvidia:LegacyDesc}
 
 #Package: libegl-${nvidia}0
 Package: libegl-nvidia0
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -462,7 +462,7 @@ Description: NVIDIA binary EGL library${nvidia:LegacyDesc}
  by NVIDIA that is accessed via GLVND.
 
 Package: libgles1-glvnd-nvidia
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -495,7 +495,7 @@ Description: NVIDIA binary OpenGL|ES 1.x GLVND stub library
 #Package: libgles1-${nvidia}
 Package: libgles1-nvidia
 Section: non-free/oldlibs
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -515,7 +515,7 @@ Description: NVIDIA binary OpenGL|ES 1.x library (transitional)${nvidia:LegacyDe
 
 #Package: libgles-${nvidia}1
 Package: libgles-nvidia1
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -540,7 +540,7 @@ Description: NVIDIA binary OpenGL|ES 1.x library${nvidia:LegacyDesc}
  by NVIDIA that is accessed via GLVND.
 
 Package: libgles2-glvnd-nvidia
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -574,7 +574,7 @@ Description: NVIDIA binary OpenGL|ES 2.x GLVND stub library
 #Package: libgles2-${nvidia}
 Package: libgles2-nvidia
 Section: non-free/oldlibs
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -595,7 +595,7 @@ Description: NVIDIA binary OpenGL|ES 2.x library (transitional)${nvidia:LegacyDe
 
 #Package: libgles-${nvidia}2
 Package: libgles-nvidia2
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -622,7 +622,7 @@ Description: NVIDIA binary OpenGL|ES 2.x library${nvidia:LegacyDesc}
 
 #Package: lib${nvidia}-eglcore
 Package: libnvidia-eglcore
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -645,7 +645,7 @@ Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
  implementation of EGL and OpenGL|ES.
 
 Package: nvidia-egl-common
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
@@ -660,7 +660,7 @@ Description: NVIDIA binary EGL driver - common files
 
 #Package: ${nvidia}-egl-icd
 Package: nvidia-egl-icd
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Depends:
  nvidia-egl-common,
@@ -680,7 +680,7 @@ Description: NVIDIA EGL installable client driver (ICD)
  EGL via GLVND which supports NVIDIA GPUs.
 
 Package: libnvidia-egl-wayland1
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -698,7 +698,7 @@ Description: NVIDIA binary Wayland EGL external platform library
  of Wayland as an EGL external platform.
 
 Package: nvidia-egl-wayland-common
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
@@ -712,7 +712,7 @@ Description: NVIDIA binary Wayland EGL external platform - common files
  of Wayland as an EGL external platform.
 
 Package: nvidia-egl-wayland-icd
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Depends:
  nvidia-egl-wayland-common,
@@ -829,7 +829,7 @@ Description: NVIDIA binary Vulkan Spir-V compiler library${nvidia:LegacyDesc}
 
 #Package: lib${nvidia}-cfg1
 Package: libnvidia-cfg1
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -851,7 +851,7 @@ Description: NVIDIA binary OpenGL/GLX configuration library${nvidia:LegacyDesc}
 
 #Package: ${nvidia}-alternative
 Package: nvidia-alternative
-Architecture: amd64 armhf ppc64el
+Architecture: amd64 ppc64el
 Multi-Arch: foreign
 Pre-Depends:
  dpkg (>= 1.17.21),
@@ -887,7 +887,7 @@ Description: allows the selection of NVIDIA as GLX provider${nvidia:LegacyDesc}
 #Package: ${nvidia}-kernel-support
 Package: nvidia-kernel-support
 Section: non-free/kernel
-Architecture: amd64 armhf ppc64el
+Architecture: amd64 ppc64el
 Multi-Arch: foreign
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
@@ -912,7 +912,7 @@ Description: NVIDIA binary kernel module support files${nvidia:LegacyDesc}
 #Package: ${nvidia}-kernel-dkms
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
-Architecture: amd64 armhf ppc64el
+Architecture: amd64 ppc64el
 Multi-Arch: foreign
 Pre-Depends:
  nvidia-installer-cleanup,
@@ -947,7 +947,7 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
 #Package: ${nvidia}-kernel-source
 Package: nvidia-kernel-source
 Section: non-free/kernel
-Architecture: amd64 armhf ppc64el
+Architecture: amd64 ppc64el
 Depends:
  debhelper (>= 9),
  make:any,
@@ -986,7 +986,7 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
 #Package: ${nvidia}-vdpau-driver
 Package: nvidia-vdpau-driver
 Section: non-free/video
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  nvidia-installer-cleanup,
@@ -1019,7 +1019,7 @@ Description: Video Decode and Presentation API for Unix - NVIDIA driver${nvidia:
 #Package: ${nvidia}-smi
 Package: nvidia-smi
 Section: non-free/utils
-Architecture: amd64 armhf ppc64el
+Architecture: amd64 ppc64el
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  lib${nvidia}-ml1 (= ${binary:Version}),
@@ -1038,7 +1038,7 @@ Description: NVIDIA System Management Interface${nvidia:LegacyDesc}
 
 Package: nvidia-cuda-mps
 Section: non-free/utils
-Architecture: amd64 armhf ppc64el
+Architecture: amd64 ppc64el
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA CUDA Multi Process Service (MPS)
@@ -1055,7 +1055,7 @@ Description: NVIDIA CUDA Multi Process Service (MPS)
 
 #Package: ${libcuda1}
 Package: libcuda1
-Architecture: amd64 armhf ppc64el
+Architecture: amd64 ppc64el
 Multi-Arch: same
 Pre-Depends:
  ${nvidia:legacy-check},
@@ -1118,7 +1118,7 @@ Description: NVIDIA runtime compiler library${nvidia:LegacyDesc}
 
 #Package: lib${nvidia}-fatbinaryloader
 Package: libnvidia-fatbinaryloader
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -1134,7 +1134,7 @@ Description: NVIDIA FAT binary loader${nvidia:LegacyDesc}
 
 #Package: lib${nvidia}-ptxjitcompiler1
 Package: libnvidia-ptxjitcompiler1
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -1149,7 +1149,7 @@ Description: NVIDIA PTX JIT Compiler${nvidia:LegacyDesc}
 
 #Package: lib${nvidia}-nvcuvid1
 Package: libnvcuvid1
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -1168,7 +1168,7 @@ Description: NVIDIA CUDA Video Decoder runtime library${nvidia:LegacyDesc}
 
 #Package: lib${nvidia}-encode1
 Package: libnvidia-encode1
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -1183,7 +1183,7 @@ Description: NVENC Video Encoding runtime library${nvidia:LegacyDesc}
 
 #Package: lib${nvidia}-ifr1
 Package: libnvidia-ifr1
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -1200,7 +1200,7 @@ Description: NVIDIA OpenGL-based Inband Frame Readback runtime library${nvidia:L
 
 #Package: lib${nvidia}-fbc1
 Package: libnvidia-fbc1
-Architecture: amd64 armhf
+Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -1217,7 +1217,7 @@ Description: NVIDIA OpenGL-based Framebuffer Capture runtime library${nvidia:Leg
 
 #Package: lib${nvidia}-ml1
 Package: libnvidia-ml1
-Architecture: amd64 armhf ppc64el
+Architecture: amd64 ppc64el
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -1308,7 +1308,7 @@ Description: NVIDIA OpenCL ICD Loader library
 
 Package: nvidia-detect
 Section: non-free/x11
-Architecture: amd64 armhf
+Architecture: amd64
 Depends:
  pciutils,
  ${misc:Depends}

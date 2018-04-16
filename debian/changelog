@@ -20,7 +20,7 @@ nvidia-graphics-drivers (396.18-0~svn1) UNRELEASED; urgency=medium
     - Added a new global X configuration option "AllowExternalGpus", which
       defaults to disabled, but can be enabled to allow eGPUs and other
       surprise-removable GPUs to be configured with X screens.
-    * Drop support for i386:
+    * Drop support for i386 and armhf:
       https://nvidia.custhelp.com/app/answers/detail/a_id/4604
   * New upstream release 390 series.
     - Added support for the following GPUs: Quadro P3200, Quadro P4200.

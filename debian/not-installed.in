@@ -7,7 +7,7 @@ glxext.h
 libGL.la
 libnvidia-gtk2.so.#VERSION#
 libnvidia-gtk3.so.#VERSION#
-#!armhf#libnvidia-tls.so.#VERSION#
+libnvidia-tls.so.#VERSION#
 libnvidia-wfb.so.#VERSION#
 makeself-help-script.sh
 makeself.sh
