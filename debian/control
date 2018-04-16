@@ -10,7 +10,7 @@ Uploaders:
 Vcs-Svn: svn://anonscm.debian.org/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
 Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphics-drivers/
 Build-Depends:
- debhelper (>= 10),
+ debhelper (>= 11),
  dpkg-dev (>= 1.18.8),
  xz-utils,
  dkms,

@@ -40,6 +40,9 @@ nvidia-graphics-drivers (396.18-0~svn1) UNRELEASED; urgency=medium
   * Add libnvidia-glvkspirv package for SPIR-V compiler support.
   * Drop swiotlb.patch, merged upstream.
 
+  [ Andreas Beckmann ]
+  * Switch to debhelper compat level 11.
+
  -- Luca Boccassi <bluca@debian.org>  Thu, 12 Apr 2018 23:41:10 +0100
 
 nvidia-graphics-drivers (390.48-2) unstable; urgency=medium
