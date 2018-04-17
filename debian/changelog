@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.106-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.106-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.106 (2018-01-16).
     * Fixed CVE-2017-5753, CVE-2017-5715 (spectre), CVE-2017-5754 (meltdown).
@@ -42,7 +42,7 @@ nvidia-graphics-drivers (340.106-1) UNRELEASED; urgency=medium
   [ Russ Allbery ]
   * Remove myself from Uploaders.
 
- -- Luca Boccassi <bluca@debian.org>  Tue, 16 Jan 2018 21:08:01 +0000
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 17 Apr 2018 12:45:05 +0200
 
 nvidia-graphics-drivers (340.104-1) UNRELEASED; urgency=medium
 
