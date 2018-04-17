@@ -52,6 +52,7 @@ CONTROL_PREFIXES	 = nvidia-driver nvidia-kernel nvidia-alternative xserver-xorg-
 CONTROL_PREFIXES	+= libnvidia
 CONTROL_PREFIXES	+= libgl1-nvidia
 CONTROL_PREFIXES	+= libglx-nvidia0
+CONTROL_PREFIXES	+= libegl1-nvidia
 CONTROL_PREFIXES	+= libegl-nvidia0
 CONTROL_PREFIXES	+= libgles-nvidia1 libgles-nvidia2
 CONTROL_PREFIXES	+= nvidia-vdpau-driver
