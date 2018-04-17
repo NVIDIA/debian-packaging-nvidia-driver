@@ -18,7 +18,7 @@ XORG_BOUND		?=
 LINUX_KMOD_TESTED	?=
 NVIDIA_LEGACY_CHECK	?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
-ARCH_LIST		?= i386 amd64
+ARCH_LIST		?= amd64
 ARCH_DEPS_i386		?=
 BLOB_ARCH_LIST		?= $(strip $(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)))
 NO_UVM_ARCH_LIST	?=
@@ -87,7 +87,8 @@ xorg_provides	 = xorg-driver-video
 
 .PHONY: autogen prepare patch
 autogen: $(AUTOGEN)
-prepare: autogen unpack-stamp nvidia.ids compare-copyright-license
+prepare: autogen unpack-stamp
+prepare: nvidia.ids compare-copyright-license
 patch: prepare
 
 NVIDIA-Linux-%:
@@ -156,7 +157,8 @@ override_dh_auto_configure: prepare
 #  - module-assistant and make-kpkg
 #  - dkms
 .PHONY: install-into-tmp build-kernel-source-tree build-kernel-dkms-tree kernel-source-tree
-override_dh_auto_install: install-into-tmp build-kernel-source-tree build-kernel-dkms-tree
+override_dh_auto_install: install-into-tmp
+override_dh_auto_install: build-kernel-source-tree build-kernel-dkms-tree
 
 install-into-tmp:
 	# "Install" into debian/tmp.
