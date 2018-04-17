@@ -257,10 +257,10 @@ nvidia-graphics-drivers (387.34-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 07 Dec 2017 01:57:08 +0100
 
-nvidia-graphics-drivers (384.130-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (384.130-1) stretch; urgency=medium
 
   * New upstream long lived branch release 384.130 (2018-03-28).
-    * Fixed CVE-2018-6249, CVE-2018-625.
+    * Fixed CVE-2018-6249, CVE-2018-6253.
       https://nvidia.custhelp.com/app/answers/detail/a_id/4649
       (Closes: #894338)
     - Improved compatibility with recent Linux kernels.
@@ -282,8 +282,9 @@ nvidia-graphics-drivers (384.130-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Bump the required glx-diversions/glx-alternative-nvidia version for the
     renamed GLVND libraries.
+  * Upload to stretch
 
- -- Luca Boccassi <bluca@debian.org>  Thu, 29 Mar 2018 11:24:33 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 17 Apr 2018 14:40:27 +0200
 
 nvidia-graphics-drivers (384.111-4~deb9u1) stretch; urgency=medium
 
@@ -2220,7 +2221,7 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
 
-nvidia-graphics-drivers (340.106-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.106-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.106 (2018-01-16).
     * Fixed CVE-2017-5753, CVE-2017-5715 (spectre), CVE-2017-5754 (meltdown).
@@ -2239,7 +2240,7 @@ nvidia-graphics-drivers (340.106-1) UNRELEASED; urgency=medium
       at build time, on kernels without CONFIG_X86_PAT.
     * Improved compatibility with recent Linux kernels.
 
- -- Luca Boccassi <bluca@debian.org>  Tue, 16 Jan 2018 21:08:01 +0000
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 17 Apr 2018 12:45:05 +0200
 
 nvidia-graphics-drivers (340.104-1) UNRELEASED; urgency=medium
 
