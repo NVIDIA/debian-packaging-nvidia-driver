@@ -15,10 +15,10 @@ XORG_BOUND		?=
 LINUX_KMOD_TESTED	?=
 NVIDIA_LEGACY_CHECK	?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
-ARCH_LIST		?= i386 amd64
+ARCH_LIST		?= amd64
 ARCH_DEPS_i386		?=
 BLOB_ARCH_LIST		?= $(strip $(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)))
-UVM_ARCH_LIST		?= $(ARCH_LIST)
+NO_UVM_ARCH_LIST	?=
 
 NVIDIA_RELEASE		 = $(DEB_VERSION_UPSTREAM)
 version			 = $(NVIDIA_RELEASE)
@@ -28,7 +28,7 @@ nvidia			 = nvidia$(legacy)
 libcuda1		 = lib$(if $(legacy),$(nvidia)-)cuda1
 module			 = nvidia-$(current)
 current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
-has_uvm			 = $(filter $(DEB_HOST_ARCH),$(UVM_ARCH_LIST))
+has_uvm			 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_UVM_ARCH_LIST),$(ARCH_LIST)))
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 legacy_description_short = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy))
@@ -94,7 +94,8 @@ upstream_changelog	 = NVIDIA-Linux-amd64/NVIDIA_Changelog
 
 .PHONY: autogen prepare patch
 autogen: $(AUTOGEN)
-prepare: autogen unpack-stamp nvidia.ids compare-copyright-license
+prepare: autogen unpack-stamp
+prepare: nvidia.ids compare-copyright-license
 patch: prepare
 
 NVIDIA-Linux-%:
@@ -163,7 +164,8 @@ override_dh_auto_configure: prepare
 #  - module-assistant and make-kpkg
 #  - dkms
 .PHONY: install-into-tmp build-kernel-source-tree build-kernel-dkms-tree kernel-source-tree
-override_dh_auto_install: install-into-tmp build-kernel-source-tree build-kernel-dkms-tree
+override_dh_auto_install: install-into-tmp
+override_dh_auto_install: build-kernel-source-tree build-kernel-dkms-tree
 
 install-into-tmp:
 	# "Install" into debian/tmp.
