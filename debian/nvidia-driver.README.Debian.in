@@ -36,7 +36,8 @@ To install the non-glvnd flavour:
 
   aptitude install nvidia-driver-libs-nonglvnd nvidia-nonglvnd-vulkan-common nvidia-driver-libs- nvidia-vulkan-common-
 
-And restart the X session.
+And restart the X session. If multiarch (amd64 + i386) is used, also install
+the :i386 version of the nvidia-driver-libs* package.
 
 Bumblebee users: only the nonglvnd flavour is supported.
 
