@@ -81,8 +81,8 @@ AUTOGEN		+= debian/substvars
 ifeq (,$(filter $(DEB_HOST_ARCH),i386))
 AUTOGEN		+= debian/nv-readme.ids
 AUTOGEN		+= nvidia-amd64.ids
-AUTOGEN		+= $(if $(has_vulkan),glvnd/nvidia_icd.json nonglvnd/nvidia_icd.json)
 endif
+AUTOGEN		+= $(if $(has_vulkan),glvnd/nvidia_icd.json nonglvnd/nvidia_icd.json)
 AUTOKEEP	 = debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
@@ -115,7 +115,9 @@ NVIDIA-Linux-%:
 	gunzip $@/*.1.gz
 
 NVIDIA-Linux-i386: NVIDIA-Linux-amd64
-	ln -s $</32 $@
+	cp -al $</32 $@
+	cp -al $</*.icd $@
+	cp -al $</*.json* $@
 
 # Unpack all architectures, we may need files from all of them.
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))

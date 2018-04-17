@@ -676,7 +676,7 @@ Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
  implementation of EGL and OpenGL|ES.
 
 Package: nvidia-egl-common
-Architecture: amd64
+Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
@@ -762,7 +762,7 @@ Description: NVIDIA Wayland EGL external platform library (ICD)
  external platform.
 
 Package: nvidia-vulkan-common
-Architecture: amd64
+Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
@@ -802,7 +802,7 @@ Description: NVIDIA Vulkan installable client driver (ICD)${nvidia:LegacyDesc}
  Vulkan (GLVND variant) which supports NVIDIA GPUs.
 
 Package: nvidia-nonglvnd-vulkan-common
-Architecture: amd64
+Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
@@ -843,7 +843,7 @@ Description: NVIDIA Vulkan installable client driver (ICD) (non-GLVND variant)${
 
 #Package: lib${nvidia}-glvkspirv
 Package: libnvidia-glvkspirv
-Architecture: amd64
+Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -1287,7 +1287,7 @@ Description: NVIDIA Management Library (NVML) runtime library${nvidia:LegacyDesc
  This package contains the nvidia-ml runtime library.
 
 Package: nvidia-opencl-common
-Architecture: amd64 ppc64el
+Architecture: i386 amd64 ppc64el
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
