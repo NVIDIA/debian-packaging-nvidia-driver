@@ -1,3 +1,24 @@
+nvidia-graphics-drivers (396.18-1) UNRELEASED; urgency=medium
+
+  LEGACY GPUs: If you have a GeForce 410M/510/605/610M/705M/710M/810M/820M,
+  GeForce GT 415M/420/420M/425M/430/435M/440/445M/520/520M/520MX/525M/530,
+  GeForce GT 540M/545/550M/555M/560M/610/620/620M/625/625M/630/630M/635M,
+  GeForce GT 640/640M/645/705/720M/730, GeForce GTS 450,
+  GeForce GTX 460/460M/465/470/470M/480/480M/485M/550/555/560/570/570M/580,
+  GeForce GTX 580M/590/670M/675M, NVS 310/315/4200M/5200M/5400M,
+  Quadro 500M/600/1000M/2000/2000M/3000M/4000/4000M/5000/5000M/5010M/6000,
+  Quadro 7000, Quadro NVS 4200M, Tesla C2050/C2070/C2075/M2070/M2075/M2090,
+  Tesla T20, i.e., any GPU based on the GF100/GF100M/GF100GL/GF100GLM,
+  GF104/GF104M/GF104GLM, GF106/GF106M/GF106GL/GF106GLM,
+  GF108/GF108M/GF108GL/GF108GLM, GF110/GF110GL, GF114/GF114M, GF116/GF116M,
+  GF117M, GF119/GF119M chips or a variant thereof (that is anything from
+  the Fermi architecture),
+  DO NOT INSTALL THIS RELEASE!!!
+  Use the nvidia-legacy-390xx-driver, nvidia-legacy-390xx-kernel-dkms
+  packages instead.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Apr 2018 09:54:08 +0200
+
 nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
 
   LEGACY GPUs: If you have a GRID K340/K1/K2
