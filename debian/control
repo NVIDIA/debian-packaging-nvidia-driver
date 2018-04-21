@@ -676,7 +676,7 @@ Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
  implementation of EGL and OpenGL|ES.
 
 Package: nvidia-egl-common
-Architecture: i386 amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
@@ -729,7 +729,7 @@ Description: NVIDIA binary Wayland EGL external platform library
  of Wayland as an EGL external platform.
 
 Package: nvidia-egl-wayland-common
-Architecture: amd64
+Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}

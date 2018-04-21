@@ -121,6 +121,10 @@ NVIDIA-Linux-i386: NVIDIA-Linux-amd64
 	cp -al $</*.icd $@
 	cp -al $</*.json* $@
 
+NVIDIA-Linux-armhf: NVIDIA-Linux-amd64
+	mkdir $@
+	cp -al $</*.json $@
+
 # Unpack all architectures, we may need files from all of them.
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
 	$(if $(filter $(DEB_HOST_ARCH),$(ARCH_LIST)),,$(error Architecture $(DEB_HOST_ARCH) unsupported.))

@@ -16,6 +16,7 @@ LINUX_KMOD_TESTED_ppc64el=
 
 ARCH_LIST		 = amd64
 ARCH_LIST		+= i386
+ARCH_LIST		+= armhf
 #ARCH_LIST		+= ppc64el
 NO_DRIVER_ARCH_LIST	 = i386 armhf
 UVM_ARCH_LIST		 = amd64 ppc64el
