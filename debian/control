@@ -750,11 +750,12 @@ Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
  nvidia-egl-wayland-common,
- libegl1+eglexternalplatform | libegl-${nvidia}0 (= ${binary:Version}),
+# libegl1+eglexternalplatform |
+ libegl-${nvidia}0 (= ${binary:Version}),
  lib${nvidia}-egl-wayland1 (= ${binary:Version}),
  ${misc:Depends}
-Enhances:
- libegl1+eglexternalplatform,
+#Enhances:
+# libegl1+eglexternalplatform,
 Provides:
  egl-wayland-icd,
 Description: NVIDIA Wayland EGL external platform library (ICD)
