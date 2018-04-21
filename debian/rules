@@ -17,6 +17,7 @@ NVIDIA_LEGACY_CHECK	?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
 ARCH_LIST		?= amd64
 BLOB_ARCH_LIST		?= $(strip $(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)))
+NO_DRIVER_ARCH_LIST	?=
 UVM_ARCH_LIST		?= $(ARCH_LIST)
 VULKAN_ARCH_LIST	?= amd64
 
@@ -28,6 +29,7 @@ nvidia			 = nvidia$(legacy)
 libcuda1		 = lib$(if $(legacy),$(nvidia)-)cuda1
 module			 = nvidia-$(current)
 current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
+has_driver		 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_DRIVER_ARCH_LIST),$(ARCH_LIST)))
 has_uvm			 = $(filter $(DEB_HOST_ARCH),$(UVM_ARCH_LIST))
 has_vulkan		 = $(filter $(DEB_HOST_ARCH),$(VULKAN_ARCH_LIST))
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
@@ -78,7 +80,7 @@ AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOGEN		+= debian/bug-control
 AUTOGEN		+= debian/substvars
-ifeq (,$(filter $(DEB_HOST_ARCH),i386))
+ifneq (,$(has_driver))
 AUTOGEN		+= debian/nv-readme.ids
 AUTOGEN		+= nvidia-amd64.ids
 endif
@@ -104,7 +106,7 @@ upstream_changelog	 = NVIDIA-Linux-amd64/NVIDIA_Changelog
 .PHONY: autogen prepare patch
 autogen: $(AUTOGEN)
 prepare: autogen unpack-stamp
-ifeq (,$(filter $(DEB_HOST_ARCH),i386))
+ifneq (,$(has_driver))
 prepare: nvidia.ids compare-copyright-license
 endif
 patch: prepare
@@ -124,7 +126,7 @@ unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
 	$(if $(filter $(DEB_HOST_ARCH),$(ARCH_LIST)),,$(error Architecture $(DEB_HOST_ARCH) unsupported.))
 	dh_testdir
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
-ifeq (,$(filter $(DEB_HOST_ARCH),i386))
+ifneq (,$(has_driver))
 	QUILT_PATCHES=debian/patches QUILT_SERIES=series-postunpack quilt --quiltrc /dev/null push -a || test $$? = 2
 endif
 	ls -al
@@ -198,7 +200,7 @@ override_dh_auto_configure: prepare
 #  - dkms
 .PHONY: install-into-tmp build-kernel-source-tree build-kernel-dkms-tree kernel-source-tree
 override_dh_auto_install: install-into-tmp
-ifeq (,$(filter $(DEB_HOST_ARCH),i386))
+ifneq (,$(has_driver))
 override_dh_auto_install: build-kernel-source-tree build-kernel-dkms-tree
 endif
 
@@ -208,7 +210,7 @@ install-into-tmp:
 	rm -rf debian/tmp/32
 	rm -rf debian/tmp/libglvnd_install_checker
 	rm -f debian/tmp/NVIDIA_Changelog
-ifeq (,$(filter $(DEB_HOST_ARCH),i386))
+ifneq (,$(has_driver))
 	gzip -9fn debian/tmp/nvidia-smi.1
 endif
 
