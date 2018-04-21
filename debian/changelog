@@ -2,6 +2,8 @@ nvidia-graphics-drivers (390.48-3) UNRELEASED; urgency=medium
 
   * Prepare nvidia-detect for the upcoming nvidia-legacy-390xx packages.
   * Prepare for the removal of i386/armhf support in 396.xx.
+  * Support renamed variants of libnvidia-egl-wayland1/nvidia-egl-wayland-icd
+    in legacy drivers.
   * Restrict watch file to releases from the 390.xx legacy branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Apr 2018 16:38:57 +0200

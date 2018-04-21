@@ -109,7 +109,7 @@ Recommends:
 # libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
- nvidia-egl-wayland-icd (= ${binary:Version}),
+ ${nvidia}-egl-wayland-icd (= ${binary:Version}),
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
  libglvnd0-nvidia,
@@ -157,7 +157,7 @@ Recommends:
  libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
- nvidia-egl-wayland-icd (= ${binary:Version}),
+ ${nvidia}-egl-wayland-icd (= ${binary:Version}),
  ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
  libglvnd0-nvidia,
@@ -710,12 +710,14 @@ Description: NVIDIA EGL installable client driver (ICD)
  This metapackage provides the NVIDIA installable client driver (ICD) for
  EGL via GLVND which supports NVIDIA GPUs.
 
+#Package: lib${nvidia}-egl-wayland1
 Package: libnvidia-egl-wayland1
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Breaks:
  libnvidia-egl-wayland,
@@ -742,13 +744,14 @@ Description: NVIDIA binary Wayland EGL external platform - common files
  This package provides the common files for the NVIDIA implementation
  of Wayland as an EGL external platform.
 
+#Package: ${nvidia}-egl-wayland-icd
 Package: nvidia-egl-wayland-icd
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Depends:
  nvidia-egl-wayland-common,
  libegl1+eglexternalplatform | libegl-${nvidia}0 (= ${binary:Version}),
- libnvidia-egl-wayland1 (= ${binary:Version}),
+ lib${nvidia}-egl-wayland1 (= ${binary:Version}),
  ${misc:Depends}
 Enhances:
  libegl1+eglexternalplatform,
