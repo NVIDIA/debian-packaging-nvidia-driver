@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (396.18-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
   LEGACY GPUs: If you have a GeForce 410M/510/605/610M/705M/710M/810M/820M,
   GeForce GT 415M/420/420M/425M/430/435M/440/445M/520/520M/520MX/525M/530,
@@ -17,7 +17,7 @@ nvidia-graphics-drivers (396.18-1) UNRELEASED; urgency=medium
   Use the nvidia-legacy-390xx-driver, nvidia-legacy-390xx-kernel-dkms
   packages instead.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Apr 2018 09:54:08 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
 
 nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
 
