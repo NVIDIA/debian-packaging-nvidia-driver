@@ -37,7 +37,6 @@ nvidia-graphics-drivers (396.18-0~svn1) UNRELEASED; urgency=medium
   * Drop swiotlb.patch, merged upstream.
 
   [ Andreas Beckmann ]
-  * Switch to debhelper compat level 11.
   * Build i386 library packages from the 32/ folder in the x86_64 .run file.
   * Continue building nvidia-egl-common and nvidia-egl-wayland-common on i386
     and armhf since they are used by legacy drivers.
@@ -45,6 +44,23 @@ nvidia-graphics-drivers (396.18-0~svn1) UNRELEASED; urgency=medium
     nvidia-legacy-390xx-driver for Fermi cards.
 
  -- Luca Boccassi <bluca@debian.org>  Thu, 12 Apr 2018 23:41:10 +0100
+
+nvidia-graphics-drivers (390.48-4) UNRELEASED; urgency=medium
+
+  * Stop building lib*-glvnd-nvidia, now built from the 390xx legacy driver.
+  * Switch to debhelper compat level 11.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 09:41:33 +0200
+
+nvidia-graphics-drivers (390.48-3) unstable; urgency=medium
+
+  * Prepare nvidia-detect for the upcoming nvidia-legacy-390xx packages.
+  * Prepare for the removal of i386/armhf support in 396.xx.
+  * Support renamed variants of libnvidia-egl-wayland1/nvidia-egl-wayland-icd
+    in legacy drivers.
+  * Restrict watch file to releases from the 390.xx legacy branch.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 04:34:11 +0200
 
 nvidia-graphics-drivers (390.48-2) unstable; urgency=medium
 
@@ -60,9 +76,8 @@ nvidia-graphics-drivers (390.48-2) unstable; urgency=medium
 nvidia-graphics-drivers (390.48-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.48 (2018-03-28).
-    * Fixed CVE-2018-6249, CVE-2018-6253.
+    * Fixed CVE-2018-6249, CVE-2018-6253.  (Closes: #894338)
       https://nvidia.custhelp.com/app/answers/detail/a_id/4649
-      (Closes: #894338)
     - Added support for the following GPUs: Quadro GV100, Tesla
       V100-SXM2-32GB, Tesla V100-PCIE-32GB, Tesla V100-DGXS-32GB.
     - Updated the driver to prevent G-SYNC from being enabled when a
@@ -305,10 +320,10 @@ nvidia-graphics-drivers (387.34-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 07 Dec 2017 01:57:08 +0100
 
-nvidia-graphics-drivers (384.130-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (384.130-1) stretch; urgency=medium
 
   * New upstream long lived branch release 384.130 (2018-03-28).
-    * Fixed CVE-2018-6249, CVE-2018-625.
+    * Fixed CVE-2018-6249, CVE-2018-6253.
       https://nvidia.custhelp.com/app/answers/detail/a_id/4649
       (Closes: #894338)
     - Improved compatibility with recent Linux kernels.
@@ -330,8 +345,9 @@ nvidia-graphics-drivers (384.130-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Bump the required glx-diversions/glx-alternative-nvidia version for the
     renamed GLVND libraries.
+  * Upload to stretch
 
- -- Luca Boccassi <bluca@debian.org>  Thu, 29 Mar 2018 11:24:33 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 17 Apr 2018 14:40:27 +0200
 
 nvidia-graphics-drivers (384.111-4~deb9u1) stretch; urgency=medium
 
@@ -2268,7 +2284,7 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
 
-nvidia-graphics-drivers (340.106-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.106-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.106 (2018-01-16).
     * Fixed CVE-2017-5753, CVE-2017-5715 (spectre), CVE-2017-5754 (meltdown).
@@ -2287,7 +2303,7 @@ nvidia-graphics-drivers (340.106-1) UNRELEASED; urgency=medium
       at build time, on kernels without CONFIG_X86_PAT.
     * Improved compatibility with recent Linux kernels.
 
- -- Luca Boccassi <bluca@debian.org>  Tue, 16 Jan 2018 21:08:01 +0000
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 17 Apr 2018 12:45:05 +0200
 
 nvidia-graphics-drivers (340.104-1) UNRELEASED; urgency=medium
 

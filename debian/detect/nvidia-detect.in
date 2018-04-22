@@ -68,6 +68,16 @@ then
 	VERSIONS[384]=384.111
 fi
 
+if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-390xx.ids 2>/dev/null
+then
+	VERSIONS[390]=390.48
+fi
+
+if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-390xx-amd64.ids 2>/dev/null
+then
+	VERSIONS[391]=390.48
+fi
+
 if grep -q -i $NVGA $IDLISTDIR/nvidia.ids 2>/dev/null
 then
        	# 999 means current
@@ -203,6 +213,13 @@ fi
 		elif [[ -n ${VERSIONS[998]} ]]; then
 			echo "Your card is only supported on the amd64 platform, using the current drivers."
 			PACKAGE="nvidia-driver:amd64"
+		elif [[ -n ${VERSIONS[390]} ]]; then
+			echo "Your card is only supported up to the 390 legacy drivers series."
+			PACKAGE="nvidia-legacy-390xx-driver"
+		elif [[ -n ${VERSIONS[391]} ]]; then
+			echo "Your card is only supported on the amd64 platform."
+			echo "Your card is only supported up to the 390 legacy drivers series."
+			PACKAGE="nvidia-legacy-390xx-driver:amd64"
 		elif [[ -n ${VERSIONS[340]} ]]; then
 			echo "Your card is only supported up to the 340 legacy drivers series."
 			PACKAGE="nvidia-legacy-340xx-driver"
