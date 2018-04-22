@@ -20,7 +20,6 @@ Build-Depends:
  libxext6 [!ppc64el],
  quilt,
  po-debconf,
-Build-Conflicts:
  libglvnd-dev,
 Rules-Requires-Root: no
 Standards-Version: 4.1.4
@@ -246,67 +245,67 @@ Description: check for NVIDIA GPUs requiring a legacy driver
  If such hardware is present, a (preseedable) debconf question will be asked to
  confirm the installation of the current driver line.
 
-Package: libglvnd0-nvidia
-Architecture: i386 amd64 armhf
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- glvnd-nvidia-abi-375.20,
-Conflicts:
- libglvnd0,
- libgldispatch0,
-Breaks:
- libgldispatch0-nvidia,
-Replaces:
- libglvnd0,
- libgldispatch0,
- libgldispatch0-nvidia,
-Description: Vendor neutral GL dispatch library -- libGLdispatch
- This is an implementation of the vendor-neutral dispatch layer for
- arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
- .
- This package contains the (binary) GLVND libGLdispatch.so.0 shared library
- provided by NVIDIA.
+#Package: libglvnd0-nvidia
+#Architecture: i386 amd64 armhf
+#Multi-Arch: same
+#Pre-Depends:
+# ${misc:Pre-Depends}
+#Depends:
+# ${shlibs:Depends}, ${misc:Depends}
+#Provides:
+# glvnd-nvidia-abi-375.20,
+#Conflicts:
+# libglvnd0,
+# libgldispatch0,
+#Breaks:
+# libgldispatch0-nvidia,
+#Replaces:
+# libglvnd0,
+# libgldispatch0,
+# libgldispatch0-nvidia,
+#Description: Vendor neutral GL dispatch library -- libGLdispatch
+# This is an implementation of the vendor-neutral dispatch layer for
+# arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
+# .
+# This package contains the (binary) GLVND libGLdispatch.so.0 shared library
+# provided by NVIDIA.
 
-Package: libopengl0-glvnd-nvidia
-Architecture: i386 amd64 armhf
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libopengl0,
-Replaces:
- libopengl0,
-Description: Vendor neutral GL dispatch library -- libOpenGL
- This is an implementation of the vendor-neutral dispatch layer for
- arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
- .
- This package contains the (binary) GLVND libOpenGL.so.0 stub library provided
- by NVIDIA which dispatches to vendor implementations via GLVND.
+#Package: libopengl0-glvnd-nvidia
+#Architecture: i386 amd64 armhf
+#Multi-Arch: same
+#Pre-Depends:
+# ${misc:Pre-Depends}
+#Depends:
+# ${shlibs:Depends}, ${misc:Depends}
+#Conflicts:
+# libopengl0,
+#Replaces:
+# libopengl0,
+#Description: Vendor neutral GL dispatch library -- libOpenGL
+# This is an implementation of the vendor-neutral dispatch layer for
+# arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
+# .
+# This package contains the (binary) GLVND libOpenGL.so.0 stub library provided
+# by NVIDIA which dispatches to vendor implementations via GLVND.
 
-Package: libglx0-glvnd-nvidia
-Architecture: i386 amd64 armhf
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${nvidia}-alternative (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libglx0,
-Replaces:
- libglx0,
-Description: Vendor neutral GL dispatch library -- libGLX
- This is an implementation of the vendor-neutral dispatch layer for
- arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
- .
- This package contains the (binary) GLVND libGLX.so.0 stub library provided by
- NVIDIA which dispatches to vendor implementations (libGLX_*.so.0) via GLVND.
+#Package: libglx0-glvnd-nvidia
+#Architecture: i386 amd64 armhf
+#Multi-Arch: same
+#Pre-Depends:
+# ${misc:Pre-Depends}
+#Depends:
+# ${nvidia}-alternative (= ${binary:Version}),
+# ${shlibs:Depends}, ${misc:Depends}
+#Conflicts:
+# libglx0,
+#Replaces:
+# libglx0,
+#Description: Vendor neutral GL dispatch library -- libGLX
+# This is an implementation of the vendor-neutral dispatch layer for
+# arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
+# .
+# This package contains the (binary) GLVND libGLX.so.0 stub library provided by
+# NVIDIA which dispatches to vendor implementations (libGLX_*.so.0) via GLVND.
 
 #Package: libglx-${nvidia}0
 Package: libglx-nvidia0
@@ -332,26 +331,26 @@ Description: NVIDIA binary GLX library${nvidia:LegacyDesc}
  This package contains the driver specific binary GLX implementation by NVIDIA
  that is accessed via GLVND.
 
-Package: libgl1-glvnd-nvidia-glx
-Architecture: i386 amd64 armhf
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${nvidia}-alternative (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libgl1 (>> 0),
- libgl1-${nvidia}-glx,
-Replaces:
- libgl1 (>> 0),
- libgl1-${nvidia}-glx,
-Description: Vendor neutral GL dispatch library -- libGL
- This is an implementation of the vendor-neutral dispatch layer for
- arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
- .
- This package contains the (binary) GLVND libGL.so.1 stub library provided by
- NVIDIA which dispatches to vendor implementations via GLVND.
+#Package: libgl1-glvnd-nvidia-glx
+#Architecture: i386 amd64 armhf
+#Multi-Arch: same
+#Pre-Depends:
+# ${misc:Pre-Depends}
+#Depends:
+# ${nvidia}-alternative (= ${binary:Version}),
+# ${shlibs:Depends}, ${misc:Depends}
+#Conflicts:
+# libgl1 (>> 0),
+# libgl1-${nvidia}-glx,
+#Replaces:
+# libgl1 (>> 0),
+# libgl1-${nvidia}-glx,
+#Description: Vendor neutral GL dispatch library -- libGL
+# This is an implementation of the vendor-neutral dispatch layer for
+# arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
+# .
+# This package contains the (binary) GLVND libGL.so.1 stub library provided by
+# NVIDIA which dispatches to vendor implementations via GLVND.
 
 #Package: libgl1-${nvidia}-glvnd-glx
 Package: libgl1-nvidia-glvnd-glx
@@ -434,26 +433,26 @@ Description: NVIDIA binary OpenGL/GLX core libraries${nvidia:LegacyDesc}
  This package contains the private core libraries used by the NVIDIA
  implementation of OpenGL and GLX.
 
-Package: libegl1-glvnd-nvidia
-Architecture: i386 amd64 armhf
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${nvidia}-alternative (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libegl1 (>> 0),
- libegl1-${nvidia},
-Replaces:
- libegl1 (>> 0),
- libegl1-${nvidia},
-Description: Vendor neutral GL dispatch library -- libEGL
- This is an implementation of the vendor-neutral dispatch layer for
- arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
- .
- This package contains the (binary) GLVND libEGL.so.1 stub library provided by
- NVIDIA which dispatches to vendor implementations (libEGL_*.so.0) via GLVND.
+#Package: libegl1-glvnd-nvidia
+#Architecture: i386 amd64 armhf
+#Multi-Arch: same
+#Pre-Depends:
+# ${misc:Pre-Depends}
+#Depends:
+# ${nvidia}-alternative (= ${binary:Version}),
+# ${shlibs:Depends}, ${misc:Depends}
+#Conflicts:
+# libegl1 (>> 0),
+# libegl1-${nvidia},
+#Replaces:
+# libegl1 (>> 0),
+# libegl1-${nvidia},
+#Description: Vendor neutral GL dispatch library -- libEGL
+# This is an implementation of the vendor-neutral dispatch layer for
+# arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
+# .
+# This package contains the (binary) GLVND libEGL.so.1 stub library provided by
+# NVIDIA which dispatches to vendor implementations (libEGL_*.so.0) via GLVND.
 
 #Package: libegl1-${nvidia}
 Package: libegl1-nvidia
@@ -493,36 +492,36 @@ Description: NVIDIA binary EGL library${nvidia:LegacyDesc}
  This package contains the driver specific binary EGL implementation provided
  by NVIDIA that is accessed via GLVND.
 
-Package: libgles1-glvnd-nvidia
-Architecture: i386 amd64 armhf
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${nvidia}-alternative (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libgles1 (>> 0),
-Breaks:
- libgles1-nvidia (<< 361),
-Replaces:
- libgles1 (>> 0),
- libgles1-nvidia (<< 361),
-Description: NVIDIA binary OpenGL|ES 1.x GLVND stub library
- OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
- embedded systems - including consoles, phones, appliances and vehicles.
- It contains a subset of OpenGL plus a number of extensions for the
- special needs of embedded systems.
- .
- OpenGL|ES 1.x provides an API for fixed-function hardware.
- .
- See the description of the ${nvidia}-driver package
- or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
- .
- This package contains the (binary) GLVND libGLESv1_CM.so.1 stub library
- provided by NVIDIA which dispatches to vendor implementations
- (libGLESv1_CM_*.so.1) via GLVND.
+#Package: libgles1-glvnd-nvidia
+#Architecture: i386 amd64 armhf
+#Multi-Arch: same
+#Pre-Depends:
+# ${misc:Pre-Depends}
+#Depends:
+# ${nvidia}-alternative (= ${binary:Version}),
+# ${shlibs:Depends}, ${misc:Depends}
+#Conflicts:
+# libgles1 (>> 0),
+#Breaks:
+# libgles1-nvidia (<< 361),
+#Replaces:
+# libgles1 (>> 0),
+# libgles1-nvidia (<< 361),
+#Description: NVIDIA binary OpenGL|ES 1.x GLVND stub library
+# OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
+# embedded systems - including consoles, phones, appliances and vehicles.
+# It contains a subset of OpenGL plus a number of extensions for the
+# special needs of embedded systems.
+# .
+# OpenGL|ES 1.x provides an API for fixed-function hardware.
+# .
+# See the description of the ${nvidia}-driver package
+# or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
+# for a complete list of supported GPUs and PCI IDs.
+# .
+# This package contains the (binary) GLVND libGLESv1_CM.so.1 stub library
+# provided by NVIDIA which dispatches to vendor implementations
+# (libGLESv1_CM_*.so.1) via GLVND.
 
 #Package: libgles1-${nvidia}
 Package: libgles1-nvidia
@@ -571,37 +570,37 @@ Description: NVIDIA binary OpenGL|ES 1.x library${nvidia:LegacyDesc}
  This package contains the driver specific binary OpenGL|ES 1.x implementation
  by NVIDIA that is accessed via GLVND.
 
-Package: libgles2-glvnd-nvidia
-Architecture: i386 amd64 armhf
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${nvidia}-alternative (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Conflicts:
- libgles2 (>> 0),
-Breaks:
- libgles2-nvidia (<< 361),
-Replaces:
- libgles2 (>> 0),
- libgles2-nvidia (<< 361),
-Description: NVIDIA binary OpenGL|ES 2.x GLVND stub library
- OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
- embedded systems - including consoles, phones, appliances and vehicles.
- It contains a subset of OpenGL plus a number of extensions for the
- special needs of embedded systems.
- .
- OpenGL|ES 2.x provides an API for programmable hardware including vertex
- and fragment shaders.
- .
- See the description of the ${nvidia}-driver package
- or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
- .
- This package contains the (binary) GLVND libGLESv2.so.2 stub library
- provided by NVIDIA which dispatches to vendor implementations
- (libGLESv2_*.so.2) via GLVND.
+#Package: libgles2-glvnd-nvidia
+#Architecture: i386 amd64 armhf
+#Multi-Arch: same
+#Pre-Depends:
+# ${misc:Pre-Depends}
+#Depends:
+# ${nvidia}-alternative (= ${binary:Version}),
+# ${shlibs:Depends}, ${misc:Depends}
+#Conflicts:
+# libgles2 (>> 0),
+#Breaks:
+# libgles2-nvidia (<< 361),
+#Replaces:
+# libgles2 (>> 0),
+# libgles2-nvidia (<< 361),
+#Description: NVIDIA binary OpenGL|ES 2.x GLVND stub library
+# OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
+# embedded systems - including consoles, phones, appliances and vehicles.
+# It contains a subset of OpenGL plus a number of extensions for the
+# special needs of embedded systems.
+# .
+# OpenGL|ES 2.x provides an API for programmable hardware including vertex
+# and fragment shaders.
+# .
+# See the description of the ${nvidia}-driver package
+# or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
+# for a complete list of supported GPUs and PCI IDs.
+# .
+# This package contains the (binary) GLVND libGLESv2.so.2 stub library
+# provided by NVIDIA which dispatches to vendor implementations
+# (libGLESv2_*.so.2) via GLVND.
 
 #Package: libgles2-${nvidia}
 Package: libgles2-nvidia
