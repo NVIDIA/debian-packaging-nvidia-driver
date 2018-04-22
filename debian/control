@@ -171,7 +171,7 @@ Breaks:
  ${nvidia}-driver-libs,
  libgl1-${nvidia}-glvnd-glx,
  ${nvidia}-vulkan-icd,
-Description: NVIDIA metapackage (non-GLVND OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
+Description: NVIDIA metapackage (non-GLVND OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDescShort}
  This metapackage depends on the (non-GLVND) NVIDIA binary libraries
  that provide optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server.
@@ -185,9 +185,10 @@ Depends:
  ${misc:Depends}
 Conflicts:
  libgl1-${nvidia}-glx-i386,
-Description: NVIDIA metapackage (non-GLVND OpenGL/GLX/EGL/GLES 32-bit libraries)${nvidia:LegacyDescShort}
+Description: NVIDIA metapackage (non-GLVND OpenGL/EGL/etc. 32-bit libraries)${nvidia:LegacyDescShort}
  This metapackage helps the automatic installation of the 32-bit NVIDIA
- OpenGL/GLX/EGL/GLES libraries when installing ${nvidia}-driver-libs-nonglvnd
+ OpenGL/GLX/EGL/GLES libraries when installing
+ ${nvidia}-driver-libs-nonglvnd
  on amd64 with foreign architecture i386 enabled.
 
 #Package: xserver-xorg-video-${nvidia}
@@ -843,7 +844,7 @@ Provides:
  vulkan-icd,
 Conflicts:
  ${nvidia}-vulkan-icd,
-Description: NVIDIA Vulkan installable client driver (ICD) (non-GLVND variant)${nvidia:LegacyDesc}
+Description: NVIDIA Vulkan ICD (non-GLVND variant)${nvidia:LegacyDesc}
  Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
  .
  This metapackage provides the NVIDIA installable client driver (ICD) for
