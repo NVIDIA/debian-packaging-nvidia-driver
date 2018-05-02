@@ -14,6 +14,9 @@ nvidia-graphics-drivers (396.24-1~svn1) UNRELEASED; urgency=medium
       This support is required for running Linux VMs with recent versions of
       the pci_hyperv driver on top of Hyper-V.
 
+  [ Luca Boccassi ]
+  * Update nv-readme.ids.
+
  -- Luca Boccassi <bluca@debian.org>  Wed, 02 May 2018 20:10:29 +0100
 
 nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
