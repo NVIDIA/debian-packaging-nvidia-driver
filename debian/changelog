@@ -1,3 +1,21 @@
+nvidia-graphics-drivers (396.24-1~svn1) UNRELEASED; urgency=medium
+
+  * New upstream short lived branch release 396.24 (2018-05-02).
+    - Fixed a regression that caused the current MetaMode's ViewPortIn and
+      ViewPortOut settings to be preserved across RandR modesets. The driver now
+      clears ViewPortIn and ViewPortOut when the mode is set through RandR,
+      restoring the behavior that existed prior to the regression.
+    - Improved error reporting in the Vulkan driver if
+      libnvidia-glvkspirv.so, the new Vulkan SPIR-V compiler added in
+      396.18, cannot be found at run time.
+    - Fixed performance regressions and corruption issues in the new Vulkan
+      SPIR-V compiler.
+    - Added support for 32-bit PCI domains throughout the NVIDIA driver stack.
+      This support is required for running Linux VMs with recent versions of
+      the pci_hyperv driver on top of Hyper-V.
+
+ -- Luca Boccassi <bluca@debian.org>  Wed, 02 May 2018 20:10:29 +0100
+
 nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
   * New upstream beta 396.18 (2018-04-10).
