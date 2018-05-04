@@ -22,6 +22,9 @@ nvidia-graphics-drivers (396.24-1~svn1) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Update nv-readme.ids.
 
+  [ Andreas Beckmann ]
+  * Add xorg-video-abi-24 as alternative dependency.
+
  -- Luca Boccassi <bluca@debian.org>  Wed, 02 May 2018 20:10:29 +0100
 
 nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
