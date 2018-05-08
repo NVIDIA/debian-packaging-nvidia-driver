@@ -748,4 +748,3 @@ Description: NVIDIA GPU detection utility
  system and recommends one of the non-free accelerated driver meta-packages
  (nvidia-glx, nvidia-glx-legacy-173xx, or nvidia-glx-legacy-96xx)
  for installation.
-
