@@ -12,6 +12,7 @@ nvidia-graphics-drivers (390.59-1~svn1) UNRELEASED; urgency=medium
   * Drop swiotlb.patch, fixed upstream.
   * Update nv-readme.ids.
   * Update symbols files.
+  * Add xorg-video-abi-24 as alternative dependency.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 09:41:33 +0200
 
