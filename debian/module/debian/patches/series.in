@@ -1,6 +1,5 @@
 # kernel support
 do-div-cast.patch
-swiotlb.patch
 
 # build system updates
 use-kbuild-compiler.patch

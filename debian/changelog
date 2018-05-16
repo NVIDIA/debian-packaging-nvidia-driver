@@ -4,8 +4,12 @@ nvidia-graphics-drivers (390.59-1~svn1) UNRELEASED; urgency=medium
     - Added support for the following GPUs: GeForce GTX 1050 with Max-Q Design,
       Tesla V100-FHHL-16GB, Quadro P3200, Quadro P4200.
 
+  [ Andreas Beckmann ]
   * Stop building lib*-glvnd-nvidia, now built from the 390xx legacy driver.
   * Switch to debhelper compat level 11.
+
+  [ Luca Boccassi ]
+  * Drop swiotlb.patch, fixed upstream.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 09:41:33 +0200
 
