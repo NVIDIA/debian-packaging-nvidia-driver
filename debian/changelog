@@ -76,6 +76,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Use https:// URLs where possible (375.82-8).
   * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
     long Description (384.111-4).
+  * Convert packaging repository from SVN to GIT.
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
@@ -4072,4 +4073,3 @@ nvidia-graphics-drivers (1.0.4363-1) unstable; urgency=low
     <mmagallo@debian.org>. Thanks. (closes: #192312, #192311)
 
  -- Randall Donald <rdonald@debian.org>  Fri,  9 May 2003 14:51:15 -0700
-
