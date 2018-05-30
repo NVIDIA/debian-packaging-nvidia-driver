@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (340.106-2) UNRELEASED; urgency=medium
+
+  * Convert packaging repository from SVN to GIT.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 31 May 2018 01:43:43 +0200
+
 nvidia-graphics-drivers (340.106-1) jessie; urgency=medium
 
   * New upstream legacy 340xx branch release 340.106 (2018-01-16).
@@ -5558,4 +5564,3 @@ nvidia-graphics-drivers (1.0.4363-1) unstable; urgency=low
     <mmagallo@debian.org>. Thanks. (closes: #192312, #192311)
 
  -- Randall Donald <rdonald@debian.org>  Fri,  9 May 2003 14:51:15 -0700
-
