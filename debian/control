@@ -7,8 +7,8 @@ Uploaders:
  Andreas Beckmann <anbe@debian.org>,
  Vincent Cheng <vcheng@debian.org>,
  Luca Boccassi <bluca@debian.org>,
-Vcs-Svn: svn://anonscm.debian.org/pkg-nvidia/packages/nvidia-graphics-drivers/trunk
-Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-nvidia/packages/nvidia-graphics-drivers/
+Vcs-Browser: https://salsa.debian.org/nvidia-team/nvidia-graphics-drivers
+Vcs-Git: https://salsa.debian.org/nvidia-team/nvidia-graphics-drivers.git
 Build-Depends:
  debhelper (>= 10),
  dpkg-dev (>= 1.18.8),
@@ -621,4 +621,3 @@ Description: NVIDIA GPU detection utility
  system and recommends one of the non-free accelerated driver meta-packages
  (nvidia-driver, nvidia-legacy-340xx-driver, or nvidia-legacy-304xx-driver)
  for installation.
-
