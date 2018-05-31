@@ -17,6 +17,9 @@ nvidia-graphics-drivers (390.59-1) UNRELEASED; urgency=medium
   * Bump xserver-xorg-core dependency to << 2:1.20.99 for ABI 24.
     (Closes: #900112)
 
+  [ Andreas Beckmann ]
+  * Convert packaging repository from SVN to GIT.
+
  -- Luca Boccassi <bluca@debian.org>  Sat, 26 May 2018 19:14:30 +0100
 
 nvidia-graphics-drivers (390.48-3) unstable; urgency=medium
@@ -7961,4 +7964,3 @@ nvidia-graphics-drivers (1.0.4363-1) unstable; urgency=low
     <mmagallo@debian.org>. Thanks. (closes: #192312, #192311)
 
  -- Randall Donald <rdonald@debian.org>  Fri,  9 May 2003 14:51:15 -0700
-
