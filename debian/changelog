@@ -1,3 +1,19 @@
+nvidia-graphics-drivers (390.59-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 390.59 (2018-05-16).
+    - Added support for the following GPUs: GeForce GTX 1050 with Max-Q Design,
+      Tesla V100-FHHL-16GB, Quadro P3200, Quadro P4200.
+
+  [ Luca Boccassi ]
+  * Drop swiotlb.patch, fixed upstream.
+  * Update nv-readme.ids.
+  * Update symbols files.
+  * Add xorg-video-abi-24 as alternative dependency.
+  * Bump xserver-xorg-core dependency to << 2:1.20.99 for ABI 24.
+    (Closes: #900112)
+
+ -- Luca Boccassi <bluca@debian.org>  Sat, 26 May 2018 19:14:30 +0100
+
 nvidia-graphics-drivers (390.48-3) unstable; urgency=medium
 
   * Prepare nvidia-detect for the upcoming nvidia-legacy-390xx packages.
