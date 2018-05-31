@@ -1,14 +1,19 @@
 libOpenGL.so.0 libopengl0 | #PACKAGE# #MINVER#
-#MISSING: 361# AllocExecPages@Base 355
-#MISSING: 361# FreeExecPages@Base 355
-#MISSING: 361# entry_generate_default_code@Base 355
-#MISSING: 361# entry_get_patch_addresses@Base 355
-#MISSING: 361# entry_get_public@Base 355
-#MISSING: 361# entry_init_public@Base 355
-#MISSING: 361# entry_patch_finish@Base 355
-#MISSING: 361# entry_patch_start@Base 355
-#MISSING: 361# entry_stub_size@Base 355
-#MISSING: 361# entry_type@Base 355
+ AllocExecPages@Base 390.59
+ FindNextStringToken@Base 390.59
+ FreeExecPages@Base 390.59
+ IntersectionExtensionStrings@Base 390.59
+ IsTokenInString@Base 390.59
+ SplitString@Base 390.59
+ UnionExtensionStrings@Base 390.59
+ entry_generate_default_code@Base 390.59
+ entry_get_patch_addresses@Base 390.59
+ entry_get_public@Base 390.59
+ entry_init_public@Base 390.59
+ entry_patch_finish@Base 390.59
+ entry_patch_start@Base 390.59
+ entry_stub_size@Base 390.59
+ entry_type@Base 390.59
  glAccum@Base 355
 #MISSING: 361# glActiveProgramEXT@Base 355
  glActiveShaderProgram@Base 355
@@ -1363,12 +1368,13 @@ libOpenGL.so.0 libopengl0 | #PACKAGE# #MINVER#
 #MISSING: 361# glWindowPos4ivMESA@Base 355
 #MISSING: 361# glWindowPos4sMESA@Base 355
 #MISSING: 361# glWindowPos4svMESA@Base 355
-#MISSING: 361# glvnd_asprintf@Base 355
-#MISSING: 361# glvnd_byte_swap16@Base 355
+ glvnd_asprintf@Base 390.59
+ glvnd_byte_swap16@Base 390.59
+ glvnd_vasprintf@Base 390.59
 #MISSING: 361# public_entry_end@Base 355
 #MISSING: 361# public_entry_start@Base 355
-#MISSING: 361# stub_find_public@Base 355
-#MISSING: 361# stub_get_addr@Base 355
+ stub_find_public@Base 390.59
+ stub_get_addr@Base 390.59
 #MISSING: 361# stub_get_name@Base 355
-#MISSING: 361# stub_get_patch_callbacks@Base 355
-#MISSING: 361# stub_get_slot@Base 355
+ stub_get_patch_callbacks@Base 390.59
+ stub_get_slot@Base 390.59
