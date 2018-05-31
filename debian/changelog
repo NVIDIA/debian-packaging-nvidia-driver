@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.106-1~svn4deb9stretch) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.106-2~git4deb9stretch) UNRELEASED; urgency=medium
 
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
@@ -21,7 +21,7 @@ nvidia-graphics-drivers (340.106-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * disable-preempt_rt_sanity_check.patch: Remove, unsupported upstream.
   * build-module-packages.sh: Skip PREEMPT_RT (*-rt-*) kernels, unsupported
     upstream (375.82-2).
-  * Bump Standards-Version to 4.1.3. No changes needed.
+  * Bump Standards-Version to 4.1.4. No changes needed.
   * nvidia-alternative: Explicitly use interest-await triggers (375.82-2).
   * Switch from dh_install --list-missing to dh_missing (375.82-2).
   * Use dpkg makefile snippets instead of manual changelog parsing (375.82-2).
@@ -29,6 +29,12 @@ nvidia-graphics-drivers (340.106-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Add #tls# substitution for the tls/ source directory (384.111-1).
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 17 Jan 2018 16:47:43 +0100
+
+nvidia-graphics-drivers (340.106-2~git4deb8jessie) UNRELEASED; urgency=medium
+
+  * Convert packaging repository from SVN to GIT.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 31 May 2018 01:43:43 +0200
 
 nvidia-graphics-drivers (340.106-1) jessie; urgency=medium
 
@@ -1900,6 +1906,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * Use https:// URLs where possible (375.82-8).
   * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
     long Description (384.111-4).
+  * Convert packaging repository from SVN to GIT.
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
@@ -5896,4 +5903,3 @@ nvidia-graphics-drivers (1.0.4363-1) unstable; urgency=low
     <mmagallo@debian.org>. Thanks. (closes: #192312, #192311)
 
  -- Randall Donald <rdonald@debian.org>  Fri,  9 May 2003 14:51:15 -0700
-
