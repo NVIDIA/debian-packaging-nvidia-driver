@@ -165,6 +165,9 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlUnitGetTemperature@Base 270
  nvmlUnitGetUnitInfo@Base 270
  nvmlUnitSetLedState@Base 270
+ nvmlVgpuInstanceGetAccountingMode@Base 390.59
+ nvmlVgpuInstanceGetAccountingPids@Base 390.59
+ nvmlVgpuInstanceGetAccountingStats@Base 390.59
 #MISSING: 375# nvmlVgpuInstanceGetDecoderUtilization@Base 370
  nvmlVgpuInstanceGetEncoderCapacity@Base 375.66
  nvmlVgpuInstanceGetEncoderSessions@Base 384
