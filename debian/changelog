@@ -1,6 +1,25 @@
-nvidia-graphics-drivers (390.59-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.67-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 390.67 (2018-06-05).
+    - Fixed a bug that could cause kernel panics when using Quadro SDI
+      Capture hardware.
+    - Fixed an intermittent crash when launching Vulkan applications.
+    - Fixed an intermittent crash when launching applications through Wine.
+    - Fixed a bug that caused the driver, in some low bandwidth DisplayPort
+      configurations, to not implicitly enable display dithering.  This
+      resulted in visible banding.
+
+  [ Andreas Beckmann ]
+  * Convert packaging repository from SVN to GIT.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 20:41:28 +0200
+
+nvidia-graphics-drivers (390.59-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.59 (2018-05-16).
+    - Fixed intermittent hangs of fullscreen Vulkan applications when focused
+      away (e.g., by using the alt-tab key combination) on non-composited
+      desktops.
     - Added support for the following GPUs:
       GeForce GTX 1050 with Max-Q Design, Tesla V100-FHHL-16GB, Quadro P3200,
       Quadro P4200.
@@ -16,9 +35,6 @@ nvidia-graphics-drivers (390.59-1) UNRELEASED; urgency=medium
   * Add xorg-video-abi-24 as alternative dependency.
   * Bump xserver-xorg-core dependency to << 2:1.20.99 for ABI 24.
     (Closes: #900112)
-
-  [ Andreas Beckmann ]
-  * Convert packaging repository from SVN to GIT.
 
  -- Luca Boccassi <bluca@debian.org>  Sat, 26 May 2018 19:14:30 +0100
 
