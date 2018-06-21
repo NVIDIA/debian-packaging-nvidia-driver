@@ -15,10 +15,6 @@ nvidia-graphics-drivers (390.59-1) unstable; urgency=medium
     - Improved nvidia-bug-report.sh to check for kern.log which is the default
       kernel log-file location for many Debian-based Linux distributions.
 
-  [ Andreas Beckmann ]
-  * Stop building lib*-glvnd-nvidia, now built from the 390xx legacy driver.
-  * Switch to debhelper compat level 11.
-
   [ Luca Boccassi ]
   * Drop swiotlb.patch, fixed upstream.
   * Update nv-readme.ids.
@@ -28,6 +24,13 @@ nvidia-graphics-drivers (390.59-1) unstable; urgency=medium
     (Closes: #900112)
 
  -- Luca Boccassi <bluca@debian.org>  Sat, 26 May 2018 19:14:30 +0100
+
+nvidia-graphics-drivers (390.48-4) UNRELEASED; urgency=medium
+
+  * Stop building lib*-glvnd-nvidia, now built from the 390xx legacy driver.
+  * Switch to debhelper compat level 11.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 09:41:33 +0200
 
 nvidia-graphics-drivers (390.48-3) unstable; urgency=medium
 
