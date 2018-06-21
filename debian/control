@@ -1134,6 +1134,8 @@ Provides:
  libcuda-9.0-1-i386 [i386],
  libcuda-9.1-1,
  libcuda-9.1-1-i386 [i386],
+ libcuda-9.2-1,
+ libcuda-9.2-1-i386 [i386],
 Homepage: https://www.nvidia.com/CUDA
 Description: NVIDIA CUDA Driver Library${nvidia:LegacyDesc}
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
