@@ -12,6 +12,7 @@ nvidia-graphics-drivers (390.67-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Convert packaging repository from SVN to GIT.
   * Update nv-readme.ids.
+  * nvidia-detect: Drop support for wheezy(-lts) (EoL).
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 20:41:28 +0200
 
