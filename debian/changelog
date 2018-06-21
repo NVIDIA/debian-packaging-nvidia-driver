@@ -1,8 +1,17 @@
-nvidia-graphics-drivers (340.106-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.107-1) UNRELEASED; urgency=medium
 
+  * New upstream legacy 340xx branch release 340.107 (2018-06-06).
+    - Added support for X.Org xserver ABI 24 (xorg-server 1.20).
+    - Improved nvidia-bug-report.sh to check for kern.log which is the default
+      kernel log-file location for many Debian-based Linux distributions.
+    - Fixed a bug which could cause X servers that export a Video Driver
+      ABI earlier than 0.8 to crash when running X11 applications which
+      call XRenderAddTraps().
+
+  [ Andreas Beckmann ]
   * Convert packaging repository from SVN to GIT.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 31 May 2018 01:43:43 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 22:28:56 +0200
 
 nvidia-graphics-drivers (340.106-1) jessie; urgency=medium
 
@@ -195,7 +204,7 @@ nvidia-graphics-drivers (340.93-0+deb8u1) jessie; urgency=medium
       playback application using the overlay presentation queue in VDPAU.
     - Fixed a rare deadlock condition when running applications that use
       OpenGL in multiple threads on a Quadro GPU.
-    - Fixed a bug which caused truncation of the EGLAttribEXT value returned
+    - Fixed a bug which caused truncation of the EGLAttrib value returned
       by eglQueryDeviceAttribEXT() on 64-bit systems.
     - Fixed a kernel memory leak that occurred when looping hardware-
       accelerated video decoding with VDPAU on Maxwell-based GPUs.
@@ -1194,9 +1203,9 @@ nvidia-graphics-drivers (319.49-1) UNRELEASED; urgency=low
       to the Linux driver package. This library provides a high performance,
       low latency interface to capture and optionally encode an individual
       OpenGL framebuffer. NvIFROpenGL captures pixels rendered by OpenGL only
-      and is ideally suited to application capture and remoting.
-    - Fixed a bug that caused applications using CUDA-GL interop to crash
-      when run on X servers with Xinerama enabled.
+      and is ideally suited to application capture and remote access.
+    - Fixed a bug that caused applications using CUDA-GL interoperability to
+      crash when run on X servers with Xinerama enabled.
     - Fixed a bug that could prevent some double-bit ECC errors from being
       properly reported.
     - Fixed a bug which could cause a blank screen when changing house sync
@@ -1367,7 +1376,7 @@ nvidia-graphics-drivers (319.17-1) experimental; urgency=low
       Quadro GPUs.
     - Added support for dynamic mode management through RandR, e.g. via
       the --newmode, --rmmode, and --delmode options in xrandr(1).
-    - Increased the number of pages that are shareable across multiple
+    - Increased the number of pages that can be shared across multiple
       processes in the x86 build of libnvidia-glcore.so, by reducing its
       R_386_PC32 relocation count.
     - Fixed a bug that caused XVideo applications to receive BadAlloc errors
@@ -1445,7 +1454,7 @@ nvidia-graphics-drivers (313.18-1) experimental; urgency=low
     - Fixed several OpenGL driver bugs related to stencil-only framebuffer
       objects.
   * New upstream beta 313.09 (2012-12-11).
-    - Updated the NVIDIA X driver to reprobe displays when VT-switching to
+    - Updated the NVIDIA X driver to re-probe displays when VT-switching to
       X, to allow reporting of hotplug events when displays are connected
       or disconnected while VT-switched away from X.
     - Added unofficial GLX protocol support (i.e for GLX indirect rendering)
@@ -2009,7 +2018,7 @@ nvidia-graphics-drivers (304.84-1) unstable; urgency=low
       unplugging the last connected monitor.
     - Added support for X.org xserver ABI 14 (xorg-server 1.14).
     - Fixed font rendering performance and corruption problems on X servers with
-      backported support for the new glyph cache functionality added to Pixman
+      back-ported support for the new glyph cache functionality added to Pixman
       0.27.
     - Fixed a potential X server crash during initialization, when a
       graphics card with a TV connector has no TV connected.
@@ -2116,7 +2125,7 @@ nvidia-graphics-drivers (304.60-1) unstable; urgency=low
     - Added support for the "Backlight" RandR output property for
       configuring the brightness of some notebook internal panels.
     - Fixed a bug that prevented the Ubuntu Unity launcher panel from
-      unhiding: https://bugs.launchpad.net/unity/+bug/1057000
+      revealing: https://bugs.launchpad.net/unity/+bug/1057000
     - Fixed a bug that caused incorrect input transformation after resizing
       an NVIDIA X screen with xserver ABI 12 (xorg-server 1.12) or newer.
     - Fixed a bug that caused GLX to leak memory when Xinerama is
@@ -2186,7 +2195,7 @@ nvidia-graphics-drivers (304.48-2) unstable; urgency=low
 nvidia-graphics-drivers (304.48-1) unstable; urgency=low
 
   * New upstream long lived branch release 304.48 (2012-09-11).
-    - Fixed RandR per-CRTC gamma persistence across modeswitches and
+    - Fixed RandR per-CRTC gamma persistence across mode-switches and
       VT-switches.
     - Fixed a bug that caused the X server to sometimes hang in response to
       input events.  (Closes: #684941)
@@ -3326,7 +3335,7 @@ nvidia-graphics-drivers (275.09-1) experimental; urgency=low
     - Fixed a bug that caused corruption on the menus in OpenOffice.org when the
       screen is rotated.
     - Improved performance of certain memory allocations.
-    - Fixed a bug that caused Java2D widgets to disappear when Java is
+    - Fixed a bug that caused Java 2D widgets to disappear when Java is
       configured to render using FBOs.
     - Added a new X configuration option "BaseMosaic" which can be used to
       extend a single X screen transparently across all of the available
@@ -3595,8 +3604,8 @@ nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
   * New upstream release 260.19.06 (2010-09-15).
     - Fixed an interaction problem with a change in X server behavior that
       caused slow text rendering on X.Org xserver 1.9.
-    - Enhanced VDPAU to support interop with CUDA and OpenGL when Xinerama
-      is active.
+    - Enhanced VDPAU to support interoperability with CUDA and OpenGL when
+      Xinerama is active.
     - Fixed a bug in VDPAU that prevented temporal-spatial de-interlacing from
       operating when temporal de-interlacing was not also enabled.
     - Added support for configuring the dithering depth used when driving
