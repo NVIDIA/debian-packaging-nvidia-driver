@@ -13,6 +13,9 @@ nvidia-graphics-drivers (390.67-1) UNRELEASED; urgency=medium
   * Convert packaging repository from SVN to GIT.
   * Update nv-readme.ids.
   * nvidia-detect: Drop support for wheezy(-lts) (EoL).
+  * Add NEWS entry for using the driver on Linux 4.16.16-1 or newer, which may
+    require the kernel boot option slab_common.usercopy_fallback=y as a
+    workaround.  (See #901919 for details.)
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 20:41:28 +0200
 
