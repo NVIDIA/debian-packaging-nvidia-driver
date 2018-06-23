@@ -12,11 +12,13 @@ Building "bleeding edge" from SVN for users
     may be different and may not support clean upgrades from/to the versions
     uploaded in the archive.
 
+
 Importing a New Upstream Release
 
-    The *.orig.tar.gz file for nvidia-graphics-drivers contains just a
-    directory named nvidia-graphics-drivers-<version> containing the
-    upstream .run files for amd64, i386, and maybe armhf.
+    The orig tarballs for nvidia-graphics-drivers are split by
+    architecture. The *.orig.tar.gz file contains just an empty directory
+    and the *.orig-<arch>.tar.gz files contain the upstream .run file for
+    the corresponding architecture.
     Everything else comes from the Subversion repository for the package.
 
     Use the following steps to update to a new upstream release:
@@ -29,25 +31,13 @@ Importing a New Upstream Release
 
           debchange --distribution UNRELEASED --newversion <version>-1
 
-    * Download the driver archives and create a new .orig.tar.gz
+    * Download the driver archives and create new .orig*.tar.gz
 
           debian/rules get-orig-source
 
-      Alternatively do it manually:
-      - Download the .run files for i386 and amd64 from upstream.
-      - mkdir nvidia-graphics-drivers-<version>.orig and place package files
-        in that directory.  Make them executable.  Then, create the orig
-        tarball with:
-            tar czvf nvidia-graphics-drivers_<version>.orig.tar.gz
-
-    * For generating tarballs of older versions first set WATCH_VERSION in
-      debian/rules.defs appropriately and regenerate debian/watch.
-
-    * Edit debian/module/conftest.h if necessary for kernel compatibility
-      and test.
-
-    * Add the new *.orig.tar.gz to the tarballs directory in the svn
+    * Add the new *.orig*.tar.gz to the tarballs directory in the svn
       repository: svn://svn.debian.org/svn/pkg-nvidia/tarballs
+
 
 Building and Uploading
 
@@ -68,15 +58,15 @@ Using the nks-history.git repository for upstreams changelog and the non-blob
 parts of the kernel module
 
     This repository is intended to simplify extracting upstream changelog
-    updates and reimplementing the conftest.sh script as conftest.h.
+    updates.
 
     To setup an initial clone of this repository run these two commands in
     an empty directory:
 
-      git clone git+ssh://git.debian.org/git/pkg-nvidia/nks-history.git history
-      git clone git+ssh://git.debian.org/git/pkg-nvidia/nks-history.git --reference history -b scripts scripts
+      git clone https://salsa.debian.org/nvidia-team/nks-history.git history
+      git clone https://salsa.debian.org/nvidia-team/nks-history.git --reference history -b scripts scripts
 
-    To importing the changelog and module source of a new release follow
+    To import the changelog and module source of a new release follow
     these instructions:
 
     * Change to the scripts directory.
@@ -86,7 +76,7 @@ parts of the kernel module
       gitk. If something was wrong or a parent was missing, edit 'versions'
       and run ./00import-history again. Repeat until you are happy.
     * Commit 'versions' and push both repositories (scripts and history).
-    * Update debian/changelog and conftest.h with data from nks-history.
+    * Update debian/changelog with data from nks-history.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 09 Nov 2014 14:49:10 +0100
 
