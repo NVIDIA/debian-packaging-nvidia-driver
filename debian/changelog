@@ -28,6 +28,9 @@ nvidia-graphics-drivers (340.107-1~git4deb9stretch) UNRELEASED; urgency=medium
   * Simplify upstream changelog handling (375.82-5).
   * Add #tls# substitution for the tls/ source directory (384.111-1).
   * Add xorg-video-abi-24 (xserver 1.20) as alternative dependency.
+  * nvidia-drm-outputclass.conf: Prepend (in a backwards-compatible way)
+      ModulePath "/usr/lib/xorg/modules/linux"
+    since xserver 1.20 no longer does that.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 22:28:56 +0200
 
