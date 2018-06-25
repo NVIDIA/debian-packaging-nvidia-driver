@@ -65,13 +65,13 @@ fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia.ids 2>/dev/null
 then
-       	# 999 means current
+	# 999 means current
 	VERSIONS[999]=$LATEST
 fi
 
 
 if [[ ${#VERSIONS[*]} == 0 ]]; then
-       	echo "Uh oh. Your card is not supported by any driver version up to $LATEST."
+	echo "Uh oh. Your card is not supported by any driver version up to $LATEST."
 	echo "A newer driver may add support for your card."
 	echo "Newer driver releases may be available in backports, unstable or experimental."
 	return
@@ -91,7 +91,7 @@ fi
 		if [[ -n ${VERSIONS[304]} ]]; then
 			if [[ -n ${VERSIONS[173]} ]]; then
 				if [[ -n ${VERSIONS[96]} ]]; then
-				       	echo "Your card is supported by all driver versions.";
+					echo "Your card is supported by all driver versions.";
 				else
 					echo "Your card is supported by the default drivers and legacy driver series 173.";
 				fi;
@@ -144,7 +144,7 @@ fi
 		if [[ -n ${VERSIONS[999]} ]]; then
 			if [[ -n ${VERSIONS[340]} ]]; then
 				if [[ -n ${VERSIONS[304]} ]]; then
-				       	echo "Your card is supported by all driver versions."
+					echo "Your card is supported by all driver versions."
 				else
 					echo "Your card is supported by the default drivers and legacy driver series 340."
 				fi

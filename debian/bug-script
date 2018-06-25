@@ -21,7 +21,7 @@ if [ -e /proc/driver/nvidia/version ]; then
 fi
 
 if (lspci --version) > /dev/null 2>&1; then
-  	echo "lspci 'display controller [030?]':"
+	echo "lspci 'display controller [030?]':"
 	for device in $(lspci -mn | awk '{ if ($2 ~ "\"030[0-2]\"") { print $1 } }'); do
 		LC_ALL=C lspci -vvnn -s $device
 	done
