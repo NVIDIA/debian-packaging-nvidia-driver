@@ -16,10 +16,10 @@ nvidia-graphics-drivers (390.67-1) UNRELEASED; urgency=medium
   * Add NEWS entry for using the driver on Linux 4.16.16-1 or newer, which may
     require the kernel boot option slab_common.usercopy_fallback=y as a
     workaround.  (See #901919 for details.)
-  * Add xorg-video-abi-24 (xserver 1.20) as alternative dependency.
   * nvidia-drm-outputclass.conf: Prepend (in a backwards-compatible way)
       ModulePath "/usr/lib/xorg/modules/linux"
     since xserver 1.20 no longer does that.
+    (Closes: #900248, #900264, #900378, #900766)
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 20:41:28 +0200
 
