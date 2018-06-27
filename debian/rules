@@ -34,7 +34,7 @@ has_vulkan		 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_VULKAN_ARCH_LIST),$(A
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 legacy_description_short = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy))
-watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
+watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),\d[\d\.\-]*)
 
 # this needs the internal names (i.e. upstream's names, not our renamed files)
 unload_modules		 =
