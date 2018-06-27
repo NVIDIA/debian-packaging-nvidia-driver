@@ -33,7 +33,7 @@ has_uvm			 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_UVM_ARCH_LIST),$(ARCH_L
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 legacy_description_short = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy))
-watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),[\d\.\-]+)
+watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),\d[\d\.\-]*)
 
 # system libdir
 libdir			?= usr/lib/$(DEB_HOST_MULTIARCH)
