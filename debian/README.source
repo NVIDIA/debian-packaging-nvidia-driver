@@ -1,4 +1,4 @@
-Building "bleeding edge" from SVN for users
+Building "bleeding edge" from GIT for users
 
     As new upstream versions of the proprietary driver are released, upload
     might not happen immediately. This might be for various reasons, including
@@ -6,11 +6,49 @@ Building "bleeding edge" from SVN for users
     Users wishing to try to build new version locally can follow the
     instructions on the Debian wiki:
 
-    https://wiki.debian.org/NvidiaGraphicsDrivers#Building_newer_releases_from_SVN
+    https://wiki.debian.org/NvidiaGraphicsDrivers#Building_newer_releases_from_GIT
 
     WARNING: these will most likely be work in progress, and the final upload
     may be different and may not support clean upgrades from/to the versions
     uploaded in the archive.
+
+
+The branch structure in the GIT repository
+
+    The following branches exist in the git repository:
+
+    branch                    upload to           merge into
+                              (compatible with)   (reintegrate into)
+
+    {71,96,173}xx/*     EoL
+    304                 EoL   wheezy              304-jessie
+    304-jessie          EoL   (jessie)            304-stretch, 340, 304xx/jessie
+    304-stretch         EoL   (stretch)           340-stretch, 304xx/master
+    304xx/jessie        EoL   jessie              304xx/master
+    304xx/master        EoL   stretch,sid
+    340                       jessie              340-stretch
+    340-stretch               (stretch,sid)       390, 340xx/master
+    340xx/master              stretch,sid
+    390                       stretch             master
+    390xx/master              sid
+    master                    sid                 YYY
+    YYY                       experimental        ZZZ, (master)
+    ZZZ                       experimental        (master)
+    *-backports               *-backports
+    ABCxx/*-backports         *-backports
+
+    New upstream releases (XXX.yy) are always imported into the XXX branch.
+    If this branch does not yet exist, fork it from ZZZ or master (but do
+    not adjust the debian-branch in gbp.conf for non-persistent branches).
+
+    Try to avoid creating XXX-$testing (and ABCxx/$testing) branches as
+    long as possible by postponing stable-incompatible changes in branches
+    currently used used for both stable and sid.
+
+    Minor updates, fixes and features should always go to the oldest branch
+    where they are applicable, i.e. 340-stretch (or 340) in most cases.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 23 Jun 2018 23:17:07 +0200
 
 
 Importing a New Upstream Release
@@ -19,7 +57,7 @@ Importing a New Upstream Release
     architecture. The *.orig.tar.gz file contains just an empty directory
     and the *.orig-<arch>.tar.gz files contain the upstream .run file for
     the corresponding architecture.
-    Everything else comes from the Subversion repository for the package.
+    Everything else comes from the GIT repository for the package.
 
     Use the following steps to update to a new upstream release:
 
@@ -35,6 +73,7 @@ Importing a New Upstream Release
 
           debian/rules get-orig-source
 
+    !TODO!
     * Add the new *.orig*.tar.gz to the tarballs directory in the svn
       repository: svn://svn.debian.org/svn/pkg-nvidia/tarballs
 

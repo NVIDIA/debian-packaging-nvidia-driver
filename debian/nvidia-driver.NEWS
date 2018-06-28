@@ -19,6 +19,15 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
 
+nvidia-graphics-drivers (390.67-1) unstable; urgency=medium
+
+  For using the NVIDIA driver on Linux 4.16.16-1 or newer, the following
+  kernel boot option may be needed as a workaround for #901919:
+    slab_common.usercopy_fallback=y
+  See https://bugs.debian.org/901919 for details.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Jun 2018 12:32:19 +0200
+
 nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
 
   LEGACY GPUs: If you have a GRID K340/K1/K2

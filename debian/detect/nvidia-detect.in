@@ -80,19 +80,19 @@ fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia.ids 2>/dev/null
 then
-       	# 999 means current
+	# 999 means current
 	VERSIONS[999]=$LATEST
 fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia-amd64.ids 2>/dev/null
 then
-       	# 998 means current, but amd64-only
+	# 998 means current, but amd64-only
 	VERSIONS[998]=$LATEST
 fi
 
 
 if [[ ${#VERSIONS[*]} == 0 ]]; then
-       	echo "Uh oh. Your card is not supported by any driver version up to $LATEST."
+	echo "Uh oh. Your card is not supported by any driver version up to $LATEST."
 	echo "A newer driver may add support for your card."
 	echo "Newer driver releases may be available in backports, unstable or experimental."
 	return
@@ -109,32 +109,7 @@ fi
 		echo "Uh oh. You are running Squeeze, which is no longer supported."
 	elif grep -q "wheezy\|^7" /etc/debian_version;
 	then
-		if [[ -n ${VERSIONS[304]} ]]; then
-			if [[ -n ${VERSIONS[173]} ]]; then
-				if [[ -n ${VERSIONS[96]} ]]; then
-				       	echo "Your card is supported by all driver versions.";
-				else
-					echo "Your card is supported by the default drivers and legacy driver series 173.";
-				fi;
-			else
-				echo "Your card is supported by the default drivers.";
-			fi;
-			PACKAGE="nvidia-glx"
-		elif [[ -n ${VERSIONS[999]} ]]; then
-			echo "Your card is only supported by the updated drivers from wheezy-backports."
-			echo "See https://backports.debian.org for instructions how to use backports."
-			PACKAGE="nvidia-driver/wheezy-backports"
-		elif [[ -n ${VERSIONS[173]} ]]; then
-			echo "Your card is only supported up to the 173.14 legacy drivers series.";
-			PACKAGE="nvidia-glx-legacy-173xx"
-		elif [[ -n ${VERSIONS[96]} ]]; then
-			echo "Your card is only supported up to the 96.43 legacy drivers series.";
-			PACKAGE="nvidia-glx-legacy-96xx"
-		elif [[ -n ${VERSIONS[71]} ]]; then
-			echo "Uh oh. Your card is only supported by the 71.86 legacy drivers series, which is not in any current Debian suite.";
-		else
-			echo "Oops. Internal error 7 ($NVGA)"
-		fi;
+		echo "Uh oh. You are running Wheezy, which is no longer supported."
 	elif grep -q "jessie\|^8" /etc/debian_version
 	then
 		if [[ -n ${VERSIONS[340]} ]]; then
@@ -165,7 +140,7 @@ fi
 		if [[ -n ${VERSIONS[384]} ]]; then
 			if [[ -n ${VERSIONS[340]} ]]; then
 				if [[ -n ${VERSIONS[304]} ]]; then
-				       	echo "Your card is supported by all driver versions."
+					echo "Your card is supported by all driver versions."
 				else
 					echo "Your card is supported by the default drivers and legacy driver series 340."
 				fi
@@ -200,11 +175,11 @@ fi
 	elif grep -q "buster\|^10\|bullseye|^11" /etc/debian_version
 	then
 		if [[ -n ${VERSIONS[999]} ]]; then
-			if [[ -n ${VERSIONS[340]} ]]; then
-				if [[ -n ${VERSIONS[304]} ]]; then
-				       	echo "Your card is supported by all driver versions."
+			if [[ -n ${VERSIONS[390]} ]]; then
+				if [[ -n ${VERSIONS[340]} ]]; then
+					echo "Your card is supported by all driver versions."
 				else
-					echo "Your card is supported by the default drivers and legacy driver series 340."
+					echo "Your card is supported by the default drivers and legacy driver series 390."
 				fi
 			else
 				echo "Your card is supported by the default drivers."
@@ -224,9 +199,7 @@ fi
 			echo "Your card is only supported up to the 340 legacy drivers series."
 			PACKAGE="nvidia-legacy-340xx-driver"
 		elif [[ -n ${VERSIONS[304]} ]]; then
-			echo "Your card is only supported up to the 304 legacy drivers series."
-			echo "*** THIS END-OF-LIFE THIS DRIVER WILL NOT BE PART OF BUSTER ***"
-			PACKAGE="nvidia-legacy-304xx-driver"
+			echo "Your card is only supported by the 304 legacy drivers series, which is only available up to stretch."
 		elif [[ -n ${VERSIONS[173]} ]]; then
 			echo "Uh oh. Your card is only supported by the 173.14 legacy drivers series, which is not in any current Debian suite."
 		elif [[ -n ${VERSIONS[96]} ]]; then

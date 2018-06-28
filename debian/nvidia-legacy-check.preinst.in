@@ -183,7 +183,7 @@ check_for_unsupported_gpus()
 		trap ':' EXIT
 		wait $sleeppid
 		echo "Checking for legacy NVIDIA GPUs appears to hang, try rebooting with 'acpi=off'" >&2
-	       	echo "added to the kernel boot options in the GRUB configuration." >&2
+		echo "added to the kernel boot options in the GRUB configuration." >&2
 	) &
 	msgpid=$!
 
