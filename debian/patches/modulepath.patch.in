@@ -1,7 +1,5 @@
 Author: Andreas Beckmann <anbe@debian.org>
-Description: prepend /usr/lib/xorg/modules/linux to ModulePath
- This is no longer done by xserver 1.20.
-
+Description: prepend /usr/lib/#PRIVATE#/modules to ModulePath
  The alternate solution, putting the ModulePath directive in the
  OutputClass section, only works with xserver 1.20 onwards and is
  therefore not backwards-compatible to stretch.
@@ -13,7 +11,7 @@ Description: prepend /usr/lib/xorg/modules/linux to ModulePath
  # kernel module is loaded before the X server is started.
  
 +Section "Files"
-+    ModulePath     "/usr/lib/xorg/modules/linux"
++    ModulePath     "/usr/lib/#PRIVATE#/modules"
 +    ModulePath     "/usr/lib/xorg/modules"
 +EndSection
 +

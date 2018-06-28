@@ -47,7 +47,6 @@ if [ "$1" = "triggered" ]; then
 		$(add_multiarch_slave /usr/lib nvidia/ libGLESv1_CM.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib nvidia/ libGLESv2.so.2 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib nvidia/ libnvidia-cfg.so.1 /usr/lib #PRIVATE#/)
-		$(add_slave /usr/lib/nvidia/libglx.so libglx.so /usr/lib/#PRIVATE#/libglx.so)
 		$(add_slave /usr/lib/nvidia/nvidia_drv.so nvidia_drv.so /usr/lib/#PRIVATE#/nvidia_drv.so)
 		$(add_multiarch_slave /usr/lib vdpau/ libvdpau_nvidia.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libGLX_nvidia.so.0 /usr/lib #PRIVATE#/)

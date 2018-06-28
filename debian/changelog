@@ -16,6 +16,7 @@ nvidia-graphics-drivers (396.24-1~git1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * libcuda1: Add Provides: libcuda-9.2-1{,-i386}.
+  * Move libglx.so to /usr/lib/nvidia/current/modules.
 
  -- Luca Boccassi <bluca@debian.org>  Wed, 02 May 2018 20:10:29 +0100
 
