@@ -1,19 +1,37 @@
-nvidia-graphics-drivers (390.59-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.67-1) unstable; urgency=medium
 
+  * New upstream long lived branch release 390.67 (2018-06-05).
+    - Fixed a bug that could cause kernel panics when using Quadro SDI
+      Capture hardware.
+    - Fixed an intermittent crash when launching Vulkan applications.
+    - Fixed an intermittent crash when launching applications through Wine.
+    - Fixed a bug that caused the driver, in some low bandwidth DisplayPort
+      configurations, to not implicitly enable display dithering.  This
+      resulted in visible banding.
+
+  [ Andreas Beckmann ]
   * Convert packaging repository from SVN to GIT.
+  * Update nv-readme.ids.
+  * nvidia-detect: Drop support for wheezy(-lts) (EoL).
+  * Add NEWS entry for using the driver on Linux 4.16.16-1 or newer, which may
+    require the kernel boot option slab_common.usercopy_fallback=y as a
+    workaround.  (See #901919 for details.)
+  * nvidia-drm-outputclass.conf: Prepend (in a backwards-compatible way)
+      ModulePath "/usr/lib/xorg/modules/linux"
+    since xserver 1.20 no longer does that.
+    (Closes: #900248, #900264, #900378, #900766)
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 31 May 2018 03:04:38 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Jun 2018 12:32:19 +0200
 
 nvidia-graphics-drivers (390.59-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.59 (2018-05-16).
+    - Fixed intermittent hangs of fullscreen Vulkan applications when focused
+      away (e.g., by using the alt-tab key combination) on non-composited
+      desktops.
     - Added support for the following GPUs:
       GeForce GTX 1050 with Max-Q Design, Tesla V100-FHHL-16GB, Quadro P3200,
       Quadro P4200.
-  * New upstream release 340 series.
-    - Added support for X.Org xserver ABI 24 (xorg-server 1.20).
-    - Improved nvidia-bug-report.sh to check for kern.log which is the default
-      kernel log-file location for many Debian-based Linux distributions.
 
   [ Luca Boccassi ]
   * Drop swiotlb.patch, fixed upstream.
@@ -314,10 +332,6 @@ nvidia-graphics-drivers (384.130-1) stretch; urgency=medium
       libGLESv2, and libEGL libraries, to prevent concurrently installed
       non-GLVND libraries from taking precedence in the dynamic linker
       cache.
-  * New upstream release 340 series.
-    - Fixed a bug which could cause X servers that export a Video Driver
-      ABI earlier than 0.8 to crash when running X11 applications which
-      call XRenderAddTraps().
 
   [ Luca Boccassi ]
   * Install the renamed GLVND libraries and add SONAME symlinks.
@@ -2263,6 +2277,18 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
+
+nvidia-graphics-drivers (340.107-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.107 (2018-06-06).
+    - Added support for X.Org xserver ABI 24 (xorg-server 1.20).
+    - Improved nvidia-bug-report.sh to check for kern.log which is the default
+      kernel log-file location for many Debian-based Linux distributions.
+    - Fixed a bug which could cause X servers that export a Video Driver
+      ABI earlier than 0.8 to crash when running X11 applications which
+      call XRenderAddTraps().
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 22:28:56 +0200
 
 nvidia-graphics-drivers (340.106-1) jessie; urgency=medium
 
