@@ -1,3 +1,13 @@
+nvidia-graphics-drivers (390.67-2) UNRELEASED; urgency=high
+
+  * Add kmem_cache_create_usercopy.patch from Red Hat, fixing "Bad or missing
+    usercopy whitelist? Kernel memory exposure attempt detected from SLUB
+    object 'nvidia_stack_cache'" on Linux kernels that have disabled
+    CONFIG_HARDENED_USERCOPY_FALLBACK (i.e. linux-image-4.16.0-2-* or newer).
+    (Closes: #901919)
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 03 Jul 2018 21:18:17 +0200
+
 nvidia-graphics-drivers (390.67-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.67 (2018-06-05).
