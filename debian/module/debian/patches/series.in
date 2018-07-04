@@ -1,5 +1,6 @@
 # kernel support
 unregister_procfs_on_failure.patch
+kmem_cache_create_usercopy.patch
 buildfix_kernel_4.11.patch
 buildfix_kernel_5.2.patch
 

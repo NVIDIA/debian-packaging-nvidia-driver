@@ -28,6 +28,11 @@ nvidia-graphics-drivers (340.108-1) UNRELEASED; urgency=medium
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
+  * Backport kmem_cache_create_usercopy.patch from 390.67-2 for the 340.xx
+    series, fixing "Bad or missing usercopy whitelist? Kernel memory exposure
+    attempt detected from SLUB object 'nvidia_stack_cache'" on Linux kernels
+    that have disabled CONFIG_HARDENED_USERCOPY_FALLBACK
+    (i.e. linux-image-4.16.0-2-* or newer).
   * Add buildfix_kernel_4.11.patch (replacing vm-fault.patch) and (parts of)
     buildfix_kernel_5.2.patch from Ubuntu to fix more vm-fault issues during
     kernel module build for Linux 5.2+.
