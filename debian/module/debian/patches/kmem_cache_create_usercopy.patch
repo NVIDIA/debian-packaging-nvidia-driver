@@ -7,20 +7,24 @@ Origin: vendor, https://bugzilla.redhat.com/show_bug.cgi?id=1570493
 Bug-Debian: #901919
 Bug: https://devtalk.nvidia.com/default/topic/1031067
 
-diff -urp work.orig/kernel/common/inc/nv-linux.h work/kernel/common/inc/nv-linux.h
---- a/common/inc/nv-linux.h	2017-09-29 06:17:46.000000000 +0200
-+++ b/common/inc/nv-linux.h	2017-10-08 00:52:42.721523788 +0200
-@@ -1189,7 +1189,8 @@ extern void *nvidia_stack_t_cache;
+--- a/common/inc/nv-linux.h
++++ b/common/inc/nv-linux.h
+@@ -1088,7 +1088,13 @@ extern void *nvidia_stack_t_cache;
  #if (NV_KMEM_CACHE_CREATE_ARGUMENT_COUNT == 5)
  #define NV_KMEM_CACHE_CREATE_FULL(name, size, align, flags, ctor) \
      kmem_cache_create(name, size, align, flags, ctor)
 -
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 16, 0)
 +#define NV_KMEM_CACHE_CREATE_FULL_USERCOPY(name, size, align, flags, useroffset, usersize, ctor) \
 +    kmem_cache_create_usercopy(name, size, align, flags, useroffset, usersize, ctor)
++#else
++#define NV_KMEM_CACHE_CREATE_FULL_USERCOPY(name, size, align, flags, useroffset, usersize, ctor) \
++    kmem_cache_create(name, size, align, flags, ctor)
++#endif
  #else
  #define NV_KMEM_CACHE_CREATE_FULL(name, size, align, flags, ctor) \
      kmem_cache_create(name, size, align, flags, ctor, NULL)
-@@ -1198,6 +1199,9 @@ extern void *nvidia_stack_t_cache;
+@@ -1097,6 +1103,9 @@ extern void *nvidia_stack_t_cache;
  #define NV_KMEM_CACHE_CREATE(name, type)    \
      NV_KMEM_CACHE_CREATE_FULL(name, sizeof(type), 0, 0, NULL)
  
@@ -30,10 +34,9 @@ diff -urp work.orig/kernel/common/inc/nv-linux.h work/kernel/common/inc/nv-linux
  #define NV_KMEM_CACHE_DESTROY(kmem_cache)   \
      kmem_cache_destroy(kmem_cache)
  
-diff -urp work.orig/kernel/nvidia/nv.c work/kernel/nvidia/nv.c
---- a/nvidia/nv.c	2017-09-29 06:17:45.000000000 +0200
-+++ b/nvidia/nv.c	2017-10-08 00:52:42.721523788 +0200
-@@ -682,7 +682,7 @@ int __init nvidia_init_module(void)
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -793,7 +793,7 @@ int __init nvidia_init_module(void)
  
      nv_memdbg_init();
  
