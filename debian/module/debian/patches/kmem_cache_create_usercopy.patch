@@ -1,0 +1,47 @@
+Author: Kees Cook
+Description: use kmem_cache_create_usercopy
+ fixes "Bad or missing usercopy whitelist? Kernel memory exposure attempt
+ detected from SLUB object 'nvidia_stack_cache'" on linux-image-4.16.0-2-*
+ or newer that have disabled CONFIG_HARDENED_USERCOPY_FALLBACK
+Origin: vendor, https://bugzilla.redhat.com/show_bug.cgi?id=1570493
+Bug-Debian: #901919
+Bug: https://devtalk.nvidia.com/default/topic/1031067
+
+--- a/common/inc/nv-linux.h
++++ b/common/inc/nv-linux.h
+@@ -1088,7 +1088,13 @@ extern void *nvidia_stack_t_cache;
+ #if (NV_KMEM_CACHE_CREATE_ARGUMENT_COUNT == 5)
+ #define NV_KMEM_CACHE_CREATE_FULL(name, size, align, flags, ctor) \
+     kmem_cache_create(name, size, align, flags, ctor)
+-
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 16, 0)
++#define NV_KMEM_CACHE_CREATE_FULL_USERCOPY(name, size, align, flags, useroffset, usersize, ctor) \
++    kmem_cache_create_usercopy(name, size, align, flags, useroffset, usersize, ctor)
++#else
++#define NV_KMEM_CACHE_CREATE_FULL_USERCOPY(name, size, align, flags, useroffset, usersize, ctor) \
++    kmem_cache_create(name, size, align, flags, ctor)
++#endif
+ #else
+ #define NV_KMEM_CACHE_CREATE_FULL(name, size, align, flags, ctor) \
+     kmem_cache_create(name, size, align, flags, ctor, NULL)
+@@ -1097,6 +1103,9 @@ extern void *nvidia_stack_t_cache;
+ #define NV_KMEM_CACHE_CREATE(name, type)    \
+     NV_KMEM_CACHE_CREATE_FULL(name, sizeof(type), 0, 0, NULL)
+ 
++#define NV_KMEM_CACHE_CREATE_USERCOPY(name, type)    \
++    NV_KMEM_CACHE_CREATE_FULL_USERCOPY(name, sizeof(type), 0, 0, 0, sizeof(type), NULL)
++
+ #define NV_KMEM_CACHE_DESTROY(kmem_cache)   \
+     kmem_cache_destroy(kmem_cache)
+ 
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -793,7 +793,7 @@ int __init nvidia_init_module(void)
+ 
+     nv_memdbg_init();
+ 
+-    nvidia_stack_t_cache = NV_KMEM_CACHE_CREATE(nvidia_stack_cache_name,
++    nvidia_stack_t_cache = NV_KMEM_CACHE_CREATE_USERCOPY(nvidia_stack_cache_name,
+                                                 nvidia_stack_t);
+     if (nvidia_stack_t_cache == NULL)
+     {
