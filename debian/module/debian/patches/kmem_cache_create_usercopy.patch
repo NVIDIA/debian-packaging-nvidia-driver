@@ -1,5 +1,5 @@
 Author: Kees Cook
-Description: use mem_cache_create_usercopy
+Description: use kmem_cache_create_usercopy
  fixes "Bad or missing usercopy whitelist? Kernel memory exposure attempt
  detected from SLUB object 'nvidia_stack_cache'" on linux-image-4.16.0-2-*
  or newer that have disabled CONFIG_HARDENED_USERCOPY_FALLBACK
