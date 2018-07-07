@@ -1,0 +1,79 @@
+Author: Luca Boccassi <bluca@debian.org>
+Description: do not use DRM_CONTROL_ALLOW with Linux 4.18+
+ Linux 4.18+ removed DRM_CONTROL_ALLOW in commit 0d49f303e8a7006e0af3b5 so do
+ not use it anymore.
+--- a/nvidia-drm/nvidia-drm-drv.c
++++ b/nvidia-drm/nvidia-drm-drv.c
+@@ -55,6 +55,8 @@
+ #include <drm/drm_atomic_helper.h>
+ #endif
+ 
++#include <linux/version.h>
++
+ static struct nv_drm_device *dev_list = NULL;
+ 
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
+@@ -634,27 +636,51 @@
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
+     DRM_IOCTL_DEF_DRV(NVIDIA_GEM_IMPORT_NVKMS_MEMORY,
+                       nv_drm_gem_import_nvkms_memory_ioctl,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 18, 0)
++                      DRM_UNLOCKED),
++#else
+                       DRM_CONTROL_ALLOW|DRM_UNLOCKED),
++#endif
+ #endif /* NV_DRM_ATOMIC_MODESET_AVAILABLE */
+ 
+     DRM_IOCTL_DEF_DRV(NVIDIA_GEM_IMPORT_USERSPACE_MEMORY,
+                       nv_drm_gem_import_userspace_memory_ioctl,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 18, 0)
++                      DRM_RENDER_ALLOW|DRM_UNLOCKED),
++#else
+                       DRM_CONTROL_ALLOW|DRM_RENDER_ALLOW|DRM_UNLOCKED),
++#endif
+     DRM_IOCTL_DEF_DRV(NVIDIA_GET_DEV_INFO,
+                       nv_drm_get_dev_info_ioctl,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 18, 0)
++                      DRM_RENDER_ALLOW|DRM_UNLOCKED),
++#else
+                       DRM_CONTROL_ALLOW|DRM_RENDER_ALLOW|DRM_UNLOCKED),
++#endif
+ 
+ #if defined(NV_DRM_DRIVER_HAS_GEM_PRIME_RES_OBJ)
+     DRM_IOCTL_DEF_DRV(NVIDIA_FENCE_SUPPORTED,
+                       nv_drm_fence_supported_ioctl,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 18, 0)
++                      DRM_RENDER_ALLOW|DRM_UNLOCKED),
++#else
+                       DRM_CONTROL_ALLOW|DRM_RENDER_ALLOW|DRM_UNLOCKED),
++#endif
+     DRM_IOCTL_DEF_DRV(NVIDIA_FENCE_CONTEXT_CREATE,
+                       nv_drm_fence_context_create_ioctl,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 18, 0)
++                      DRM_RENDER_ALLOW|DRM_UNLOCKED),
++#else
+                       DRM_CONTROL_ALLOW|DRM_RENDER_ALLOW|DRM_UNLOCKED),
++#endif
+     DRM_IOCTL_DEF_DRV(NVIDIA_GEM_FENCE_ATTACH,
+                       nv_drm_gem_fence_attach_ioctl,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 18, 0)
++                      DRM_RENDER_ALLOW|DRM_UNLOCKED),
++#else
+                       DRM_CONTROL_ALLOW|DRM_RENDER_ALLOW|DRM_UNLOCKED),
+ #endif
++#endif
+ 
+     DRM_IOCTL_DEF_DRV(NVIDIA_GET_CLIENT_CAPABILITY,
+                       nv_drm_get_client_capability_ioctl,
+@@ -662,7 +688,11 @@
+ #if defined(NV_DRM_ATOMIC_MODESET_AVAILABLE)
+     DRM_IOCTL_DEF_DRV(NVIDIA_GET_CRTC_CRC32,
+                       nv_drm_get_crtc_crc32_ioctl,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 18, 0)
++                      DRM_RENDER_ALLOW|DRM_UNLOCKED),
++#else
+                       DRM_CONTROL_ALLOW|DRM_RENDER_ALLOW|DRM_UNLOCKED),
++#endif
+ #endif /* NV_DRM_ATOMIC_MODESET_AVAILABLE */
+ };
+ 
