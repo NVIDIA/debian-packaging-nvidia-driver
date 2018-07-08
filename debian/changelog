@@ -52,7 +52,7 @@ nvidia-graphics-drivers (340.106-1) jessie; urgency=medium
   * Switch to my debian.org email address in Uploaders.
   * Drop drm-driver-legacy.patch, deprecated-cpu-events.patch and
     vmf-address.patch, fixed upstream.
-  * Add vm-fault.patch to fix kernel module build on Linux 4.11 and newer.
+  * Add vm-fault.patch to fix kernel module build for Linux 4.11 and newer.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
@@ -80,7 +80,7 @@ nvidia-graphics-drivers (340.102-1) jessie; urgency=medium
 
   [ Luca Boccassi ]
   * Add deprecated-cpu-events.patch and vmf-address.patch to fix kernel
-    module build on Linux 4.10 and newer.
+    module build for Linux 4.10 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Apr 2017 22:12:27 +0200
 
