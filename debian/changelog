@@ -1,3 +1,11 @@
+nvidia-graphics-drivers (390.67-3) UNRELEASED; urgency=medium
+
+  [ Luca Boccassi ]
+  * Add drm_control_allow.patch to fix kernel module build for Linux 4.18 and
+    newer.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 08 Jul 2018 10:44:07 +0200
+
 nvidia-graphics-drivers (390.67-2) unstable; urgency=high
 
   * Add kmem_cache_create_usercopy.patch from Red Hat, fixing "Bad or missing
@@ -211,7 +219,7 @@ nvidia-graphics-drivers (387.34-4) unstable; urgency=medium
 nvidia-graphics-drivers (387.34-3) experimental; urgency=medium
 
   [ Luca Boccassi ]
-  * Add timer.patch to fix kernel module build on Linux 4.15 and newer.
+  * Add timer.patch to fix kernel module build for Linux 4.15 and newer.
 
   [ Andreas Beckmann ]
   * Merge changes from 384.111-1.
@@ -640,11 +648,11 @@ nvidia-graphics-drivers (378.13-2) experimental; urgency=medium
   * Merge changes from 375.82-1.
 
   [ Luca Boccassi ]
-  * Add fatal-signal.patch to fix kernel module build on Linux 4.11 and newer.
+  * Add fatal-signal.patch to fix kernel module build for Linux 4.11 and newer.
   * Add kref-refcount.patch, drm-encoder.patch, drm-unload.patch,
     drm-helper-mode.patch and drm-vma-fault.patch to fix kernel module build
-    on Linux 4.11 and newer.  (Closes: #870677)
-  * Add set-memory.patch to fix kernel module build on Linux 4.12 and newer.
+    for Linux 4.11 and newer.  (Closes: #870677)
+  * Add set-memory.patch to fix kernel module build for Linux 4.12 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 10 Aug 2017 19:09:08 +0200
 
@@ -688,7 +696,7 @@ nvidia-graphics-drivers (378.13-1) experimental; urgency=medium
   * Add new nvidia-egl-wayland-icd and nvidia-egl-wayland-common packages to
     add support for the new EGL external platform infrastructure
   * Add deprecated-cpu-events.patch, dma-fence-rename.patch and
-    vmf-address.patch to fix kernel module build on Linux 4.10 and newer.
+    vmf-address.patch to fix kernel module build for Linux 4.10 and newer.
 
   [ Andreas Beckmann ]
   * Restrict watch file to releases from the 378.xx short lived branch.
@@ -938,7 +946,7 @@ nvidia-graphics-drivers (375.39-1) unstable; urgency=medium
   * Update nv-readme.ids
   * Update symbols files
   * Add deprecated-cpu-events.patch, dma-fence-rename.patch and
-    vmf-address.patch to fix kernel module build on Linux 4.10 and newer.
+    vmf-address.patch to fix kernel module build for Linux 4.10 and newer.
     (Closes: #855802)
 
   [ Andreas Beckmann ]
@@ -2335,7 +2343,7 @@ nvidia-graphics-drivers (340.102-1) jessie; urgency=medium
 
   [ Luca Boccassi ]
   * Add deprecated-cpu-events.patch and vmf-address.patch to fix kernel
-    module build on Linux 4.10 and newer.
+    module build for Linux 4.10 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Apr 2017 22:12:27 +0200
 

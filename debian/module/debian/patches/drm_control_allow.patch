@@ -2,6 +2,7 @@ Author: Luca Boccassi <bluca@debian.org>
 Description: do not use DRM_CONTROL_ALLOW with Linux 4.18+
  Linux 4.18+ removed DRM_CONTROL_ALLOW in commit 0d49f303e8a7006e0af3b5 so do
  not use it anymore.
+
 --- a/nvidia-drm/nvidia-drm-drv.c
 +++ b/nvidia-drm/nvidia-drm-drv.c
 @@ -55,6 +55,8 @@
