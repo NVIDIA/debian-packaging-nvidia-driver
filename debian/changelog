@@ -21,7 +21,7 @@ nvidia-graphics-drivers (340.107-1~git4deb9stretch) UNRELEASED; urgency=medium
   * disable-preempt_rt_sanity_check.patch: Remove, unsupported upstream.
   * build-module-packages.sh: Skip PREEMPT_RT (*-rt-*) kernels, unsupported
     upstream (375.82-2).
-  * Bump Standards-Version to 4.1.4. No changes needed.
+  * Bump Standards-Version to 4.1.5. No changes needed.
   * nvidia-alternative: Explicitly use interest-await triggers (375.82-2).
   * Switch from dh_install --list-missing to dh_missing (375.82-2).
   * Use dpkg makefile snippets instead of manual changelog parsing (375.82-2).
