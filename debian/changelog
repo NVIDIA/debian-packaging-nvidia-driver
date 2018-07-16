@@ -1,3 +1,15 @@
+nvidia-graphics-drivers (390.67-3) unstable; urgency=medium
+
+  [ Luca Boccassi ]
+  * Add drm_control_allow.patch to fix kernel module build for Linux 4.18 and
+    newer.
+
+  [ Andreas Beckmann ]
+  * The libGLX_indirect.so.0 alternative is now handled by glx-alternatives.
+  * Bump Standards-Version to 4.1.5. No changes needed.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 16 Jul 2018 23:57:17 +0200
+
 nvidia-graphics-drivers (390.67-2) unstable; urgency=high
 
   * Add kmem_cache_create_usercopy.patch from Red Hat, fixing "Bad or missing
@@ -18,6 +30,7 @@ nvidia-graphics-drivers (390.67-1) unstable; urgency=medium
     - Fixed a bug that caused the driver, in some low bandwidth DisplayPort
       configurations, to not implicitly enable display dithering.  This
       resulted in visible banding.
+    * (Closes: #884917)
 
   [ Andreas Beckmann ]
   * Convert packaging repository from SVN to GIT.
@@ -49,7 +62,7 @@ nvidia-graphics-drivers (390.59-1) unstable; urgency=medium
   * Update symbols files.
   * Add xorg-video-abi-24 as alternative dependency.
   * Bump xserver-xorg-core dependency to << 2:1.20.99 for ABI 24.
-    (Closes: #900112)
+    (Closes: #900112, #902375)
 
  -- Luca Boccassi <bluca@debian.org>  Sat, 26 May 2018 19:14:30 +0100
 
@@ -140,6 +153,7 @@ nvidia-graphics-drivers (390.25-1) experimental; urgency=medium
     - Fixed a regression introduced in 390.12 that caused occasional hangs and
       hard lockup messages in the system log when screen transformations are in
       use.
+    * (Closes: #872988)
 
   [ Luca Boccassi ]
   * Update nv-readme.ids.
@@ -218,7 +232,7 @@ nvidia-graphics-drivers (387.34-4) unstable; urgency=medium
 nvidia-graphics-drivers (387.34-3) experimental; urgency=medium
 
   [ Luca Boccassi ]
-  * Add timer.patch to fix kernel module build on Linux 4.15 and newer.
+  * Add timer.patch to fix kernel module build for Linux 4.15 and newer.
 
   [ Andreas Beckmann ]
   * Merge changes from 384.111-1.
@@ -647,11 +661,11 @@ nvidia-graphics-drivers (378.13-2) experimental; urgency=medium
   * Merge changes from 375.82-1.
 
   [ Luca Boccassi ]
-  * Add fatal-signal.patch to fix kernel module build on Linux 4.11 and newer.
+  * Add fatal-signal.patch to fix kernel module build for Linux 4.11 and newer.
   * Add kref-refcount.patch, drm-encoder.patch, drm-unload.patch,
     drm-helper-mode.patch and drm-vma-fault.patch to fix kernel module build
-    on Linux 4.11 and newer.  (Closes: #870677)
-  * Add set-memory.patch to fix kernel module build on Linux 4.12 and newer.
+    for Linux 4.11 and newer.  (Closes: #870677)
+  * Add set-memory.patch to fix kernel module build for Linux 4.12 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 10 Aug 2017 19:09:08 +0200
 
@@ -695,7 +709,7 @@ nvidia-graphics-drivers (378.13-1) experimental; urgency=medium
   * Add new nvidia-egl-wayland-icd and nvidia-egl-wayland-common packages to
     add support for the new EGL external platform infrastructure
   * Add deprecated-cpu-events.patch, dma-fence-rename.patch and
-    vmf-address.patch to fix kernel module build on Linux 4.10 and newer.
+    vmf-address.patch to fix kernel module build for Linux 4.10 and newer.
 
   [ Andreas Beckmann ]
   * Restrict watch file to releases from the 378.xx short lived branch.
@@ -945,7 +959,7 @@ nvidia-graphics-drivers (375.39-1) unstable; urgency=medium
   * Update nv-readme.ids
   * Update symbols files
   * Add deprecated-cpu-events.patch, dma-fence-rename.patch and
-    vmf-address.patch to fix kernel module build on Linux 4.10 and newer.
+    vmf-address.patch to fix kernel module build for Linux 4.10 and newer.
     (Closes: #855802)
 
   [ Andreas Beckmann ]
@@ -2342,7 +2356,7 @@ nvidia-graphics-drivers (340.102-1) jessie; urgency=medium
 
   [ Luca Boccassi ]
   * Add deprecated-cpu-events.patch and vmf-address.patch to fix kernel
-    module build on Linux 4.10 and newer.
+    module build for Linux 4.10 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Apr 2017 22:12:27 +0200
 

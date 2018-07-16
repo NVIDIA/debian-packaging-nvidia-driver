@@ -22,7 +22,7 @@ Build-Depends:
  po-debconf,
  libglvnd-dev,
 Rules-Requires-Root: no
-Standards-Version: 4.1.4
+Standards-Version: 4.1.5
 Homepage: https://www.nvidia.com
 XS-Autobuild: yes
 
@@ -879,7 +879,7 @@ Pre-Depends:
  dpkg (>= 1.17.21),
  ${nvidia:legacy-check},
 Depends:
- glx-alternative-nvidia (>= 0.8.3~) [!ppc64el],
+ glx-alternative-nvidia (>= 0.8.4~) [!ppc64el],
  ${misc:Depends}
 Provides:
  ${nvidia}-alternative--kmod-alias,

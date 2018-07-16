@@ -51,7 +51,6 @@ if [ "$1" = "triggered" ]; then
 		$(add_slave /usr/lib/nvidia/nvidia_drv.so nvidia_drv.so /usr/lib/#PRIVATE#/nvidia_drv.so)
 		$(add_multiarch_slave /usr/lib vdpau/ libvdpau_nvidia.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libGLX_nvidia.so.0 /usr/lib #PRIVATE#/)
-		$(add_multiarch_slave /usr/lib "" libGLX_indirect.so.0 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libEGL_nvidia.so.0 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libnvidia-egl-wayland.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libGLESv1_CM_nvidia.so.1 /usr/lib #PRIVATE#/)
@@ -90,6 +89,9 @@ if [ "$1" = "triggered" ]; then
 
 	# activate the trigger selecting NVIDIA as GLX provider
 	dpkg-trigger --no-await register-glx-alternative-nvidia
+
+	# let glx-alternative-mesa take over handling libGLX_indirect.so.0
+	dpkg-trigger --no-await register-glx-alternative-mesa
 
 fi
 
