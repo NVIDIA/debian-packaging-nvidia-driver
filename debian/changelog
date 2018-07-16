@@ -4,6 +4,9 @@ nvidia-graphics-drivers (390.67-3) UNRELEASED; urgency=medium
   * Add drm_control_allow.patch to fix kernel module build for Linux 4.18 and
     newer.
 
+  [ Andreas Beckmann ]
+  * The libGLX_indirect.so.0 alternative is now handled by glx-alternatives.
+
  -- Andreas Beckmann <anbe@debian.org>  Sun, 08 Jul 2018 10:44:07 +0200
 
 nvidia-graphics-drivers (390.67-2) unstable; urgency=high
