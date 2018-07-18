@@ -1,3 +1,19 @@
+nvidia-graphics-drivers (390.77-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 390.77 (2018-07-16).
+    - Improved compatibility with recent Linux kernels.
+    - Fixed an intermittent hang of Vulkan applications running fullscreen
+      when flipping is allowed.
+    - Removed informational messages that were printed by nvidia-modeset.ko
+      whenever a GPU device was allocated or freed.
+    - Fixed a bug that caused kwin OpenGL compositing to crash when
+      launching certain OpenGL applications.
+  * New upstream release 367 series.
+    - Updated the OpenGL driver to allow the use of integer format (SINT/UINT)
+      color attachments with depth attachments in Frame Buffer Objects.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Jul 2018 15:50:00 +0200
+
 nvidia-graphics-drivers (390.67-3) unstable; urgency=medium
 
   [ Luca Boccassi ]
