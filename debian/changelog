@@ -1,5 +1,11 @@
-nvidia-graphics-drivers (396.24-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (396.45-1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 396.45 (2018-07-19).
+    - Improved recovery of Vulkan direct-to-display applications after an
+      application hang or crash.
+    - Fixed a bug that could cause multi-threaded EGL applications to crash
+      when exiting.
+    - Added support for the following GPU: TITAN V JHH Special Edition.
   * New upstream short lived branch release 396.24 (2018-05-02).
     - Fixed a regression that caused the current MetaMode's ViewPortIn and
       ViewPortOut settings to be preserved across RandR modesets. The driver now
@@ -18,7 +24,7 @@ nvidia-graphics-drivers (396.24-1~git1) UNRELEASED; urgency=medium
   * libcuda1: Add Provides: libcuda-9.2-1{,-i386}.
   * Move libglx.so to /usr/lib/nvidia/current/modules.
 
- -- Luca Boccassi <bluca@debian.org>  Wed, 02 May 2018 20:10:29 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 20 Jul 2018 22:31:04 +0200
 
 nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
