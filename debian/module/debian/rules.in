@@ -79,7 +79,7 @@ binary-arch: build-stamp
 	dh_builddeb --destdir=$(KPKG_DEST_DIR)
 
 clean:
-	test -f debian/control || cp debian/control.template debian/control
+	test -f debian/control || sed 's/#KVERS#/$(KVERS)/g' debian/control.template > debian/control
 	dh_testdir
 	dh_testroot
 	$(MAKE) clean $(KERNEL_SPEC)
