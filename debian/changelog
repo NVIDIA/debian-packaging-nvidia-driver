@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (396.45-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (396.45-1) experimental; urgency=medium
 
   * New upstream short lived branch release 396.45 (2018-07-19).
     - Improved recovery of Vulkan direct-to-display applications after an
@@ -24,7 +24,7 @@ nvidia-graphics-drivers (396.45-1) UNRELEASED; urgency=medium
   * libcuda1: Add Provides: libcuda-9.2-1{,-i386}.
   * Move libglx.so to /usr/lib/nvidia/current/modules.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 20 Jul 2018 22:31:04 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 21 Jul 2018 12:52:40 +0200
 
 nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
