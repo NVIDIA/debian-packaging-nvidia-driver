@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (390.77-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.77-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.77 (2018-07-16).
     - Improved compatibility with recent Linux kernels.
@@ -10,7 +10,7 @@ nvidia-graphics-drivers (390.77-1) UNRELEASED; urgency=medium
     - Updated the OpenGL driver to allow the use of integer format (SINT/UINT)
       color attachments with depth attachments in Frame Buffer Objects.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Jul 2018 15:50:00 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 24 Jul 2018 15:35:18 +0200
 
 nvidia-graphics-drivers (390.67-3) unstable; urgency=medium
 
