@@ -1,10 +1,10 @@
-nvidia-graphics-drivers (396.51-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (396.51-1) experimental; urgency=medium
 
   * New upstream short lived branch release 396.51 (2018-08-03).
     - Added support for VK_EXT_vertex_attribute_divisor.
     - Added support for the following GPU: Quadro P3200 with Max-Q Design.
 
- -- Luca Boccassi <bluca@debian.org>  Fri, 03 Aug 2018 22:39:02 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 06 Aug 2018 00:16:07 +0200
 
 nvidia-graphics-drivers (396.45-1) experimental; urgency=medium
 
