@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (390.87-1~git1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 390.87 (2018-08-27).
+    - Fixed a resource leak introduced in the 390 series of drivers that could
+      lead to reduced performance after starting and stopping several OpenGL
+      and/or Vulkan applications.
+
+ -- Luca Boccassi <bluca@debian.org>  Mon, 27 Aug 2018 18:33:41 +0100
+
 nvidia-graphics-drivers (390.77-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.77 (2018-07-16).
