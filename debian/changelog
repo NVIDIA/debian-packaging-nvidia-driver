@@ -4,7 +4,14 @@ nvidia-graphics-drivers (390.87-1~git1) UNRELEASED; urgency=medium
     - Fixed a resource leak introduced in the 390 series of drivers that could
       lead to reduced performance after starting and stopping several OpenGL
       and/or Vulkan applications.
+
+  [ Luca Boccassi ]
   * Update nv-readme.ids.
+
+  [ Andreas Beckmann ]
+  * Remove cc_version_check-gcc5.patch and re-enable strict version checks,
+    using mismatching compiler versions may create unloadable modules due to
+    mismatching symvers.
 
  -- Luca Boccassi <bluca@debian.org>  Mon, 27 Aug 2018 18:33:41 +0100
 
