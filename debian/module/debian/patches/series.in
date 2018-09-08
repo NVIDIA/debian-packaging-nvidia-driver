@@ -1,6 +1,7 @@
 # kernel support
 do-div-cast.patch
 kmem_cache_create_usercopy.patch
+drm-mode.patch
 
 # build system updates
 use-kbuild-compiler.patch

@@ -7,6 +7,8 @@ nvidia-graphics-drivers (390.87-1~git1) UNRELEASED; urgency=medium
 
   [ Luca Boccassi ]
   * Update nv-readme.ids.
+  * Add drm-mode.patch to fix nvidia-drm build for Linux 4.19.
+    (Closes: #908359)
 
   [ Andreas Beckmann ]
   * Remove cc_version_check-gcc5.patch and re-enable strict version checks,
