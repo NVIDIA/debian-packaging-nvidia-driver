@@ -4,7 +4,7 @@ Description: ignore GCC plugins
  CONFIG_GCC_PLUGIN_STRUCTLEAK and CONFIG_GCC_PLUGIN_RANDSTRUCT.
 --- a/Kbuild
 +++ b/Kbuild
-@@ -94,7 +94,7 @@ NV_CONFTEST_CMD := /bin/sh $(NV_CONFTEST
+@@ -95,7 +95,7 @@ NV_CONFTEST_CMD := /bin/sh $(NV_CONFTEST
   "$(CC)" "$(HOST_CC)" $(ARCH) $(NV_KERNEL_SOURCES) $(NV_KERNEL_OUTPUT)
  
  NV_CONFTEST_CFLAGS := $(shell $(NV_CONFTEST_CMD) build_cflags)

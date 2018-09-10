@@ -12,7 +12,7 @@ Description: fix nvidia-drm build with kernel 4.19
  static void nv_drm_connector_destroy(struct drm_connector *connector)
  {
      struct nv_drm_connector *nv_connector = to_nv_connector(connector);
-@@ -226,7 +228,11 @@
+@@ -226,7 +228,11 @@ static int nv_drm_connector_get_modes(st
  
  
      if (nv_connector->edid != NULL) {
@@ -35,7 +35,7 @@ Description: fix nvidia-drm build with kernel 4.19
  static void nv_drm_encoder_destroy(struct drm_encoder *encoder)
  {
      struct nv_drm_encoder *nv_encoder = to_nv_encoder(encoder);
-@@ -216,7 +218,11 @@
+@@ -216,7 +218,11 @@ nv_drm_add_encoder(struct drm_device *de
  
      /* Attach encoder and connector */
  

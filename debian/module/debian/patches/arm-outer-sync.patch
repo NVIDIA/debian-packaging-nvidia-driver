@@ -5,7 +5,7 @@ Description: Redefine WRITE_COMBINE_FLUSH on ARM on kernel >= 4.3
  is defined. Fall back to no memory barrier at all if that is not configured.
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -461,7 +461,13 @@
+@@ -466,7 +466,13 @@ extern int nv_pat_mode;
  #if defined(CONFIG_OUTER_CACHE)
  #define OUTER_FLUSH_RANGE(start, end)   outer_flush_range((start),(end))
  #endif
@@ -29,7 +29,7 @@ Description: Redefine WRITE_COMBINE_FLUSH on ARM on kernel >= 4.3
  
  #include "nvidia-drm-os-interface.h"
  #include "nvidia-drm.h"
-@@ -95,7 +95,13 @@
+@@ -69,7 +70,13 @@ char *nv_drm_asprintf(const char *fmt, .
    #define WRITE_COMBINE_FLUSH()    asm volatile("sfence":::"memory")
  #elif defined(NVCPU_FAMILY_ARM)
    #if defined(NVCPU_ARM)

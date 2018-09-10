@@ -14,6 +14,7 @@ nvidia-graphics-drivers (390.87-1~git1) UNRELEASED; urgency=medium
   * Remove cc_version_check-gcc5.patch and re-enable strict version checks,
     using mismatching compiler versions may create unloadable modules due to
     mismatching symvers.
+  * Refresh patches.
 
  -- Luca Boccassi <bluca@debian.org>  Mon, 27 Aug 2018 18:33:41 +0100
 
