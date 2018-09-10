@@ -43,7 +43,6 @@ build: build-arch build-indep
 build-arch: build-stamp
 build-indep:
 build-stamp: configure-stamp
-	dh_prep
 	dh_quilt_patch
 	unset ARCH; $(MAKE) modules $(KERNEL_SPEC)
 #HAS_UVM#	unset ARCH; $(MAKE) -C uvm modules $(KERNEL_SPEC) KBUILD_EXTMOD=$(CURDIR)/uvm
@@ -60,6 +59,7 @@ binary-indep:
 binary-arch: build-stamp
 	dh_testdir
 	dh_testroot
+	dh_prep
 	dh_installdirs
 	dh_install
 	dh_installdocs $(wildcard debian/changelog.nvidia*-kernel*-source*)
@@ -67,9 +67,11 @@ binary-arch: build-stamp
 	dh_installmodules
 	dh_bugfiles
 	dh_lintian
-	dh_strip
+	dh_link
+	dh_strip_nondeterminism
 	dh_compress
 	dh_fixperms
+	dh_strip
 	dh_installdeb
 	dh_gencontrol -- -v`cat debian/VERSION` \
 		-V'built:using:kernel=$(call get_built_using,linux-headers-$(KVERS))' \
@@ -80,7 +82,6 @@ binary-arch: build-stamp
 clean:
 	test -f debian/control || sed 's/#KVERS#/$(KVERS)/g' debian/control.template > debian/control
 	dh_testdir
-	dh_testroot
 	$(MAKE) clean $(KERNEL_SPEC)
 #HAS_UVM#	$(MAKE) -C uvm clean $(KERNEL_SPEC)
 	dh_quilt_unpatch || quilt --quiltrc /dev/null pop -af
