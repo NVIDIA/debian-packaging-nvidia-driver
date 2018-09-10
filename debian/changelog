@@ -1528,7 +1528,7 @@ nvidia-graphics-drivers (310.40-1) UNRELEASED; urgency=low
     - Updated the reporting of HDMI 3D framerates and pixel clocks to be
       more consistent with how they are reported by HDMI 3D displays.
     - Fixed a bug that could cause applications using GL_NV_vdpau_interop
-      to crash during modeswitches.
+      to crash during mode switches.
     - Fixed a regression that could cause OpenGL applications to crash
       while compiling shaders.
     - Added a kernel module parameter, "NVreg_EnablePCIeGen3", which can be
