@@ -3,7 +3,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
 
 --- a/NVIDIA-Linux/nvidia-smi.1
 +++ b/NVIDIA-Linux/nvidia-smi.1
-@@ -8,7 +8,7 @@
+@@ -8,7 +8,7 @@ nvidia\-smi \- NVIDIA System Management
  
  .SH "SYNOPSIS"
  .PP
@@ -11,8 +11,8 @@ Description: fix hyphenation and spelling in nvidia-smi.1
 +nvidia\-smi [OPTION1 [ARG1]] [OPTION2 [ARG2]] ...
  
  
- .PP 
-@@ -85,7 +85,7 @@
+ .PP
+@@ -85,7 +85,7 @@ Display only selected information: MEMOR
  Flags can be combined with comma e.g.
  "MEMORY,ECC".
  Sampling data with max, min and avg is also returned for POWER, UTILIZATION and CLOCK display types.
@@ -21,7 +21,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  
  
  .SS "\-l SEC, \-\-loop=SEC"
-@@ -225,7 +225,7 @@
+@@ -225,7 +225,7 @@ Typically useful if a double bit ECC err
  Optional \fI\-i\fR switch can be used to target one or more specific devices.
  Without this option, all GPUs are reset.
  Requires root.
@@ -29,8 +29,8 @@ Description: fix hyphenation and spelling in nvidia-smi.1
 +There can\(aqt be any applications using these devices (e.g. CUDA application, graphics application like X server, monitoring application like other instance of nvidia\-smi).
  There also can\(aqt be any compute applications running on any other GPU in the system.
  
- When resetting GPUs that have active NVLink connections to other GPUs, all GPUs with active NVLink connections must be reset together, either by omitting the \fI\-i\fR switch or using the \fI\-i\fR switch to specify all GPUs with active NVLink connections.
-@@ -261,7 +261,7 @@
+ Any GPUs with NVLink connections to a GPU being reset must also be reset in
+@@ -267,7 +267,7 @@ Specifies maximum power limit in watts.
  Accepts integer and floating point numbers.
  Only on supported devices from Kepler family.
  Requires administrator privileges.
@@ -39,7 +39,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  
  .SS "\-am, \-\-accounting\-mode=MODE"
  Enables or disables GPU Accounting.
-@@ -336,10 +336,10 @@
+@@ -342,10 +342,10 @@ The specified file will be overwritten.
  Display Unit DTD instead of device DTD.
  
  .SS "stats"
@@ -52,7 +52,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  Shows all GPUs NVML is able to detect but CPU affinity information will only be shown for GPUs with Kepler or
  newer architectures.
  Note: GPU enumeration is the same as NVML.
-@@ -424,7 +424,7 @@
+@@ -430,7 +430,7 @@ Display can be active even when no monit
  .SS "Persistence Mode"
  A flag that indicates whether persistence mode is enabled for the GPU.
  Value is either "Enabled" or "Disabled".
@@ -61,7 +61,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  This minimizes the driver load latency associated with running dependent apps, such as CUDA programs.
  For all CUDA-capable products.
  Linux only.
-@@ -434,7 +434,7 @@
+@@ -440,7 +440,7 @@ A flag that indicates whether accounting
  Value is either \"Enabled\" or \"Disabled\"
  When accounting is enabled statistics are calculated for each compute process running on the GPU.
  Statistics can be queried during the lifetime or after termination of the process. The execution time of process is reported as 0 while the process is in running state and updated to actual execution time after the process has terminated.
@@ -70,7 +70,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  
  .SS "Accounting Mode Buffer Size"
  Returns the size of the circular buffer that holds list of processes that can be queried for accounting stats.
-@@ -508,7 +508,7 @@
+@@ -514,7 +514,7 @@ Version for the power management data.
  
  
  .SS "GPU Operation Mode"
@@ -79,7 +79,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  
  Each GOM is designed to meet specific user needs.
  
-@@ -841,7 +841,7 @@
+@@ -847,7 +847,7 @@ Please note that for boards without INA
  
  .TP 15
  .B "Power Limit"
@@ -88,7 +88,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  Only available if power management is supported.
  Requires Inforom PWR object version 3.0 or higher or Kepler device.
  On Kepler devices Power Limit can be adjusted using \-pl,\-\-power\-limit= switches.
-@@ -1372,7 +1372,7 @@
+@@ -1381,7 +1381,7 @@ Displays help information for using the
  .PP
  .SH "UNIT ATTRIBUTES"
  .PP
@@ -97,7 +97,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  Unless otherwise noted all numerical results are base 10 and unitless.
  
  .SS "Timestamp"
-@@ -1484,7 +1484,7 @@
+@@ -1493,7 +1493,7 @@ For all S-class products.
  .PP
  .SH "NOTES"
  .PP
@@ -106,16 +106,16 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  Please see the relevant section of the driver README file.
  
  .PP
-@@ -1502,7 +1502,7 @@
+@@ -1511,7 +1511,7 @@ Query UUID and persistence mode of all G
  Query ECC errors and power consumption for GPU 0 at a frequency of 10 seconds, indefinitely, and record to the file out.log.
- .SS 
+ .SS
  "nvidia\-smi -c 1 -i GPU\-b2f5f1b745e3d23d\-65a3a26d-097db358\-7303e0b6\-149642ff3d219f8587cde3a8"
 -Set the compute mode to "PROHIBITED" for GPU with UUID "GPU\-b2f5f1b745e3d23d\-65a3a26d-097db358\-7303e0b6\-149642ff3d219f8587cde3a8".
 +Set the compute mode to "PROHIBITED" for GPU with UUID "GPU-b2f5f1b745e3d23d-65a3a26d-097db358-7303e0b6-149642ff3d219f8587cde3a8".
  .SS "nvidia\-smi -q -u -x --dtd"
  Query attributes for all Units once, and display in XML format with embedded DTD to stdout.
  .SS "nvidia\-smi --dtd -u -f nvsmi_unit.dtd"
-@@ -1589,13 +1589,13 @@
+@@ -1598,13 +1598,13 @@ Set applications clocks to 2500 MHz memo
    * Added support for K40d and K80.
  .PP 1
  
@@ -131,7 +131,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Added support for displaying the GPU encoder and decoder utilizations
-@@ -1628,19 +1628,19 @@
+@@ -1637,19 +1637,19 @@ Set applications clocks to 2500 MHz memo
   
  .PP 1
  
@@ -154,7 +154,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
   
-@@ -1649,13 +1649,13 @@
+@@ -1658,13 +1658,13 @@ Set applications clocks to 2500 MHz memo
    * Added reporting of Display Active state and updated documentation to clarify how it differs from Display Mode and Display Active state
  .PP 1
  
@@ -171,7 +171,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Renamed Clock Throttle Reason User Defined Clocks to Applications Clocks Setting
-@@ -1664,16 +1664,16 @@
+@@ -1673,16 +1673,16 @@ Set applications clocks to 2500 MHz memo
    * On error, return codes have distinct non zero values for each error class. See RETURN VALUE section
  .PP 1
  
@@ -191,7 +191,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Added the enforced power limit to the query output
-@@ -1682,7 +1682,7 @@
+@@ -1691,7 +1691,7 @@ Set applications clocks to 2500 MHz memo
   
  .PP 1
  
@@ -200,7 +200,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
   
-@@ -1691,13 +1691,13 @@
+@@ -1700,13 +1700,13 @@ Set applications clocks to 2500 MHz memo
    * Added reporting of GPU Operation Mode (GOM)
  .PP 1
  
@@ -216,7 +216,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
   
-@@ -1712,10 +1712,10 @@
+@@ -1721,10 +1721,10 @@ Set applications clocks to 2500 MHz memo
    * Better error handling when NVML shared library is not present in the system
  .PP 1
  
@@ -229,7 +229,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * When reporting free memory, calculate it from the rounded total and used memory so that values add up
-@@ -1724,7 +1724,7 @@
+@@ -1733,7 +1733,7 @@ Set applications clocks to 2500 MHz memo
    * Added reporting of power management limit constraints and default limit
  .PP 1
  
@@ -238,7 +238,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Added reporting of texture memory ECC errors
-@@ -1736,7 +1736,7 @@
+@@ -1745,7 +1745,7 @@ Set applications clocks to 2500 MHz memo
   
  .PP 1
  
@@ -246,8 +246,8 @@ Description: fix hyphenation and spelling in nvidia-smi.1
 +  === Changes between nvidia\-smi v2.285 and v3.295 ===
  .PP 1
  
-   
-@@ -1748,7 +1748,7 @@
+  
+@@ -1757,7 +1757,7 @@ Set applications clocks to 2500 MHz memo
    * When running commands on multiple GPUs at once N/A errors are treated as warnings.
  .PP 1
  
@@ -256,7 +256,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * UUID format changed to match UUID standard and will report a different value.
-@@ -1757,7 +1757,7 @@
+@@ -1766,7 +1766,7 @@ Set applications clocks to 2500 MHz memo
   
  .PP 1
  
@@ -264,8 +264,8 @@ Description: fix hyphenation and spelling in nvidia-smi.1
 +  === Changes between nvidia\-smi v2.0 and v2.285 ===
  .PP 1
  
-   
-@@ -1766,7 +1766,7 @@
+  
+@@ -1775,7 +1775,7 @@ Set applications clocks to 2500 MHz memo
    * Report VBIOS version.
  .PP 1
  
@@ -274,7 +274,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Added reporting of PCI Sub System ID
-@@ -1775,13 +1775,13 @@
+@@ -1784,13 +1784,13 @@ Set applications clocks to 2500 MHz memo
    * Updated docs to indicate we support M2075 and C2075
  .PP 1
  
@@ -290,7 +290,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Added message when NVIDIA driver is not running
-@@ -1793,19 +1793,19 @@
+@@ -1802,19 +1802,19 @@ Set applications clocks to 2500 MHz memo
    * Getting pending driver model works on non-admin
  .PP 1
  
@@ -314,7 +314,7 @@ Description: fix hyphenation and spelling in nvidia-smi.1
  .PP 1
  
    * Changed versioning scheme to also include "driver version"
-@@ -1814,10 +1814,10 @@
+@@ -1823,10 +1823,10 @@ Set applications clocks to 2500 MHz memo
    * XML format always conforms to DTD, even when error conditions occur
  .PP 1
  

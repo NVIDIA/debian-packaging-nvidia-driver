@@ -22,7 +22,7 @@ Build-Depends:
  po-debconf,
  libglvnd-dev,
 Rules-Requires-Root: no
-Standards-Version: 4.1.5
+Standards-Version: 4.2.1
 Homepage: https://www.nvidia.com
 XS-Autobuild: yes
 

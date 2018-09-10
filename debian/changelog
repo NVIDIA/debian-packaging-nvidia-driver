@@ -77,6 +77,28 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
 
+nvidia-graphics-drivers (390.87-1) unstable; urgency=medium
+
+  * New upstream long lived branch release 390.87 (2018-08-27).
+    - Fixed a resource leak introduced in the 390 series of drivers that could
+      lead to reduced performance after starting and stopping several OpenGL
+      and/or Vulkan applications.
+
+  [ Luca Boccassi ]
+  * Update nv-readme.ids.
+  * Add drm-mode.patch to fix nvidia-drm build for Linux 4.19.
+    (Closes: #908359)
+
+  [ Andreas Beckmann ]
+  * Remove cc_version_check-gcc5.patch and re-enable strict version checks,
+    using mismatching compiler versions may create unloadable modules due to
+    mismatching symvers.
+  * Refresh patches.
+  * Synchronize the module build debhelper sequence with debhelper 10.
+  * Bump Standards-Version to 4.2.1. No changes needed.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 10 Sep 2018 15:24:08 +0200
+
 nvidia-graphics-drivers (390.77-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.77 (2018-07-16).
@@ -2427,6 +2449,31 @@ nvidia-graphics-drivers (340.106-1) jessie; urgency=medium
       nvidia.ko was updated to only contain its PAT fallback support,
       at build time, on kernels without CONFIG_X86_PAT.
     * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
+  * Switch watch URL from ftp:// to https:// (375.82-1).
+  * build-module-packages.sh: Order kernels by descending version (375.82-2).
+  * bug-control: Add arch qualification to M-A:same packages in report-with
+    list otherwise reportbug will ignore them if more than one is installed
+    (375.82-5).
+  * Use https:// URLs where possible (375.82-8).
+  * Stop shipping the classic libnvidia-tls.so.* and ship the modern one (for
+    Linux 2.6 onwards) in the regular libdir instead of the tls/ subdir
+    (384.111-1).  (Closes: #883615)
+  * Add #tls# substitution for the tls/ source directory (384.111-1).
+  * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
+    long Description (384.111-4).
+  * Update lintian overrides.
+  * Upload to jessie.
+
+  [ Luca Boccassi ]
+  * Switch to my debian.org email address in Uploaders.
+  * Drop drm-driver-legacy.patch, deprecated-cpu-events.patch and
+    vmf-address.patch, fixed upstream.
+  * Add vm-fault.patch to fix kernel module build for Linux 4.11 and newer.
+
+  [ Russ Allbery ]
+  * Remove myself from Uploaders.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 17 Apr 2018 12:45:05 +0200
 
@@ -5840,7 +5887,7 @@ nvidia-graphics-drivers (275.09.04-1) experimental; urgency=low
       with slow CPUs.
   * Upload to experimental.
   * Update symbols control files.
-  * Add linux3.patch to make the module build on linux-3.0.  (Closes: #628925)
+  * Add linux3.patch to make the module build for Linux 3.0.  (Closes: #628925)
 
   [ Russ Allbery ]
   * Add DM-Upload-Allowed: yes to debian/control.
@@ -6348,7 +6395,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     patch fixes build with the kernel in experimental.
   * Add avoid-ld.gold.patch to explicitly link with ld.bfd.  The kernel
     module built with ld.gold does not work properly.
-  * Add linux3.patch to make the module build on linux-3.0.
+  * Add linux3.patch to make the module build for Linux 3.0.
   * Add nvidia-installer-cleanup as an alternative to nvidia-common.
   * Drop dependency on nvidia-common in favor of nvidia-installer-cleanup.
   * Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.

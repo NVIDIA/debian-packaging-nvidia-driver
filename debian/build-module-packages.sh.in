@@ -1,4 +1,8 @@
+#!/bin/sh
 set -e
+
+# compilation will succeed, but the module may not be loadable due to mismatching symvers
+#export IGNORE_CC_MISMATCH=1
 
 test -x /usr/bin/module-assistant || apt-get install module-assistant
 
