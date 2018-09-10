@@ -7,7 +7,7 @@ Description: Select the correct nv-kernel.o blob for the target architecture
 
 --- a/Makefile
 +++ b/Makefile
-@@ -78,6 +78,14 @@
+@@ -78,6 +78,14 @@ else
   $(MODULE_NAME)-objs := $(CORE_OBJS) $(MODULE_GLUE_OBJS)
  endif
  

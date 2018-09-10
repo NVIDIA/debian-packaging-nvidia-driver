@@ -12,7 +12,8 @@ Description: Undef CONFIG_XEN and CONFIG_XEN_DOM0 if building on ARM
 
 --- a/nv-linux.h
 +++ b/nv-linux.h
-@@ -42,5 +42,10 @@
+@@ -43,6 +43,11 @@
+ #include <linux/version.h>
  #include <linux/utsname.h>
  
 +#if defined(NVCPU_ARM) && LINUX_VERSION_CODE < KERNEL_VERSION(3,17,0)
@@ -23,7 +24,7 @@ Description: Undef CONFIG_XEN and CONFIG_XEN_DOM0 if building on ARM
  #if LINUX_VERSION_CODE < KERNEL_VERSION(2, 6, 9)
  #error "This driver does not support kernels older than 2.6.9!"
  #elif LINUX_VERSION_CODE < KERNEL_VERSION(2, 7, 0)
-@@ -234,7 +239,7 @@ RM_STATUS nvos_forward_error_to_cray(str
+@@ -255,7 +260,7 @@ RM_STATUS nvos_forward_error_to_cray(str
   * NVIDIA graphics driver has no way of knowing and is unlikely
   * to work correctly.
   */
@@ -34,7 +35,7 @@ Description: Undef CONFIG_XEN and CONFIG_XEN_DOM0 if building on ARM
  #define NV_XEN_SUPPORT_FULLY_VIRTUALIZED_KERNEL
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -38,7 +38,8 @@ test_xen() {
+@@ -47,7 +47,8 @@ test_xen() {
      # CONFIG_XEN and CONFIG_PARAVIRT are present, text_xen() treats
      # the kernel as a stand-alone kernel.
      #

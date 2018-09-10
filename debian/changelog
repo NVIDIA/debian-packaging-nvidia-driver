@@ -37,6 +37,7 @@ nvidia-graphics-drivers (340.107-1~git4deb9stretch) UNRELEASED; urgency=medium
 nvidia-graphics-drivers (340.107-1~git4deb8jessie) UNRELEASED; urgency=medium
 
   * Convert packaging repository from SVN to GIT.
+  * Refresh patches.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 22:28:56 +0200
 
@@ -91,7 +92,7 @@ nvidia-graphics-drivers (340.106-1) jessie; urgency=medium
   * Switch to my debian.org email address in Uploaders.
   * Drop drm-driver-legacy.patch, deprecated-cpu-events.patch and
     vmf-address.patch, fixed upstream.
-  * Add vm-fault.patch to fix kernel module build on Linux 4.11 and newer.
+  * Add vm-fault.patch to fix kernel module build for Linux 4.11 and newer.
 
   [ Russ Allbery ]
   * Remove myself from Uploaders.
@@ -119,7 +120,7 @@ nvidia-graphics-drivers (340.102-1) jessie; urgency=medium
 
   [ Luca Boccassi ]
   * Add deprecated-cpu-events.patch and vmf-address.patch to fix kernel
-    module build on Linux 4.10 and newer.
+    module build for Linux 4.10 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Apr 2017 22:12:27 +0200
 
@@ -3507,7 +3508,7 @@ nvidia-graphics-drivers (275.09.04-1) experimental; urgency=low
       with slow CPUs.
   * Upload to experimental.
   * Update symbols control files.
-  * Add linux3.patch to make the module build on linux-3.0.  (Closes: #628925)
+  * Add linux3.patch to make the module build for Linux 3.0.  (Closes: #628925)
 
   [ Russ Allbery ]
   * Add DM-Upload-Allowed: yes to debian/control.
@@ -4002,7 +4003,7 @@ nvidia-graphics-drivers (195.36.31-91) UNRELEASED; urgency=low
     patch fixes build with the kernel in experimental.
   * Add avoid-ld.gold.patch to explicitly link with ld.bfd.  The kernel
     module built with ld.gold does not work properly.
-  * Add linux3.patch to make the module build on linux-3.0.
+  * Add linux3.patch to make the module build for Linux 3.0.
   * Add nvidia-installer-cleanup as an alternative to nvidia-common.
   * Drop dependency on nvidia-common in favor of nvidia-installer-cleanup.
   * Add Pre-Depends: nvidia-installer-cleanup to nvidia-kernel-dkms.

@@ -43,8 +43,8 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  
  ifneq ($(KERNELRELEASE),)
  # Begin of Kbuild section
-@@ -246,7 +246,7 @@ SKIP_SANITY_CHECKS	+= cc_version_check
- SKIP_SANITY_CHECKS	+= preempt_rt_sanity_check
+@@ -244,7 +244,7 @@ BUILD_SANITY_CHECKS = \
+ SKIP_SANITY_CHECKS	 =
  
  build-sanity-checks: conftest-verbose
 -	@for SANITY_CHECK in $(filter-out $(SKIP_SANITY_CHECKS),$(BUILD_SANITY_CHECKS)); do \
@@ -52,7 +52,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	 echo " CONFTEST: $$SANITY_CHECK"; \
  	 if ! $(CONFTEST) $$SANITY_CHECK full_output; then \
  	 exit 1; \
-@@ -277,9 +277,9 @@ ifeq ($(KERNELRELEASE),)
+@@ -275,9 +275,9 @@ ifeq ($(KERNELRELEASE),)
  define BUILD_MODULE_RULE
   $(1): $(3)
  	@echo "NVIDIA: calling KBUILD..."
@@ -64,7 +64,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	 echo "$(1) failed to build!"; \
  	 exit 1; \
  	elif [ -f split-object-file.sh ]; then \
-@@ -294,7 +294,7 @@ endef
+@@ -292,7 +292,7 @@ endef
  #
  
  module-sign: $(MODULE_OBJECT)
@@ -73,7 +73,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	 echo "ERROR: MODSECKEY and MODPUBKEY must be set to sign modules!"; \
  	 exit 1; \
  	elif ! [ -f "$(MODSECKEY)" ]; then \
-@@ -326,7 +326,7 @@ module-sign: $(MODULE_OBJECT)
+@@ -324,7 +324,7 @@ module-sign: $(MODULE_OBJECT)
  #
  
  module-install: suser-sanity-check module
@@ -82,7 +82,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	install -m 0664 -o root -g root $(MODULE_OBJECT) $(MODULE_ROOT)/video; \
  	PATH="$(PATH):/bin:/sbin" depmod -a
  
-@@ -336,7 +336,7 @@ module-install: suser-sanity-check modul
+@@ -334,7 +334,7 @@ module-install: suser-sanity-check modul
  #
  
  package-install: module-install rmmod-sanity-check
@@ -91,7 +91,7 @@ Description: make silent commands in NVIDIA's Makefile.kbuild verbose
  	echo "$(MODULE_OBJECT) installed successfully.";
  
  #
-@@ -361,20 +361,20 @@ MODULE_COMMON_SCRIPT := $(if $(wildcard
+@@ -359,20 +359,20 @@ MODULE_COMMON_SCRIPT := $(if $(wildcard
  #
  
  $(KERNEL_GLUE_NAME): $(MODULE_OBJECT)

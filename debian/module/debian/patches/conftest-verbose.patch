@@ -53,7 +53,7 @@ Description: dump the generated conftest headers
  	 fi; \
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -2087,6 +2087,11 @@ case "$6" in
+@@ -2421,6 +2421,11 @@ case "$6" in
          #
          shift 5
  
