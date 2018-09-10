@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (390.87-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.87-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.87 (2018-08-27).
     - Fixed a resource leak introduced in the 390 series of drivers that could
@@ -18,7 +18,7 @@ nvidia-graphics-drivers (390.87-1~git1) UNRELEASED; urgency=medium
   * Synchronize the module build debhelper sequence with debhelper 10.
   * Bump Standards-Version to 4.2.1. No changes needed.
 
- -- Luca Boccassi <bluca@debian.org>  Mon, 27 Aug 2018 18:33:41 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 10 Sep 2018 15:24:08 +0200
 
 nvidia-graphics-drivers (390.77-1) unstable; urgency=medium
 
