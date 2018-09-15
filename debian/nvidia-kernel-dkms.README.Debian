@@ -9,6 +9,17 @@ If the kernel module is not built automatically, please ensure that the
 correct kernel headers are installed.
 
 
+Note: Using a binutils version to build the modules that differs from the
+version used to build the kernel may result in modules that are built
+successfully but cannot be loaded.
+This error message can be observed from insmod:
+  insmod: ERROR: could not insert module .../nvidia-current.ko: Invalid module format
+and this can be found in dmesg output or kernel.log:
+  module: nvidia: Unknown rela relocation: 4
+The common cause for this problem is a testing/unstable system running a
+stable kernel.
+
+
 SWITCHING FROM NVIDIA WAY TO DEBIAN WAY:
 -----------------------------------------------------------------------
 
