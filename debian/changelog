@@ -1,11 +1,11 @@
-nvidia-graphics-drivers (390.87-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.87-2) unstable; urgency=medium
 
   * Reinstate cc_version_check-gcc5.patch.  (Closes: #908568)
   * nvidia-kernel-dkms.README.Debian: Document that using a mismatching
     binutils version may result in modules failing to load with errors like
     "Invalid module format", "Unknown rela relocation: 4".
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 15 Sep 2018 16:36:22 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 15 Sep 2018 20:42:51 +0200
 
 nvidia-graphics-drivers (390.87-1) unstable; urgency=medium
 
