@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (390.87-2) UNRELEASED; urgency=medium
+
+  * Reinstate cc_version_check-gcc5.patch.  (Closes: #908568)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 15 Sep 2018 16:36:22 +0200
+
 nvidia-graphics-drivers (390.87-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.87 (2018-08-27).
@@ -13,7 +19,7 @@ nvidia-graphics-drivers (390.87-1) unstable; urgency=medium
   [ Andreas Beckmann ]
   * Remove cc_version_check-gcc5.patch and re-enable strict version checks,
     using mismatching compiler versions may create unloadable modules due to
-    mismatching symvers.
+    unsupported relocations.
   * Refresh patches.
   * Synchronize the module build debhelper sequence with debhelper 10.
   * Bump Standards-Version to 4.2.1. No changes needed.
