@@ -83,6 +83,15 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
 
+nvidia-graphics-drivers (390.87-2) unstable; urgency=medium
+
+  * Reinstate cc_version_check-gcc5.patch.  (Closes: #908568)
+  * nvidia-kernel-dkms.README.Debian: Document that using a mismatching
+    binutils version may result in modules failing to load with errors like
+    "Invalid module format", "Unknown rela relocation: 4".
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 15 Sep 2018 20:42:51 +0200
+
 nvidia-graphics-drivers (390.87-1) unstable; urgency=medium
 
   * New upstream long lived branch release 390.87 (2018-08-27).
@@ -98,7 +107,7 @@ nvidia-graphics-drivers (390.87-1) unstable; urgency=medium
   [ Andreas Beckmann ]
   * Remove cc_version_check-gcc5.patch and re-enable strict version checks,
     using mismatching compiler versions may create unloadable modules due to
-    mismatching symvers.
+    unsupported relocations.
   * Refresh patches.
   * Synchronize the module build debhelper sequence with debhelper 10.
   * Bump Standards-Version to 4.2.1. No changes needed.
