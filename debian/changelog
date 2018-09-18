@@ -1,8 +1,8 @@
-nvidia-graphics-drivers (396.54-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (396.54-1) experimental; urgency=medium
 
   * New upstream short lived branch release 396.54 (2018-08-21).
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 10 Sep 2018 16:11:07 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 18 Sep 2018 19:06:21 +0200
 
 nvidia-graphics-drivers (396.51-1) experimental; urgency=medium
 
