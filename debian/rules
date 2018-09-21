@@ -97,6 +97,7 @@ NVIDIA-Linux-%:
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
 	$(if $(filter $(DEB_HOST_ARCH),$(ARCH_LIST)),,$(error Architecture $(DEB_HOST_ARCH) unsupported.))
 	dh_testdir
+	$(RM) NVIDIA-Linux
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
 	ls -al
 	touch $@
@@ -167,12 +168,14 @@ override_dh_auto_install: build-kernel-source-tree build-kernel-dkms-tree
 
 install-into-tmp:
 	# "Install" into debian/tmp.
+	$(RM) -r debian/tmp
 	cp -al NVIDIA-Linux/ debian/tmp
 	rm -f debian/tmp/NVIDIA_Changelog
 	cp -al NVIDIA-Linux-amd64/NVIDIA_Changelog debian/tmp/
 
 build-kernel-source-tree: install-into-tmp
 	# Build the nvidia-kernel-source tree.
+	$(RM) -r $(module_source)
 	mkdir -p $(module_source)
 	mv debian/tmp/kernel/* $(module_source)/
 	# This copy of the changelog is going to be installed into the module
@@ -214,6 +217,7 @@ build-kernel-source-tree: install-into-tmp
 
 build-kernel-dkms-tree: build-kernel-source-tree
 	# Use the nvidia-kernel-source source to create the DKMS tree.
+	$(RM) -r $(dir $(dkms_source))
 	mkdir -p $(dir $(dkms_source))
 	mv $(module_source) $(dkms_source)
 	rmdir $(dir $(module_source))
