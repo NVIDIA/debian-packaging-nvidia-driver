@@ -235,9 +235,9 @@ build-kernel-source-tree: install-into-tmp
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
 	$(RM) $(module_source)/nvidia/nv-kernel.o_binary
-	$(foreach a,$(BLOB_ARCH_LIST),cp -a NVIDIA-Linux-$a/kernel/nvidia/nv-kernel.o_binary $(module_source)/nvidia/nv-kernel-$a.o_binary ;)
+	$(foreach a,$(BLOB_ARCH_LIST),cp -al NVIDIA-Linux-$a/kernel/nvidia/nv-kernel.o_binary $(module_source)/nvidia/nv-kernel-$a.o_binary ;)
 	$(RM) $(module_source)/nvidia-modeset/nv-modeset-kernel.o_binary
-	$(foreach a,$(BLOB_ARCH_LIST),cp -a NVIDIA-Linux-$a/kernel/nvidia-modeset/nv-modeset-kernel.o_binary $(module_source)/nvidia-modeset/nv-modeset-kernel-$a.o_binary ;)
+	$(foreach a,$(BLOB_ARCH_LIST),cp -al NVIDIA-Linux-$a/kernel/nvidia-modeset/nv-modeset-kernel.o_binary $(module_source)/nvidia-modeset/nv-modeset-kernel-$a.o_binary ;)
 
 	# Install a debian/ tree.
 	cp -a debian/module/debian $(module_source)/
