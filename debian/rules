@@ -392,7 +392,7 @@ pci.ids.nvidia: /usr/share/misc/pci.ids
 	done > $@
 
 # only invoked manually
-file-lists: $(patsubst %,debian/files_$(NVIDIA_RELEASE)_%,$(ARCH_LIST))
+file-lists: $(patsubst %,debian/files_$(NVIDIA_RELEASE)_%,$(DRIVER_ARCH_LIST))
 debian/files_$(NVIDIA_RELEASE)_%: NVIDIA-Linux-%
 	(cd $< && find .) | sed 's/$(NVIDIA_RELEASE)/VERSION/g' | sort > $@
 
