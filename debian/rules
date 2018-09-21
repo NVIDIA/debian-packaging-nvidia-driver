@@ -180,25 +180,25 @@ compare-copyright-license: LICENSE.txt
 	sed -e '1,/^License: NVIDIA-graphics-drivers/d; 1,/^License: NVIDIA-graphics-drivers$$/d; /^$$\|^Comment:$$/,$$d; /^ \.$$/d' debian/copyright > copyright.tmp
 	sed -e '/^ \.$$/d' LICENSE.txt > LICENSE.tmp
 	diff -w copyright.tmp LICENSE.tmp
-	rm -f copyright.tmp LICENSE.tmp
+	$(RM) copyright.tmp LICENSE.tmp
 
 .PHONY: binary binary-arch binary-indep build clean install
 binary binary-arch binary-indep build clean install:
 	dh $@ --with dkms
 
 override_dh_auto_clean:
-	rm -fr .pc
-	rm -f NVIDIA-Linux
-	rm -fr $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(NVIDIA_DIRNAME_$a))
-	rm -fr glvnd nonglvnd
-	rm -fr kernel-source-tree
-	rm -f nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
-	rm -f LICENSE.txt LICENSE.tmp copyright.tmp
+	$(RM) -r .pc
+	$(RM) NVIDIA-Linux
+	$(RM) -r $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(NVIDIA_DIRNAME_$a))
+	$(RM) -r glvnd nonglvnd
+	$(RM) -r kernel-source-tree
+	$(RM) nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
+	$(RM) LICENSE.txt LICENSE.tmp copyright.tmp
 	test ! -d debian/po || debconf-updatepo
 
 override_dh_clean:
 	dh_clean
-	rm -f $(AUTOCLEAN)
+	$(RM) $(AUTOCLEAN)
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
 override_dh_auto_configure: prepare
@@ -216,9 +216,9 @@ install-into-tmp:
 	# "Install" into debian/tmp.
 	$(RM) -r debian/tmp
 	cp -al NVIDIA-Linux/ debian/tmp
-	rm -rf debian/tmp/32
-	rm -rf debian/tmp/libglvnd_install_checker
-	rm -f debian/tmp/NVIDIA_Changelog
+	$(RM) -r debian/tmp/32
+	$(RM) -r debian/tmp/libglvnd_install_checker
+	$(RM) debian/tmp/NVIDIA_Changelog
 ifneq (,$(has_driver))
 	gzip -9fn debian/tmp/nvidia-smi.1
 endif
@@ -234,9 +234,9 @@ build-kernel-source-tree: install-into-tmp
 
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
-	rm -f $(module_source)/nvidia/nv-kernel.o_binary
+	$(RM) $(module_source)/nvidia/nv-kernel.o_binary
 	$(foreach a,$(BLOB_ARCH_LIST),cp -a NVIDIA-Linux-$a/kernel/nvidia/nv-kernel.o_binary $(module_source)/nvidia/nv-kernel-$a.o_binary ;)
-	rm -f $(module_source)/nvidia-modeset/nv-modeset-kernel.o_binary
+	$(RM) $(module_source)/nvidia-modeset/nv-modeset-kernel.o_binary
 	$(foreach a,$(BLOB_ARCH_LIST),cp -a NVIDIA-Linux-$a/kernel/nvidia-modeset/nv-modeset-kernel.o_binary $(module_source)/nvidia-modeset/nv-modeset-kernel-$a.o_binary ;)
 
 	# Install a debian/ tree.
@@ -270,13 +270,13 @@ build-kernel-dkms-tree: build-kernel-source-tree
 	rmdir $(dir $(module_source))
 	cd $(dkms_source) \
 	    && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2 \
-	    && rm -rf .pc debian
+	    && $(RM) -r .pc debian
 	ls -la $(dkms_source)
 
 # This target is not used by the package build process.  You can use it if
 # you want to work with the patches that get applied to the module source.
 kernel-source-tree: prepare build-kernel-source-tree
-	rm -rf $@
+	$(RM) -r $@
 	cp -a $(module_source) $@
 	cd $@ && QUILT_PATCHES=../debian/module/debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2
 
@@ -453,4 +453,4 @@ get-orig-source-files/empty: get-orig-source-prepare/empty $(foreach a,$(DRIVER_
 
 .PHONY: get-orig-source
 get-orig-source: get-orig-source-pack/empty
-	rm -rf get-orig-source
+	$(RM) -r get-orig-source
