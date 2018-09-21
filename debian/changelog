@@ -1,3 +1,50 @@
+nvidia-graphics-drivers (410.57-1~git1) UNRELEASED; urgency=medium
+
+  * New upstream beta 410.57 (2018-09-20).
+    - Added a graphics API visual indicator.  It can be toggled through
+      nvidia-settings' "OpenGL Settings" panel, the
+      __GL_SHOW_GRAPHICS_OSD environment variable, or the
+      GLShowGraphicsOSD application profile.  See the README for more
+      information.
+    - Added support for X11 RandR transformations on outputs where the NVIDIA X
+      driver is used as a synchronized RandR 1.4 output source (i.e., "PRIME
+      Sync").
+    - Fixed a bug that caused OpenGL corruption on outputs where the NVIDIA X
+      driver was used as an RandR 1.4 output source (i.e., "PRIME"), and the
+      output sink required a software cursor.
+    - Fixed an X driver RandR output source (i.e., "PRIME") bug that could cause
+      a duplicate cursor to appear on such outputs.
+    - Exposed EGL 1.5 in the EGL version string. This does not add
+      any extra functionality to the EGL driver. All EGL 1.5 features
+      were already supported through EGL 1.4 plus extensions.
+    - Added support for the following GPUs: GeForce RTX 2080 Ti,
+      GeForce RTX 2080, Tesla V100-SXM2-16GB-LS, Tesla V100-PCIE-16GB-LS,
+      Tesla V100-SXM2-32GB-LS, Tesla V100-SXM3-32GB.
+    - Added the OptiX ray tracing engine, libnvoptix.so.1, to the driver
+      package.
+      This library is loaded by the liboptix.so.* library bundled with
+      applications that use the OptiX API.
+    - Added experimental support for VK_EXT_global_priority.
+    - Removed support for the VK_NV_glsl_shader Vulkan extension.
+      This extension was added before the Vulkan ecosystem had mature
+      SPIR-V compilers and tools.  Now that the SPIR-V compilers and
+      tools have advanced, Vulkan developers are encouraged to use SPIR-V
+      instead of GLSL.
+    - Fixed a bug that caused VDPAU-decoded H.265/HEVC content to have
+      interlaced artifacts when shared with OpenGL through the
+      GL_NV_vdpau_interop extension.
+    - Implemented support for Vulkan real-time ray tracing extensions
+      (VK_NV_raytracing). Two new libraries, libnvidia-rtcore.so and
+      libnvidia-cbl.so, have been added to support the new functionality.
+      These new libraries are needed by Vulkan at run-time to expose the
+      new extension. If they are not found, Vulkan will continue to work
+      without VK_NV_raytracing support.
+  * New upstream release 396 series.
+    - Added support for the following GPUs: Quadro P5200 with Max-Q Design,
+      Quadro P4200 with Max-Q Design, Quadro P2000 with Max-Q Design.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 21 Sep 2018 16:12:56 +0200
+
 nvidia-graphics-drivers (396.54-2) UNRELEASED; urgency=medium
 
   * Drop do-div-cast.patch, 32-bit platforms are no longer supported.
