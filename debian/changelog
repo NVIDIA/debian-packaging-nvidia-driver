@@ -47,6 +47,7 @@ nvidia-graphics-drivers (410.57-1~git1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Drop drm-mode.patch, fixed upstream.
   * Update libnvidia-egl-wayland ABI version to 1.1.0.
+  * libglx.so has been replaced by libglxserver_nvidia.so.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 21 Sep 2018 16:12:56 +0200
 

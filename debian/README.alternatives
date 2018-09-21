@@ -5,7 +5,7 @@ To switch between the current and legacy NVIDIA drivers, use
 
     update-glx --config nvidia
 
-To switch between the GLX implementation from MESA, NVIDIA and AMD(fglrx),
+To switch between the GLX implementation from MESA/glvnd and NVIDIA,
 use the command
 
     update-glx --config glx
@@ -19,16 +19,12 @@ Detailed description of the diversions/alternatives for libGL.so.1 etc.
 
 NVIDIA provides accelerated OpenGL libraries libGL.so.* which are shipped
 in the libgl1-nvidia-glx (or a corresponding libgl1-nvidia-legacy*-glx)
-package.  Also, NVIDIA provides its own libglx.so module for X.org which
-is shipped along with X.org driver nvidia_drv.so in the
-xserver-xorg-video-nvidia (or xserver-xorg-video-nvidia-legacy*)
 package.  Furthermore NVIDIA maintains several legacy driver releases that
 support older GPUs and ship files with the same names (but of course they
 may not be mixed between different versions).
 As these libraries and modules "replace" system libraries (libGL.so* from
 MESA) and Xorg modules, care has to be taken to allow clean upgrades of
 both the drivers and the system libraries.
-Note: AMD provides similar proprietary replacements in their fglrx driver.
 
 Several additional requests have risen over time, e.g. from live systems:
  * allow parallel installation of several drivers (even from different
@@ -63,7 +59,7 @@ User configuration can be done with the command
 
     update-glx --config glx
 
-which allows one to select a glx provider from mesa, nvidia, fglrx.
+which allows one to select a glx provider from mesa, nvidia.
 (Available choices depend on the installed drivers.)
 
 For NVIDIA, there is a second alternative that allows one to switch between
