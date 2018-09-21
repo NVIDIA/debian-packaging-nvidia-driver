@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (396.54-2) UNRELEASED; urgency=medium
+
+  * Drop do-div-cast.patch, 32-bit platforms are no longer supported.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 21 Sep 2018 15:56:24 +0200
+
 nvidia-graphics-drivers (396.54-1) experimental; urgency=medium
 
   * New upstream short lived branch release 396.54 (2018-08-21).
