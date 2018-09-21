@@ -118,11 +118,13 @@ NVIDIA-Linux-%:
 	gunzip $@/*.1.gz
 
 NVIDIA-Linux-i386: NVIDIA-Linux-amd64
+	$(RM) -r $@
 	cp -al $</32 $@
 	cp -al $</*.icd $@
 	cp -al $</*.json* $@
 
 NVIDIA-Linux-armhf: NVIDIA-Linux-amd64
+	$(RM) -r $@
 	mkdir $@
 	cp -al $</*.json $@
 
@@ -130,6 +132,7 @@ NVIDIA-Linux-armhf: NVIDIA-Linux-amd64
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
 	$(if $(filter $(DEB_HOST_ARCH),$(ARCH_LIST)),,$(error Architecture $(DEB_HOST_ARCH) unsupported.))
 	dh_testdir
+	$(RM) NVIDIA-Linux
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
 ifneq (,$(has_driver))
 	QUILT_PATCHES=debian/patches QUILT_SERIES=series-postunpack quilt --quiltrc /dev/null push -a || test $$? = 2
@@ -211,6 +214,7 @@ endif
 
 install-into-tmp:
 	# "Install" into debian/tmp.
+	$(RM) -r debian/tmp
 	cp -al NVIDIA-Linux/ debian/tmp
 	rm -rf debian/tmp/32
 	rm -rf debian/tmp/libglvnd_install_checker
@@ -221,6 +225,7 @@ endif
 
 build-kernel-source-tree: install-into-tmp
 	# Build the nvidia-kernel-source tree.
+	$(RM) -r $(module_source)
 	mkdir -p $(module_source)
 	mv debian/tmp/kernel/* $(module_source)/
 	# This copy of the changelog is going to be installed into the module
@@ -259,6 +264,7 @@ build-kernel-source-tree: install-into-tmp
 
 build-kernel-dkms-tree: build-kernel-source-tree
 	# Use the nvidia-kernel-source source to create the DKMS tree.
+	$(RM) -r $(dir $(dkms_source))
 	mkdir -p $(dir $(dkms_source))
 	mv $(module_source) $(dkms_source)
 	rmdir $(dir $(module_source))
