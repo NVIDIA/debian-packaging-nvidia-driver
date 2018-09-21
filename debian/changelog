@@ -43,6 +43,9 @@ nvidia-graphics-drivers (410.57-1~git1) UNRELEASED; urgency=medium
     - Added support for the following GPUs: Quadro P5200 with Max-Q Design,
       Quadro P4200 with Max-Q Design, Quadro P2000 with Max-Q Design.
 
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Fri, 21 Sep 2018 16:12:56 +0200
 
 nvidia-graphics-drivers (396.54-2) UNRELEASED; urgency=medium
