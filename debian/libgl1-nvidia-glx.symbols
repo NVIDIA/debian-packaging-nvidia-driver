@@ -24,7 +24,7 @@
  glGetSemaphoreParameterui64vEXT@Base 384.69
  glGetUnsignedBytei_vEXT@Base 384.69
  glGetUnsignedBytevEXT@Base 384.69
- glGetVkCoreProcAddrNVX@Base 381
+#MISSING: 410# glGetVkCoreProcAddrNVX@Base 381
  glGetVkProcAddrNV@Base 364
  glImportMemoryFdEXT@Base 384.69
  glImportSemaphoreFdEXT@Base 384.69
@@ -41,6 +41,8 @@
 #MISSING: 387# glQueryResourceNVX@Base 355
  glQueryResourceTagNV@Base 387
  glScissorArrayvOES@Base 378
+ glScissorExclusiveArrayvNV@Base 410
+ glScissorExclusiveNV@Base 410
  glScissorIndexedOES@Base 378
  glScissorIndexedvOES@Base 378
  glSemaphoreParameterui64vEXT@Base 384.69

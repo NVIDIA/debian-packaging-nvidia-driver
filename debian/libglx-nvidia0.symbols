@@ -62,6 +62,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glBindRenderbufferOES@Base 361.28
  glBindSampler@Base 361.28
  glBindSamplers@Base 361.28
+ glBindShadingRateImageNV@Base 410
  glBindTexture@Base 361.28
  glBindTextureEXT@Base 361.28
  glBindTextureUnit@Base 361.28
@@ -460,6 +461,8 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glDrawElementsInstancedEXT@Base 361.28
  glDrawElementsInstancedNV@Base 361.28
 #MISSING: 367# glDrawMeshNV@Base 361.28
+ glDrawMeshTasksIndirectNV@Base 410
+ glDrawMeshTasksNV@Base 410
  glDrawPixels@Base 361.28
  glDrawRangeElements@Base 361.28
  glDrawRangeElementsBaseVertex@Base 361.28
@@ -588,6 +591,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glFramebufferTextureLayerARB@Base 361.28
  glFramebufferTextureLayerEXT@Base 361.28
  glFramebufferTextureLayerNV@Base 361.28
+ glFramebufferTextureMultiviewOVR@Base 410
  glFramebufferTextureOES@Base 361.28
  glFrontFace@Base 361.28
  glFrustum@Base 361.28
@@ -886,6 +890,8 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGetShaderSource@Base 361.28
  glGetShaderSourceARB@Base 361.28
  glGetShaderiv@Base 361.28
+ glGetShadingRateImagePaletteNV@Base 410
+ glGetShadingRateSampleLocationivNV@Base 410
  glGetStageIndexNV@Base 361.28
  glGetString@Base 361.28
  glGetStringi@Base 361.28
@@ -1000,7 +1006,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGetVideoivNV@Base 361.28
  glGetVideoui64vNV@Base 361.28
  glGetVideouivNV@Base 361.28
- glGetVkCoreProcAddrNVX@Base 381
+#MISSING: 410# glGetVkCoreProcAddrNVX@Base 381
  glGetVkProcAddrNV@Base 364
  glGetnColorTable@Base 361.28
  glGetnColorTableARB@Base 361.28
@@ -1262,6 +1268,8 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glMultiDrawElementsIndirectCount@Base 387
  glMultiDrawElementsIndirectCountARB@Base 361.28
  glMultiDrawElementsIndirectEXT@Base 361.28
+ glMultiDrawMeshTasksIndirectCountNV@Base 410
+ glMultiDrawMeshTasksIndirectNV@Base 410
  glMultiTexBufferEXT@Base 361.28
  glMultiTexCoord1d@Base 361.28
  glMultiTexCoord1dARB@Base 361.28
@@ -1402,6 +1410,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glNamedFramebufferTextureFaceEXT@Base 361.28
  glNamedFramebufferTextureLayer@Base 361.28
  glNamedFramebufferTextureLayerEXT@Base 361.28
+ glNamedFramebufferTextureMultiviewOVR@Base 410
  glNamedProgramLocalParameter4dEXT@Base 361.28
  glNamedProgramLocalParameter4dvEXT@Base 361.28
  glNamedProgramLocalParameter4fEXT@Base 361.28
@@ -1810,6 +1819,8 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glScissorArrayv@Base 361.28
  glScissorArrayvNV@Base 361.28
  glScissorArrayvOES@Base 378
+ glScissorExclusiveArrayvNV@Base 410
+ glScissorExclusiveNV@Base 410
  glScissorIndexed@Base 361.28
  glScissorIndexedNV@Base 361.28
  glScissorIndexedOES@Base 378
@@ -1864,6 +1875,10 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glShaderSource@Base 361.28
  glShaderSourceARB@Base 361.28
  glShaderStorageBlockBinding@Base 361.28
+ glShadingRateImageBarrierNV@Base 410
+ glShadingRateImagePaletteNV@Base 410
+ glShadingRateSampleOrderCustomNV@Base 410
+ glShadingRateSampleOrderNV@Base 410
  glSignalSemaphoreEXT@Base 384.69
  glSignalVkFenceNV@Base 364
  glSignalVkSemaphoreNV@Base 364

@@ -35,6 +35,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuCtxSetLimit@Base 256
  cuCtxSetSharedMemConfig@Base 295.33
  cuCtxSynchronize@Base 169
+ cuDestroyExternalMemory@Base 410
+ cuDestroyExternalSemaphore@Base 410
  cuDeviceCanAccessPeer@Base 270
  cuDeviceComputeCapability@Base 169
  cuDeviceGet@Base 169
@@ -73,6 +75,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuEventRecord@Base 169
  cuEventRecord_ptsz@Base 346
  cuEventSynchronize@Base 169
+ cuExternalMemoryGetMappedBuffer@Base 410
+ cuExternalMemoryGetMappedMipmappedArray@Base 410
  cuFuncGetAttribute@Base 185
  cuFuncSetAttribute@Base 384
  cuFuncSetBlockShape@Base 169
@@ -98,6 +102,38 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGetErrorName@Base 331
  cuGetErrorString@Base 331
  cuGetExportTable@Base 195.30
+ cuGraphAddChildGraphNode@Base 410
+ cuGraphAddDependencies@Base 410
+ cuGraphAddEmptyNode@Base 410
+ cuGraphAddHostNode@Base 410
+ cuGraphAddKernelNode@Base 410
+ cuGraphAddMemcpyNode@Base 410
+ cuGraphAddMemsetNode@Base 410
+ cuGraphChildGraphNodeGetGraph@Base 410
+ cuGraphClone@Base 410
+ cuGraphCreate@Base 410
+ cuGraphDestroy@Base 410
+ cuGraphDestroyNode@Base 410
+ cuGraphExecDestroy@Base 410
+ cuGraphGetEdges@Base 410
+ cuGraphGetNodes@Base 410
+ cuGraphGetRootNodes@Base 410
+ cuGraphHostNodeGetParams@Base 410
+ cuGraphHostNodeSetParams@Base 410
+ cuGraphInstantiate@Base 410
+ cuGraphKernelNodeGetParams@Base 410
+ cuGraphKernelNodeSetParams@Base 410
+ cuGraphLaunch@Base 410
+ cuGraphLaunch_ptsz@Base 410
+ cuGraphMemcpyNodeGetParams@Base 410
+ cuGraphMemcpyNodeSetParams@Base 410
+ cuGraphMemsetNodeGetParams@Base 410
+ cuGraphMemsetNodeSetParams@Base 410
+ cuGraphNodeFindInClone@Base 410
+ cuGraphNodeGetDependencies@Base 410
+ cuGraphNodeGetDependentNodes@Base 410
+ cuGraphNodeGetType@Base 410
+ cuGraphRemoveDependencies@Base 410
  (arch=!i386)cuGraphicsEGLRegisterImage@Base 346
  cuGraphicsGLRegisterBuffer@Base 195
  cuGraphicsGLRegisterImage@Base 195
@@ -115,6 +151,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGraphicsUnregisterResource@Base 195
  cuGraphicsVDPAURegisterOutputSurface@Base 256
  cuGraphicsVDPAURegisterVideoSurface@Base 256
+ cuImportExternalMemory@Base 410
+ cuImportExternalSemaphore@Base 410
  cuInit@Base 169
  cuIpcCloseMemHandle@Base 285.05
  cuIpcGetEventHandle@Base 285.05
@@ -129,6 +167,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuLaunchCooperativeKernel_ptsz@Base 384
  cuLaunchGrid@Base 169
  cuLaunchGridAsync@Base 169
+ cuLaunchHostFunc@Base 410
+ cuLaunchHostFunc_ptsz@Base 410
  cuLaunchKernel@Base 270
  cuLaunchKernel_ptsz@Base 346
  cuLinkAddData@Base 319
@@ -291,22 +331,30 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuProfilerInitialize@Base 270
  cuProfilerStart@Base 270
  cuProfilerStop@Base 270
+ cuSignalExternalSemaphoresAsync@Base 410
+ cuSignalExternalSemaphoresAsync_ptsz@Base 410
  cuStreamAddCallback@Base 304
  cuStreamAddCallback_ptsz@Base 346
  cuStreamAttachMemAsync@Base 331.38
  cuStreamAttachMemAsync_ptsz@Base 346
  cuStreamBatchMemOp@Base 361.42
  cuStreamBatchMemOp_ptsz@Base 361.42
+ cuStreamBeginCapture@Base 410
+ cuStreamBeginCapture_ptsz@Base 410
  cuStreamCreate@Base 169
  cuStreamCreateWithPriority@Base 319
  cuStreamDestroy@Base 169
  cuStreamDestroy_v2@Base 270
+ cuStreamEndCapture@Base 410
+ cuStreamEndCapture_ptsz@Base 410
  cuStreamGetCtx@Base 396
  cuStreamGetCtx_ptsz@Base 396
  cuStreamGetFlags@Base 319
  cuStreamGetFlags_ptsz@Base 346
  cuStreamGetPriority@Base 319
  cuStreamGetPriority_ptsz@Base 346
+ cuStreamIsCapturing@Base 410
+ cuStreamIsCapturing_ptsz@Base 410
  cuStreamQuery@Base 169
  cuStreamQuery_ptsz@Base 346
  cuStreamSynchronize@Base 169
@@ -365,6 +413,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuVDPAUCtxCreate@Base 256
  cuVDPAUCtxCreate_v2@Base 260
  cuVDPAUGetDevice@Base 256
+ cuWaitExternalSemaphoresAsync@Base 410
+ cuWaitExternalSemaphoresAsync_ptsz@Base 410
  cudbgApiAttach@Base 331.20
  cudbgApiClientPid@Base 331.20
  cudbgApiClientRevision@Base 331.20

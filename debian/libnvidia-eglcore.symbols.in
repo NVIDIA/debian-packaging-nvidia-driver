@@ -63,6 +63,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glBindRenderbufferOES@Base 346
  _glBindSampler@Base 346
  _glBindSamplers@Base 346
+ _glBindShadingRateImageNV@Base 410
  _glBindTexture@Base 346
  _glBindTextureEXT@Base 346
  _glBindTextureUnit@Base 346
@@ -461,6 +462,8 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDrawElementsInstancedEXT@Base 346
  _glDrawElementsInstancedNV@Base 346
 #MISSING: 367# _glDrawMeshNV@Base 346
+ _glDrawMeshTasksIndirectNV@Base 410
+ _glDrawMeshTasksNV@Base 410
  _glDrawPixels@Base 346
  _glDrawRangeElements@Base 346
  _glDrawRangeElementsBaseVertex@Base 346
@@ -591,6 +594,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glFramebufferTextureLayerARB@Base 346
  _glFramebufferTextureLayerEXT@Base 346
  _glFramebufferTextureLayerNV@Base 346
+ _glFramebufferTextureMultiviewOVR@Base 410
  _glFramebufferTextureOES@Base 349
  _glFrontFace@Base 346
  _glFrustum@Base 346
@@ -889,6 +893,8 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetShaderSource@Base 346
  _glGetShaderSourceARB@Base 346
  _glGetShaderiv@Base 346
+ _glGetShadingRateImagePaletteNV@Base 410
+ _glGetShadingRateSampleLocationivNV@Base 410
  _glGetStageIndexNV@Base 346
  _glGetString@Base 346
  _glGetStringi@Base 346
@@ -1003,7 +1009,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetVideoivNV@Base 346
  _glGetVideoui64vNV@Base 346
  _glGetVideouivNV@Base 346
- _glGetVkCoreProcAddrNVX@Base 381
+#MISSING: 410# _glGetVkCoreProcAddrNVX@Base 381
  _glGetVkProcAddrNV@Base 364
  _glGetnColorTable@Base 346
  _glGetnColorTableARB@Base 346
@@ -1265,6 +1271,8 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glMultiDrawElementsIndirectCount@Base 387
  _glMultiDrawElementsIndirectCountARB@Base 346
  _glMultiDrawElementsIndirectEXT@Base 346
+ _glMultiDrawMeshTasksIndirectCountNV@Base 410
+ _glMultiDrawMeshTasksIndirectNV@Base 410
  _glMultiTexBufferEXT@Base 346
  _glMultiTexCoord1d@Base 346
  _glMultiTexCoord1dARB@Base 346
@@ -1404,6 +1412,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glNamedFramebufferTextureFaceEXT@Base 346
  _glNamedFramebufferTextureLayer@Base 346
  _glNamedFramebufferTextureLayerEXT@Base 346
+ _glNamedFramebufferTextureMultiviewOVR@Base 410
  _glNamedProgramLocalParameter4dEXT@Base 346
  _glNamedProgramLocalParameter4dvEXT@Base 346
  _glNamedProgramLocalParameter4fEXT@Base 346
@@ -1812,6 +1821,8 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glScissorArrayv@Base 346
  _glScissorArrayvNV@Base 346
  _glScissorArrayvOES@Base 378
+ _glScissorExclusiveArrayvNV@Base 410
+ _glScissorExclusiveNV@Base 410
  _glScissorIndexed@Base 346
  _glScissorIndexedNV@Base 346
  _glScissorIndexedOES@Base 378
@@ -1866,6 +1877,10 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glShaderSource@Base 346
  _glShaderSourceARB@Base 346
  _glShaderStorageBlockBinding@Base 346
+ _glShadingRateImageBarrierNV@Base 410
+ _glShadingRateImagePaletteNV@Base 410
+ _glShadingRateSampleOrderCustomNV@Base 410
+ _glShadingRateSampleOrderNV@Base 410
  _glSignalSemaphoreEXT@Base 384.69
  _glSignalVkFenceNV@Base 364
  _glSignalVkSemaphoreNV@Base 364
