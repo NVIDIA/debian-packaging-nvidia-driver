@@ -51,6 +51,8 @@ nvidia-graphics-drivers (410.57-1~git1) UNRELEASED; urgency=medium
   * Remove ModulePath workarounds since we no longer collide with the Xorg
     module libglx.so.
   * Update symbols files.
+  * libnvidia-cbl, libnvidia-rtcore: New packages for the internal libraries
+    implementing the Vulkan real-time ray tracing extensions.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 21 Sep 2018 16:12:56 +0200
 
