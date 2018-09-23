@@ -53,6 +53,8 @@ nvidia-graphics-drivers (410.57-1~git1) UNRELEASED; urgency=medium
   * Update symbols files.
   * libnvidia-cbl, libnvidia-rtcore: New packages for the internal libraries
     implementing the Vulkan real-time ray tracing extensions.
+  * libnvoptix1: New package for the implementation of the OptiX ray tracing
+    engine for NVIDIA/CUDA.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 21 Sep 2018 16:12:56 +0200
 

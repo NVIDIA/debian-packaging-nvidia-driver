@@ -1,0 +1,2 @@
+libnvoptix.so.1 #PACKAGE# #MINVER#
+ rtGetSymbolTable@Base 410

@@ -1320,6 +1320,23 @@ Description: NVIDIA OpenGL-based Framebuffer Capture runtime library${nvidia:Leg
  .
  This package contains the NvFBCOpenGL runtime library.
 
+#Package: lib${nvidia}-nvoptix1
+Package: libnvoptix1
+Architecture: amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${libcuda1} (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA implementation of the OptiX ray tracing engine${nvidia:LegacyDesc}
+ The OptiX API is an application framework for achieving optimal ray tracing
+ performance on the GPU.
+ .
+ This package contains runtime library of the OptiX ray tracing engine
+ implementation for NVIDIA CUDA.
+ It is used by liboptix.so.* coming with applications using the OptiX API.
+
 #Package: lib${nvidia}-ml1
 Package: libnvidia-ml1
 Architecture: i386 amd64 ppc64el
