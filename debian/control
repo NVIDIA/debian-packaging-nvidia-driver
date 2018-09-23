@@ -552,7 +552,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libgles1 (>= 0.2.999) | libgles1-glvnd-nvidia | ${nvidia}-alternative,
+ libgles1 (>= 0.2.999) | libgles1-glvnd-nvidia,
  lib${nvidia}-eglcore (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA binary OpenGL|ES 1.x library${nvidia:LegacyDesc}
