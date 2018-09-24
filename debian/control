@@ -106,7 +106,7 @@ Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
  libopengl0 | libopengl0-glvnd-nvidia,
  libglx-${nvidia}0 (= ${binary:Version}),
-# libgles-${nvidia}1 (= ${binary:Version}),
+ libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
  ${nvidia}-egl-wayland-icd (= ${binary:Version}),
@@ -117,7 +117,7 @@ Conflicts:
  libglx0-glvnd-nvidia,
  libgl1-glvnd-nvidia-glx,
  libegl1-glvnd-nvidia,
-# libgles1-glvnd-nvidia,
+ libgles1-glvnd-nvidia,
  libgles2-glvnd-nvidia,
 Breaks:
  ${nvidia}-driver-libs-nonglvnd,
@@ -165,7 +165,7 @@ Conflicts:
  libglx0-glvnd-nvidia,
  libgl1-glvnd-nvidia-glx,
  libegl1-glvnd-nvidia,
-# libgles1-glvnd-nvidia,
+ libgles1-glvnd-nvidia,
  libgles2-glvnd-nvidia,
 Breaks:
  ${nvidia}-driver-libs,

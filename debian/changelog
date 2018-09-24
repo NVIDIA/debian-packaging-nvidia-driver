@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (390.87-3) UNRELEASED; urgency=medium
+
+  * Make libgles-nvidia1 a full citizen again, libglvnd now builds libgles1.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 24 Sep 2018 10:51:47 +0200
+
 nvidia-graphics-drivers (390.87-2) unstable; urgency=medium
 
   * Reinstate cc_version_check-gcc5.patch.  (Closes: #908568)
