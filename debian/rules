@@ -180,7 +180,7 @@ build-kernel-source-tree: install-into-tmp
 	mv debian/tmp/kernel/* $(module_source)/
 	# This copy of the changelog is going to be installed into the module
 	# binary packages.
-	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
+	cp -al debian/tmp/NVIDIA_Changelog $(module_source)/
 
 	# We only want Kbuild.
 	$(RM) $(module_source)/makefile
@@ -190,7 +190,7 @@ build-kernel-source-tree: install-into-tmp
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
 	$(RM) $(module_source)/nv-kernel.o
-	$(foreach a,$(BLOB_ARCH_LIST),cp -a NVIDIA-Linux-$a/kernel/nv-kernel.o $(module_source)/nv-kernel-$a.o_shipped ;)
+	$(foreach a,$(BLOB_ARCH_LIST),cp -al NVIDIA-Linux-$a/kernel/nv-kernel.o $(module_source)/nv-kernel-$a.o_shipped ;)
 
 	# Install a debian/ tree.
 	cp -a debian/module/debian $(module_source)/
