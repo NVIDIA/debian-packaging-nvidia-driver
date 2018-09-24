@@ -874,7 +874,7 @@ Description: NVIDIA binary OpenGL/GLX configuration library${nvidia:LegacyDesc}
 
 #Package: ${nvidia}-alternative
 Package: nvidia-alternative
-Architecture: i386 amd64 armhf ppc64el
+Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Pre-Depends:
  dpkg (>= 1.17.21),
@@ -910,7 +910,7 @@ Description: allows the selection of NVIDIA as GLX provider${nvidia:LegacyDesc}
 #Package: ${nvidia}-kernel-support
 Package: nvidia-kernel-support
 Section: non-free/kernel
-Architecture: i386 amd64 armhf ppc64el
+Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
@@ -935,7 +935,7 @@ Description: NVIDIA binary kernel module support files${nvidia:LegacyDesc}
 #Package: ${nvidia}-kernel-dkms
 Package: nvidia-kernel-dkms
 Section: non-free/kernel
-Architecture: i386 amd64 armhf ppc64el
+Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Pre-Depends:
  nvidia-installer-cleanup,
@@ -970,7 +970,7 @@ Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
 #Package: ${nvidia}-kernel-source
 Package: nvidia-kernel-source
 Section: non-free/kernel
-Architecture: i386 amd64 armhf ppc64el
+Architecture: i386 amd64 armhf
 Depends:
  debhelper (>= 9),
  make:any,
@@ -1042,7 +1042,7 @@ Description: Video Decode and Presentation API for Unix - NVIDIA driver${nvidia:
 #Package: ${nvidia}-smi
 Package: nvidia-smi
 Section: non-free/utils
-Architecture: i386 amd64 armhf ppc64el
+Architecture: i386 amd64 armhf
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  lib${nvidia}-ml1 (= ${binary:Version}),
@@ -1061,7 +1061,7 @@ Description: NVIDIA System Management Interface${nvidia:LegacyDesc}
 
 Package: nvidia-cuda-mps
 Section: non-free/utils
-Architecture: i386 amd64 armhf ppc64el
+Architecture: i386 amd64 armhf
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Description: NVIDIA CUDA Multi Process Service (MPS)
@@ -1078,7 +1078,7 @@ Description: NVIDIA CUDA Multi Process Service (MPS)
 
 #Package: ${libcuda1}
 Package: libcuda1
-Architecture: i386 amd64 armhf ppc64el
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${nvidia:legacy-check},
@@ -1262,7 +1262,7 @@ Description: NVIDIA OpenGL-based Framebuffer Capture runtime library${nvidia:Leg
 
 #Package: lib${nvidia}-ml1
 Package: libnvidia-ml1
-Architecture: i386 amd64 armhf ppc64el
+Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -1279,7 +1279,7 @@ Description: NVIDIA Management Library (NVML) runtime library${nvidia:LegacyDesc
  This package contains the nvidia-ml runtime library.
 
 Package: nvidia-opencl-common
-Architecture: i386 amd64 ppc64el
+Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
@@ -1296,7 +1296,7 @@ Description: NVIDIA OpenCL driver - common files
 
 #Package: ${nvidia}-opencl-icd
 Package: nvidia-opencl-icd
-Architecture: i386 amd64 ppc64el
+Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
@@ -1320,7 +1320,7 @@ Description: NVIDIA OpenCL installable client driver (ICD)${nvidia:LegacyDesc}
  which supports NVIDIA GPUs. This ICD supports OpenCL 1.x only.
 
 Package: nvidia-libopencl1
-Architecture: i386 amd64 ppc64el
+Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
