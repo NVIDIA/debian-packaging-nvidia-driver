@@ -882,6 +882,10 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-cbl-${nvidia:Version},
+Conflicts:
+ libnvidia-cbl-${nvidia:Version},
 Description: NVIDIA binary Vulkan ray tracing (cbl) library${nvidia:LegacyDesc}
  Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
  .
@@ -899,6 +903,10 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-rtcore-${nvidia:Version},
+Conflicts:
+ libnvidia-rtcore-${nvidia:Version},
 Description: NVIDIA binary Vulkan ray tracing (rtcore) library${nvidia:LegacyDesc}
  Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
  .
