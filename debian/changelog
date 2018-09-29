@@ -1,6 +1,8 @@
 nvidia-graphics-drivers (390.87-3) UNRELEASED; urgency=medium
 
   * Make libgles-nvidia1 a full citizen again, libglvnd now builds libgles1.
+  * libnvidia-fatbinaryloader: Prevent co-installation with the same upstream
+    version of libnvidia-legacy-390xx-fatbinaryloader.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 24 Sep 2018 10:51:47 +0200
 

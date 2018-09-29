@@ -1170,6 +1170,10 @@ Pre-Depends:
 Depends:
  lib${nvidia}-ptxjitcompiler1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-fatbinaryloader-${nvidia:Version},
+Conflicts:
+ libnvidia-fatbinaryloader-${nvidia:Version},
 Description: NVIDIA FAT binary loader${nvidia:LegacyDesc}
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
