@@ -61,7 +61,6 @@ libGL.so.1 libgl1 (>= 0.2.999) | libgl1-mesa-glx
  glBindRenderbufferOES@Base 325
  glBindSampler@Base 256
  glBindSamplers@Base 331
- glBindShadingRateImageNV@Base 410
 #MISSING: 331# glBindStateObjectNV@Base 260
  glBindTexture@Base 1.0.4349
  glBindTextureEXT@Base 1.0.4349
@@ -450,8 +449,6 @@ libGL.so.1 libgl1 (>= 0.2.999) | libgl1-mesa-glx
  glDrawElementsInstancedBaseVertexOES@Base 349
  glDrawElementsInstancedEXT@Base 1.0.9746
  glDrawElementsInstancedNV@Base 325
- glDrawMeshTasksIndirectNV@Base 410
- glDrawMeshTasksNV@Base 410
  glDrawPixels@Base 1.0.4349
  glDrawRangeElements@Base 1.0.4349
  glDrawRangeElementsBaseVertex@Base 190.18.05
@@ -874,8 +871,6 @@ libGL.so.1 libgl1 (>= 0.2.999) | libgl1-mesa-glx
  glGetShaderSource@Base 1.0.7664
  glGetShaderSourceARB@Base 1.0.6106
  glGetShaderiv@Base 1.0.7664
- glGetShadingRateImagePaletteNV@Base 410
- glGetShadingRateSampleLocationivNV@Base 410
  glGetStageIndexNV@Base 346
 #MISSING: 331# glGetStateDynamicPropertyNameivNV@Base 260
 #MISSING: 331# glGetStateDynamicPropertyValuevNV@Base 260
@@ -1246,8 +1241,6 @@ libGL.so.1 libgl1 (>= 0.2.999) | libgl1-mesa-glx
  glMultiDrawElementsIndirectBindlessNV@Base 325
  glMultiDrawElementsIndirectCountARB@Base 331
  glMultiDrawElementsIndirectEXT@Base 346
- glMultiDrawMeshTasksIndirectCountNV@Base 410
- glMultiDrawMeshTasksIndirectNV@Base 410
  glMultiTexBufferEXT@Base 180
  glMultiTexCoord1d@Base 1.0.4349
  glMultiTexCoord1dARB@Base 1.0.4349
@@ -1387,7 +1380,6 @@ libGL.so.1 libgl1 (>= 0.2.999) | libgl1-mesa-glx
  glNamedFramebufferTextureFaceEXT@Base 180
  glNamedFramebufferTextureLayer@Base 346
  glNamedFramebufferTextureLayerEXT@Base 180
- glNamedFramebufferTextureMultiviewOVR@Base 410
  glNamedProgramLocalParameter4dEXT@Base 180
  glNamedProgramLocalParameter4dvEXT@Base 180
  glNamedProgramLocalParameter4fEXT@Base 180
@@ -1842,10 +1834,6 @@ libGL.so.1 libgl1 (>= 0.2.999) | libgl1-mesa-glx
  glShaderSource@Base 1.0.7664
  glShaderSourceARB@Base 1.0.6106
  glShaderStorageBlockBinding@Base 310
- glShadingRateImageBarrierNV@Base 410
- glShadingRateImagePaletteNV@Base 410
- glShadingRateSampleOrderCustomNV@Base 410
- glShadingRateSampleOrderNV@Base 410
  glStateCaptureNV@Base 346
 #MISSING: 331# glStatePropertiesDynamicNV@Base 260
 #MISSING: 331# glStatePropertyfNV@Base 260

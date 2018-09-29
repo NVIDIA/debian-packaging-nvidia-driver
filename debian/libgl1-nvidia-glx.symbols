@@ -1,6 +1,7 @@
 #include "libgl1-nvidia-glx.symbols.common"
  __glx_Main@Base 361.28
  glAlphaToCoverageDitherControlNV@Base 370
+ glBindShadingRateImageNV@Base 410
  glBufferStorageMemEXT@Base 384.69
  glClearTexImageEXT@Base 387
  glClearTexSubImageEXT@Base 387
@@ -14,6 +15,8 @@
  glDepthRangeArrayfvOES@Base 378
  glDepthRangeIndexedfOES@Base 378
  glDevtoolsInvokeFunctorNVX@Base 349
+ glDrawMeshTasksIndirectNV@Base 410
+ glDrawMeshTasksNV@Base 410
  glDrawTransformFeedbackInstancedEXT@Base 381
  glDrawVkImageNV@Base 364
  glGenQueryResourceTagNV@Base 387
@@ -22,6 +25,8 @@
  glGetFloati_vOES@Base 378
  glGetMemoryObjectParameterivEXT@Base 384.69
  glGetSemaphoreParameterui64vEXT@Base 384.69
+ glGetShadingRateImagePaletteNV@Base 410
+ glGetShadingRateSampleLocationivNV@Base 410
  glGetUnsignedBytei_vEXT@Base 384.69
  glGetUnsignedBytevEXT@Base 384.69
 #MISSING: 410# glGetVkCoreProcAddrNVX@Base 381
@@ -35,7 +40,10 @@
  glMemoryObjectParameterivEXT@Base 384.69
  glMultiDrawArraysIndirectCount@Base 387
  glMultiDrawElementsIndirectCount@Base 387
+ glMultiDrawMeshTasksIndirectCountNV@Base 410
+ glMultiDrawMeshTasksIndirectNV@Base 410
  glNamedBufferStorageMemEXT@Base 384.69
+ glNamedFramebufferTextureMultiviewOVR@Base 410
  glPolygonOffsetClamp@Base 387
  glQueryResourceNV@Base 387
 #MISSING: 387# glQueryResourceNVX@Base 355
@@ -46,6 +54,10 @@
  glScissorIndexedOES@Base 378
  glScissorIndexedvOES@Base 378
  glSemaphoreParameterui64vEXT@Base 384.69
+ glShadingRateImageBarrierNV@Base 410
+ glShadingRateImagePaletteNV@Base 410
+ glShadingRateSampleOrderCustomNV@Base 410
+ glShadingRateSampleOrderNV@Base 410
  glSignalSemaphoreEXT@Base 384.69
  glSignalVkFenceNV@Base 364
  glSignalVkSemaphoreNV@Base 364
