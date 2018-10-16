@@ -1,5 +1,11 @@
-nvidia-graphics-drivers (410.57-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (410.66-1~git1) UNRELEASED; urgency=medium
 
+  * New upstream long lived branch release 410.66 (2018-10-16).
+    - Added a USB-C connector type identifier, such that a display connected
+      using the USB-C connector that was previously reported as e.g. DP-5 will
+      now be USB-C-0. Scripts and configuration files that use the DP identifier
+      for this connector will be affected.
+    - Added support for the following GPU: GeForce RTX 2070
   * New upstream beta 410.57 (2018-09-20).
     - Added a graphics API visual indicator.  It can be toggled through
       nvidia-settings' "OpenGL Settings" panel, the
