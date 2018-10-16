@@ -153,12 +153,15 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlGetBlacklistDeviceCount@Base 410
  nvmlGetBlacklistDeviceInfoByIndex@Base 410
  nvmlGetVgpuCompatibility@Base 375.26
+ nvmlGetVgpuVersion@Base 410.66
  nvmlInit@Base 270
  nvmlInitWithFlags@Base 384.90
  nvmlInit_v2@Base 319
  nvmlInternalGetExportTable@Base 280
+ nvmlSetVgpuVersion@Base 410.66
  nvmlShutdown@Base 270
  nvmlSystemGetCudaDriverVersion@Base 378
+ nvmlSystemGetCudaDriverVersion_v2@Base 410.66
  nvmlSystemGetDriverVersion@Base 270
  nvmlSystemGetHicVersion@Base 285
  nvmlSystemGetNVMLVersion@Base 285
