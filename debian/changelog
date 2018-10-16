@@ -63,6 +63,9 @@ nvidia-graphics-drivers (410.66-1~git1) UNRELEASED; urgency=medium
     engine for NVIDIA/CUDA.
   * Update lintian overrides.
 
+  [ Luca Boccassi ]
+  * Drop kmem_cache_create_usercopy.patch, fixed upstream.
+
  -- Andreas Beckmann <anbe@debian.org>  Fri, 21 Sep 2018 16:12:56 +0200
 
 nvidia-graphics-drivers (396.54-2) UNRELEASED; urgency=medium
