@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (390.87-4) UNRELEASED; urgency=medium
+
+  [ Philipp Kern ]
+  * debian/gen-control.pl: Generate debian/control from debian/control.in.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 13 Nov 2018 19:27:06 +0100
+
 nvidia-graphics-drivers (390.87-3) unstable; urgency=medium
 
   * Make libgles-nvidia1 a full citizen again, libglvnd now builds libgles1.
