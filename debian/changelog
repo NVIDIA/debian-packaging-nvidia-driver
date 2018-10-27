@@ -1,5 +1,7 @@
-nvidia-graphics-drivers (410.66-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (410.73-1~git1) UNRELEASED; urgency=medium
 
+  * New upstream long lived branch release 410.73 (2018-10-25).
+    - Added support for the following GPU: Quadro RTX 6000, Quadro RTX 5000.
   * New upstream long lived branch release 410.66 (2018-10-16).
     - Added a USB-C connector type identifier, such that a display connected
       using the USB-C connector that was previously reported as e.g. DP-5 will
