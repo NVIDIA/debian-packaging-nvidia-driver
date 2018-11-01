@@ -1,13 +1,13 @@
 nvidia-graphics-drivers (410.73-1~git1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 410.73 (2018-10-25).
-    - Added support for the following GPU: Quadro RTX 6000, Quadro RTX 5000.
+    * Added support for the following GPUs: Quadro RTX 6000, Quadro RTX 5000.
   * New upstream long lived branch release 410.66 (2018-10-16).
-    - Added a USB-C connector type identifier, such that a display connected
-      using the USB-C connector that was previously reported as e.g. DP-5 will
-      now be USB-C-0. Scripts and configuration files that use the DP identifier
-      for this connector will be affected.
-    - Added support for the following GPU: GeForce RTX 2070
+    - Added a USB-C display connector type identifier, such that a display
+      connected using Turing's USB-C connector will be named, e.g., "USB-C-0"
+      rather than "DP-5". Scripts and configuration files that use the DP
+      identifier for this connector will be affected.
+    - Added support for the following GPU: GeForce RTX 2070.
   * New upstream beta 410.57 (2018-09-20).
     - Added a graphics API visual indicator.  It can be toggled through
       nvidia-settings' "OpenGL Settings" panel, the
@@ -50,6 +50,9 @@ nvidia-graphics-drivers (410.73-1~git1) UNRELEASED; urgency=medium
   * New upstream release 396 series.
     - Added support for the following GPUs: Quadro P5200 with Max-Q Design,
       Quadro P4200 with Max-Q Design, Quadro P2000 with Max-Q Design.
+  * New upstream release 390 series.
+    - Fixed a bug that caused vkGetPhysicalDeviceDisplayPropertiesKHR() to
+      occasionally return incorrect values for physicalResolution.
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
