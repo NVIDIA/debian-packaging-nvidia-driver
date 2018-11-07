@@ -96,6 +96,7 @@ NVIDIA-Linux-%:
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
 	$(if $(filter $(DEB_HOST_ARCH),$(ARCH_LIST)),,$(error Architecture $(DEB_HOST_ARCH) unsupported.))
 	dh_testdir
+	$(RM) NVIDIA-Linux
 	ln -s NVIDIA-Linux-$(DEB_HOST_ARCH) NVIDIA-Linux
 	QUILT_PATCHES=debian/patches QUILT_SERIES=series-postunpack quilt --quiltrc /dev/null push -a || test $$? = 2
 	ls -al
@@ -126,7 +127,7 @@ compare-copyright-license: LICENSE.txt
 	sed -e '1,/^License: NVIDIA-graphics-drivers/d; 1,/^License: NVIDIA-graphics-drivers$$/d; /^$$\|^Comment:$$/,$$d; /^ \.$$/d' debian/copyright > copyright.tmp
 	sed -e '/^ \.$$/d' LICENSE.txt > LICENSE.tmp
 	diff -w copyright.tmp LICENSE.tmp
-	rm -f copyright.tmp LICENSE.tmp
+	$(RM) copyright.tmp LICENSE.tmp
 
 
 .PHONY: binary binary-arch binary-indep build clean install
@@ -134,16 +135,16 @@ binary binary-arch binary-indep build clean install:
 	dh $@ --with dkms
 
 override_dh_auto_clean:
-	rm -fr .pc
-	rm -f NVIDIA-Linux
-	rm -fr $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(NVIDIA_DIRNAME_$a))
-	rm -fr kernel-source-tree
-	rm -f nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
-	rm -f LICENSE.txt LICENSE.tmp copyright.tmp
+	$(RM) -r .pc
+	$(RM) NVIDIA-Linux
+	$(RM) -r $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(NVIDIA_DIRNAME_$a))
+	$(RM) -r kernel-source-tree
+	$(RM) nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
+	$(RM) LICENSE.txt LICENSE.tmp copyright.tmp
 
 override_dh_clean:
 	dh_clean
-	rm -f $(AUTOCLEAN)
+	$(RM) $(AUTOCLEAN)
 	$(MAKE) -f debian/rules $(AUTOKEEP)
 
 override_dh_auto_configure: prepare
@@ -157,28 +158,30 @@ override_dh_auto_install: build-kernel-source-tree build-kernel-dkms-tree
 
 install-into-tmp:
 	# "Install" into debian/tmp.
+	$(RM) -r debian/tmp
 	cp -al NVIDIA-Linux/ debian/tmp
-	rm -f debian/tmp/NVIDIA_Changelog
+	$(RM) debian/tmp/NVIDIA_Changelog
 	cp -al NVIDIA-Linux-amd64/NVIDIA_Changelog debian/tmp/
 	gzip -9fn debian/tmp/nvidia-smi.1
 
 build-kernel-source-tree: install-into-tmp
 	# Build the nvidia-kernel-source tree.
+	$(RM) -r $(module_source)
 	mkdir -p $(module_source)
 	mv debian/tmp/kernel/* $(module_source)/
 	# This copy of the changelog is going to be installed into the module
 	# binary packages.
-	cp -a debian/tmp/NVIDIA_Changelog $(module_source)/
+	cp -al debian/tmp/NVIDIA_Changelog $(module_source)/
 
 	# We only want Kbuild.
-	rm -f $(module_source)/makefile
-	rm -f $(module_source)/Makefile.nvidia
+	$(RM) $(module_source)/makefile
+	$(RM) $(module_source)/Makefile.nvidia
 	mv $(module_source)/Makefile.kbuild $(module_source)/Makefile
 
 	# We may need nv-kernel.o for several architectures to accomodate
 	# all kernel flavors. Use Kbuild-compatible names.
-	rm -f $(module_source)/nv-kernel.o
-	$(foreach a,$(BLOB_ARCH_LIST),cp -a NVIDIA-Linux-$a/kernel/nv-kernel.o $(module_source)/nv-kernel-$a.o_shipped ;)
+	$(RM) $(module_source)/nv-kernel.o
+	$(foreach a,$(BLOB_ARCH_LIST),cp -al NVIDIA-Linux-$a/kernel/nv-kernel.o $(module_source)/nv-kernel-$a.o_shipped ;)
 
 	# Install a debian/ tree.
 	cp -a debian/module/debian $(module_source)/
@@ -205,18 +208,19 @@ build-kernel-source-tree: install-into-tmp
 
 build-kernel-dkms-tree: build-kernel-source-tree
 	# Use the nvidia-kernel-source source to create the DKMS tree.
+	$(RM) -r $(dir $(dkms_source))
 	mkdir -p $(dir $(dkms_source))
 	mv $(module_source) $(dkms_source)
 	rmdir $(dir $(module_source))
 	cd $(dkms_source) \
 	    && QUILT_PATCHES=debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2 \
-	    && rm -rf .pc debian
+	    && $(RM) -r .pc debian
 	ls -la $(dkms_source)
 
 # This target is not used by the package build process.  You can use it if
 # you want to work with the patches that get applied to the module source.
 kernel-source-tree: prepare build-kernel-source-tree
-	rm -rf $@
+	$(RM) -r $@
 	cp -a $(module_source) $@
 	cd $@ && QUILT_PATCHES=../debian/module/debian/patches quilt --quiltrc /dev/null push -a || test $$? = 2
 
@@ -389,4 +393,55 @@ get-orig-source-files/empty: get-orig-source-prepare/empty $(foreach a,$(ARCH_LI
 
 .PHONY: get-orig-source
 get-orig-source: get-orig-source-pack/empty
-	rm -rf get-orig-source
+	$(RM) -r get-orig-source
+
+############################################################################
+
+# The tarballs are kept in a separate git repository and use the git-lfs
+# storage backend. To keep the space usage low, this repository is checked
+# out sparsely, only versions that have been built locally will be available.
+
+GIT			?= git
+TARBALL_REPOSITORY	 = https://salsa.debian.org/nvidia-team/tarballs-nvidia-graphics-drivers.git
+TARBALL_TREE		 = ../tarballs-nvidia-graphics-drivers
+TARBALL_CURRENT		 = $(TARBALL_TREE)/$(NVIDIA_RELEASE)
+TARBALL_LIST		 = $(foreach a,empty $(ARCH_LIST),$(call get_tarball,$a))
+
+$(TARBALL_TREE):
+	$(RM) -r $@.tmp
+	$(GIT) clone --no-checkout $(TARBALL_REPOSITORY) $@.tmp
+	cd $@.tmp && $(GIT) lfs install --local
+	cd $@.tmp && $(GIT) config --local core.sparsecheckout true
+	echo .gitattributes >> $@.tmp/.git/info/sparse-checkout
+	mv $@.tmp $@
+
+define sparse-checkout-current
+	grep '^$(NVIDIA_RELEASE)/' $(TARBALL_TREE)/.git/info/sparse-checkout || \
+		echo '$(NVIDIA_RELEASE)/*' >> $(TARBALL_TREE)/.git/info/sparse-checkout
+endef
+
+$(TARBALL_CURRENT): | $(TARBALL_TREE)
+	$(sparse-checkout-current)
+	cd $(TARBALL_TREE) && $(GIT) pull --ff-only && $(GIT) checkout
+
+define test-file-exists
+	test -f $1
+
+endef
+
+tarball-tree: $(TARBALL_TREE)
+
+# only invoked manually
+writable-tarball-tree: tarball-tree
+	cd $(TARBALL_TREE) && $(GIT) remote set-url origin $(patsubst https://salsa.debian.org/%,git@salsa.debian.org:%,$(TARBALL_REPOSITORY))
+
+# invoked from gbp buildpackage preexport hook
+check-current-tarballs: $(TARBALL_CURRENT)
+	$(foreach t,$(TARBALL_LIST),$(call test-file-exists,$(TARBALL_CURRENT)/$t))
+
+# only invoked manually
+commit-current-tarballs: get-orig-source
+	$(sparse-checkout-current)
+	mkdir -p $(TARBALL_CURRENT)
+	mv $(TARBALL_LIST) $(TARBALL_CURRENT)/
+	cd $(TARBALL_TREE) && $(GIT) add $(NVIDIA_RELEASE) && if $(GIT) status -s $(NVIDIA_RELEASE) | grep ^A ; then $(GIT) commit -m "add $(NVIDIA_RELEASE) tarballs" $(NVIDIA_RELEASE) ; fi
