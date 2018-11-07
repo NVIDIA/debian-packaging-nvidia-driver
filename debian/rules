@@ -412,3 +412,27 @@ get-orig-source-files/empty: get-orig-source-prepare/empty $(foreach a,$(ARCH_LI
 .PHONY: get-orig-source
 get-orig-source: get-orig-source-pack/empty
 	$(RM) -r get-orig-source
+
+############################################################################
+
+# The tarballs are kept in a separate git repository and use the git-lfs
+# storage backend. To keep the space usage low, this repository is checked
+# out sparsely, only versions that have been built locally will be available.
+
+GIT			?= git
+TARBALL_REPOSITORY	 = https://salsa.debian.org/nvidia-team/tarballs-nvidia-graphics-drivers.git
+TARBALL_TREE		 = ../tarballs-nvidia-graphics-drivers
+
+$(TARBALL_TREE):
+	$(RM) -r $@.tmp
+	$(GIT) clone --no-checkout $(TARBALL_REPOSITORY) $@.tmp
+	cd $@.tmp && $(GIT) lfs install --local
+	cd $@.tmp && $(GIT) config --local core.sparsecheckout true
+	echo .gitattributes >> $@.tmp/.git/info/sparse-checkout
+	mv $@.tmp $@
+
+tarball-tree: $(TARBALL_TREE)
+
+# only invoked manually
+writable-tarball-tree: tarball-tree
+	cd $(TARBALL_TREE) && $(GIT) remote set-url origin $(patsubst https://salsa.debian.org/%,git@salsa.debian.org:%,$(TARBALL_REPOSITORY))

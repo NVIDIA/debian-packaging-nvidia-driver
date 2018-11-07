@@ -67,6 +67,8 @@ nvidia-graphics-drivers (304.137-1~svn4deb7wheezy) UNRELEASED; urgency=medium
   * nvidia-kernel-{dkms,source}: Mention the supported architecture(s) in the
     long Description (384.111-4).
   * Convert packaging repository from SVN to GIT.
+  * Add debian/rules targets for archiving the tarballs in a separate
+    repository using sparse checkouts and git-lfs as storage backend.
 
   [ Luca Boccassi ]
   * Switch to my debian.org email address in Uploaders.
