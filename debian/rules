@@ -456,3 +456,10 @@ writable-tarball-tree: tarball-tree
 # invoked from gbp buildpackage preexport hook
 check-current-tarballs: $(TARBALL_CURRENT)
 	$(foreach t,$(TARBALL_LIST),$(call test-file-exists,$(TARBALL_CURRENT)/$t))
+
+# only invoked manually
+commit-current-tarballs: get-orig-source
+	$(sparse-checkout-current)
+	mkdir -p $(TARBALL_CURRENT)
+	mv $(TARBALL_LIST) $(TARBALL_CURRENT)/
+	cd $(TARBALL_TREE) && $(GIT) add $(NVIDIA_RELEASE) && if $(GIT) status -s $(NVIDIA_RELEASE) | grep ^A ; then $(GIT) commit -m "add $(NVIDIA_RELEASE) tarballs" $(NVIDIA_RELEASE) ; fi
