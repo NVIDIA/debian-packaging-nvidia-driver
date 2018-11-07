@@ -422,6 +422,8 @@ get-orig-source: get-orig-source-pack/empty
 GIT			?= git
 TARBALL_REPOSITORY	 = https://salsa.debian.org/nvidia-team/tarballs-nvidia-graphics-drivers.git
 TARBALL_TREE		 = ../tarballs-nvidia-graphics-drivers
+TARBALL_CURRENT		 = $(TARBALL_TREE)/$(NVIDIA_RELEASE)
+TARBALL_LIST		 = $(foreach a,empty $(ARCH_LIST),$(call get_tarball,$a))
 
 $(TARBALL_TREE):
 	$(RM) -r $@.tmp
@@ -431,8 +433,26 @@ $(TARBALL_TREE):
 	echo .gitattributes >> $@.tmp/.git/info/sparse-checkout
 	mv $@.tmp $@
 
+define sparse-checkout-current
+	grep '^$(NVIDIA_RELEASE)/' $(TARBALL_TREE)/.git/info/sparse-checkout || \
+		echo '$(NVIDIA_RELEASE)/*' >> $(TARBALL_TREE)/.git/info/sparse-checkout
+endef
+
+$(TARBALL_CURRENT): | $(TARBALL_TREE)
+	$(sparse-checkout-current)
+	cd $(TARBALL_TREE) && $(GIT) pull --ff-only && $(GIT) checkout
+
+define test-file-exists
+	test -f $1
+
+endef
+
 tarball-tree: $(TARBALL_TREE)
 
 # only invoked manually
 writable-tarball-tree: tarball-tree
 	cd $(TARBALL_TREE) && $(GIT) remote set-url origin $(patsubst https://salsa.debian.org/%,git@salsa.debian.org:%,$(TARBALL_REPOSITORY))
+
+# invoked from gbp buildpackage preexport hook
+check-current-tarballs: $(TARBALL_CURRENT)
+	$(foreach t,$(TARBALL_LIST),$(call test-file-exists,$(TARBALL_CURRENT)/$t))
