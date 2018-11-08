@@ -10,6 +10,8 @@ nvidia-graphics-drivers (340.107-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Convert packaging repository from SVN to GIT.
+  * Add debian/rules targets for archiving the tarballs in a separate
+    repository using sparse checkouts and git-lfs as storage backend.
   * Refresh patches.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 22:28:56 +0200
@@ -2160,7 +2162,7 @@ nvidia-graphics-drivers (304.51-1) experimental; urgency=low
       without support for DRI2.
     - Fixed a regression that broke color controls on older X servers.
     - Fixed a bug that prevented panning from working correctly after a
-      modeswitch on some X servers with support for cursor constraining.
+      mode switch on some X servers with support for cursor constraining.
     - Gamma ramp and colormap adjustments now apply correctly when screen
       transformations such as rotation and keystone correction are in use.
     * Closes: #688660.
@@ -3464,7 +3466,7 @@ nvidia-graphics-drivers (270.30-1) experimental; urgency=low
       moved to /proc/driver/nvidia/gpus/0..N/information
     - Added new shared library: libnvidia-ml.so.
       NVML provides programmatic access to static information and monitoring
-      data for NVIDIA GPUs, as well as limited managment capabilities. It is
+      data for NVIDIA GPUs, as well as limited management capabilities. It is
       intended for use with Tesla compute products.
       See web-based documentation and associated nvml.h header for more info.
     - Added a new X configuration option "3DVisionDisplayType" to specify
@@ -3629,7 +3631,7 @@ nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
       using multiple NVIDIA GPUs from different major hardware generations
       on X with ABI 4 or greater.
     - Fixed a bug in the OpenGL driver's Xinerama support.
-      Rendering should have ocurred to all physical X screens driven by an
+      Rendering should have occurred to all physical X screens driven by an
       NVIDIA GPU compatible with the NVIDIA GPU driving physical X screen 0.
       However, if some physical X screen did not satisfy that requirement,
       then not only would that physical X screen not be rendered to (as
@@ -3646,6 +3648,19 @@ nvidia-graphics-drivers (260.19.21-1) experimental; urgency=low
       a flat panel with a GeForce 8 family or Quadro 4600/5600 or
       newer GPU.  See the "Dithering Controls" in the Flat Panel page
       in nvidia-settings.
+    - Added unofficial GLX protocol support (i.e., for GLX indirect
+      rendering) for the following OpenGL extensions: GL_EXT_texture_integer,
+      GL_ARB_stencil_two_side, GL_EXT_transform_feedback2,
+      GL_NV_transform_feedback2, GL_NV_conditional_render.
+    - Added GLX protocol support (i.e., for GLX indirect rendering)
+      for the following OpenGL extensions: GL_NV_point_sprite,
+      GL_EXT_stencil_two_side, GL_EXT_point_parameters,
+      GL_ARB_transpose_matrix, GL_EXT_framebuffer_blit,
+      GL_EXT_framebuffer_multisample.
+    - GLX protocol for the following OpenGL extension is promoted
+      from unofficial GLX protocol to ARB approved GLX protocol:
+      GL_EXT_geometry_shader4, GL_ARB_shader_objects, GL_ARB_vertex_shader,
+      GL_ARB_fragment_shader.
     - Added support for configuring individual displays as any eye in passive
       stereo mode "4" when using TwinView or SLI Mosaic through extensions to
       the MetaMode syntax.

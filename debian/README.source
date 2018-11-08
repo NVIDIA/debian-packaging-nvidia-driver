@@ -73,9 +73,9 @@ Importing a New Upstream Release
 
           debian/rules get-orig-source
 
-    !TODO!
-    * Add the new *.orig*.tar.gz to the tarballs directory in the svn
-      repository: svn://svn.debian.org/svn/pkg-nvidia/tarballs
+    * Add the new *.orig*.tar.gz to a new <version> subdirectory in the
+      git repository ../tarballs-nvidia-graphics-drivers, i.e.
+      git@salsa.debian.org:nvidia-team/tarballs-nvidia-graphics-drivers.git
 
 
 Building and Uploading
