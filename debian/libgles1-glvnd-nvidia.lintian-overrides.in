@@ -9,6 +9,7 @@ hardening-no-stackprotector
 # the free version for Debian's purposes.
 symbols-declares-dependency-on-other-package libgles1 (*)
 symbols-declares-dependency-on-other-package libgles1-mesa
+symbols-file-missing-build-depends-package-field
 
 # Do not conflict with the virtual package from src:mesa (<< 17).
 conflicts-with-version libgles1 (>> 0)
