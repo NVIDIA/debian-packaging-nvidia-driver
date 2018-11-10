@@ -1,4 +1,5 @@
 libnvcuvid.so.1 #PACKAGE# #MINVER#
+* Build-Depends-Package: #PACKAGE#
  __std_1U4S4U_X02@Base 310
  cuvidCreateDecoder@Base 260
  cuvidCreateVideoParser@Base 260

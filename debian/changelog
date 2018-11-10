@@ -25,12 +25,31 @@ nvidia-graphics-drivers (340.107-1~git4deb9stretch) UNRELEASED; urgency=medium
   * Switch from dh_install --list-missing to dh_missing (375.82-2).
   * Use dpkg makefile snippets instead of manual changelog parsing (375.82-2).
   * Simplify upstream changelog handling (375.82-5).
+  * Use debian/substvars for substitutions by dpkg-genchanges (dpkg 1.19)
+    (375.82-7).
+  * nvidia-detect: Detect devices in PCI classes 0301 (XGA compatible
+    controller) and 0302 (3D controller), too (375.82-7).
+  * bug-script: List these devices, too (375.82-7).
+  * Set Rules-Requires-Root: no (375.82-9).
   * Add #tls# substitution for the tls/ source directory (384.111-1).
+  * nvidia-alternative.prerm: Trigger register-glx-alternative-nvidia upon
+    removal (384.111-3).
+  * libgl1-nvidia-glx.prerm: Do not forcibly remove the nvidia alternative,
+    this would reset it from manual mode to auto mode while it could still
+    be needed by other packages, e.g. libcuda1. Let the nvidia-alternative
+    triggers handle it instead (384.111-3).
+  * Use dh_missing --fail-missing (384.111-4).
   * Add xorg-video-abi-24 (xserver 1.20) as alternative dependency (390.59-1).
   * nvidia-drm-outputclass.conf: Prepend (in a backwards-compatible way)
       ModulePath "/usr/lib/xorg/modules/linux"
     since xserver 1.20 no longer does that (390.67-1).
-  * Synchronize the module build debhelper sequence with debhelper 10.
+  * Synchronize the module build debhelper sequence with debhelper 10
+    (390.87-1).
+  * Pass the private library directory to dh_shlibdeps using the -l option
+    instead of LD_LIBRARY_PATH, fixing FTBFS with dpkg 1.19.1 (390.87-3).
+  * Add Build-Depends-Package to symbols files where appropriate and override
+    symbols-file-missing-build-depends-package-field elsewhere (390.87-3).
+  * Clean up and unify rule style in debian/rules (390.87-3).
   * Bump Standards-Version to 4.2.1. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 22:28:56 +0200
