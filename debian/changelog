@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (390.87-3) UNRELEASED; urgency=medium
+
+  * Switch to debhelper-compat (= 11).
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 10 Nov 2018 12:53:35 +0100
+
 nvidia-graphics-drivers (390.87-2) unstable; urgency=medium
 
   * Reinstate cc_version_check-gcc5.patch.  (Closes: #908568)
