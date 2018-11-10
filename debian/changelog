@@ -36,6 +36,8 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Synchronize the module build debhelper sequence with debhelper 10.
   * Pass the private library directory to dh_shlibdeps using the -l option
     instead of LD_LIBRARY_PATH, fixing FTBFS with dpkg 1.19.1 (390.87-3).
+  * Add Build-Depends-Package to symbols files where appropriate and override
+    symbols-file-missing-build-depends-package-field elsewhere (390.87-3).
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 02:02:40 +0200
 

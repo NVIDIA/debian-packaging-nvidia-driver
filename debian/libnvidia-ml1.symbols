@@ -1,4 +1,5 @@
 libnvidia-ml.so.1 #PACKAGE# #MINVER#
+* Build-Depends-Package: #PACKAGE#
  nvmlDeviceClearEccErrorCounts@Base 270
  nvmlDeviceGetApplicationsClock@Base 304.30
  nvmlDeviceGetClockInfo@Base 270
