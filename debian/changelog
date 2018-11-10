@@ -23,6 +23,7 @@ nvidia-graphics-drivers (390.87-3) unstable; urgency=medium
   * Clean up and unify rule style in debian/rules.
   * Add debian/rules targets for archiving the tarballs in a separate
     repository using sparse checkouts and git-lfs as storage backend.
+  * Switch to debhelper-compat (= 11).
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Nov 2018 13:28:56 +0100
 
