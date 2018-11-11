@@ -83,7 +83,7 @@ AUTOGEN		+= debian/substvars
 AUTOGEN		+= debian/nv-readme.ids
 AUTOGEN		+= nvidia-amd64.ids
 AUTOGEN		+= $(if $(has_vulkan),glvnd/nvidia_icd.json nonglvnd/nvidia_icd.json)
-AUTOKEEP	 = debian/watch
+AUTOKEEP	 = debian/control debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
 module_source	 = debian/$(nvidia)-kernel-source/usr/src/modules/$(nvidia)-kernel
