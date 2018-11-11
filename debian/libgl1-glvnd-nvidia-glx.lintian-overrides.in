@@ -9,6 +9,7 @@ hardening-no-stackprotector
 # the free version for Debian's purposes.
 symbols-declares-dependency-on-other-package libgl1 (*)
 symbols-declares-dependency-on-other-package libgl1-mesa-glx
+symbols-file-missing-build-depends-package-field
 
 # Do not conflict with the virtual package from src:mesa (<< 17).
 conflicts-with-version libgl1 (>> 0)

@@ -3,6 +3,13 @@ nvidia-graphics-drivers (390.87-3) UNRELEASED; urgency=medium
   * Make libgles-nvidia1 a full citizen again, libglvnd now builds libgles1.
   * libnvidia-fatbinaryloader: Prevent co-installation with the same upstream
     version of libnvidia-legacy-390xx-fatbinaryloader.
+  * Pass the private library directory to dh_shlibdeps using the -l option
+    instead of LD_LIBRARY_PATH, fixing FTBFS with dpkg 1.19.1.
+  * Add Build-Depends-Package to symbols files where appropriate and override
+    symbols-file-missing-build-depends-package-field elsewhere.
+  * Clean up and unify rule style in debian/rules.
+  * Add debian/rules targets for archiving the tarballs in a separate
+    repository using sparse checkouts and git-lfs as storage backend.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 24 Sep 2018 10:51:47 +0200
 
