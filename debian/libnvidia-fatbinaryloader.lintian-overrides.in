@@ -16,3 +16,4 @@ embedded-library usr/lib*/libnvidia-fatbinaryloader.so.#VERSION#: zlib
 # Therefore we do not include the SONAME in this package name to
 # avoid going through NEW for every new upstream release.
 package-name-doesnt-match-sonames libnvidia-fatbinaryloader#VERSION#
+symbols-file-missing-build-depends-package-field

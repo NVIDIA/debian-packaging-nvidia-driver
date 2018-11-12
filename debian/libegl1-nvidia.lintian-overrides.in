@@ -8,6 +8,7 @@ hardening-no-stackprotector
 # Packages built against the NVIDIA libEGL should declare dependencies on
 # the free version for Debian's purposes.
 symbols-declares-dependency-on-other-package libegl1-mesa
+symbols-file-missing-build-depends-package-field
 
 # Lintian and debhelper disagree w.r.t. a library in a private directory.
 package-has-unnecessary-activation-of-ldconfig-trigger

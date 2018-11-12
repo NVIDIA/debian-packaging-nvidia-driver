@@ -1,4 +1,5 @@
 libnvidia-fbc.so.1 #PACKAGE# #MINVER#
+* Build-Depends-Package: #PACKAGE#
  NvFBCBindContext@Base 340
  NvFBCCreateCaptureSession@Base 331.38
  NvFBCCreateHandle@Base 331.38
