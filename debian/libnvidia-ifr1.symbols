@@ -1,2 +1,3 @@
 libnvidia-ifr.so.1 #PACKAGE# #MINVER#
+* Build-Depends-Package: #PACKAGE#
  NvIFROGLCreateInstance@Base 319
