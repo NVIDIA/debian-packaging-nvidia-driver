@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (390.87-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.87-3) unstable; urgency=medium
 
   * Make libgles-nvidia1 a full citizen again, libglvnd now builds libgles1.
   * libnvidia-fatbinaryloader: Prevent co-installation with the same upstream
@@ -11,7 +11,7 @@ nvidia-graphics-drivers (390.87-3) UNRELEASED; urgency=medium
   * Add debian/rules targets for archiving the tarballs in a separate
     repository using sparse checkouts and git-lfs as storage backend.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 24 Sep 2018 10:51:47 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Nov 2018 13:28:56 +0100
 
 nvidia-graphics-drivers (390.87-2) unstable; urgency=medium
 
