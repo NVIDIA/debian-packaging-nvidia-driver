@@ -1,4 +1,5 @@
 libnvidia-ml.so.1 #PACKAGE# #MINVER#
+* Build-Depends-Package: #PACKAGE#
  nvmlDeviceClearAccountingPids@Base 319
  nvmlDeviceClearCpuAffinity@Base 340
  nvmlDeviceClearEccErrorCounts@Base 270

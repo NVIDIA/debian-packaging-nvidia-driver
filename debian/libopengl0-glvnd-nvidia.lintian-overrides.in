@@ -11,3 +11,4 @@ package-name-doesnt-match-sonames libOpenGL0
 # Packages built against the NVIDIA libOpenGL should declare dependencies on
 # the free version for Debian's purposes.
 symbols-declares-dependency-on-other-package libopengl0
+symbols-file-missing-build-depends-package-field

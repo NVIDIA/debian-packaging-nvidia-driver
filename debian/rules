@@ -25,7 +25,8 @@ NVIDIA_RELEASE		 = $(DEB_VERSION_UPSTREAM)
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
 nvidia			 = nvidia$(legacy)
-libcuda1		 = lib$(if $(legacy),$(nvidia)-)cuda1
+nvidia_if_legacy	 = $(if $(legacy),$(nvidia)-)
+libcuda1		 = lib$(nvidia_if_legacy)cuda1
 module			 = nvidia-$(current)
 current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
 has_driver		 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_DRIVER_ARCH_LIST),$(ARCH_LIST)))
@@ -62,7 +63,7 @@ CONTROL_PREFIXES	+= libnvcuvid1
 CONTROL_PREFIXES	+= nvidia-smi
 CONTROL_PREFIXES	+= nvidia-opencl-icd
 RENAME_libcuda1		 = $(libcuda1)
-RENAME_libnvcuvid1	 = lib$(if $(legacy),${nvidia}-)nvcuvid1
+RENAME_libnvcuvid1	 = lib$(nvidia_if_legacy)nvcuvid1
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
 CONTROL_PREFIXES_RENAMED = $(foreach p,$(CONTROL_PREFIXES),$(call renamed_prefix,$p))
 
@@ -86,7 +87,7 @@ AUTOGEN		+= debian/nv-readme.ids
 AUTOGEN		+= nvidia-amd64.ids
 endif
 AUTOGEN		+= $(if $(has_vulkan),glvnd/nvidia_icd.json nonglvnd/nvidia_icd.json)
-AUTOKEEP	 = debian/watch
+AUTOKEEP	 = debian/control debian/watch
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
 module_source	 = debian/$(nvidia)-kernel-source/usr/src/modules/$(nvidia)-kernel
@@ -293,13 +294,14 @@ override_dh_missing:
 	dh_missing --fail-missing
 
 override_dh_shlibdeps:
-	LD_LIBRARY_PATH=/$(libdir)/$(nvidia_private):$(LD_LIBRARY_PATH) dh_shlibdeps
+	dh_shlibdeps -l/$(libdir)/$(nvidia_private)
 
 override_dh_gencontrol:
 	dh_gencontrol -- -V'nvidia:Version=$(version)' \
 		-V'nvidia:xorgDepends=$(xorg_depends)' \
 		-V'nvidia:xorgProvides=$(xorg_provides)' \
 		-V'nvidia=$(nvidia)' \
+		-V'nvidia:if-legacy=$(nvidia_if_legacy)' \
 		-V'libcuda1=$(libcuda1)' \
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'nvidia:LegacyDesc=$(legacy_description)' \
@@ -454,3 +456,54 @@ get-orig-source-files/empty: get-orig-source-prepare/empty $(foreach a,$(DRIVER_
 .PHONY: get-orig-source
 get-orig-source: get-orig-source-pack/empty
 	$(RM) -r get-orig-source
+
+############################################################################
+
+# The tarballs are kept in a separate git repository and use the git-lfs
+# storage backend. To keep the space usage low, this repository is checked
+# out sparsely, only versions that have been built locally will be available.
+
+GIT			?= git
+TARBALL_REPOSITORY	 = https://salsa.debian.org/nvidia-team/tarballs-nvidia-graphics-drivers.git
+TARBALL_TREE		 = ../tarballs-nvidia-graphics-drivers
+TARBALL_CURRENT		 = $(TARBALL_TREE)/$(NVIDIA_RELEASE)
+TARBALL_LIST		 = $(foreach a,empty $(DRIVER_ARCH_LIST),$(call get_tarball,$a))
+
+$(TARBALL_TREE):
+	$(RM) -r $@.tmp
+	$(GIT) clone --no-checkout $(TARBALL_REPOSITORY) $@.tmp
+	cd $@.tmp && $(GIT) lfs install --local
+	cd $@.tmp && $(GIT) config --local core.sparsecheckout true
+	echo .gitattributes >> $@.tmp/.git/info/sparse-checkout
+	mv $@.tmp $@
+
+define sparse-checkout-current
+	grep '^$(NVIDIA_RELEASE)/' $(TARBALL_TREE)/.git/info/sparse-checkout || \
+		echo '$(NVIDIA_RELEASE)/*' >> $(TARBALL_TREE)/.git/info/sparse-checkout
+endef
+
+$(TARBALL_CURRENT): | $(TARBALL_TREE)
+	$(sparse-checkout-current)
+	cd $(TARBALL_TREE) && $(GIT) pull --ff-only && $(GIT) checkout
+
+define test-file-exists
+	test -f $1
+
+endef
+
+tarball-tree: $(TARBALL_TREE)
+
+# only invoked manually
+writable-tarball-tree: tarball-tree
+	cd $(TARBALL_TREE) && $(GIT) remote set-url origin $(patsubst https://salsa.debian.org/%,git@salsa.debian.org:%,$(TARBALL_REPOSITORY))
+
+# invoked from gbp buildpackage preexport hook
+check-current-tarballs: $(TARBALL_CURRENT)
+	$(foreach t,$(TARBALL_LIST),$(call test-file-exists,$(TARBALL_CURRENT)/$t))
+
+# only invoked manually
+commit-current-tarballs: get-orig-source
+	$(sparse-checkout-current)
+	mkdir -p $(TARBALL_CURRENT)
+	mv $(TARBALL_LIST) $(TARBALL_CURRENT)/
+	cd $(TARBALL_TREE) && $(GIT) add $(NVIDIA_RELEASE) && if $(GIT) status -s $(NVIDIA_RELEASE) | grep ^A ; then $(GIT) commit -m "add $(NVIDIA_RELEASE) tarballs" $(NVIDIA_RELEASE) ; fi
