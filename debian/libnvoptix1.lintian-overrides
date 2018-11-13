@@ -5,3 +5,6 @@ hardening-no-fortify-functions
 
 # Lintian and debhelper disagree w.r.t. a library in a private directory.
 package-has-unnecessary-activation-of-ldconfig-trigger
+
+# There is no .so link.
+symbols-file-missing-build-depends-package-field
