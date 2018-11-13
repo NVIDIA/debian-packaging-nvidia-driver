@@ -14,3 +14,4 @@ hardening-no-stackprotector
 # Therefore we do not include the SONAME in this package name to
 # avoid going through NEW for every new upstream release.
 package-name-doesnt-match-sonames libnvidia-glvkspirv#VERSION#
+symbols-file-missing-build-depends-package-field
