@@ -866,11 +866,11 @@ Conflicts:
 Description: NVIDIA binary Vulkan Spir-V compiler library${nvidia:LegacyDesc}
  Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
  .
- THis library provides a NVIDIA Vulkan Spir-V compiler which reduces shader
+ This library provides a NVIDIA Vulkan Spir-V compiler which reduces shader
  compilation time and shader system memory consumption.
  .
- This package contains the private Spir-V libraries used by the NVIDIA
- implementation of Vulkan.
+ This package contains the private Spir-V compiler libraries used by the
+ NVIDIA implementation of Vulkan.
 
 #Package: lib${nvidia}-cfg1
 Package: libnvidia-cfg1
