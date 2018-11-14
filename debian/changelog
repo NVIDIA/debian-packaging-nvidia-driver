@@ -1,3 +1,45 @@
+nvidia-graphics-drivers (415.13-1~git1) UNRELEASED; urgency=medium
+
+  * New upstream beta 415.13 (2018-11-08).
+    - Improved error reporting in eglSwapBuffers() by generating codes for
+      some missing error types, and adding additional detail to the already
+      existing ones.
+    - Fixed a bug that could cause WINE to crash on recent OS releases.
+    - Fixed a bug that could cause an X server crash when exiting Vulkan
+      applications running on X servers with UBB enabled.
+    - Fixed an X driver bug that caused the "NoEdidModes" token of the
+      "ModeValidation" X configuration option to reject non-EDID modes
+      whose timings matched EDID modes.
+    - Changed the NvEncCreateBitstreamBuffer API call in the NvEncodeAPI
+      library to return NV_ENC_ERR_UNIMPLEMENTED instead of NV_ENC_SUCCESS when
+      the encoder instance is configured to run in motion estimation-only mode.
+      As an indirect consequence of this change, users running the AppEncME
+      sample application from the Video Codec SDK prior to SDK version 8.2.16
+      will observe a segmentation fault due to bugs in the NvEncoder class. It
+      is recommended that users download the latest version of the SDK, where
+      these bugs have been fixed, from
+      https://developer.nvidia.com/nvidia-video-codec-sdk.
+    - Fixed an OpenGL driver bug that caused the upper bounds of
+      floating-point viewports, specified through the ARB_viewport_array
+      extension, to be clipped incorrectly.
+    - Added a new X configuration option "HardDPMS" which
+      is disabled by default, but can be enabled to put displays to sleep with
+      modesets rather than VESA DPMS. This may fix some displays that fail to
+      sleep when DPMS becomes active. "HardDPMS" will be enabled by default in a
+      future release.
+    - Raised the minimum supported X.Org xserver version to 1.5 (video driver
+      ABI version 4).
+    - Enabled the NVreg_EnableBacklightHandler kernel module option by default.
+    - Removed the LinuxThreads version of the /usr/lib/libnvidia-tls.so library
+      and replaced it with the NPTL one that was previously installed in
+      /usr/lib/tls/. This fixes crashes on Debian systems when the
+      /etc/ld.so.nohwcap file is present.
+    - Changed the minimum required Linux kernel version from 2.6.9 to 2.6.32.
+    - Fixed an OpenGL bug where conditional rendering (NV_conditional_render)
+      was incorrectly affecting mipmap generation.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 14 Nov 2018 18:20:52 +0100
+
 nvidia-graphics-drivers (410.93-2) unstable; urgency=medium
 
   * Merge changes from 396.54-4.
