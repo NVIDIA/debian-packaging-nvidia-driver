@@ -5,7 +5,6 @@ glext.h
 glx.h
 glxext.h
 libGL.la
-libnvidia-tls.so.#VERSION#
 libnvidia-wfb.so.#VERSION#
 makeself-help-script.sh
 makeself.sh
@@ -13,8 +12,6 @@ mkprecompiled
 nvidia-installer
 nvidia-installer.1
 pkg-history.txt
-tls_test
-tls_test_dso.so
 
 NVIDIA_Changelog
 nvidia_icd.json.template

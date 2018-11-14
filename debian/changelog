@@ -38,6 +38,9 @@ nvidia-graphics-drivers (415.13-1~git1) UNRELEASED; urgency=medium
     - Fixed an OpenGL bug where conditional rendering (NV_conditional_render)
       was incorrectly affecting mipmap generation.
 
+  [ Andreas Beckmann ]
+  * The classic LinuxThreads tls library variant for Linux < 2.6 is gone.
+
  -- Andreas Beckmann <anbe@debian.org>  Wed, 14 Nov 2018 18:20:52 +0100
 
 nvidia-graphics-drivers (410.93-2) unstable; urgency=medium
