@@ -111,6 +111,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glBlitFramebufferNV@Base 361.28
  glBlitNamedFramebuffer@Base 361.28
  glBufferAddressRangeNV@Base 361.28
+ glBufferAttachMemoryNV@Base 415
  glBufferData@Base 361.28
  glBufferDataARB@Base 361.28
  glBufferDataSysmem@Base 361.28
@@ -163,6 +164,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glClientActiveTexture@Base 361.28
  glClientActiveTextureARB@Base 361.28
  glClientAttribDefaultEXT@Base 361.28
+ glClientWaitSemaphoreui64NVX@Base 415
  glClientWaitSync@Base 361.28
  glClientWaitSyncValueuiNVX@Base 361.28
  glClipControlEXT@Base 390
@@ -322,6 +324,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glCreateProgram@Base 361.28
  glCreateProgramObjectARB@Base 361.28
  glCreateProgramPipelines@Base 361.28
+ glCreateProgressFenceNVX@Base 415
  glCreateQueries@Base 361.28
  glCreateRenderbuffers@Base 361.28
  glCreateSamplers@Base 361.28
@@ -578,7 +581,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glFramebufferTexture1DEXT@Base 361.28
  glFramebufferTexture2D@Base 361.28
  glFramebufferTexture2DEXT@Base 361.28
-#MISSING: 396# glFramebufferTexture2DMultisampleEXT@Base 390
+ glFramebufferTexture2DMultisampleEXT@Base 390
  glFramebufferTexture2DOES@Base 361.28
  glFramebufferTexture3D@Base 361.28
  glFramebufferTexture3DEXT@Base 361.28
@@ -591,6 +594,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glFramebufferTextureLayerARB@Base 361.28
  glFramebufferTextureLayerEXT@Base 361.28
  glFramebufferTextureLayerNV@Base 361.28
+ glFramebufferTextureMultisampleMultiviewOVR@Base 415
  glFramebufferTextureMultiviewOVR@Base 410
  glFramebufferTextureOES@Base 361.28
  glFrontFace@Base 361.28
@@ -746,6 +750,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGetMaterialfv@Base 361.28
  glGetMaterialiv@Base 361.28
  glGetMaterialxv@Base 361.28
+ glGetMemoryObjectDetachedResourcesuivNV@Base 415
  glGetMemoryObjectParameterivEXT@Base 384.69
  glGetMinmax@Base 361.28
  glGetMinmaxParameterfv@Base 361.28
@@ -1384,6 +1389,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glMultiTexSubImage2DEXT@Base 361.28
  glMultiTexSubImage3DEXT@Base 361.28
  glNVENCInterOpFunctionNVX@Base 361.28
+ glNamedBufferAttachMemoryNV@Base 415
  glNamedBufferData@Base 361.28
  glNamedBufferDataEXT@Base 361.28
  glNamedBufferPageCommitmentEXT@Base 361.28
@@ -1789,6 +1795,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glRenderbufferStorageOES@Base 361.28
  glRequestResidentProgramsNV@Base 361.28
  glResetHistogram@Base 361.28
+ glResetMemoryObjectParameterNV@Base 415
  glResetMinmax@Base 361.28
  glResolveDepthValuesNV@Base 361.28
  glResumeTransformFeedback@Base 361.28
@@ -1880,6 +1887,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glShadingRateSampleOrderCustomNV@Base 410
  glShadingRateSampleOrderNV@Base 410
  glSignalSemaphoreEXT@Base 384.69
+ glSignalSemaphoreui64NVX@Base 415
  glSignalVkFenceNV@Base 364
  glSignalVkSemaphoreNV@Base 364
  glSpecializeShader@Base 387
@@ -1901,6 +1909,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glStencilThenCoverStrokePathNV@Base 361.28
  glSubpixelPrecisionBiasNV@Base 361.28
  glTestFenceNV@Base 361.28
+ glTexAttachMemoryNV@Base 415
  glTexBuffer@Base 361.28
  glTexBufferARB@Base 361.28
  glTexBufferEXT@Base 361.28
@@ -2021,6 +2030,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glTexSubImage3D@Base 361.28
  glTexSubImage3DEXT@Base 361.28
  glTexSubImage3DNV@Base 361.28
+ glTextureAttachMemoryNV@Base 415
  glTextureBarrier@Base 361.28
  glTextureBarrierNV@Base 361.28
  glTextureBuffer@Base 361.28
@@ -2540,6 +2550,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glViewportPositionWScaleNV@Base 361.28
  glViewportSwizzleNV@Base 361.28
  glWaitSemaphoreEXT@Base 384.69
+ glWaitSemaphoreui64NVX@Base 415
  glWaitSync@Base 361.28
  glWaitSyncValueuiNVX@Base 361.28
  glWaitVkSemaphoreNV@Base 364

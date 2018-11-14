@@ -61,16 +61,27 @@ libnvidia-fatbinaryloader.so.#VERSION# #PACKAGE# #MINVER#
  elfLink_Start@Base 361
  elfLink_Start_Reading_Library@Base 361
  elf_end@Base 367.44
- elf_errmsg@Base 361
+#MISSING: 415# elf_errmsg@Base 361
  elf_is_64bit@Base 361
  elf_size@Base 361
 #MISSING: 367.44# enablePerfMeasuring@Base 361
  fatBinaryCtl@Base 361
  fatBinaryCtl_Compile@Base 361
  fatBinaryCtl_Create@Base 361
+ fatBinaryCtl_CreateHandle@Base 415
  fatBinaryCtl_Delete@Base 361
  fatBinaryCtl_Errmsg@Base 361
+ fatBinaryCtl_GetCandidate@Base 415
+ fatBinaryCtl_GetCiccOptions@Base 415
+ fatBinaryCtl_GetIdentifier@Base 415
+ fatBinaryCtl_GetPtxasOptions@Base 415
+ fatBinaryCtl_HasDebug@Base 415
  fatBinaryCtl_PickCandidate@Base 361
+ fatBinaryCtl_SetBinary@Base 415
+ fatBinaryCtl_SetFlags@Base 415
+ fatBinaryCtl_SetPolicy@Base 415
+ fatBinaryCtl_SetPtxasOptions@Base 415
+ fatBinaryCtl_SetTargetSM@Base 415
 #MISSING: 367.44# fnamDecomposePath@Base 361
 #MISSING: 367.44# getDebugLevel@Base 361
 #MISSING: 367.44# getFileLineInfo@Base 361

@@ -112,6 +112,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glBlitFramebufferNV@Base 346
  _glBlitNamedFramebuffer@Base 346
  _glBufferAddressRangeNV@Base 346
+ _glBufferAttachMemoryNV@Base 415
  _glBufferData@Base 346
  _glBufferDataARB@Base 346
  _glBufferDataSysmem@Base 346
@@ -164,6 +165,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glClientActiveTexture@Base 346
  _glClientActiveTextureARB@Base 346
  _glClientAttribDefaultEXT@Base 346
+ _glClientWaitSemaphoreui64NVX@Base 415
  _glClientWaitSync@Base 346
  _glClientWaitSyncValueuiNVX@Base 346
  _glClipControl@Base 346
@@ -323,6 +325,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glCreateProgram@Base 346
  _glCreateProgramObjectARB@Base 346
  _glCreateProgramPipelines@Base 346
+ _glCreateProgressFenceNVX@Base 415
  _glCreateQueries@Base 346
  _glCreateRenderbuffers@Base 346
  _glCreateSamplers@Base 346
@@ -488,7 +491,9 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDrawTransformFeedbackStreamInstanced@Base 346
  _glDrawVkImageNV@Base 364
  _glEGLImageTargetRenderbufferStorageOES@Base 346
+ _glEGLImageTargetTexStorageEXT@Base 415
  _glEGLImageTargetTexture2DOES@Base 346
+ _glEGLImageTargetTextureStorageEXT@Base 415
  _glEdgeFlag@Base 346
  _glEdgeFlagFormatNV@Base 346
  _glEdgeFlagPointer@Base 346
@@ -581,7 +586,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glFramebufferTexture1DEXT@Base 346
  _glFramebufferTexture2D@Base 346
  _glFramebufferTexture2DEXT@Base 346
-#MISSING: 396# _glFramebufferTexture2DMultisampleEXT@Base 390
+ _glFramebufferTexture2DMultisampleEXT@Base 390
  _glFramebufferTexture2DOES@Base 346
  _glFramebufferTexture3D@Base 346
  _glFramebufferTexture3DEXT@Base 346
@@ -594,6 +599,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glFramebufferTextureLayerARB@Base 346
  _glFramebufferTextureLayerEXT@Base 346
  _glFramebufferTextureLayerNV@Base 346
+ _glFramebufferTextureMultisampleMultiviewOVR@Base 415
  _glFramebufferTextureMultiviewOVR@Base 410
  _glFramebufferTextureOES@Base 349
  _glFrontFace@Base 346
@@ -749,6 +755,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetMaterialfv@Base 346
  _glGetMaterialiv@Base 346
  _glGetMaterialxv@Base 346
+ _glGetMemoryObjectDetachedResourcesuivNV@Base 415
  _glGetMemoryObjectParameterivEXT@Base 384.69
  _glGetMinmax@Base 346
  _glGetMinmaxParameterfv@Base 346
@@ -1386,6 +1393,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glMultiTexSubImage1DEXT@Base 346
  _glMultiTexSubImage2DEXT@Base 346
  _glMultiTexSubImage3DEXT@Base 346
+ _glNamedBufferAttachMemoryNV@Base 415
  _glNamedBufferData@Base 346
  _glNamedBufferDataEXT@Base 346
  _glNamedBufferPageCommitmentEXT@Base 346
@@ -1791,6 +1799,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glRenderbufferStorageOES@Base 346
  _glRequestResidentProgramsNV@Base 346
  _glResetHistogram@Base 346
+ _glResetMemoryObjectParameterNV@Base 415
  _glResetMinmax@Base 346
  _glResolveDepthValuesNV@Base 346
  _glResumeTransformFeedback@Base 346
@@ -1882,6 +1891,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glShadingRateSampleOrderCustomNV@Base 410
  _glShadingRateSampleOrderNV@Base 410
  _glSignalSemaphoreEXT@Base 384.69
+ _glSignalSemaphoreui64NVX@Base 415
  _glSignalVkFenceNV@Base 364
  _glSignalVkSemaphoreNV@Base 364
  _glSpecializeShader@Base 387
@@ -1903,6 +1913,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glStencilThenCoverStrokePathNV@Base 346
  _glSubpixelPrecisionBiasNV@Base 346
  _glTestFenceNV@Base 346
+ _glTexAttachMemoryNV@Base 415
  _glTexBuffer@Base 346
  _glTexBufferARB@Base 346
  _glTexBufferEXT@Base 346
@@ -2023,6 +2034,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glTexSubImage3D@Base 346
  _glTexSubImage3DEXT@Base 346
  _glTexSubImage3DNV@Base 346
+ _glTextureAttachMemoryNV@Base 415
  _glTextureBarrier@Base 346
  _glTextureBarrierNV@Base 346
  _glTextureBuffer@Base 346
@@ -2532,6 +2544,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glViewportPositionWScaleNV@Base 361
  _glViewportSwizzleNV@Base 346
  _glWaitSemaphoreEXT@Base 384.69
+ _glWaitSemaphoreui64NVX@Base 415
  _glWaitSync@Base 346
  _glWaitSyncValueuiNVX@Base 346
  _glWaitVkSemaphoreNV@Base 364

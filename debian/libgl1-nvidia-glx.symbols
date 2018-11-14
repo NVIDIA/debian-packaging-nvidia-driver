@@ -2,12 +2,15 @@
  __glx_Main@Base 361.28
  glAlphaToCoverageDitherControlNV@Base 370
  glBindShadingRateImageNV@Base 410
+ glBufferAttachMemoryNV@Base 415
  glBufferStorageMemEXT@Base 384.69
  glClearTexImageEXT@Base 387
  glClearTexSubImageEXT@Base 387
+ glClientWaitSemaphoreui64NVX@Base 415
  glClipControlEXT@Base 390
  glConservativeRasterParameteriNV@Base 367
  glCreateMemoryObjectsEXT@Base 384.69
+ glCreateProgressFenceNVX@Base 415
  glDebugControlNVX@Base 177
  glDeleteMemoryObjectsEXT@Base 384.69
  glDeleteQueryResourceTagNV@Base 387
@@ -23,6 +26,7 @@
  glGenSemaphoresEXT@Base 384.69
  glGetFeatureivNV@Base 396
  glGetFloati_vOES@Base 378
+ glGetMemoryObjectDetachedResourcesuivNV@Base 415
  glGetMemoryObjectParameterivEXT@Base 384.69
  glGetSemaphoreParameterui64vEXT@Base 384.69
  glGetShadingRateImagePaletteNV@Base 410
@@ -42,12 +46,14 @@
  glMultiDrawElementsIndirectCount@Base 387
  glMultiDrawMeshTasksIndirectCountNV@Base 410
  glMultiDrawMeshTasksIndirectNV@Base 410
+ glNamedBufferAttachMemoryNV@Base 415
  glNamedBufferStorageMemEXT@Base 384.69
  glNamedFramebufferTextureMultiviewOVR@Base 410
  glPolygonOffsetClamp@Base 387
  glQueryResourceNV@Base 387
 #MISSING: 387# glQueryResourceNVX@Base 355
  glQueryResourceTagNV@Base 387
+ glResetMemoryObjectParameterNV@Base 415
  glScissorArrayvOES@Base 378
  glScissorExclusiveArrayvNV@Base 410
  glScissorExclusiveNV@Base 410
@@ -59,16 +65,19 @@
  glShadingRateSampleOrderCustomNV@Base 410
  glShadingRateSampleOrderNV@Base 410
  glSignalSemaphoreEXT@Base 384.69
+ glSignalSemaphoreui64NVX@Base 415
  glSignalVkFenceNV@Base 364
  glSignalVkSemaphoreNV@Base 364
  glSpecializeShader@Base 387
  glSpecializeShaderARB@Base 367.36.02
+ glTexAttachMemoryNV@Base 415
  glTexParametervNVX@Base 396
  glTexStorageMem1DEXT@Base 384.69
  glTexStorageMem2DEXT@Base 384.69
  glTexStorageMem2DMultisampleEXT@Base 384.69
  glTexStorageMem3DEXT@Base 384.69
  glTexStorageMem3DMultisampleEXT@Base 384.69
+ glTextureAttachMemoryNV@Base 415
  glTextureStorageMem1DEXT@Base 384.69
  glTextureStorageMem2DEXT@Base 384.69
  glTextureStorageMem2DMultisampleEXT@Base 384.69
@@ -79,6 +88,7 @@
  glViewportIndexedfvOES@Base 378
  glViewportPositionWScaleNV@Base 361
  glWaitSemaphoreEXT@Base 384.69
+ glWaitSemaphoreui64NVX@Base 415
  glWaitVkSemaphoreNV@Base 364
  glWindowRectanglesEXT@Base 375.26
  glcuR0d4nX@Base 195.36
