@@ -1,13 +1,17 @@
-nvidia-graphics-drivers (410.73-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (410.78-1~git1) UNRELEASED; urgency=medium
 
+  * New upstream long lived branch release 410.78 (2018-11-15).
+    - Fixed a bug that could cause the X server to hang on systems booted in
+      legacy VGA mode when using a DisplayPort Multi-Stream link.
+    - Added support for the following GPUs: Quadro RTX 4000, Tesla T4.
   * New upstream long lived branch release 410.73 (2018-10-25).
-    * Added support for the following GPUs: Quadro RTX 6000, Quadro RTX 5000.
   * New upstream long lived branch release 410.66 (2018-10-16).
     - Added a USB-C display connector type identifier, such that a display
       connected using Turing's USB-C connector will be named, e.g., "USB-C-0"
       rather than "DP-5". Scripts and configuration files that use the DP
       identifier for this connector will be affected.
-    - Added support for the following GPU: GeForce RTX 2070.
+    - Added support for the following GPUs: Quadro RTX 5000, Quadro RTX 6000,
+      GeForce RTX 2070.
   * New upstream beta 410.57 (2018-09-20).
     - Added a graphics API visual indicator.  It can be toggled through
       nvidia-settings' "OpenGL Settings" panel, the
@@ -51,6 +55,9 @@ nvidia-graphics-drivers (410.73-1~git1) UNRELEASED; urgency=medium
     - Added support for the following GPUs: Quadro P5200 with Max-Q Design,
       Quadro P4200 with Max-Q Design, Quadro P2000 with Max-Q Design.
   * New upstream release 390 series.
+    - Fixed a bug that caused mode switches to fail when an SDI output board was
+      connected.
+    - Fixed a bug that could cause rendering corruption in Vulkan programs.
     - Fixed a bug that caused vkGetPhysicalDeviceDisplayPropertiesKHR() to
       occasionally return incorrect values for physicalResolution.
 
@@ -71,7 +78,7 @@ nvidia-graphics-drivers (410.73-1~git1) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Drop kmem_cache_create_usercopy.patch, fixed upstream.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 21 Sep 2018 16:12:56 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 17 Nov 2018 15:09:55 +0100
 
 nvidia-graphics-drivers (396.54-2) experimental; urgency=medium
 
