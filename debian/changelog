@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (410.78-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (410.78-1) experimental; urgency=medium
 
   * New upstream long lived branch release 410.78 (2018-11-15).
     - Fixed a bug that could cause the X server to hang on systems booted in
@@ -74,11 +74,12 @@ nvidia-graphics-drivers (410.78-1~git1) UNRELEASED; urgency=medium
   * libnvoptix1: New package for the implementation of the OptiX ray tracing
     engine for NVIDIA/CUDA.
   * Update lintian overrides.
+  * Upload to experimental.
 
   [ Luca Boccassi ]
   * Drop kmem_cache_create_usercopy.patch, fixed upstream.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 17 Nov 2018 15:09:55 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 26 Nov 2018 15:43:24 +0100
 
 nvidia-graphics-drivers (396.54-2) experimental; urgency=medium
 
