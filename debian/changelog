@@ -1,5 +1,8 @@
-nvidia-graphics-drivers (415.13-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (415.18-1~git1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 415.18 (2018-11-20).
+    - Fixed a bug that caused corruption on vkCmdCopyImage calls for non-2D
+      texture targets.
   * New upstream beta 415.13 (2018-11-08).
     - Improved error reporting in eglSwapBuffers() by generating codes for
       some missing error types, and adding additional detail to the already
@@ -43,7 +46,7 @@ nvidia-graphics-drivers (415.13-1~git1) UNRELEASED; urgency=medium
   * Update symbols files.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 14 Nov 2018 18:20:52 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 26 Nov 2018 06:23:15 +0100
 
 nvidia-graphics-drivers (410.93-2) unstable; urgency=medium
 
