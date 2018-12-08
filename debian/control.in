@@ -105,6 +105,7 @@ Recommends:
  lib${nvidia}-cfg1 (= ${binary:Version}),
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
+ libgldispatch0-nvidia,
  libglvnd0-nvidia,
  libopengl0-glvnd-nvidia,
  libglx0-glvnd-nvidia,
@@ -150,6 +151,7 @@ Recommends:
  lib${nvidia}-cfg1 (= ${binary:Version}),
  ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
+ libgldispatch0-nvidia,
  libglvnd0-nvidia,
  libopengl0-glvnd-nvidia,
  libglx0-glvnd-nvidia,
