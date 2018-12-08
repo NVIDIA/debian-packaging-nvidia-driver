@@ -14,8 +14,6 @@ Build-Depends:
  xz-utils,
  dkms,
  libvulkan1 (>= 1.0.42),
- libwayland-client0,
- libwayland-server0,
  libxext6 [!ppc64el],
  quilt,
  po-debconf,
@@ -105,7 +103,6 @@ Recommends:
  libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
- ${nvidia}-egl-wayland-icd (= ${binary:Version}),
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
  libglvnd0-nvidia,
@@ -151,7 +148,6 @@ Recommends:
  libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
- ${nvidia}-egl-wayland-icd (= ${binary:Version}),
  ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
  libglvnd0-nvidia,
@@ -691,60 +687,6 @@ Description: NVIDIA EGL installable client driver (ICD)
  .
  This metapackage provides the NVIDIA installable client driver (ICD) for
  EGL via GLVND which supports NVIDIA GPUs.
-
-Package: lib${nvidia}-egl-wayland1
-Architecture: i386 amd64 armhf
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${nvidia}-alternative (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Breaks:
- libnvidia-egl-wayland,
-Replaces:
- libnvidia-egl-wayland,
-Description: NVIDIA binary Wayland EGL external platform library
- EGL provides a platform-agnostic mechanism for creating rendering surfaces
- for use with other graphics libraries, such as OpenGL|ES.
- .
- This package contains the private libraries used by the NVIDIA implementation
- of Wayland as an EGL external platform.
-
-Package: nvidia-egl-wayland-common
-Architecture: i386 amd64 armhf
-Multi-Arch: foreign
-Depends:
- ${misc:Depends}
-Recommends:
- lib${nvidia}-egl-wayland1
- | libnvidia-legacy-390xx-egl-wayland1,
-Description: NVIDIA binary Wayland EGL external platform - common files
- EGL provides a platform-agnostic mechanism for creating rendering surfaces
- for use with other graphics libraries, such as OpenGL|ES.
- .
- This package provides the common files for the NVIDIA implementation
- of Wayland as an EGL external platform.
-
-Package: ${nvidia}-egl-wayland-icd
-Architecture: i386 amd64 armhf
-Multi-Arch: same
-Depends:
- nvidia-egl-wayland-common,
-# libegl1+eglexternalplatform |
- libegl-${nvidia}0 (= ${binary:Version}),
- lib${nvidia}-egl-wayland1 (= ${binary:Version}),
- ${misc:Depends}
-#Enhances:
-# libegl1+eglexternalplatform,
-Provides:
- egl-wayland-icd,
-Description: NVIDIA Wayland EGL external platform library (ICD)
- EGL provides a platform-agnostic mechanism for creating rendering surfaces
- for use with other graphics libraries, such as OpenGL|ES.
- .
- This metapackage provides the NVIDIA implementation of Wayland as an EGL
- external platform.
 
 Package: nvidia-vulkan-common
 Architecture: i386 amd64

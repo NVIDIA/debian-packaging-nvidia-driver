@@ -30,4 +30,7 @@ pkg-history.txt
 tls_test
 tls_test_dso.so
 
+libnvidia-egl-wayland.so.1.0.2
+10_nvidia_wayland.json
+
 NVIDIA_Changelog

@@ -1,2 +1,0 @@
-# We do not build arch:all packages from the proprietary driver.
-package-contains-no-arch-dependent-files
