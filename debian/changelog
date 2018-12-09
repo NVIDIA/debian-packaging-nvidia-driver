@@ -63,6 +63,8 @@ nvidia-graphics-drivers (390.77-1) unstable; urgency=medium
       when flipping is allowed.
     - Removed informational messages that were printed by nvidia-modeset.ko
       whenever a GPU device was allocated or freed.
+    - Fixed a bug that caused kwin OpenGL compositing to crash when
+      launching certain OpenGL applications.
   * New upstream release 367 series.
     - Updated the OpenGL driver to allow the use of integer format (SINT/UINT)
       color attachments with depth attachments in Frame Buffer Objects.
@@ -96,8 +98,6 @@ nvidia-graphics-drivers (390.67-1) unstable; urgency=medium
   * New upstream long lived branch release 390.67 (2018-06-05).
     - Fixed a bug that could cause kernel panics when using Quadro SDI
       Capture hardware.
-    - Fixed a bug that caused kwin OpenGL compositing to crash when
-      launching certain OpenGL applications.
     - Fixed an intermittent crash when launching Vulkan applications.
     - Fixed an intermittent crash when launching applications through Wine.
     - Fixed a bug that caused the driver, in some low bandwidth DisplayPort
