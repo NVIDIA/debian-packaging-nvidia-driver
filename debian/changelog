@@ -1,5 +1,9 @@
-nvidia-graphics-drivers (415.18-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (415.22-1~git1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 415.22 (2018-12-07).
+    - Fixed a regression that prevented applications based on the Unity engine
+      from starting.
+    - Added support for VK_EXT_transform_feedback.
   * New upstream short lived branch release 415.18 (2018-11-20).
     - Fixed a bug that caused corruption on vkCmdCopyImage calls for non-2D
       texture targets.
@@ -46,7 +50,7 @@ nvidia-graphics-drivers (415.18-1~git1) UNRELEASED; urgency=medium
   * Update symbols files.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 26 Nov 2018 06:23:15 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 09 Dec 2018 20:39:29 +0100
 
 nvidia-graphics-drivers (410.93-2) unstable; urgency=medium
 
