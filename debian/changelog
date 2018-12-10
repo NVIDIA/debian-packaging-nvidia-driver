@@ -3,6 +3,8 @@ nvidia-graphics-drivers (390.87-4) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Drop libnvidia-egl-wayland1, nvidia-egl-wayland-{common,icd} packages.
     These will be provided by src:egl-wayland.  (Closes: #915824)
+  * Add more Conflicts between GLVND/non-GLVND packages to smoothen some
+    install paths with --install-recommends enabled.
 
   [ Philipp Kern ]
   * debian/gen-control.pl: Generate debian/control from debian/control.in.

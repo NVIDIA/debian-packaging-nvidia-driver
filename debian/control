@@ -452,6 +452,9 @@ Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  libegl-${nvidia}0 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
+Conflicts:
+ ${nvidia}-driver-libs,
+ libgl1-${nvidia}-glvnd-glx,
 Description: NVIDIA binary EGL library (non-GLVND variant)${nvidia:LegacyDesc}
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES.
