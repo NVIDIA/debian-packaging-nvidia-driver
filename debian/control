@@ -807,6 +807,15 @@ Depends:
  ${misc:Depends}
 Provides:
  ${nvidia}-alternative--kmod-alias,
+Conflicts:
+ libgldispatch0-nvidia,
+ libglvnd0-nvidia,
+ libopengl0-glvnd-nvidia,
+ libglx0-glvnd-nvidia,
+ libgl1-glvnd-nvidia-glx,
+ libegl1-glvnd-nvidia,
+ libgles1-glvnd-nvidia,
+ libgles2-glvnd-nvidia,
 Breaks:
  nvidia-settings (<< 319.49),
  nvidia-driver (<< 343.22-2~),
