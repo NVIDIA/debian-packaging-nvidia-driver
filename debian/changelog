@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (390.87-4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.87-4) unstable; urgency=medium
 
   [ Andreas Beckmann ]
   * Drop libnvidia-egl-wayland1, nvidia-egl-wayland-{common,icd} packages.
@@ -9,7 +9,7 @@ nvidia-graphics-drivers (390.87-4) UNRELEASED; urgency=medium
   [ Philipp Kern ]
   * debian/gen-control.pl: Generate debian/control from debian/control.in.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 13 Nov 2018 19:27:06 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 10 Dec 2018 18:29:08 +0100
 
 nvidia-graphics-drivers (390.87-3) unstable; urgency=medium
 
