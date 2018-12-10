@@ -1,3 +1,16 @@
+nvidia-graphics-drivers (390.87-4) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Drop libnvidia-egl-wayland1, nvidia-egl-wayland-{common,icd} packages.
+    These will be provided by src:egl-wayland.  (Closes: #915824)
+  * Add more Conflicts between GLVND/non-GLVND packages to smoothen some
+    install paths with --install-recommends enabled.
+
+  [ Philipp Kern ]
+  * debian/gen-control.pl: Generate debian/control from debian/control.in.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 10 Dec 2018 18:29:08 +0100
+
 nvidia-graphics-drivers (390.87-3) unstable; urgency=medium
 
   * Make libgles-nvidia1 a full citizen again, libglvnd now builds libgles1.
@@ -53,6 +66,8 @@ nvidia-graphics-drivers (390.77-1) unstable; urgency=medium
       when flipping is allowed.
     - Removed informational messages that were printed by nvidia-modeset.ko
       whenever a GPU device was allocated or freed.
+    - Fixed a bug that caused kwin OpenGL compositing to crash when
+      launching certain OpenGL applications.
   * New upstream release 367 series.
     - Updated the OpenGL driver to allow the use of integer format (SINT/UINT)
       color attachments with depth attachments in Frame Buffer Objects.
@@ -86,8 +101,6 @@ nvidia-graphics-drivers (390.67-1) unstable; urgency=medium
   * New upstream long lived branch release 390.67 (2018-06-05).
     - Fixed a bug that could cause kernel panics when using Quadro SDI
       Capture hardware.
-    - Fixed a bug that caused kwin OpenGL compositing to crash when
-      launching certain OpenGL applications.
     - Fixed an intermittent crash when launching Vulkan applications.
     - Fixed an intermittent crash when launching applications through Wine.
     - Fixed a bug that caused the driver, in some low bandwidth DisplayPort
