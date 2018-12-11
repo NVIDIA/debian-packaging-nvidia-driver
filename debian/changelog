@@ -41,6 +41,7 @@ nvidia-graphics-drivers (415.13-1~git1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * The classic LinuxThreads tls library variant for Linux < 2.6 is gone.
   * Update symbols files.
+  * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 14 Nov 2018 18:20:52 +0100
 
