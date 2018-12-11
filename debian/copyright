@@ -22,6 +22,7 @@ Copyright: 2001-2010 Randall Donald <rdonald@debian.org>
            2009-2018 Andreas Beckmann <anbe@debian.org>
            2010      Russ Allbery <rra@debian.org>
            2015-2018 Luca Boccassi <bluca@debian.org>
+           2018      Philipp Kern <pkern@debian.org>
            Based on packages by Christopher Cheney.
 License: GPL-2.0+
 

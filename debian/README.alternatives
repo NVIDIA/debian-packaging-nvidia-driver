@@ -5,7 +5,7 @@ To switch between the current and legacy NVIDIA drivers, use
 
     update-glx --config nvidia
 
-To switch between the GLX implementation from MESA/glvnd and NVIDIA,
+To switch between the GLX implementation from MESA/glvnd and NVIDIA
 use the command
 
     update-glx --config glx

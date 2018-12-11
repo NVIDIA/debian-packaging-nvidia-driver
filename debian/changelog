@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (410.78-2) UNRELEASED; urgency=medium
+
+  * Merge changes from 396.54-3.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 11 Dec 2018 06:29:11 +0100
+
 nvidia-graphics-drivers (410.78-1) experimental; urgency=medium
 
   * New upstream long lived branch release 410.78 (2018-11-15).
@@ -80,6 +86,12 @@ nvidia-graphics-drivers (410.78-1) experimental; urgency=medium
   * Drop kmem_cache_create_usercopy.patch, fixed upstream.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 26 Nov 2018 15:43:24 +0100
+
+nvidia-graphics-drivers (396.54-3) experimental; urgency=medium
+
+  * Merge changes from 390.87-4.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 11 Dec 2018 06:11:16 +0100
 
 nvidia-graphics-drivers (396.54-2) experimental; urgency=medium
 
@@ -174,6 +186,19 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
 
+nvidia-graphics-drivers (390.87-4) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Drop libnvidia-egl-wayland1, nvidia-egl-wayland-{common,icd} packages.
+    These will be provided by src:egl-wayland.  (Closes: #915824)
+  * Add more Conflicts between GLVND/non-GLVND packages to smoothen some
+    install paths with --install-recommends enabled.
+
+  [ Philipp Kern ]
+  * debian/gen-control.pl: Generate debian/control from debian/control.in.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 10 Dec 2018 18:29:08 +0100
+
 nvidia-graphics-drivers (390.87-3) unstable; urgency=medium
 
   * Make libgles-nvidia1 a full citizen again, libglvnd now builds libgles1.
@@ -229,6 +254,8 @@ nvidia-graphics-drivers (390.77-1) unstable; urgency=medium
       when flipping is allowed.
     - Removed informational messages that were printed by nvidia-modeset.ko
       whenever a GPU device was allocated or freed.
+    - Fixed a bug that caused kwin OpenGL compositing to crash when
+      launching certain OpenGL applications.
   * New upstream release 367 series.
     - Updated the OpenGL driver to allow the use of integer format (SINT/UINT)
       color attachments with depth attachments in Frame Buffer Objects.
@@ -262,8 +289,6 @@ nvidia-graphics-drivers (390.67-1) unstable; urgency=medium
   * New upstream long lived branch release 390.67 (2018-06-05).
     - Fixed a bug that could cause kernel panics when using Quadro SDI
       Capture hardware.
-    - Fixed a bug that caused kwin OpenGL compositing to crash when
-      launching certain OpenGL applications.
     - Fixed an intermittent crash when launching Vulkan applications.
     - Fixed an intermittent crash when launching applications through Wine.
     - Fixed a bug that caused the driver, in some low bandwidth DisplayPort

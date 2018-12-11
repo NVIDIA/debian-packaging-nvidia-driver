@@ -28,9 +28,10 @@ The branch structure in the GIT repository
     304xx/master        EoL   stretch,sid
     340                       jessie              340-stretch
     340-stretch               (stretch,sid)       390, 340xx/master
-    340xx/master              stretch,sid
-    390                       stretch             master
-    390xx/master              sid
+    340xx/master              stretch,buster,sid
+    390                       stretch             390-buster
+    390-buster                (buster)            master, 390xx/master
+    390xx/master              buster,sid
     master                    sid                 YYY
     YYY                       experimental        ZZZ, (master)
     ZZZ                       experimental        (master)
