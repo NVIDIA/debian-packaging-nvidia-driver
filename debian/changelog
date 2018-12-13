@@ -1,5 +1,6 @@
-nvidia-graphics-drivers (415.22-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (415.23-1~git1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 415.23 (2018-12-12).
   * New upstream short lived branch release 415.22 (2018-12-07).
     - Fixed a regression that prevented applications based on the Unity engine
       from starting.
