@@ -3,7 +3,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceClearAccountingPids@Base 319
  nvmlDeviceClearCpuAffinity@Base 340
  nvmlDeviceClearEccErrorCounts@Base 270
- nvmlDeviceCudaClocks@Base 415.22
+#MISSING: 415.25# nvmlDeviceCudaClocks@Base 415.22
  nvmlDeviceDiscoverGpus@Base 375
  nvmlDeviceFreezeNvLinkUtilizationCounter@Base 361
  nvmlDeviceGetAPIRestriction@Base 319.60
