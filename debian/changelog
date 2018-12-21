@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (390.87-5) UNRELEASED; urgency=medium
+
+  * Prefer KBUILD_LDFLAGS (used since 4.19) over LDFLAGS.  (Closes: #916883)
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 21 Dec 2018 12:49:26 +0100
+
 nvidia-graphics-drivers (390.87-4) unstable; urgency=medium
 
   [ Andreas Beckmann ]
