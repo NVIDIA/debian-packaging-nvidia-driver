@@ -3,6 +3,7 @@ nvidia-graphics-drivers (390.87-5) UNRELEASED; urgency=medium
   * Prefer KBUILD_LDFLAGS (used since 4.19) over LDFLAGS.  (Closes: #916883)
   * Work around update-alternatives bug #916799 and re-register the
     alternative to clean-up leftover slaves.
+  * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 21 Dec 2018 12:49:26 +0100
 
