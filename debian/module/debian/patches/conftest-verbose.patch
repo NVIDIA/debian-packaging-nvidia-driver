@@ -3,7 +3,7 @@ Description: dump the generated conftest headers
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -108,6 +108,15 @@ NV_CONFTEST_HEADERS += $(obj)/conftest/h
+@@ -108,6 +108,16 @@ NV_CONFTEST_HEADERS += $(obj)/conftest/h
  NV_CONFTEST_HEADERS += $(NV_CONFTEST_COMPILE_TEST_HEADERS)
  
  
@@ -14,6 +14,7 @@ Description: dump the generated conftest headers
 +	@echo 'KBUILD_CFLAGS=$(KBUILD_CFLAGS)'
 +	@echo 'LINUXINCLUDE=$(LINUXINCLUDE)'
 +	@echo 'LDFLAGS=$(LDFLAGS)'
++	@echo 'KBUILD_LDFLAGS=$(KBUILD_LDFLAGS)'
 +	@echo 'ARCH=$(ARCH)'
 +
  #

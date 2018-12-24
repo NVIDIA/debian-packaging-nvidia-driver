@@ -1,3 +1,13 @@
+nvidia-graphics-drivers (390.87-5) unstable; urgency=medium
+
+  * Prefer KBUILD_LDFLAGS (used since 4.19) over LDFLAGS.  (Closes: #916883)
+  * Work around update-alternatives bug #916799 and re-register the
+    alternative to clean-up leftover slaves.
+  * Bump Standards-Version to 4.3.0. No changes needed.
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 24 Dec 2018 02:44:40 +0100
+
 nvidia-graphics-drivers (390.87-4) unstable; urgency=medium
 
   [ Andreas Beckmann ]
