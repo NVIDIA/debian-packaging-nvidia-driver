@@ -1,0 +1,24 @@
+Description: use struct ipmi_user instead of typedef to fix build with 4.20
+ Since Linux 4.20-rc1 (commit 4372ea94d4) the typedef is gone. Use the full
+ struct name instead.
+Author: Luca Boccassi <bluca@debian.org>
+--- a/nvidia/os-interface.c
++++ b/nvidia/os-interface.c
+@@ -1697,7 +1697,7 @@ void NV_API_CALL os_free_pages_phys
+ 
+ struct nv_ipmi_softc
+ {
+-    ipmi_user_t         p_user;     // ptr to ipmi_msghandler user structure
++    struct ipmi_user    *p_user;     // ptr to ipmi_msghandler user structure
+     spinlock_t          msg_lock;
+     struct list_head    msgs;
+     NvU32               seqNum;     //request sequence number
+@@ -1706,7 +1706,7 @@ struct nv_ipmi_softc
+ static inline int
+ nv_ipmi_set_my_address
+ (
+-    ipmi_user_t     user,
++    struct ipmi_user *user,
+     unsigned char   address
+ )
+ {
