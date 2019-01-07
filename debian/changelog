@@ -1,3 +1,13 @@
+nvidia-graphics-drivers (390.87-6) unstable; urgency=medium
+
+  [ Luca Boccassi ]
+  * Add ipmi-user.patch and vm-insert-pfn.patch to fix kernel module build for
+    Linux 4.20 and newer.  (Closes: #917586)
+  * Update Swedish (sv) debconf translation. Thank you Martin Bagge!
+    (Closes: #918018)
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 08 Jan 2019 00:32:54 +0100
+
 nvidia-graphics-drivers (390.87-5) unstable; urgency=medium
 
   * Prefer KBUILD_LDFLAGS (used since 4.19) over LDFLAGS.  (Closes: #916883)
