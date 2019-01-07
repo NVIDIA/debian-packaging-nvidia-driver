@@ -1,3 +1,24 @@
+nvidia-graphics-drivers (410.93-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 410.93 (2019-01-03).
+    - Fixed a bug that could prevent display detection from working on
+      displays connected to some notebook docking stations.
+    - Added support for the following GPU: Quadro RTX 8000.
+  * New upstream release 390 series.
+    - Fixed a bug which could cause VK_KHR_external_semaphore_fd operations
+      to fail.
+    - Fixed a build failure, "implicit declaration of function
+      'vm_insert_pfn'", when building the NVIDIA DRM kernel module for Linux
+      kernel 4.20 release candidates.
+    - Fixed a build failure, "unknown type name 'ipmi_user_t'", when building
+      the NVIDIA kernel module for Linux kernel 4.20 release candidates.
+  * New upstream release 340 series.
+    - Added a new kernel module parameter, NVreg_RestrictProfilingToAdminUsers,
+      to allow restricting the use of GPU performance counters to system
+      administrators only.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 07 Jan 2019 22:07:14 +0100
+
 nvidia-graphics-drivers (410.78-2) experimental; urgency=medium
 
   * Merge changes from 396.54-3.
