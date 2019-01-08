@@ -17,6 +17,9 @@ nvidia-graphics-drivers (410.93-1) UNRELEASED; urgency=medium
       to allow restricting the use of GPU performance counters to system
       administrators only.
 
+  [ Andreas Beckmann ]
+  * Merge changes from 390.87-6.
+
  -- Andreas Beckmann <anbe@debian.org>  Mon, 07 Jan 2019 22:07:14 +0100
 
 nvidia-graphics-drivers (410.78-2) experimental; urgency=medium
@@ -107,6 +110,12 @@ nvidia-graphics-drivers (410.78-1) experimental; urgency=medium
   * Drop kmem_cache_create_usercopy.patch, fixed upstream.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 26 Nov 2018 15:43:24 +0100
+
+nvidia-graphics-drivers (396.54-4) UNRELEASED; urgency=medium
+
+  * Drop libgles[12]-nvidia transitional packages.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 14 Dec 2018 12:59:57 +0100
 
 nvidia-graphics-drivers (396.54-3) experimental; urgency=medium
 
@@ -206,6 +215,29 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
+
+nvidia-graphics-drivers (390.87-6) unstable; urgency=medium
+
+  [ Luca Boccassi ]
+  * Add ipmi-user.patch and vm-insert-pfn.patch to fix kernel module build for
+    Linux 4.20 and newer.  (Closes: #917586)
+  * Update Swedish (sv) debconf translation. Thank you Martin Bagge!
+    (Closes: #918018)
+
+  [ Andreas Beckmann ]
+  * Switch to debhelper-compat (= 12).
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 08 Jan 2019 00:32:54 +0100
+
+nvidia-graphics-drivers (390.87-5) unstable; urgency=medium
+
+  * Prefer KBUILD_LDFLAGS (used since 4.19) over LDFLAGS.  (Closes: #916883)
+  * Work around update-alternatives bug #916799 and re-register the
+    alternative to clean-up leftover slaves.
+  * Bump Standards-Version to 4.3.0. No changes needed.
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 24 Dec 2018 02:44:40 +0100
 
 nvidia-graphics-drivers (390.87-4) unstable; urgency=medium
 
