@@ -2,8 +2,10 @@ Source: #NVIDIA#-kernel
 Section: non-free/kernel
 Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
-Build-Depends: debhelper-compat (= 11), quilt
-Standards-Version: 4.2.1
+Build-Depends:
+ debhelper-compat (= 12),
+ quilt,
+Standards-Version: 4.3.0
 Homepage: https://www.nvidia.com/
 
 Package: #NVIDIA#-kernel-#KVERS#

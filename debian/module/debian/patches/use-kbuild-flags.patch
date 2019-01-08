@@ -1,5 +1,6 @@
 Author: Andreas Beckmann <anbe@debian.org>
-Description: use KBUILD_CFLAGS and LDFLAGS
+Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
+ allows building a amd64 kernel module with i386 user space
  skip -Werror=* since that breaks how conftest.sh detects stuff
 
 --- a/Kbuild
@@ -19,7 +20,7 @@ Description: use KBUILD_CFLAGS and LDFLAGS
  
  $(obj)/$(NVIDIA_INTERFACE): $(addprefix $(obj)/,$(NVIDIA_OBJECTS))
 -	$(LD) -r -o $@ $^
-+	$(LD) $(LDFLAGS) -r -o $@ $^
++	$(LD) $(or $(KBUILD_LDFLAGS),$(LDFLAGS)) -r -o $@ $^
  
  
  #
@@ -30,7 +31,7 @@ Description: use KBUILD_CFLAGS and LDFLAGS
  
    %-linux.o: modules
 -	$(LD) $(NV_MODULE_COMMON_SCRIPT) -r -o $@ \
-+	$(LD) $(LDFLAGS) $(NV_MODULE_COMMON_SCRIPT) -r -o $@ \
++	$(LD) $(or $(KBUILD_LDFLAGS),$(LDFLAGS)) $(NV_MODULE_COMMON_SCRIPT) -r -o $@ \
  	  $(subst nv,nvidia,$*).mod.o $(subst nv,nvidia,$*)/$*-interface.o
  
    # Kbuild's "clean" rule won't clean up the conftest headers on its own, and
@@ -41,7 +42,7 @@ Description: use KBUILD_CFLAGS and LDFLAGS
  
  $(obj)/$(NVIDIA_MODESET_INTERFACE): $(addprefix $(obj)/,$(NVIDIA_MODESET_OBJECTS))
 -	$(LD) -r -o $@ $^
-+	$(LD) $(LDFLAGS) -r -o $@ $^
++	$(LD) $(or $(KBUILD_LDFLAGS),$(LDFLAGS)) -r -o $@ $^
  
  #
  # Register the conftests needed by nvidia-modeset.ko
