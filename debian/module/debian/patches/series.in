@@ -2,6 +2,8 @@
 do-div-cast.patch
 kmem_cache_create_usercopy.patch
 drm-mode.patch
+ipmi-user.patch
+vm-insert-pfn.patch
 
 # build system updates
 use-kbuild-compiler.patch
