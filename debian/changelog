@@ -6,6 +6,9 @@ nvidia-graphics-drivers (390.87-6) unstable; urgency=medium
   * Update Swedish (sv) debconf translation. Thank you Martin Bagge!
     (Closes: #918018)
 
+  [ Andreas Beckmann ]
+  * Switch to debhelper-compat (= 12).
+
  -- Andreas Beckmann <anbe@debian.org>  Tue, 08 Jan 2019 00:32:54 +0100
 
 nvidia-graphics-drivers (390.87-5) unstable; urgency=medium
