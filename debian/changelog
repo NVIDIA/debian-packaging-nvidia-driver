@@ -1,5 +1,7 @@
-nvidia-graphics-drivers (415.25-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (415.27-1~git1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 415.27 (2019-01-15).
+    - Added support for the following GPU: GeForce RTX 2060.
   * New upstream short lived branch release 415.25 (2018-12-18).
     - Added support for the following GPU: TITAN RTX.
   * New upstream short lived branch release 415.23 (2018-12-12).
@@ -54,7 +56,7 @@ nvidia-graphics-drivers (415.25-1~git1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 19 Dec 2018 23:44:21 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 15 Jan 2019 22:54:26 +0100
 
 nvidia-graphics-drivers (410.93-2) unstable; urgency=medium
 
