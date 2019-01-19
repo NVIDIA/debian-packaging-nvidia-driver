@@ -330,7 +330,7 @@ Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64
 Depends:
- debhelper (>= 9),
+ debhelper (>= 10),
  make:any,
  quilt,
  xz-utils,
