@@ -899,7 +899,7 @@ Package: ${nvidia}-kernel-source
 Section: non-free/kernel
 Architecture: i386 amd64 armhf
 Depends:
- debhelper (>= 9),
+ debhelper-compat (= 12),
  make:any,
  quilt,
  xz-utils,
