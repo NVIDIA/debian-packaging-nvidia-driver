@@ -46,6 +46,9 @@ nvidia-graphics-drivers (418.30-1~git1) UNRELEASED; urgency=medium
       mechanism (tasklets) for running the bottom-half interrupt handler.
       Instead, threaded IRQs (the default since 367.44) are always used.
 
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Thu, 31 Jan 2019 15:43:15 +0100
 
 nvidia-graphics-drivers (415.27-1) experimental; urgency=medium
