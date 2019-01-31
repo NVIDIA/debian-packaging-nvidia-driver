@@ -1,3 +1,53 @@
+nvidia-graphics-drivers (418.30-1~git1) UNRELEASED; urgency=medium
+
+  * New upstream beta 418.30 (2019-01-30).
+    - Added initial support for G-SYNC Compatible monitors.  See the README
+      for details.
+    - Added support for the following GPUs:
+      GeForce RTX 2070 with Max-Q Design, GeForce RTX 2080 with Max-Q Design.
+    - Added support for stereo presentation in Vulkan.
+    - Fixed a bug that could cause OpenGL applications to crash after
+      repeated VT-switches.
+    - NVIDIA Video Codec SDK 9.0
+      A new release of the Video Codec SDK will be available in Q1 2019.
+      For more information and early access sign-up, refer to
+        https://developer.nvidia.com/nvidia-video-codec-sdk
+      The main features available in this release are listed below:
+      o Support for Turing NVENC/NVDEC.
+      o The NVDECODE API (also known as the NVCUVID API) has been updated to
+        support YUV 4:4:4 decoding for HEVC on Turing GPUs.
+      o NvEncodeAPI has been updated to support HEVC B-frames on Turing GPUs.
+      o NvEncodeAPI adds the capability to output the encoded bitstream, and
+        motion vectors from motion estimation-only mode, to video memory.
+        This avoids the overhead of copying the output from system to video
+        memory for processing pipelines operating directly on video memory.
+      o NvEncodeAPI now accepts CUarrays as input buffers. The SDK contains
+        a sample application to demonstrate how to feed a Vulkan image to
+        NVENC using the Vulkan-CUDA interop.
+    - Added NVIDIA optical flow support.
+      A new library libnvidia-opticalflow.so is included in the driver package.
+      The NVIDIA optical flow library can be used for hardware-accelerated
+      computation of optical flow vectors and stereo disparity values.
+      The API header files, sample applications and documentation will be
+      available in a separate Optical Flow SDK package in Q1 2019.
+      For more information and early access sign-up, refer to
+        https://developer.nvidia.com/opticalflow-sdk
+    - Removed libnvidia-wfb.so from the driver package.  This module was only
+      used on X servers that did not provide their own implementation of
+      libwfb, and all X.Org xserver versions now supported by the driver do
+      so.
+    - Updated the VDPAU driver to reject decoding to YUV 4:2:2 video
+      surfaces.  The NVIDIA VDPAU driver always produces YUV 4:2:0
+      content.  Previously, the VDPAU driver implicitly converted a YUV
+      4:2:2 video surface to YUV 4:2:0 during decode.  Now, the VDPAU
+      driver will fail the decode request.
+    - Removed the NVreg_UseThreadedInterrupts kernel module parameter from
+      nvidia.ko. This removes the ability to forcibly fall back to an older
+      mechanism (tasklets) for running the bottom-half interrupt handler.
+      Instead, threaded IRQs (the default since 367.44) are always used.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 31 Jan 2019 15:43:15 +0100
+
 nvidia-graphics-drivers (415.27-1) experimental; urgency=medium
 
   * New upstream short lived branch release 415.27 (2019-01-15).
