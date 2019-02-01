@@ -1006,6 +1006,9 @@ Depends:
 Recommends:
  ${nvidia:kmod:binary},
  ${nvidia}-smi,
+# recommend lib${nvidia}-cfg1 to prevent nvidia-persistenced from choosing
+# the wrong provider for libnvidia-cfg1-any
+ lib${nvidia}-cfg1 (= ${binary:Version}),
  nvidia-persistenced,
  ${libcuda1}-i386 [amd64],
 Suggests:

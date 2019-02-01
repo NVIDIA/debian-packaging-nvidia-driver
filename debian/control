@@ -996,6 +996,7 @@ Depends:
 Recommends:
  ${nvidia:kmod:binary},
  ${nvidia}-smi,
+ lib${nvidia}-cfg1 (= ${binary:Version}),
  nvidia-persistenced,
  ${libcuda1}-i386 [amd64],
 Suggests:
