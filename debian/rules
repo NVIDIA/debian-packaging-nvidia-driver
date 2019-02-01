@@ -83,6 +83,7 @@ AUTOGEN		+= debian/substvars
 AUTOGEN		+= debian/nv-readme.ids
 AUTOGEN		+= nvidia-amd64.ids
 AUTOGEN		+= $(if $(has_vulkan),glvnd/nvidia_icd.json nonglvnd/nvidia_icd.json)
+AUTOGEN		+= $(AUTOKEEP)
 AUTOKEEP	 = debian/watch debian/control
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
 
@@ -102,7 +103,7 @@ upstream_changelog	 = NVIDIA-Linux-amd64/NVIDIA_Changelog
 
 
 .PHONY: autogen prepare patch
-autogen: $(AUTOGEN)
+autogen: debian/control $(AUTOGEN)
 prepare: autogen unpack-stamp
 prepare: nvidia.ids compare-copyright-license
 patch: prepare
@@ -182,6 +183,16 @@ override_dh_clean:
 	dh_clean
 	$(RM) $(AUTOCLEAN)
 	$(MAKE) -f debian/rules $(AUTOKEEP)
+# this will fail unless debian/control{,.md5sum} is up-to-date
+	md5sum --check debian/control.md5sum --status || \
+		$(MAKE) -f debian/rules debian/control-real
+
+CONTROL_FILES	 = debian/control.in debian/gen-control.pl debian/rules debian/rules.defs
+
+debian/control: $(CONTROL_FILES) debian/changelog
+	md5sum --check debian/control.md5sum --status || \
+		$(MAKE) -f debian/rules debian/control-real
+	touch $@
 
 override_dh_auto_configure: prepare
 
@@ -348,31 +359,23 @@ include debian/bug-control.mk
 
 ############################################################################
 
-# only invoked manually
-debian/control: debian/control.in debian/gen-control.pl debian/rules debian/rules.defs
+# intentionally fails to prevent being run during build
+debian/control-real: $(CONTROL_FILES)
 	debian/gen-control.pl \
 		-V'nvidia=$(nvidia)' \
 		-V'nvidia:if-legacy=$(nvidia_if_legacy)' \
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'libcuda1=$(libcuda1)' \
 		-- \
-		debian/control.in > debian/control.new
-	@if ! cmp -s debian/control.new debian/control ; then \
-		echo ; \
-		echo This target is made to fail intentionally, to make sure ; \
-		echo that it is NEVER run during the automated build. Please ; \
-		echo ignore the following error, the debian/control file has ; \
-		echo been generated SUCCESSFULLY. ; \
-		echo ; \
-	fi
-	@set -e -x ; \
-	if ! cmp -s debian/control.new debian/control ; then \
-		mv debian/control.new debian/control ; \
-		exit 1 ; \
-	else \
-		$(RM) debian/control.new ; \
-		touch $@ ; \
-	fi
+		debian/control.in > debian/control
+	md5sum debian/control $^ > debian/control.md5sum
+	@echo
+	@echo This target is made to fail intentionally, to make sure
+	@echo that it is NEVER run during the automated build. Please
+	@echo ignore the following error, the debian/control file has
+	@echo been generated SUCCESSFULLY.
+	@echo
+	exit 1
 
 # only invoked manually
 %.txt: %.list

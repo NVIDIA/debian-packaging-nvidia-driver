@@ -2,6 +2,7 @@ nvidia-graphics-drivers (390.87-7) UNRELEASED; urgency=medium
 
   * Updated French (fr) debconf translations by Quentin Lejard.
     (Closes: #920940)
+  * Use d/control.md5sum to keep track of d/control being up-to-date.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 31 Jan 2019 17:03:01 +0100
 
