@@ -367,6 +367,7 @@ Depends:
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
+ ${nvidia}-driver-libs-nonglvnd (= ${binary:Version}),
  ${nvidia:kmod:binary},
 Suggests:
  ${nvidia:kmod:source},
