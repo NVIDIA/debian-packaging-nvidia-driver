@@ -665,7 +665,7 @@ Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
-Recommends:
+Suggests:
  libegl-${nvidia}0
  | libegl-nvidia-legacy-390xx0,
 Description: NVIDIA binary EGL driver - common files
@@ -700,7 +700,7 @@ Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
-Recommends:
+Suggests:
  ${nvidia}-vulkan-icd
  | nvidia-legacy-390xx-vulkan-icd,
 Conflicts:
@@ -740,7 +740,7 @@ Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
-Recommends:
+Suggests:
  ${nvidia}-nonglvnd-vulkan-icd
  | nvidia-legacy-390xx-nonglvnd-vulkan-icd,
 Conflicts:
@@ -1198,7 +1198,7 @@ Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
-Recommends:
+Suggests:
  ${nvidia}-opencl-icd
  | nvidia-legacy-390xx-opencl-icd,
 Description: NVIDIA OpenCL driver - common files
