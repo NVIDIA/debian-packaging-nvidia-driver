@@ -128,7 +128,7 @@ Pre-Depends:
 Depends:
  lib${nvidia}-glcore (= ${binary:Version}),
  ${nvidia}-alternative (= ${binary:Version}),
- nvidia-support (>= 20120630),
+ nvidia-support,
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:

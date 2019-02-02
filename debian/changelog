@@ -39,6 +39,7 @@ nvidia-graphics-drivers (304.137-1~svn4deb9stretch) UNRELEASED; urgency=medium
   * Add Build-Depends-Package to symbols files where appropriate and override
     symbols-file-missing-build-depends-package-field elsewhere (390.87-3).
   * Clean up and unify rule style in debian/rules (390.87-3).
+  * Drop versioned constraints that are satisfied in wheezy.
   * Bump Standards-Version to 4.3.0. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 11 Oct 2017 02:02:40 +0200
