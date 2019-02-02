@@ -191,7 +191,7 @@ Pre-Depends:
 Depends:
  lib${nvidia}-glcore (= ${binary:Version}),
  ${nvidia}-alternative (= ${binary:Version}),
- nvidia-support (>= 20120630),
+ nvidia-support,
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -224,7 +224,7 @@ Package: nvidia-legacy-check
 Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Pre-Depends:
- debconf (>= 0.5) | debconf-2.0,
+ debconf | debconf-2.0,
  pciutils,
  nvidia-installer-cleanup (>= 20151021),
 Depends:
@@ -377,6 +377,8 @@ Depends:
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
+# help ${nvidia:kmod:binary} to select the correct recommended alternative
+ ${nvidia}-driver-libs-nonglvnd (= ${binary:Version}),
  ${nvidia:kmod:binary},
 Suggests:
  ${nvidia:kmod:source},
@@ -663,7 +665,7 @@ Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
-Recommends:
+Suggests:
  libegl-${nvidia}0
  | libegl-nvidia-legacy-390xx0,
 Description: NVIDIA binary EGL driver - common files
@@ -698,7 +700,7 @@ Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
-Recommends:
+Suggests:
  ${nvidia}-vulkan-icd
  | nvidia-legacy-390xx-vulkan-icd,
 Conflicts:
@@ -738,7 +740,7 @@ Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
-Recommends:
+Suggests:
  ${nvidia}-nonglvnd-vulkan-icd
  | nvidia-legacy-390xx-nonglvnd-vulkan-icd,
 Conflicts:
@@ -1015,6 +1017,9 @@ Depends:
 Recommends:
  ${nvidia:kmod:binary},
  ${nvidia}-smi,
+# recommend lib${nvidia}-cfg1 to prevent nvidia-persistenced from choosing
+# the wrong provider for libnvidia-cfg1-any
+ lib${nvidia}-cfg1 (= ${binary:Version}),
  nvidia-persistenced,
  ${libcuda1}-i386 [amd64],
 Suggests:
@@ -1202,7 +1207,7 @@ Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
-Recommends:
+Suggests:
  ${nvidia}-opencl-icd
  | nvidia-legacy-390xx-opencl-icd,
 Description: NVIDIA OpenCL driver - common files

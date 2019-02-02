@@ -1,22 +1,23 @@
 # French translation for nvidia-driver debconf templates.
-# Copyright (C) 2009 Debian French l10n team <debian-l10n-french@lists.debian.org>
+# Copyright (C) 2009-2019 Debian French l10n team <debian-l10n-french@lists.debian.org>
 # This file is distributed under the same license as the nvidia-driver package.
 #
 # Translators:
 # Christian Perrier <bubulle@debian.org>, 2009, 2012, 2014.
+# Quentin Lejard <q.lejard@valde.fr>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: nvidia-graphics-drivers\n"
 "Report-Msgid-Bugs-To: nvidia-graphics-drivers@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-12 01:57+0100\n"
-"PO-Revision-Date: 2014-10-21 09:35+0200\n"
-"Last-Translator: Christian Perrier <bubulle@debian.org>\n"
+"PO-Revision-Date: 2019-01-15 19:27+0100\n"
+"Last-Translator: Quentin LEJARD <q.lejard@valde.fr>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. Type: boolean
@@ -42,7 +43,7 @@ msgstr ""
 "La carte graphique de cette machine n'est plus gérée par le pilote ${vendor} "
 "(paquet ${driver}). Vous pouvez préférer garder le paquet installé (par "
 "exemple pour piloter une autre carte), mais dans ce cas, la carte graphique "
-"suivante ne sera pas utilisable :"
+"suivante ne sera pas utilisable :"
 
 #. Type: boolean
 #. Description
@@ -51,7 +52,7 @@ msgid ""
 "The above card requires either the non-free legacy ${vendor} driver (package "
 "${legacy_driver}) or the free ${free_name} driver (package ${free_driver})."
 msgstr ""
-"Cette carte a besoin soit du pilote ${vendor} constructeur, non libre, "
+"Cette carte a besoin soit du pilote constructeur ${vendor}, non libre, "
 "fourni par le paquet ${legacy_driver} ou du pilote libre ${free_name} fourni "
 "par le paquet ${free_driver}."
 
@@ -61,6 +62,8 @@ msgstr ""
 msgid ""
 "Use the update-glx command to switch between different installed drivers."
 msgstr ""
+"Utilisez la commande update-glx afin de choisir parmi les pilotes déja"
+"installés."
 
 #. Type: boolean
 #. Description
