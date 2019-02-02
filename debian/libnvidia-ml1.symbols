@@ -46,6 +46,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetFBCSessions@Base 410
  nvmlDeviceGetFBCStats@Base 410
  nvmlDeviceGetFanSpeed@Base 270
+ nvmlDeviceGetFanSpeed_v2@Base 418
  nvmlDeviceGetFieldValues@Base 384
  nvmlDeviceGetGpuOperationMode@Base 304.48
  nvmlDeviceGetGraphicsRunningProcesses@Base 346

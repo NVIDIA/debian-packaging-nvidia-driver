@@ -83,6 +83,7 @@
  glTextureStorageMem2DMultisampleEXT@Base 384.69
  glTextureStorageMem3DEXT@Base 384.69
  glTextureStorageMem3DMultisampleEXT@Base 384.69
+ glVDPAURegisterVideoSurfaceWithPictureStructureNV@Base 418
  glViewportArrayvOES@Base 378
  glViewportIndexedfOES@Base 378
  glViewportIndexedfvOES@Base 378

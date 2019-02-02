@@ -116,6 +116,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGraphDestroy@Base 410
  cuGraphDestroyNode@Base 410
  cuGraphExecDestroy@Base 410
+ cuGraphExecKernelNodeSetParams@Base 418
  cuGraphGetEdges@Base 410
  cuGraphGetNodes@Base 410
  cuGraphGetRootNodes@Base 410
@@ -342,12 +343,16 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuStreamBatchMemOp_ptsz@Base 361.42
  cuStreamBeginCapture@Base 410
  cuStreamBeginCapture_ptsz@Base 410
+ cuStreamBeginCapture_v2@Base 418
+ cuStreamBeginCapture_v2_ptsz@Base 418
  cuStreamCreate@Base 169
  cuStreamCreateWithPriority@Base 319
  cuStreamDestroy@Base 169
  cuStreamDestroy_v2@Base 270
  cuStreamEndCapture@Base 410
  cuStreamEndCapture_ptsz@Base 410
+ cuStreamGetCaptureInfo@Base 418
+ cuStreamGetCaptureInfo_ptsz@Base 418
  cuStreamGetCtx@Base 396
  cuStreamGetCtx_ptsz@Base 396
  cuStreamGetFlags@Base 319
@@ -411,6 +416,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuTexRefSetMipmapLevelBias@Base 304
  cuTexRefSetMipmapLevelClamp@Base 304
  cuTexRefSetMipmappedArray@Base 304
+ cuThreadExchangeStreamCaptureMode@Base 418
  cuVDPAUCtxCreate@Base 256
  cuVDPAUCtxCreate_v2@Base 260
  cuVDPAUGetDevice@Base 256

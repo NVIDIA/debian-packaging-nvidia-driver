@@ -2235,6 +2235,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glVDPAUMapSurfacesNV@Base 361.28
  glVDPAURegisterOutputSurfaceNV@Base 361.28
  glVDPAURegisterVideoSurfaceNV@Base 361.28
+ glVDPAURegisterVideoSurfaceWithPictureStructureNV@Base 418
  glVDPAUSurfaceAccessNV@Base 361.28
  glVDPAUUnmapSurfacesNV@Base 361.28
  glVDPAUUnregisterSurfaceNV@Base 361.28
