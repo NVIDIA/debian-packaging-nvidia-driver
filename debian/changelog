@@ -1,3 +1,16 @@
+nvidia-graphics-drivers (390.87-7) unstable; urgency=medium
+
+  * Updated French (fr) debconf translations by Quentin Lejard.
+    (Closes: #920940)
+  * Use d/control.md5sum to keep track of d/control being up-to-date.
+  * Tune package relationships to prevent that installing packages from
+    nvidia-graphics-drivers-legacy-390xx driver pulls in packages from
+    nvidia-graphics-drivers via Recommends.
+  * Drop versioned constraints that are satisfied in wheezy.
+  * Drop versioned constraints that are satisfied in jessie.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 02 Feb 2019 15:24:09 +0100
+
 nvidia-graphics-drivers (390.87-6) unstable; urgency=medium
 
   [ Luca Boccassi ]
