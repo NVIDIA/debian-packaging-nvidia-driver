@@ -7,6 +7,7 @@ nvidia-graphics-drivers (390.87-7) unstable; urgency=medium
     nvidia-graphics-drivers-legacy-390xx driver pulls in packages from
     nvidia-graphics-drivers via Recommends.
   * Drop versioned constraints that are satisfied in wheezy.
+  * Drop versioned constraints that are satisfied in jessie.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 02 Feb 2019 15:24:09 +0100
 

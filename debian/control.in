@@ -78,10 +78,8 @@ Conflicts:
  nvidia-driver-bin-${nvidia:Version},
 Breaks:
  ${nvidia}-driver (<< 343.22-2~),
- nvidia-glx${nvidia:Legacy} (<< 319),
 Replaces:
  ${nvidia}-driver (<< 343.22-2~),
- nvidia-glx${nvidia:Legacy} (<< 319),
 Description: NVIDIA driver support binaries${nvidia:LegacyDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
@@ -373,7 +371,6 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  lib${nvidia}-glcore (= ${binary:Version}),
- nvidia-installer-cleanup (>= 20130816) [i386],
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
@@ -817,17 +814,8 @@ Conflicts:
  libgles1-glvnd-nvidia,
  libgles2-glvnd-nvidia,
 Breaks:
- nvidia-settings (<< 319.49),
  nvidia-driver (<< 343.22-2~),
- nvidia-vdpau-driver (<< 340.46-2~),
  libcuda1 (<< 352.63),
- nvidia-opencl-icd (<< 340.46-2~),
- libnvidia-ifr1 (<< 340.46-2~),
- libnvidia-fbc1 (<< 340.46-2~),
- libnvidia-encode1 (<< 340.46-2~),
- libnvcuvid1 (<< 340.46-2~),
- libnvidia-ml1 (<< 340.46-2~),
- nvidia-smi (<< 340.46-2~),
 Description: allows the selection of NVIDIA as GLX provider${nvidia:LegacyDesc}
  In setups with several NVIDIA driver versions installed (e.g. current and
  legacy) this metapackage registers an alternative to allow easy switching
@@ -911,8 +899,6 @@ Recommends:
  ${nvidia}-kernel-support,
 Suggests:
  ${nvidia}-driver (>= ${nvidia:Version}) [!ppc64el],
-Breaks:
- module-assistant (<< 0.11.6~),
 Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  This package provides the source for the NVIDIA Xorg binary kernel module
  needed by ${nvidia}-driver in a form suitable
@@ -1258,8 +1244,6 @@ Provides:
  libopencl-2.0-1,
 Conflicts:
  libopencl1,
-Breaks:
- nvidia-opencl-dev (<= 5.0.35-6),
 Replaces:
  libopencl1,
 Description: NVIDIA OpenCL ICD Loader library
