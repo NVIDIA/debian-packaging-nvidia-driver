@@ -1,0 +1,3 @@
+libnvidia-opticalflow.so.1 #PACKAGE# #MINVER#
+* Build-Depends-Package: #PACKAGE#
+ NvOFAPICreateInstanceCuda@Base 418

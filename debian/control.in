@@ -1216,6 +1216,21 @@ Description: NVIDIA implementation of the OptiX ray tracing engine${nvidia:Legac
  implementation for NVIDIA CUDA.
  It is used by liboptix.so.* coming with applications using the OptiX API.
 
+Package: lib${nvidia}-opticalflow1
+Architecture: i386 amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+# ${libcuda1} (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Homepage: https://developer.nvidia.com/opticalflow-sdk
+Description: NVIDIA Optical Flow runtime library${nvidia:LegacyDesc}
+ The NVIDIA Optical Flow SDK exposes the latest hardware capability of Turing
+ GPUs dedicated to computing the relative motion of pixels between images.
+ .
+ This package contains the Optical Flow runtime library.
+
 Package: lib${nvidia}-ml1
 Architecture: i386 amd64
 Multi-Arch: same
