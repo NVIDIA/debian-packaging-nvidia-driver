@@ -41,6 +41,8 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia-settings},
+# help nvidia-persistenced by pre-selecting the correct provider for libnvidia-cfg1-any
+ lib${nvidia}-cfg1 (= ${binary:Version}),
  nvidia-persistenced,
 Suggests:
  ${nvidia:kmod:source},
@@ -377,7 +379,7 @@ Depends:
  nvidia-support,
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
-# help ${nvidia:kmod:binary} to select the correct recommended alternative
+# help ${nvidia:kmod:binary} by pre-selecting the correct recommended alternative
  ${nvidia}-driver-libs-nonglvnd (= ${binary:Version}),
  ${nvidia:kmod:binary},
 Suggests:
@@ -1008,8 +1010,7 @@ Depends:
 Recommends:
  ${nvidia:kmod:binary},
  ${nvidia}-smi,
-# recommend lib${nvidia}-cfg1 to prevent nvidia-persistenced from choosing
-# the wrong provider for libnvidia-cfg1-any
+# help nvidia-persistenced by pre-selecting the correct provider for libnvidia-cfg1-any
  lib${nvidia}-cfg1 (= ${binary:Version}),
  nvidia-persistenced,
  ${libcuda1}-i386 [amd64],
