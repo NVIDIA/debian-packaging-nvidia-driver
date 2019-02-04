@@ -1,10 +1,10 @@
-nvidia-graphics-drivers (390.87-8) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.87-8) unstable; urgency=medium
 
   * Tune more package relationships to prevent that installing packages from
     nvidia-graphics-drivers-legacy-390xx driver pulls in packages from
     nvidia-graphics-drivers via Recommends.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 04 Feb 2019 01:29:20 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 04 Feb 2019 01:36:47 +0100
 
 nvidia-graphics-drivers (390.87-7) unstable; urgency=medium
 
