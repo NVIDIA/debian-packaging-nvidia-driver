@@ -42,6 +42,7 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia-settings},
+ lib${nvidia}-cfg1 (= ${binary:Version}),
  nvidia-persistenced,
 Suggests:
  ${nvidia:kmod:source},
