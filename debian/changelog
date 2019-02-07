@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (396.54-4) UNRELEASED; urgency=medium
 
+  * Merge changes from 390.87-8.
   * Drop libgles[12]-nvidia transitional packages.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 14 Dec 2018 12:59:57 +0100
@@ -102,6 +103,33 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
+
+nvidia-graphics-drivers (390.87-8~deb9u1) stretch; urgency=medium
+
+  * Rebuild for stretch.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 06 Feb 2019 10:00:53 +0100
+
+nvidia-graphics-drivers (390.87-8) unstable; urgency=medium
+
+  * Tune more package relationships to prevent that installing packages from
+    nvidia-graphics-drivers-legacy-390xx driver pulls in packages from
+    nvidia-graphics-drivers via Recommends.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 04 Feb 2019 01:36:47 +0100
+
+nvidia-graphics-drivers (390.87-7) unstable; urgency=medium
+
+  * Updated French (fr) debconf translations by Quentin Lejard.
+    (Closes: #920940)
+  * Use d/control.md5sum to keep track of d/control being up-to-date.
+  * Tune package relationships to prevent that installing packages from
+    nvidia-graphics-drivers-legacy-390xx driver pulls in packages from
+    nvidia-graphics-drivers via Recommends.
+  * Drop versioned constraints that are satisfied in wheezy.
+  * Drop versioned constraints that are satisfied in jessie.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 02 Feb 2019 15:24:09 +0100
 
 nvidia-graphics-drivers (390.87-6) unstable; urgency=medium
 
