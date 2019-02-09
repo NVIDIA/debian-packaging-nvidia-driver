@@ -1,9 +1,10 @@
-nvidia-graphics-drivers (396.54-4) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (396.54-4) unstable; urgency=medium
 
   * Merge changes from 390.87-8.
   * Drop libgles[12]-nvidia transitional packages.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 14 Dec 2018 12:59:57 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 09 Feb 2019 14:44:51 +0100
 
 nvidia-graphics-drivers (396.54-3) experimental; urgency=medium
 
