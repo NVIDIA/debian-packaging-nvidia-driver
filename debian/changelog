@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (415.27-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (415.27-1) experimental; urgency=medium
 
   * New upstream short lived branch release 415.27 (2019-01-15).
     - Added support for the following GPU: GeForce RTX 2060.
@@ -55,8 +55,9 @@ nvidia-graphics-drivers (415.27-1~git1) UNRELEASED; urgency=medium
   * Update symbols files.
   * Update nv-readme.ids.
   * Update lintian overrides.
+  * Upload to experimental.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 15 Jan 2019 22:54:26 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 11 Feb 2019 21:53:12 +0100
 
 nvidia-graphics-drivers (410.93-2) unstable; urgency=medium
 
