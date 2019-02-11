@@ -2,6 +2,7 @@ nvidia-graphics-drivers (410.93-2) UNRELEASED; urgency=medium
 
   * Merge changes from 396.54-4.
   * Add slave alternative for libnvoptix.so.1.
+  * Restrict watch file to releases from the 410.xx long lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 03 Feb 2019 00:31:10 +0100
 
