@@ -70,12 +70,12 @@ fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-390xx.ids 2>/dev/null
 then
-	VERSIONS[390]=390.48
+	VERSIONS[390]=390.87
 fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-390xx-amd64.ids 2>/dev/null
 then
-	VERSIONS[391]=390.48
+	VERSIONS[391]=390.87
 fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia.ids 2>/dev/null
