@@ -26,6 +26,10 @@ nvidia-graphics-drivers (390.116-1) UNRELEASED; urgency=medium
       to allow restricting the use of GPU performance counters to system
       administrators only.  (Closes: #913467)
 
+  [ Luca Boccassi ]
+  * Drop kmem_cache_create_usercopy.patch, drm-mode.patch,
+    ipmi-user.patch, vm-insert-pfn.patch: fixed upstream.
+
   [ Andreas Beckmann ]
   * nvidia-detect: stretch now has a 390.xx driver.
 
