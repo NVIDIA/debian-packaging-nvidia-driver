@@ -27,6 +27,9 @@ driver settings, the following minimal one can serve as a starting point:
 	    Driver         "nvidia"
 	EndSection
 
+This minimal xorg.conf often also helps with some issues encountered with
+xfce4/lightdm/light-locker etc.
+
 There are many more settings that can be tuned in xorg.conf.  For file
 format description and general options please see the xorg.conf(5) manpage.
 See /usr/share/doc/#NVIDIA#-driver/README.txt.gz
