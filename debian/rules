@@ -214,7 +214,7 @@ endif
 	  LC_ALL=C sort -z | \
 	  tar cfJ $(module_txz) \
 	    --owner=root --group=src -C $(module_source)/../.. \
-	    --exclude '*.in' --exclude '.svn' \
+	    --exclude '*.in' \
 	    --no-recursion --null -T -
 	tar tfvJ $(module_txz)
 
