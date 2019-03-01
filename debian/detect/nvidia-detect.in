@@ -63,19 +63,14 @@ then
 	VERSIONS[340]=340.76
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-384.ids 2>/dev/null
-then
-	VERSIONS[384]=384.111
-fi
-
 if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-390xx.ids 2>/dev/null
 then
-	VERSIONS[390]=390.48
+	VERSIONS[390]=390.87
 fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia-legacy-390xx-amd64.ids 2>/dev/null
 then
-	VERSIONS[391]=390.48
+	VERSIONS[391]=390.87
 fi
 
 if grep -q -i $NVGA $IDLISTDIR/nvidia.ids 2>/dev/null
@@ -137,7 +132,7 @@ fi
 		fi
 	elif grep -q "stretch\|^9" /etc/debian_version
 	then
-		if [[ -n ${VERSIONS[384]} ]]; then
+		if [[ -n ${VERSIONS[390]} ]]; then
 			if [[ -n ${VERSIONS[340]} ]]; then
 				if [[ -n ${VERSIONS[304]} ]]; then
 					echo "Your card is supported by all driver versions."
