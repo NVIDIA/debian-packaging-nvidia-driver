@@ -126,4 +126,8 @@ In short:
 - remove all nvidia.ko still found under /lib/modules
 - reinstall the Debian nvidia-driver package
 
+In some cases it may be necessary to reinstall the xserver-xorg-core package
+to restore some files that have been replaced by the nvidia-installer:
+  apt-get install --reinstall xserver-xorg-core
+
  -- Andreas Beckmann <debian@abeckmann.de>  Mon, 29 Nov 2010 10:19:36 +0100

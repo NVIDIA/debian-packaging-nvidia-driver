@@ -411,14 +411,28 @@ get-orig-source: get-orig-source-pack/empty
 ############################################################################
 
 # The tarballs are kept in a separate git repository and use the git-lfs
-# storage backend. To keep the space usage low, this repository is checked
-# out sparsely, only versions that have been built locally will be available.
+# storage backend. To keep the local disk usage low, this repository is
+# checked out sparsely, only tarballs for versions that have been built
+# locally will be available locally.
+
+UPSTREAM_NAME		 = nvidia-graphics-drivers
+UPSTREAM_VERSION	 = $(NVIDIA_RELEASE)
+TARBALL_LIST		 = $(foreach a,empty $(ARCH_LIST),$(call get_tarball,$a))
 
 GIT			?= git
-TARBALL_REPOSITORY	 = https://salsa.debian.org/nvidia-team/tarballs-nvidia-graphics-drivers.git
-TARBALL_TREE		 = ../tarballs-nvidia-graphics-drivers
-TARBALL_CURRENT		 = $(TARBALL_TREE)/$(NVIDIA_RELEASE)
-TARBALL_LIST		 = $(foreach a,empty $(ARCH_LIST),$(call get_tarball,$a))
+TARBALL_REPOSITORY	 = https://salsa.debian.org/nvidia-team/tarballs-$(UPSTREAM_NAME).git
+TARBALL_TREE		 = ../tarballs-$(UPSTREAM_NAME)
+
+define sparse-checkout-current
+	grep '^$(UPSTREAM_VERSION)/' $(TARBALL_TREE)/.git/info/sparse-checkout || \
+		echo '$(UPSTREAM_VERSION)/*' >> $(TARBALL_TREE)/.git/info/sparse-checkout
+
+endef
+
+define test-file-exists
+	test -f $1
+
+endef
 
 $(TARBALL_TREE):
 	$(RM) -r $@.tmp
@@ -426,21 +440,12 @@ $(TARBALL_TREE):
 	cd $@.tmp && $(GIT) lfs install --local
 	cd $@.tmp && $(GIT) config --local core.sparsecheckout true
 	echo .gitattributes >> $@.tmp/.git/info/sparse-checkout
+	cd $@.tmp && $(GIT) checkout
 	mv $@.tmp $@
 
-define sparse-checkout-current
-	grep '^$(NVIDIA_RELEASE)/' $(TARBALL_TREE)/.git/info/sparse-checkout || \
-		echo '$(NVIDIA_RELEASE)/*' >> $(TARBALL_TREE)/.git/info/sparse-checkout
-endef
-
-$(TARBALL_CURRENT): | $(TARBALL_TREE)
+$(TARBALL_TREE)/$(UPSTREAM_VERSION): | $(TARBALL_TREE)
 	$(sparse-checkout-current)
 	cd $(TARBALL_TREE) && $(GIT) pull --ff-only && $(GIT) checkout
-
-define test-file-exists
-	test -f $1
-
-endef
 
 tarball-tree: $(TARBALL_TREE)
 
@@ -449,12 +454,12 @@ writable-tarball-tree: tarball-tree
 	cd $(TARBALL_TREE) && $(GIT) remote set-url origin $(patsubst https://salsa.debian.org/%,git@salsa.debian.org:%,$(TARBALL_REPOSITORY))
 
 # invoked from gbp buildpackage preexport hook
-check-current-tarballs: $(TARBALL_CURRENT)
-	$(foreach t,$(TARBALL_LIST),$(call test-file-exists,$(TARBALL_CURRENT)/$t))
+check-current-tarballs: $(TARBALL_TREE)/$(UPSTREAM_VERSION)
+	$(foreach t,$(TARBALL_LIST),$(call test-file-exists,$(TARBALL_TREE)/$(UPSTREAM_VERSION)/$t))
 
 # only invoked manually
 commit-current-tarballs: get-orig-source
 	$(sparse-checkout-current)
-	mkdir -p $(TARBALL_CURRENT)
-	mv $(TARBALL_LIST) $(TARBALL_CURRENT)/
-	cd $(TARBALL_TREE) && $(GIT) add $(NVIDIA_RELEASE) && if $(GIT) status -s $(NVIDIA_RELEASE) | grep ^A ; then $(GIT) commit -m "add $(NVIDIA_RELEASE) tarballs" $(NVIDIA_RELEASE) ; fi
+	mkdir -p $(TARBALL_TREE)/$(UPSTREAM_VERSION)
+	mv $(TARBALL_LIST) $(TARBALL_TREE)/$(UPSTREAM_VERSION)/
+	cd $(TARBALL_TREE) && $(GIT) add $(UPSTREAM_VERSION) && if $(GIT) status -s $(UPSTREAM_VERSION) | grep ^A ; then $(GIT) commit -m "add $(UPSTREAM_VERSION) tarballs" $(UPSTREAM_VERSION) ; fi
