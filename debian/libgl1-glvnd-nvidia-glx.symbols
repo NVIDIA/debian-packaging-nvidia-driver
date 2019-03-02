@@ -16,13 +16,13 @@
  entry_stub_size@Base 361
  entry_type@Base 361
  glAccumxOES@Base 361
- glAcquireKeyedMutexWin32EXT@Base 410.73
+ glAcquireKeyedMutexWin32EXT@Base 390.116
  glAlphaFragmentOp1ATI@Base 361
  glAlphaFragmentOp2ATI@Base 361
  glAlphaFragmentOp3ATI@Base 361
  glAlphaFuncQCOM@Base 361
  glAlphaFuncxOES@Base 361
- glAlphaToCoverageDitherControlNV@Base 410.73
+ glAlphaToCoverageDitherControlNV@Base 390.116
  glApplyFramebufferAttachmentCMAAINTEL@Base 361
  glApplyTextureEXT@Base 361
  glArrayObjectATI@Base 361
@@ -66,13 +66,13 @@
  glBlendFuncSeparateOES@Base 361
  glBlitFramebufferANGLE@Base 361
  glBufferParameteriAPPLE@Base 361
- glBufferStorageExternalEXT@Base 410.73
+ glBufferStorageExternalEXT@Base 390.116
  glBufferStorageMemEXT@Base 410.73
  glClearAccumxOES@Base 361
  glClearColorxOES@Base 361
  glClearDepthfOES@Base 361
  glClearDepthxOES@Base 361
- glClearPixelLocalStorageuiEXT@Base 410.73
+ glClearPixelLocalStorageuiEXT@Base 390.116
  glClearTexImageEXT@Base 410.73
  glClearTexSubImageEXT@Base 410.73
  glClientActiveVertexStreamATI@Base 361
@@ -125,7 +125,7 @@
  glCopyTextureLevelsAPPLE@Base 361
  glCoverageMaskNV@Base 361
  glCoverageOperationNV@Base 361
- glCreateMemoryObjectsEXT@Base 410.73
+ glCreateMemoryObjectsEXT@Base 390.116
  glCreatePerfQueryINTEL@Base 361
  glCullParameterdvEXT@Base 361
  glCullParameterfvEXT@Base 361
@@ -166,12 +166,12 @@
  glDrawMeshNV@Base 1.0.4349
  glDrawRangeElementArrayAPPLE@Base 361
  glDrawRangeElementArrayATI@Base 361
- glDrawTransformFeedbackInstancedEXT@Base 410.73
- glDrawVkImageNV@Base 410.73
+ glDrawTransformFeedbackInstancedEXT@Base 390.116
+ glDrawVkImageNV@Base 390.116
  glEGLImageTargetRenderbufferStorageOES@Base 361
- glEGLImageTargetTexStorageEXT@Base 410.73
+ glEGLImageTargetTexStorageEXT@Base 390.116
  glEGLImageTargetTexture2DOES@Base 361
- glEGLImageTargetTextureStorageEXT@Base 410.73
+ glEGLImageTargetTextureStorageEXT@Base 390.116
  glEdgeFlagPointerListIBM@Base 361
  glElementPointerAPPLE@Base 361
  glElementPointerATI@Base 361
@@ -231,17 +231,17 @@
  glFragmentMaterialivSGIX@Base 361
  glFrameTerminatorGREMEDY@Base 361
  glFrameZoomSGIX@Base 361
- glFramebufferFetchBarrierEXT@Base 410.73
- glFramebufferFetchBarrierQCOM@Base 410.73
- glFramebufferFoveationConfigQCOM@Base 410.73
- glFramebufferFoveationParametersQCOM@Base 410.73
- glFramebufferPixelLocalStorageSizeEXT@Base 410.73
- glFramebufferSamplePositionsfvAMD@Base 410.73
- glFramebufferTexture2DDownsampleIMG@Base 410.73
+ glFramebufferFetchBarrierEXT@Base 390.116
+ glFramebufferFetchBarrierQCOM@Base 390.116
+ glFramebufferFoveationConfigQCOM@Base 390.116
+ glFramebufferFoveationParametersQCOM@Base 390.116
+ glFramebufferPixelLocalStorageSizeEXT@Base 390.116
+ glFramebufferSamplePositionsfvAMD@Base 390.116
+ glFramebufferTexture2DDownsampleIMG@Base 390.116
  glFramebufferTexture2DMultisampleEXT@Base 361
  glFramebufferTexture2DMultisampleIMG@Base 361
  glFramebufferTexture3DOES@Base 361
- glFramebufferTextureLayerDownsampleIMG@Base 410.73
+ glFramebufferTextureLayerDownsampleIMG@Base 390.116
  glFramebufferTextureMultisampleMultiviewOVR@Base 361
  glFramebufferTextureMultiviewOVR@Base 361
  glFreeObjectBufferATI@Base 361
@@ -280,8 +280,8 @@
  glGetFragmentLightivSGIX@Base 361
  glGetFragmentMaterialfvSGIX@Base 361
  glGetFragmentMaterialivSGIX@Base 361
- glGetFramebufferParameterfvAMD@Base 410.73
- glGetFramebufferPixelLocalStorageSizeEXT@Base 410.73
+ glGetFramebufferParameterfvAMD@Base 390.116
+ glGetFramebufferPixelLocalStorageSizeEXT@Base 390.116
  glGetHistogramEXT@Base 361
  glGetHistogramParameterfvEXT@Base 361
  glGetHistogramParameterivEXT@Base 361
@@ -309,11 +309,11 @@
  glGetMapxvOES@Base 361
  glGetMaterialxOES@Base 361
  glGetMaterialxvOES@Base 361
- glGetMemoryObjectParameterivEXT@Base 410.73
+ glGetMemoryObjectParameterivEXT@Base 390.116
  glGetMinmaxEXT@Base 361
  glGetMinmaxParameterfvEXT@Base 361
  glGetMinmaxParameterivEXT@Base 361
- glGetNamedFramebufferParameterfvAMD@Base 410.73
+ glGetNamedFramebufferParameterfvAMD@Base 390.116
  glGetNextPerfQueryIdINTEL@Base 361
  glGetObjectBufferfvATI@Base 361
  glGetObjectBufferivATI@Base 361
@@ -346,12 +346,12 @@
  glGetTexLevelParameterxvOES@Base 361
  glGetTexParameterPointervAPPLE@Base 361
  glGetTexParameterxvOES@Base 361
- glGetTextureHandleIMG@Base 410.73
- glGetTextureSamplerHandleIMG@Base 410.73
+ glGetTextureHandleIMG@Base 390.116
+ glGetTextureSamplerHandleIMG@Base 390.116
  glGetTransformFeedbackVaryingEXT@Base 361
  glGetTranslatedShaderSourceANGLE@Base 361
- glGetUnsignedBytei_vEXT@Base 410.73
- glGetUnsignedBytevEXT@Base 410.73
+ glGetUnsignedBytei_vEXT@Base 390.116
+ glGetUnsignedBytevEXT@Base 390.116
  glGetVariantArrayObjectfvATI@Base 361
  glGetVariantArrayObjectivATI@Base 361
  glGetVariantBooleanvEXT@Base 361
@@ -376,12 +376,12 @@
  glImageTransformParameterfvHP@Base 361
  glImageTransformParameteriHP@Base 361
  glImageTransformParameterivHP@Base 361
- glImportMemoryFdEXT@Base 410.73
- glImportMemoryWin32HandleEXT@Base 410.73
- glImportMemoryWin32NameEXT@Base 410.73
- glImportSemaphoreFdEXT@Base 410.73
- glImportSemaphoreWin32HandleEXT@Base 410.73
- glImportSemaphoreWin32NameEXT@Base 410.73
+ glImportMemoryFdEXT@Base 390.116
+ glImportMemoryWin32HandleEXT@Base 390.116
+ glImportMemoryWin32NameEXT@Base 390.116
+ glImportSemaphoreFdEXT@Base 390.116
+ glImportSemaphoreWin32HandleEXT@Base 390.116
+ glImportSemaphoreWin32NameEXT@Base 390.116
  glIndexFuncEXT@Base 361
  glIndexMaterialEXT@Base 361
  glIndexPointerListIBM@Base 361
@@ -392,7 +392,7 @@
  glInstrumentsBufferSGIX@Base 361
  glIsAsyncMarkerSGIX@Base 361
  glIsFenceAPPLE@Base 361
- glIsMemoryObjectEXT@Base 410.73
+ glIsMemoryObjectEXT@Base 390.116
  glIsNameAMD@Base 361
  glIsObjectBufferATI@Base 361
  glIsSemaphoreEXT@Base 410.73
@@ -400,9 +400,9 @@
  glIsVariantEnabledEXT@Base 361
  glIsVertexArrayAPPLE@Base 361
  glIsVertexAttribEnabledAPPLE@Base 361
- glLGPUCopyImageSubDataNVX@Base 410.73
- glLGPUInterlockNVX@Base 410.73
- glLGPUNamedBufferSubDataNVX@Base 410.73
+ glLGPUCopyImageSubDataNVX@Base 390.116
+ glLGPUInterlockNVX@Base 390.116
+ glLGPUNamedBufferSubDataNVX@Base 390.116
  glLightEnviSGIX@Base 361
  glLightModelxOES@Base 361
  glLightModelxvOES@Base 361
@@ -440,11 +440,11 @@
  glMinmaxEXT@Base 361
  glMultMatrixxOES@Base 361
  glMultTransposeMatrixxOES@Base 361
- glMultiDrawArraysIndirectCount@Base 410.73
+ glMultiDrawArraysIndirectCount@Base 390.116
  glMultiDrawElementArrayAPPLE@Base 361
  glMultiDrawElementsBaseVertexEXT@Base 361
-#MISSING: 410.73# glMultiDrawElementsBaseVertexOES@Base 361
- glMultiDrawElementsIndirectCount@Base 410.73
+#MISSING: 390.116# glMultiDrawElementsBaseVertexOES@Base 361
+ glMultiDrawElementsIndirectCount@Base 390.116
  glMultiDrawRangeElementArrayAPPLE@Base 361
  glMultiModeDrawArraysIBM@Base 361
  glMultiModeDrawElementsIBM@Base 361
@@ -464,21 +464,21 @@
  glMultiTexCoord4bvOES@Base 361
  glMultiTexCoord4xOES@Base 361
  glMultiTexCoord4xvOES@Base 361
- glMulticastBarrierNV@Base 410.73
- glMulticastBlitFramebufferNV@Base 410.73
- glMulticastBufferSubDataNV@Base 410.73
- glMulticastCopyBufferSubDataNV@Base 410.73
- glMulticastCopyImageSubDataNV@Base 410.73
- glMulticastFramebufferSampleLocationsfvNV@Base 410.73
- glMulticastGetQueryObjecti64vNV@Base 410.73
- glMulticastGetQueryObjectivNV@Base 410.73
- glMulticastGetQueryObjectui64vNV@Base 410.73
- glMulticastGetQueryObjectuivNV@Base 410.73
- glMulticastWaitSyncNV@Base 410.73
+ glMulticastBarrierNV@Base 390.116
+ glMulticastBlitFramebufferNV@Base 390.116
+ glMulticastBufferSubDataNV@Base 390.116
+ glMulticastCopyBufferSubDataNV@Base 390.116
+ glMulticastCopyImageSubDataNV@Base 390.116
+ glMulticastFramebufferSampleLocationsfvNV@Base 390.116
+ glMulticastGetQueryObjecti64vNV@Base 390.116
+ glMulticastGetQueryObjectivNV@Base 390.116
+ glMulticastGetQueryObjectui64vNV@Base 390.116
+ glMulticastGetQueryObjectuivNV@Base 390.116
+ glMulticastWaitSyncNV@Base 390.116
  glNamedBufferPageCommitmentARB@Base 361
- glNamedBufferStorageExternalEXT@Base 410.73
+ glNamedBufferStorageExternalEXT@Base 390.116
  glNamedBufferStorageMemEXT@Base 410.73
- glNamedFramebufferSamplePositionsfvAMD@Base 410.73
+ glNamedFramebufferSamplePositionsfvAMD@Base 390.116
  glNewObjectBufferATI@Base 361
  glNormal3fVertex3fSUN@Base 361
  glNormal3fVertex3fvSUN@Base 361
@@ -529,13 +529,13 @@
  glPolygonOffsetxOES@Base 361
  glPopGroupMarkerEXT@Base 361
  glPrioritizeTexturesxOES@Base 361
- glProgramUniformHandleui64IMG@Base 410.73
- glProgramUniformHandleui64vIMG@Base 410.73
+ glProgramUniformHandleui64IMG@Base 390.116
+ glProgramUniformHandleui64vIMG@Base 390.116
  glPushGroupMarkerEXT@Base 361
  glQueryMatrixxOES@Base 361
  glQueryObjectParameteruiAMD@Base 361
- glQueryResourceNV@Base 410.73
- glQueryResourceTagNV@Base 410.73
+ glQueryResourceNV@Base 390.116
+ glQueryResourceTagNV@Base 390.116
  glRasterPos2xOES@Base 361
  glRasterPos2xvOES@Base 361
  glRasterPos3xOES@Base 361
@@ -547,8 +547,8 @@
  glRectxOES@Base 361
  glRectxvOES@Base 361
  glReferencePlaneSGIX@Base 361
- glReleaseKeyedMutexWin32EXT@Base 410.73
- glRenderGpuMaskNV@Base 410.73
+ glReleaseKeyedMutexWin32EXT@Base 390.116
+ glRenderGpuMaskNV@Base 390.116
  glRenderbufferStorageMultisampleANGLE@Base 361
  glRenderbufferStorageMultisampleAPPLE@Base 361
  glRenderbufferStorageMultisampleIMG@Base 361
@@ -592,7 +592,7 @@
  glScissorIndexedvOES@Base 410.73
  glSecondaryColorPointerListIBM@Base 361
  glSelectPerfMonitorCountersAMD@Base 361
- glSemaphoreParameterui64vEXT@Base 410.73
+ glSemaphoreParameterui64vEXT@Base 390.116
  glSeparableFilter2DEXT@Base 361
  glSetFenceAPPLE@Base 361
  glSetFragmentShaderConstantATI@Base 361
@@ -603,11 +603,11 @@
  glShaderOp2EXT@Base 361
  glShaderOp3EXT@Base 361
  glSharpenTexFuncSGIS@Base 361
- glSignalSemaphoreEXT@Base 410.73
- glSignalVkFenceNV@Base 410.73
- glSignalVkSemaphoreNV@Base 410.73
- glSpecializeShader@Base 410.73
- glSpecializeShaderARB@Base 410.73
+ glSignalSemaphoreEXT@Base 390.116
+ glSignalVkFenceNV@Base 390.116
+ glSignalVkSemaphoreNV@Base 390.116
+ glSpecializeShader@Base 390.116
+ glSpecializeShaderARB@Base 390.116
  glSpriteParameterfSGIX@Base 361
  glSpriteParameterfvSGIX@Base 361
  glSpriteParameteriSGIX@Base 361
@@ -680,32 +680,32 @@
  glTexImage4DSGIS@Base 361
  glTexParameterxOES@Base 361
  glTexParameterxvOES@Base 361
- glTexStorageMem1DEXT@Base 410.73
- glTexStorageMem2DEXT@Base 410.73
- glTexStorageMem2DMultisampleEXT@Base 410.73
- glTexStorageMem3DEXT@Base 410.73
- glTexStorageMem3DMultisampleEXT@Base 410.73
+ glTexStorageMem1DEXT@Base 390.116
+ glTexStorageMem2DEXT@Base 390.116
+ glTexStorageMem2DMultisampleEXT@Base 390.116
+ glTexStorageMem3DEXT@Base 390.116
+ glTexStorageMem3DMultisampleEXT@Base 390.116
  glTexStorageSparseAMD@Base 361
  glTexSubImage1DEXT@Base 361
  glTexSubImage2DEXT@Base 361
  glTexSubImage3DOES@Base 361
  glTexSubImage4DSGIS@Base 361
  glTextureColorMaskSGIS@Base 361
- glTextureFoveationParametersQCOM@Base 410.73
+ glTextureFoveationParametersQCOM@Base 390.116
  glTextureLightEXT@Base 361
  glTextureMaterialEXT@Base 361
  glTextureNormalEXT@Base 361
  glTextureRangeAPPLE@Base 361
- glTextureStorageMem1DEXT@Base 410.73
- glTextureStorageMem2DEXT@Base 410.73
- glTextureStorageMem2DMultisampleEXT@Base 410.73
- glTextureStorageMem3DEXT@Base 410.73
- glTextureStorageMem3DMultisampleEXT@Base 410.73
+ glTextureStorageMem1DEXT@Base 390.116
+ glTextureStorageMem2DEXT@Base 390.116
+ glTextureStorageMem2DMultisampleEXT@Base 390.116
+ glTextureStorageMem3DEXT@Base 390.116
+ glTextureStorageMem3DMultisampleEXT@Base 390.116
  glTextureStorageSparseAMD@Base 361
  glTransformFeedbackVaryingsEXT@Base 361
  glTranslatexOES@Base 361
- glUniformHandleui64IMG@Base 410.73
- glUniformHandleui64vIMG@Base 410.73
+ glUniformHandleui64IMG@Base 390.116
+ glUniformHandleui64vIMG@Base 390.116
  glUnmapObjectBufferATI@Base 361
  glUnmapTexture2DINTEL@Base 361
  glUpdateObjectBufferATI@Base 361
@@ -779,13 +779,13 @@
  glVertexWeightfvEXT@Base 361
  glVertexWeighthNV@Base 361
  glVertexWeighthvNV@Base 361
- glViewportArrayvOES@Base 410.73
- glViewportIndexedfOES@Base 410.73
- glViewportIndexedfvOES@Base 410.73
- glViewportPositionWScaleNV@Base 410.73
- glWaitSemaphoreEXT@Base 410.73
+ glViewportArrayvOES@Base 390.116
+ glViewportIndexedfOES@Base 390.116
+ glViewportIndexedfvOES@Base 390.116
+ glViewportPositionWScaleNV@Base 390.116
+ glWaitSemaphoreEXT@Base 390.116
  glWaitSyncAPPLE@Base 361
- glWaitVkSemaphoreNV@Base 410.73
+ glWaitVkSemaphoreNV@Base 390.116
  glWeightPointerARB@Base 361
  glWeightbvARB@Base 361
  glWeightdvARB@Base 361
@@ -819,7 +819,7 @@
  glWindowPos4ivMESA@Base 361
  glWindowPos4sMESA@Base 361
  glWindowPos4svMESA@Base 361
- glWindowRectanglesEXT@Base 410.73
+ glWindowRectanglesEXT@Base 390.116
  glWriteMaskEXT@Base 361
  glXBindHyperpipeSGIX@Base 361
  glXBindSwapBarrierSGIX@Base 361
