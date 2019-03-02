@@ -1,5 +1,13 @@
-nvidia-graphics-drivers (418.30-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (418.43-1~git1) UNRELEASED; urgency=medium
 
+  * New upstream long lived branch release 418.43 (2019-02-22).
+    * Fixed CVE‑2018‑6260.  (Closes: #913467)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4772
+    - Added support for the following GPU: GeForce GTX 1660 Ti.
+    - Fixed a bug that would occasionally cause visual corruption on some
+      Vulkan titles. This bug was particularly prevalent on DXVK titles.
+    - Fixed a bug that caused vkCmdPushConstants to generate Xid 13 messages
+      when executed with VK_SHADER_STAGE_ALL on a compute queue.
   * New upstream beta 418.30 (2019-01-30).
     - Added initial support for G-SYNC Compatible monitors.  See the README
       for details.
@@ -52,7 +60,7 @@ nvidia-graphics-drivers (418.30-1~git1) UNRELEASED; urgency=medium
   * libnvidia-opticalflow1: New package for the NVIDIA Optical Flow runtime
     library.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 31 Jan 2019 15:43:15 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 02 Mar 2019 15:46:04 +0100
 
 nvidia-graphics-drivers (415.27-1) experimental; urgency=medium
 
