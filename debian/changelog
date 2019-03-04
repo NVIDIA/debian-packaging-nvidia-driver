@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (418.43-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (418.43-1) experimental; urgency=medium
 
   * New upstream long lived branch release 418.43 (2019-02-22).
     * Fixed CVE‑2018‑6260.  (Closes: #913467)
@@ -60,7 +60,7 @@ nvidia-graphics-drivers (418.43-1~git1) UNRELEASED; urgency=medium
   * libnvidia-opticalflow1: New package for the NVIDIA Optical Flow runtime
     library.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 02 Mar 2019 15:46:04 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 04 Mar 2019 16:55:38 +0100
 
 nvidia-graphics-drivers (415.27-1) experimental; urgency=medium
 
