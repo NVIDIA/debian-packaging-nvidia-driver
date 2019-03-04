@@ -1,3 +1,19 @@
+nvidia-graphics-drivers (410.104-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 410.104 (2019-02-22).
+    * Fixed CVE‑2018‑6260.  (Closes: #913467)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4772
+    - Added support for the following GPU: Tesla V100-SXM3-32GB-H.
+    - Fixed a bug where destroying a direct-to-display swapchain could
+      crash Vulkan applications.
+    - Fixed a bug that prevented Vulkan applications from using the
+      VK_EXT_display_control extension on a display that is driven by X.
+  * New upstream release 390 series.
+    - Improved nvidia-bug-report.sh to grab the output of the `vulkaninfo`
+      command when it is available.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Feb 2019 14:23:20 +0100
+
 nvidia-graphics-drivers (410.93-2) unstable; urgency=medium
 
   * Merge changes from 396.54-4.
