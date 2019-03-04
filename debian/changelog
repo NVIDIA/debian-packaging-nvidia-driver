@@ -1,6 +1,8 @@
 nvidia-graphics-drivers (390.116-1) UNRELEASED; urgency=medium
 
   * New upstream legacy branch release 390.116 (2019-02-22).
+    * Fixed CVE‑2018‑6260.  (Closes: #913467)
+      https://nvidia.custhelp.com/app/answers/detail/a_id/4772
     - Fixed build failures which resulted in errors like "implicit declaration
       of function drm_...", when building the NVIDIA DRM kernel module for Linux
       kernel 5.0 release candidates.
@@ -24,7 +26,7 @@ nvidia-graphics-drivers (390.116-1) UNRELEASED; urgency=medium
       candidates.
     - Added a new kernel module parameter, NVreg_RestrictProfilingToAdminUsers,
       to allow restricting the use of GPU performance counters to system
-      administrators only.  (Closes: #913467)
+      administrators only.
 
   [ Luca Boccassi ]
   * Drop kmem_cache_create_usercopy.patch, drm-mode.patch,
