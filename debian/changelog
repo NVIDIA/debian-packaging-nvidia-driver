@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (390.116-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.116-1) stretch; urgency=medium
 
   * New upstream legacy branch release 390.116 (2019-02-22).
     * Fixed CVE‑2018‑6260.  (Closes: #913467)
@@ -35,8 +35,10 @@ nvidia-graphics-drivers (390.116-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * nvidia-detect: stretch now has a 390.xx driver.
+  * nvidia-kernel-source: Bump debhelper dependency to match Build-Depends.
+  * Upload to stretch.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Feb 2019 10:31:41 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Mar 2019 09:27:07 +0100
 
 nvidia-graphics-drivers (390.87-8~deb9u1) stretch; urgency=medium
 
