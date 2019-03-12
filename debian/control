@@ -750,7 +750,7 @@ Package: nvidia-kernel-source
 Section: non-free/kernel
 Architecture: amd64
 Depends:
- debhelper-compat (= 12),
+ debhelper-compat (= ${nvidia:debhelper-compat}),
  make:any,
  quilt,
  xz-utils,
