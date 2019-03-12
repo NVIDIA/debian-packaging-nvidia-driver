@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (410.104-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (410.104-1) unstable; urgency=medium
 
   * New upstream long lived branch release 410.104 (2019-02-22).
     * Fixed CVE‑2018‑6260.  (Closes: #913467)
@@ -15,7 +15,7 @@ nvidia-graphics-drivers (410.104-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Use substitution to keep debhelper-compat in sync.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 28 Feb 2019 14:23:20 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Mar 2019 19:35:49 +0100
 
 nvidia-graphics-drivers (410.93-2) unstable; urgency=medium
 
