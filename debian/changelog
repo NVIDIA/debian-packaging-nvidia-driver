@@ -11,6 +11,9 @@ nvidia-graphics-drivers (418.56-1~git1) UNRELEASED; urgency=medium
       can be restored by setting NVreg_RestrictProfilingToAdminUsers=0 when
       loading nvidia.ko.
 
+  [ Luca Boccassi ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Sun, 24 Mar 2019 15:49:56 +0100
 
 nvidia-graphics-drivers (418.43-1) experimental; urgency=medium
