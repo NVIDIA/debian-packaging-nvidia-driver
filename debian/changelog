@@ -1,3 +1,18 @@
+nvidia-graphics-drivers (418.56-1~git1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 418.56 (2019-03-20).
+    - Added support for the following GPUs: GeForce GTX 1660, GeForce MX230,
+      GeForce MX250.
+    - Fixed a bug which could sometimes cause Vulkan applications to lock up
+      the
+      GPU when freeing large chunks of memory on systems with PRIME enabled.
+    - Updated the driver to restrict use of the GPU performance counters to
+      system administrators by default. The previous more permissive behavior
+      can be restored by setting NVreg_RestrictProfilingToAdminUsers=0 when
+      loading nvidia.ko.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 24 Mar 2019 15:49:56 +0100
+
 nvidia-graphics-drivers (418.43-1) experimental; urgency=medium
 
   * New upstream long lived branch release 418.43 (2019-02-22).
