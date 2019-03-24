@@ -917,7 +917,7 @@ Package: ${nvidia}-kernel-source
 Section: non-free/kernel
 Architecture: amd64
 Depends:
- debhelper-compat (= 12),
+ debhelper-compat (= ${nvidia:debhelper-compat}),
  make:any,
  quilt,
  xz-utils,
@@ -1060,6 +1060,8 @@ Provides:
  libcuda-9.1-1-i386 [i386],
  libcuda-9.2-1,
  libcuda-9.2-1-i386 [i386],
+ libcuda-10.0-1,
+ libcuda-10.0-1-i386 [i386],
 Homepage: https://www.nvidia.com/CUDA
 Description: NVIDIA CUDA Driver Library${nvidia:LegacyDesc}
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
