@@ -3,7 +3,7 @@ Section: non-free/kernel
 Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Build-Depends:
- debhelper-compat (= 12),
+ debhelper-compat (= #DEBHELPER_COMPAT#),
  quilt,
 Standards-Version: 4.3.0
 Homepage: https://www.nvidia.com/
