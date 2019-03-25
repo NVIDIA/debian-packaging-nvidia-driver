@@ -1,0 +1,112 @@
+nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
+
+  LEGACY GPUs: If you have a GeForce 410M/510/605/610M/705M/710M/810M/820M,
+  GeForce GT 415M/420/420M/425M/430/435M/440/445M/520/520M/520MX/525M/530,
+  GeForce GT 540M/545/550M/555M/560M/610/620/620M/625/625M/630/630M/635M,
+  GeForce GT 640/640M/645/705/720M/730, GeForce GTS 450,
+  GeForce GTX 460/460M/465/470/470M/480/480M/485M/550/555/560/570/570M/580,
+  GeForce GTX 580M/590/670M/675M, NVS 310/315/4200M/5200M/5400M,
+  Quadro 500M/600/1000M/2000/2000M/3000M/4000/4000M/5000/5000M/5010M/6000,
+  Quadro 7000, Quadro NVS 4200M, Tesla C2050/C2070/C2075/M2070/M2075/M2090,
+  Tesla T20, i.e., any GPU based on the GF100/GF100M/GF100GL/GF100GLM,
+  GF104/GF104M/GF104GLM, GF106/GF106M/GF106GL/GF106GLM,
+  GF108/GF108M/GF108GL/GF108GLM, GF110/GF110GL, GF114/GF114M, GF116/GF116M,
+  GF117M, GF119/GF119M chips or a variant thereof (that is anything from
+  the Fermi architecture),
+  DO NOT INSTALL THIS RELEASE!!!
+  Use the nvidia-legacy-390xx-driver, nvidia-legacy-390xx-kernel-dkms
+  packages instead.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
+
+nvidia-graphics-drivers (375.20-1) experimental; urgency=medium
+
+  LEGACY GPUs: If you have a GRID K340/K1/K2
+  DO NOT INSTALL THIS RELEASE!!!
+  Use the nvidia-legacy-340xx-driver, nvidia-legacy-340xx-kernel-dkms
+  packages instead.
+
+ -- Luca Boccassi <luca.boccassi@gmail.com>  Sun, 27 Nov 2016 12:14:53 +0000
+
+nvidia-graphics-drivers (352.55-1) experimental; urgency=medium
+
+  The NVIDIA driver now automatically integrates with the Xorg configuration.
+  Therefore it is no longer necessary to manually create an xorg.conf to
+  enable it.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 16 Oct 2015 23:41:50 +0200
+
+nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
+
+  LEGACY GPUs: If you have a GeForce 8xxx, GeForce 9xxx, GeForce 2xx/3xx,
+  GeForce 405, GeForce G 1xx/2xx, GeForce GT 1xx/2xx/3xx, GeForce GT 415,
+  GeForce GTS 1xx/2xx/3xx, GeForce GTX 2xx, ION/ION 2/ION VGA/ION LE VGA,
+  NVS 300/2100/3100/5100, Quadro 400, Quadro CX, Quadro FX (any model),
+  Quadro NVS 130/135/140/150/160/290/295/320/420/450, Quadro Plex, Quadro VX,
+  Tesla C870/C1060/M1060, nforce 7xx, i.e., any GPU based on the C77/C78/C79,
+  G80/G84/G86/G92/G94/G96/G98, GT200/GT215/GT216/GT218, ION VGA, or
+  MCP79/MCP7A/MCP89 chips or a variant thereof (that is anything predating
+  the Fermi architecture),
+  DO NOT INSTALL THIS RELEASE!!!
+  Use the nvidia-legacy-340xx-driver, nvidia-legacy-340xx-kernel-dkms
+  packages instead.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 14 Oct 2014 15:14:53 +0200
+
+nvidia-graphics-drivers (310.14-1) unstable; urgency=low
+
+  LEGACY GPUs: If you have a GeForce 6xxx, GeForce Go 6xxx, GeForce 7xxx,
+  GeForce Go 7xxx, Quadro NVS 110/120/210/285/440, Quadro FX 350/540/550/560,
+  Quadro FX 1400/Go1400/1500/2500/3400/3450/3500/4000/4500/5500, nforce 4xx,
+  nforce 6xx, i.e., any GPU based on the NV40/NV41/NV42/NV43/NV44,
+  C51/C61/C67/C68/C73, or G70/G71/G72/G73 chips or a variant thereof,
+  DO NOT INSTALL THIS RELEASE!!!
+  Use the nvidia-legacy-304xx-driver, nvidia-legacy-304xx-kernel-dkms
+  packages instead.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Tue, 16 Oct 2012 18:00:49 +0200
+
+nvidia-graphics-drivers (177.80-1) unstable; urgency=low
+
+  LEGACY GPUs: If you have a GeForce FX (any model), GeForce PCX (any model),
+  Quadro FX 330/500/600/700/Go700/1000/Go1000/1100/1300/2000/3000,
+  Quadro NVS 280 PCI, Quadro NVS 280 PCI-E, i.e., any GPU based on the
+  NV30/NV31/NV34/NV35/NV36/NV37/NV38 chips or a variant thereof,
+  DO NOT INSTALL THIS RELEASE!!!
+  The 173xx legacy drivers were the last NVIDIA driver series that supported
+  these chips. But these drivers supported neither the Xorg X server newer
+  than 1.15.x nor Linux kernels newer than 3.14.x and have been discontinued.
+  You may use the free nouveau Xorg driver (xserver-xorg-video-nouveau)
+  instead.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 02 Jun 2010 09:06:26 +0200
+
+nvidia-graphics-drivers (1.0.9746-1) unstable; urgency=low
+
+  LEGACY GPUs: If you have a GeForce2 (any model), GeForce3 (any model),
+  GeForce4 (any model), Quadro DCC, Quadro2 (any model), Quadro4 (any model),
+  Quadro NVS, Quadro NVS 50 PCI, Quadro NVS 280 SD AGP 8x, i.e., any GPU
+  based on the NV11/NV17/NV18/NV20/NV25/NV28 chips or a variant thereof,
+  DO NOT INSTALL THIS RELEASE!!!
+  The 96xx legacy drivers were the last NVIDIA driver series that supported
+  these chips. But these drivers supported neither the Xorg X server newer
+  than 1.12.x nor Linux kernels newer than 3.11.x and have been discontinued.
+  You may use the free nouveau Xorg driver (xserver-xorg-video-nouveau)
+  instead.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 02 Jun 2010 09:06:26 +0200
+
+nvidia-graphics-drivers (1.0.7667-2) unstable; urgency=low
+
+  UNSUPPORTED GPUs: If you have a TNT (any model), TNT2 (any model), Vanta,
+  GeForce 256, GeForce 256 DDR, GeForce2 GTS, GeForce2 Pro, GeForce2 Ti,
+  GeForce2 Ultra, Quadro, Quadro2 Pro, i.e., any GPU based on the
+  NV4/NV5/NV6/NV10/NV15 chips or a variant thereof,
+  DO NOT INSTALL THIS RELEASE!!!
+  The 71xx legacy drivers were the last NVIDIA driver series that supported
+  these chips. But these drivers supported neither the Xorg X server newer
+  than 1.4.x nor Linux kernels newer than 3.7.x and have been discontinued.
+  You may use the free nouveau or nv Xorg drivers instead.
+
+ -- Andreas Beckmann <debian@abeckmann.de>  Wed, 22 Sep 2010 08:15:26 +0200
+
