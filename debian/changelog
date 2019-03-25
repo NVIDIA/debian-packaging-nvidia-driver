@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (418.56-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (418.56-1) experimental; urgency=medium
 
   * New upstream long lived branch release 418.56 (2019-03-20).
     - Added support for the following GPUs: GeForce GTX 1660, GeForce MX230,
@@ -17,7 +17,7 @@ nvidia-graphics-drivers (418.56-1~git1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * libcuda1: Add Provides: libcuda-10.1-1{,-i386}.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 24 Mar 2019 15:49:56 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 25 Mar 2019 09:02:22 +0100
 
 nvidia-graphics-drivers (418.43-1) experimental; urgency=medium
 
@@ -80,6 +80,7 @@ nvidia-graphics-drivers (418.43-1) experimental; urgency=medium
   * Update symbols files.
   * libnvidia-opticalflow1: New package for the NVIDIA Optical Flow runtime
     library.
+  * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 04 Mar 2019 16:55:38 +0100
 
