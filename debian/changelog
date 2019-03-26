@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (410.104-3) UNRELEASED; urgency=medium
+
+  * [i386 armhf]: Reinstate nvidia-smi as a transitional package depending on
+    nvidia-legcy-390xx-smi.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 26 Mar 2019 21:48:01 +0100
+
 nvidia-graphics-drivers (410.104-2) unstable; urgency=medium
 
   * libcuda1: Add Provides: libcuda-10.0-1{,-i386}.

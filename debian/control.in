@@ -987,10 +987,11 @@ Description: Video Decode and Presentation API for Unix - NVIDIA driver${nvidia:
 
 Package: ${nvidia}-smi
 Section: non-free/utils
-Architecture: amd64
+Architecture: amd64 i386 armhf
 Depends:
- ${nvidia}-alternative (= ${binary:Version}),
- lib${nvidia}-ml1 (= ${binary:Version}),
+ nvidia-legacy-390xx-smi [${nvidia:arch:has-no-driver}],
+ ${nvidia}-alternative (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ lib${nvidia}-ml1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
