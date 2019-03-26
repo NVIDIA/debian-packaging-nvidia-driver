@@ -328,6 +328,7 @@ override_dh_gencontrol:
 		-V'nvidia:kmod:tested:Linux=$(strip $(or $(LINUX_KMOD_TESTED_$(DEB_HOST_ARCH)),$(LINUX_KMOD_TESTED),???))' \
 		-V'nvidia:kmod:blob:archlist=$(subst $(space),$(comma)$(space),$(BLOB_ARCH_LIST)) architecture$(if $(filter 1,$(words $(BLOB_ARCH_LIST))),,s)' \
 		-Vnvidia:kmod:Description="`cat debian/control.kmod`" \
+		-Vnvidia:no-driver-notice="$(if $(has_driver),,`cat debian/control.no-driver`)" \
 		-Vnvidia:Models="`cat debian/control.models`"
 
 # used by dpkg-genchanges

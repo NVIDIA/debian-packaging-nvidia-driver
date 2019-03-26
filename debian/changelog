@@ -2,6 +2,7 @@ nvidia-graphics-drivers (410.104-3) UNRELEASED; urgency=medium
 
   * [i386 armhf]: Reinstate nvidia-smi as a transitional package depending on
     nvidia-legcy-390xx-smi.
+  * Add a notice to the description of the transitional packages.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 26 Mar 2019 21:48:01 +0100
 

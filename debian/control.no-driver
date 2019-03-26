@@ -1,0 +1,4 @@
+The current NVIDIA graphics drivers no longer support this architecture.
+Therefore this transitional package depends on the corresponding package
+from the legacy-390xx driver series to ease switching to the legacy driver.
+${Newline}

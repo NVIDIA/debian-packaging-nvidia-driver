@@ -55,7 +55,7 @@ Breaks:
 Replaces:
  nvidia-glx${nvidia:Legacy},
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
- This metapackage depends on the NVIDIA binary driver and libraries
+ ${nvidia:no-driver-notice}This metapackage depends on the NVIDIA binary driver and libraries
  that provide optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES/Vulkan applications via a direct-rendering X Server.
  .
@@ -212,7 +212,7 @@ Breaks:
 Replaces:
  glx-alternative-nvidia (<< 0.6.91),
 Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
- The NVIDIA binary driver provides optimized hardware acceleration of
+ ${nvidia:no-driver-notice}The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
  for graphics cards using NVIDIA chip sets.
  .
@@ -831,7 +831,7 @@ Recommends:
 Suggests:
  ${nvidia:kmod:source},
 Description: NVIDIA System Management Interface${nvidia:LegacyDesc}
- The NVIDIA Management Library (NVML) provides a monitoring and management API.
+ ${nvidia:no-driver-notice}The NVIDIA Management Library (NVML) provides a monitoring and management API.
  The application "nvidia-smi" is the NVIDIA System Management Interface (NVSMI)
  and provides a command line interface to this functionality.
  .
