@@ -25,25 +25,26 @@ XS-Autobuild: yes
 
 Package: ${nvidia}-driver
 Section: non-free/x11
-Architecture: amd64
+Architecture: amd64 i386 armhf
 Pre-Depends:
- nvidia-installer-cleanup,
+ nvidia-installer-cleanup [${nvidia:arch:has-driver}],
  ${nvidia:legacy-check},
 Depends:
- ${nvidia}-driver-libs (= ${binary:Version})
- | ${nvidia}-driver-libs-nonglvnd (= ${binary:Version}),
- ${nvidia}-driver-bin (= ${binary:Version}),
- xserver-xorg-video-${nvidia} (= ${binary:Version}),
- ${nvidia}-vdpau-driver (= ${binary:Version}),
- ${nvidia}-alternative (= ${binary:Version}),
+ nvidia-legacy-390xx-driver [${nvidia:arch:has-no-driver}],
+ ${nvidia}-driver-libs (= ${binary:Version}) [${nvidia:arch:has-driver}]
+ | ${nvidia}-driver-libs-nonglvnd (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ ${nvidia}-driver-bin (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ xserver-xorg-video-${nvidia} (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ ${nvidia}-vdpau-driver (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ ${nvidia}-alternative (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia:kmod:binary},
- nvidia-support,
+ nvidia-support [${nvidia:arch:has-driver}],
  ${misc:Depends}
 Recommends:
- ${nvidia-settings},
+ ${nvidia-settings} [${nvidia:arch:has-driver}],
 # help nvidia-persistenced by pre-selecting the correct provider for libnvidia-cfg1-any
- lib${nvidia}-cfg1 (= ${binary:Version}),
- nvidia-persistenced,
+ lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ nvidia-persistenced [${nvidia:arch:has-driver}],
 Suggests:
  ${nvidia:kmod:source},
 Provides:
@@ -184,21 +185,22 @@ Description: NVIDIA metapackage (non-GLVND OpenGL/EGL/etc. 32-bit libraries)${nv
 
 Package: xserver-xorg-video-${nvidia}
 Section: non-free/x11
-Architecture: amd64
+Architecture: amd64 i386 armhf
 Pre-Depends:
- nvidia-installer-cleanup,
+ nvidia-installer-cleanup [${nvidia:arch:has-driver}],
  ${nvidia:legacy-check},
 Depends:
- lib${nvidia}-glcore (= ${binary:Version}),
- ${nvidia}-alternative (= ${binary:Version}),
- nvidia-support,
+ xserver-xorg-video-nvidia-legacy-390xx [${nvidia:arch:has-no-driver}],
+ lib${nvidia}-glcore (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ ${nvidia}-alternative (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ nvidia-support [${nvidia:arch:has-driver}],
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- ${nvidia}-driver (>= ${nvidia:Version}),
- ${nvidia}-vdpau-driver (>= ${nvidia:Version}),
+ ${nvidia}-driver (>= ${nvidia:Version}) [${nvidia:arch:has-driver}],
+ ${nvidia}-vdpau-driver (>= ${nvidia:Version}) [${nvidia:arch:has-driver}],
  ${nvidia:kmod:binary},
- ${nvidia-settings},
+ ${nvidia-settings} [${nvidia:arch:has-driver}],
 Suggests:
  ${nvidia:kmod:source},
 Provides:
