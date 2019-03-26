@@ -30,7 +30,8 @@ Pre-Depends:
  nvidia-installer-cleanup,
  ${nvidia:legacy-check},
 Depends:
- ${nvidia}-driver-libs (= ${binary:Version}) | ${nvidia}-driver-libs-nonglvnd (= ${binary:Version}),
+ ${nvidia}-driver-libs (= ${binary:Version})
+ | ${nvidia}-driver-libs-nonglvnd (= ${binary:Version}),
  ${nvidia}-driver-bin (= ${binary:Version}),
  xserver-xorg-video-${nvidia} (= ${binary:Version}),
  ${nvidia}-vdpau-driver (= ${binary:Version}),
@@ -46,7 +47,7 @@ Recommends:
 Suggests:
  ${nvidia:kmod:source},
 Provides:
- nvidia-glx-any,
+ nvidia-glx-any [${nvidia:arch:has-driver}],
 Breaks:
  nvidia-glx${nvidia:Legacy},
 Replaces:
@@ -101,7 +102,7 @@ Recommends:
  libglx-${nvidia}0 (= ${binary:Version}),
  libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
- lib${nvidia}-cfg1 (= ${binary:Version}) [!i386],
+ lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
  libgldispatch0-nvidia,
@@ -147,7 +148,7 @@ Recommends:
  libglx-${nvidia}0 (= ${binary:Version}),
  libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
- lib${nvidia}-cfg1 (= ${binary:Version}) [!i386],
+ lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
  libgldispatch0-nvidia,
@@ -201,7 +202,7 @@ Recommends:
 Suggests:
  ${nvidia:kmod:source},
 Provides:
- xserver-xorg-video-nvidia-any,
+ xserver-xorg-video-nvidia-any [${nvidia:arch:has-driver}],
  ${nvidia:xorgProvides},
 Breaks:
  glx-alternative-nvidia (<< 0.6.91),
@@ -220,7 +221,7 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  for a complete list of supported GPUs and PCI IDs.
 
 Package: nvidia-legacy-check
-Architecture: i386 amd64
+Architecture: amd64
 Multi-Arch: foreign
 Pre-Depends:
  debconf | debconf-2.0,
@@ -890,7 +891,8 @@ Depends:
  ${nvidia}-kernel-support--v1,
  ${misc:Depends}
 Recommends:
- ${nvidia}-driver (>= ${nvidia:Version}) [!ppc64el] | ${libcuda1} (>= ${nvidia:Version}),
+ ${nvidia}-driver (>= ${nvidia:Version}) [${nvidia:arch:has-driver}]
+ | ${libcuda1} (>= ${nvidia:Version}),
 Provides:
  ${nvidia}-kernel-${nvidia:Version},
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
@@ -1030,13 +1032,13 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
- ${nvidia}-smi,
+ ${nvidia}-smi [${nvidia:arch:has-driver}],
 # help nvidia-persistenced by pre-selecting the correct provider for libnvidia-cfg1-any
- lib${nvidia}-cfg1 (= ${binary:Version}),
+ lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  nvidia-persistenced,
  ${libcuda1}-i386 [amd64],
 Suggests:
- nvidia-cuda-mps,
+ nvidia-cuda-mps [${nvidia:arch:has-driver}],
  ${nvidia:kmod:source},
 Provides:
  libcuda1-any,
