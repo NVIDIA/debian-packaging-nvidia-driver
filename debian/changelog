@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (418.56-2) UNRELEASED; urgency=medium
+
+  * Merge changes from 415.27-2.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 20 Apr 2019 08:33:02 +0200
+
 nvidia-graphics-drivers (418.56-1) experimental; urgency=medium
 
   * New upstream long lived branch release 418.56 (2019-03-20).
@@ -84,6 +90,13 @@ nvidia-graphics-drivers (418.43-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 04 Mar 2019 16:55:38 +0100
 
+nvidia-graphics-drivers (415.27-2) unstable; urgency=medium
+
+  * Merge changes from 410.104-3.
+  * Upload to unstable.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 20 Apr 2019 08:11:31 +0200
+
 nvidia-graphics-drivers (415.27-1) experimental; urgency=medium
 
   * New upstream short lived branch release 415.27 (2019-01-15).
@@ -145,6 +158,23 @@ nvidia-graphics-drivers (415.27-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 11 Feb 2019 21:53:12 +0100
 
+nvidia-graphics-drivers (410.104-3) unstable; urgency=medium
+
+  * [i386 armhf]: Reinstate nvidia-smi as a transitional package depending on
+    nvidia-legcy-390xx-smi.
+  * Add a notice to the description of the transitional packages.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 27 Mar 2019 00:27:59 +0100
+
+nvidia-graphics-drivers (410.104-2) unstable; urgency=medium
+
+  * libcuda1: Add Provides: libcuda-10.0-1{,-i386}.
+  * [i386 armhf]: Drop nvidia-legacy-check.
+  * [i386 armhf]: Reinstate nvidia-driver, xserver-xorg-video-nvidia as
+    transitional packages depending on the 390.xx legacy driver.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 26 Mar 2019 10:30:59 +0100
+
 nvidia-graphics-drivers (410.104-1) unstable; urgency=medium
 
   * New upstream long lived branch release 410.104 (2019-02-22).
@@ -161,7 +191,6 @@ nvidia-graphics-drivers (410.104-1) unstable; urgency=medium
 
   [ Andreas Beckmann ]
   * Use substitution to keep debhelper-compat in sync.
-  * libcuda1: Add Provides: libcuda-10.0-1{,-i386}.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Mar 2019 19:35:49 +0100
 
