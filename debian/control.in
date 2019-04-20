@@ -25,34 +25,36 @@ XS-Autobuild: yes
 
 Package: ${nvidia}-driver
 Section: non-free/x11
-Architecture: amd64
+Architecture: amd64 i386 armhf
 Pre-Depends:
- nvidia-installer-cleanup,
+ nvidia-installer-cleanup [${nvidia:arch:has-driver}],
  ${nvidia:legacy-check},
 Depends:
- ${nvidia}-driver-libs (= ${binary:Version}) | ${nvidia}-driver-libs-nonglvnd (= ${binary:Version}),
- ${nvidia}-driver-bin (= ${binary:Version}),
- xserver-xorg-video-${nvidia} (= ${binary:Version}),
- ${nvidia}-vdpau-driver (= ${binary:Version}),
- ${nvidia}-alternative (= ${binary:Version}),
+ nvidia-legacy-390xx-driver [${nvidia:arch:has-no-driver}],
+ ${nvidia}-driver-libs (= ${binary:Version}) [${nvidia:arch:has-driver}]
+ | ${nvidia}-driver-libs-nonglvnd (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ ${nvidia}-driver-bin (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ xserver-xorg-video-${nvidia} (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ ${nvidia}-vdpau-driver (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ ${nvidia}-alternative (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia:kmod:binary},
- nvidia-support,
+ nvidia-support [${nvidia:arch:has-driver}],
  ${misc:Depends}
 Recommends:
- ${nvidia-settings},
+ ${nvidia-settings} [${nvidia:arch:has-driver}],
 # help nvidia-persistenced by pre-selecting the correct provider for libnvidia-cfg1-any
- lib${nvidia}-cfg1 (= ${binary:Version}),
- nvidia-persistenced,
+ lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ nvidia-persistenced [${nvidia:arch:has-driver}],
 Suggests:
  ${nvidia:kmod:source},
 Provides:
- nvidia-glx-any,
+ nvidia-glx-any [${nvidia:arch:has-driver}],
 Breaks:
  nvidia-glx${nvidia:Legacy},
 Replaces:
  nvidia-glx${nvidia:Legacy},
 Description: NVIDIA metapackage${nvidia:LegacyDesc}
- This metapackage depends on the NVIDIA binary driver and libraries
+ ${nvidia:no-driver-notice}This metapackage depends on the NVIDIA binary driver and libraries
  that provide optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES/Vulkan applications via a direct-rendering X Server.
  .
@@ -101,7 +103,7 @@ Recommends:
  libglx-${nvidia}0 (= ${binary:Version}),
  libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
- lib${nvidia}-cfg1 (= ${binary:Version}) [!i386],
+ lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
  libgldispatch0-nvidia,
@@ -147,7 +149,7 @@ Recommends:
  libglx-${nvidia}0 (= ${binary:Version}),
  libgles-${nvidia}1 (= ${binary:Version}),
  libgles-${nvidia}2 (= ${binary:Version}),
- lib${nvidia}-cfg1 (= ${binary:Version}) [!i386],
+ lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
  libgldispatch0-nvidia,
@@ -183,32 +185,33 @@ Description: NVIDIA metapackage (non-GLVND OpenGL/EGL/etc. 32-bit libraries)${nv
 
 Package: xserver-xorg-video-${nvidia}
 Section: non-free/x11
-Architecture: amd64
+Architecture: amd64 i386 armhf
 Pre-Depends:
- nvidia-installer-cleanup,
+ nvidia-installer-cleanup [${nvidia:arch:has-driver}],
  ${nvidia:legacy-check},
 Depends:
- lib${nvidia}-glcore (= ${binary:Version}),
- ${nvidia}-alternative (= ${binary:Version}),
- nvidia-support,
+ xserver-xorg-video-nvidia-legacy-390xx [${nvidia:arch:has-no-driver}],
+ lib${nvidia}-glcore (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ ${nvidia}-alternative (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ nvidia-support [${nvidia:arch:has-driver}],
  ${nvidia:xorgDepends},
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
- ${nvidia}-driver (>= ${nvidia:Version}),
- ${nvidia}-vdpau-driver (>= ${nvidia:Version}),
+ ${nvidia}-driver (>= ${nvidia:Version}) [${nvidia:arch:has-driver}],
+ ${nvidia}-vdpau-driver (>= ${nvidia:Version}) [${nvidia:arch:has-driver}],
  ${nvidia:kmod:binary},
- ${nvidia-settings},
+ ${nvidia-settings} [${nvidia:arch:has-driver}],
 Suggests:
  ${nvidia:kmod:source},
 Provides:
- xserver-xorg-video-nvidia-any,
+ xserver-xorg-video-nvidia-any [${nvidia:arch:has-driver}],
  ${nvidia:xorgProvides},
 Breaks:
  glx-alternative-nvidia (<< 0.6.91),
 Replaces:
  glx-alternative-nvidia (<< 0.6.91),
 Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
- The NVIDIA binary driver provides optimized hardware acceleration of
+ ${nvidia:no-driver-notice}The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
  for graphics cards using NVIDIA chip sets.
  .
@@ -220,7 +223,7 @@ Description: NVIDIA binary Xorg driver${nvidia:LegacyDesc}
  for a complete list of supported GPUs and PCI IDs.
 
 Package: nvidia-legacy-check
-Architecture: i386 amd64
+Architecture: amd64
 Multi-Arch: foreign
 Pre-Depends:
  debconf | debconf-2.0,
@@ -890,7 +893,8 @@ Depends:
  ${nvidia}-kernel-support--v1,
  ${misc:Depends}
 Recommends:
- ${nvidia}-driver (>= ${nvidia:Version}) [!ppc64el] | ${libcuda1} (>= ${nvidia:Version}),
+ ${nvidia}-driver (>= ${nvidia:Version}) [${nvidia:arch:has-driver}]
+ | ${libcuda1} (>= ${nvidia:Version}),
 Provides:
  ${nvidia}-kernel-${nvidia:Version},
 Description: NVIDIA binary kernel module DKMS source${nvidia:LegacyDesc}
@@ -983,17 +987,18 @@ Description: Video Decode and Presentation API for Unix - NVIDIA driver${nvidia:
 
 Package: ${nvidia}-smi
 Section: non-free/utils
-Architecture: amd64
+Architecture: amd64 i386 armhf
 Depends:
- ${nvidia}-alternative (= ${binary:Version}),
- lib${nvidia}-ml1 (= ${binary:Version}),
+ nvidia-legacy-390xx-smi [${nvidia:arch:has-no-driver}],
+ ${nvidia}-alternative (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ lib${nvidia}-ml1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
 Suggests:
  ${nvidia:kmod:source},
 Description: NVIDIA System Management Interface${nvidia:LegacyDesc}
- The NVIDIA Management Library (NVML) provides a monitoring and management API.
+ ${nvidia:no-driver-notice}The NVIDIA Management Library (NVML) provides a monitoring and management API.
  The application "nvidia-smi" is the NVIDIA System Management Interface (NVSMI)
  and provides a command line interface to this functionality.
  .
@@ -1030,13 +1035,13 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
- ${nvidia}-smi,
+ ${nvidia}-smi [${nvidia:arch:has-driver}],
 # help nvidia-persistenced by pre-selecting the correct provider for libnvidia-cfg1-any
- lib${nvidia}-cfg1 (= ${binary:Version}),
+ lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  nvidia-persistenced,
  ${libcuda1}-i386 [amd64],
 Suggests:
- nvidia-cuda-mps,
+ nvidia-cuda-mps [${nvidia:arch:has-driver}],
  ${nvidia:kmod:source},
 Provides:
  libcuda1-any,
@@ -1315,5 +1320,5 @@ Depends:
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-driver, nvidia-legacy-340xx-driver, or nvidia-legacy-304xx-driver)
+ (nvidia-driver, nvidia-legacy-390xx-driver, or nvidia-legacy-340xx-driver)
  for installation.

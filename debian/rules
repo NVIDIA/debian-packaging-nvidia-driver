@@ -99,9 +99,9 @@ dkms_source	 = debian/$(nvidia)-kernel-dkms/usr/src/$(module)-$(version)
 empty		 =
 space		 = $(empty) $(empty)
 comma		 = ,
-xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) |)
-xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND)
-xorg_provides	 = xorg-driver-video
+xorg_depends	 = $(foreach abi, $(XORG_ABI_LIST), xorg-video-abi-$(abi) [$${nvidia:arch:has-driver}] |)
+xorg_depends	+= $(comma) xserver-xorg-core $(XORG_BOUND) [$${nvidia:arch:has-driver}]
+xorg_provides	 = xorg-driver-video [$${nvidia:arch:has-driver}]
 
 # Use the amd64 changelog for all architectures to be M-A:same safe.
 upstream_changelog	 = NVIDIA-Linux-amd64/NVIDIA_Changelog
@@ -321,11 +321,14 @@ override_dh_gencontrol:
 		-V'nvidia:legacy-check=$(NVIDIA_LEGACY_CHECK)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
 		-V'nvidia:debhelper-compat=$(debhelper_compat)' \
-		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}' \
-		-V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
+		-V'nvidia:arch:has-driver=$(if $(has_driver),,!)$(DEB_HOST_ARCH)' \
+		-V'nvidia:arch:has-no-driver=$(if $(has_driver),!,)$(DEB_HOST_ARCH)' \
+		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) [$${nvidia:arch:has-driver}] | $${nvidia}-kernel-$${nvidia:Version} [$${nvidia:arch:has-driver}]' \
+		-V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) [$${nvidia:arch:has-driver}] | $${nvidia}-kernel-source (>= $${nvidia:Version}) [$${nvidia:arch:has-driver}]' \
 		-V'nvidia:kmod:tested:Linux=$(strip $(or $(LINUX_KMOD_TESTED_$(DEB_HOST_ARCH)),$(LINUX_KMOD_TESTED),???))' \
 		-V'nvidia:kmod:blob:archlist=$(subst $(space),$(comma)$(space),$(BLOB_ARCH_LIST)) architecture$(if $(filter 1,$(words $(BLOB_ARCH_LIST))),,s)' \
 		-Vnvidia:kmod:Description="`cat debian/control.kmod`" \
+		-Vnvidia:no-driver-notice="$(if $(has_driver),,`cat debian/control.no-driver`)" \
 		-Vnvidia:Models="`cat debian/control.models`"
 
 # used by dpkg-genchanges
