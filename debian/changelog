@@ -1,8 +1,9 @@
-nvidia-graphics-drivers (418.56-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (418.56-2) unstable; urgency=medium
 
   * Merge changes from 415.27-2.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 20 Apr 2019 08:33:02 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 22 Apr 2019 16:38:02 +0200
 
 nvidia-graphics-drivers (418.56-1) experimental; urgency=medium
 
