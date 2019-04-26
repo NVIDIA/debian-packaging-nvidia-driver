@@ -16,6 +16,9 @@ nvidia-graphics-drivers (430.09-1~git1) UNRELEASED; urgency=medium
     - Raised the minimum supported X.Org xserver version to 1.7 (video driver
       ABI version 6).
 
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Fri, 26 Apr 2019 16:58:57 +0200
 
 nvidia-graphics-drivers (418.74-1) unstable; urgency=medium
