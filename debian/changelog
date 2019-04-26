@@ -1,3 +1,23 @@
+nvidia-graphics-drivers (430.09-1~git1) UNRELEASED; urgency=medium
+
+  * New upstream beta 430.09 (2019-04-23).
+    - Fixed a bug that could cause the display to be driven at a low
+      resolution when configuring PRIME display offloading with
+      `nvidia-xconfig --prime`.
+    - Added HEVC YUV 4:4:4 decode support to the NVIDIA VDPAU driver.
+    - Added the new per-decoder profile capability bit
+      VDP_DECODER_PROFILE_SUPPORTED_CHROMA_TYPES to the NVIDIA VDPAU driver.
+    - Added new VdpYCbCrFormats VDP_YCBCR_FORMAT_Y_UV_444 and
+      VDP_YCBCR_FORMAT_Y_U_V_444 for accessing YUV 4:4:4 surfaces via
+      VdpVideoSurfaceGetBitsYCbCr() and VdpVideoSurfacePutBitsYCbCr()
+      in the NVIDIA VDPAU driver.
+    - Added support for creation of YUV 4:4:4 video surfaces in
+      the NVIDIA VDPAU driver.
+    - Raised the minimum supported X.Org xserver version to 1.7 (video driver
+      ABI version 6).
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 26 Apr 2019 16:58:57 +0200
+
 nvidia-graphics-drivers (418.74-1) unstable; urgency=medium
 
   * New upstream long lived branch release 418.74 (2019-05-07).
@@ -76,6 +96,13 @@ nvidia-graphics-drivers (418.43-1) experimental; urgency=medium
       o NvEncodeAPI now accepts CUarrays as input buffers. The SDK contains
         a sample application to demonstrate how to feed a Vulkan image to
         NVENC using the Vulkan-CUDA interop.
+    - Updated the NVIDIA VDPAU driver to support allocating VDPAU video
+      surfaces with explicit field or frame picture structure.
+    - Added support for the GL_NV_vdpau_interop2 OpenGL extension,
+      which allows VDPAU/OpenGL surface sharing with explicit field or
+      frame picture structure. Picture structure selection by applications
+      can avoid the need for implicit surface structure conversion by
+      the OpenGL implementation.
     - Added NVIDIA optical flow support.
       A new library libnvidia-opticalflow.so is included in the driver package.
       The NVIDIA optical flow library can be used for hardware-accelerated

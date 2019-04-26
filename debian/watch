@@ -1,4 +1,4 @@
 # ftp://download.nvidia.com/XFree86/Linux-x86_64/190.36/NVIDIA-Linux-x86_64-190.36-pkg2.run
 # ftp://download.nvidia.com/XFree86/Linux-x86_64/256.29/NVIDIA-Linux-x86_64-256.29.run
 version=3
-https://download.nvidia.com/XFree86/Linux-x86_64/(418(?:\.[\d\.\-]+)?)/NVIDIA-Linux-x86_64-(\d[\d\.\-]*)(?:-pkg2)?\.run
+https://download.nvidia.com/XFree86/Linux-x86_64/(\d[\d\.\-]*)/NVIDIA-Linux-x86_64-(\d[\d\.\-]*)(?:-pkg2)?\.run
