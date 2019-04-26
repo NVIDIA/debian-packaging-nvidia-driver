@@ -1,2 +1,3 @@
 libnvoptix.so.1 #PACKAGE# #MINVER#
+ optixQueryFunctionTable@Base 430
  rtGetSymbolTable@Base 410

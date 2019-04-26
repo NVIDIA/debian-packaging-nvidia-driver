@@ -88,6 +88,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetPcieThroughput@Base 346
  nvmlDeviceGetPerformanceState@Base 285
  nvmlDeviceGetPersistenceMode@Base 270
+ nvmlDeviceGetPgpuMetadataString@Base 430
  nvmlDeviceGetPowerManagementDefaultLimit@Base 304
  nvmlDeviceGetPowerManagementLimit@Base 270
  nvmlDeviceGetPowerManagementLimitConstraints@Base 304
@@ -183,6 +184,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlVgpuInstanceGetAccountingPids@Base 390.59
  nvmlVgpuInstanceGetAccountingStats@Base 390.59
 #MISSING: 375# nvmlVgpuInstanceGetDecoderUtilization@Base 370
+ nvmlVgpuInstanceGetEccMode@Base 430
  nvmlVgpuInstanceGetEncoderCapacity@Base 375.66
  nvmlVgpuInstanceGetEncoderSessions@Base 384
  nvmlVgpuInstanceGetEncoderStats@Base 384

@@ -18,6 +18,7 @@ nvidia-graphics-drivers (430.09-1~git1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
+  * Update symbols files.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 26 Apr 2019 16:58:57 +0200
 
