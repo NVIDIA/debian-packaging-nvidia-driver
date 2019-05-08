@@ -79,12 +79,6 @@ then
 	VERSIONS[999]=$LATEST
 fi
 
-if grep -q -i $NVGA $IDLISTDIR/nvidia-amd64.ids 2>/dev/null
-then
-	# 998 means current, but amd64-only
-	VERSIONS[998]=$LATEST
-fi
-
 
 if [[ ${#VERSIONS[*]} == 0 ]]; then
 	echo "Uh oh. Your card is not supported by any driver version up to $LATEST."
@@ -147,11 +141,6 @@ fi
 			echo "Your card is only supported by the updated drivers from stretch-backports."
 			echo "See https://backports.debian.org for instructions how to use backports."
 			PACKAGE="nvidia-driver/stretch-backports"
-		elif [[ -n ${VERSIONS[998]} ]]; then
-			echo "Your card is only supported on the amd64 platform."
-			echo "Your card is only supported by the updated drivers from stretch-backports."
-			echo "See https://backports.debian.org for instructions how to use backports."
-			PACKAGE="nvidia-driver:amd64/stretch-backports"
 		elif [[ -n ${VERSIONS[340]} ]]; then
 			echo "Your card is only supported up to the 340 legacy drivers series."
 			PACKAGE="nvidia-legacy-340xx-driver"
@@ -180,9 +169,6 @@ fi
 				echo "Your card is supported by the default drivers."
 			fi
 			PACKAGE="nvidia-driver"
-		elif [[ -n ${VERSIONS[998]} ]]; then
-			echo "Your card is only supported on the amd64 platform, using the current drivers."
-			PACKAGE="nvidia-driver:amd64"
 		elif [[ -n ${VERSIONS[390]} ]]; then
 			echo "Your card is only supported up to the 390 legacy drivers series."
 			PACKAGE="nvidia-legacy-390xx-driver"

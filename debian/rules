@@ -83,10 +83,6 @@ AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOGEN		+= debian/bug-control
 AUTOGEN		+= debian/substvars
-ifneq (,$(has_driver))
-AUTOGEN		+= debian/nv-readme.ids
-AUTOGEN		+= nvidia-amd64.ids
-endif
 AUTOGEN		+= $(if $(has_vulkan),glvnd/nvidia_icd.json nonglvnd/nvidia_icd.json)
 AUTOGEN		+= $(AUTOKEEP)
 AUTOKEEP	 = debian/watch debian/control
@@ -152,10 +148,7 @@ nonglvnd/nvidia_icd.json: $(nvidia_icd.json.template)
 	mkdir -p $(@D)
 	sed 's/__NV_VK_ICD__/libGL.so.1/' $< > $@
 
-debian/nv-readme.ids: debian/nv-readme.ids.common debian/nv-readme.ids.$(DEB_HOST_ARCH)
-	cat $^ | sort -u > $@
-
-nv-readme.ids: unpack-stamp debian/nv-readme.ids
+nv-readme.ids: unpack-stamp
 	sed	-e '0,/A. Supported\|APPENDIX A: SUPPORTED/d' \
 		-e '0,/Appendix A. Supported\|APPENDIX A: SUPPORTED/d' \
 		-e '0,/^Below\|APPENDIX B/{/ 0x/s/.*  0x\([0-9a-fA-F]\{4\}\).*/10de\1/p; /^.\{41\} [0-9a-fA-F]\{4\} /s/^.\{41\} \([0-9a-fA-F]\{4\}\) .*/10de\1/p};d' \
@@ -169,9 +162,6 @@ nv-readme.ids: unpack-stamp debian/nv-readme.ids
 	fi
 
 nvidia.ids: nv-readme.ids
-	cp $< $@
-
-nvidia-amd64.ids: debian/nv-readme.ids.amd64
 	cp $< $@
 
 # Reformat the LICENSE to the format needed for debian/copyright.
@@ -195,7 +185,7 @@ override_dh_auto_clean:
 	$(RM) -r $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(NVIDIA_DIRNAME_$a))
 	$(RM) -r glvnd nonglvnd
 	$(RM) -r kernel-source-tree
-	$(RM) nvidia.ids nv-kernel.ids nv-readme.ids pci.ids.nvidia*
+	$(RM) nvidia.ids nv-readme.ids pci.ids.nvidia*
 	$(RM) LICENSE.txt LICENSE.tmp copyright.tmp
 	test ! -d debian/po || debconf-updatepo
 
