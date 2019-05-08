@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (418.74-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 418.74 (2019-05-07).
+    - Added support for the following GPUs: Quadro P2200, GeForce GTX 1650,
+      GeForce GTX 1650 with Max-Q Design,
+      GeForce GTX 1660 Ti with Max-Q Design.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 08 May 2019 09:53:19 +0200
+
 nvidia-graphics-drivers (418.56-2) unstable; urgency=medium
 
   * Merge changes from 415.27-2.
@@ -432,6 +441,7 @@ nvidia-graphics-drivers (390.116-1) stretch; urgency=medium
     - Fixed a build failure, "implicit declaration of function do_gettimeofday",
       when building the NVIDIA kernel module for Linux kernel 5.0 release
       candidates.
+  * New upstream legacy branch release 367 series.
     - Added a new kernel module parameter, NVreg_RestrictProfilingToAdminUsers,
       to allow restricting the use of GPU performance counters to system
       administrators only.
