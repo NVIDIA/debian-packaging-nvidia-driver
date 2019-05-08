@@ -8,7 +8,7 @@ XORG_BOUND		 = (<< 2:1.20.99)
 
 NVIDIA_LEGACY_CHECK	 = nvidia-legacy-check (>= 343) [$${nvidia:arch:has-driver}]
 
-LINUX_KMOD_TESTED	 = 4.20
+LINUX_KMOD_TESTED	 = 5.0
 LINUX_KMOD_TESTED_amd64	 =
 LINUX_KMOD_TESTED_ppc64el=
 
