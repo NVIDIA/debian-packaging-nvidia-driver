@@ -8,6 +8,7 @@ nvidia-graphics-drivers (418.74-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * Refresh patches.
+  * Restrict watch file to releases from the 418.xx long lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 08 May 2019 09:53:19 +0200
 
