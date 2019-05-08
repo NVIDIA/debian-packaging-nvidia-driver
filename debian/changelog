@@ -5,6 +5,9 @@ nvidia-graphics-drivers (418.74-1) UNRELEASED; urgency=medium
       GeForce GTX 1650 with Max-Q Design,
       GeForce GTX 1660 Ti with Max-Q Design.
 
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Wed, 08 May 2019 09:53:19 +0200
 
 nvidia-graphics-drivers (418.56-2) unstable; urgency=medium
