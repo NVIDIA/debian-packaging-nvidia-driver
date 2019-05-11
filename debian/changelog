@@ -189,6 +189,7 @@ nvidia-graphics-drivers (410.104-2) unstable; urgency=medium
   * [i386 armhf]: Drop nvidia-legacy-check.
   * [i386 armhf]: Reinstate nvidia-driver, xserver-xorg-video-nvidia as
     transitional packages depending on the 390.xx legacy driver.
+    (Closes: #921917)
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 26 Mar 2019 10:30:59 +0100
 
@@ -251,7 +252,7 @@ nvidia-graphics-drivers (410.78-1) experimental; urgency=medium
       rather than "DP-5". Scripts and configuration files that use the DP
       identifier for this connector will be affected.
     - Added support for the following GPUs: Quadro RTX 5000, Quadro RTX 6000,
-      GeForce RTX 2070.
+      GeForce RTX 2070.  (Closes: #911433)
   * New upstream beta 410.57 (2018-09-20).
     - Added a graphics API visual indicator.  It can be toggled through
       nvidia-settings' "OpenGL Settings" panel, the
