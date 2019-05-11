@@ -562,6 +562,7 @@ Depends:
 Recommends:
  lib${nvidia}-cbl (= ${binary:Version}) [amd64],
  lib${nvidia}-rtcore (= ${binary:Version}) [amd64],
+ nvidia-legacy-390xx-driver-libs-nonglvnd [i386],
 Suggests:
  vulkan-utils,
 Enhances:
