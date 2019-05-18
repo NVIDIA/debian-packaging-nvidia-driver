@@ -1,5 +1,10 @@
-nvidia-graphics-drivers (430.09-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (430.14-1~git1) UNRELEASED; urgency=medium
 
+  * New upstream long lived branch release 430.14 (2019-05-14).
+    - Improved performance of the Vulkan title, DiRT4.
+    - Added support for presentation from queue families which only expose
+      VK_QUEUE_COMPUTE_BIT. This improves performance of Steam Play title,
+      Wolfenstein II: The New Colossus.
   * New upstream beta 430.09 (2019-04-23).
     - Fixed a bug that could cause the display to be driven at a low
       resolution when configuring PRIME display offloading with
@@ -21,7 +26,7 @@ nvidia-graphics-drivers (430.09-1~git1) UNRELEASED; urgency=medium
   * Update symbols files.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 26 Apr 2019 16:58:57 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 18 May 2019 17:18:52 +0200
 
 nvidia-graphics-drivers (418.74-1) unstable; urgency=medium
 
