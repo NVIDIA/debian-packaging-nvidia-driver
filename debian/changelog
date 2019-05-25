@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (430.14-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
 
   * New upstream long lived branch release 430.14 (2019-05-14).
     - Improved performance of the Vulkan title, DiRT4.
@@ -25,8 +25,9 @@ nvidia-graphics-drivers (430.14-1~git1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Update symbols files.
   * Update lintian overrides.
+  * Upload to experimental.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 18 May 2019 17:18:52 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 25 May 2019 13:49:09 +0200
 
 nvidia-graphics-drivers (418.74-1) unstable; urgency=medium
 
