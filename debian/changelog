@@ -7,6 +7,9 @@ nvidia-graphics-drivers (430.26-1) UNRELEASED; urgency=medium
     - Fixed a bug, introduced in 415.13, that caused audio over DisplayPort to
       not work in some configurations.
 
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Thu, 13 Jun 2019 09:08:03 +0200
 
 nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
