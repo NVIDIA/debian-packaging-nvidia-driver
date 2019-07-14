@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (430.34-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (430.34-1) experimental; urgency=medium
 
   * New upstream long lived branch release 430.26 (2019-07-09).
     - Added support for the following GPUs: GeForce RTX 2060 SUPER,
@@ -10,7 +10,7 @@ nvidia-graphics-drivers (430.34-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 14 Jul 2019 15:48:22 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 14 Jul 2019 18:23:34 +0200
 
 nvidia-graphics-drivers (430.26-1) experimental; urgency=medium
 
