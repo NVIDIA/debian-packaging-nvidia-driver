@@ -7,6 +7,9 @@ nvidia-graphics-drivers (430.34-1) UNRELEASED; urgency=medium
     - Added support for the following GPUs: Quadro RTX 4000 with Max-Q Design,
       Quadro RTX 5000 with Max-Q Design.
 
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Sun, 14 Jul 2019 15:48:22 +0200
 
 nvidia-graphics-drivers (430.26-1) experimental; urgency=medium
