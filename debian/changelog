@@ -1,3 +1,14 @@
+nvidia-graphics-drivers (430.34-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 430.26 (2019-07-09).
+    - Added support for the following GPUs: GeForce RTX 2060 SUPER,
+      GeForce RTX 2070 SUPER.
+  * New upstream release 418 series.
+    - Added support for the following GPUs: Quadro RTX 4000 with Max-Q Design,
+      Quadro RTX 5000 with Max-Q Design.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 14 Jul 2019 15:48:22 +0200
+
 nvidia-graphics-drivers (430.26-1) experimental; urgency=medium
 
   * New upstream long lived branch release 430.26 (2019-06-10).
