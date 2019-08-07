@@ -3,6 +3,7 @@ nvidia-graphics-drivers (390.129-1) UNRELEASED; urgency=medium
   * New upstream legacy branch release 390.129 (2019-07-29).
     - Improved nvidia-bug-report.sh to grab the output of the `vulkaninfo`
       command when it is available.
+    * Improved compatibility with recent Linux kernels.
   * New upstream legacy branch release 340 series.
     - Updated nvidia-bug-report.sh to search the systemd journal for
       gdm-x-session logs.
