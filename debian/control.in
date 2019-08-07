@@ -20,7 +20,7 @@ Build-Depends:
 Build-Conflicts:
  libglvnd-dev,
 Rules-Requires-Root: no
-Standards-Version: 4.3.0
+Standards-Version: 4.4.0
 Homepage: https://www.nvidia.com
 XS-Autobuild: yes
 
