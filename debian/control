@@ -22,7 +22,7 @@ Build-Depends:
 Build-Conflicts:
  libglvnd-dev,
 Rules-Requires-Root: no
-Standards-Version: 4.3.0
+Standards-Version: 4.4.0
 Homepage: https://www.nvidia.com
 XS-Autobuild: yes
 
@@ -177,7 +177,7 @@ Depends:
  ${misc:Depends}
 Conflicts:
  libgl1-${nvidia}-glx-i386,
-Description: NVIDIA metapackage (non-GLVND OpenGL/EGL/etc. 32-bit libraries)${nvidia:LegacyDescShort}
+Description: NVIDIA metapackage (non-GLVND OpenGL/EGL etc. 32-bit libraries)${nvidia:LegacyDescShort}
  This metapackage helps the automatic installation of the 32-bit NVIDIA
  OpenGL/GLX/EGL/GLES libraries when installing
  ${nvidia}-driver-libs-nonglvnd

@@ -1,3 +1,18 @@
+nvidia-graphics-drivers (390.129-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy branch release 390.129 (2019-07-29).
+    - Improved nvidia-bug-report.sh to grab the output of the `vulkaninfo`
+      command when it is available.
+    * Improved compatibility with recent Linux kernels.
+  * New upstream legacy branch release 340 series.
+    - Updated nvidia-bug-report.sh to search the systemd journal for
+      gdm-x-session logs.
+
+  [ Andreas Beckmann ]
+  * Bump Standards-Version to 4.4.0. No changes needed.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 06 Aug 2019 19:04:49 +0200
+
 nvidia-graphics-drivers (390.116-1) stretch; urgency=medium
 
   * New upstream legacy branch release 390.116 (2019-02-22).
@@ -24,6 +39,7 @@ nvidia-graphics-drivers (390.116-1) stretch; urgency=medium
     - Fixed a build failure, "implicit declaration of function do_gettimeofday",
       when building the NVIDIA kernel module for Linux kernel 5.0 release
       candidates.
+  * New upstream legacy branch release 367 series.
     - Added a new kernel module parameter, NVreg_RestrictProfilingToAdminUsers,
       to allow restricting the use of GPU performance counters to system
       administrators only.
