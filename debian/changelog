@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (418.88-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (418.88-1) unstable; urgency=medium
 
   * New upstream long lived branch release 418.88 (2019-07-29).
     - Added support for the following GPUs: Quadro P520, Quadro RTX 3000,
@@ -11,7 +11,7 @@ nvidia-graphics-drivers (418.88-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2019 13:33:10 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2019 23:41:02 +0200
 
 nvidia-graphics-drivers (418.74-1) unstable; urgency=medium
 
