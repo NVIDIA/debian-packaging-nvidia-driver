@@ -1,3 +1,15 @@
+nvidia-graphics-drivers (418.88-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 418.88 (2019-07-29).
+    - Added support for the following GPUs: Quadro P520, Quadro RTX 3000,
+      Quadro RTX 3000 with Max-Q Design, Quadro RTX 4000 with Max-Q Design,
+      Quadro RTX 5000 with Max-Q Design, Quadro T1000, Quadro T2000.
+    - Fixed a bug, introduced in 415.13, that caused audio over DisplayPort to
+      not work in some configurations.
+    * Improved compatibility with recent Linux kernels.  (Closes: #934344)
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2019 13:33:10 +0200
+
 nvidia-graphics-drivers (418.74-1) unstable; urgency=medium
 
   * New upstream long lived branch release 418.74 (2019-05-07).
