@@ -3,9 +3,6 @@ nvidia-graphics-drivers (430.34-1) experimental; urgency=medium
   * New upstream long lived branch release 430.26 (2019-07-09).
     - Added support for the following GPUs: GeForce RTX 2060 SUPER,
       GeForce RTX 2070 SUPER.
-  * New upstream release 418 series.
-    - Added support for the following GPUs: Quadro RTX 4000 with Max-Q Design,
-      Quadro RTX 5000 with Max-Q Design.
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
@@ -15,11 +12,6 @@ nvidia-graphics-drivers (430.34-1) experimental; urgency=medium
 nvidia-graphics-drivers (430.26-1) experimental; urgency=medium
 
   * New upstream long lived branch release 430.26 (2019-06-10).
-  * New upstream release 418 series.
-    - Added support for the following GPUs: Quadro P520, Quadro RTX 3000,
-      Quadro T1000, Quadro T2000.
-    - Fixed a bug, introduced in 415.13, that caused audio over DisplayPort to
-      not work in some configurations.
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
@@ -56,6 +48,21 @@ nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 25 May 2019 13:49:09 +0200
+
+nvidia-graphics-drivers (418.88-1) unstable; urgency=medium
+
+  * New upstream long lived branch release 418.88 (2019-07-29).
+    - Added support for the following GPUs: Quadro P520, Quadro RTX 3000,
+      Quadro RTX 3000 with Max-Q Design, Quadro RTX 4000 with Max-Q Design,
+      Quadro RTX 5000 with Max-Q Design, Quadro T1000, Quadro T2000.
+    - Fixed a bug, introduced in 415.13, that caused audio over DisplayPort to
+      not work in some configurations.
+    * Improved compatibility with recent Linux kernels.  (Closes: #934344)
+
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2019 23:41:02 +0200
 
 nvidia-graphics-drivers (418.74-1) unstable; urgency=medium
 
@@ -269,9 +276,6 @@ nvidia-graphics-drivers (410.104-1) unstable; urgency=medium
       crash Vulkan applications.
     - Fixed a bug that prevented Vulkan applications from using the
       VK_EXT_display_control extension on a display that is driven by X.
-  * New upstream release 390 series.
-    - Improved nvidia-bug-report.sh to grab the output of the `vulkaninfo`
-      command when it is available.
 
   [ Andreas Beckmann ]
   * Use substitution to keep debhelper-compat in sync.
@@ -488,6 +492,21 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
+
+nvidia-graphics-drivers (390.129-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy branch release 390.129 (2019-07-29).
+    - Improved nvidia-bug-report.sh to grab the output of the `vulkaninfo`
+      command when it is available.
+    * Improved compatibility with recent Linux kernels.
+  * New upstream legacy branch release 340 series.
+    - Updated nvidia-bug-report.sh to search the systemd journal for
+      gdm-x-session logs.
+
+  [ Andreas Beckmann ]
+  * Bump Standards-Version to 4.4.0. No changes needed.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 06 Aug 2019 19:04:49 +0200
 
 nvidia-graphics-drivers (390.116-1) stretch; urgency=medium
 
