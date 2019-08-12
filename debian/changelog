@@ -8,6 +8,9 @@ nvidia-graphics-drivers (418.88-1) UNRELEASED; urgency=medium
       not work in some configurations.
     * Improved compatibility with recent Linux kernels.  (Closes: #934344)
 
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2019 13:33:10 +0200
 
 nvidia-graphics-drivers (418.74-1) unstable; urgency=medium
