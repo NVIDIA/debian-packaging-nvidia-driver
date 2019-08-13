@@ -5,6 +5,9 @@ nvidia-graphics-drivers (430.40-1) UNRELEASED; urgency=medium
     - Fixed a driver installation failure in Linux kernel configurations
       with CONFIG_HOTPLUG_CPU.
 
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Tue, 13 Aug 2019 01:18:30 +0200
 
 nvidia-graphics-drivers (430.34-1) experimental; urgency=medium
