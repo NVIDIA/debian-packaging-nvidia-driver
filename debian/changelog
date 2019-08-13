@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (430.40-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (430.40-1) experimental; urgency=medium
 
   * New upstream long lived branch release 430.40 (2019-07-29).
     - Added support for the following GPU: GeForce RTX 2080 SUPER.
@@ -8,7 +8,7 @@ nvidia-graphics-drivers (430.40-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 13 Aug 2019 01:18:30 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 13 Aug 2019 12:50:26 +0200
 
 nvidia-graphics-drivers (430.34-1) experimental; urgency=medium
 
