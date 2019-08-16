@@ -1,3 +1,42 @@
+nvidia-graphics-drivers (435.17-1~git1) UNRELEASED; urgency=medium
+
+  * New upstream beta 435.17 (2019-08-13).
+    - Fixed a bug which caused the kernel to panic when exiting a single X
+      server when multiple X servers were active and in an SLI configuration.
+    - Fixed a regression introduced in the 430.* series of releases that
+      caused a segmentation fault in libnvcuvid.so while using Video Codec
+      SDK APIs on certain graphics boards.
+    - Added initial experimental support for runtime D3 (RTD3) power
+      management on Turing notebook GPUs.
+    - Improved nvidia-bug-report.sh to collect runtime D3 (RTD3) power
+      management information.
+    - Improved nvidia-bug-report.sh to collect ACPI tables when the acpidump
+      tool is available.
+    - Added Vulkan and OpenGL+GLX support for PRIME render offload.
+      Please see the PRIME Render Offload chapter in the README for
+      system requirements and configuration details.
+    - Fixed the cuvidParseVideoData API in the NVCUVID driver to
+      correctly propagate errors returned by the PFNVIDSEQUENCECALLBACK
+      callback function to the application.
+    - Fixed a bug that caused the NVIDIA X driver to behave incorrectly or
+      crash when a client queried Xinerama information on X servers with a
+      non-NVIDIA X screen as screen 0.
+    - Fixed a bug that could cause Vulkan applications to generate spurious
+      warning messages about a missing NV-GLX extension.
+    - Removed the non-GLVND OpenGL libraries from the NVIDIA Linux driver
+      installation package. The GLVND OpenGL libraries were introduced in
+      release 361.16, and have been installed by default since release
+      364.12, with the non-GLVND versions available as an alternative via
+      the "--no-glvnd-glx-client" and "--no-glvnd-egl-client" installer
+      options. As the non-GLVND libraries are no longer included in the
+      installation package, these options will no longer have any effect.
+    - Fixed a bug that prevented nvidia-drm from marking preferred modes
+      properly when reporting display information via the DRM-KMS API.
+    - Fixed the NvEncodeAPI driver to correctly reject the encoding of
+      sequences with resolutions smaller than what the NVENC supports.
+
+ -- Luca Boccassi <bluca@debian.org>  Fri, 16 Aug 2019 11:39:05 +0100
+
 nvidia-graphics-drivers (430.40-2) unstable; urgency=medium
 
   * Mark GPUs with Kepler notebook chips as legacy, supported only up to
@@ -60,6 +99,10 @@ nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
       in the NVIDIA VDPAU driver.
     - Added support for creation of YUV 4:4:4 video surfaces in
       the NVIDIA VDPAU driver.
+    - Fixed display color range handling on pre-Turing GPUs, such that when
+      limited color range is selected through the display controls page in
+      nvidia-settings, output pixel values will be correctly clamped to
+      Consumer Technology Association (CTA) range.
     - Raised the minimum supported X.Org xserver version to 1.7 (video driver
       ABI version 6).
 
