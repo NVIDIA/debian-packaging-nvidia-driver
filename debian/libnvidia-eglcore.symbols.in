@@ -1393,6 +1393,17 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glMultiTexSubImage1DEXT@Base 346
  _glMultiTexSubImage2DEXT@Base 346
  _glMultiTexSubImage3DEXT@Base 346
+ _glMulticastBarrierNV@Base 435
+ _glMulticastBlitFramebufferNV@Base 435
+ _glMulticastBufferSubDataNV@Base 435
+ _glMulticastCopyBufferSubDataNV@Base 435
+ _glMulticastCopyImageSubDataNV@Base 435
+ _glMulticastFramebufferSampleLocationsfvNV@Base 435
+ _glMulticastGetQueryObjecti64vNV@Base 435
+ _glMulticastGetQueryObjectivNV@Base 435
+ _glMulticastGetQueryObjectui64vNV@Base 435
+ _glMulticastGetQueryObjectuivNV@Base 435
+ _glMulticastWaitSyncNV@Base 435
  _glNamedBufferAttachMemoryNV@Base 415
  _glNamedBufferData@Base 346
  _glNamedBufferDataEXT@Base 346
@@ -1789,6 +1800,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glRects@Base 346
  _glRectsv@Base 346
  _glReleaseShaderCompiler@Base 346
+ _glRenderGpuMaskNV@Base 435
  _glRenderMode@Base 346
  _glRenderbufferStorage@Base 346
  _glRenderbufferStorageEXT@Base 346

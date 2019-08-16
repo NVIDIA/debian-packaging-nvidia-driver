@@ -60,13 +60,15 @@ libnvidia-fatbinaryloader.so.#VERSION# #PACKAGE# #MINVER#
  elfLink_Next_Library_Member@Base 361
  elfLink_Start@Base 361
  elfLink_Start_Reading_Library@Base 361
+ elfLink_Start_WithJITDir@Base 435
  elf_end@Base 367.44
 #MISSING: 415# elf_errmsg@Base 361
  elf_is_64bit@Base 361
  elf_size@Base 361
 #MISSING: 367.44# enablePerfMeasuring@Base 361
- fatBinaryCtl@Base 361
+#MISSING: 435# fatBinaryCtl@Base 361
  fatBinaryCtl_Compile@Base 361
+ fatBinaryCtl_Compile_WithJITDir@Base 435
  fatBinaryCtl_Create@Base 361
  fatBinaryCtl_CreateHandle@Base 415
  fatBinaryCtl_Delete@Base 361

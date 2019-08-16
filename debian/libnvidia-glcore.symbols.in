@@ -1,4 +1,6 @@
 libnvidia-glcore.so.#VERSION# #PACKAGE# #MINVER#
  (regex)"^_nv\d*glcore@Base$" 0
+ vk_optimusGetDeviceProcAddr@Base 435
+ vk_optimusGetInstanceProcAddr@Base 435
 libnvidia-tls.so.#VERSION# #PACKAGE# #MINVER#
  (regex)"^_nv\d*tls@Base$" 0

@@ -1388,6 +1388,17 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glMultiTexSubImage1DEXT@Base 361.28
  glMultiTexSubImage2DEXT@Base 361.28
  glMultiTexSubImage3DEXT@Base 361.28
+ glMulticastBarrierNV@Base 435
+ glMulticastBlitFramebufferNV@Base 435
+ glMulticastBufferSubDataNV@Base 435
+ glMulticastCopyBufferSubDataNV@Base 435
+ glMulticastCopyImageSubDataNV@Base 435
+ glMulticastFramebufferSampleLocationsfvNV@Base 435
+ glMulticastGetQueryObjecti64vNV@Base 435
+ glMulticastGetQueryObjectivNV@Base 435
+ glMulticastGetQueryObjectui64vNV@Base 435
+ glMulticastGetQueryObjectuivNV@Base 435
+ glMulticastWaitSyncNV@Base 435
  glNVENCInterOpFunctionNVX@Base 361.28
  glNamedBufferAttachMemoryNV@Base 415
  glNamedBufferData@Base 361.28
@@ -1785,6 +1796,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glRects@Base 361.28
  glRectsv@Base 361.28
  glReleaseShaderCompiler@Base 361.28
+ glRenderGpuMaskNV@Base 435
  glRenderMode@Base 361.28
  glRenderbufferStorage@Base 361.28
  glRenderbufferStorageEXT@Base 361.28
