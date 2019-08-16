@@ -35,6 +35,9 @@ nvidia-graphics-drivers (435.17-1~git1) UNRELEASED; urgency=medium
     - Fixed the NvEncodeAPI driver to correctly reject the encoding of
       sequences with resolutions smaller than what the NVENC supports.
 
+  [ Luca Boccassi ]
+  * Remove non-GLVND packages.
+
  -- Luca Boccassi <bluca@debian.org>  Fri, 16 Aug 2019 11:39:05 +0100
 
 nvidia-graphics-drivers (430.40-2) unstable; urgency=medium
