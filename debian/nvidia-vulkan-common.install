@@ -1,1 +1,2 @@
 nvidia_icd.json	usr/share/vulkan/icd.d/
+nvidia_layers.json	usr/share/vulkan/implicit_layer.d/
