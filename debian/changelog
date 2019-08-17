@@ -39,6 +39,7 @@ nvidia-graphics-drivers (435.17-1~git1) UNRELEASED; urgency=medium
   * Remove non-GLVND packages.
   * nvidia-vulkan-common: Ship nvidia_layers.json.
   * Update symbols files.
+  * Update lintian overrides.
 
  -- Luca Boccassi <bluca@debian.org>  Fri, 16 Aug 2019 11:39:05 +0100
 
