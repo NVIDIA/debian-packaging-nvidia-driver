@@ -156,7 +156,7 @@ fi
 		else
 			echo "Oops. Internal error 9 ($NVGA)"
 		fi
-	elif grep -q "buster\|^10\|bullseye|^11" /etc/debian_version
+	elif grep -q "buster\|^10\|bullseye\|^11" /etc/debian_version
 	then
 		if [[ -n ${VERSIONS[999]} ]]; then
 			if [[ -n ${VERSIONS[390]} ]]; then
