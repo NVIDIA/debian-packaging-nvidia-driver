@@ -1,3 +1,12 @@
+nvidia-graphics-drivers (430.40-2) UNRELEASED; urgency=medium
+
+  * Mark GPUs with Kepler notebook chips as legacy, supported only up to
+    nvidia-legacy-390xx-driver. Support was dropped in the 430 series.
+    https://nvidia.custhelp.com/app/answers/detail/a_id/4779
+    https://nvidia.custhelp.com/app/answers/detail/a_id/4788
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 27 Aug 2019 21:44:59 +0200
+
 nvidia-graphics-drivers (430.40-1) experimental; urgency=medium
 
   * New upstream long lived branch release 430.40 (2019-07-29).

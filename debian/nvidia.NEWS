@@ -1,3 +1,19 @@
+nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
+
+  LEGACY GPUs: If you have a GeForce 710A/810M/820M/825M/910M,
+  GeForce GT 640M/645M/650M/720M/730M/735M/740M/745M/750M/755M,
+  GeForce GTX 660M/670MX/675MX/680M/680MX/765M/770M/775M/780M/860M/880M,
+  Quadro K500M/K510M/K610M/K1000M/K1100M/K2000M/K2100M/K3000M/K3100M,
+  Quadro K4000M/K4100M/K5000M/K5100M, i.e., any GPU based on the
+  GK104M/GK104GLM, GK106M/GK106GLM, GK107M/GK107GLM, GK208M/GK208BM/GK208GLM
+  chips or a variant thereof (that is any notebook GPU from the Kepler
+  architecture),
+  DO NOT INSTALL THIS RELEASE!!!
+  Use the nvidia-legacy-390xx-driver, nvidia-legacy-390xx-kernel-dkms
+  packages instead.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 25 May 2019 13:49:09 +0200
+
 nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
   LEGACY GPUs: If you have a GeForce 410M/510/605/610M/705M/710M/810M/820M,
