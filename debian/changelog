@@ -1,5 +1,8 @@
-nvidia-graphics-drivers (435.17-1~git1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (435.21-1) UNRELEASED; urgency=medium
 
+  * New upstream short lived branch release 435.21 (2019-08-29).
+    - Fixed a bug that caused the X server to crash when using HardDPMS with
+      an NVIDIA-driven GPU Screen.
   * New upstream beta 435.17 (2019-08-13).
     - Fixed a bug which caused the kernel to panic when exiting a single X
       server when multiple X servers were active and in an SLI configuration.
@@ -41,7 +44,7 @@ nvidia-graphics-drivers (435.17-1~git1) UNRELEASED; urgency=medium
   * Update symbols files.
   * Update lintian overrides.
 
- -- Luca Boccassi <bluca@debian.org>  Fri, 16 Aug 2019 11:39:05 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 30 Aug 2019 11:18:46 +0200
 
 nvidia-graphics-drivers (430.40-2) unstable; urgency=medium
 
