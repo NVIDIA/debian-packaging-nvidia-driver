@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (435.21-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (435.21-1) experimental; urgency=medium
 
   * New upstream short lived branch release 435.21 (2019-08-29).
     - Fixed a bug that caused the X server to crash when using HardDPMS with
@@ -44,7 +44,10 @@ nvidia-graphics-drivers (435.21-1) UNRELEASED; urgency=medium
   * Update symbols files.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 30 Aug 2019 11:18:46 +0200
+  [ Andreas Beckmann ]
+  * Upload to experimental.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 31 Aug 2019 00:15:24 +0200
 
 nvidia-graphics-drivers (430.40-2) unstable; urgency=medium
 
