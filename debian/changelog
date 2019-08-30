@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (430.40-3) UNRELEASED; urgency=medium
+
+  * Restrict watch file to releases from the 430.xx long lived branch.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 30 Aug 2019 14:43:21 +0200
+
 nvidia-graphics-drivers (430.40-2) unstable; urgency=medium
 
   * Mark GPUs with Kepler notebook chips as legacy, supported only up to
