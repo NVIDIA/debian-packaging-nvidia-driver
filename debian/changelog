@@ -4,6 +4,7 @@ nvidia-graphics-drivers (430.50-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
+  * Update symbols files.
   * Restrict watch file to releases from the 430.xx long lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 14 Sep 2019 14:34:03 +0200
