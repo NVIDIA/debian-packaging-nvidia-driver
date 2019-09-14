@@ -3,6 +3,7 @@ nvidia-graphics-drivers (430.50-1) UNRELEASED; urgency=medium
   * New upstream long lived branch release 430.50 (2019-09-11).
 
   [ Andreas Beckmann ]
+  * Update nv-readme.ids.
   * Restrict watch file to releases from the 430.xx long lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 14 Sep 2019 14:34:03 +0200
