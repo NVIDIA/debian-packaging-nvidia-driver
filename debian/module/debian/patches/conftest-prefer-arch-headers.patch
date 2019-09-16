@@ -1,0 +1,31 @@
+Author: Paul Szabo <paul.szabo@sydney.edu.au>
+Author: Andreas Beckmann <anbe@debian.org>
+Description: prefer arch headers over common headers
+Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=933309
+
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -188,18 +188,18 @@ build_cflags() {
+     fi
+ 
+     # Add the mach-default includes (only found on x86/older kernels)
+-    MACH_CFLAGS="$MACH_CFLAGS -I$SOURCE_HEADERS/asm-$KERNEL_ARCH/mach-default"
+     MACH_CFLAGS="$MACH_CFLAGS -I$SOURCE_ARCH_HEADERS/asm/mach-default"
++    MACH_CFLAGS="$MACH_CFLAGS -I$SOURCE_HEADERS/asm-$KERNEL_ARCH/mach-default"
+ 
+     CFLAGS="$BASE_CFLAGS $MACH_CFLAGS $OUTPUT_CFLAGS -include $AUTOCONF_FILE"
+-    CFLAGS="$CFLAGS -I$SOURCE_HEADERS"
+-    CFLAGS="$CFLAGS -I$SOURCE_HEADERS/uapi"
+-    CFLAGS="$CFLAGS -I$SOURCE_HEADERS/xen"
+-    CFLAGS="$CFLAGS -I$OUTPUT_HEADERS/generated/uapi"
+     CFLAGS="$CFLAGS -I$SOURCE_ARCH_HEADERS"
+     CFLAGS="$CFLAGS -I$SOURCE_ARCH_HEADERS/uapi"
+     CFLAGS="$CFLAGS -I$OUTPUT_ARCH_HEADERS/generated"
+     CFLAGS="$CFLAGS -I$OUTPUT_ARCH_HEADERS/generated/uapi"
++    CFLAGS="$CFLAGS -I$SOURCE_HEADERS"
++    CFLAGS="$CFLAGS -I$SOURCE_HEADERS/uapi"
++    CFLAGS="$CFLAGS -I$SOURCE_HEADERS/xen"
++    CFLAGS="$CFLAGS -I$OUTPUT_HEADERS/generated/uapi"
+ 
+     if [ -n "$BUILD_PARAMS" ]; then
+         CFLAGS="$CFLAGS -D$BUILD_PARAMS"
