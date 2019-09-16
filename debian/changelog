@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (430.50-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (430.50-1) unstable; urgency=medium
 
   * New upstream long lived branch release 430.50 (2019-09-11).
 
@@ -9,7 +9,7 @@ nvidia-graphics-drivers (430.50-1) UNRELEASED; urgency=medium
     headers, thanks to Paul Szabo.  (Closes: #933309)
   * Restrict watch file to releases from the 430.xx long lived branch.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 14 Sep 2019 14:34:03 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 16 Sep 2019 14:00:06 +0200
 
 nvidia-graphics-drivers (430.40-2) unstable; urgency=medium
 
@@ -17,6 +17,7 @@ nvidia-graphics-drivers (430.40-2) unstable; urgency=medium
     nvidia-legacy-390xx-driver. Support was dropped in the 430 series.
     https://nvidia.custhelp.com/app/answers/detail/a_id/4779
     https://nvidia.custhelp.com/app/answers/detail/a_id/4788
+  * nvidia-detect: Fix bullseye detection.  (Closes: #934288)
   * Upload to unstable.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 30 Aug 2019 10:46:18 +0200
@@ -96,7 +97,8 @@ nvidia-graphics-drivers (418.88-1) unstable; urgency=medium
       Quadro RTX 5000 with Max-Q Design, Quadro T1000, Quadro T2000.
     - Fixed a bug, introduced in 415.13, that caused audio over DisplayPort to
       not work in some configurations.
-    * Improved compatibility with recent Linux kernels.  (Closes: #934344)
+    * Improved compatibility with recent Linux kernels.
+      (Closes: #934290, #934344, #934648)
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
