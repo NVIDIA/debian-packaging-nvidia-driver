@@ -389,7 +389,7 @@ Description: NVIDIA binary kernel module source${nvidia:LegacyDesc}
  for graphics cards using NVIDIA chip sets.
  .
  PLEASE read /usr/share/doc/${nvidia}-kernel-source/README.Debian.gz
- for building information.  If you want the kernel module to be automatically
+ for building information. If you want the kernel module to be automatically
  installed via DKMS, install ${nvidia}-kernel-dkms instead.
  .
  ${nvidia:Models}
