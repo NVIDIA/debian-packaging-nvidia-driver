@@ -5,17 +5,17 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -96,6 +96,7 @@ NV_CONFTEST_CMD := /bin/sh $(NV_CONFTEST
-  "$(CC)" "$(HOST_CC)" $(ARCH) $(NV_KERNEL_SOURCES) $(NV_KERNEL_OUTPUT)
+@@ -97,6 +97,7 @@ NV_CONFTEST_CMD := /bin/sh $(NV_CONFTEST
+ NV_CFLAGS_FROM_CONFTEST := $(shell $(NV_CONFTEST_CMD) build_cflags)
  
- NV_CONFTEST_CFLAGS := $(shell $(NV_CONFTEST_CMD) build_cflags)
+ NV_CONFTEST_CFLAGS = $(NV_CFLAGS_FROM_CONFTEST) $(EXTRA_CFLAGS) -fno-pie
 +NV_CONFTEST_CFLAGS += $(filter-out -Werror%,$(KBUILD_CFLAGS))
  
  NV_CONFTEST_COMPILE_TEST_HEADERS := $(obj)/conftest/macros.h
  NV_CONFTEST_COMPILE_TEST_HEADERS += $(obj)/conftest/functions.h
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -88,7 +88,7 @@ NVIDIA_INTERFACE := nvidia/nv-interface.
+@@ -87,7 +87,7 @@ NVIDIA_INTERFACE := nvidia/nv-interface.
  always += $(NVIDIA_INTERFACE)
  
  $(obj)/$(NVIDIA_INTERFACE): $(addprefix $(obj)/,$(NVIDIA_OBJECTS))
@@ -37,7 +37,7 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
    # Kbuild's "clean" rule won't clean up the conftest headers on its own, and
 --- a/nvidia-modeset/nvidia-modeset.Kbuild
 +++ b/nvidia-modeset/nvidia-modeset.Kbuild
-@@ -70,7 +70,7 @@ NVIDIA_MODESET_INTERFACE := nvidia-modes
+@@ -72,7 +72,7 @@ NVIDIA_MODESET_INTERFACE := nvidia-modes
  always += $(NVIDIA_MODESET_INTERFACE)
  
  $(obj)/$(NVIDIA_MODESET_INTERFACE): $(addprefix $(obj)/,$(NVIDIA_MODESET_OBJECTS))
