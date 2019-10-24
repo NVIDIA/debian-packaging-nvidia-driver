@@ -52,12 +52,14 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER#
  nvmlDeviceGetGraphicsRunningProcesses@Base 346
  nvmlDeviceGetGridLicensableFeatures@Base 375.82
  nvmlDeviceGetGridLicensableFeatures_v2@Base 410
+ nvmlDeviceGetGridLicensableFeatures_v3@Base 440
  nvmlDeviceGetHandleByIndex@Base 270
  nvmlDeviceGetHandleByIndex_v2@Base 319
  nvmlDeviceGetHandleByPciBusId@Base 270
  nvmlDeviceGetHandleByPciBusId_v2@Base 319
  nvmlDeviceGetHandleBySerial@Base 270
  nvmlDeviceGetHandleByUUID@Base 295
+ nvmlDeviceGetHostVgpuMode@Base 430.50
  nvmlDeviceGetIndex@Base 319
  nvmlDeviceGetInforomConfigurationChecksum@Base 304
  nvmlDeviceGetInforomImageVersion@Base 304

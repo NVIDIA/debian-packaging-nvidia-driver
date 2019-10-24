@@ -2,6 +2,7 @@ libEGL_nvidia.so.0 #PACKAGE# #MINVER#
  NvEglApiGetAccess@Base 387
  NvEglDevtoolsQuery@Base 384
 #MISSING: 396# NvEglRegClientApi@Base 378
+ NvEglwlaf47906in@Base 440
  __egl_Main@Base 355
  __egl_MainInternal@Base 375
  vk_icdGetInstanceProcAddr@Base 390.25

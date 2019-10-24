@@ -29,8 +29,8 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glBeginQueryIndexed@Base 361.28
  glBeginTransformFeedback@Base 361.28
  glBeginTransformFeedbackNV@Base 361.28
- glBeginVideoCaptureNV@Base 361.28
- glBindANCCaptureStreamBufferNVX@Base 361.28
+#MISSING: 440# glBeginVideoCaptureNV@Base 361.28
+#MISSING: 440# glBindANCCaptureStreamBufferNVX@Base 361.28
  glBindAttribLocation@Base 361.28
  glBindAttribLocationARB@Base 361.28
  glBindBuffer@Base 361.28
@@ -74,8 +74,8 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glBindVertexArrayOES@Base 361.28
  glBindVertexBuffer@Base 361.28
  glBindVertexBuffers@Base 361.28
- glBindVideoCaptureStreamBufferNV@Base 361.28
- glBindVideoCaptureStreamTextureNV@Base 361.28
+#MISSING: 440# glBindVideoCaptureStreamBufferNV@Base 361.28
+#MISSING: 440# glBindVideoCaptureStreamTextureNV@Base 361.28
  glBitmap@Base 361.28
  glBlendBarrier@Base 361.28
  glBlendBarrierKHR@Base 361.28
@@ -520,7 +520,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glEndQueryIndexed@Base 361.28
  glEndTransformFeedback@Base 361.28
  glEndTransformFeedbackNV@Base 361.28
- glEndVideoCaptureNV@Base 361.28
+#MISSING: 440# glEndVideoCaptureNV@Base 361.28
  glEvalCoord1d@Base 361.28
  glEvalCoord1dv@Base 361.28
  glEvalCoord1f@Base 361.28
@@ -1002,15 +1002,15 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glGetVertexAttribiv@Base 361.28
  glGetVertexAttribivARB@Base 361.28
  glGetVertexAttribivNV@Base 361.28
- glGetVideoCaptureANCStreamivNVX@Base 361.28
- glGetVideoCaptureStreamdvNV@Base 361.28
- glGetVideoCaptureStreamfvNV@Base 361.28
- glGetVideoCaptureStreamivNV@Base 361.28
- glGetVideoCaptureivNV@Base 361.28
- glGetVideoi64vNV@Base 361.28
- glGetVideoivNV@Base 361.28
- glGetVideoui64vNV@Base 361.28
- glGetVideouivNV@Base 361.28
+#MISSING: 440# glGetVideoCaptureANCStreamivNVX@Base 361.28
+#MISSING: 440# glGetVideoCaptureStreamdvNV@Base 361.28
+#MISSING: 440# glGetVideoCaptureStreamfvNV@Base 361.28
+#MISSING: 440# glGetVideoCaptureStreamivNV@Base 361.28
+#MISSING: 440# glGetVideoCaptureivNV@Base 361.28
+#MISSING: 440# glGetVideoi64vNV@Base 361.28
+#MISSING: 440# glGetVideoivNV@Base 361.28
+#MISSING: 440# glGetVideoui64vNV@Base 361.28
+#MISSING: 440# glGetVideouivNV@Base 361.28
 #MISSING: 410# glGetVkCoreProcAddrNVX@Base 381
  glGetVkProcAddrNV@Base 364
  glGetnColorTable@Base 361.28
@@ -1545,8 +1545,8 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glPopDebugGroupOES@Base 361.28
  glPopMatrix@Base 361.28
  glPopName@Base 361.28
- glPresentFrameDualFillNV@Base 361.28
- glPresentFrameKeyedNV@Base 361.28
+#MISSING: 440# glPresentFrameDualFillNV@Base 361.28
+#MISSING: 440# glPresentFrameKeyedNV@Base 361.28
  glPrimitiveBoundingBox@Base 361.28
  glPrimitiveBoundingBoxARB@Base 361.28
  glPrimitiveBoundingBoxEXT@Base 361.28
@@ -2251,7 +2251,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glVDPAUSurfaceAccessNV@Base 361.28
  glVDPAUUnmapSurfacesNV@Base 361.28
  glVDPAUUnregisterSurfaceNV@Base 361.28
- glValidBackBufferHintAutodesk@Base 361.28
+#MISSING: 440# glValidBackBufferHintAutodesk@Base 361.28
  glValidateProgram@Base 361.28
  glValidateProgramARB@Base 361.28
  glValidateProgramPipeline@Base 361.28
@@ -2546,10 +2546,10 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glVertexP4uiv@Base 361.28
  glVertexPointer@Base 361.28
  glVertexPointerEXT@Base 361.28
- glVideoCaptureNV@Base 361.28
- glVideoCaptureStreamParameterdvNV@Base 361.28
- glVideoCaptureStreamParameterfvNV@Base 361.28
- glVideoCaptureStreamParameterivNV@Base 361.28
+#MISSING: 440# glVideoCaptureNV@Base 361.28
+#MISSING: 440# glVideoCaptureStreamParameterdvNV@Base 361.28
+#MISSING: 440# glVideoCaptureStreamParameterfvNV@Base 361.28
+#MISSING: 440# glVideoCaptureStreamParameterivNV@Base 361.28
  glViewport@Base 361.28
  glViewportArrayv@Base 361.28
  glViewportArrayvNV@Base 361.28
@@ -2569,7 +2569,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glWaitVkSemaphoreNV@Base 364
  glWeightPathsNV@Base 361.28
  glWeightPointerOES@Base 361.28
- glWindowBackBufferHintAutodesk@Base 361.28
+#MISSING: 440# glWindowBackBufferHintAutodesk@Base 361.28
  glWindowPos2d@Base 361.28
  glWindowPos2dARB@Base 361.28
  glWindowPos2dv@Base 361.28
@@ -2607,9 +2607,9 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glXBindChannelToWindowSGIX@Base 361.28
  glXBindSwapBarrierNV@Base 361.28
  glXBindTexImageEXT@Base 361.28
- glXBindVideoCaptureDeviceNV@Base 361.28
- glXBindVideoDeviceNV@Base 361.28
- glXBindVideoImageNV@Base 361.28
+#MISSING: 440# glXBindVideoCaptureDeviceNV@Base 361.28
+#MISSING: 440# glXBindVideoDeviceNV@Base 361.28
+#MISSING: 440# glXBindVideoImageNV@Base 361.28
  glXChannelRectSGIX@Base 361.28
  glXChannelRectSyncSGIX@Base 361.28
  glXChooseFBConfig@Base 361.28
@@ -2635,8 +2635,8 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glXDestroyPbuffer@Base 361.28
  glXDestroyPixmap@Base 361.28
  glXDestroyWindow@Base 361.28
- glXEnumerateVideoCaptureDevicesNV@Base 361.28
- glXEnumerateVideoDevicesNV@Base 361.28
+#MISSING: 440# glXEnumerateVideoCaptureDevicesNV@Base 361.28
+#MISSING: 440# glXEnumerateVideoDevicesNV@Base 361.28
  glXFreeContextEXT@Base 361.28
  glXFreeMemoryNV@Base 361.28
  glXGetClientString@Base 361.28
@@ -2656,15 +2656,15 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glXGetRefreshRateSGI@Base 361.28
  glXGetSelectedEvent@Base 361.28
  glXGetSelectedEventSGIX@Base 361.28
- glXGetVideoDeviceNV@Base 361.28
- glXGetVideoInfoNV@Base 361.28
+#MISSING: 440# glXGetVideoDeviceNV@Base 361.28
+#MISSING: 440# glXGetVideoInfoNV@Base 361.28
  glXGetVideoSyncSGI@Base 361.28
  glXGetVisualFromFBConfig@Base 361.28
  glXGetVisualFromFBConfigSGIX@Base 361.28
  glXImportContextEXT@Base 361.28
  glXIsDirect@Base 361.28
  glXJoinSwapGroupNV@Base 361.28
- glXLockVideoCaptureDeviceNV@Base 361.28
+#MISSING: 440# glXLockVideoCaptureDeviceNV@Base 361.28
  glXMakeContextCurrent@Base 361.28
  glXMakeCurrent@Base 361.28
  glXNamedCopyBufferSubDataNV@Base 361.28
@@ -2681,15 +2681,15 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glXQueryServerString@Base 361.28
  glXQuerySwapGroupNV@Base 361.28
  glXQueryVersion@Base 361.28
- glXQueryVideoCaptureDeviceNV@Base 361.28
+#MISSING: 440# glXQueryVideoCaptureDeviceNV@Base 361.28
  glXReleaseTexImageEXT@Base 361.28
- glXReleaseVideoCaptureDeviceNV@Base 361.28
- glXReleaseVideoDeviceNV@Base 361.28
- glXReleaseVideoImageNV@Base 361.28
+#MISSING: 440# glXReleaseVideoCaptureDeviceNV@Base 361.28
+#MISSING: 440# glXReleaseVideoDeviceNV@Base 361.28
+#MISSING: 440# glXReleaseVideoImageNV@Base 361.28
  glXResetFrameCountNV@Base 361.28
  glXSelectEvent@Base 361.28
  glXSelectEventSGIX@Base 361.28
- glXSendPbufferToVideoNV@Base 361.28
+#MISSING: 440# glXSendPbufferToVideoNV@Base 361.28
  glXSwapBuffers@Base 361.28
  glXSwapIntervalEXT@Base 361.28
  glXSwapIntervalSGI@Base 361.28

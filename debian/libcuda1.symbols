@@ -45,6 +45,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuDeviceGetByPCIBusId@Base 285
  cuDeviceGetCount@Base 169
  cuDeviceGetName@Base 169
+ cuDeviceGetNvSciSyncAttributes@Base 440
  cuDeviceGetP2PAttribute@Base 361
  cuDeviceGetPCIBusId@Base 285
  cuDeviceGetProperties@Base 169
@@ -116,7 +117,11 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGraphDestroy@Base 410
  cuGraphDestroyNode@Base 410
  cuGraphExecDestroy@Base 410
+ cuGraphExecHostNodeSetParams@Base 440
  cuGraphExecKernelNodeSetParams@Base 418
+ cuGraphExecMemcpyNodeSetParams@Base 440
+ cuGraphExecMemsetNodeSetParams@Base 440
+ cuGraphExecUpdate@Base 440
  cuGraphGetEdges@Base 410
  cuGraphGetNodes@Base 410
  cuGraphGetRootNodes@Base 410
@@ -181,6 +186,8 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuLinkCreate@Base 319
  cuLinkCreate_v2@Base 340
  cuLinkDestroy@Base 319
+ cuMemAddressFree@Base 440
+ cuMemAddressReserve@Base 440
  cuMemAdvise@Base 361.28
  cuMemAlloc@Base 169
  cuMemAllocHost@Base 169
@@ -189,11 +196,16 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemAllocPitch@Base 169
  cuMemAllocPitch_v2@Base 260
  cuMemAlloc_v2@Base 260
+ cuMemCreate@Base 440
+ cuMemExportToShareableHandle@Base 440
  cuMemFree@Base 169
  cuMemFreeHost@Base 169
  cuMemFree_v2@Base 260
+ cuMemGetAccess@Base 440
  cuMemGetAddressRange@Base 169
  cuMemGetAddressRange_v2@Base 260
+ cuMemGetAllocationGranularity@Base 440
+ cuMemGetAllocationPropertiesFromHandle@Base 440
  cuMemGetAttribute@Base 190
  cuMemGetAttribute_v2@Base 270
  cuMemGetInfo@Base 169
@@ -205,10 +217,15 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuMemHostRegister@Base 270
  cuMemHostRegister_v2@Base 340
  cuMemHostUnregister@Base 270
+ cuMemImportFromShareableHandle@Base 440
+ cuMemMap@Base 440
  cuMemPrefetchAsync@Base 367
  cuMemPrefetchAsync_ptsz@Base 367
  cuMemRangeGetAttribute@Base 367.44
  cuMemRangeGetAttributes@Base 367.44
+ cuMemRelease@Base 440
+ cuMemSetAccess@Base 440
+ cuMemUnmap@Base 440
  cuMemcpy2D@Base 169
  cuMemcpy2DAsync@Base 169
  cuMemcpy2DAsync_v2@Base 260
@@ -318,6 +335,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuModuleLoadDataEx@Base 180
  cuModuleLoadFatBinary@Base 169
  cuModuleUnload@Base 169
+ cuOccupancyAvailableDynamicSMemPerBlock@Base 440
  cuOccupancyMaxActiveBlocksPerMultiprocessor@Base 340
  cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags@Base 346
  cuOccupancyMaxPotentialBlockSize@Base 340
@@ -435,6 +453,7 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cudbgEnablePreemptionDebugging@Base 331.20
  cudbgGetAPI@Base 195
  cudbgGetAPIVersion@Base 195
+ cudbgInjectionPath@Base 440
  cudbgIpcFlag@Base 331.20
  cudbgMain@Base 304
  cudbgReportDriverApiError@Base 331.20
