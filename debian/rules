@@ -367,7 +367,8 @@ debian/control-real: $(CONTROL_FILES)
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'libcuda1=$(libcuda1)' \
 		-- \
-		debian/control.in > debian/control
+		debian/control.in > debian/control.new
+	mv debian/control.new debian/control
 	md5sum debian/control $^ > debian/control.md5sum
 	@echo
 	@echo This target is made to fail intentionally, to make sure
