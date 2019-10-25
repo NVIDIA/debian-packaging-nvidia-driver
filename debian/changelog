@@ -10,7 +10,8 @@ nvidia-graphics-drivers (390.129-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Bump Standards-Version to 4.4.1. No changes needed.
-  * debian/gen-control.pl: Support substitutions in the Architecture field.
+  * debian/gen-control.pl: Support substitutions in the Architecture field and
+    skip packages with empty or commented Architecture field.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 06 Aug 2019 19:04:49 +0200
 

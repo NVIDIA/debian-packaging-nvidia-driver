@@ -37,6 +37,7 @@ Dpkg::Control::FieldsCore::field_register(
 sub wscleanup
 {
 	$_ = shift;
+	s/#.*//;
 	s/^\s*|\s*$//g;
 	s/\s+/ /g;
 	$_;
@@ -64,8 +65,10 @@ $src_fields->{'Source'} = $substvars->substvars($src_fields->{'Source'});
 $src_fields->output(\*STDOUT);
 
 foreach my $pkg_fields ($control->get_packages()) {
-	print "\n";
 	$pkg_fields->{'Package'} = $substvars->substvars($pkg_fields->{'Package'});
 	$pkg_fields->{'Architecture'} = wscleanup($substvars->substvars($pkg_fields->{'Architecture'}));
-	$pkg_fields->output(\*STDOUT);
+	if ($pkg_fields->{'Architecture'}) {
+		print "\n";
+		$pkg_fields->output(\*STDOUT);
+	}
 }
