@@ -64,6 +64,7 @@ nvidia-graphics-drivers (440.26-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Update symbols files.
   * Refresh patches.
+  * Update lintian overrides.
   * Continue building libegl1-nvidia.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 22 Oct 2019 11:58:11 +0200
