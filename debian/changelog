@@ -9,7 +9,7 @@ nvidia-graphics-drivers (390.129-1) UNRELEASED; urgency=medium
       gdm-x-session logs.
 
   [ Andreas Beckmann ]
-  * Bump Standards-Version to 4.4.0. No changes needed.
+  * Bump Standards-Version to 4.4.1. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 06 Aug 2019 19:04:49 +0200
 
