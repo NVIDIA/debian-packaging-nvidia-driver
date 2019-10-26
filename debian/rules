@@ -15,6 +15,7 @@ XORG_BOUND		?=
 LINUX_KMOD_TESTED	?=
 NVIDIA_LEGACY_CHECK	?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
+ARCH_CANDIDATES		?= amd64 i386 armhf
 ARCH_LIST		?= amd64
 ARCH_DEPS_i386		?=
 BLOB_ARCH_LIST		?= $(strip $(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)))
@@ -296,6 +297,7 @@ override_dh_gencontrol:
 		-V'nvidia:LegacyDescShort=$(legacy_description_short)' \
 		-V'nvidia:legacy-check=$(NVIDIA_LEGACY_CHECK)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
+		$(foreach a,$(ARCH_CANDIDATES),-V'arch:$a=$(filter $a,$(DRIVER_ARCH_LIST))') \
 		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) | $${nvidia}-kernel-$${nvidia:Version}' \
 		-V'nvidia:kmod:source=$${nvidia}-kernel-dkms (>= $${nvidia:Version}) | $${nvidia}-kernel-source (>= $${nvidia:Version})' \
 		-V'nvidia:kmod:tested:Linux=$(strip $(or $(LINUX_KMOD_TESTED_$(DEB_HOST_ARCH)),$(LINUX_KMOD_TESTED),???))' \
@@ -366,6 +368,7 @@ debian/control-real: $(CONTROL_FILES)
 		-V'nvidia:if-legacy=$(nvidia_if_legacy)' \
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'libcuda1=$(libcuda1)' \
+		$(foreach a,$(ARCH_CANDIDATES),-V'arch:$a=$(filter $a,$(DRIVER_ARCH_LIST))') \
 		-- \
 		debian/control.in > debian/control.new
 	mv debian/control.new debian/control
