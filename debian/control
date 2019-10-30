@@ -454,13 +454,13 @@ Description: NVIDIA binary EGL core libraries${nvidia:LegacyDesc}
  implementation of EGL and OpenGL|ES.
 
 Package: nvidia-egl-common
-Architecture: i386 amd64 armhf
+Architecture: i386 amd64 ppc64el armhf
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Suggests:
  libegl-${nvidia}0
- | libegl-nvidia-legacy-390xx0,
+ | libegl-nvidia-legacy-390xx0 [!ppc64el],
 Description: NVIDIA binary EGL driver - common files
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
  for use with other graphics libraries, such as OpenGL|ES.
@@ -489,13 +489,13 @@ Description: NVIDIA EGL installable client driver (ICD)
  EGL via GLVND which supports NVIDIA GPUs.
 
 Package: nvidia-vulkan-common
-Architecture: i386 amd64
+Architecture: i386 amd64 ppc64el
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Suggests:
  ${nvidia}-vulkan-icd
- | nvidia-legacy-390xx-vulkan-icd,
+ | nvidia-legacy-390xx-vulkan-icd [!ppc64el],
 Conflicts:
  libgl1-${nvidia}-glx,
  libgl1-nvidia-legacy-390xx-glx,
@@ -533,13 +533,13 @@ Description: NVIDIA Vulkan installable client driver (ICD)${nvidia:LegacyDesc}
  Vulkan (GLVND variant) which supports NVIDIA GPUs.
 
 Package: nvidia-nonglvnd-vulkan-common
-Architecture: i386 amd64
+Architecture: i386 amd64 ppc64el
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Suggests:
  ${nvidia}-nonglvnd-vulkan-icd
- | nvidia-legacy-390xx-nonglvnd-vulkan-icd,
+ | nvidia-legacy-390xx-nonglvnd-vulkan-icd [!ppc64el],
 Conflicts:
  libgl1-${nvidia}-glvnd-glx,
  libgl1-nvidia-legacy-390xx-glvnd-glx,
@@ -1090,13 +1090,13 @@ Description: NVIDIA Management Library (NVML) runtime library${nvidia:LegacyDesc
  This package contains the nvidia-ml runtime library.
 
 Package: nvidia-opencl-common
-Architecture: i386 amd64
+Architecture: i386 amd64 ppc64el
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Suggests:
  ${nvidia}-opencl-icd
- | nvidia-legacy-390xx-opencl-icd,
+ | nvidia-legacy-390xx-opencl-icd [!ppc64el],
 Description: NVIDIA OpenCL driver - common files
  OpenCL (Open Computing Language) is a multivendor open standard for
  general-purpose parallel programming of heterogeneous systems that include
