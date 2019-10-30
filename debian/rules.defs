@@ -16,7 +16,7 @@ LINUX_KMOD_TESTED_ppc64el=
 ARCH_LIST		 = amd64
 ARCH_LIST		+= i386
 ARCH_LIST		+= armhf
-#ARCH_LIST		+= ppc64el
+ARCH_LIST		+= ppc64el
 NO_DRIVER_ARCH_LIST	 = i386 armhf
 ifeq (,$(NVIDIA_TESLA))
 NO_DRIVER_ARCH_LIST	+= ppc64el
