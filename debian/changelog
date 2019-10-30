@@ -17,7 +17,8 @@ nvidia-graphics-drivers (418.88-1) unstable; urgency=medium
       Quadro RTX 5000 with Max-Q Design, Quadro T1000, Quadro T2000.
     - Fixed a bug, introduced in 415.13, that caused audio over DisplayPort to
       not work in some configurations.
-    * Improved compatibility with recent Linux kernels.  (Closes: #934344)
+    * Improved compatibility with recent Linux kernels.
+      (Closes: #934290, #934344, #934648)
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
@@ -103,6 +104,13 @@ nvidia-graphics-drivers (418.43-1) experimental; urgency=medium
       o NvEncodeAPI now accepts CUarrays as input buffers. The SDK contains
         a sample application to demonstrate how to feed a Vulkan image to
         NVENC using the Vulkan-CUDA interop.
+    - Updated the NVIDIA VDPAU driver to support allocating VDPAU video
+      surfaces with explicit field or frame picture structure.
+    - Added support for the GL_NV_vdpau_interop2 OpenGL extension,
+      which allows VDPAU/OpenGL surface sharing with explicit field or
+      frame picture structure. Picture structure selection by applications
+      can avoid the need for implicit surface structure conversion by
+      the OpenGL implementation.
     - Added NVIDIA optical flow support.
       A new library libnvidia-opticalflow.so is included in the driver package.
       The NVIDIA optical flow library can be used for hardware-accelerated
