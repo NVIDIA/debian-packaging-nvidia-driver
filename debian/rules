@@ -118,16 +118,28 @@ NVIDIA-Linux-%:
 	ln -s ${NVIDIA_DIRNAME_$*} $@
 	gunzip $@/*.1.gz
 
+ifneq (,$(filter i386,$(NO_DRIVER_ARCH_LIST)))
 NVIDIA-Linux-i386: NVIDIA-Linux-amd64
 	$(RM) -r $@
 	cp -al $</32 $@
 	cp -al $</*.icd $@
 	cp -al $</*.json* $@
+endif
 
+ifneq (,$(filter armhf,$(NO_DRIVER_ARCH_LIST)))
 NVIDIA-Linux-armhf: NVIDIA-Linux-amd64
 	$(RM) -r $@
 	mkdir $@
 	cp -al $</*.json $@
+endif
+
+ifneq (,$(filter ppc64el,$(NO_DRIVER_ARCH_LIST)))
+NVIDIA-Linux-ppc64el: NVIDIA-Linux-amd64
+	$(RM) -r $@
+	mkdir $@
+	cp -al $</*.icd $@
+	cp -al $</*.json* $@
+endif
 
 # Unpack all architectures, we may need files from all of them.
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
