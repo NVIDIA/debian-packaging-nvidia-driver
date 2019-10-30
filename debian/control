@@ -1098,6 +1098,7 @@ Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
+ ${libcuda1} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Homepage: https://developer.nvidia.com/opticalflow-sdk
 Description: NVIDIA Optical Flow runtime library${nvidia:VariantDesc}
