@@ -16,7 +16,7 @@ Build-Depends:
  xz-utils,
  dkms,
  libvulkan1 (>= 1.0.42),
- libxext6 [!ppc64el],
+ libxext6,
  quilt,
  po-debconf,
  libglvnd-dev,
@@ -75,7 +75,7 @@ Pre-Depends:
  dpkg (>= 1.17.21),
  ${nvidia:legacy-check},
 Depends:
- glx-alternative-nvidia (>= 0.9) [!ppc64el],
+ glx-alternative-nvidia (>= 0.9),
  ${misc:Depends}
 Provides:
  ${nvidia}-alternative--kmod-alias,
@@ -109,7 +109,7 @@ Multi-Arch: foreign
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${nvidia}-alternative--kmod-alias,
- nvidia-kernel-common (>= 20151021) [!ppc64el],
+ nvidia-kernel-common (>= 20151021),
  nvidia-modprobe (>= 352),
  ${misc:Depends}
 Provides:
@@ -609,7 +609,8 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Suggests:
- libegl-${nvidia}0
+ libegl-${nvidia}0 [i386 amd64 ${arch:ppc64el}]
+ | libegl-nvidia-tesla0 [!i386 !armhf]
  | libegl-nvidia-legacy-390xx0 [!ppc64el],
 Description: NVIDIA binary EGL driver - common files
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
@@ -676,10 +677,12 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Suggests:
- ${nvidia}-vulkan-icd
+ ${nvidia}-vulkan-icd [i386 amd64 ${arch:ppc64el}]
+ | nvidia-tesla-vulkan-icd [!i386]
  | nvidia-legacy-390xx-vulkan-icd [!ppc64el],
 Conflicts:
  libgl1-${nvidia}-glx,
+ libgl1-nvidia-tesla-glx,
  libgl1-nvidia-legacy-390xx-glx,
  nvidia-nonglvnd-vulkan-common,
 Description: NVIDIA Vulkan driver - common files
@@ -720,10 +723,12 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Suggests:
- ${nvidia}-nonglvnd-vulkan-icd
+ ${nvidia}-nonglvnd-vulkan-icd [i386 amd64 ${arch:ppc64el}]
+ | nvidia-tesla-nonglvnd-vulkan-icd [!i386]
  | nvidia-legacy-390xx-nonglvnd-vulkan-icd [!ppc64el],
 Conflicts:
  libgl1-${nvidia}-glvnd-glx,
+ libgl1-nvidia-tesla-glvnd-glx,
  libgl1-nvidia-legacy-390xx-glvnd-glx,
  nvidia-vulkan-common,
 Description: NVIDIA Vulkan driver - common files (non-GLVND variant)
@@ -1095,7 +1100,8 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Suggests:
- ${nvidia}-opencl-icd
+ ${nvidia}-opencl-icd [i386 amd64 ${arch:ppc64el}]
+ | nvidia-tesla-opencl-icd [!i386]
  | nvidia-legacy-390xx-opencl-icd [!ppc64el],
 Description: NVIDIA OpenCL driver - common files
  OpenCL (Open Computing Language) is a multivendor open standard for
