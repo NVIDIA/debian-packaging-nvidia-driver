@@ -3,6 +3,8 @@ nvidia-graphics-drivers (418.88-2) UNRELEASED; urgency=medium
   * debian/gen-control.pl: Support substitutions in the Architecture field and
     skip packages with empty or commented Architecture field.
   * Build the nvidia-*-common packages for ppc64el.
+  * Prepare infrastructure for packaging Tesla driver releases (available for
+    amd64 (including some i386 libs) and ppc64el).
   * Bump Standards-Version to 4.4.1. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 30 Oct 2019 11:21:31 +0100
