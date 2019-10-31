@@ -618,6 +618,26 @@ Description: NVIDIA Vulkan installable client driver (ICD)${nvidia:LegacyDesc}
  This metapackage provides the NVIDIA installable client driver (ICD) for
  Vulkan (GLVND variant) which supports NVIDIA GPUs.
 
+Package: nvidia-nonglvnd-vulkan-common
+Architecture: i386 amd64 ppc64el
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends}
+Suggests:
+ ${nvidia}-nonglvnd-vulkan-icd [none]
+ | nvidia-tesla-nonglvnd-vulkan-icd [!i386]
+ | nvidia-legacy-390xx-nonglvnd-vulkan-icd [!ppc64el],
+Conflicts:
+ libgl1-${nvidia}-glvnd-glx,
+ libgl1-nvidia-tesla-glvnd-glx,
+ libgl1-nvidia-legacy-390xx-glvnd-glx,
+ nvidia-vulkan-common,
+Description: NVIDIA Vulkan driver - common files (non-GLVND variant)
+ Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
+ .
+ This package provides the common files for the NVIDIA installable client
+ driver (ICD) for Vulkan (non-GLVND variant).
+
 Package: libnvidia-glvkspirv
 Architecture: i386 amd64
 Multi-Arch: same

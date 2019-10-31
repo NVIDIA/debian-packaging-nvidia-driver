@@ -87,6 +87,7 @@ AUTOGEN		+= debian/module/debian/changelog
 AUTOGEN		+= $(patsubst %.in,%,$(RENAMED_CONTROL))
 AUTOGEN		+= debian/bug-control
 AUTOGEN		+= debian/substvars
+AUTOGEN		+= $(if $(has_vulkan),nonglvnd/nvidia_icd.json)
 AUTOGEN		+= $(AUTOKEEP)
 AUTOKEEP	 = debian/watch debian/control
 AUTOCLEAN	 = $(filter-out $(AUTOKEEP),$(AUTOGEN))
@@ -154,6 +155,12 @@ endif
 	ls -al
 	touch $@
 
+nvidia_icd.json.template	 = NVIDIA-Linux/nvidia_icd.json
+$(nvidia_icd.json.template): unpack-stamp
+nonglvnd/nvidia_icd.json: $(nvidia_icd.json.template)
+	mkdir -p $(@D)
+	sed 's/libGLX_nvidia.so.0/libGL.so.1/' $< > $@
+
 nv-readme.ids: unpack-stamp
 	sed	-e '0,/A. Supported\|APPENDIX A: SUPPORTED/d' \
 		-e '0,/Appendix A. Supported\|APPENDIX A: SUPPORTED/d' \
@@ -189,6 +196,7 @@ override_dh_auto_clean:
 	$(RM) -r .pc
 	$(RM) NVIDIA-Linux
 	$(RM) -r $(foreach a,$(ARCH_LIST),NVIDIA-Linux-$a $(NVIDIA_DIRNAME_$a))
+	$(RM) -r nonglvnd
 	$(RM) -r kernel-source-tree
 	$(RM) nvidia.ids nv-readme.ids pci.ids.nvidia*
 	$(RM) LICENSE.txt LICENSE.tmp copyright.tmp
