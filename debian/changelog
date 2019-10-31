@@ -1,6 +1,7 @@
 nvidia-graphics-drivers (435.21-2) UNRELEASED; urgency=medium
 
   * Merge changes from 430.50-2.
+  * Restrict watch file to releases from the 435.xx short lived branch.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 31 Oct 2019 01:34:13 +0100
 
