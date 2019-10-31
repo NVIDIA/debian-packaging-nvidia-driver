@@ -57,17 +57,17 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuDeviceTotalMem@Base 169
  cuDeviceTotalMem_v2@Base 260
  cuDriverGetVersion@Base 185
- (arch=!i386)cuEGLApiInit@Base 390
-#MISSING: 390# (arch=!i386)cuEGLInit@Base 346
- (arch=!i386)cuEGLStreamConsumerAcquireFrame@Base 346
- (arch=!i386)cuEGLStreamConsumerConnect@Base 346
- (arch=!i386)cuEGLStreamConsumerConnectWithFlags@Base 367.44
- (arch=!i386)cuEGLStreamConsumerDisconnect@Base 346
- (arch=!i386)cuEGLStreamConsumerReleaseFrame@Base 346
- (arch=!i386)cuEGLStreamProducerConnect@Base 346
- (arch=!i386)cuEGLStreamProducerDisconnect@Base 346
- (arch=!i386)cuEGLStreamProducerPresentFrame@Base 349
- (arch=!i386)cuEGLStreamProducerReturnFrame@Base 349
+ (arch=amd64)cuEGLApiInit@Base 390
+#MISSING: 390# (arch=amd64)cuEGLInit@Base 346
+ (arch=amd64)cuEGLStreamConsumerAcquireFrame@Base 346
+ (arch=amd64)cuEGLStreamConsumerConnect@Base 346
+ (arch=amd64)cuEGLStreamConsumerConnectWithFlags@Base 367.44
+ (arch=amd64)cuEGLStreamConsumerDisconnect@Base 346
+ (arch=amd64)cuEGLStreamConsumerReleaseFrame@Base 346
+ (arch=amd64)cuEGLStreamProducerConnect@Base 346
+ (arch=amd64)cuEGLStreamProducerDisconnect@Base 346
+ (arch=amd64)cuEGLStreamProducerPresentFrame@Base 349
+ (arch=amd64)cuEGLStreamProducerReturnFrame@Base 349
  cuEventCreate@Base 169
  cuEventDestroy@Base 169
  cuEventDestroy_v2@Base 270
@@ -136,12 +136,12 @@ libcuda.so.1 #PACKAGE# #MINVER#
  cuGraphNodeGetDependentNodes@Base 410
  cuGraphNodeGetType@Base 410
  cuGraphRemoveDependencies@Base 410
- (arch=!i386)cuGraphicsEGLRegisterImage@Base 346
+ (arch=amd64)cuGraphicsEGLRegisterImage@Base 346
  cuGraphicsGLRegisterBuffer@Base 195
  cuGraphicsGLRegisterImage@Base 195
  cuGraphicsMapResources@Base 195
  cuGraphicsMapResources_ptsz@Base 346
- (arch=!i386)cuGraphicsResourceGetMappedEglFrame@Base 349
+ (arch=amd64)cuGraphicsResourceGetMappedEglFrame@Base 349
  cuGraphicsResourceGetMappedMipmappedArray@Base 304
  cuGraphicsResourceGetMappedPointer@Base 195
  cuGraphicsResourceGetMappedPointer_v2@Base 260

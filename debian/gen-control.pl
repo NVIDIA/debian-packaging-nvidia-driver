@@ -34,6 +34,15 @@ Dpkg::Control::FieldsCore::field_register(
 	name => 'XS-Autobuild',
 );
 
+sub wscleanup
+{
+	$_ = shift;
+	s/#.*//;
+	s/^\s*|\s*$//g;
+	s/\s+/ /g;
+	$_;
+}
+
 my $substvars = Dpkg::Substvars->new();
 
 while (@ARGV) {
@@ -56,7 +65,10 @@ $src_fields->{'Source'} = $substvars->substvars($src_fields->{'Source'});
 $src_fields->output(\*STDOUT);
 
 foreach my $pkg_fields ($control->get_packages()) {
-	print "\n";
 	$pkg_fields->{'Package'} = $substvars->substvars($pkg_fields->{'Package'});
-	$pkg_fields->output(\*STDOUT);
+	$pkg_fields->{'Architecture'} = wscleanup($substvars->substvars($pkg_fields->{'Architecture'}));
+	if ($pkg_fields->{'Architecture'}) {
+		print "\n";
+		$pkg_fields->output(\*STDOUT);
+	}
 }

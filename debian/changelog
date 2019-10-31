@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (435.21-2) UNRELEASED; urgency=medium
+
+  * Merge changes from 430.50-2.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 31 Oct 2019 01:34:13 +0100
+
 nvidia-graphics-drivers (435.21-1) experimental; urgency=medium
 
   * New upstream short lived branch release 435.21 (2019-08-29).
@@ -49,12 +55,37 @@ nvidia-graphics-drivers (435.21-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 31 Aug 2019 00:15:24 +0200
 
+nvidia-graphics-drivers (430.50-2) unstable; urgency=medium
+
+  * debian/gen-control.pl: Support substitutions in the Architecture field and
+    skip packages with empty or commented Architecture field.
+  * Build the nvidia-*-common packages for ppc64el.
+  * Prepare infrastructure for packaging Tesla driver releases (available for
+    amd64 (including some i386 libs) and ppc64el).
+  * Bump Standards-Version to 4.4.1. No changes needed.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 30 Oct 2019 21:04:31 +0100
+
+nvidia-graphics-drivers (430.50-1) unstable; urgency=medium
+
+  * New upstream long lived branch release 430.50 (2019-09-11).
+
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+  * Update symbols files.
+  * conftest-prefer-arch-headers.patch: New, prefer arch headers over common
+    headers, thanks to Paul Szabo.  (Closes: #933309)
+  * Restrict watch file to releases from the 430.xx long lived branch.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 16 Sep 2019 14:00:06 +0200
+
 nvidia-graphics-drivers (430.40-2) unstable; urgency=medium
 
   * Mark GPUs with Kepler notebook chips as legacy, supported only up to
     nvidia-legacy-390xx-driver. Support was dropped in the 430 series.
     https://nvidia.custhelp.com/app/answers/detail/a_id/4779
     https://nvidia.custhelp.com/app/answers/detail/a_id/4788
+  * nvidia-detect: Fix bullseye detection.  (Closes: #934288)
   * Upload to unstable.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 30 Aug 2019 10:46:18 +0200
@@ -109,12 +140,12 @@ nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
       VDP_YCBCR_FORMAT_Y_U_V_444 for accessing YUV 4:4:4 surfaces via
       VdpVideoSurfaceGetBitsYCbCr() and VdpVideoSurfacePutBitsYCbCr()
       in the NVIDIA VDPAU driver.
-    - Added support for creation of YUV 4:4:4 video surfaces in
-      the NVIDIA VDPAU driver.
     - Fixed display color range handling on pre-Turing GPUs, such that when
       limited color range is selected through the display controls page in
       nvidia-settings, output pixel values will be correctly clamped to
       Consumer Technology Association (CTA) range.
+    - Added support for creation of YUV 4:4:4 video surfaces in
+      the NVIDIA VDPAU driver.
     - Raised the minimum supported X.Org xserver version to 1.7 (video driver
       ABI version 6).
 
@@ -134,10 +165,12 @@ nvidia-graphics-drivers (418.88-1) unstable; urgency=medium
       Quadro RTX 5000 with Max-Q Design, Quadro T1000, Quadro T2000.
     - Fixed a bug, introduced in 415.13, that caused audio over DisplayPort to
       not work in some configurations.
-    * Improved compatibility with recent Linux kernels.  (Closes: #934344)
+    * Improved compatibility with recent Linux kernels.
+      (Closes: #934290, #934344, #934648)
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
+  * Bump Standards-Version to 4.4.0. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2019 23:41:02 +0200
 
@@ -579,9 +612,6 @@ nvidia-graphics-drivers (390.129-1) UNRELEASED; urgency=medium
   * New upstream legacy branch release 340 series.
     - Updated nvidia-bug-report.sh to search the systemd journal for
       gdm-x-session logs.
-
-  [ Andreas Beckmann ]
-  * Bump Standards-Version to 4.4.0. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 06 Aug 2019 19:04:49 +0200
 

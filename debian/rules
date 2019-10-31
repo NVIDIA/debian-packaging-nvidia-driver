@@ -7,6 +7,7 @@ include /usr/share/dpkg/architecture.mk
 include /usr/share/dpkg/pkg-info.mk
 
 include debian/rules.defs
+NVIDIA_TESLA		?=
 NVIDIA_LEGACY		?=
 WATCH_VERSION		?= $(NVIDIA_LEGACY)
 WATCH_PATTERN		?=
@@ -15,6 +16,7 @@ XORG_BOUND		?=
 LINUX_KMOD_TESTED	?=
 NVIDIA_LEGACY_CHECK	?=
 NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
+ARCH_CANDIDATES		?= amd64 i386 armhf ppc64el
 ARCH_LIST		?= amd64
 BLOB_ARCH_LIST		?= $(strip $(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)))
 NO_DRIVER_ARCH_LIST	?=
@@ -61,10 +63,12 @@ CONTROL_PREFIXES	+= libgles-nvidia1 libgles-nvidia2
 CONTROL_PREFIXES	+= nvidia-vdpau-driver
 CONTROL_PREFIXES	+= libcuda1
 CONTROL_PREFIXES	+= libnvcuvid1
+CONTROL_PREFIXES	+= libnvoptix1
 CONTROL_PREFIXES	+= nvidia-smi
 CONTROL_PREFIXES	+= nvidia-opencl-icd
 RENAME_libcuda1		 = $(libcuda1)
 RENAME_libnvcuvid1	 = lib$(nvidia_if_legacy)nvcuvid1
+RENAME_libnvoptix1	 = lib$(nvidia_if_legacy)nvoptix1
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
 CONTROL_PREFIXES_RENAMED = $(foreach p,$(CONTROL_PREFIXES),$(call renamed_prefix,$p))
 
@@ -115,16 +119,28 @@ NVIDIA-Linux-%:
 	ln -s ${NVIDIA_DIRNAME_$*} $@
 	gunzip $@/*.1.gz
 
+ifneq (,$(filter i386,$(NO_DRIVER_ARCH_LIST)))
 NVIDIA-Linux-i386: NVIDIA-Linux-amd64
 	$(RM) -r $@
 	cp -al $</32 $@
 	cp -al $</*.icd $@
 	cp -al $</*.json* $@
+endif
 
+ifneq (,$(filter armhf,$(NO_DRIVER_ARCH_LIST)))
 NVIDIA-Linux-armhf: NVIDIA-Linux-amd64
 	$(RM) -r $@
 	mkdir $@
 	cp -al $</*.json $@
+endif
+
+ifneq (,$(filter ppc64el,$(NO_DRIVER_ARCH_LIST)))
+NVIDIA-Linux-ppc64el: NVIDIA-Linux-amd64
+	$(RM) -r $@
+	mkdir $@
+	cp -al $</*.icd $@
+	cp -al $</*.json* $@
+endif
 
 # Unpack all architectures, we may need files from all of them.
 unpack-stamp: $(patsubst %,NVIDIA-Linux-%,$(ARCH_LIST))
@@ -300,6 +316,7 @@ override_dh_gencontrol:
 		-V'nvidia:legacy-check=$(NVIDIA_LEGACY_CHECK)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
 		-V'nvidia:debhelper-compat=$(debhelper_compat)' \
+		$(foreach a,$(ARCH_CANDIDATES),-V'arch:$a=$(filter $a,$(DRIVER_ARCH_LIST))') \
 		-V'nvidia:arch:has-driver=$(if $(has_driver),,!)$(DEB_HOST_ARCH)' \
 		-V'nvidia:arch:has-no-driver=$(if $(has_driver),!,)$(DEB_HOST_ARCH)' \
 		-V'nvidia:kmod:binary=$${nvidia}-kernel-dkms (= $${binary:Version}) [$${nvidia:arch:has-driver}] | $${nvidia}-kernel-$${nvidia:Version} [$${nvidia:arch:has-driver}]' \
@@ -373,8 +390,10 @@ debian/control-real: $(CONTROL_FILES)
 		-V'nvidia:if-legacy=$(nvidia_if_legacy)' \
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'libcuda1=$(libcuda1)' \
+		$(foreach a,$(ARCH_CANDIDATES),-V'arch:$a=$(filter $a,$(DRIVER_ARCH_LIST))') \
 		-- \
-		debian/control.in > debian/control
+		debian/control.in > debian/control.new
+	mv debian/control.new debian/control
 	md5sum debian/control $^ > debian/control.md5sum
 	@echo
 	@echo This target is made to fail intentionally, to make sure
@@ -428,7 +447,7 @@ ORIGDIR.empty		?= $(ORIGDIR)
 TARBALL.empty		?= $(TARBALL)
 
 # $1 = arch
-get_download_url	 = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(HTTPURL_ARCHDIR_$(strip $1))/$(NVIDIA_RELEASE)/$(NVIDIA_FILENAME_$(strip $1))
+get_download_url	 = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(HTTPURL_ARCHDIR_$(strip $1))/$(HTTPURL_VERDIR)/$(NVIDIA_FILENAME_$(strip $1))
 get_origdir		 = $(or $(ORIGDIR.$(strip $1)),$(ORIGDIR)-$(strip $1))
 get_tarball		 = $(or $(TARBALL.$(strip $1)),$(TARBALL_BASE)-$(strip $1)$(TARBALL_SUFFIX))
 
