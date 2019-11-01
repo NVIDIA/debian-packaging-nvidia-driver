@@ -988,6 +988,21 @@ Description: NVIDIA Optical Flow runtime library${nvidia:LegacyDesc}
  .
  This package contains the Optical Flow runtime library.
 
+Package: libnvidia-allocator1
+Architecture: i386 amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${libcuda1} (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA allocator runtime library${nvidia:LegacyDesc}
+ The NVIDIA binary driver provides optimized hardware acceleration of
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
+ .
+ This package contains the private nvidia-allocator runtime library.
+
 Package: nvidia-opencl-common
 Architecture: i386 amd64 ppc64el
 Multi-Arch: foreign

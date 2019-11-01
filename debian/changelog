@@ -66,6 +66,7 @@ nvidia-graphics-drivers (440.26-1) UNRELEASED; urgency=medium
   * Refresh patches.
   * Update lintian overrides.
   * Continue building libegl1-nvidia.
+  * libnvidia-allocator1: New package for the allocator runtime library.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 22 Oct 2019 11:58:11 +0200
 

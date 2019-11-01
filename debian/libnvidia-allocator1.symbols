@@ -1,0 +1,13 @@
+libnvidia-allocator.so.1 #PACKAGE# #MINVER#
+* Build-Depends-Package: #PACKAGE#
+ NvRmShimAllocMem@Base 440
+ NvRmShimCloseGpuInstance@Base 440
+ NvRmShimDupMemContext@Base 440
+ NvRmShimFlushCpuCache@Base 440
+ NvRmShimFreeMem@Base 440
+ NvRmShimGetVersion@Base 440
+ NvRmShimMapMemory@Base 440
+ NvRmShimOpenGpuInstance@Base 440
+ NvRmShimSessionCreate@Base 440
+ NvRmShimSessionDestroy@Base 440
+ NvRmShimUnMapMemory@Base 440
