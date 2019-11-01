@@ -1,0 +1,58 @@
+libEGL.so.1 libegl1-mesa
+#MISSING: 384# (arch=i386)AllocExecPages@Base 375
+#MISSING: 384# (arch=i386)FindNextStringToken@Base 375
+#MISSING: 384# (arch=i386)FreeExecPages@Base 375
+#MISSING: 384# (arch=i386)IntersectionExtensionStrings@Base 375.20
+#MISSING: 384# (arch=i386)IsTokenInString@Base 375
+#MISSING: 384# (arch=i386)SplitString@Base 375
+#MISSING: 384# (arch=i386)UnionExtensionStrings@Base 375.20
+#MISSING: 384# (arch=i386)__eglLookupVendorByName@Base 375.20
+#MISSING: 384# (arch=i386)__eglTeardownVendor@Base 375.20
+#MISSING: 384# (arch=i386)__glvnd_dbg_printf@Base 375
+ eglBindAPI@Base 331
+ eglBindTexImage@Base 331
+ eglChooseConfig@Base 331
+ eglClientWaitSync@Base 387
+ eglCopyBuffers@Base 331
+ eglCreateContext@Base 331
+ eglCreateImage@Base 387
+ eglCreatePbufferFromClientBuffer@Base 331
+ eglCreatePbufferSurface@Base 331
+ eglCreatePixmapSurface@Base 331
+ eglCreatePlatformPixmapSurface@Base 387
+ eglCreatePlatformWindowSurface@Base 387
+ eglCreateSync@Base 387
+ eglCreateWindowSurface@Base 331
+ eglDestroyContext@Base 331
+ eglDestroyImage@Base 387
+ eglDestroySurface@Base 331
+ eglDestroySync@Base 387
+ eglGetConfigAttrib@Base 331
+ eglGetConfigs@Base 331
+ eglGetCurrentContext@Base 331
+ eglGetCurrentDisplay@Base 331
+ eglGetCurrentSurface@Base 331
+ eglGetDisplay@Base 331
+ eglGetError@Base 331
+ eglGetPlatformDisplay@Base 387
+ eglGetProcAddress@Base 331
+ eglGetSyncAttrib@Base 387
+ eglInitialize@Base 331
+ eglMakeCurrent@Base 331
+ eglQueryAPI@Base 331
+ eglQueryContext@Base 331
+ eglQueryString@Base 331
+ eglQuerySurface@Base 331
+ eglReleaseTexImage@Base 331
+ eglReleaseThread@Base 331
+ eglSurfaceAttrib@Base 331
+ eglSwapBuffers@Base 331
+ eglSwapInterval@Base 331
+ eglTerminate@Base 331
+ eglWaitClient@Base 331
+ eglWaitGL@Base 331
+ eglWaitNative@Base 331
+ eglWaitSync@Base 387
+#MISSING: 384# (arch=i386)glvnd_asprintf@Base 375
+#MISSING: 384# (arch=i386)glvnd_byte_swap16@Base 375
+#MISSING: 384# (arch=i386)glvnd_vasprintf@Base 375

@@ -410,6 +410,25 @@ Description: NVIDIA binary OpenGL/GLX core libraries${nvidia:LegacyDesc}
  This package contains the private core libraries used by the NVIDIA
  implementation of OpenGL and GLX.
 
+Package: libegl1-nvidia
+Architecture: amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${nvidia}-alternative (= ${binary:Version}),
+ libegl-${nvidia}0 (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Conflicts:
+ ${nvidia}-driver-libs,
+ libgl1-${nvidia}-glvnd-glx,
+Description: NVIDIA binary EGL library (non-GLVND variant)${nvidia:LegacyDesc}
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES.
+ .
+ This package contains the driver specific binary EGL implementation by NVIDIA
+ as a non-GLVND alternative.
+
 Package: libegl-nvidia0
 Architecture: i386 amd64
 Multi-Arch: same

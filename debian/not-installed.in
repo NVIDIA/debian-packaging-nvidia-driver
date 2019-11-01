@@ -34,8 +34,6 @@ nvidia-xconfig.1
 libnvidia-egl-wayland.so.1.1.3
 10_nvidia_wayland.json
 
-libEGL.so.#VERSION#
-
 libEGL.so.1.1.0
 libGL.so.1.7.0
 libGLESv1_CM.so.1.2.0
