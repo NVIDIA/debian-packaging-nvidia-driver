@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (440.26-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (440.26-1) experimental; urgency=medium
 
   * New upstream beta 440.26 (2019-10-17).
     - Enabled parallel GLSL shader linking by default; i.e., allow
@@ -67,8 +67,9 @@ nvidia-graphics-drivers (440.26-1) UNRELEASED; urgency=medium
   * Update lintian overrides.
   * Continue building libegl1-nvidia.
   * libnvidia-allocator1: New package for the allocator runtime library.
+  * Upload to experimental.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 22 Oct 2019 11:58:11 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 02 Nov 2019 18:31:45 +0100
 
 nvidia-graphics-drivers (435.21-2) experimental; urgency=medium
 
