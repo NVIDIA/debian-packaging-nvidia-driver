@@ -19,6 +19,7 @@ ARCH_CANDIDATES		?= amd64 i386 armhf
 ARCH_LIST		?= amd64
 ARCH_DEPS_i386		?=
 BLOB_ARCH_LIST		?= $(strip $(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)))
+NO_DRIVER_ARCH_LIST	?=
 NO_UVM_ARCH_LIST	?=
 NO_VULKAN_ARCH_LIST	?=
 
@@ -37,6 +38,7 @@ legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version)
 legacy_description_short = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy))
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),\d[\d\.\-]*)
 debhelper_compat	:= $(shell sed -rn 's/.*debhelper-compat \(= ([0-9]+)\).*/\1/p' debian/control)
+DRIVER_ARCH_LIST	 = $(filter-out $(NO_DRIVER_ARCH_LIST),$(ARCH_LIST))
 
 # this needs the internal names (i.e. upstream's names, not our renamed files)
 unload_modules		 =
