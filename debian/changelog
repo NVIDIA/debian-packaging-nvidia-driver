@@ -13,6 +13,7 @@ nvidia-graphics-drivers (418.113-1) UNRELEASED; urgency=medium
       installation or DKMS rebuilds with Linux 5.4 RC kernels.
 
   [ Andreas Beckmann ]
+  * Update nv-readme.ids.
   * debian/gen-control.pl: Support substitutions in the Architecture field and
     skip packages with empty or commented Architecture field.
   * Build the nvidia-*-common packages for ppc64el.
