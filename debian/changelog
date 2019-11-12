@@ -1,3 +1,17 @@
+nvidia-graphics-drivers (430.64-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 430.64 (2019-11-05).
+    - Fixed a bug that could cause the X server to crash when running
+      applications using GLX indirect rendering.
+    - Fall back to system memory when video memory is full for some
+      driver-internal allocations. This can help fix Xid 13 and
+      Xid 31 cases in Vulkan applications when video memory is full.
+    - Fixed a bug that could cause a blank screen on some DisplayPort
+      monitors when logging in to GNOME, if the nvidia-drm kernel module
+      parameter modeset=1 is specified.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 22:24:34 +0100
+
 nvidia-graphics-drivers (430.50-2) unstable; urgency=medium
 
   * debian/gen-control.pl: Support substitutions in the Architecture field and
