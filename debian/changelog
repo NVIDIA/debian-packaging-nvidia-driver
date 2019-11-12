@@ -1,5 +1,18 @@
-nvidia-graphics-drivers (418.88-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (418.113-1) UNRELEASED; urgency=medium
 
+  * New upstream long lived branch release 418.113 (2019-11-05).
+    - Fixed a bug that prevented NVIDIA GPUs from entering the low-power
+      D3 state when entering suspend-to-idle (s2idle). Note that on some
+      systems this may expose an existing timing issue in the Linux kernel;
+      see the "Known Issues and Workarounds" section of the "Configuring
+      Power Management Support" chapter of the README for more details.
+    - Updated the Module.symvers sanity check, which is part of the NVIDIA
+      kernel module build process, to accommodate the recent addition of a
+      new field in the Module.symvers file format. This fixes the error
+      "The Module.symvers file is missing [...]" seen during driver
+      installation or DKMS rebuilds with Linux 5.4 RC kernels.
+
+  [ Andreas Beckmann ]
   * debian/gen-control.pl: Support substitutions in the Architecture field and
     skip packages with empty or commented Architecture field.
   * Build the nvidia-*-common packages for ppc64el.
@@ -7,7 +20,7 @@ nvidia-graphics-drivers (418.88-2) UNRELEASED; urgency=medium
     amd64 (including some i386 libs) and ppc64el).
   * Bump Standards-Version to 4.4.1. No changes needed.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 30 Oct 2019 11:21:31 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 05:46:46 +0100
 
 nvidia-graphics-drivers (418.88-1) unstable; urgency=medium
 
