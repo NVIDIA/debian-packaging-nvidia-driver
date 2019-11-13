@@ -10,6 +10,7 @@ nvidia-graphics-drivers (390.132-1) UNRELEASED; urgency=medium
       of the DRIVER_PRIME flag in recent Linux kernel versions.
 
   [ Andreas Beckmann ]
+  * Refresh patches.
   * debian/gen-control.pl: Support substitutions in the Architecture field and
     skip packages with empty or commented Architecture field.
   * Bump Standards-Version to 4.4.1. No changes needed.
