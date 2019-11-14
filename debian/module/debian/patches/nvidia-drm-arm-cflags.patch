@@ -9,7 +9,7 @@ Description: Add -Wa,-mimplicit-it=thumb to CFLAGS if building on ARM
 
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -179,7 +179,7 @@ build_cflags() {
+@@ -185,7 +185,7 @@ build_cflags() {
      done
  
      if [ "$ARCH" = "arm" ]; then

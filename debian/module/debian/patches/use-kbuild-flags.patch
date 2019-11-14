@@ -5,7 +5,7 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -95,6 +95,7 @@ NV_CONFTEST_CMD := /bin/sh $(NV_CONFTEST
+@@ -104,6 +104,7 @@ NV_CONFTEST_CMD := /bin/sh $(NV_CONFTEST
   "$(CC)" "$(HOST_CC)" $(ARCH) $(NV_KERNEL_SOURCES) $(NV_KERNEL_OUTPUT)
  
  NV_CONFTEST_CFLAGS := $(shell $(NV_CONFTEST_CMD) build_cflags)
@@ -26,7 +26,7 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
  #
 --- a/Makefile
 +++ b/Makefile
-@@ -109,7 +109,7 @@ else
+@@ -111,7 +111,7 @@ else
    # cannot be defined in the *Kbuild files, which are only used during stage 1.
  
    %-linux.o: modules

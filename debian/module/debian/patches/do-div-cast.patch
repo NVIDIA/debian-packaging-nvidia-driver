@@ -9,7 +9,7 @@ Description: Change NVKMS_USECS_TO_JIFFIES to pass unsigned long long to do_div
 
 --- a/nvidia-modeset/nvidia-modeset-linux.c
 +++ b/nvidia-modeset/nvidia-modeset-linux.c
-@@ -62,9 +62,9 @@
+@@ -68,9 +68,9 @@
   */
  static inline unsigned long NVKMS_USECS_TO_JIFFIES(NvU64 usec)
  {
