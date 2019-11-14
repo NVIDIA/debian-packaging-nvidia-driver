@@ -71,17 +71,20 @@ for descriptions of all supported NVIDIA driver specific options.
 NOTES ABOUT REPORTING BUGS TO NVIDIA:
 -----------------------------------------------------------------------
 
-The NVIDIA graphics driver is a non-free closed-source product. Therefore
-the package maintainers are limited to fixing bugs in the packaging.
-Bugs in the "graphics functionality" like graphical distortions,
-performance regressions, hardware support, ... can only be fixed upstream
-and should be reported directly to NVIDIA because this includes collecting
-system information (with the nvidia-bug-report.sh script that is included
-in the #NVIDIA#-driver package) on the affected system.
+The NVIDIA graphics driver is a non-free closed-source product.
+Therefore the package maintainers are limited to fixing bugs in the
+packaging.
+Bugs in the 'graphics functionality' like graphical distortions,
+performance regressions, hardware support, ... can only be fixed
+upstream and should be reported directly to NVIDIA because this includes
+collecting system information (with the nvidia-bug-report.sh script that
+is included in the #NVIDIA#-driver package) on the affected
+system.
 NVIDIA's bug reporting instructions can be found here:
   https://devtalk.nvidia.com/default/topic/522835/linux/if-you-have-a-problem-please-read-this-first/
-You may additionally report the problem in the distribution's bug tracker,
-but please include a link the related thread(s) in the NVIDIA forum.
+You may additionally report the problem in the distribution's bug
+tracker, but please include a link the related thread(s) in the NVIDIA
+forum.
 
 
 NOTES ABOUT 'EQ overflowing. The server is probably stuck in an infinite loop.'
