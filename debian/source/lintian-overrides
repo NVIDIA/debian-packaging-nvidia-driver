@@ -6,3 +6,7 @@ patch-file-present-but-not-mentioned-in-series
 
 # upstream provides no signatures
 debian-watch-does-not-check-gpg-signature
+
+# several library packages ship their *.so link, so they actually
+# are their own -dev package
+package-placeholder-in-symbols-file
