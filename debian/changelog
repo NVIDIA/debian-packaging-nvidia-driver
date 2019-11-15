@@ -10,6 +10,9 @@ nvidia-graphics-drivers (430.64-1) UNRELEASED; urgency=medium
       monitors when logging in to GNOME, if the nvidia-drm kernel module
       parameter modeset=1 is specified.
 
+  [ Andreas Beckmann ]
+  * Refresh patches.
+
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 22:24:34 +0100
 
 nvidia-graphics-drivers (430.50-2) unstable; urgency=medium

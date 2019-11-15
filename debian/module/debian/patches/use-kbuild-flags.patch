@@ -37,7 +37,7 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
    # Kbuild's "clean" rule won't clean up the conftest headers on its own, and
 --- a/nvidia-modeset/nvidia-modeset.Kbuild
 +++ b/nvidia-modeset/nvidia-modeset.Kbuild
-@@ -70,7 +70,7 @@ NVIDIA_MODESET_INTERFACE := nvidia-modes
+@@ -72,7 +72,7 @@ NVIDIA_MODESET_INTERFACE := nvidia-modes
  always += $(NVIDIA_MODESET_INTERFACE)
  
  $(obj)/$(NVIDIA_MODESET_INTERFACE): $(addprefix $(obj)/,$(NVIDIA_MODESET_OBJECTS))

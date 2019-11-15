@@ -3,7 +3,7 @@ Description: select the correct nv-modeset-kernel.o blob for the target architec
 
 --- a/nvidia-modeset/nvidia-modeset.Kbuild
 +++ b/nvidia-modeset/nvidia-modeset.Kbuild
-@@ -35,7 +35,9 @@ NV_KERNEL_MODULE_TARGETS += $(NVIDIA_MOD
+@@ -37,7 +37,9 @@ NV_KERNEL_MODULE_TARGETS += $(NVIDIA_MOD
  # But, the target for the symlink rule should be prepended with $(obj).
  #
  
