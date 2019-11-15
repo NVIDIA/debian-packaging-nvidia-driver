@@ -502,6 +502,14 @@ get-orig-source-files/empty: get-orig-source-prepare/empty $(foreach a,$(DRIVER_
 get-orig-source: get-orig-source-pack/empty
 	$(RM) -r get-orig-source
 
+ifneq (,$(NVIDIA_LEGACY))
+get-orig-source-link/%:
+	ln -sf $(subst $(legacy),,$(call get_tarball,$*)) $(call get_tarball,$*)
+
+.PHONY: get-orig-links
+get-orig-links: get-orig-source-link/empty $(foreach a,$(ARCH_LIST),get-orig-source-link/$a)
+endif
+
 ############################################################################
 
 # The tarballs are kept in a separate git repository and use the git-lfs
@@ -552,8 +560,15 @@ check-current-tarballs: $(TARBALL_TREE)/$(UPSTREAM_VERSION)
 	$(foreach t,$(TARBALL_LIST),$(call test-file-exists,$(TARBALL_TREE)/$(UPSTREAM_VERSION)/$t))
 
 # only invoked manually
+ifeq (,$(NVIDIA_LEGACY))
+commit-current-tarballs: MSG = add $(UPSTREAM_VERSION) tarballs
 commit-current-tarballs: get-orig-source
+else
+commit-current-tarballs: MSG = add $(UPSTREAM_VERSION) $(patsubst -%,%,$(legacy)) symlinks
+commit-current-tarballs: get-orig-links
+endif
+commit-current-tarballs:
 	$(sparse-checkout-current)
 	mkdir -p $(TARBALL_TREE)/$(UPSTREAM_VERSION)
 	mv $(TARBALL_LIST) $(TARBALL_TREE)/$(UPSTREAM_VERSION)/
-	cd $(TARBALL_TREE) && $(GIT) add $(UPSTREAM_VERSION) && if $(GIT) status -s $(UPSTREAM_VERSION) | grep ^A ; then $(GIT) commit -m "add $(UPSTREAM_VERSION) tarballs" $(UPSTREAM_VERSION) ; fi
+	cd $(TARBALL_TREE) && $(GIT) add $(UPSTREAM_VERSION) && if $(GIT) status -s $(UPSTREAM_VERSION) | grep ^A ; then $(GIT) commit -m "$(MSG)" $(UPSTREAM_VERSION) ; fi
