@@ -5,7 +5,7 @@ Description: ignore __GNUC_MINOR__ from GCC 5 onwards
 
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -3348,7 +3348,7 @@ case "$6" in
+@@ -3430,7 +3430,7 @@ case "$6" in
          kernel_cc_minor=`echo ${kernel_cc_version} | cut -d '.' -f 2`
  
          echo "

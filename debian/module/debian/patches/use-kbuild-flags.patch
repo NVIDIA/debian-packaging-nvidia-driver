@@ -5,7 +5,7 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -96,6 +96,7 @@ NV_CONFTEST_CMD := /bin/sh $(NV_CONFTEST
+@@ -104,6 +104,7 @@ NV_CONFTEST_CMD := /bin/sh $(NV_CONFTEST
   "$(CC)" "$(HOST_CC)" $(ARCH) $(NV_KERNEL_SOURCES) $(NV_KERNEL_OUTPUT)
  
  NV_CONFTEST_CFLAGS := $(shell $(NV_CONFTEST_CMD) build_cflags)
