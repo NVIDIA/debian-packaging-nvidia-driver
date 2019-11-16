@@ -5,7 +5,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=933309
 
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -188,18 +188,18 @@ build_cflags() {
+@@ -189,18 +189,18 @@ build_cflags() {
      fi
  
      # Add the mach-default includes (only found on x86/older kernels)

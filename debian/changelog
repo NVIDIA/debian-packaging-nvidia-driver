@@ -1,5 +1,6 @@
 nvidia-graphics-drivers (435.21-3) UNRELEASED; urgency=medium
 
+  * Merge changes from 430.64-1.
   * Continue building libegl1-nvidia.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 01 Nov 2019 00:06:52 +0100
@@ -62,6 +63,24 @@ nvidia-graphics-drivers (435.21-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 31 Aug 2019 00:15:24 +0200
+
+nvidia-graphics-drivers (430.64-1) unstable; urgency=medium
+
+  * New upstream long lived branch release 430.64 (2019-11-05).
+    - Fixed a bug that could cause the X server to crash when running
+      applications using GLX indirect rendering.
+    - Fall back to system memory when video memory is full for some
+      driver-internal allocations. This can help fix Xid 13 and
+      Xid 31 cases in Vulkan applications when video memory is full.
+    - Fixed a bug that could cause a blank screen on some DisplayPort
+      monitors when logging in to GNOME, if the nvidia-drm kernel module
+      parameter modeset=1 is specified.
+
+  [ Andreas Beckmann ]
+  * Refresh patches.
+  * Update lintian overrides.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 16 Nov 2019 01:43:24 +0100
 
 nvidia-graphics-drivers (430.50-2) unstable; urgency=medium
 
@@ -164,6 +183,26 @@ nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 25 May 2019 13:49:09 +0200
+
+nvidia-graphics-drivers (418.113-1) UNRELEASED; urgency=medium
+
+  * New upstream long lived branch release 418.113 (2019-11-05).
+    - Fixed a bug that prevented NVIDIA GPUs from entering the low-power
+      D3 state when entering suspend-to-idle (s2idle). Note that on some
+      systems this may expose an existing timing issue in the Linux kernel;
+      see the "Known Issues and Workarounds" section of the "Configuring
+      Power Management Support" chapter of the README for more details.
+    - Updated the Module.symvers sanity check, which is part of the NVIDIA
+      kernel module build process, to accommodate the recent addition of a
+      new field in the Module.symvers file format. This fixes the error
+      "The Module.symvers file is missing [...]" seen during driver
+      installation or DKMS rebuilds with Linux 5.4 RC kernels.
+
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+  * Refresh patches.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 05:46:46 +0100
 
 nvidia-graphics-drivers (418.88-1) unstable; urgency=medium
 
@@ -610,6 +649,22 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
+
+nvidia-graphics-drivers (390.132-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy branch release 390.132 (2019-11-08).
+    - Fixed kernel module build problems with Linux kernel 5.4.0 release
+      candidates.
+    - Updated nvidia-bug-report.sh to collect information about X server crashes
+      from coredumpctl, when available.
+  * New upstream legacy branch release 340 series.
+    - Updated the nvidia-drm kernel module for compatibility with the removal
+      of the DRIVER_PRIME flag in recent Linux kernel versions.
+
+  [ Andreas Beckmann ]
+  * Refresh patches.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Nov 2019 12:53:49 +0100
 
 nvidia-graphics-drivers (390.129-1) UNRELEASED; urgency=medium
 
