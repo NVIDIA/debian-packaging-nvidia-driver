@@ -3,7 +3,7 @@ Description: dump the generated conftest headers
 
 --- a/Kbuild
 +++ b/Kbuild
-@@ -110,6 +110,16 @@ NV_CONFTEST_HEADERS += $(obj)/conftest/h
+@@ -118,6 +118,16 @@ NV_CONFTEST_HEADERS += $(obj)/conftest/h
  NV_CONFTEST_HEADERS += $(NV_CONFTEST_COMPILE_TEST_HEADERS)
  
  
@@ -20,7 +20,7 @@ Description: dump the generated conftest headers
  #
  # Generate a header file for a single conftest compile test. Each compile test
  # header depends on conftest.sh, as well as the generated conftest/headers.h
-@@ -134,6 +144,8 @@ define NV_GENERATE_COMPILE_TEST_HEADER
+@@ -142,6 +152,8 @@ define NV_GENERATE_COMPILE_TEST_HEADER
  	@mkdir -p $(obj)/conftest
  	@# concatenate /dev/null to prevent cat from hanging when $$^ is empty
  	@cat $$^ /dev/null > $$@
@@ -29,7 +29,7 @@ Description: dump the generated conftest headers
  endef
  
  #
-@@ -153,13 +165,17 @@ $(eval $(call NV_GENERATE_COMPILE_TEST_H
+@@ -161,13 +173,17 @@ $(eval $(call NV_GENERATE_COMPILE_TEST_H
  $(eval $(call NV_GENERATE_COMPILE_TEST_HEADER,symbols,$(NV_CONFTEST_SYMBOL_COMPILE_TESTS)))
  $(eval $(call NV_GENERATE_COMPILE_TEST_HEADER,types,$(NV_CONFTEST_TYPE_COMPILE_TESTS)))
  
