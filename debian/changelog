@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (430.64-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (430.64-1) unstable; urgency=medium
 
   * New upstream long lived branch release 430.64 (2019-11-05).
     - Fixed a bug that could cause the X server to crash when running
@@ -12,8 +12,9 @@ nvidia-graphics-drivers (430.64-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Refresh patches.
+  * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 22:24:34 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 16 Nov 2019 01:43:24 +0100
 
 nvidia-graphics-drivers (430.50-2) unstable; urgency=medium
 
