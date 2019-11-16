@@ -135,6 +135,13 @@ Testing kernel module compilation
       testing/ sid/experimental/*-backports are co-installable)
     * install as many linux-headers-* (meta-)packages as you want to test
 
+    Initial setup ppc64el:
+    * install the package: qemu-user-static (MUST be version >= 1:2.3)
+    * cowbuilder yields best results compared to chroot/schroot/pbuilder, for
+      detailed instructions see: https://wiki.debian.org/cowbuilder
+    * define or export DEBOOTSTRAP="qemu-debootstrap" ARCH="ppc64el" before
+      every step
+
     Testing a new nvidia*-kernel-source package:
     * enter the chroot as root, update it, install new linux-headers-*
     * install the new package to be tested with dpkg
