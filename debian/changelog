@@ -1,16 +1,16 @@
-nvidia-graphics-drivers (418.113-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (418.113-1~git) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 418.113 (2019-11-05).
-    - Fixed a bug that prevented NVIDIA GPUs from entering the low-power
-      D3 state when entering suspend-to-idle (s2idle). Note that on some
-      systems this may expose an existing timing issue in the Linux kernel;
-      see the "Known Issues and Workarounds" section of the "Configuring
-      Power Management Support" chapter of the README for more details.
     - Updated the Module.symvers sanity check, which is part of the NVIDIA
       kernel module build process, to accommodate the recent addition of a
       new field in the Module.symvers file format. This fixes the error
       "The Module.symvers file is missing [...]" seen during driver
       installation or DKMS rebuilds with Linux 5.4 RC kernels.
+    - Fixed a bug that prevented NVIDIA GPUs from entering the low-power
+      D3 state when entering suspend-to-idle (s2idle). Note that on some
+      systems this may expose an existing timing issue in the Linux kernel;
+      see the "Known Issues and Workarounds" section of the "Configuring
+      Power Management Support" chapter of the README for more details.
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
