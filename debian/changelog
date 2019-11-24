@@ -4,6 +4,9 @@ nvidia-graphics-drivers (440.36-1) UNRELEASED; urgency=medium
     - Fixed graphical corruption that can occur when using
       glslang SPIR-V Generator Version <= 2.
 
+  [ Andreas Beckmann ]
+  * Update symbols files.
+
  -- Andreas Beckmann <anbe@debian.org>  Sun, 24 Nov 2019 23:11:21 +0100
 
 nvidia-graphics-drivers (440.31-1) experimental; urgency=medium
