@@ -6,6 +6,7 @@ nvidia-graphics-drivers (440.36-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Update symbols files.
+  * libcuda1: Add Provides: libcuda-10.2-1{,-i386}.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 24 Nov 2019 23:11:21 +0100
 
