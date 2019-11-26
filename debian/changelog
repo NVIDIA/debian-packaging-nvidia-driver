@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (440.36-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (440.36-1) experimental; urgency=medium
 
   * New upstream long lived branch release 440.36 (2019-11-22).
     - Fixed graphical corruption that can occur when using
@@ -8,7 +8,7 @@ nvidia-graphics-drivers (440.36-1) UNRELEASED; urgency=medium
   * Update symbols files.
   * libcuda1: Add Provides: libcuda-10.2-1{,-i386}.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 24 Nov 2019 23:11:21 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 26 Nov 2019 15:27:45 +0100
 
 nvidia-graphics-drivers (440.31-1) experimental; urgency=medium
 
