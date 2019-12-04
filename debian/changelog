@@ -12,7 +12,12 @@ nvidia-graphics-drivers (390.132-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Refresh patches.
   * debian/gen-control.pl: Support substitutions in the Architecture field and
-    skip packages with empty or commented Architecture field.
+    skip packages with empty or commented Architecture field (430.50-2).
+  * Allow alternative libnvidia-{tesla,legacy-*}-ml1 packages to substitute
+    libnvidia-ml1 (430.64-2).
+    - Add Provides: libnvidia-ml.so.1 (= ${nvidia:Version}).
+    - Generate alternative versioned dependency on libnvidia-ml.so.1 through
+      the symbols file.
   * Bump Standards-Version to 4.4.1. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Nov 2019 12:53:49 +0100
