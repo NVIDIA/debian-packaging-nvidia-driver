@@ -20,6 +20,7 @@ nvidia-graphics-drivers (418.113-1~git) UNRELEASED; urgency=medium
   * Build the nvidia-*-common packages for ppc64el (430.50-2).
   * Prepare infrastructure for packaging Tesla driver releases (available for
     amd64 (including some i386 libs) and ppc64el) (430.50-2).
+  * nvidia-detect: Add PCI ID list for 418.74 in buster (430.64-2).
   * Allow alternative libnvidia-{tesla,legacy-*}-ml1 packages to substitute
     libnvidia-ml1 (430.64-2).
     - Add Provides: libnvidia-ml.so.1 (= ${nvidia:Version}).
