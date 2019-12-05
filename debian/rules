@@ -375,6 +375,7 @@ override_dh_strip_nondeterminism:
 	-e 's{#UNLOAD_MODULES#}{$(strip $(unload_modules))}g;' \
 	-e 's{#ARCH_LIST#}{$(DRIVER_ARCH_LIST)}g;' \
 	-e 's{#HAS_UVM#}{$(if $(has_uvm),,#)}g;' \
+	-e 's{#!ppc64el#}{$(if $(filter ppc64el,$(DEB_HOST_ARCH)),#)}g;' \
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog

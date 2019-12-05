@@ -1168,12 +1168,12 @@ Description: NVIDIA OpenCL ICD Loader library
 
 Package: nvidia-detect
 Section: non-free/x11
-Architecture: amd64
+Architecture: amd64 ppc64el
 Depends:
  pciutils,
  ${misc:Depends}
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-driver, nvidia-legacy-390xx-driver, or nvidia-legacy-340xx-driver)
- for installation.
+ (nvidia-driver, nvidia-legacy-390xx-driver, nvidia-legacy-340xx-driver, or
+ nvidia-tesla-driver) for installation.
