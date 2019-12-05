@@ -64,7 +64,9 @@ nvidia-graphics-drivers (340.107-1~git4deb8jessie) UNRELEASED; urgency=medium
 
   * Convert packaging repository from SVN to GIT.
   * Add debian/rules targets for archiving the tarballs in a separate
-    repository using sparse checkouts and git-lfs as storage backend.
+    repository using sparse checkouts and git-lfs as storage backend
+    (390.87-3).
+  * Create and commit tarball symlinks for legacy branches (430.64-1).
   * use-nv-kernel-ARCH.o_shipped.patch: Simplify for better kernel
     compatibility.  (Closes: #922479)
   * Refresh patches.
