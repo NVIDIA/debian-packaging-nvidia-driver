@@ -1,4 +1,5 @@
 debian/detect/nvidia-detect	usr/bin/
-debian/detect/nvidia-legacy-*.ids		usr/share/nvidia/
-#debian/detect/nvidia-???.ids			usr/share/nvidia/
-nvidia.ids			usr/share/nvidia/
+#!ppc64el#debian/detect/nvidia-legacy-*.ids		usr/share/nvidia/
+#!ppc64el#debian/detect/nvidia-???.ids			usr/share/nvidia/
+debian/detect/nvidia-tesla-???.ids		usr/share/nvidia/
+#!ppc64el#nvidia.ids			usr/share/nvidia/

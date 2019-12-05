@@ -1019,8 +1019,8 @@ Pre-Depends:
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Breaks:
- ${nvidia}-smi (<< ${nvidia:Version}),
+Provides:
+ libnvidia-ml.so.1 (= ${nvidia:Version}),
 Homepage: https://developer.nvidia.com/nvidia-management-library-NVML
 Description: NVIDIA Management Library (NVML) runtime library${nvidia:LegacyDesc}
  The NVIDIA Management Library (NVML) provides a monitoring and management API.
@@ -1337,12 +1337,12 @@ Description: NVIDIA OpenCL ICD Loader library
 
 Package: nvidia-detect
 Section: non-free/x11
-Architecture: amd64 ${arch:ppc64el}
+Architecture: amd64 ppc64el
 Depends:
  pciutils,
  ${misc:Depends}
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-driver, nvidia-legacy-390xx-driver, or nvidia-legacy-340xx-driver)
- for installation.
+ (nvidia-driver, nvidia-legacy-390xx-driver, nvidia-legacy-340xx-driver, or
+ nvidia-tesla-driver) for installation.
