@@ -25,6 +25,7 @@ nvidia-graphics-drivers (430.64-1) unstable; urgency=medium
 
   [ Andreas Beckmann ]
   * Refresh patches.
+  * Create and commit tarball symlinks for legacy branches.
   * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 16 Nov 2019 01:43:24 +0100
