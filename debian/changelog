@@ -1,3 +1,13 @@
+nvidia-graphics-drivers (430.64-3) UNRELEASED; urgency=medium
+
+  * Allow alternative libnvidia-{tesla,legacy-*}-cuda1 packages to substitute
+    libcuda1 in third-party packages.
+    - Add Provides: libcuda.so.1 (= ${nvidia:Version}).
+    - Generate alternative versioned dependency on libcuda.so.1 through the
+      symbols file.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 09 Dec 2019 21:05:39 +0100
+
 nvidia-graphics-drivers (430.64-2) unstable; urgency=medium
 
   * nvidia-detect: Add PCI ID list for 418.74 in buster.

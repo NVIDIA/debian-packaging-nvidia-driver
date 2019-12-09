@@ -1067,6 +1067,7 @@ Suggests:
  nvidia-cuda-mps [${nvidia:arch:has-driver}],
  ${nvidia:kmod:source},
 Provides:
+ libcuda.so.1 (= ${nvidia:Version}),
  libcuda1-any,
  libcuda-5.0-1,
  libcuda-5.0-1-i386 [i386],
