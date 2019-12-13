@@ -1,4 +1,4 @@
-libcuda.so.1 #PACKAGE# #MINVER#
+libcuda.so.1 #PACKAGE# #MINVER# | libcuda.so.1 #MINVER#
 * Build-Depends-Package: #PACKAGE#
 #MISSING: 304.30# clGetExtensionFunctionAddress@Base 195
 #MISSING: 304.30# clGetPlatformInfo@Base 195.30
