@@ -29,6 +29,11 @@ nvidia-graphics-drivers (418.113-1~git) UNRELEASED; urgency=medium
     - Add Provides: libnvidia-ml.so.1 (= ${nvidia:Version}).
     - Generate alternative versioned dependency on libnvidia-ml.so.1 through
       the symbols file.
+  * Allow alternative libnvidia-{tesla,legacy-*}-cuda1 packages to substitute
+    libcuda1 in third-party packages (430.64-3).
+    - Add Provides: libcuda.so.1 (= ${nvidia:Version}).
+    - Generate alternative versioned dependency on libcuda.so.1 through the
+      symbols file.
   * Bump Standards-Version to 4.4.1. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 05:46:46 +0100
