@@ -1,6 +1,6 @@
 nvidia-graphics-drivers (435.21-3) UNRELEASED; urgency=medium
 
-  * Merge changes from 430.64-1.
+  * Merge changes from 430.64-4.
   * Continue building libegl1-nvidia.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 01 Nov 2019 00:06:52 +0100
@@ -64,6 +64,35 @@ nvidia-graphics-drivers (435.21-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 31 Aug 2019 00:15:24 +0200
 
+nvidia-graphics-drivers (430.64-4) unstable; urgency=medium
+
+  * Do not build most non-GLVND packages (435.17-1).  (Closes: #939401)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Dec 2019 22:39:11 +0100
+
+nvidia-graphics-drivers (430.64-3) unstable; urgency=medium
+
+  * Allow alternative libnvidia-{tesla,legacy-*}-cuda1 packages to substitute
+    libcuda1 in third-party packages.
+    - Add Provides: libcuda.so.1 (= ${nvidia:Version}).
+    - Generate alternative versioned dependency on libcuda.so.1 through the
+      symbols file.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 10 Dec 2019 13:01:16 +0100
+
+nvidia-graphics-drivers (430.64-2) unstable; urgency=medium
+
+  * nvidia-detect: Add PCI ID list for 418.74 in buster.
+  * nvidia-detect: Add support for Tesla drivers.
+  * nvidia-detect: Build for ppc64el.
+  * Allow alternative libnvidia-{tesla,legacy-*}-ml1 packages to substitute
+    libnvidia-ml1.
+    - Add Provides: libnvidia-ml.so.1 (= ${nvidia:Version}).
+    - Generate alternative versioned dependency on libnvidia-ml.so.1 through
+      the symbols file.
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 05 Dec 2019 13:20:04 +0100
+
 nvidia-graphics-drivers (430.64-1) unstable; urgency=medium
 
   * New upstream long lived branch release 430.64 (2019-11-05).
@@ -78,6 +107,7 @@ nvidia-graphics-drivers (430.64-1) unstable; urgency=medium
 
   [ Andreas Beckmann ]
   * Refresh patches.
+  * Create and commit tarball symlinks for legacy branches.
   * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 16 Nov 2019 01:43:24 +0100
@@ -187,16 +217,16 @@ nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
 nvidia-graphics-drivers (418.113-1) UNRELEASED; urgency=medium
 
   * New upstream long lived branch release 418.113 (2019-11-05).
-    - Fixed a bug that prevented NVIDIA GPUs from entering the low-power
-      D3 state when entering suspend-to-idle (s2idle). Note that on some
-      systems this may expose an existing timing issue in the Linux kernel;
-      see the "Known Issues and Workarounds" section of the "Configuring
-      Power Management Support" chapter of the README for more details.
     - Updated the Module.symvers sanity check, which is part of the NVIDIA
       kernel module build process, to accommodate the recent addition of a
       new field in the Module.symvers file format. This fixes the error
       "The Module.symvers file is missing [...]" seen during driver
       installation or DKMS rebuilds with Linux 5.4 RC kernels.
+    - Fixed a bug that prevented NVIDIA GPUs from entering the low-power
+      D3 state when entering suspend-to-idle (s2idle). Note that on some
+      systems this may expose an existing timing issue in the Linux kernel;
+      see the "Known Issues and Workarounds" section of the "Configuring
+      Power Management Support" chapter of the README for more details.
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
