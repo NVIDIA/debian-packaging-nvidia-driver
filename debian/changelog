@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (430.64-4) UNRELEASED; urgency=medium
+
+  * Do not build most non-GLVND packages (435.17-1).  (Closes: #939401)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 15 Dec 2019 22:13:45 +0100
+
 nvidia-graphics-drivers (430.64-3) unstable; urgency=medium
 
   * Allow alternative libnvidia-{tesla,legacy-*}-cuda1 packages to substitute
