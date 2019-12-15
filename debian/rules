@@ -372,6 +372,7 @@ override_dh_strip_nondeterminism:
 	-e 's{#UNLOAD_MODULES#}{$(strip $(unload_modules))}g;' \
 	-e 's{#ARCH_LIST#}{$(DRIVER_ARCH_LIST)}g;' \
 	-e 's{#HAS_UVM#}{$(if $(has_uvm),,#)}g;' \
+	-e 's{#!ppc64el#}{$(if $(filter ppc64el,$(DEB_HOST_ARCH)),#)}g;' \
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog
@@ -455,7 +456,7 @@ ORIGDIR.empty		?= $(ORIGDIR)
 TARBALL.empty		?= $(TARBALL)
 
 # $1 = arch
-get_download_url	 = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(HTTPURL_ARCHDIR_$(strip $1))/$(HTTPURL_VERDIR)/$(NVIDIA_FILENAME_$(strip $1))
+get_download_url	 = $(or $(HTTPURL_PREFIX_$(strip $1)),$(HTTPURL_PREFIX))/$(if $(HTTPURL_ARCHDIR_$(strip $1)),$(HTTPURL_ARCHDIR_$(strip $1))/)$(or $(HTTPURL_VERDIR),$(NVIDIA_RELEASE))/$(NVIDIA_FILENAME_$(strip $1))
 get_origdir		 = $(or $(ORIGDIR.$(strip $1)),$(ORIGDIR)-$(strip $1))
 get_tarball		 = $(or $(TARBALL.$(strip $1)),$(TARBALL_BASE)-$(strip $1)$(TARBALL_SUFFIX))
 
@@ -499,12 +500,12 @@ get-orig-source-files/empty: get-orig-source-prepare/empty $(foreach a,$(DRIVER_
 get-orig-source: get-orig-source-pack/empty
 	$(RM) -r get-orig-source
 
-ifneq (,$(NVIDIA_LEGACY))
+ifneq (,$(or $(NVIDIA_LEGACY),$(NVIDIA_TESLA)))
 get-orig-source-link/%:
 	ln -sf $(subst $(legacy),,$(call get_tarball,$*)) $(call get_tarball,$*)
 
 .PHONY: get-orig-links
-get-orig-links: get-orig-source-link/empty $(foreach a,$(ARCH_LIST),get-orig-source-link/$a)
+get-orig-links: get-orig-source-link/empty $(foreach a,$(DRIVER_ARCH_LIST),get-orig-source-link/$a)
 endif
 
 ############################################################################
@@ -557,7 +558,7 @@ check-current-tarballs: $(TARBALL_TREE)/$(UPSTREAM_VERSION)
 	$(foreach t,$(TARBALL_LIST),$(call test-file-exists,$(TARBALL_TREE)/$(UPSTREAM_VERSION)/$t))
 
 # only invoked manually
-ifeq (,$(NVIDIA_LEGACY))
+ifeq (,$(or $(NVIDIA_LEGACY),$(NVIDIA_TESLA)))
 commit-current-tarballs: MSG = add $(UPSTREAM_VERSION) tarballs
 commit-current-tarballs: get-orig-source
 else
