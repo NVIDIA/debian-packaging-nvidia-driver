@@ -33,8 +33,7 @@ Pre-Depends:
  ${nvidia:legacy-check},
 Depends:
  nvidia-legacy-390xx-driver [${nvidia:arch:has-no-driver}],
- ${nvidia}-driver-libs (= ${binary:Version}) [${nvidia:arch:has-driver}]
- | ${nvidia}-driver-libs-nonglvnd (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ ${nvidia}-driver-libs (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-driver-bin (= ${binary:Version}) [${nvidia:arch:has-driver}],
  xserver-xorg-video-${nvidia} (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-vdpau-driver (= ${binary:Version}) [${nvidia:arch:has-driver}],
@@ -343,52 +342,6 @@ Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES 32-bit libraries)${nvidia:L
  OpenGL/GLX/EGL/GLES libraries when installing ${nvidia}-driver-libs
  on amd64 with foreign architecture i386 enabled.
 
-Package: nvidia-driver-libs-nonglvnd
-Architecture: i386 amd64
-Multi-Arch: same
-Depends:
- libgl1-${nvidia}-glx (= ${binary:Version}),
- libegl1-${nvidia} (= ${binary:Version}),
- ${misc:Depends}
-Recommends:
- ${nvidia}-driver-libs-nonglvnd-i386 [amd64],
- libglx-${nvidia}0 (= ${binary:Version}),
- libgles-${nvidia}1 (= ${binary:Version}),
- libgles-${nvidia}2 (= ${binary:Version}),
- lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
- ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
-Conflicts:
- libgldispatch0-nvidia,
- libglvnd0-nvidia,
- libopengl0-glvnd-nvidia,
- libglx0-glvnd-nvidia,
- libgl1-glvnd-nvidia-glx,
- libegl1-glvnd-nvidia,
- libgles1-glvnd-nvidia,
- libgles2-glvnd-nvidia,
-Breaks:
- ${nvidia}-driver-libs,
- libgl1-${nvidia}-glvnd-glx,
- ${nvidia}-vulkan-icd,
-Description: NVIDIA metapackage (non-GLVND OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDescShort}
- This metapackage depends on the (non-GLVND) NVIDIA binary libraries
- that provide optimized hardware acceleration of
- OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server.
-
-Package: nvidia-driver-libs-nonglvnd-i386
-Architecture: i386
-Multi-Arch: foreign
-Depends:
- ${nvidia}-driver-libs-nonglvnd,
- ${misc:Depends}
-Conflicts:
- libgl1-${nvidia}-glx-i386,
-Description: NVIDIA metapackage (non-GLVND OpenGL/EGL etc. 32-bit libraries)${nvidia:LegacyDescShort}
- This metapackage helps the automatic installation of the 32-bit NVIDIA
- OpenGL/GLX/EGL/GLES libraries when installing
- ${nvidia}-driver-libs-nonglvnd
- on amd64 with foreign architecture i386 enabled.
-
 Package: libglx-nvidia0
 Architecture: i386 amd64
 Multi-Arch: same
@@ -432,39 +385,6 @@ Description: NVIDIA binary OpenGL/GLX library (GLVND variant)${nvidia:LegacyDesc
  .
  This metapackage depends on the NVIDIA binary OpenGL/GLX implementation using
  GLVND and the corresponding GLVND loader library.
-
-Package: libgl1-nvidia-glx
-Architecture: i386 amd64
-Multi-Arch: same
-Pre-Depends:
- nvidia-installer-cleanup,
- ${nvidia:legacy-check},
- ${misc:Pre-Depends}
-Depends:
- ${nvidia}-alternative (= ${binary:Version}),
- lib${nvidia}-glcore (= ${binary:Version}),
- nvidia-support,
- ${shlibs:Depends}, ${misc:Depends}
-Recommends:
- ${nvidia}-driver-libs-nonglvnd (= ${binary:Version}),
- ${nvidia:kmod:binary},
-Suggests:
- ${nvidia:kmod:source},
-Provides:
- libgl1-nvidia-glx-any,
-Conflicts:
- libgl1-${nvidia}-glvnd-glx,
-Description: NVIDIA binary OpenGL/GLX library (non-GLVND variant)${nvidia:LegacyDesc}
- The NVIDIA binary driver provides optimized hardware acceleration of
- OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
- for graphics cards using NVIDIA chip sets.
- .
- See the description of the ${nvidia}-driver package
- or /usr/share/doc/libgl1-${nvidia}-glx/README.txt.gz
- for a complete list of supported GPUs and PCI IDs.
- .
- This package contains the driver specific binary OpenGL/GLX implementation
- provided by NVIDIA as a non-GLVND alternative.
 
 Package: libnvidia-glcore
 Architecture: i386 amd64
@@ -723,7 +643,7 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Suggests:
- ${nvidia}-nonglvnd-vulkan-icd [i386 amd64 ${arch:ppc64el}]
+ ${nvidia}-nonglvnd-vulkan-icd [none]
  | nvidia-tesla-nonglvnd-vulkan-icd [!i386]
  | nvidia-legacy-390xx-nonglvnd-vulkan-icd [!ppc64el],
 Conflicts:
@@ -736,33 +656,6 @@ Description: NVIDIA Vulkan driver - common files (non-GLVND variant)
  .
  This package provides the common files for the NVIDIA installable client
  driver (ICD) for Vulkan (non-GLVND variant).
-
-Package: nvidia-nonglvnd-vulkan-icd
-Architecture: i386 amd64
-Multi-Arch: same
-Depends:
- nvidia-nonglvnd-vulkan-common,
- libvulkan1 (>= 1.0.42),
- libgl1-${nvidia}-glx (= ${binary:Version}),
- lib${nvidia}-glvkspirv (= ${binary:Version}),
- ${misc:Depends}
-Recommends:
- lib${nvidia}-cbl (= ${binary:Version}) [amd64],
- lib${nvidia}-rtcore (= ${binary:Version}) [amd64],
- nvidia-legacy-390xx-driver-libs-nonglvnd [i386],
-Suggests:
- vulkan-utils,
-Enhances:
- libvulkan1,
-Provides:
- vulkan-icd,
-Conflicts:
- ${nvidia}-vulkan-icd,
-Description: NVIDIA Vulkan ICD (non-GLVND variant)${nvidia:LegacyDesc}
- Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
- .
- This metapackage provides the NVIDIA installable client driver (ICD) for
- Vulkan (non-GLVND variant) which supports NVIDIA GPUs.
 
 Package: libnvidia-glvkspirv
 Architecture: i386 amd64
