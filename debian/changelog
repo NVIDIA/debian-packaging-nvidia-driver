@@ -15,6 +15,7 @@ nvidia-graphics-drivers (440.44-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Merge changes from 430.64-4.
+  * Update nv-readme.ids.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 16 Dec 2019 00:19:05 +0100
 
