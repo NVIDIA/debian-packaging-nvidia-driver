@@ -1,8 +1,22 @@
-nvidia-graphics-drivers (440.36-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (440.44-1) UNRELEASED; urgency=medium
 
+  * New upstream long lived branch release 440.44 (2019-12-11).
+    - Added support for the following GPU: GeForce GTX 1650 SUPER.
+    - Added support for the __GL_SYNC_DISPLAY_DEVICE environment variable for
+      Vulkan applications.
+    - Fixed a bug that caused applications running directly on a display
+      (such as VR HMDs) to tear when a G-SYNC or G-SYNC Compatible monitor
+      is plugged in the system.
+  * New upstream release 430 series.
+    - Fixed a bug in an error handling path that could cause a kernel crash
+      while loading nvidia.ko.
+  * New upstream release 418 series.
+    - Added support for the following GPU: Quadro T2000 with Max-Q Design.
+
+  [ Andreas Beckmann ]
   * Merge changes from 430.64-4.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 16 Dec 2019 00:03:40 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 16 Dec 2019 00:19:05 +0100
 
 nvidia-graphics-drivers (440.36-1) experimental; urgency=medium
 
