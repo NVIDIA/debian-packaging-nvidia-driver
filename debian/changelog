@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (440.44-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (440.44-1) experimental; urgency=medium
 
   * New upstream long lived branch release 440.44 (2019-12-11).
     - Added support for the following GPU: GeForce GTX 1650 SUPER.
@@ -17,7 +17,7 @@ nvidia-graphics-drivers (440.44-1) UNRELEASED; urgency=medium
   * Merge changes from 430.64-4.
   * Update nv-readme.ids.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 16 Dec 2019 00:19:05 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 16 Dec 2019 13:06:12 +0100
 
 nvidia-graphics-drivers (440.36-1) experimental; urgency=medium
 
