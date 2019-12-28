@@ -5,16 +5,16 @@ Description: Fix kernel module load on 4.11 and greater
  vm_fault.
 --- a/uvm/nvidia_uvm_lite.c
 +++ b/uvm/nvidia_uvm_lite.c
-@@ -30,6 +30,8 @@
- #include "nvidia_uvm_lite_counters.h"
- #include "ctrl2080mc.h"
+@@ -32,6 +32,8 @@
+ 
+ #include "nv-time.h"
  
 +#include <linux/version.h>
 +
  //
  // nvidia_uvm_lite.c
  // This file contains code that is specific to the UVM-Lite mode of operation.
-@@ -689,9 +691,16 @@ static UvmGpuMigrationTracking * _get_mi
+@@ -691,9 +693,16 @@ static UvmGpuMigrationTracking * _get_mi
  //         return SIGBUS.
  //      3. Otherwise, map in a page from the cache, and allow access.
  //
@@ -31,7 +31,7 @@ Description: Fix kernel module load on 4.11 and greater
      int retValue = VM_FAULT_SIGBUS;
      UvmCommitRecord *pRecord;
      DriverPrivate *pPriv;
-@@ -818,7 +827,11 @@ done:
+@@ -820,7 +829,11 @@ done:
  }
  
  #if defined(NV_VM_OPERATIONS_STRUCT_HAS_FAULT)
@@ -43,7 +43,7 @@ Description: Fix kernel module load on 4.11 and greater
  {
  #if defined(NV_VM_FAULT_HAS_ADDRESS)
      unsigned long vaddr = vmf->address;
-@@ -828,7 +841,11 @@ int _fault(struct vm_area_struct *vma, s
+@@ -830,7 +843,11 @@ int _fault(struct vm_area_struct *vma, s
      struct page *page = NULL;
      int retval;
  
@@ -55,7 +55,7 @@ Description: Fix kernel module load on 4.11 and greater
  
      vmf->page = page;
  
-@@ -866,7 +883,11 @@ static struct vm_operations_struct uvmli
+@@ -868,7 +885,11 @@ static struct vm_operations_struct uvmli
  // it's dealing with anonymous mapping (see handle_pte_fault).
  //
  #if defined(NV_VM_OPERATIONS_STRUCT_HAS_FAULT)

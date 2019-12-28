@@ -5,9 +5,9 @@ Description: use KBUILD_CFLAGS
 
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -264,6 +264,14 @@ build_cflags() {
-     if [ -n "$BUILD_PARAMS" ]; then
-         CFLAGS="$CFLAGS -D$BUILD_PARAMS"
+@@ -288,6 +288,14 @@ build_cflags() {
+             CFLAGS="$CFLAGS -DCC_HAVE_ASM_GOTO"
+         fi
      fi
 +
 +    for flag in $KBUILD_CFLAGS

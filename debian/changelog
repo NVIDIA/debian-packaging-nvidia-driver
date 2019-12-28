@@ -24,6 +24,9 @@ nvidia-graphics-drivers (340.108-1) UNRELEASED; urgency=medium
       candidates.
     * Improved compatibility with recent Linux kernels.
 
+  [ Andreas Beckmann ]
+  * Refresh patches.
+
  -- Andreas Beckmann <anbe@debian.org>  Sat, 28 Dec 2019 12:12:32 +0100
 
 nvidia-graphics-drivers (340.107-1) UNRELEASED; urgency=medium
