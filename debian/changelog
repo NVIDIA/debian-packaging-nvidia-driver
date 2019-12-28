@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.107-1~git4deb8jessie) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.108-1~git4deb8jessie) UNRELEASED; urgency=medium
 
   * Convert packaging repository from SVN to GIT.
   * Add debian/rules targets for archiving the tarballs in a separate
@@ -8,7 +8,23 @@ nvidia-graphics-drivers (340.107-1~git4deb8jessie) UNRELEASED; urgency=medium
   * use-nv-kernel-ARCH.o_shipped.patch: Simplify for better kernel
     compatibility.  (Closes: #922479)
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 22:28:56 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 28 Dec 2019 12:12:32 +0100
+
+nvidia-graphics-drivers (340.108-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.108 (2019-12-23).
+    - Updated the nvidia-drm kernel module for compatibility with the removal
+      of the DRIVER_PRIME flag in recent Linux kernel versions.
+    - Updated nvidia-bug-report.sh to search the systemd journal for
+      gdm-x-session logs.
+    - Fixed a build failure, "too many arguments to function 'get_user_pages'",
+      when building the NVIDIA kernel module for Linux kernel v4.4.168.
+    - Fixed a build failure, "implicit declaration of function do_gettimeofday",
+      when building the NVIDIA kernel module for Linux kernel 5.0 release
+      candidates.
+    * Improved compatibility with recent Linux kernels.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 28 Dec 2019 12:12:32 +0100
 
 nvidia-graphics-drivers (340.107-1) UNRELEASED; urgency=medium
 
