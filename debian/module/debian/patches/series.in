@@ -1,6 +1,7 @@
 # kernel support
 unregister_procfs_on_failure.patch
-vm-fault.patch
+buildfix_kernel_4.11.patch
+buildfix_kernel_5.2.patch
 
 # build system updates
 separate-makefile-kbuild.patch

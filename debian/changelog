@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (340.107-1~git4deb9stretch) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.108-1~git4deb9stretch) UNRELEASED; urgency=medium
 
   * nvidia-driver-libs: New metapackage for bundling the
     Depends/Recommends on the OpenGL/GLX/EGL/GLES packages.
@@ -63,20 +63,39 @@ nvidia-graphics-drivers (340.107-1~git4deb9stretch) UNRELEASED; urgency=medium
       symbols file.
   * Bump Standards-Version to 4.4.1. No changes needed.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 22:28:56 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 28 Dec 2019 12:12:32 +0100
 
-nvidia-graphics-drivers (340.107-1~git4deb8jessie) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (340.108-1~git4deb8jessie) UNRELEASED; urgency=medium
 
   * Convert packaging repository from SVN to GIT.
   * Add debian/rules targets for archiving the tarballs in a separate
     repository using sparse checkouts and git-lfs as storage backend
     (390.87-3).
   * Create and commit tarball symlinks for legacy branches (430.64-1).
-  * use-nv-kernel-ARCH.o_shipped.patch: Simplify for better kernel
-    compatibility.  (Closes: #922479)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 28 Dec 2019 12:12:32 +0100
+
+nvidia-graphics-drivers (340.108-1) UNRELEASED; urgency=medium
+
+  * New upstream legacy 340xx branch release 340.108 (2019-12-23).
+    - Updated the nvidia-drm kernel module for compatibility with the removal
+      of the DRIVER_PRIME flag in recent Linux kernel versions.
+    - Updated nvidia-bug-report.sh to search the systemd journal for
+      gdm-x-session logs.
+    - Fixed a build failure, "too many arguments to function 'get_user_pages'",
+      when building the NVIDIA kernel module for Linux kernel v4.4.168.
+    - Fixed a build failure, "implicit declaration of function do_gettimeofday",
+      when building the NVIDIA kernel module for Linux kernel 5.0 release
+      candidates.
+    * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
+  * Add buildfix_kernel_4.11.patch (replacing vm-fault.patch) and (parts of)
+    buildfix_kernel_5.2.patch from Ubuntu to fix more vm-fault issues during
+    kernel module build for Linux 5.2+.
   * Refresh patches.
 
- -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 22:28:56 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 28 Dec 2019 12:12:32 +0100
 
 nvidia-graphics-drivers (340.107-1) UNRELEASED; urgency=medium
 
@@ -87,6 +106,12 @@ nvidia-graphics-drivers (340.107-1) UNRELEASED; urgency=medium
     - Fixed a bug which could cause X servers that export a Video Driver
       ABI earlier than 0.8 to crash when running X11 applications which
       call XRenderAddTraps().
+    * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
+  * use-nv-kernel-ARCH.o_shipped.patch: Simplify for better kernel
+    compatibility.  (Closes: #922479)
+  * Refresh patches.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 22:28:56 +0200
 
