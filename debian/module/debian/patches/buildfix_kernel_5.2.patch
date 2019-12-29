@@ -1,0 +1,64 @@
+From d48c28c8f690cd1b7f1a252f3a33c9b536096054 Mon Sep 17 00:00:00 2001
+From: Alberto Milone <alberto.milone@canonical.com>
+Date: Mon, 10 Jun 2019 13:08:10 +0200
+Subject: [PATCH 1/1] Add support for Linux 5.2
+
+---
+ uvm/nvidia_uvm_lite.c | 20 ++++++++++++++++++++
+ 2 files changed, 21 insertions(+), 1 deletion(-)
+
+diff --git a/uvm/nvidia_uvm_lite.c b/uvm/nvidia_uvm_lite.c
+index 33b8d4b..8dbe050 100644
+--- a/uvm/nvidia_uvm_lite.c
++++ b/uvm/nvidia_uvm_lite.c
+@@ -691,7 +691,11 @@ static UvmGpuMigrationTracking * _get_mi
+ //         return SIGBUS.
+ //      3. Otherwise, map in a page from the cache, and allow access.
+ //
++#ifdef VM_FAULT_OOM
+ int _fault_common(struct vm_area_struct *vma, unsigned long vaddr,
++#else
++unsigned int _fault_common(struct vm_area_struct *vma, unsigned long vaddr,
++#endif
+                   struct page **ppage, unsigned vmfFlags)
+ {
+     int retValue = VM_FAULT_SIGBUS;
+@@ -821,9 +825,17 @@ done:
+ 
+ #if defined(NV_VM_OPERATIONS_STRUCT_HAS_FAULT)
+ #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 11, 0)
++#ifdef VM_FAULT_OOM
+ int _fault(struct vm_area_struct *vma, struct vm_fault *vmf)
+ #else
++unsigned int _fault(struct vm_area_struct *vma, struct vm_fault *vmf)
++#endif
++#else
++#ifdef VM_FAULT_OOM
+ int _fault(struct vm_fault *vmf)
++#else
++unsigned int _fault(struct vm_fault *vmf)
++#endif
+ #endif
+ {
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
+@@ -876,9 +888,17 @@ static struct vm_operations_struct uvmli
+ //
+ #if defined(NV_VM_OPERATIONS_STRUCT_HAS_FAULT)
+ #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 11, 0)
++#ifdef VM_FAULT_OOM
+ int _sigbus_fault(struct vm_area_struct *vma, struct vm_fault *vmf)
+ #else
++unsigned int _sigbus_fault(struct vm_area_struct *vma, struct vm_fault *vmf)
++#endif
++#else
++#ifdef VM_FAULT_OOM
+ int _sigbus_fault(struct vm_fault *vmf)
++#else
++unsigned int _sigbus_fault(struct vm_fault *vmf)
++#endif
+ #endif
+ {
+     vmf->page = NULL;
+-- 
+2.20.1
+

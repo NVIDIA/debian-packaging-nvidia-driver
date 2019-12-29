@@ -5,8 +5,6 @@ nvidia-graphics-drivers (340.108-1~git4deb8jessie) UNRELEASED; urgency=medium
     repository using sparse checkouts and git-lfs as storage backend
     (390.87-3).
   * Create and commit tarball symlinks for legacy branches (430.64-1).
-  * use-nv-kernel-ARCH.o_shipped.patch: Simplify for better kernel
-    compatibility.  (Closes: #922479)
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 28 Dec 2019 12:12:32 +0100
 
@@ -25,6 +23,9 @@ nvidia-graphics-drivers (340.108-1) UNRELEASED; urgency=medium
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
+  * Add buildfix_kernel_4.11.patch (replacing vm-fault.patch) and (parts of)
+    buildfix_kernel_5.2.patch from Ubuntu to fix more vm-fault issues during
+    kernel module build for Linux 5.2+.
   * Refresh patches.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 28 Dec 2019 12:12:32 +0100
@@ -41,6 +42,8 @@ nvidia-graphics-drivers (340.107-1) UNRELEASED; urgency=medium
     * Improved compatibility with recent Linux kernels.
 
   [ Andreas Beckmann ]
+  * use-nv-kernel-ARCH.o_shipped.patch: Simplify for better kernel
+    compatibility.  (Closes: #922479)
   * Refresh patches.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 22:28:56 +0200
