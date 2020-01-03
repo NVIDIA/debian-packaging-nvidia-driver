@@ -10,6 +10,11 @@ nvidia-graphics-drivers (340.108-1~git4deb8jessie) UNRELEASED; urgency=medium
 
 nvidia-graphics-drivers (340.108-1) UNRELEASED; urgency=medium
 
+  * The 340.xx legacy driver series has been declared as End-of-Life by
+    NVIDIA. No further updates fixing security issues, critical bugs, or
+    adding support for new Xorg or Linux releases will be issued.
+    https://nvidia.custhelp.com/app/answers/detail/a_id/3142
+
   * New upstream legacy 340xx branch release 340.108 (2019-12-23).
     - Updated the nvidia-drm kernel module for compatibility with the removal
       of the DRIVER_PRIME flag in recent Linux kernel versions.
@@ -28,7 +33,7 @@ nvidia-graphics-drivers (340.108-1) UNRELEASED; urgency=medium
     kernel module build for Linux 5.2+.
   * Refresh patches.
 
- -- Andreas Beckmann <anbe@debian.org>  Sat, 28 Dec 2019 12:12:32 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 03 Jan 2020 02:29:02 +0100
 
 nvidia-graphics-drivers (340.107-1) UNRELEASED; urgency=medium
 
