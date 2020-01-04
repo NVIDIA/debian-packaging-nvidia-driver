@@ -9,6 +9,7 @@ nvidia-graphics-drivers (418.113-1~git) UNRELEASED; urgency=medium
   * nvidia-detect: Add PCI ID list for 418.74 in buster (430.64-2).
   * nvidia-detect: Add support for Tesla drivers (430.64-2).
   * nvidia-detect: Build for ppc64el (430.64-2).
+  * nvidia-detect: The 340xx legacy driver will not be in bullseye (430.64-5).
   * Allow alternative libnvidia-{tesla,legacy-*}-ml1 packages to substitute
     libnvidia-ml1 (430.64-2).
     - Add Provides: libnvidia-ml.so.1 (= ${nvidia:Version}).

@@ -212,11 +212,7 @@ fi
 	then
 		if [[ -n ${VERSIONS[999]} ]]; then
 			if [[ -n ${VERSIONS[390]} ]]; then
-				if [[ -n ${VERSIONS[340]} ]]; then
 					echo "Your card is supported by all driver versions."
-				else
-					echo "Your card is supported by the default drivers and legacy driver series 390."
-				fi
 			else
 				echo "Your card is supported by the default drivers."
 			fi
@@ -228,12 +224,11 @@ fi
 			echo "Your card is only supported on the amd64 platform."
 			echo "Your card is only supported up to the 390 legacy drivers series."
 			PACKAGE="nvidia-legacy-390xx-driver:amd64"
-		elif [[ -n ${VERSIONS[340]} ]]; then
-			echo "Your card is only supported up to the 340 legacy drivers series."
-			PACKAGE="nvidia-legacy-340xx-driver"
 		elif [[ -n ${VERSIONS[419]} ]]; then
 			echo "Your card is supported by the Tesla drivers series."
 			PACKAGE="nvidia-tesla-driver"
+		elif [[ -n ${VERSIONS[340]} ]]; then
+			echo "Your card is only supported by the 340 legacy drivers series, which is only available up to buster."
 		elif [[ -n ${VERSIONS[304]} ]]; then
 			echo "Your card is only supported by the 304 legacy drivers series, which is only available up to stretch."
 		elif [[ -n ${VERSIONS[173]} ]]; then

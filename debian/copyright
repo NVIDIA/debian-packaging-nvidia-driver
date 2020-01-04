@@ -28,7 +28,7 @@ License: GPL-2.0+
 
 Files: debian/detect/nvidia-detect.in
 Copyright: © 2008-2011 Filipus Klutiero <chealer@gmail.com>
-           © 2011-2017 Andreas Beckmann <anbe@debian.org>
+           © 2011-2020 Andreas Beckmann <anbe@debian.org>
 License: GPL-2.0+
 
 Files: debian/module/debian/patches/* debian/patches/*
