@@ -37,6 +37,7 @@ legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 legacy_description_short = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy))
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),\d[\d\.\-]*)
+standards_version	:= $(shell sed -rn 's/Standards-Version: (.*)/\1/p' debian/control)
 DRIVER_ARCH_LIST	 = $(filter-out $(NO_DRIVER_ARCH_LIST),$(ARCH_LIST))
 
 # this needs the internal names (i.e. upstream's names, not our renamed files)
@@ -337,6 +338,7 @@ override_dh_strip_nondeterminism:
 	-e 's{#LEGACY#}{$(legacy)}g;' \
 	-e 's{#MODULE#}{$(module)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
+	-e 's{#STANDARDS_VERSION#}{$(standards_version)}g;' \
 	-e 's{#LIBDIR#}{$(libdir)}g;' \
 	-e 's{#PRIVATE#}{$(nvidia_private)}g;' \
 	-e 's{#UNLOAD_MODULES#}{$(strip $(unload_modules))}g;' \
