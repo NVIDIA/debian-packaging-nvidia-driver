@@ -81,6 +81,7 @@ ls -la	\
 	/usr/lib32/nvidia/ \
 	/usr/lib32/nvidia/diversions/ \
 	/etc/X11/xorg.conf.d/ \
+	/usr/share/X11/xorg.conf.d/ \
 	2>/dev/null
 echo
 
