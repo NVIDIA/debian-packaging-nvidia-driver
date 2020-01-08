@@ -1,9 +1,9 @@
-nvidia-graphics-drivers (430.64-5) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (430.64-5) unstable; urgency=medium
 
   * Use substitution to keep Standards-Version in sync.
   * nvidia-detect: The 340xx legacy driver will not be in bullseye.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 08 Jan 2020 21:23:14 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 08 Jan 2020 23:11:01 +0100
 
 nvidia-graphics-drivers (430.64-4) unstable; urgency=medium
 
