@@ -19,7 +19,7 @@ License: NVIDIA-graphics-drivers
 
 Files: debian/*
 Copyright: 2001-2010 Randall Donald <rdonald@debian.org>
-           2009-2019 Andreas Beckmann <anbe@debian.org>
+           2009-2020 Andreas Beckmann <anbe@debian.org>
            2010      Russ Allbery <rra@debian.org>
            2015-2019 Luca Boccassi <bluca@debian.org>
            2018      Philipp Kern <pkern@debian.org>
@@ -28,7 +28,7 @@ License: GPL-2.0+
 
 Files: debian/detect/nvidia-detect.in
 Copyright: © 2008-2011 Filipus Klutiero <chealer@gmail.com>
-           © 2011-2017 Andreas Beckmann <anbe@debian.org>
+           © 2011-2020 Andreas Beckmann <anbe@debian.org>
 License: GPL-2.0+
 
 Files: debian/module/debian/patches/* debian/patches/*
