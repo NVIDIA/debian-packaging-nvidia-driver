@@ -27,6 +27,7 @@ NVIDIA_RELEASE		 = $(DEB_VERSION_UPSTREAM)
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
 nvidia			 = nvidia$(legacy)
+nvidia-			 = $(nvidia)$(trailing_minus)
 nvidia_if_legacy	 = $(if $(legacy),$(nvidia)-)
 libcuda1		 = lib$(nvidia_if_legacy)cuda1
 module			 = nvidia-$(current)
@@ -36,6 +37,7 @@ has_vulkan		 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_VULKAN_ARCH_LIST),$(A
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 legacy_description_short = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy))
+trailing_minus		 = $(if $(filter %0 %1 %2 %3 %4 %5 %6 %7 %8 %9,$(legacy)),-)
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),\d[\d\.\-]*)
 standards_version	:= $(shell sed -rn 's/Standards-Version: (.*)/\1/p' debian/control)
 DRIVER_ARCH_LIST	 = $(filter-out $(NO_DRIVER_ARCH_LIST),$(ARCH_LIST))
@@ -66,7 +68,7 @@ CONTROL_PREFIXES	+= nvidia-smi
 CONTROL_PREFIXES	+= nvidia-opencl-icd
 RENAME_libcuda1		 = $(libcuda1)
 RENAME_libnvcuvid1	 = lib$(nvidia_if_legacy)nvcuvid1
-renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(nvidia),$1))
+renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(if $(filter %nvidia0 %nvidia1 %nvidia2,$1),$(nvidia-),$(nvidia)),$1))
 CONTROL_PREFIXES_RENAMED = $(foreach p,$(CONTROL_PREFIXES),$(call renamed_prefix,$p))
 
 # $1=file, $2=prefix
@@ -293,6 +295,7 @@ override_dh_gencontrol:
 		-V'nvidia:xorgDepends=$(xorg_depends)' \
 		-V'nvidia:xorgProvides=$(xorg_provides)' \
 		-V'nvidia=$(nvidia)' \
+		-V'nvidia-=$(nvidia-)' \
 		-V'nvidia:if-legacy=$(nvidia_if_legacy)' \
 		-V'libcuda1=$(libcuda1)' \
 		-V'nvidia:Legacy=$(legacy)' \
@@ -369,6 +372,7 @@ include debian/bug-control.mk
 debian/control-real: $(CONTROL_FILES)
 	debian/gen-control.pl \
 		-V'nvidia=$(nvidia)' \
+		-V'nvidia-=$(nvidia-)' \
 		-V'nvidia:if-legacy=$(nvidia_if_legacy)' \
 		-V'nvidia:Legacy=$(legacy)' \
 		-V'libcuda1=$(libcuda1)' \
