@@ -1,6 +1,8 @@
-# ftp://download.nvidia.com/XFree86/Linux-x86_64/190.36/NVIDIA-Linux-x86_64-190.36-pkg2.run
-# ftp://download.nvidia.com/XFree86/Linux-x86_64/256.29/NVIDIA-Linux-x86_64-256.29.run
-# ftp://download.nvidia.com/XFree86/Linux-32bit-ARM/319.32/NVIDIA-Linux-armv7l-gnueabihf-319.32.run
+# https://download.nvidia.com/XFree86/Linux-x86/190.36/NVIDIA-Linux-x86-190.36-pkg0.run
+# https://download.nvidia.com/XFree86/Linux-x86/256.29/NVIDIA-Linux-x86-256.29.run
+# https://download.nvidia.com/XFree86/Linux-x86_64/190.36/NVIDIA-Linux-x86_64-190.36-pkg2.run
+# https://download.nvidia.com/XFree86/Linux-x86_64/256.29/NVIDIA-Linux-x86_64-256.29.run
+# https://download.nvidia.com/XFree86/Linux-32bit-ARM/319.32/NVIDIA-Linux-armv7l-gnueabihf-319.32.run
 version=3
 https://download.nvidia.com/XFree86/Linux-x86/(#WATCH_PATTERN#)/NVIDIA-Linux-x86-(\d[\d\.\-]*)(?:-pkg0)?\.run
 https://download.nvidia.com/XFree86/Linux-x86_64/(#WATCH_PATTERN#)/NVIDIA-Linux-x86_64-(\d[\d\.\-]*)(?:-pkg2)?\.run
