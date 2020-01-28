@@ -1,11 +1,12 @@
-nvidia-graphics-drivers (435.21-3) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (435.21-3) unstable; urgency=low
 
   * Merge changes from 430.64-5.
   * Continue building libegl1-nvidia.
   * Insert '-' between suffix ending with digit and SOVERSION.
   * Bump Standards-Version to 4.5.0. No changes needed.
+  * Upload to unstable.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 01 Nov 2019 00:06:52 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 28 Jan 2020 16:14:18 +0100
 
 nvidia-graphics-drivers (435.21-2) experimental; urgency=medium
 
