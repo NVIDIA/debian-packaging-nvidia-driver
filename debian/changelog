@@ -21,7 +21,8 @@ nvidia-graphics-drivers (418.113-1~git) UNRELEASED; urgency=medium
     - Generate alternative versioned dependency on libcuda.so.1 through the
       symbols file.
   * Use substitution to keep Standards-Version in sync (430.64-5).
-  * Bump Standards-Version to 4.4.1. No changes needed.
+  * Insert '-' between suffix ending with digit and SOVERSION (435.21-3).
+  * Bump Standards-Version to 4.5.0. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 05:46:46 +0100
 

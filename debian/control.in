@@ -19,7 +19,7 @@ Build-Depends:
  po-debconf,
  libglvnd-dev,
 Rules-Requires-Root: no
-Standards-Version: 4.4.1
+Standards-Version: 4.5.0
 Homepage: https://www.nvidia.com
 XS-Autobuild: yes
 
@@ -306,9 +306,9 @@ Depends:
 Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
  libopengl0 | libopengl0-glvnd-nvidia,
- libglx-${nvidia}0 (= ${binary:Version}),
- libgles-${nvidia}1 (= ${binary:Version}),
- libgles-${nvidia}2 (= ${binary:Version}),
+ libglx-${nvidia-}0 (= ${binary:Version}),
+ libgles-${nvidia-}1 (= ${binary:Version}),
+ libgles-${nvidia-}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
@@ -352,9 +352,9 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver-libs-nonglvnd-i386 [amd64],
- libglx-${nvidia}0 (= ${binary:Version}),
- libgles-${nvidia}1 (= ${binary:Version}),
- libgles-${nvidia}2 (= ${binary:Version}),
+ libglx-${nvidia-}0 (= ${binary:Version}),
+ libgles-${nvidia-}1 (= ${binary:Version}),
+ libgles-${nvidia-}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
@@ -451,7 +451,7 @@ Description: Vendor neutral GL dispatch library -- libGLX
  This package contains the (binary) GLVND libGLX.so.0 stub library provided by
  NVIDIA which dispatches to vendor implementations (libGLX_*.so.0) via GLVND.
 
-Package: libglx-${nvidia}0
+Package: libglx-${nvidia-}0
 Architecture: i386 amd64 ${arch:ppc64el}
 Multi-Arch: same
 Pre-Depends:
@@ -500,7 +500,7 @@ Architecture: i386 amd64 ${arch:ppc64el}
 Multi-Arch: same
 Depends:
  libgl1 (>= 0.2.999) | libgl1-glvnd-nvidia-glx,
- libglx-${nvidia}0 (= ${binary:Version}),
+ libglx-${nvidia-}0 (= ${binary:Version}),
  ${misc:Depends}
 Provides:
  libgl1-nvidia-glx-any,
@@ -602,7 +602,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libegl-${nvidia}0 (= ${binary:Version}),
+ libegl-${nvidia-}0 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  ${nvidia}-driver-libs,
@@ -614,7 +614,7 @@ Description: NVIDIA binary EGL library (non-GLVND variant)${nvidia:LegacyDesc}
  This package contains the driver specific binary EGL implementation by NVIDIA
  as a non-GLVND alternative.
 
-Package: libegl-${nvidia}0
+Package: libegl-${nvidia-}0
 Architecture: i386 amd64 ${arch:ppc64el}
 Multi-Arch: same
 Pre-Depends:
@@ -665,7 +665,7 @@ Description: NVIDIA binary OpenGL|ES 1.x GLVND stub library
  provided by NVIDIA which dispatches to vendor implementations
  (libGLESv1_CM_*.so.1) via GLVND.
 
-Package: libgles-${nvidia}1
+Package: libgles-${nvidia-}1
 Architecture: i386 amd64 ${arch:ppc64el}
 Multi-Arch: same
 Pre-Depends:
@@ -722,7 +722,7 @@ Description: NVIDIA binary OpenGL|ES 2.x GLVND stub library
  provided by NVIDIA which dispatches to vendor implementations
  (libGLESv2_*.so.2) via GLVND.
 
-Package: libgles-${nvidia}2
+Package: libgles-${nvidia-}2
 Architecture: i386 amd64 ${arch:ppc64el}
 Multi-Arch: same
 Pre-Depends:
@@ -777,7 +777,7 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Suggests:
- libegl-${nvidia}0 [i386 amd64 ${arch:ppc64el}]
+ libegl-${nvidia-}0 [i386 amd64 ${arch:ppc64el}]
  | libegl-nvidia-tesla-418-0 [!i386 !armhf]
  | libegl-nvidia-legacy-390xx0 [!ppc64el],
 Description: NVIDIA binary EGL driver - common files
@@ -793,7 +793,7 @@ Multi-Arch: same
 Depends:
  nvidia-egl-common,
  libegl1 (>= 0.2.999) | libegl1-glvnd-nvidia,
- libegl-${nvidia}0 (= ${binary:Version}),
+ libegl-${nvidia-}0 (= ${binary:Version}),
  ${misc:Depends}
 Enhances:
  libegl1,
@@ -865,7 +865,7 @@ Multi-Arch: same
 Depends:
  nvidia-vulkan-common,
  libvulkan1 (>= 1.0.42),
- libglx-${nvidia}0 (= ${binary:Version}),
+ libglx-${nvidia-}0 (= ${binary:Version}),
  lib${nvidia}-glvkspirv (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
