@@ -21,7 +21,7 @@ Build-Depends:
  po-debconf,
  libglvnd-dev,
 Rules-Requires-Root: no
-Standards-Version: 4.4.1
+Standards-Version: 4.5.0
 Homepage: https://www.nvidia.com
 XS-Autobuild: yes
 
@@ -91,6 +91,7 @@ Conflicts:
 Breaks:
  nvidia-driver (<< 343.22-2~),
  libcuda1 (<< 352.63),
+ nvidia-tesla-alternative (>> 0),
 Description: allows the selection of NVIDIA as GLX provider${nvidia:LegacyDesc}
  In setups with several NVIDIA driver versions installed (e.g. current and
  legacy) this metapackage registers an alternative to allow easy switching
@@ -306,9 +307,9 @@ Depends:
 Recommends:
  ${nvidia}-driver-libs-i386 [amd64],
  libopengl0 | libopengl0-glvnd-nvidia,
- libglx-${nvidia}0 (= ${binary:Version}),
- libgles-${nvidia}1 (= ${binary:Version}),
- libgles-${nvidia}2 (= ${binary:Version}),
+ libglx-${nvidia-}0 (= ${binary:Version}),
+ libgles-${nvidia-}1 (= ${binary:Version}),
+ libgles-${nvidia-}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
@@ -352,9 +353,9 @@ Depends:
  ${misc:Depends}
 Recommends:
  ${nvidia}-driver-libs-nonglvnd-i386 [amd64],
- libglx-${nvidia}0 (= ${binary:Version}),
- libgles-${nvidia}1 (= ${binary:Version}),
- libgles-${nvidia}2 (= ${binary:Version}),
+ libglx-${nvidia-}0 (= ${binary:Version}),
+ libgles-${nvidia-}1 (= ${binary:Version}),
+ libgles-${nvidia-}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
@@ -417,7 +418,7 @@ Architecture: i386 amd64
 Multi-Arch: same
 Depends:
  libgl1 (>= 0.2.999) | libgl1-glvnd-nvidia-glx,
- libglx-${nvidia}0 (= ${binary:Version}),
+ libglx-${nvidia-}0 (= ${binary:Version}),
  ${misc:Depends}
 Provides:
  libgl1-nvidia-glx-any,
@@ -497,7 +498,7 @@ Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
  ${nvidia}-alternative (= ${binary:Version}),
- libegl-${nvidia}0 (= ${binary:Version}),
+ libegl-${nvidia-}0 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  ${nvidia}-driver-libs,
@@ -609,8 +610,8 @@ Multi-Arch: foreign
 Depends:
  ${misc:Depends}
 Suggests:
- libegl-${nvidia}0 [i386 amd64 ${arch:ppc64el}]
- | libegl-nvidia-tesla0 [!i386 !armhf]
+ libegl-${nvidia-}0 [i386 amd64 ${arch:ppc64el}]
+ | libegl-nvidia-tesla-418-0 [!i386 !armhf]
  | libegl-nvidia-legacy-390xx0 [!ppc64el],
 Description: NVIDIA binary EGL driver - common files
  EGL provides a platform-agnostic mechanism for creating rendering surfaces
@@ -625,7 +626,7 @@ Multi-Arch: same
 Depends:
  nvidia-egl-common,
  libegl1 (>= 0.2.999) | libegl1-glvnd-nvidia,
- libegl-${nvidia}0 (= ${binary:Version}),
+ libegl-${nvidia-}0 (= ${binary:Version}),
  ${misc:Depends}
 Enhances:
  libegl1,
@@ -678,11 +679,11 @@ Depends:
  ${misc:Depends}
 Suggests:
  ${nvidia}-vulkan-icd [i386 amd64 ${arch:ppc64el}]
- | nvidia-tesla-vulkan-icd [!i386]
+ | nvidia-tesla-418-vulkan-icd [!i386]
  | nvidia-legacy-390xx-vulkan-icd [!ppc64el],
 Conflicts:
  libgl1-${nvidia}-glx,
- libgl1-nvidia-tesla-glx,
+ libgl1-nvidia-tesla-418-glx,
  libgl1-nvidia-legacy-390xx-glx,
  nvidia-nonglvnd-vulkan-common,
 Description: NVIDIA Vulkan driver - common files
@@ -697,7 +698,7 @@ Multi-Arch: same
 Depends:
  nvidia-vulkan-common,
  libvulkan1 (>= 1.0.42),
- libglx-${nvidia}0 (= ${binary:Version}),
+ libglx-${nvidia-}0 (= ${binary:Version}),
  lib${nvidia}-glvkspirv (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
@@ -724,11 +725,11 @@ Depends:
  ${misc:Depends}
 Suggests:
  ${nvidia}-nonglvnd-vulkan-icd [i386 amd64 ${arch:ppc64el}]
- | nvidia-tesla-nonglvnd-vulkan-icd [!i386]
+ | nvidia-tesla-418-nonglvnd-vulkan-icd [!i386]
  | nvidia-legacy-390xx-nonglvnd-vulkan-icd [!ppc64el],
 Conflicts:
  libgl1-${nvidia}-glvnd-glx,
- libgl1-nvidia-tesla-glvnd-glx,
+ libgl1-nvidia-tesla-418-glvnd-glx,
  libgl1-nvidia-legacy-390xx-glvnd-glx,
  nvidia-vulkan-common,
 Description: NVIDIA Vulkan driver - common files (non-GLVND variant)
@@ -1102,7 +1103,7 @@ Depends:
  ${misc:Depends}
 Suggests:
  ${nvidia}-opencl-icd [i386 amd64 ${arch:ppc64el}]
- | nvidia-tesla-opencl-icd [!i386]
+ | nvidia-tesla-418-opencl-icd [!i386]
  | nvidia-legacy-390xx-opencl-icd [!ppc64el],
 Description: NVIDIA OpenCL driver - common files
  OpenCL (Open Computing Language) is a multivendor open standard for
@@ -1177,4 +1178,4 @@ Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
  (nvidia-driver, nvidia-legacy-390xx-driver, nvidia-legacy-340xx-driver, or
- nvidia-tesla-driver) for installation.
+ nvidia-tesla-418-driver) for installation.
