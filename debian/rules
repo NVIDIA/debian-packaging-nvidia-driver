@@ -9,7 +9,7 @@ include /usr/share/dpkg/pkg-info.mk
 include debian/rules.defs
 NVIDIA_TESLA		?=
 NVIDIA_LEGACY		?=
-WATCH_VERSION		?= $(NVIDIA_LEGACY)
+WATCH_VERSION		?= $(or $(NVIDIA_TESLA),$(NVIDIA_LEGACY))
 WATCH_PATTERN		?=
 XORG_ABI_LIST		?=
 XORG_BOUND		?=
@@ -34,9 +34,15 @@ current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
 has_driver		 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_DRIVER_ARCH_LIST),$(ARCH_LIST)))
 has_uvm			 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_UVM_ARCH_LIST),$(ARCH_LIST)))
 has_vulkan		 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_VULKAN_ARCH_LIST),$(ARCH_LIST)))
+ifneq (,$(NVIDIA_TESLA))
+legacy			 = $(if $(NVIDIA_TESLA),-tesla-$(NVIDIA_TESLA))
+legacy_description	 = $(if $(NVIDIA_TESLA), (Tesla $(NVIDIA_TESLA) version))
+legacy_description_short = $(if $(NVIDIA_TESLA), (Tesla $(NVIDIA_TESLA)))
+else
 legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
 legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
 legacy_description_short = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy))
+endif
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),\d[\d\.\-]*)
 standards_version	:= $(shell sed -rn 's/Standards-Version: (.*)/\1/p' debian/control)
 debhelper_compat	:= $(shell sed -rn 's/.*debhelper-compat \(= ([0-9]+)\).*/\1/p' debian/control)
