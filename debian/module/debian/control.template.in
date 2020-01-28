@@ -5,7 +5,7 @@ Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
 Build-Depends:
  debhelper-compat (= #DEBHELPER_COMPAT#),
  quilt,
-Standards-Version: 4.3.0
+Standards-Version: #STANDARDS_VERSION#
 Homepage: https://www.nvidia.com/
 
 Package: #NVIDIA#-kernel-#KVERS#

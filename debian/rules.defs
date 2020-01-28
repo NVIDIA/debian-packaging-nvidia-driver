@@ -1,6 +1,7 @@
 # If needed, set to the major part of the upstream version number.
+#TESLA_MAJOR		 =
+#NVIDIA_TESLA		 = $(TESLA_MAJOR)
 #NVIDIA_LEGACY		 =
-#NVIDIA_TESLA		 =
 WATCH_VERSION		 =
 NVIDIA_SETTINGS		 = nvidia-settings (>= $(version_major))
 
@@ -18,7 +19,7 @@ ARCH_LIST		+= i386
 ARCH_LIST		+= armhf
 ARCH_LIST		+= ppc64el
 NO_DRIVER_ARCH_LIST	 = i386 armhf
-ifeq (,$(NVIDIA_TESLA))
+ifeq (,$(TESLA_MAJOR))
 NO_DRIVER_ARCH_LIST	+= ppc64el
 endif
 NO_UVM_ARCH_LIST	 = i386 armhf
@@ -29,12 +30,12 @@ NVIDIA_DIRNAME_ppc64el	 = NVIDIA-Linux-ppc64le-${NVIDIA_RELEASE}
 NVIDIA_FILENAME_amd64	 = ${NVIDIA_DIRNAME_amd64}.run
 NVIDIA_FILENAME_ppc64el	 = ${NVIDIA_DIRNAME_ppc64el}.run
 
-ifeq (,$(NVIDIA_TESLA))
+ifeq (,$(TESLA_MAJOR))
 HTTPURL_PREFIX		 = https://http.download.nvidia.com/XFree86
 HTTPURL_PREFIX_ppc64el	 = https://us.download.nvidia.com/Ubuntu
 HTTPURL_ARCHDIR_amd64	 = Linux-x86_64
 HTTPURL_ARCHDIR_ppc64el	 =
 else
 HTTPURL_PREFIX		 = https://us.download.nvidia.com/tesla
-HTTPURL_VERDIR		 = $(subst $(space),.,$(wordlist 1,2,$(subst .,$(space),$(NVIDIA_RELEASE))))
+#HTTPURL_VERDIR		 = $(subst $(space),.,$(wordlist 1,2,$(subst .,$(space),$(NVIDIA_RELEASE))))
 endif
