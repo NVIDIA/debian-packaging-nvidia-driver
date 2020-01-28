@@ -1,3 +1,10 @@
+nvidia-graphics-drivers (430.64-6) UNRELEASED; urgency=medium
+
+  * Insert '-' between suffix ending with digit and SOVERSION.
+  * Bump Standards-Version to 4.5.0. No changes needed.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 28 Jan 2020 12:31:58 +0100
+
 nvidia-graphics-drivers (430.64-5) unstable; urgency=medium
 
   * Use substitution to keep Standards-Version in sync.
