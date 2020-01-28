@@ -26,20 +26,21 @@ The branch structure in the GIT repository
     304-stretch         EoL   (stretch)           340-stretch, 304xx/master
     304xx/jessie        EoL   jessie              304xx/master
     304xx/master        EoL   stretch,sid
-    340                       jessie              340-stretch
-    340-stretch               (stretch,sid)       390, 340xx/master
-    340xx/master              stretch,buster,sid
+    340                 EoL   jessie              340-stretch
+    340-stretch         EoL   (stretch,sid)       390, 340xx/master
+    340xx/master        EoL   stretch,buster,sid
     390                       stretch             390-buster
     390-buster                (buster)            master, 390xx/master
     390xx/master              buster,sid
     418                       (sid)               418-tesla
-    418-tesla                 (sid)               tesla/master
-    tesla/master              sid
+    418-tesla                 (sid)               tesla-418/master
+    tesla-418/master          sid
     master                    sid                 YYY
     YYY                       experimental        ZZZ, (master)
     ZZZ                       experimental        (master)
     *-backports               *-backports
     ABCxx/*-backports         *-backports
+    tesla-ABC/*-backports     *-backports
 
     New upstream releases (XXX.yy) are always imported into the XXX branch.
     If this branch does not yet exist, fork it from ZZZ or master (but do
@@ -50,12 +51,9 @@ The branch structure in the GIT repository
     currently used used for both stable and sid.
 
     Minor updates, fixes and features should always go to the oldest branch
-    where they are applicable, i.e. 340-stretch (or 340) in most cases.
+    where they are applicable, i.e. 390-stretch (or 390) in most cases.
 
-    The tesla driver (418-tesla) may only be available at a version *older*
-    than the version in 418.
-
- -- Andreas Beckmann <anbe@debian.org>  Sat, 23 Jun 2018 23:17:07 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 26 Jan 2020 22:49:17 +0100
 
 
 Importing a New Upstream Release

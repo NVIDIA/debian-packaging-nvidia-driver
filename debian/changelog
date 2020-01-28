@@ -1,7 +1,9 @@
 nvidia-graphics-drivers (435.21-3) UNRELEASED; urgency=medium
 
-  * Merge changes from 430.64-4.
+  * Merge changes from 430.64-5.
   * Continue building libegl1-nvidia.
+  * Insert '-' between suffix ending with digit and SOVERSION.
+  * Bump Standards-Version to 4.5.0. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Fri, 01 Nov 2019 00:06:52 +0100
 
@@ -63,6 +65,13 @@ nvidia-graphics-drivers (435.21-1) experimental; urgency=medium
   * Upload to experimental.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 31 Aug 2019 00:15:24 +0200
+
+nvidia-graphics-drivers (430.64-5) unstable; urgency=medium
+
+  * Use substitution to keep Standards-Version in sync.
+  * nvidia-detect: The 340xx legacy driver will not be in bullseye.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 08 Jan 2020 23:11:01 +0100
 
 nvidia-graphics-drivers (430.64-4) unstable; urgency=medium
 
@@ -687,9 +696,6 @@ nvidia-graphics-drivers (390.132-1) UNRELEASED; urgency=medium
       candidates.
     - Updated nvidia-bug-report.sh to collect information about X server crashes
       from coredumpctl, when available.
-  * New upstream legacy branch release 340 series.
-    - Updated the nvidia-drm kernel module for compatibility with the removal
-      of the DRIVER_PRIME flag in recent Linux kernel versions.
 
   [ Andreas Beckmann ]
   * Refresh patches.
@@ -702,9 +708,6 @@ nvidia-graphics-drivers (390.129-1) UNRELEASED; urgency=medium
     - Improved nvidia-bug-report.sh to grab the output of the `vulkaninfo`
       command when it is available.
     * Improved compatibility with recent Linux kernels.
-  * New upstream legacy branch release 340 series.
-    - Updated nvidia-bug-report.sh to search the systemd journal for
-      gdm-x-session logs.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 06 Aug 2019 19:04:49 +0200
 
@@ -728,12 +731,6 @@ nvidia-graphics-drivers (390.116-1) stretch; urgency=medium
     - Fixed a bug that could cause rendering corruption in Vulkan programs.
     - Fixed a bug that caused vkGetPhysicalDeviceDisplayPropertiesKHR() to
       occasionally return incorrect values for physicalResolution.
-  * New upstream legacy branch release 340 series.
-    - Fixed a build failure, "too many arguments to function 'get_user_pages'",
-      when building the NVIDIA kernel module for Linux kernel v4.4.168.
-    - Fixed a build failure, "implicit declaration of function do_gettimeofday",
-      when building the NVIDIA kernel module for Linux kernel 5.0 release
-      candidates.
   * New upstream legacy branch release 367 series.
     - Added a new kernel module parameter, NVreg_RestrictProfilingToAdminUsers,
       to allow restricting the use of GPU performance counters to system
@@ -3181,6 +3178,38 @@ nvidia-graphics-drivers (343.22-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 20 Oct 2014 19:04:58 +0200
 
+nvidia-graphics-drivers (340.108-1) UNRELEASED; urgency=medium
+
+  * The 340.xx legacy driver series has been declared as End-of-Life by
+    NVIDIA. No further updates fixing security issues, critical bugs, or
+    adding support for new Xorg or Linux releases will be issued.
+    https://nvidia.custhelp.com/app/answers/detail/a_id/3142
+
+  * New upstream legacy 340xx branch release 340.108 (2019-12-23).
+    - Updated the nvidia-drm kernel module for compatibility with the removal
+      of the DRIVER_PRIME flag in recent Linux kernel versions.
+    - Updated nvidia-bug-report.sh to search the systemd journal for
+      gdm-x-session logs.
+    - Fixed a build failure, "too many arguments to function 'get_user_pages'",
+      when building the NVIDIA kernel module for Linux kernel v4.4.168.
+    - Fixed a build failure, "implicit declaration of function do_gettimeofday",
+      when building the NVIDIA kernel module for Linux kernel 5.0 release
+      candidates.
+    * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
+  * Backport kmem_cache_create_usercopy.patch from 390.67-2 for the 340.xx
+    series, fixing "Bad or missing usercopy whitelist? Kernel memory exposure
+    attempt detected from SLUB object 'nvidia_stack_cache'" on Linux kernels
+    that have disabled CONFIG_HARDENED_USERCOPY_FALLBACK
+    (i.e. linux-image-4.16.0-2-* or newer).
+  * Add buildfix_kernel_4.11.patch (replacing vm-fault.patch) and (parts of)
+    buildfix_kernel_5.2.patch from Ubuntu to fix more vm-fault issues during
+    kernel module build for Linux 5.2+.
+  * Refresh patches.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 03 Jan 2020 02:29:02 +0100
+
 nvidia-graphics-drivers (340.107-1) UNRELEASED; urgency=medium
 
   * New upstream legacy 340xx branch release 340.107 (2018-06-06).
@@ -3190,6 +3219,12 @@ nvidia-graphics-drivers (340.107-1) UNRELEASED; urgency=medium
     - Fixed a bug which could cause X servers that export a Video Driver
       ABI earlier than 0.8 to crash when running X11 applications which
       call XRenderAddTraps().
+    * Improved compatibility with recent Linux kernels.
+
+  [ Andreas Beckmann ]
+  * use-nv-kernel-ARCH.o_shipped.patch: Simplify for better kernel
+    compatibility.  (Closes: #922479)
+  * Refresh patches.
 
  -- Andreas Beckmann <anbe@debian.org>  Thu, 21 Jun 2018 22:28:56 +0200
 
