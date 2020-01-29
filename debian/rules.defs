@@ -5,7 +5,7 @@
 WATCH_VERSION		 = 418
 
 NVIDIA_SETTINGS		 = nvidia-settings (>= $(version_major))
-NVIDIA_LEGACY_CHECK	 = nvidia-legacy-check (>= 343) [amd64]
+NVIDIA_LEGACY_CHECK	 = nvidia-legacy-check (>= 396) [amd64]
 
 XORG_ABI_LIST		 = 24 23 20 19 18 15 14 13 12 11 10 8 6.0
 XORG_BOUND		 = (<< 2:1.20.99)
