@@ -10,7 +10,7 @@ debian/bug-control: debian/bug-control.mk debian/rules debian/rules.defs
 define REPORT_WITH
 	$(nvidia)-driver
 	$(nvidia)-driver-libs:any
-	nvidia-glx$(legacy)
+	nvidia-glx$(-variant)
 	libgl1-$(nvidia)-glx:any
 	libgl1-glvnd-$(nvidia)-glx:any
 	xserver-xorg-video-$(nvidia)
@@ -23,7 +23,7 @@ endef
 
 define PACKAGE_STATUS
 	$(nvidia)-driver
-	nvidia-glx$(legacy)
+	nvidia-glx$(-variant)
 	$(nvidia)-kernel-dkms
 	$(nvidia)-kernel-source
 	nvidia-kernel-support-any
