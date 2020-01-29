@@ -15,7 +15,7 @@ XORG_ABI_LIST		?=
 XORG_BOUND		?=
 LINUX_KMOD_TESTED	?=
 NVIDIA_LEGACY_CHECK	?=
-NVIDIA_SETTINGS		?= nvidia-settings$(legacy)
+NVIDIA_SETTINGS		?= nvidia-settings$(-variant)
 ARCH_CANDIDATES		?= amd64 i386 armhf ppc64el
 ARCH_LIST		?= amd64
 BLOB_ARCH_LIST		?= $(strip $(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)))
@@ -26,28 +26,29 @@ NO_VULKAN_ARCH_LIST	?=
 NVIDIA_RELEASE		 = $(DEB_VERSION_UPSTREAM)
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
-nvidia			 = nvidia$(legacy)
-nvidia-			 = $(nvidia)$(trailing_minus)
-nvidia_if_legacy	 = $(if $(legacy),$(nvidia)-)
-libcuda1		 = lib$(nvidia_if_legacy)cuda1
-module			 = nvidia-$(current)
-current			 = $(if $(legacy),$(patsubst -%,%,$(legacy)),current)
-has_driver		 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_DRIVER_ARCH_LIST),$(ARCH_LIST)))
-has_uvm			 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_UVM_ARCH_LIST),$(ARCH_LIST)))
-has_vulkan		 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_VULKAN_ARCH_LIST),$(ARCH_LIST)))
 ifneq (,$(NVIDIA_TESLA))
-legacy			 = $(if $(NVIDIA_TESLA),-tesla-$(NVIDIA_TESLA))
-legacy_description	 = $(if $(NVIDIA_TESLA), (Tesla $(NVIDIA_TESLA) version))
-legacy_description_short = $(if $(NVIDIA_TESLA), (Tesla $(NVIDIA_TESLA)))
+variant			 = $(if $(NVIDIA_TESLA),tesla-$(NVIDIA_TESLA))
+variant_description	 = $(if $(NVIDIA_TESLA), (Tesla $(NVIDIA_TESLA) version))
+variant_description_short= $(if $(NVIDIA_TESLA), (Tesla $(NVIDIA_TESLA)))
 else
-legacy			 = $(if $(NVIDIA_LEGACY),-legacy-$(NVIDIA_LEGACY)xx)
-legacy_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
-legacy_description_short = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy))
+variant			 = $(if $(NVIDIA_LEGACY),legacy-$(NVIDIA_LEGACY)xx)
+variant_description	 = $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy version))
+variant_description_short= $(if $(NVIDIA_LEGACY), ($(NVIDIA_LEGACY)xx legacy))
 endif
-trailing_minus		 = $(if $(filter %0 %1 %2 %3 %4 %5 %6 %7 %8 %9,$(legacy)),-)
+-variant		 = $(if $(variant),-$(variant))
+trailing_minus		 = $(if $(filter %0 %1 %2 %3 %4 %5 %6 %7 %8 %9,$(variant)),-)
+nvidia			 = nvidia$(-variant)
+nvidia-			 = $(nvidia)$(trailing_minus)
+nvidia_if_variant	 = $(if $(variant),$(nvidia)-)
+current			 = $(if $(variant),$(variant),current)
+module			 = nvidia-$(current)
+libcuda1		 = lib$(nvidia_if_variant)cuda1
 watch_pattern		 = $(or $(WATCH_PATTERN),$(if $(WATCH_VERSION),$(WATCH_VERSION)(?:\.[\d\.\-]+)?),\d[\d\.\-]*)
 standards_version	:= $(shell sed -rn 's/Standards-Version: (.*)/\1/p' debian/control)
 debhelper_compat	:= $(shell sed -rn 's/.*debhelper-compat \(= ([0-9]+)\).*/\1/p' debian/control)
+has_driver		 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_DRIVER_ARCH_LIST),$(ARCH_LIST)))
+has_uvm			 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_UVM_ARCH_LIST),$(ARCH_LIST)))
+has_vulkan		 = $(filter $(DEB_HOST_ARCH),$(filter-out $(NO_VULKAN_ARCH_LIST),$(ARCH_LIST)))
 DRIVER_ARCH_LIST	 = $(filter-out $(NO_DRIVER_ARCH_LIST),$(ARCH_LIST))
 
 # this needs the internal names (i.e. upstream's names, not our renamed files)
@@ -76,8 +77,8 @@ CONTROL_PREFIXES	+= libnvoptix1
 CONTROL_PREFIXES	+= nvidia-smi
 CONTROL_PREFIXES	+= nvidia-opencl-icd
 RENAME_libcuda1		 = $(libcuda1)
-RENAME_libnvcuvid1	 = lib$(nvidia_if_legacy)nvcuvid1
-RENAME_libnvoptix1	 = lib$(nvidia_if_legacy)nvoptix1
+RENAME_libnvcuvid1	 = lib$(nvidia_if_variant)nvcuvid1
+RENAME_libnvoptix1	 = lib$(nvidia_if_variant)nvoptix1
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(if $(filter %nvidia0 %nvidia1 %nvidia2,$1),$(nvidia-),$(nvidia)),$1))
 CONTROL_PREFIXES_RENAMED = $(foreach p,$(CONTROL_PREFIXES),$(call renamed_prefix,$p))
 
@@ -324,17 +325,18 @@ override_dh_shlibdeps:
 	dh_shlibdeps -l/$(libdir)/$(nvidia_private)
 
 override_dh_gencontrol:
-	dh_gencontrol -- -V'nvidia:Version=$(version)' \
+	dh_gencontrol -- \
+		-V'nvidia:Version=$(version)' \
 		-V'nvidia:xorgDepends=$(xorg_depends)' \
 		-V'nvidia:xorgProvides=$(xorg_provides)' \
 		-V'nvidia=$(nvidia)' \
 		-V'nvidia-=$(nvidia-)' \
-		-V'nvidia:if-legacy=$(nvidia_if_legacy)' \
-		-V'libcuda1=$(libcuda1)' \
-		-V'nvidia:Legacy=$(legacy)' \
-		-V'nvidia:LegacyDesc=$(legacy_description)' \
-		-V'nvidia:LegacyDescShort=$(legacy_description_short)' \
+		-V'nvidia-if-variant=$(nvidia_if_variant)' \
+		-V'nvidia:Variant=$(variant)' \
+		-V'nvidia:VariantDesc=$(variant_description)' \
+		-V'nvidia:VariantDescShort=$(variant_description_short)' \
 		-V'nvidia:legacy-check=$(NVIDIA_LEGACY_CHECK)' \
+		-V'libcuda1=$(libcuda1)' \
 		-V'nvidia-settings=$(NVIDIA_SETTINGS)' \
 		-V'nvidia:debhelper-compat=$(debhelper_compat)' \
 		$(foreach a,$(ARCH_CANDIDATES),-V'arch:$a=$(filter $a,$(DRIVER_ARCH_LIST))') \
@@ -350,8 +352,8 @@ override_dh_gencontrol:
 
 # used by dpkg-genchanges
 debian/substvars:
-	echo 'nvidia:LegacyDesc=$(legacy_description)' > $@
-	echo 'nvidia:LegacyDescShort=$(legacy_description_short)' >> $@
+	echo 'nvidia:VariantDesc=$(variant_description)' > $@
+	echo 'nvidia:VariantDescShort=$(variant_description_short)' >> $@
 
 # Do not run dh_strip here.  The NVIDIA license says:
 #
@@ -376,7 +378,7 @@ override_dh_strip_nondeterminism:
 	-e 's{#VERSION#}{$(version)}g;' \
 	-e 's{#MAJOR#}{$(version_major)}g;' \
 	-e 's{#NVIDIA#}{$(nvidia)}g;' \
-	-e 's{#LEGACY#}{$(legacy)}g;' \
+	-e 's{#VARIANT#}{$(-variant)}g;' \
 	-e 's{#MODULE#}{$(module)}g;' \
 	-e 's{#WATCH_PATTERN#}{$(subst \,\\,$(watch_pattern))}g;' \
 	-e 's{#STANDARDS_VERSION#}{$(standards_version)}g;' \
@@ -390,15 +392,15 @@ override_dh_strip_nondeterminism:
 	< $< > $@
 
 debian/module/debian/changelog: debian/changelog
-	sed '1s/^nvidia-graphics-drivers$(legacy)/$(nvidia)-kernel/g' $< > $@
+	sed '1s/^nvidia-graphics-drivers$(-variant)/$(nvidia)-kernel/g' $< > $@
 
 
-# Renaming control files for legacy packaging
+# Renaming control files for variant packaging
 define rename-template
 $2%: $1%
 	cp -a $$< $$@
 endef
-ifneq (,$(legacy))
+ifneq (,$(variant))
 $(foreach p,$(CONTROL_PREFIXES),$(eval $(call rename-template,$p,$(call renamed_prefix,$p))))
 endif
 
@@ -411,8 +413,8 @@ debian/control-real: $(CONTROL_FILES)
 	debian/gen-control.pl \
 		-V'nvidia=$(nvidia)' \
 		-V'nvidia-=$(nvidia-)' \
-		-V'nvidia:if-legacy=$(nvidia_if_legacy)' \
-		-V'nvidia:Legacy=$(legacy)' \
+		-V'nvidia-if-variant=$(nvidia_if_variant)' \
+		-V'nvidia:Variant=$(-variant)' \
 		-V'libcuda1=$(libcuda1)' \
 		$(foreach a,$(ARCH_CANDIDATES),-V'arch:$a=$(filter $a,$(DRIVER_ARCH_LIST))') \
 		-- \
@@ -464,7 +466,7 @@ check-whitespace:
 
 CACHE			?= ../.cache
 ORIGDIR			?= nvidia-graphics-drivers-$(NVIDIA_RELEASE).orig
-TARBALL_BASE		?= nvidia-graphics-drivers$(legacy)_$(NVIDIA_RELEASE).orig
+TARBALL_BASE		?= nvidia-graphics-drivers$(-variant)_$(NVIDIA_RELEASE).orig
 TARBALL_SUFFIX		?= .tar.gz
 TARBALL			?= $(TARBALL_BASE)$(TARBALL_SUFFIX)
 ORIGDIR.empty		?= $(ORIGDIR)
@@ -515,9 +517,9 @@ get-orig-source-files/empty: get-orig-source-prepare/empty $(foreach a,$(DRIVER_
 get-orig-source: get-orig-source-pack/empty
 	$(RM) -r get-orig-source
 
-ifneq (,$(or $(NVIDIA_LEGACY),$(NVIDIA_TESLA)))
+ifneq (,$(variant))
 get-orig-source-link/%:
-	ln -sf $(subst $(legacy),,$(call get_tarball,$*)) $(call get_tarball,$*)
+	ln -sf $(subst $(-variant),,$(call get_tarball,$*)) $(call get_tarball,$*)
 
 .PHONY: get-orig-links
 get-orig-links: get-orig-source-link/empty $(foreach a,$(DRIVER_ARCH_LIST),get-orig-source-link/$a)
@@ -573,11 +575,11 @@ check-current-tarballs: $(TARBALL_TREE)/$(UPSTREAM_VERSION)
 	$(foreach t,$(TARBALL_LIST),$(call test-file-exists,$(TARBALL_TREE)/$(UPSTREAM_VERSION)/$t))
 
 # only invoked manually
-ifeq (,$(or $(NVIDIA_LEGACY),$(NVIDIA_TESLA)))
+ifeq (,$(variant))
 commit-current-tarballs: MSG = add $(UPSTREAM_VERSION) tarballs
 commit-current-tarballs: get-orig-source
 else
-commit-current-tarballs: MSG = add $(UPSTREAM_VERSION) $(patsubst -%,%,$(legacy)) symlinks
+commit-current-tarballs: MSG = add $(UPSTREAM_VERSION) $(variant) symlinks
 commit-current-tarballs: get-orig-links
 endif
 commit-current-tarballs:
