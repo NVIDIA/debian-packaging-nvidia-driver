@@ -1,9 +1,10 @@
-nvidia-graphics-drivers (440.44-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (440.44-2) unstable; urgency=medium
 
   * Merge changes from 435.21-3.
   * Rename "legacy" variables to more generic "variant".
+  * Upload to unstable.  (Closes: #950128)
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 28 Jan 2020 19:49:12 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 29 Jan 2020 21:03:10 +0100
 
 nvidia-graphics-drivers (440.44-1) experimental; urgency=medium
 
