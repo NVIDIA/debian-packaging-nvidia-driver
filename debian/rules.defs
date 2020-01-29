@@ -3,13 +3,12 @@
 WATCH_VERSION		 = 340
 
 NVIDIA_SETTINGS		 = nvidia-settings (>= $(version_major))
+NVIDIA_LEGACY_CHECK	 = nvidia-legacy-check (>= 310)
 
 DEB_VERSION_AFTER_jessie = 340.101-2~
 
 XORG_ABI_LIST		 = 24 23 20 19 18 15 14 13 12 11 10 8 6.0
 XORG_BOUND		 = (<< 2:1.20.99)
-
-NVIDIA_LEGACY_CHECK	 = nvidia-legacy-check (>= 310)
 
 LINUX_KMOD_TESTED	 = 5.4
 LINUX_KMOD_TESTED_amd64	 =
