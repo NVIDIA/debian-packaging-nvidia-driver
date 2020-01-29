@@ -943,7 +943,7 @@ Provides:
  libnvidia-glvkspirv-${nvidia:Version}
 Conflicts:
  libnvidia-glvkspirv-${nvidia:Version}
-Description: NVIDIA binary Vulkan Spir-V compiler library${nvidia:LegacyDesc}
+Description: NVIDIA binary Vulkan Spir-V compiler library${nvidia:VariantDesc}
  Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
  .
  This library provides a NVIDIA Vulkan Spir-V compiler which reduces shader
@@ -963,7 +963,7 @@ Provides:
  libnvidia-cbl-${nvidia:Version},
 Conflicts:
  libnvidia-cbl-${nvidia:Version},
-Description: NVIDIA binary Vulkan ray tracing (cbl) library${nvidia:LegacyDesc}
+Description: NVIDIA binary Vulkan ray tracing (cbl) library${nvidia:VariantDesc}
  Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
  .
  This library is part of the Vulkan real-time ray tracing extensions
@@ -983,7 +983,7 @@ Provides:
  libnvidia-rtcore-${nvidia:Version},
 Conflicts:
  libnvidia-rtcore-${nvidia:Version},
-Description: NVIDIA binary Vulkan ray tracing (rtcore) library${nvidia:LegacyDesc}
+Description: NVIDIA binary Vulkan ray tracing (rtcore) library${nvidia:VariantDesc}
  Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
  .
  This library is part of the Vulkan real-time ray tracing extensions
@@ -1234,7 +1234,7 @@ Description: NVIDIA OpenGL-based Framebuffer Capture runtime library${nvidia:Var
  .
  This package contains the NvFBCOpenGL runtime library.
 
-Package: lib${nvidia:if-legacy}nvoptix1
+Package: lib${nvidia-if-variant}nvoptix1
 Architecture: amd64
 Multi-Arch: same
 Pre-Depends:
@@ -1242,7 +1242,7 @@ Pre-Depends:
 Depends:
  ${libcuda1} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA implementation of the OptiX ray tracing engine${nvidia:LegacyDesc}
+Description: NVIDIA implementation of the OptiX ray tracing engine${nvidia:VariantDesc}
  The OptiX API is an application framework for achieving optimal ray tracing
  performance on the GPU.
  .
@@ -1259,7 +1259,7 @@ Depends:
 # ${libcuda1} (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Homepage: https://developer.nvidia.com/opticalflow-sdk
-Description: NVIDIA Optical Flow runtime library${nvidia:LegacyDesc}
+Description: NVIDIA Optical Flow runtime library${nvidia:VariantDesc}
  The NVIDIA Optical Flow SDK exposes the latest hardware capability of Turing
  GPUs dedicated to computing the relative motion of pixels between images.
  .
