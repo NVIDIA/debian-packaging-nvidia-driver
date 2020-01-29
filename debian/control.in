@@ -1,4 +1,4 @@
-Source: nvidia-graphics-drivers${nvidia:Legacy}
+Source: nvidia-graphics-drivers${nvidia:Variant}
 Section: non-free/libs
 Priority: optional
 Maintainer: Debian NVIDIA Maintainers <pkg-nvidia-devel@lists.alioth.debian.org>
@@ -49,9 +49,9 @@ Suggests:
 Provides:
  nvidia-glx-any,
 Breaks:
- nvidia-glx${nvidia:Legacy},
+ nvidia-glx${nvidia:Variant},
 Replaces:
- nvidia-glx${nvidia:Legacy},
+ nvidia-glx${nvidia:Variant},
 Description: NVIDIA metapackage${nvidia:VariantDesc}
  This metapackage depends on the NVIDIA binary driver and libraries
  that provide optimized hardware acceleration of
@@ -264,10 +264,10 @@ Conflicts:
  nvidia-driver-bin-${nvidia:Version},
 Breaks:
  ${nvidia}-driver (<< 343.22-2~),
- nvidia-glx${nvidia:Legacy} (<< 319),
+ nvidia-glx${nvidia:Variant} (<< 319),
 Replaces:
  ${nvidia}-driver (<< 343.22-2~),
- nvidia-glx${nvidia:Legacy} (<< 319),
+ nvidia-glx${nvidia:Variant} (<< 319),
 Description: NVIDIA driver support binaries${nvidia:VariantDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
@@ -1131,7 +1131,7 @@ Description: NVIDIA PTX JIT Compiler${nvidia:VariantDesc}
  .
  This package contains the runtime PTX JIT compiler library.
 
-Package: lib${nvidia:if-legacy}nvcuvid1
+Package: lib${nvidia-if-variant}nvcuvid1
 Architecture: i386 amd64 armhf
 Multi-Arch: same
 Pre-Depends:
