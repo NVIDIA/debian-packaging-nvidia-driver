@@ -20,6 +20,9 @@ nvidia-graphics-drivers (440.59-1) UNRELEASED; urgency=medium
     - Add PRIME Synchronization support for Linux kernel 5.4 and newer.
       (Closes: #948568)
 
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Feb 2020 22:37:48 +0100
 
 nvidia-graphics-drivers (440.44-2) unstable; urgency=medium
