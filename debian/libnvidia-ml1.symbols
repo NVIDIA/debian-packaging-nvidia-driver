@@ -198,6 +198,7 @@ libnvidia-ml.so.1 #PACKAGE# #MINVER# | libnvidia-ml.so.1 #MINVER#
  nvmlVgpuInstanceGetFrameRateLimit@Base 375
 #MISSING: 375# nvmlVgpuInstanceGetGpuUtilization@Base 370
  nvmlVgpuInstanceGetLicenseStatus@Base 375
+ nvmlVgpuInstanceGetMdevUUID@Base 440.59
  nvmlVgpuInstanceGetMetadata@Base 375.26
  nvmlVgpuInstanceGetType@Base 375
  nvmlVgpuInstanceGetUUID@Base 367.27

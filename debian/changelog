@@ -22,6 +22,7 @@ nvidia-graphics-drivers (440.59-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
+  * Update symbols files.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Feb 2020 22:37:48 +0100
 
