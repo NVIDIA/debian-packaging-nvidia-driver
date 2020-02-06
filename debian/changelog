@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (440.59-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (440.59-1) unstable; urgency=medium
 
   * New upstream long lived branch release 440.44 (2020-02-03).
     - Disabled frame rate limiting for configurations without active
@@ -24,7 +24,7 @@ nvidia-graphics-drivers (440.59-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Update symbols files.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 04 Feb 2020 22:37:48 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 06 Feb 2020 22:39:27 +0100
 
 nvidia-graphics-drivers (440.44-2) unstable; urgency=medium
 
