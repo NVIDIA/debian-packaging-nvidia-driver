@@ -10,6 +10,9 @@ nvidia-graphics-drivers (440.64-1) UNRELEASED; urgency=medium
      with error "implicit declaration of function
      'ioremap_nocache'".
 
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Fri, 28 Feb 2020 23:46:44 +0100
 
 nvidia-graphics-drivers (440.59-1) unstable; urgency=medium
