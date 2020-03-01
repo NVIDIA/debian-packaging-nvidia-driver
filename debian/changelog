@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (440.64-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (440.64-1) unstable; urgency=medium
 
   * New upstream long lived branch release 440.64 (2020-02-28).
     - Added support for the following GPUs: GeForce MX330, GeForce MX350.
@@ -14,7 +14,7 @@ nvidia-graphics-drivers (440.64-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Fri, 28 Feb 2020 23:46:44 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 01 Mar 2020 11:25:24 +0100
 
 nvidia-graphics-drivers (440.59-1) unstable; urgency=medium
 
