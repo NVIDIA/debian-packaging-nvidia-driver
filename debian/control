@@ -354,6 +354,8 @@ Recommends:
  libgles-${nvidia-}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
  ${nvidia}-nonglvnd-vulkan-icd (= ${binary:Version}) [amd64 i386],
+Provides:
+ nvidia-driver-libs-any,
 Conflicts:
  libgldispatch0-nvidia,
  libgl1-glvnd-nvidia-glx,

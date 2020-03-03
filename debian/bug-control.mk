@@ -10,6 +10,7 @@ debian/bug-control: debian/bug-control.mk debian/rules debian/rules.defs
 define REPORT_WITH
 	$(nvidia)-driver
 	$(nvidia)-driver-libs:any
+	$(nvidia)-driver-libs-nonglvnd:any
 	nvidia-glx$(-variant)
 	libgl1-$(nvidia)-glx:any
 	libgl1-glvnd-$(nvidia)-glx:any
