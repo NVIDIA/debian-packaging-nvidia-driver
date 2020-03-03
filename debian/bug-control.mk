@@ -27,7 +27,9 @@ define PACKAGE_STATUS
 	$(nvidia)-kernel-dkms
 	$(nvidia)-kernel-source
 	nvidia-kernel-support-any
+	nvidia-driver-any
 	nvidia-glx-any
+	nvidia-driver-libs-any
 	libgl1-nvidia-glx-any
 	xserver-xorg-video-nvidia-any
 	libcuda1

@@ -44,6 +44,7 @@ Recommends:
 Suggests:
  ${nvidia:kmod:source},
 Provides:
+ nvidia-driver-any,
  nvidia-glx-any,
 Breaks:
  nvidia-glx${nvidia:Legacy},
@@ -102,6 +103,8 @@ Recommends:
  libgles1-${nvidia} (= ${binary:Version}),
  libgles2-${nvidia} (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
+Provides:
+ nvidia-driver-libs-any,
 Description: NVIDIA metapackage (OpenGL/GLX/EGL/GLES libraries)${nvidia:LegacyDesc}
  This metapackage depends on the NVIDIA binary libraries
  that provide optimized hardware acceleration of
