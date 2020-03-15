@@ -10,6 +10,7 @@ debian/bug-control: debian/bug-control.mk debian/rules debian/rules.defs
 define REPORT_WITH
 	$(nvidia)-driver
 	$(nvidia)-driver-libs:any
+	$(nvidia)-driver-libs-nonglvnd:any
 	nvidia-glx$(-variant)
 	libgl1-$(nvidia)-glx:any
 	libgl1-glvnd-$(nvidia)-glx:any
@@ -27,11 +28,16 @@ define PACKAGE_STATUS
 	$(nvidia)-kernel-dkms
 	$(nvidia)-kernel-source
 	nvidia-kernel-support-any
+	nvidia-driver-any
 	nvidia-glx-any
+	nvidia-driver-libs-any
 	libgl1-nvidia-glx-any
 	xserver-xorg-video-nvidia-any
+	libnvidia-cfg1-any
 	libcuda1
 	libcuda1-any
+	libcuda.so.1
+	libnvidia-ml.so.1
 	nvidia-settings
 	nvidia-xconfig
 	nvidia-support
@@ -43,6 +49,9 @@ define PACKAGE_STATUS
 	linux-headers
 	bumblebee
 	bumblebee-nvidia
+	primus
+	primus-libs
+	primus-nvidia
 	libdrm-nouveau1
 	libdrm-nouveau1a
 	libdrm-nouveau2

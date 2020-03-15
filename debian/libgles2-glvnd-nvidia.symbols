@@ -1,4 +1,4 @@
-libGLESv2.so.2 libgles2 (>= 0.2.999) | libgles2-mesa
+libGLESv2.so.2 libgles2-mesa | libgles2 (>= 0.2.999)
  AllocExecPages@Base 390.59
  FindNextStringToken@Base 390.59
  FreeExecPages@Base 390.59
