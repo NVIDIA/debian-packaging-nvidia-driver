@@ -1,4 +1,4 @@
-libOpenGL.so.0 #PACKAGE# #MINVER# | libopengl0
+libOpenGL.so.0 libopengl0 | #PACKAGE# #MINVER#
  AllocExecPages@Base 390.59
  FindNextStringToken@Base 390.59
  FreeExecPages@Base 390.59

@@ -1,4 +1,4 @@
-libGLdispatch.so.0 glvnd-nvidia-abi-375.20 | libglvnd0, #PACKAGE# #MINVER# | libglvnd0
+libGLdispatch.so.0 libglvnd0 | glvnd-nvidia-abi-375.20, libglvnd0 | #PACKAGE# #MINVER#
  __glDispatchCheckMultithreaded@Base 355
  __glDispatchCreateTable@Base 355
  __glDispatchDestroyTable@Base 355

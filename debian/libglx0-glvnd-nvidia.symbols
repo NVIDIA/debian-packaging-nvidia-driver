@@ -1,4 +1,4 @@
-libGLX.so.0 #PACKAGE# #MINVER# | libglx0
+libGLX.so.0 libglx0 | #PACKAGE# #MINVER#
 #MISSING: 384# (arch=i386)AllocExecPages@Base 361
 #MISSING: 384# (arch=i386)AtomicCompareAndSwap@Base 361
 #MISSING: 384# (arch=i386)AtomicDecrementClampAtZero@Base 361

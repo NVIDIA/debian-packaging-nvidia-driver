@@ -1,4 +1,4 @@
-libEGL.so.1 libegl1-mesa | libegl1 (>= 0.2.999)
+libEGL.so.1 libegl1 (>= 0.2.999) | libegl1-mesa
 #MISSING: 384# (arch=i386)AllocExecPages@Base 375
 #MISSING: 384# (arch=i386)AtomicCompareAndSwap@Base 375
 #MISSING: 384# (arch=i386)AtomicDecrementClampAtZero@Base 375

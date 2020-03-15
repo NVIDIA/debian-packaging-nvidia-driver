@@ -1,4 +1,4 @@
-libGLESv1_CM.so.1 libgles1-mesa | libgles1 (>= 0.2.999)
+libGLESv1_CM.so.1 libgles1 (>= 0.2.999) | libgles1-mesa
  AllocExecPages@Base 390.59
  FindNextStringToken@Base 390.59
  FreeExecPages@Base 390.59
