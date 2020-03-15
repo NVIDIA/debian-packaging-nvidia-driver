@@ -1,3 +1,15 @@
+nvidia-graphics-drivers (418.126.02-1) UNRELEASED; urgency=medium
+
+  * New upstream Tesla release 418.126.02 (2020-02-28).
+    - Added support for the following GPU: Quadro T2000 with Max-Q Design.
+  * New upstream release 390 series.
+    * Fixed driver installation failure on Oracle Linux 7.7 systems,
+      where the NVIDIA kernel module failed to build with error "unknown
+      type name 'vm_fault_t'".
+    * Add PRIME Synchronization support for Linux kernel 5.4 and newer.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 14 Mar 2020 23:08:06 +0100
+
 nvidia-graphics-drivers (418.116.00-1) UNRELEASED; urgency=medium
 
   * New upstream Tesla release 418.116.00 (2019-12-09).
