@@ -48,6 +48,7 @@ Recommends:
 Suggests:
  ${nvidia:kmod:source},
 Provides:
+ nvidia-driver-any,
  nvidia-glx-any,
 Breaks:
  nvidia-glx${nvidia:Variant},
@@ -312,6 +313,8 @@ Recommends:
  libgles-${nvidia-}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}),
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
+Provides:
+ nvidia-driver-libs-any,
 Conflicts:
  libgldispatch0-nvidia,
 Breaks:
