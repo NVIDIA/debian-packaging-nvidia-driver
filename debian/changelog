@@ -259,7 +259,7 @@ nvidia-graphics-drivers (430.64-3) unstable; urgency=medium
 nvidia-graphics-drivers (430.64-2) unstable; urgency=medium
 
   * nvidia-detect: Add PCI ID list for 418.74 in buster.
-  * nvidia-detect: Add support for Tesla drivers.
+  * nvidia-detect: Add support for Tesla 418 drivers.
   * nvidia-detect: Build for ppc64el.
   * Allow alternative libnvidia-{tesla,legacy-*}-ml1 packages to substitute
     libnvidia-ml1.
@@ -293,8 +293,8 @@ nvidia-graphics-drivers (430.50-2) unstable; urgency=medium
   * debian/gen-control.pl: Support substitutions in the Architecture field and
     skip packages with empty or commented Architecture field.
   * Build the nvidia-*-common packages for ppc64el.
-  * Prepare infrastructure for packaging Tesla driver releases (available for
-    amd64 (including some i386 libs) and ppc64el).
+  * Prepare infrastructure for packaging Tesla 418 driver releases (available
+    for amd64 (including some i386 libs) and ppc64el).
   * Bump Standards-Version to 4.4.1. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 30 Oct 2019 21:04:31 +0100

@@ -1088,5 +1088,5 @@ Depends:
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-driver, nvidia-legacy-390xx-driver, nvidia-legacy-340xx-driver, or
- nvidia-tesla-418-driver) for installation.
+ (nvidia-driver, nvidia-legacy-390xx-driver, or nvidia-tesla-418-driver) for
+ installation.
