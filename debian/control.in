@@ -48,10 +48,6 @@ Suggests:
  ${nvidia:kmod:source},
 Provides:
  nvidia-glx-any [${nvidia:arch:has-driver}],
-Breaks:
- nvidia-glx${nvidia:Variant},
-Replaces:
- nvidia-glx${nvidia:Variant},
 Description: NVIDIA metapackage${nvidia:VariantDesc}
  ${nvidia:no-driver-notice}This metapackage depends on the NVIDIA binary driver and libraries
  that provide optimized hardware acceleration of
@@ -78,7 +74,6 @@ Depends:
 Provides:
  ${nvidia}-alternative--kmod-alias,
 Conflicts:
- libgldispatch0-nvidia,
  libglvnd0-nvidia,
  libopengl0-glvnd-nvidia,
  libglx0-glvnd-nvidia,
@@ -87,8 +82,6 @@ Conflicts:
  libgles1-glvnd-nvidia,
  libgles2-glvnd-nvidia,
 Breaks:
- nvidia-driver (<< 343.22-2~),
- libcuda1 (<< 352.63),
  nvidia-tesla-alternative (>> 0),
 Description: allows the selection of NVIDIA as GLX provider${nvidia:VariantDesc}
  In setups with several NVIDIA driver versions installed (e.g. current and
@@ -114,10 +107,6 @@ Depends:
 Provides:
  nvidia-kernel-support-any,
  ${nvidia}-kernel-support--v1,
-Breaks:
- glx-alternative-nvidia (<< 0.6.91),
-Replaces:
- glx-alternative-nvidia (<< 0.6.91),
 Description: NVIDIA binary kernel module support files${nvidia:VariantDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
@@ -219,10 +208,6 @@ Suggests:
 Provides:
  xserver-xorg-video-nvidia-any [${nvidia:arch:has-driver}],
  ${nvidia:xorgProvides},
-Breaks:
- glx-alternative-nvidia (<< 0.6.91),
-Replaces:
- glx-alternative-nvidia (<< 0.6.91),
 Description: NVIDIA binary Xorg driver${nvidia:VariantDesc}
  ${nvidia:no-driver-notice}The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
@@ -263,10 +248,6 @@ Provides:
  nvidia-driver-bin-${nvidia:Version},
 Conflicts:
  nvidia-driver-bin-${nvidia:Version},
-Breaks:
- ${nvidia}-driver (<< 343.22-2~),
-Replaces:
- ${nvidia}-driver (<< 343.22-2~),
 Description: NVIDIA driver support binaries${nvidia:VariantDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
@@ -284,10 +265,6 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Provides:
  libnvidia-cfg1-any,
-Breaks:
- libgl1-${nvidia}-glx (<< 355.11-5),
-Replaces:
- libgl1-${nvidia}-glx (<< 355.11-5),
 Description: NVIDIA binary OpenGL/GLX configuration library${nvidia:VariantDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
@@ -311,7 +288,6 @@ Recommends:
  lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Conflicts:
- libgldispatch0-nvidia,
  libglvnd0-nvidia,
  libopengl0-glvnd-nvidia,
  libglx0-glvnd-nvidia,
@@ -353,13 +329,8 @@ Provides:
  glvnd-nvidia-abi-375.20,
 Conflicts:
  libglvnd0,
- libgldispatch0,
-Breaks:
- libgldispatch0-nvidia,
 Replaces:
  libglvnd0,
- libgldispatch0,
- libgldispatch0-nvidia,
 Description: Vendor neutral GL dispatch library -- libGLdispatch
  This is an implementation of the vendor-neutral dispatch layer for
  arbitrating OpenGL API calls between multiple vendors on a per-screen basis.
@@ -480,11 +451,6 @@ Provides:
  libnvidia-glcore-${nvidia:Version},
 Conflicts:
  libnvidia-glcore-${nvidia:Version},
- libgl1-nvidia-glx-${nvidia:Version},
-Breaks:
- libgl1-${nvidia}-glx (<< 355.11-5),
-Replaces:
- libgl1-${nvidia}-glx (<< 355.11-5),
 Description: NVIDIA binary OpenGL/GLX core libraries${nvidia:VariantDesc}
  The NVIDIA binary driver provides optimized hardware acceleration of
  OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
@@ -563,11 +529,8 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libgles1 (>> 0),
-Breaks:
- libgles1-nvidia (<< 361),
 Replaces:
  libgles1 (>> 0),
- libgles1-nvidia (<< 361),
 Description: NVIDIA binary OpenGL|ES 1.x GLVND stub library
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
  embedded systems - including consoles, phones, appliances and vehicles.
@@ -619,11 +582,8 @@ Depends:
  ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
  libgles2 (>> 0),
-Breaks:
- libgles2-nvidia (<< 361),
 Replaces:
  libgles2 (>> 0),
- libgles2-nvidia (<< 361),
 Description: NVIDIA binary OpenGL|ES 2.x GLVND stub library
  OpenGL|ES is a cross-platform API for full-function 2D and 3D graphics on
  embedded systems - including consoles, phones, appliances and vehicles.
