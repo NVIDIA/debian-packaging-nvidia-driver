@@ -23,6 +23,8 @@ nvidia-graphics-drivers (418.113-1~git) UNRELEASED; urgency=medium
   * Use substitution to keep Standards-Version in sync (430.64-5).
   * Insert '-' between suffix ending with digit and SOVERSION (435.21-3).
   * Rename "legacy" variables to more generic "variant" (440.44-2).
+  * Prepare infrastructure for packaging Tesla 440 driver releases (available
+    for amd64 (including some i386 libs) and ppc64el) (440.64-2).
   * Bump Standards-Version to 4.5.0. No changes needed.
   * *.symbols: List libraries from src:libglvnd (not in stretch) as second
     (instead of preferred) alternative dependencies.
