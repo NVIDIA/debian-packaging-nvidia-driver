@@ -1,3 +1,9 @@
+nvidia-graphics-drivers (440.64-2) UNRELEASED; urgency=medium
+
+  * nvidia-detect: Add support for Tesla 440 drivers.
+
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Mar 2020 11:50:27 +0100
+
 nvidia-graphics-drivers (440.64-1) unstable; urgency=medium
 
   * New upstream long lived branch release 440.64 (2020-02-28).
