@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (440.64-2) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (440.64-2) unstable; urgency=medium
 
   * Prepare infrastructure for packaging Tesla 440 driver releases (available
     for amd64 (including some i386 libs) and ppc64el).
@@ -6,7 +6,7 @@ nvidia-graphics-drivers (440.64-2) UNRELEASED; urgency=medium
   * Drop versioned constraints that are satisfied in stretch.
   * bug-control: Report information about more (virtual) packages.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Mar 2020 11:50:27 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Mar 2020 21:01:28 +0100
 
 nvidia-graphics-drivers (440.64-1) unstable; urgency=medium
 
