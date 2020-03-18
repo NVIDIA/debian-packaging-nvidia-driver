@@ -35,6 +35,9 @@ The branch structure in the GIT repository
     418                       (sid)               418-tesla
     418-tesla                 (sid)               tesla-418/master
     tesla-418/master          sid
+    440                       (sid)               440-tesla
+    440-tesla                 (sid)               tesla-440/master
+    tesla-440/master          sid
     master                    sid                 YYY
     YYY                       experimental        ZZZ, (master)
     ZZZ                       experimental        (master)

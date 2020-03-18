@@ -47,6 +47,7 @@ Recommends:
 Suggests:
  ${nvidia:kmod:source},
 Provides:
+ nvidia-driver-any [${nvidia:arch:has-driver}],
  nvidia-glx-any [${nvidia:arch:has-driver}],
 Description: NVIDIA metapackage${nvidia:VariantDesc}
  ${nvidia:no-driver-notice}This metapackage depends on the NVIDIA binary driver and libraries
@@ -280,13 +281,15 @@ Depends:
  ${nvidia}-egl-icd (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
- ${nvidia}-driver-libs-i386 [amd64],
+ ${nvidia}-driver-libs-i386 (= ${binary:Version}) [amd64],
  libopengl0 | libopengl0-glvnd-nvidia,
  libglx-${nvidia-}0 (= ${binary:Version}),
  libgles-${nvidia-}1 (= ${binary:Version}),
  libgles-${nvidia-}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
+Provides:
+ nvidia-driver-libs-any,
 Conflicts:
  libglvnd0-nvidia,
  libopengl0-glvnd-nvidia,
@@ -309,7 +312,7 @@ Package: ${nvidia}-driver-libs-i386
 Architecture: i386
 Multi-Arch: foreign
 Depends:
- ${nvidia}-driver-libs,
+ ${nvidia}-driver-libs (= ${binary:Version}),
  ${misc:Depends}
 Conflicts:
  libgl1-${nvidia}-glx-i386,
@@ -657,6 +660,7 @@ Depends:
  ${misc:Depends}
 Suggests:
  libegl-${nvidia-}0 [i386 amd64 ${arch:ppc64el}]
+ | libegl-nvidia-tesla-440-0 [!i386 !armhf]
  | libegl-nvidia-tesla-418-0 [!i386 !armhf]
  | libegl-nvidia-legacy-390xx0 [!ppc64el],
 Description: NVIDIA binary EGL driver - common files
@@ -725,6 +729,7 @@ Depends:
  ${misc:Depends}
 Suggests:
  ${nvidia}-vulkan-icd [i386 amd64 ${arch:ppc64el}]
+ | nvidia-tesla-440-vulkan-icd [!i386]
  | nvidia-tesla-418-vulkan-icd [!i386]
  | nvidia-legacy-390xx-vulkan-icd [!ppc64el],
 Conflicts:
@@ -775,6 +780,7 @@ Suggests:
  | nvidia-legacy-390xx-nonglvnd-vulkan-icd [!ppc64el],
 Conflicts:
  libgl1-${nvidia}-glvnd-glx,
+ libgl1-nvidia-tesla-440-glvnd-glx,
  libgl1-nvidia-tesla-418-glvnd-glx,
  libgl1-nvidia-legacy-390xx-glvnd-glx,
  nvidia-vulkan-common,
@@ -915,7 +921,7 @@ Recommends:
 # help nvidia-persistenced by pre-selecting the correct provider for libnvidia-cfg1-any
  lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
  nvidia-persistenced,
- ${libcuda1}-i386 [amd64],
+ ${libcuda1}-i386 (= ${binary:Version}) [amd64],
 Suggests:
  nvidia-cuda-mps [${nvidia:arch:has-driver}],
  ${nvidia:kmod:source},
@@ -966,7 +972,7 @@ Package: ${libcuda1}-i386
 Architecture: i386
 Multi-Arch: foreign
 Depends:
- ${libcuda1},
+ ${libcuda1} (= ${binary:Version}),
  ${misc:Depends}
 Description: NVIDIA CUDA 32-bit runtime library${nvidia:VariantDesc}
  This metapackage helps the automatic installation of the 32-bit NVIDIA CUDA
@@ -1141,6 +1147,7 @@ Depends:
  ${misc:Depends}
 Suggests:
  ${nvidia}-opencl-icd [i386 amd64 ${arch:ppc64el}]
+ | nvidia-tesla-440-opencl-icd [!i386]
  | nvidia-tesla-418-opencl-icd [!i386]
  | nvidia-legacy-390xx-opencl-icd [!ppc64el],
 Description: NVIDIA OpenCL driver - common files
@@ -1215,5 +1222,5 @@ Depends:
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-driver, nvidia-legacy-390xx-driver, or nvidia-tesla-418-driver) for
- installation.
+ (nvidia-driver, nvidia-legacy-390xx-driver, nvidia-tesla-440-driver, or
+ nvidia-tesla-418-driver) for installation.

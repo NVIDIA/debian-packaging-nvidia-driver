@@ -1,7 +1,10 @@
 nvidia-graphics-drivers (440.64-2) UNRELEASED; urgency=medium
 
+  * Prepare infrastructure for packaging Tesla 440 driver releases (available
+    for amd64 (including some i386 libs) and ppc64el).
   * nvidia-detect: Add support for Tesla 440 drivers.
   * Drop versioned constraints that are satisfied in stretch.
+  * bug-control: Report information about more (virtual) packages.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 18 Mar 2020 11:50:27 +0100
 
