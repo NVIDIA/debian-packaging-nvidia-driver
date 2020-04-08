@@ -28,6 +28,9 @@ nvidia-graphics-drivers (440.82-1) UNRELEASED; urgency=medium
      with error "passing argument 4 of 'proc_create_data' from
      incompatible pointer type".
 
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+
  -- Andreas Beckmann <anbe@debian.org>  Wed, 08 Apr 2020 09:54:29 +0200
 
 nvidia-graphics-drivers (440.64-2) unstable; urgency=medium
