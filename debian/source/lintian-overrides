@@ -10,3 +10,6 @@ debian-watch-does-not-check-gpg-signature
 # several library packages ship their *.so link, so they actually
 # are their own -dev package
 package-placeholder-in-symbols-file
+
+# only binary releases
+upstream-metadata-missing-repository
