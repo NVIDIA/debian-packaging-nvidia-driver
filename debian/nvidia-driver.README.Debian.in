@@ -81,7 +81,7 @@ collecting system information (with the nvidia-bug-report.sh script that
 is included in the #NVIDIA#-driver package) on the affected
 system.
 NVIDIA's bug reporting instructions can be found here:
-  https://devtalk.nvidia.com/default/topic/522835/linux/if-you-have-a-problem-please-read-this-first/
+  https://forums.developer.nvidia.com/t/if-you-have-a-problem-please-read-this-first/27131
 You may additionally report the problem in the distribution's bug
 tracker, but please include a link the related thread(s) in the NVIDIA
 forum.
