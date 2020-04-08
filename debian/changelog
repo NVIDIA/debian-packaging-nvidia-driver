@@ -24,6 +24,7 @@ nvidia-graphics-drivers (390.132-1) UNRELEASED; urgency=medium
   * Use substitution to keep Standards-Version in sync (430.64-5).
   * Insert '-' between suffix ending with digit and SOVERSION (435.21-3).
   * Rename "legacy" variables to more generic "variant" (440.44-2).
+  * bug-control: Report information about more (virtual) packages (440.64-2).
   * Bump Standards-Version to 4.5.0. No changes needed.
   * Update lintian overrides.
   * *.symbols: List libraries from src:libglvnd (not in stretch) as second
