@@ -30,6 +30,10 @@ nvidia-graphics-drivers (390.132-1) UNRELEASED; urgency=medium
   * *.symbols: List libraries from src:libglvnd (not in stretch) as second
     (instead of preferred) alternative dependencies.
 
+  [ Luca Boccassi ]
+  * Import drmP.patch from Fedora to fix kernel module build failure for
+    Linux 5.5 and newer.  (Closes: #951091)
+
  -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Nov 2019 12:53:49 +0100
 
 nvidia-graphics-drivers (390.129-1) UNRELEASED; urgency=medium

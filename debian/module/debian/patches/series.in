@@ -1,5 +1,6 @@
 # kernel support
 do-div-cast.patch
+drmP.patch
 
 # build system updates
 use-kbuild-compiler.patch
