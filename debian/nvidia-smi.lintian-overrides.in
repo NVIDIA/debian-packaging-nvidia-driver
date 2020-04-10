@@ -7,6 +7,10 @@
 [!i386 !armhf]: hardening-no-relro
 hardening-no-stackprotector
 
+# The current setup involving multiple chained alternatives would be very
+# hard to migrate to /usr/libexec.
+[!i386 !armhf]: executable-in-usr-lib
+
 # On architectures no longer supported by the current driver,
 # this is a dummy package depending on the 390xx legacy driver.
 [i386 armhf]: transitional-package-should-be-oldlibs-optional

@@ -616,6 +616,7 @@ Depends:
  ${misc:Depends}
 Suggests:
  libegl-${nvidia-}0 [i386 amd64 ${arch:ppc64el}]
+ | libegl-nvidia-tesla-440-0 [!i386 !armhf]
  | libegl-nvidia-tesla-418-0 [!i386 !armhf]
  | libegl-nvidia-legacy-390xx0 [!ppc64el],
 Description: NVIDIA binary EGL driver - common files
@@ -684,6 +685,7 @@ Depends:
  ${misc:Depends}
 Suggests:
  ${nvidia}-vulkan-icd [i386 amd64 ${arch:ppc64el}]
+ | nvidia-tesla-440-vulkan-icd [!i386]
  | nvidia-tesla-418-vulkan-icd [!i386]
  | nvidia-legacy-390xx-vulkan-icd [!ppc64el],
 Conflicts:
@@ -715,6 +717,7 @@ Enhances:
  libvulkan1,
 Provides:
  vulkan-icd,
+ nvidia-vulkan-icd-any,
 Conflicts:
  ${nvidia}-nonglvnd-vulkan-icd,
 Description: NVIDIA Vulkan installable client driver (ICD)${nvidia:VariantDesc}
@@ -734,6 +737,7 @@ Suggests:
  | nvidia-legacy-390xx-nonglvnd-vulkan-icd [!ppc64el],
 Conflicts:
  libgl1-${nvidia}-glvnd-glx,
+ libgl1-nvidia-tesla-440-glvnd-glx,
  libgl1-nvidia-tesla-418-glvnd-glx,
  libgl1-nvidia-legacy-390xx-glvnd-glx,
  nvidia-vulkan-common,
@@ -762,6 +766,7 @@ Enhances:
  libvulkan1,
 Provides:
  vulkan-icd,
+ nvidia-vulkan-icd-any,
 Conflicts:
  ${nvidia}-vulkan-icd,
 Description: NVIDIA Vulkan ICD (non-GLVND variant)${nvidia:VariantDesc}
@@ -1108,6 +1113,7 @@ Depends:
  ${misc:Depends}
 Suggests:
  ${nvidia}-opencl-icd [i386 amd64 ${arch:ppc64el}]
+ | nvidia-tesla-440-opencl-icd [!i386]
  | nvidia-tesla-418-opencl-icd [!i386]
  | nvidia-legacy-390xx-opencl-icd [!ppc64el],
 Description: NVIDIA OpenCL driver - common files
@@ -1182,5 +1188,5 @@ Depends:
 Description: NVIDIA GPU detection utility
  The 'nvidia-detect' script in this package checks for an NVIDIA GPU in the
  system and recommends one of the non-free accelerated driver meta-packages
- (nvidia-driver, nvidia-legacy-390xx-driver, nvidia-legacy-340xx-driver, or
- nvidia-tesla-418-driver) for installation.
+ (nvidia-driver, nvidia-legacy-390xx-driver, nvidia-legacy-340xx-driver,
+ nvidia-tesla-440-driver, or nvidia-tesla-418-driver) for installation.
