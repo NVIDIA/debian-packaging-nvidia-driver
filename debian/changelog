@@ -29,10 +29,6 @@ nvidia-graphics-drivers (418.113-1~git) UNRELEASED; urgency=medium
   * Bump Standards-Version to 4.5.0. No changes needed.
   * Update lintian overrides.
 
-  [ Luca Boccassi ]
-  * Import drmP.patch from Fedora to fix kernel module build failure for
-    Linux 5.5 and newer.
-
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 05:46:46 +0100
 
 nvidia-graphics-drivers (418.113-1) UNRELEASED; urgency=medium
@@ -52,6 +48,8 @@ nvidia-graphics-drivers (418.113-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * Refresh patches.
+  * Import drmP.patch for 390.xx from Fedora and port it to 418.xx to fix
+    kernel module build failure for Linux 5.5 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 05:46:46 +0100
 
