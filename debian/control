@@ -606,6 +606,7 @@ Enhances:
  libvulkan1,
 Provides:
  vulkan-icd,
+ nvidia-vulkan-icd-any,
 Conflicts:
  ${nvidia}-nonglvnd-vulkan-icd,
 Description: NVIDIA Vulkan installable client driver (ICD)${nvidia:VariantDesc}

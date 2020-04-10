@@ -1,3 +1,0 @@
-Consider renaming nvidia-opencl-icd to nvidia-icd (or similar) and make
-nvidia-opencl-icd a dummy package that at most Suggests: nvidia-icd.
-cf. #769072

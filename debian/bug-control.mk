@@ -33,6 +33,7 @@ define PACKAGE_STATUS
 	nvidia-driver-libs-any
 	libgl1-nvidia-glx-any
 	xserver-xorg-video-nvidia-any
+	nvidia-vulkan-icd-any
 	libnvidia-cfg1-any
 	libcuda1
 	libcuda1-any
@@ -52,6 +53,10 @@ define PACKAGE_STATUS
 	primus
 	primus-libs
 	primus-nvidia
+	primus-vk
+	primus-vk-nvidia
+	libprimus-vk1
+	nvidia-primus-vk-wrapper
 	libdrm-nouveau1
 	libdrm-nouveau1a
 	libdrm-nouveau2

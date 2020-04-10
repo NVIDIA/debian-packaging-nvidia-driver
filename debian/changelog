@@ -30,6 +30,7 @@ nvidia-graphics-drivers (440.82-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
+  * Update lintian overrides.
 
  -- Andreas Beckmann <anbe@debian.org>  Wed, 08 Apr 2020 09:54:29 +0200
 
@@ -452,6 +453,8 @@ nvidia-graphics-drivers (418.113-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * Refresh patches.
+  * Import drmP.patch for 390.xx from Fedora and port it to 418.xx to fix
+    kernel module build failure for Linux 5.5 and newer.
 
  -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 05:46:46 +0100
 
