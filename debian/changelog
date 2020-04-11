@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (440.82-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (440.82-1) unstable; urgency=medium
 
   * New upstream long lived branch release 440.82 (2020-04-07).
     - Added a workaround for Steam Play title DOOM Eternal, which overrides
@@ -32,7 +32,7 @@ nvidia-graphics-drivers (440.82-1) UNRELEASED; urgency=medium
   * Update nv-readme.ids.
   * Update lintian overrides.
 
- -- Andreas Beckmann <anbe@debian.org>  Wed, 08 Apr 2020 09:54:29 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 11 Apr 2020 14:29:59 +0200
 
 nvidia-graphics-drivers (440.64-2) unstable; urgency=medium
 
