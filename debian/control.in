@@ -777,7 +777,7 @@ Description: NVIDIA binary EGL core libraries${nvidia:VariantDesc}
  implementation of EGL and OpenGL|ES.
 
 Package: nvidia-egl-common
-Architecture: i386 amd64 ppc64el armhf
+Architecture: i386 amd64 armhf
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
@@ -846,7 +846,7 @@ Description: Video Decode and Presentation API for Unix - NVIDIA driver${nvidia:
  ${nvidia:kmod:Description}
 
 Package: nvidia-vulkan-common
-Architecture: i386 amd64 ppc64el
+Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
@@ -894,7 +894,7 @@ Description: NVIDIA Vulkan installable client driver (ICD)${nvidia:VariantDesc}
  Vulkan (GLVND variant) which supports NVIDIA GPUs.
 
 Package: nvidia-nonglvnd-vulkan-common
-Architecture: i386 amd64 ppc64el
+Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
@@ -1276,7 +1276,7 @@ Description: NVIDIA Optical Flow runtime library${nvidia:VariantDesc}
  This package contains the Optical Flow runtime library.
 
 Package: nvidia-opencl-common
-Architecture: i386 amd64 ppc64el
+Architecture: i386 amd64
 Multi-Arch: foreign
 Depends:
  ${misc:Depends}
@@ -1350,7 +1350,7 @@ Description: NVIDIA OpenCL ICD Loader library
 
 Package: nvidia-detect
 Section: non-free/x11
-Architecture: amd64 ppc64el
+Architecture: amd64
 Depends:
  pciutils,
  ${misc:Depends}
