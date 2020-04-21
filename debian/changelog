@@ -66,6 +66,13 @@ nvidia-graphics-drivers (418.88-1) unstable; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2019 23:41:02 +0200
 
+nvidia-graphics-drivers (418.87.01-1) UNRELEASED; urgency=medium
+
+  * New upstream Tesla release 418.87.01 (2019-10-03).
+  * New upstream Tesla release 418.87.00 (2019-08-13).
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 26 Oct 2019 19:36:41 +0200
+
 nvidia-graphics-drivers (418.74-1) unstable; urgency=medium
 
   * New upstream long lived branch release 418.74 (2019-05-07).
