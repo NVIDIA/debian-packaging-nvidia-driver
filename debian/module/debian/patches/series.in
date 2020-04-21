@@ -1,5 +1,4 @@
 # kernel support
-drmP.patch
 
 # build system updates
 use-kbuild-compiler.patch
