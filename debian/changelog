@@ -501,7 +501,7 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
 
-nvidia-graphics-drivers (390.132-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.132-1) stretch; urgency=medium
 
   * New upstream legacy branch release 390.132 (2019-11-08).
     - Fixed kernel module build problems with Linux kernel 5.4.0 release
@@ -511,8 +511,34 @@ nvidia-graphics-drivers (390.132-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Refresh patches.
+  * debian/gen-control.pl: Support substitutions in the Architecture field and
+    skip packages with empty or commented Architecture field (430.50-2).
+  * Create and commit tarball symlinks for legacy branches (430.64-1).
+  * Allow alternative libnvidia-{tesla,legacy-*}-ml1 packages to substitute
+    libnvidia-ml1 (430.64-2).
+    - Add Provides: libnvidia-ml.so.1 (= ${nvidia:Version}).
+    - Generate alternative versioned dependency on libnvidia-ml.so.1 through
+      the symbols file.
+  * Allow alternative libnvidia-{tesla,legacy-*}-cuda1 packages to substitute
+    libcuda1 in third-party packages (430.64-3).
+    - Add Provides: libcuda.so.1 (= ${nvidia:Version}).
+    - Generate alternative versioned dependency on libcuda.so.1 through the
+      symbols file.
+  * Use substitution to keep Standards-Version in sync (430.64-5).
+  * Insert '-' between suffix ending with digit and SOVERSION (435.21-3).
+  * Rename "legacy" variables to more generic "variant" (440.44-2).
+  * bug-control: Report information about more (virtual) packages (440.64-2).
+  * Bump Standards-Version to 4.5.0. No changes needed.
+  * Update lintian overrides.
+  * *.symbols: List libraries from src:libglvnd (not in stretch) as second
+    (instead of preferred) alternative dependencies.
+  * Upload to stretch.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Nov 2019 12:53:49 +0100
+  [ Luca Boccassi ]
+  * Import drmP.patch from Fedora to fix kernel module build failure for
+    Linux 5.5 and newer.  (Closes: #951091)
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 21 Apr 2020 20:49:15 +0200
 
 nvidia-graphics-drivers (390.129-1) UNRELEASED; urgency=medium
 
