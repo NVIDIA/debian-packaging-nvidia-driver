@@ -1,4 +1,4 @@
-nvidia-graphics-drivers (390.132-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.132-1) stretch; urgency=medium
 
   * New upstream legacy branch release 390.132 (2019-11-08).
     - Fixed kernel module build problems with Linux kernel 5.4.0 release
@@ -29,12 +29,13 @@ nvidia-graphics-drivers (390.132-1) UNRELEASED; urgency=medium
   * Update lintian overrides.
   * *.symbols: List libraries from src:libglvnd (not in stretch) as second
     (instead of preferred) alternative dependencies.
+  * Upload to stretch.
 
   [ Luca Boccassi ]
   * Import drmP.patch from Fedora to fix kernel module build failure for
     Linux 5.5 and newer.  (Closes: #951091)
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Nov 2019 12:53:49 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 21 Apr 2020 20:49:15 +0200
 
 nvidia-graphics-drivers (390.129-1) UNRELEASED; urgency=medium
 
