@@ -1,5 +1,20 @@
-nvidia-graphics-drivers (418.113-1~git) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (418.113-1) buster; urgency=medium
 
+  * New upstream long lived branch release 418.113 (2019-11-05).
+    - Updated the Module.symvers sanity check, which is part of the NVIDIA
+      kernel module build process, to accommodate the recent addition of a
+      new field in the Module.symvers file format. This fixes the error
+      "The Module.symvers file is missing [...]" seen during driver
+      installation or DKMS rebuilds with Linux 5.4 RC kernels.
+    - Fixed a bug that prevented NVIDIA GPUs from entering the low-power
+      D3 state when entering suspend-to-idle (s2idle). Note that on some
+      systems this may expose an existing timing issue in the Linux kernel;
+      see the "Known Issues and Workarounds" section of the "Configuring
+      Power Management Support" chapter of the README for more details.
+
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+  * Refresh patches.
   * debian/gen-control.pl: Support substitutions in the Architecture field and
     skip packages with empty or commented Architecture field (430.50-2).
   * Prepare infrastructure for packaging Tesla 418 driver releases (available
@@ -26,28 +41,9 @@ nvidia-graphics-drivers (418.113-1~git) UNRELEASED; urgency=medium
     for amd64 (including some i386 libs) and ppc64el) (440.64-2).
   * Bump Standards-Version to 4.5.0. No changes needed.
   * Update lintian overrides.
+  * Upload to buster.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 05:46:46 +0100
-
-nvidia-graphics-drivers (418.113-1) UNRELEASED; urgency=medium
-
-  * New upstream long lived branch release 418.113 (2019-11-05).
-    - Updated the Module.symvers sanity check, which is part of the NVIDIA
-      kernel module build process, to accommodate the recent addition of a
-      new field in the Module.symvers file format. This fixes the error
-      "The Module.symvers file is missing [...]" seen during driver
-      installation or DKMS rebuilds with Linux 5.4 RC kernels.
-    - Fixed a bug that prevented NVIDIA GPUs from entering the low-power
-      D3 state when entering suspend-to-idle (s2idle). Note that on some
-      systems this may expose an existing timing issue in the Linux kernel;
-      see the "Known Issues and Workarounds" section of the "Configuring
-      Power Management Support" chapter of the README for more details.
-
-  [ Andreas Beckmann ]
-  * Update nv-readme.ids.
-  * Refresh patches.
-
- -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 05:46:46 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 22 Apr 2020 00:47:30 +0200
 
 nvidia-graphics-drivers (418.88-1) unstable; urgency=medium
 
