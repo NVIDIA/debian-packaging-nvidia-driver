@@ -1,6 +1,7 @@
 # kernel support
 do-div-cast.patch
 drmP.patch
+0001-backport-nv_ioremap_nocache-changes-from-440.64.patch
 
 # build system updates
 use-kbuild-compiler.patch
