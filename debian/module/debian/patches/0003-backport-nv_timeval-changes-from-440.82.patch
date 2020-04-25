@@ -1,0 +1,282 @@
+From daaffd87c8adf055eb4d978d6e6bd3625a94a066 Mon Sep 17 00:00:00 2001
+From: Andreas Beckmann <anbe@debian.org>
+Date: Sat, 25 Apr 2020 11:40:44 +0200
+Subject: [PATCH 3/4] backport nv_timeval changes from 440.82
+
+---
+ common/inc/nv-time.h                  | 10 ++++-
+ conftest.sh                           | 62 +++++++++++++++++++++++++++
+ nvidia-modeset/nvidia-modeset-linux.c |  2 +-
+ nvidia-modeset/nvidia-modeset.Kbuild  |  1 +
+ nvidia/nvidia.Kbuild                  |  4 ++
+ nvidia/nvlink_linux.c                 | 18 ++++----
+ nvidia/os-interface.c                 | 17 +++++---
+ 7 files changed, 95 insertions(+), 19 deletions(-)
+
+diff --git a/common/inc/nv-time.h b/common/inc/nv-time.h
+index 2c799c9..23c22f4 100644
+--- a/common/inc/nv-time.h
++++ b/common/inc/nv-time.h
+@@ -30,7 +30,13 @@
+ #include <linux/ktime.h>
+ #endif
+ 
+-static inline void nv_gettimeofday(struct timeval *tv)
++#if defined (NV_TIMEVAL_PRESENT)
++typedef struct timeval nv_timeval; 
++#else
++typedef struct __kernel_old_timeval nv_timeval;
++#endif
++
++static inline void nv_gettimeofday(nv_timeval *tv)
+ {
+ #ifdef NV_DO_GETTIMEOFDAY_PRESENT
+     do_gettimeofday(tv);
+@@ -39,7 +45,7 @@ static inline void nv_gettimeofday(struct timeval *tv)
+ 
+     ktime_get_real_ts64(&now);
+ 
+-    *tv = (struct timeval) {
++    *tv = (nv_timeval) {
+         .tv_sec = now.tv_sec,
+         .tv_usec = now.tv_nsec/1000,
+     };
+diff --git a/conftest.sh b/conftest.sh
+index e340731..7fe50b0 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -2429,6 +2429,21 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_DRIVER_HAS_LEGACY_DEV_LIST" "" "types"
+         ;;
+ 
++        jiffies_to_timespec)
++            #
++            # Determine if jiffies_to_timespec() is present
++            #
++            # removed by commit 751addac78b6
++            # ("y2038: remove obsolete jiffies conversion functions")
++            # in v5.6-rc1 (2019-12-13).
++        CODE="
++        #include <linux/jiffies.h>
++        void conftest_jiffies_to_timespec(void){
++            jiffies_to_timespec();
++        }"
++            compile_check_conftest "$CODE" "NV_JIFFIES_TO_TIMESPEC_PRESENT" "" "functions"
++        ;;
++
+         drm_init_function_args)
+             #
+             # Determine if these functions:
+@@ -3971,6 +3986,53 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_PROC_OPS_PRESENT" "" "types"
+         ;;
+ 
++        timeval)
++            #
++            # Determine if the 'struct timeval' type is present.
++            #
++            # Removed by commit c766d1472c70 ("y2038: hide 
++            # timeval/timespec/itimerval/itimerspec types") in 5.6-rc3
++            # (2020-02-20).
++            #
++            CODE="
++            #include <linux/time.h>
++
++            struct timeval tm;
++            "
++
++            compile_check_conftest "$CODE" "NV_TIMEVAL_PRESENT" "" "types"
++        ;;
++
++        ktime_get_raw_ts64)
++            #
++            # Determine if ktime_get_raw_ts64() is present
++            #
++            # Added by commit fb7fcc96a86cf ("timekeeping: Standardize on
++            # ktime_get_*() naming") in 4.18 (2018-04-27)
++            #
++        CODE="
++        #include <linux/ktime.h>
++        void conftest_ktime_get_raw_ts64(void){
++            ktime_get_raw_ts64();
++        }"
++            compile_check_conftest "$CODE" "NV_KTIME_GET_RAW_TS64_PRESENT" "" "functions"
++        ;;
++
++        ktime_get_real_ts64)
++            #
++            # Determine if ktime_get_real_ts64() is present
++            #
++            # Added by commit d6d29896c665d ("timekeeping: Provide timespec64
++            # based interfaces") in 3.17 (2014-07-16)
++            #
++        CODE="
++        #include <linux/ktime.h>
++        void conftest_ktime_get_real_ts64(void){
++            ktime_get_real_ts64();
++        }"
++            compile_check_conftest "$CODE" "NV_KTIME_GET_REAL_TS64_PRESENT" "" "functions"
++        ;;
++
+     esac
+ }
+ 
+diff --git a/nvidia-modeset/nvidia-modeset-linux.c b/nvidia-modeset/nvidia-modeset-linux.c
+index d42aabb..f7f1def 100644
+--- a/nvidia-modeset/nvidia-modeset-linux.c
++++ b/nvidia-modeset/nvidia-modeset-linux.c
+@@ -216,7 +216,7 @@ void NVKMS_API_CALL nvkms_usleep(NvU64 usec)
+ 
+ NvU64 NVKMS_API_CALL nvkms_get_usec(void)
+ {
+-    struct timeval tv;
++    nv_timeval tv;
+ 
+     nv_gettimeofday(&tv);
+ 
+diff --git a/nvidia-modeset/nvidia-modeset.Kbuild b/nvidia-modeset/nvidia-modeset.Kbuild
+index bb72812..abdcd11 100644
+--- a/nvidia-modeset/nvidia-modeset.Kbuild
++++ b/nvidia-modeset/nvidia-modeset.Kbuild
+@@ -82,6 +82,7 @@ NV_CONFTEST_MACRO_COMPILE_TESTS += INIT_WORK
+ NV_CONFTEST_TYPE_COMPILE_TESTS += file_inode
+ NV_CONFTEST_TYPE_COMPILE_TESTS += file_operations
+ NV_CONFTEST_TYPE_COMPILE_TESTS += proc_dir_entry
++NV_CONFTEST_TYPE_COMPILE_TESTS += timeval
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += proc_create_data
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += pde_data
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += proc_remove
+diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
+index 46099d7..eaffb5f 100644
+--- a/nvidia/nvidia.Kbuild
++++ b/nvidia/nvidia.Kbuild
+@@ -154,6 +154,9 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += kmem_cache_create_usercopy
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += do_gettimeofday
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += dma_direct_map_resource
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += vmf_insert_pfn
++NV_CONFTEST_FUNCTION_COMPILE_TESTS += jiffies_to_timespec
++NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_raw_ts64
++NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_real_ts64
+ 
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_of_node_to_nid
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_swiotlb_map_sg_attrs
+@@ -190,6 +193,7 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += backlight_properties_type
+ NV_CONFTEST_TYPE_COMPILE_TESTS += kmem_cache_has_kobj_remove_work
+ NV_CONFTEST_TYPE_COMPILE_TESTS += sysfs_slab_unlink
+ NV_CONFTEST_TYPE_COMPILE_TESTS += proc_ops
++NV_CONFTEST_TYPE_COMPILE_TESTS += timeval
+ 
+ NV_CONFTEST_GENERIC_COMPILE_TESTS += dom0_kernel_present
+ NV_CONFTEST_GENERIC_COMPILE_TESTS += nvidia_vgpu_kvm_build
+diff --git a/nvidia/nvlink_linux.c b/nvidia/nvlink_linux.c
+index 0014280..872bc90 100644
+--- a/nvidia/nvlink_linux.c
++++ b/nvidia/nvlink_linux.c
+@@ -518,8 +518,8 @@ void * NVLINK_API_CALL nvlink_memcpy(void *dest, void *src, NvLength size)
+ 
+ static NvBool nv_timer_less_than
+ (
+-    const struct timeval *a,
+-    const struct timeval *b
++    const nv_timeval *a,
++    const nv_timeval *b
+ )
+ {
+     return (a->tv_sec == b->tv_sec) ? (a->tv_usec < b->tv_usec) 
+@@ -528,9 +528,9 @@ static NvBool nv_timer_less_than
+ 
+ static void nv_timeradd
+ (
+-    const struct timeval    *a,
+-    const struct timeval    *b,
+-    struct timeval          *result
++    const nv_timeval    *a,
++    const nv_timeval    *b,
++    nv_timeval          *result
+ )
+ {
+     result->tv_sec = a->tv_sec + b->tv_sec;
+@@ -544,9 +544,9 @@ static void nv_timeradd
+ 
+ static void nv_timersub
+ (
+-    const struct timeval    *a,
+-    const struct timeval    *b,
+-    struct timeval          *result
++    const nv_timeval    *a,
++    const nv_timeval    *b,
++    nv_timeval          *result
+ )
+ {
+     result->tv_sec = a->tv_sec - b->tv_sec;
+@@ -566,7 +566,7 @@ void NVLINK_API_CALL nvlink_sleep(unsigned int ms)
+     unsigned long us;
+     unsigned long jiffies;
+     unsigned long mdelay_safe_msec;
+-    struct timeval tm_end, tm_aux;
++    nv_timeval tm_end, tm_aux;
+ 
+     nv_gettimeofday(&tm_aux);
+ 
+diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
+index 344daa8..3603a5a 100644
+--- a/nvidia/os-interface.c
++++ b/nvidia/os-interface.c
+@@ -430,7 +430,7 @@ NV_STATUS NV_API_CALL os_get_current_time(
+     NvU32 *useconds
+ )
+ {
+-    struct timeval tm;
++    nv_timeval tm;
+ 
+     nv_gettimeofday(&tm);
+ 
+@@ -444,10 +444,13 @@ NV_STATUS NV_API_CALL os_get_current_time(
+ 
+ void NV_API_CALL os_get_current_tick(NvU64 *nseconds)
+ {
++#if defined(NV_JIFFIES_TO_TIMESPEC_PRESENT)
+     struct timespec ts;
+-
+     jiffies_to_timespec(jiffies, &ts);
+-
++#else
++    struct timespec64 ts;
++    jiffies_to_timespec64(jiffies, &ts);
++#endif
+     *nseconds = ((NvU64)ts.tv_sec * NSEC_PER_SEC + (NvU64)ts.tv_nsec);
+ }
+ 
+@@ -502,7 +505,7 @@ NV_STATUS NV_API_CALL os_delay_us(NvU32 MicroSeconds)
+     unsigned long usec;
+ 
+ #ifdef NV_CHECK_DELAY_ACCURACY
+-    struct timeval tm1, tm2;
++    nv_timeval tm1, tm2;
+ 
+     nv_gettimeofday(&tm1);
+ #endif
+@@ -542,9 +545,9 @@ NV_STATUS NV_API_CALL os_delay(NvU32 MilliSeconds)
+     unsigned long MicroSeconds;
+     unsigned long jiffies;
+     unsigned long mdelay_safe_msec;
+-    struct timeval tm_end, tm_aux;
++    nv_timeval tm_end, tm_aux;
+ #ifdef NV_CHECK_DELAY_ACCURACY
+-    struct timeval tm_start;
++    nv_timeval tm_start;
+ #endif
+ 
+     nv_gettimeofday(&tm_aux);
+@@ -1926,7 +1929,7 @@ static NV_STATUS NV_API_CALL _os_ipmi_receive_resp
+ {
+     struct ipmi_recv_msg    *rx_msg;
+     int                     err_no;
+-    struct timeval          tv;
++    nv_timeval          tv;
+     NvU64                   start_time;
+ 
+     nv_gettimeofday(&tv);
+-- 
+2.20.1
+
