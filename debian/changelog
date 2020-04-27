@@ -112,12 +112,6 @@ nvidia-graphics-drivers (440.44-1) experimental; urgency=medium
   * New upstream release 430 series.
     - Fixed a bug in an error handling path that could cause a kernel crash
       while loading nvidia.ko.
-  * New upstream release 418 series.
-    - Added support for the following GPU: Quadro T2000 with Max-Q Design.
-  * New upstream release 390 series.
-    - Fixed driver installation failure on Oracle Linux 7.7 systems,
-      where the NVIDIA kernel module failed to build with error "unknown
-      type name 'vm_fault_t'".
 
   [ Andreas Beckmann ]
   * Merge changes from 430.64-4.
@@ -439,7 +433,31 @@ nvidia-graphics-drivers (430.14-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 25 May 2019 13:49:09 +0200
 
-nvidia-graphics-drivers (418.113-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (418.126.02-1) UNRELEASED; urgency=medium
+
+  * New upstream Tesla release 418.126.02 (2020-02-28).
+    - Added support for the following GPU: Quadro T2000 with Max-Q Design.
+  * New upstream release 390 series.
+    * Fixed driver installation failure on Oracle Linux 7.7 systems,
+      where the NVIDIA kernel module failed to build with error "unknown
+      type name 'vm_fault_t'".
+    * Add PRIME Synchronization support for Linux kernel 5.4 and newer.
+
+  [ Andreas Beckmann ]
+  * Import drmP.patch from Fedora and port it from 390.xx to 418.xx to fix
+    kernel module build for Linux 5.5.
+  * Backport nv_ioremap_nocache changes from 440.64 and nv_proc_ops_t and
+    nv_timeval changes from 440.82 to fix kernel module build for Linux 5.6.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 14 Mar 2020 23:08:06 +0100
+
+nvidia-graphics-drivers (418.116.00-1) UNRELEASED; urgency=medium
+
+  * New upstream Tesla release 418.116.00 (2019-12-09).
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 14 Dec 2019 14:29:50 +0100
+
+nvidia-graphics-drivers (418.113-1) buster; urgency=medium
 
   * New upstream long lived branch release 418.113 (2019-11-05).
     - Updated the Module.symvers sanity check, which is part of the NVIDIA
@@ -456,27 +474,62 @@ nvidia-graphics-drivers (418.113-1) UNRELEASED; urgency=medium
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
   * Refresh patches.
-  * Import drmP.patch for 390.xx from Fedora and port it to 418.xx to fix
-    kernel module build failure for Linux 5.5 and newer.
+  * debian/gen-control.pl: Support substitutions in the Architecture field and
+    skip packages with empty or commented Architecture field (430.50-2).
+  * Prepare infrastructure for packaging Tesla 418 driver releases (available
+    for amd64 (including some i386 libs) and ppc64el) (430.50-2).
+  * Create and commit tarball symlinks for legacy branches (430.64-1).
+  * nvidia-detect: Add PCI ID list for 418.74 in buster (430.64-2).
+  * nvidia-detect: Add support for Tesla 418 drivers (430.64-2).
+  * nvidia-detect: The 340xx legacy driver will not be in bullseye (430.64-5).
+  * Allow alternative libnvidia-{tesla,legacy-*}-ml1 packages to substitute
+    libnvidia-ml1 (430.64-2).
+    - Add Provides: libnvidia-ml.so.1 (= ${nvidia:Version}).
+    - Generate alternative versioned dependency on libnvidia-ml.so.1 through
+      the symbols file.
+  * Allow alternative libnvidia-{tesla,legacy-*}-cuda1 packages to substitute
+    libcuda1 in third-party packages (430.64-3).
+    - Add Provides: libcuda.so.1 (= ${nvidia:Version}).
+    - Generate alternative versioned dependency on libcuda.so.1 through the
+      symbols file.
+  * Use substitution to keep Standards-Version in sync (430.64-5).
+  * Insert '-' between suffix ending with digit and SOVERSION (435.21-3).
+  * Rename "legacy" variables to more generic "variant" (440.44-2).
+  * bug-control: Report information about more (virtual) packages (440.64-2).
+  * Prepare infrastructure for packaging Tesla 440 driver releases (available
+    for amd64 (including some i386 libs) and ppc64el) (440.64-2).
+  * Bump Standards-Version to 4.5.0. No changes needed.
+  * Update lintian overrides.
+  * Upload to buster.
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 12 Nov 2019 05:46:46 +0100
+ -- Andreas Beckmann <anbe@debian.org>  Wed, 22 Apr 2020 00:47:30 +0200
 
 nvidia-graphics-drivers (418.88-1) unstable; urgency=medium
 
   * New upstream long lived branch release 418.88 (2019-07-29).
+    * Improved compatibility with recent Linux kernels.
+      (Closes: #934290, #934344, #934648)
+
+  [ Andreas Beckmann ]
+  * Bump Standards-Version to 4.4.0. No changes needed.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2019 23:41:02 +0200
+
+nvidia-graphics-drivers (418.87.01-1) UNRELEASED; urgency=medium
+
+  * New upstream Tesla release 418.87.01 (2019-10-03).
+  * New upstream Tesla release 418.87.00 (2019-08-13).
     - Added support for the following GPUs: Quadro P520, Quadro RTX 3000,
       Quadro RTX 3000 with Max-Q Design, Quadro RTX 4000 with Max-Q Design,
       Quadro RTX 5000 with Max-Q Design, Quadro T1000, Quadro T2000.
     - Fixed a bug, introduced in 415.13, that caused audio over DisplayPort to
       not work in some configurations.
-    * Improved compatibility with recent Linux kernels.
-      (Closes: #934290, #934344, #934648)
 
   [ Andreas Beckmann ]
   * Update nv-readme.ids.
-  * Bump Standards-Version to 4.4.0. No changes needed.
+  * Backport fixes for Linux 5.2/5.3 from 418.88.
 
- -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2019 23:41:02 +0200
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 26 Oct 2019 19:36:41 +0200
 
 nvidia-graphics-drivers (418.74-1) unstable; urgency=medium
 
@@ -907,7 +960,7 @@ nvidia-graphics-drivers (396.18-1) experimental; urgency=medium
 
  -- Andreas Beckmann <anbe@debian.org>  Sun, 22 Apr 2018 13:59:45 +0200
 
-nvidia-graphics-drivers (390.132-1) UNRELEASED; urgency=medium
+nvidia-graphics-drivers (390.132-1) stretch; urgency=medium
 
   * New upstream legacy branch release 390.132 (2019-11-08).
     - Fixed kernel module build problems with Linux kernel 5.4.0 release
@@ -917,8 +970,34 @@ nvidia-graphics-drivers (390.132-1) UNRELEASED; urgency=medium
 
   [ Andreas Beckmann ]
   * Refresh patches.
+  * debian/gen-control.pl: Support substitutions in the Architecture field and
+    skip packages with empty or commented Architecture field (430.50-2).
+  * Create and commit tarball symlinks for legacy branches (430.64-1).
+  * Allow alternative libnvidia-{tesla,legacy-*}-ml1 packages to substitute
+    libnvidia-ml1 (430.64-2).
+    - Add Provides: libnvidia-ml.so.1 (= ${nvidia:Version}).
+    - Generate alternative versioned dependency on libnvidia-ml.so.1 through
+      the symbols file.
+  * Allow alternative libnvidia-{tesla,legacy-*}-cuda1 packages to substitute
+    libcuda1 in third-party packages (430.64-3).
+    - Add Provides: libcuda.so.1 (= ${nvidia:Version}).
+    - Generate alternative versioned dependency on libcuda.so.1 through the
+      symbols file.
+  * Use substitution to keep Standards-Version in sync (430.64-5).
+  * Insert '-' between suffix ending with digit and SOVERSION (435.21-3).
+  * Rename "legacy" variables to more generic "variant" (440.44-2).
+  * bug-control: Report information about more (virtual) packages (440.64-2).
+  * Bump Standards-Version to 4.5.0. No changes needed.
+  * Update lintian overrides.
+  * *.symbols: List libraries from src:libglvnd (not in stretch) as second
+    (instead of preferred) alternative dependencies.
+  * Upload to stretch.
 
- -- Andreas Beckmann <anbe@debian.org>  Sun, 10 Nov 2019 12:53:49 +0100
+  [ Luca Boccassi ]
+  * Import drmP.patch from Fedora to fix kernel module build failure for
+    Linux 5.5 and newer.  (Closes: #951091)
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 21 Apr 2020 20:49:15 +0200
 
 nvidia-graphics-drivers (390.129-1) UNRELEASED; urgency=medium
 
