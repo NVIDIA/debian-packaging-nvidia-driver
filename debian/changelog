@@ -39,6 +39,7 @@ nvidia-graphics-drivers (440.64-2) unstable; urgency=medium
   * Prepare infrastructure for packaging Tesla 440 driver releases (available
     for amd64 (including some i386 libs) and ppc64el).
   * nvidia-detect: Add support for Tesla 440 drivers.
+  * Bump glx-alternative-nvidia dependency for ppc64el support.
   * Drop versioned constraints that are satisfied in stretch.
   * bug-control: Report information about more (virtual) packages.
 
@@ -46,6 +47,7 @@ nvidia-graphics-drivers (440.64-2) unstable; urgency=medium
 
 nvidia-graphics-drivers (440.64-1) unstable; urgency=medium
 
+  * New upstream Tesla release 440.64.00 (2020-03-10).
   * New upstream long lived branch release 440.64 (2020-02-28).
     - Added support for the following GPUs: GeForce MX330, GeForce MX350.
     - Fixed a regression that allowed displays to enter DPMS mode even
@@ -128,6 +130,7 @@ nvidia-graphics-drivers (440.36-1) experimental; urgency=medium
   * New upstream long lived branch release 440.36 (2019-11-22).
     - Fixed graphical corruption that can occur when using
       glslang SPIR-V Generator Version <= 2.
+  * New upstream Tesla release 440.33.01 (2019-11-19).
 
   [ Andreas Beckmann ]
   * Update symbols files.
