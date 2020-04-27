@@ -2,11 +2,11 @@ Description: fix build with kernel 5.5+
  ported from 390.xx to 418.xx
 Origin: vendor, https://bugzilla.rpmfusion.org/attachment.cgi?id=2156
 Bug-Fedora: https://bugzilla.rpmfusion.org/show_bug.cgi?id=5536
-Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
+Bug-Debian: https://bugs.debian.org/951091
 
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -108,6 +108,12 @@ test_headers() {
+@@ -108,6 +108,12 @@
      FILES="$FILES drm/drm_framebuffer.h"
      FILES="$FILES drm/drm_connector.h"
      FILES="$FILES drm/drm_probe_helper.h"
@@ -19,7 +19,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
      FILES="$FILES generated/autoconf.h"
      FILES="$FILES generated/compile.h"
      FILES="$FILES generated/utsrelease.h"
-@@ -126,6 +132,8 @@ test_headers() {
+@@ -126,6 +132,8 @@
      FILES="$FILES linux/sched/task_stack.h"
      FILES="$FILES xen/ioemu.h"
      FILES="$FILES linux/fence.h"
@@ -28,7 +28,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
      # Arch specific headers which need testing
      FILES_ARCH="asm/book3s/64/hash-64k.h"
-@@ -1236,9 +1244,19 @@ compile_test() {
+@@ -1236,9 +1244,19 @@
              #if defined(NV_DRM_DRMP_H_PRESENT)
              #include <drm/drmP.h>
              #endif
@@ -48,7 +48,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              void conftest_drm_available(void) {
                  struct drm_driver drv;
  
-@@ -1873,7 +1891,10 @@ compile_test() {
+@@ -1873,7 +1891,10 @@
              # in v3.18 (2014-08-29)
              #
              CODE="
@@ -59,7 +59,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              void conftest_drm_bus_present(void) {
                  struct drm_bus bus;
              }"
-@@ -1892,7 +1913,10 @@ compile_test() {
+@@ -1892,7 +1913,10 @@
              # in v3.16 (2013-11-03)
              #
              CODE="
@@ -70,7 +70,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              int conftest_drm_bus_has_bus_type(void) {
                  return offsetof(struct drm_bus, bus_type);
              }"
-@@ -1911,7 +1935,10 @@ compile_test() {
+@@ -1911,7 +1935,10 @@
              # implementations") in v3.16 (2013-11-03)
              #
              CODE="
@@ -81,7 +81,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              int conftest_drm_bus_has_get_irq(void) {
                  return offsetof(struct drm_bus, get_irq);
              }"
-@@ -1930,7 +1957,10 @@ compile_test() {
+@@ -1930,7 +1957,10 @@
              # in v3.16 (2013-11-03)
              #
              CODE="
@@ -92,7 +92,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              int conftest_drm_bus_has_get_name(void) {
                  return offsetof(struct drm_bus, get_name);
              }"
-@@ -1947,7 +1977,14 @@ compile_test() {
+@@ -1947,7 +1977,14 @@
              # attached drivers") in v3.14 (2013-12-11)
              #
              CODE="
@@ -107,7 +107,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              int conftest_drm_driver_has_legacy_dev_list(void) {
                  return offsetof(struct drm_driver, legacy_dev_list);
              }"
-@@ -1971,7 +2008,13 @@ compile_test() {
+@@ -1971,7 +2008,13 @@
              #   2017-07-23  e6fc3b68558e4c6d8d160b5daf2511b99afa8814
              #
              CODE="
@@ -121,7 +121,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
              int conftest_drm_crtc_init_with_planes_has_name_arg(void) {
                  return
-@@ -1987,7 +2030,13 @@ compile_test() {
+@@ -1987,7 +2030,13 @@
              compile_check_conftest "$CODE" "NV_DRM_CRTC_INIT_WITH_PLANES_HAS_NAME_ARG" "" "types"
  
              CODE="
@@ -135,7 +135,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
              int conftest_drm_encoder_init_has_name_arg(void) {
                  return
-@@ -2002,7 +2051,13 @@ compile_test() {
+@@ -2002,7 +2051,13 @@
              compile_check_conftest "$CODE" "NV_DRM_ENCODER_INIT_HAS_NAME_ARG" "" "types"
  
              echo "$CONFTEST_PREAMBLE
@@ -149,7 +149,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
              int conftest_drm_universal_plane_init_has_format_modifiers_arg(void) {
                  return
-@@ -2029,7 +2084,13 @@ compile_test() {
+@@ -2029,7 +2084,13 @@
                  echo "#undef NV_DRM_UNIVERSAL_PLANE_INIT_HAS_FORMAT_MODIFIERS_ARG" | append_conftest "types"
  
                  echo "$CONFTEST_PREAMBLE
@@ -163,7 +163,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
                  int conftest_drm_universal_plane_init_has_name_arg(void) {
                      return
-@@ -2067,7 +2128,9 @@ compile_test() {
+@@ -2067,7 +2128,9 @@
              # in v4.5 (2015-12-03)
              #
              CODE="
@@ -173,7 +173,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              void conftest_drm_mode_connector_list_update_has_merge_type_bits_arg(void) {
                  drm_mode_connector_list_update(
                      NULL,  /* struct drm_connector *connector */
-@@ -2102,7 +2165,10 @@ compile_test() {
+@@ -2102,7 +2165,10 @@
              # callback") in v3.18 (2014-08-29)
              #
              CODE="
@@ -184,7 +184,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              int conftest_drm_driver_has_set_busid(void) {
                  return offsetof(struct drm_driver, set_busid);
              }"
-@@ -2119,7 +2185,9 @@ compile_test() {
+@@ -2119,7 +2185,9 @@
              # objects") in v3.17 (2014-07-01)
              #
              CODE="
@@ -194,7 +194,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              int conftest_drm_driver_has_gem_prime_res_obj(void) {
                  return offsetof(struct drm_driver, gem_prime_res_obj);
              }"
-@@ -2615,7 +2683,10 @@ compile_test() {
+@@ -2615,7 +2683,10 @@
              # in v4.8 (2016-06-21)
              #
              CODE="
@@ -205,7 +205,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              void conftest_drm_master_drop_has_from_release_arg(struct drm_driver *drv) {
                  drv->master_drop(NULL, NULL, false);
              }"
-@@ -2782,7 +2853,9 @@ compile_test() {
+@@ -2782,7 +2853,9 @@
              # type of the unload hook to void") in v4.11 (2017-01-06)
              #
              CODE="
@@ -215,7 +215,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
              int conftest_drm_driver_unload_has_int_return_type(struct drm_driver *drv) {
                  return drv->unload(NULL /* dev */);
-@@ -3174,10 +3247,14 @@ compile_test() {
+@@ -3174,10 +3247,14 @@
              # Introduce drm_framebuffer_{get,put}()) on 2017-02-28.
              #
              CODE="
@@ -230,7 +230,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              void conftest_drm_framebuffer_get(void) {
                  drm_framebuffer_get();
              }"
-@@ -3193,7 +3270,10 @@ compile_test() {
+@@ -3193,7 +3270,10 @@
              # Introduce drm_gem_object_{get,put}()) on 2017-02-28.
              #
              CODE="
@@ -241,7 +241,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              #if defined(NV_DRM_DRM_GEM_H_PRESENT)
              #include <drm/drm_gem.h>
              #endif
-@@ -3212,7 +3292,10 @@ compile_test() {
+@@ -3212,7 +3292,10 @@
              # introduce drm_dev_{get/put} functions) on 2017-09-26.
              #
              CODE="
@@ -252,7 +252,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              #if defined(NV_DRM_DRM_DRV_H_PRESENT)
              #include <drm/drm_drv.h>
              #endif
-@@ -3337,10 +3420,14 @@ compile_test() {
+@@ -3337,10 +3420,14 @@
              # (2019-01-29).
              #
              CODE="
@@ -267,7 +267,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
              unsigned int drm_driver_prime_flag_present_conftest(void) {
                  return DRIVER_PRIME;
              }"
-@@ -3348,6 +3435,68 @@ compile_test() {
+@@ -3348,6 +3435,68 @@
              compile_check_conftest "$CODE" "NV_DRM_DRIVER_PRIME_FLAG_PRESENT" "" "types"
          ;;
  
@@ -356,7 +356,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  #if defined(NV_LINUX_FENCE_H_PRESENT)
  typedef struct fence nv_dma_fence_t;
  typedef struct fence_ops nv_dma_fence_ops_t;
-@@ -118,6 +116,6 @@ nv_dma_fence_init(nv_dma_fence_t *fence,
+@@ -118,6 +116,6 @@
  #endif
  }
  
@@ -463,7 +463,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  #endif /* defined(__NVIDIA_DRM_CONFTEST_H__) */
 --- a/nvidia-drm/nvidia-drm-connector.c
 +++ b/nvidia-drm/nvidia-drm-connector.c
-@@ -58,20 +58,100 @@ static void nv_drm_connector_destroy(str
+@@ -58,20 +58,100 @@
      nv_drm_free(nv_connector);
  }
  
@@ -566,7 +566,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
      BUG_ON(!mutex_is_locked(&dev->mode_config.mutex));
  
-@@ -87,90 +167,12 @@ static enum drm_connector_status __nv_dr
+@@ -87,90 +167,12 @@
          goto done;
      }
  
@@ -722,7 +722,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
  /*
   * Commit fcd70cd36b9b ("drm: Split out drm_probe_helper.h")
-@@ -627,7 +647,7 @@ static const struct drm_ioctl_desc nv_dr
+@@ -627,7 +647,7 @@
                        nv_drm_get_dev_info_ioctl,
                        DRM_RENDER_ALLOW|DRM_UNLOCKED),
  
@@ -794,7 +794,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
  #if defined(NV_DMA_BUF_OWNER_PRESENT)
  #include "linux/dma-buf.h" /* To inspect dma_buf->owner during prime import */
-@@ -45,8 +54,8 @@ void nv_drm_gem_free(struct drm_gem_obje
+@@ -45,8 +54,8 @@
  
      drm_gem_object_release(&nv_gem->base);
  
@@ -805,7 +805,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  #endif
  
      nv_gem->ops->free(nv_gem);
-@@ -113,7 +122,7 @@ void nv_drm_gem_prime_vunmap(struct drm_
+@@ -113,7 +122,7 @@
  }
  
  #if defined(NV_DRM_DRIVER_HAS_GEM_PRIME_RES_OBJ)
@@ -839,7 +839,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  #endif
  
  struct nv_drm_gem_object;
-@@ -55,8 +61,8 @@ struct nv_drm_gem_object {
+@@ -55,8 +61,8 @@
      struct nv_drm_device *nv_dev;
      const struct nv_drm_gem_object_funcs *ops;
  
@@ -850,7 +850,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  #endif
  };
  
-@@ -124,11 +130,16 @@ void nv_drm_gem_object_init(struct nv_dr
+@@ -124,11 +130,16 @@
  
      /* Initialize the gem object */
  
@@ -870,7 +870,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  }
  
  static inline int nv_drm_gem_create_mmap_offset(
-@@ -189,7 +200,7 @@ void *nv_drm_gem_prime_vmap(struct drm_g
+@@ -189,7 +200,7 @@
  void nv_drm_gem_prime_vunmap(struct drm_gem_object *gem, void *address);
  
  #if defined(NV_DRM_DRIVER_HAS_GEM_PRIME_RES_OBJ)
@@ -908,7 +908,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
  /*
   * drm_dev_put() is added by commit 9a96f55034e41b4e002b767e9218d55f03bdff7d
-@@ -276,6 +282,96 @@ static inline struct drm_encoder *nv_drm
+@@ -276,6 +282,96 @@
  #endif
  }
  
@@ -1083,7 +1083,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
  #include "nvidia-dma-fence-helper.h"
  
-@@ -518,7 +523,7 @@ int nv_drm_gem_fence_attach_ioctl(struct
+@@ -518,7 +523,7 @@
          goto fence_context_create_fence_failed;
      }
  
@@ -1092,7 +1092,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
      ret = 0;
  
-@@ -532,6 +537,6 @@ done:
+@@ -532,6 +537,6 @@
      return ret;
  }
  
@@ -1115,7 +1115,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
  int nv_drm_fence_supported_ioctl(struct drm_device *dev,
                                   void *data, struct drm_file *filep);
-@@ -40,7 +41,7 @@ int nv_drm_fence_context_create_ioctl(st
+@@ -40,7 +41,7 @@
  int nv_drm_gem_fence_attach_ioctl(struct drm_device *dev,
                                    void *data, struct drm_file *filep);
  
@@ -1177,7 +1177,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
                           NvKmsKapiConnector hConnector);
 --- a/nvidia-drm/nvidia-drm.Kbuild
 +++ b/nvidia-drm/nvidia-drm.Kbuild
-@@ -65,6 +65,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += vm
+@@ -65,6 +65,7 @@
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_framebuffer_get
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_gem_object_get
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += drm_dev_put
@@ -1185,14 +1185,14 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_present
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_bus_has_bus_type
-@@ -89,3 +90,4 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += dma_bu
+@@ -89,3 +90,4 @@
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_connector_list_iter
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_atomic_helper_swap_state_has_stall_arg
  NV_CONFTEST_TYPE_COMPILE_TESTS += drm_driver_prime_flag_present
 +NV_CONFTEST_TYPE_COMPILE_TESTS += drm_gem_object_has_resv
 --- a/nvidia/nv-vm.c
 +++ b/nvidia/nv-vm.c
-@@ -263,7 +263,9 @@ static unsigned int nv_compute_gfp_mask(
+@@ -263,7 +263,9 @@
              gfp_mask = NV_GFP_DMA32;
          }
      }
@@ -1205,7 +1205,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  #if defined(__GFP_ZERO)
 --- a/nvidia/nv.c
 +++ b/nvidia/nv.c
-@@ -58,6 +58,12 @@ MODULE_ALIAS_CHARDEV_MAJOR(NV_MAJOR_DEVI
+@@ -58,6 +58,12 @@
  #endif
  #endif
  
@@ -1218,7 +1218,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=951091
  #include "conftest/patches.h"
  
  /*
-@@ -284,6 +290,12 @@ void NV_API_CALL nv_verify_pci_config(
+@@ -284,6 +290,12 @@
      nv_check_pci_config_space(nv, NV_MAY_SLEEP());
  }
  

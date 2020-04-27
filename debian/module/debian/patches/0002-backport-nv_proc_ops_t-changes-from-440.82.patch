@@ -1,0 +1,180 @@
+From 46bacfba76b2d85ed910d335374bc7b0223bdec1 Mon Sep 17 00:00:00 2001
+From: Andreas Beckmann <anbe@debian.org>
+Date: Sat, 25 Apr 2020 11:40:05 +0200
+Subject: [PATCH 2/4] backport nv_proc_ops_t changes from 440.82
+
+---
+ common/inc/nv-procfs.h | 38 ++++++++++++++++++++++++++++++--------
+ conftest.sh            | 16 ++++++++++++++++
+ nvidia/nv-procfs.c     | 38 +++++++++++++++++++-------------------
+ nvidia/nvidia.Kbuild   |  1 +
+ 4 files changed, 66 insertions(+), 27 deletions(-)
+
+diff --git a/common/inc/nv-procfs.h b/common/inc/nv-procfs.h
+index 3c812ea..217ce46 100644
+--- a/common/inc/nv-procfs.h
++++ b/common/inc/nv-procfs.h
+@@ -28,6 +28,28 @@
+ 
+ #define IS_EXERCISE_ERROR_FORWARDING_ENABLED() (EXERCISE_ERROR_FORWARDING)
+ 
++#if defined(NV_PROC_OPS_PRESENT)
++typedef struct proc_ops nv_proc_ops_t;
++
++#define NV_PROC_OPS_SET_OWNER()
++
++#define NV_PROC_OPS_OPEN    proc_open
++#define NV_PROC_OPS_READ    proc_read
++#define NV_PROC_OPS_WRITE   proc_write
++#define NV_PROC_OPS_LSEEK   proc_lseek
++#define NV_PROC_OPS_RELEASE proc_release
++#else
++typedef struct file_operations nv_proc_ops_t;
++
++#define NV_PROC_OPS_SET_OWNER() .owner = THIS_MODULE,
++
++#define NV_PROC_OPS_OPEN    open
++#define NV_PROC_OPS_READ    read
++#define NV_PROC_OPS_WRITE   write
++#define NV_PROC_OPS_LSEEK   llseek
++#define NV_PROC_OPS_RELEASE release
++#endif
++
+ #if defined(NV_PROC_DIR_ENTRY_HAS_OWNER)
+ #define NV_SET_PROC_ENTRY_OWNER(entry) ((entry)->owner = THIS_MODULE)
+ #else
+@@ -56,8 +78,8 @@
+    ({                                                                    \
+         struct proc_dir_entry *__entry;                                  \
+         int mode = (S_IFREG | S_IRUGO);                                  \
+-        const struct file_operations *fops = &nv_procfs_##__name##_fops; \
+-        if (fops->write != 0)                                            \
++        const nv_proc_ops_t *fops = &nv_procfs_##__name##_fops;          \
++        if (fops->NV_PROC_OPS_WRITE != 0)                                \
+             mode |= S_IWUSR;                                             \
+         __entry = NV_CREATE_PROC_ENTRY(filename, mode, parent, fops,     \
+             __data);                                                     \
+@@ -114,12 +136,12 @@
+             NV_PDE_DATA(inode));                                              \
+     }                                                                         \
+                                                                               \
+-    static const struct file_operations nv_procfs_##__name##_fops = {         \
+-        .owner      = THIS_MODULE,                                            \
+-        .open       = nv_procfs_open_##__name,                                \
+-        .read       = seq_read,                                               \
+-        .llseek     = seq_lseek,                                              \
+-        .release    = single_release,                                         \
++    static const nv_proc_ops_t nv_procfs_##__name##_fops = {                    \
++        NV_PROC_OPS_SET_OWNER()                                               \
++        .NV_PROC_OPS_OPEN    = nv_procfs_open_##__name,                         \
++        .NV_PROC_OPS_READ    = seq_read,                                      \
++        .NV_PROC_OPS_LSEEK   = seq_lseek,                                     \
++        .NV_PROC_OPS_RELEASE = single_release,                      \
+     };
+ 
+ #endif  /* CONFIG_PROC_FS */
+diff --git a/conftest.sh b/conftest.sh
+index 2ca4971..e340731 100755
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -3955,6 +3955,22 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_GEM_PRIME_EXPORT_HAS_DEV_ARG" "" "types"
+         ;;
+ 
++        proc_ops)
++            #
++            # Determine if the 'struct proc_ops' type is present.
++            #
++            # Added by commit d56c0d45f0e2 ("proc: decouple proc from VFS with 
++            # "struct proc_ops"") in 5.6-rc1
++            #
++            CODE="
++            #include <linux/proc_fs.h>
++
++            struct proc_ops p_ops;
++            "
++
++            compile_check_conftest "$CODE" "NV_PROC_OPS_PRESENT" "" "types"
++        ;;
++
+     esac
+ }
+ 
+diff --git a/nvidia/nv-procfs.c b/nvidia/nv-procfs.c
+index 5808a88..167b21f 100644
+--- a/nvidia/nv-procfs.c
++++ b/nvidia/nv-procfs.c
+@@ -414,13 +414,13 @@ done:
+     return ((status < 0) ? status : (int)count);
+ }
+ 
+-static struct file_operations nv_procfs_registry_fops = {
+-    .owner   = THIS_MODULE,
+-    .open    = nv_procfs_open_registry,
+-    .read    = seq_read,
+-    .write   = nv_procfs_write_file,
+-    .llseek  = seq_lseek,
+-    .release = nv_procfs_close_registry,
++static nv_proc_ops_t nv_procfs_registry_fops = {
++     NV_PROC_OPS_SET_OWNER()
++    .NV_PROC_OPS_OPEN    = nv_procfs_open_registry,
++    .NV_PROC_OPS_READ    = seq_read,
++    .NV_PROC_OPS_WRITE   = nv_procfs_write_file,
++    .NV_PROC_OPS_LSEEK   = seq_lseek,
++    .NV_PROC_OPS_RELEASE = nv_procfs_close_registry,
+ };
+ 
+ /*
+@@ -517,11 +517,11 @@ done:
+     return status;
+ }
+ 
+-static struct file_operations nv_procfs_exercise_error_forwarding_fops = {
+-    .owner   = THIS_MODULE,
+-    .open    = nv_procfs_open_exercise_error_forwarding,
+-    .write   = nv_procfs_write_file,
+-    .release = nv_procfs_close_exercise_error_forwarding,
++static nv_proc_ops_t nv_procfs_exercise_error_forwarding_fops = {
++     NV_PROC_OPS_SET_OWNER()
++    .NV_PROC_OPS_OPEN    = nv_procfs_open_exercise_error_forwarding,
++    .NV_PROC_OPS_WRITE   = nv_procfs_write_file,
++    .NV_PROC_OPS_RELEASE = nv_procfs_close_exercise_error_forwarding,
+ };
+ 
+ static int
+@@ -650,13 +650,13 @@ done:
+     return rc;
+ }
+ 
+-static struct file_operations nv_procfs_unbind_lock_fops = {
+-    .owner   = THIS_MODULE,
+-    .open    = nv_procfs_open_unbind_lock,
+-    .read    = seq_read,
+-    .write   = nv_procfs_write_file,
+-    .llseek  = seq_lseek,
+-    .release = nv_procfs_close_unbind_lock,
++static nv_proc_ops_t nv_procfs_unbind_lock_fops = {
++    NV_PROC_OPS_SET_OWNER()
++    .NV_PROC_OPS_OPEN    = nv_procfs_open_unbind_lock,
++    .NV_PROC_OPS_READ    = seq_read,
++    .NV_PROC_OPS_WRITE   = nv_procfs_write_file,
++    .NV_PROC_OPS_LSEEK   = seq_lseek,
++    .NV_PROC_OPS_RELEASE = nv_procfs_close_unbind_lock,
+ };
+ 
+ static int
+diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
+index 8ae1016..46099d7 100644
+--- a/nvidia/nvidia.Kbuild
++++ b/nvidia/nvidia.Kbuild
+@@ -189,6 +189,7 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += kstrtoull
+ NV_CONFTEST_TYPE_COMPILE_TESTS += backlight_properties_type
+ NV_CONFTEST_TYPE_COMPILE_TESTS += kmem_cache_has_kobj_remove_work
+ NV_CONFTEST_TYPE_COMPILE_TESTS += sysfs_slab_unlink
++NV_CONFTEST_TYPE_COMPILE_TESTS += proc_ops
+ 
+ NV_CONFTEST_GENERIC_COMPILE_TESTS += dom0_kernel_present
+ NV_CONFTEST_GENERIC_COMPILE_TESTS += nvidia_vgpu_kvm_build
+-- 
+2.20.1
+

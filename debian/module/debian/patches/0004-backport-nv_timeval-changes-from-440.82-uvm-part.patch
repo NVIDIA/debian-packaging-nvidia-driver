@@ -1,0 +1,62 @@
+From ad030dcafd5ebdf9c876a52c5da6ca023a480d70 Mon Sep 17 00:00:00 2001
+From: Andreas Beckmann <anbe@debian.org>
+Date: Sat, 25 Apr 2020 11:42:24 +0200
+Subject: [PATCH 4/4] backport nv_timeval changes from 440.82 (uvm part)
+
+---
+ nvidia-uvm/nvidia-uvm.Kbuild |  3 +++
+ nvidia-uvm/uvm_linux.h       | 11 +++++++++--
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/nvidia-uvm/nvidia-uvm.Kbuild b/nvidia-uvm/nvidia-uvm.Kbuild
+index 1b1a4ff..a839c2a 100644
+--- a/nvidia-uvm/nvidia-uvm.Kbuild
++++ b/nvidia-uvm/nvidia-uvm.Kbuild
+@@ -109,6 +109,7 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += usleep_range
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += radix_tree_empty
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += radix_tree_replace_slot
+ NV_CONFTEST_FUNCTION_COMPILE_TESTS += do_gettimeofday
++NV_CONFTEST_FUNCTION_COMPILE_TESTS += ktime_get_raw_ts64
+ 
+ NV_CONFTEST_TYPE_COMPILE_TESTS += proc_dir_entry
+ NV_CONFTEST_TYPE_COMPILE_TESTS += irq_handler_t
+@@ -130,3 +131,5 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += vm_ops_fault_removed_vma_arg
+ NV_CONFTEST_TYPE_COMPILE_TESTS += pnv_npu2_init_context
+ NV_CONFTEST_TYPE_COMPILE_TESTS += kmem_cache_has_kobj_remove_work
+ NV_CONFTEST_TYPE_COMPILE_TESTS += sysfs_slab_unlink
++NV_CONFTEST_TYPE_COMPILE_TESTS += proc_ops
++NV_CONFTEST_TYPE_COMPILE_TESTS += timeval
+diff --git a/nvidia-uvm/uvm_linux.h b/nvidia-uvm/uvm_linux.h
+index 8784a82..0c4fc95 100644
+--- a/nvidia-uvm/uvm_linux.h
++++ b/nvidia-uvm/uvm_linux.h
+@@ -333,9 +333,16 @@ static inline uint64_t NV_DIV64(uint64_t dividend, uint64_t divisor, uint64_t *r
+ /* Return a nanosecond-precise value */
+ static inline NvU64 NV_GETTIME(void)
+ {
++/*
++ * Use ktime_get_raw_ts64() instead of getrawmonotonic() when it is available.
++ */
++#if defined(NV_KTIME_GET_RAW_TS64_PRESENT)
++    struct timespec64 ts = {0};
++    ktime_get_raw_ts64(&ts);
++#else
+     struct timespec ts = {0};
+-
+     getrawmonotonic(&ts);
++#endif
+ 
+     /* Wraps around every 583 years */
+     return (ts.tv_sec * 1000000000ULL + ts.tv_nsec);
+@@ -345,7 +352,7 @@ static inline NvU64 NV_GETTIME(void)
+  * available non-GPL symbols. */
+ static inline NvU64 NV_GETTIME(void)
+ {
+-    struct timeval tv = {0};
++    nv_timeval tv = {0};
+ 
+     nv_gettimeofday(&tv);
+ 
+-- 
+2.20.1
+

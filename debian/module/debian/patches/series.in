@@ -1,5 +1,9 @@
 # kernel support
 drmP.patch
+0001-backport-nv_ioremap_nocache-changes-from-440.64.patch
+0002-backport-nv_proc_ops_t-changes-from-440.82.patch
+0003-backport-nv_timeval-changes-from-440.82.patch
+#HAS_UVM#0004-backport-nv_timeval-changes-from-440.82-uvm-part.patch
 
 # build system updates
 use-kbuild-compiler.patch
