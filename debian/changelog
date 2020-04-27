@@ -48,16 +48,10 @@ nvidia-graphics-drivers (418.113-1) buster; urgency=medium
 nvidia-graphics-drivers (418.88-1) unstable; urgency=medium
 
   * New upstream long lived branch release 418.88 (2019-07-29).
-    - Added support for the following GPUs: Quadro P520, Quadro RTX 3000,
-      Quadro RTX 3000 with Max-Q Design, Quadro RTX 4000 with Max-Q Design,
-      Quadro RTX 5000 with Max-Q Design, Quadro T1000, Quadro T2000.
-    - Fixed a bug, introduced in 415.13, that caused audio over DisplayPort to
-      not work in some configurations.
     * Improved compatibility with recent Linux kernels.
       (Closes: #934290, #934344, #934648)
 
   [ Andreas Beckmann ]
-  * Update nv-readme.ids.
   * Bump Standards-Version to 4.4.0. No changes needed.
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 12 Aug 2019 23:41:02 +0200
@@ -66,6 +60,15 @@ nvidia-graphics-drivers (418.87.01-1) UNRELEASED; urgency=medium
 
   * New upstream Tesla release 418.87.01 (2019-10-03).
   * New upstream Tesla release 418.87.00 (2019-08-13).
+    - Added support for the following GPUs: Quadro P520, Quadro RTX 3000,
+      Quadro RTX 3000 with Max-Q Design, Quadro RTX 4000 with Max-Q Design,
+      Quadro RTX 5000 with Max-Q Design, Quadro T1000, Quadro T2000.
+    - Fixed a bug, introduced in 415.13, that caused audio over DisplayPort to
+      not work in some configurations.
+
+  [ Andreas Beckmann ]
+  * Update nv-readme.ids.
+  * Backport fixes for Linux 5.2/5.3 from 418.88.
 
  -- Andreas Beckmann <anbe@debian.org>  Sat, 26 Oct 2019 19:36:41 +0200
 
