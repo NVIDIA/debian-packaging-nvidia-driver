@@ -30,12 +30,13 @@ The branch structure in the GIT repository
     340-stretch         EoL   (stretch,sid)       390, 340xx/master
     340xx/master        EoL   stretch,buster,sid
     390                       stretch             390-buster
-    390-buster                (buster)            master, 390xx/master
+    390-buster                (buster)            418, 390xx/master
     390xx/master              buster,sid
-    418                       (sid)               418-tesla
+    418                       buster              418-bullseye
+    418-bullseye              (bullseye)          440, 418-tesla
     418-tesla                 (sid)               tesla-418/master
     tesla-418/master          sid
-    440                       (sid)               440-tesla
+    440                       (sid)               master, 440-tesla
     440-tesla                 (sid)               tesla-440/master
     tesla-440/master          sid
     master                    sid                 YYY
