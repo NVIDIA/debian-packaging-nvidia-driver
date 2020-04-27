@@ -1,14 +1,14 @@
-From 46bacfba76b2d85ed910d335374bc7b0223bdec1 Mon Sep 17 00:00:00 2001
+From d653b9de9596c886721ca75306982fe3eb993e23 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sat, 25 Apr 2020 11:40:05 +0200
 Subject: [PATCH 2/4] backport nv_proc_ops_t changes from 440.82
 
 ---
- common/inc/nv-procfs.h | 38 ++++++++++++++++++++++++++++++--------
- conftest.sh            | 16 ++++++++++++++++
- nvidia/nv-procfs.c     | 38 +++++++++++++++++++-------------------
+ common/inc/nv-procfs.h | 38 +++++++++++++++++++------
+ conftest.sh            | 16 +++++++++++
+ nvidia/nv-procfs.c     | 64 +++++++++++++++++++++---------------------
  nvidia/nvidia.Kbuild   |  1 +
- 4 files changed, 66 insertions(+), 27 deletions(-)
+ 4 files changed, 79 insertions(+), 40 deletions(-)
 
 diff --git a/common/inc/nv-procfs.h b/common/inc/nv-procfs.h
 index 3c812ea..217ce46 100644
@@ -74,11 +74,11 @@ index 3c812ea..217ce46 100644
  
  #endif  /* CONFIG_PROC_FS */
 diff --git a/conftest.sh b/conftest.sh
-index 2ca4971..e340731 100755
+index f8eb958..9a0cc67 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -3955,6 +3955,22 @@ compile_test() {
-             compile_check_conftest "$CODE" "NV_DRM_GEM_PRIME_EXPORT_HAS_DEV_ARG" "" "types"
+@@ -3497,6 +3497,22 @@ compile_test() {
+             compile_check_conftest "$CODE" "NV_DRM_GEM_OBJECT_HAS_RESV" "" "types"
          ;;
  
 +        proc_ops)
@@ -101,10 +101,10 @@ index 2ca4971..e340731 100755
  }
  
 diff --git a/nvidia/nv-procfs.c b/nvidia/nv-procfs.c
-index 5808a88..167b21f 100644
+index 220eeef..30fc2c4 100644
 --- a/nvidia/nv-procfs.c
 +++ b/nvidia/nv-procfs.c
-@@ -414,13 +414,13 @@ done:
+@@ -436,13 +436,13 @@ done:
      return ((status < 0) ? status : (int)count);
  }
  
@@ -125,7 +125,7 @@ index 5808a88..167b21f 100644
  };
  
  /*
-@@ -517,11 +517,11 @@ done:
+@@ -539,11 +539,11 @@ done:
      return status;
  }
  
@@ -142,7 +142,7 @@ index 5808a88..167b21f 100644
  };
  
  static int
-@@ -650,13 +650,13 @@ done:
+@@ -672,13 +672,13 @@ done:
      return rc;
  }
  
@@ -162,19 +162,54 @@ index 5808a88..167b21f 100644
 +    .NV_PROC_OPS_RELEASE = nv_procfs_close_unbind_lock,
  };
  
+ static const char*
+@@ -987,21 +987,21 @@ done:
+     return retval;
+ }
+ 
+-static const struct file_operations nv_procfs_numa_status_fops = {
+-    .owner   = THIS_MODULE,
+-    .open    = nv_procfs_open_numa_status,
+-    .read    = seq_read,
+-    .write   = nv_procfs_write_file,
+-    .llseek  = seq_lseek,
+-    .release = nv_procfs_close_numa_status,
++static const nv_proc_ops_t nv_procfs_numa_status_fops = {
++    NV_PROC_OPS_SET_OWNER()
++    .NV_PROC_OPS_OPEN    = nv_procfs_open_numa_status,
++    .NV_PROC_OPS_READ    = seq_read,
++    .NV_PROC_OPS_WRITE   = nv_procfs_write_file,
++    .NV_PROC_OPS_LSEEK   = seq_lseek,
++    .NV_PROC_OPS_RELEASE = nv_procfs_close_numa_status,
+ };
+ 
+-static const struct file_operations nv_procfs_offline_pages_fops = {
+-    .owner   = THIS_MODULE,
+-    .open    = nv_procfs_open_offline_pages,
+-    .read    = seq_read,
+-    .llseek  = seq_lseek,
+-    .release = nv_procfs_close_offline_pages,
++static const nv_proc_ops_t nv_procfs_offline_pages_fops = {
++    NV_PROC_OPS_SET_OWNER()
++    .NV_PROC_OPS_OPEN    = nv_procfs_open_offline_pages,
++    .NV_PROC_OPS_READ    = seq_read,
++    .NV_PROC_OPS_LSEEK   = seq_lseek,
++    .NV_PROC_OPS_RELEASE = nv_procfs_close_offline_pages,
+ };
+ 
  static int
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 8ae1016..46099d7 100644
+index d079e5d..d6f62eb 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -189,6 +189,7 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += kstrtoull
- NV_CONFTEST_TYPE_COMPILE_TESTS += backlight_properties_type
+@@ -187,6 +187,7 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += backlight_properties_type
+ NV_CONFTEST_TYPE_COMPILE_TESTS += vmbus_channel_has_ringbuffer_page
  NV_CONFTEST_TYPE_COMPILE_TESTS += kmem_cache_has_kobj_remove_work
  NV_CONFTEST_TYPE_COMPILE_TESTS += sysfs_slab_unlink
 +NV_CONFTEST_TYPE_COMPILE_TESTS += proc_ops
  
  NV_CONFTEST_GENERIC_COMPILE_TESTS += dom0_kernel_present
- NV_CONFTEST_GENERIC_COMPILE_TESTS += nvidia_vgpu_kvm_build
+ NV_CONFTEST_GENERIC_COMPILE_TESTS += nvidia_vgpu_hyperv_available
 -- 
 2.20.1
 

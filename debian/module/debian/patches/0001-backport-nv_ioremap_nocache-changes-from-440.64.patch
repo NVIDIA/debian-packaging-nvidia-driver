@@ -1,4 +1,4 @@
-From f05c71b70556b51807ee6bd417e0c4ae3abbca7d Mon Sep 17 00:00:00 2001
+From 5a49c973a05fd387cbd012c3db918572179bd9c7 Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sat, 25 Apr 2020 13:56:38 +0200
 Subject: [PATCH 1/4] backport nv_ioremap_nocache changes from 440.64
@@ -8,10 +8,10 @@ Subject: [PATCH 1/4] backport nv_ioremap_nocache changes from 440.64
  1 file changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/common/inc/nv-linux.h b/common/inc/nv-linux.h
-index 85041c2..541c1e4 100644
+index 3bce0c0..20459bd 100644
 --- a/common/inc/nv-linux.h
 +++ b/common/inc/nv-linux.h
-@@ -553,10 +553,7 @@ static inline void *nv_ioremap(NvU64 phys, NvU64 size)
+@@ -575,10 +575,7 @@ static inline void *nv_ioremap(NvU64 phys, NvU64 size)
  
  static inline void *nv_ioremap_nocache(NvU64 phys, NvU64 size)
  {

@@ -1,4 +1,4 @@
-From daaffd87c8adf055eb4d978d6e6bd3625a94a066 Mon Sep 17 00:00:00 2001
+From 5fa23fd8df9648348fde84beafeae99a1f6cebde Mon Sep 17 00:00:00 2001
 From: Andreas Beckmann <anbe@debian.org>
 Date: Sat, 25 Apr 2020 11:40:44 +0200
 Subject: [PATCH 3/4] backport nv_timeval changes from 440.82
@@ -8,18 +8,19 @@ Subject: [PATCH 3/4] backport nv_timeval changes from 440.82
  conftest.sh                           | 62 +++++++++++++++++++++++++++
  nvidia-modeset/nvidia-modeset-linux.c |  2 +-
  nvidia-modeset/nvidia-modeset.Kbuild  |  1 +
+ nvidia/linux_nvswitch.c               | 10 ++++-
  nvidia/nvidia.Kbuild                  |  4 ++
  nvidia/nvlink_linux.c                 | 18 ++++----
  nvidia/os-interface.c                 | 17 +++++---
- 7 files changed, 95 insertions(+), 19 deletions(-)
+ 8 files changed, 104 insertions(+), 20 deletions(-)
 
 diff --git a/common/inc/nv-time.h b/common/inc/nv-time.h
-index 2c799c9..23c22f4 100644
+index 968b873..b4fe2b7 100644
 --- a/common/inc/nv-time.h
 +++ b/common/inc/nv-time.h
-@@ -30,7 +30,13 @@
+@@ -27,7 +27,13 @@
+ 
  #include <linux/ktime.h>
- #endif
  
 -static inline void nv_gettimeofday(struct timeval *tv)
 +#if defined (NV_TIMEVAL_PRESENT)
@@ -32,7 +33,7 @@ index 2c799c9..23c22f4 100644
  {
  #ifdef NV_DO_GETTIMEOFDAY_PRESENT
      do_gettimeofday(tv);
-@@ -39,7 +45,7 @@ static inline void nv_gettimeofday(struct timeval *tv)
+@@ -36,7 +42,7 @@ static inline void nv_gettimeofday(struct timeval *tv)
  
      ktime_get_real_ts64(&now);
  
@@ -42,10 +43,10 @@ index 2c799c9..23c22f4 100644
          .tv_usec = now.tv_nsec/1000,
      };
 diff --git a/conftest.sh b/conftest.sh
-index e340731..7fe50b0 100755
+index 9a0cc67..b1db112 100755
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -2429,6 +2429,21 @@ compile_test() {
+@@ -1992,6 +1992,21 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_DRM_DRIVER_HAS_LEGACY_DEV_LIST" "" "types"
          ;;
  
@@ -67,7 +68,7 @@ index e340731..7fe50b0 100755
          drm_init_function_args)
              #
              # Determine if these functions:
-@@ -3971,6 +3986,53 @@ compile_test() {
+@@ -3513,6 +3528,53 @@ compile_test() {
              compile_check_conftest "$CODE" "NV_PROC_OPS_PRESENT" "" "types"
          ;;
  
@@ -146,11 +147,35 @@ index bb72812..abdcd11 100644
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += proc_create_data
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += pde_data
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += proc_remove
+diff --git a/nvidia/linux_nvswitch.c b/nvidia/linux_nvswitch.c
+index e4381b5..7089747 100644
+--- a/nvidia/linux_nvswitch.c
++++ b/nvidia/linux_nvswitch.c
+@@ -1559,10 +1559,18 @@ nvswitch_os_get_platform_time
+     void
+ )
+ {
++/*
++ * Use ktime_get_real_ts64() instead of getnstimeofday(), when it is available.
++ */
++#if defined(NV_KTIME_GET_REAL_TS64_PRESENT)
++    struct timespec64 ts;
++    ktime_get_real_ts64(&ts);
++    return ((NvU64) timespec64_to_ns(&ts));
++#else
+     struct timespec ts;
+-
+     getnstimeofday(&ts);
+     return ((NvU64) timespec_to_ns(&ts));
++#endif
+ }
+ 
+ void
 diff --git a/nvidia/nvidia.Kbuild b/nvidia/nvidia.Kbuild
-index 46099d7..eaffb5f 100644
+index d6f62eb..97a1c0c 100644
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
-@@ -154,6 +154,9 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += kmem_cache_create_usercopy
+@@ -156,6 +156,9 @@ NV_CONFTEST_FUNCTION_COMPILE_TESTS += compound_order
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += do_gettimeofday
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += dma_direct_map_resource
  NV_CONFTEST_FUNCTION_COMPILE_TESTS += vmf_insert_pfn
@@ -160,19 +185,19 @@ index 46099d7..eaffb5f 100644
  
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_of_node_to_nid
  NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_swiotlb_map_sg_attrs
-@@ -190,6 +193,7 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += backlight_properties_type
+@@ -188,6 +191,7 @@ NV_CONFTEST_TYPE_COMPILE_TESTS += vmbus_channel_has_ringbuffer_page
  NV_CONFTEST_TYPE_COMPILE_TESTS += kmem_cache_has_kobj_remove_work
  NV_CONFTEST_TYPE_COMPILE_TESTS += sysfs_slab_unlink
  NV_CONFTEST_TYPE_COMPILE_TESTS += proc_ops
 +NV_CONFTEST_TYPE_COMPILE_TESTS += timeval
  
  NV_CONFTEST_GENERIC_COMPILE_TESTS += dom0_kernel_present
- NV_CONFTEST_GENERIC_COMPILE_TESTS += nvidia_vgpu_kvm_build
+ NV_CONFTEST_GENERIC_COMPILE_TESTS += nvidia_vgpu_hyperv_available
 diff --git a/nvidia/nvlink_linux.c b/nvidia/nvlink_linux.c
-index 0014280..872bc90 100644
+index 546ace9..dbe2091 100644
 --- a/nvidia/nvlink_linux.c
 +++ b/nvidia/nvlink_linux.c
-@@ -518,8 +518,8 @@ void * NVLINK_API_CALL nvlink_memcpy(void *dest, void *src, NvLength size)
+@@ -503,8 +503,8 @@ void * NVLINK_API_CALL nvlink_memcpy(void *dest, void *src, NvLength size)
  
  static NvBool nv_timer_less_than
  (
@@ -183,7 +208,7 @@ index 0014280..872bc90 100644
  )
  {
      return (a->tv_sec == b->tv_sec) ? (a->tv_usec < b->tv_usec) 
-@@ -528,9 +528,9 @@ static NvBool nv_timer_less_than
+@@ -513,9 +513,9 @@ static NvBool nv_timer_less_than
  
  static void nv_timeradd
  (
@@ -196,7 +221,7 @@ index 0014280..872bc90 100644
  )
  {
      result->tv_sec = a->tv_sec + b->tv_sec;
-@@ -544,9 +544,9 @@ static void nv_timeradd
+@@ -529,9 +529,9 @@ static void nv_timeradd
  
  static void nv_timersub
  (
@@ -209,7 +234,7 @@ index 0014280..872bc90 100644
  )
  {
      result->tv_sec = a->tv_sec - b->tv_sec;
-@@ -566,7 +566,7 @@ void NVLINK_API_CALL nvlink_sleep(unsigned int ms)
+@@ -551,7 +551,7 @@ void NVLINK_API_CALL nvlink_sleep(unsigned int ms)
      unsigned long us;
      unsigned long jiffies;
      unsigned long mdelay_safe_msec;
@@ -219,10 +244,10 @@ index 0014280..872bc90 100644
      nv_gettimeofday(&tm_aux);
  
 diff --git a/nvidia/os-interface.c b/nvidia/os-interface.c
-index 344daa8..3603a5a 100644
+index 8f2d968..0ce0b05 100644
 --- a/nvidia/os-interface.c
 +++ b/nvidia/os-interface.c
-@@ -430,7 +430,7 @@ NV_STATUS NV_API_CALL os_get_current_time(
+@@ -429,7 +429,7 @@ NV_STATUS NV_API_CALL os_get_current_time(
      NvU32 *useconds
  )
  {
@@ -231,7 +256,7 @@ index 344daa8..3603a5a 100644
  
      nv_gettimeofday(&tm);
  
-@@ -444,10 +444,13 @@ NV_STATUS NV_API_CALL os_get_current_time(
+@@ -443,10 +443,13 @@ NV_STATUS NV_API_CALL os_get_current_time(
  
  void NV_API_CALL os_get_current_tick(NvU64 *nseconds)
  {
@@ -247,7 +272,7 @@ index 344daa8..3603a5a 100644
      *nseconds = ((NvU64)ts.tv_sec * NSEC_PER_SEC + (NvU64)ts.tv_nsec);
  }
  
-@@ -502,7 +505,7 @@ NV_STATUS NV_API_CALL os_delay_us(NvU32 MicroSeconds)
+@@ -515,7 +518,7 @@ NV_STATUS NV_API_CALL os_delay_us(NvU32 MicroSeconds)
      unsigned long usec;
  
  #ifdef NV_CHECK_DELAY_ACCURACY
@@ -256,7 +281,7 @@ index 344daa8..3603a5a 100644
  
      nv_gettimeofday(&tm1);
  #endif
-@@ -542,9 +545,9 @@ NV_STATUS NV_API_CALL os_delay(NvU32 MilliSeconds)
+@@ -555,9 +558,9 @@ NV_STATUS NV_API_CALL os_delay(NvU32 MilliSeconds)
      unsigned long MicroSeconds;
      unsigned long jiffies;
      unsigned long mdelay_safe_msec;
@@ -268,7 +293,7 @@ index 344daa8..3603a5a 100644
  #endif
  
      nv_gettimeofday(&tm_aux);
-@@ -1926,7 +1929,7 @@ static NV_STATUS NV_API_CALL _os_ipmi_receive_resp
+@@ -1914,7 +1917,7 @@ static NV_STATUS NV_API_CALL _os_ipmi_receive_resp
  {
      struct ipmi_recv_msg    *rx_msg;
      int                     err_no;
