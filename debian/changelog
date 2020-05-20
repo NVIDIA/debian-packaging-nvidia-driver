@@ -2,6 +2,7 @@ nvidia-graphics-drivers (418.113-1+git) UNRELEASED; urgency=medium
 
   * Build the nvidia-*-common packages for ppc64el (430.50-2).
   * nvidia-detect: Build for ppc64el (430.64-2).
+  * Switch to debhelper-compat (= 13).
 
  -- Andreas Beckmann <anbe@debian.org>  Mon, 27 Apr 2020 21:06:57 +0200
 
