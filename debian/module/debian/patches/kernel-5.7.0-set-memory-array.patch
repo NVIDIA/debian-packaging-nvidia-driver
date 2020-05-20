@@ -1,0 +1,51 @@
+Author: Jiri Palecek <jpalecek@web.de>
+Description: fix module build failure for Linux 5.7
+ I was trying to test nvidia drivers with the new kernel in experimental
+ 5.7.0-rc5-686-pae. In the build log, I noticed it failed due to missing
+ functions set_memory_array_wb and friends. However, the code seemed to
+ be prepared for that possibility, so the problem must be the conftest.
+ .
+ I checked the output from the compilation checks and found some are
+ failing for the wrong reason, which causes some functions to be wrongly
+ detected as present (!) and some wrongly detected as missing. This would
+ probably apply to the other branches of nvidia drivers as well. I
+ prepared a patch for this, some comments:
+ .
+ - asm/page.h and asm/pgtable.h are needed for the pgprop_t type. Some
+   arches have here, some have it there. Otherwise the compilation
+   wrongly fails and detects the functions as present
+ .
+ I checked that these files were present in the linux kernel since
+ 2.6.39, but haven't tested compilation with such old kernels. It should,
+ however, work.
+Bug-Debian: https://bugs.debian.org/960735
+
+--- a/conftest.sh
++++ b/conftest.sh
+@@ -440,6 +440,8 @@ compile_test() {
+             # It does not exist on all architectures.
+             #
+             CODE="
++            #include <asm/page.h>
++            #include <asm/pgtable.h>
+             #if defined(NV_ASM_SET_MEMORY_H_PRESENT)
+             #include <asm/set_memory.h>
+             #else
+@@ -458,6 +460,8 @@ compile_test() {
+             # It does not exist on all architectures.
+             #
+             CODE="
++            #include <asm/page.h>
++            #include <asm/pgtable.h>
+             #if defined(NV_ASM_SET_MEMORY_H_PRESENT)
+             #include <asm/set_memory.h>
+             #else
+@@ -511,6 +515,8 @@ compile_test() {
+             # It does not exist on all architectures.
+             #
+             CODE="
++            #include <asm/page.h>
++            #include <asm/pgtable.h>
+             #if defined(NV_ASM_SET_MEMORY_H_PRESENT)
+             #include <asm/set_memory.h>
+             #else
