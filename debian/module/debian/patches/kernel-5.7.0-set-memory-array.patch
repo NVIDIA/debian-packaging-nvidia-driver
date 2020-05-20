@@ -15,11 +15,6 @@ Description: fix module build failure for Linux 5.7
    arches have here, some have it there. Otherwise the compilation
    wrongly fails and detects the functions as present
  .
- - atomic_long_t is pulled by including linux/atomic.h, not
-   asm/atomic.h. Otherwise it's detected wrongly as absent
- .
- - linux/acpi.h is needed for acpi_status type
- .
  I checked that these files were present in the linux kernel since
  2.6.39, but haven't tested compilation with such old kernels. It should,
  however, work.
@@ -27,8 +22,8 @@ Bug-Debian: https://bugs.debian.org/960735
 
 --- a/conftest.sh
 +++ b/conftest.sh
-@@ -405,6 +405,8 @@ compile_test() {
-             # Determine if the set_memory_uc() function is present.
+@@ -440,6 +440,8 @@ compile_test() {
+             # It does not exist on all architectures.
              #
              CODE="
 +            #include <asm/page.h>
@@ -36,8 +31,8 @@ Bug-Debian: https://bugs.debian.org/960735
              #if defined(NV_ASM_SET_MEMORY_H_PRESENT)
              #include <asm/set_memory.h>
              #else
-@@ -422,6 +424,8 @@ compile_test() {
-             # Determine if the set_memory_array_uc() function is present.
+@@ -458,6 +460,8 @@ compile_test() {
+             # It does not exist on all architectures.
              #
              CODE="
 +            #include <asm/page.h>
@@ -45,8 +40,8 @@ Bug-Debian: https://bugs.debian.org/960735
              #if defined(NV_ASM_SET_MEMORY_H_PRESENT)
              #include <asm/set_memory.h>
              #else
-@@ -474,6 +478,8 @@ compile_test() {
-             # Determine if the set_pages_uc() function is present.
+@@ -511,6 +515,8 @@ compile_test() {
+             # It does not exist on all architectures.
              #
              CODE="
 +            #include <asm/page.h>
@@ -54,30 +49,3 @@ Bug-Debian: https://bugs.debian.org/960735
              #if defined(NV_ASM_SET_MEMORY_H_PRESENT)
              #include <asm/set_memory.h>
              #else
-@@ -1836,7 +1842,7 @@ compile_test() {
-             # Determine if atomic_long_t and associated functions are defined
-             # Added in 2.6.16 2006-01-06 d3cb487149bd706aa6aeb02042332a450978dc1c
-             CODE="
--            #include <asm/atomic.h>
-+            #include <linux/atomic.h>
-             void conftest_atomic_long(void) {
-                 atomic_long_t data;
-                 atomic_long_read(&data);
-@@ -1850,7 +1856,7 @@ compile_test() {
-         atomic64_type)
-             # Determine if atomic64_t and associated functions are defined
-             CODE="
--            #include <asm/atomic.h>
-+            #include <linux/atomic.h>
-             void conftest_atomic64(void) {
-                 atomic64_t data;
-                 atomic64_read(&data);
-@@ -3484,7 +3490,7 @@ compile_test() {
-             #     2008-01-25  9ee85241fdaab358dff1d8647f20a478cfa512a1
-             #
-             CODE="
--            #include <acpi/acpi_bus.h>
-+            #include <linux/acpi.h>
-             int conftest_register_acpi_notifier(void) {
-                 return register_acpi_notifier();
-             }"
