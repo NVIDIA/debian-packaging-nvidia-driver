@@ -1,2 +1,3 @@
 libnvidia-glcore.so.#VERSION#	#LIBDIR#/
 libnvidia-tls.so.#VERSION#	#LIBDIR#/
+libnvidia-ngx.so.#VERSION#	#LIBDIR#/

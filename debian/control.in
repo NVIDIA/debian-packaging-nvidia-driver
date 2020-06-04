@@ -914,7 +914,7 @@ Pre-Depends:
 Depends:
  nvidia-support,
  ${nvidia}-alternative (= ${binary:Version}),
- lib${nvidia}-fatbinaryloader (= ${binary:Version}),
+ lib${nvidia}-ptxjitcompiler1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
@@ -997,25 +997,6 @@ Description: NVIDIA runtime compiler library${nvidia:VariantDesc}
  general purpose computation.
  .
  This package contains the runtime compiler library.
-
-Package: lib${nvidia}-fatbinaryloader
-Architecture: i386 amd64 ${arch:ppc64el}
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- lib${nvidia}-ptxjitcompiler1 (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-fatbinaryloader-${nvidia:Version},
-Conflicts:
- libnvidia-fatbinaryloader-${nvidia:Version},
-Description: NVIDIA FAT binary loader${nvidia:VariantDesc}
- The Compute Unified Device Architecture (CUDA) enables NVIDIA
- graphics processing units (GPUs) to be used for massively parallel
- general purpose computation.
- .
- This package contains the FAT multiarchitecture binary loader.
 
 Package: lib${nvidia}-ptxjitcompiler1
 Architecture: i386 amd64 ${arch:ppc64el}
