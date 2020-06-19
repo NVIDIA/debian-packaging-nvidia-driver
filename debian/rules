@@ -180,8 +180,8 @@ nv-readme.ids: unpack-stamp
 	@set -e -x ; \
 	if ! cmp -s debian/$@ $@ ; then \
 		diff -u debian/$@ $@ || true ; \
-		: "*** Supported PCI IDs have changed. See diff above. Aborting. ***"; \
-		exit 1 ; \
+		: "*** Supported PCI IDs have changed. See diff above. ***"; \
+		cp -a $@ debian/$@
 	fi
 
 nvidia.ids: nv-readme.ids
