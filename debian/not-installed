@@ -1,0 +1,3 @@
+supported-gpus.json
+libnvidia-egl-wayland.so.1.1.5
+nvidia-powerd
