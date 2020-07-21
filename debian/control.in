@@ -70,7 +70,7 @@ Pre-Depends:
  dpkg (>= 1.17.21),
  ${nvidia:legacy-check},
 Depends:
- glx-alternative-nvidia (>= 1.1),
+ glx-alternative-nvidia (>= 1.0),
  ${misc:Depends}
 Provides:
  ${nvidia}-alternative--kmod-alias,
