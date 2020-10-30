@@ -1,2 +1,2 @@
 nvidia-cuda-mps-control	usr/bin/
-nvidia-cuda-mps-server	usr/sbin/
+nvidia-cuda-mps-server	usr/bin/
