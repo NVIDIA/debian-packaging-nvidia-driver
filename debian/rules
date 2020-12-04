@@ -126,7 +126,7 @@ endif
 patch: prepare
 
 NVIDIA-Linux-%:
-	sh $*/${NVIDIA_FILENAME_$*} --extract-only
+	sh $*/${NVIDIA_FILENAME_$*} --extract-only --target ${NVIDIA_DIRNAME_$*}
 	ln -s ${NVIDIA_DIRNAME_$*} $@
 	gunzip $@/*.1.gz
 
