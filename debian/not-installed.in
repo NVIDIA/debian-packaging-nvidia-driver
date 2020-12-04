@@ -13,7 +13,6 @@ nvidia-installer.1
 pkg-history.txt
 
 NVIDIA_Changelog
-supported-gpus.json
 
 nvidia-modprobe
 nvidia-modprobe.1
