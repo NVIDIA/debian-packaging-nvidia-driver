@@ -1,0 +1,14 @@
+libnvidia-nvvm.so.4 #PACKAGE# #MINVER#
+ __nvvmHandle@Base 470
+ nvvmAddModuleToProgram@Base 470
+ nvvmCompileProgram@Base 470
+ nvvmCreateProgram@Base 470
+ nvvmDestroyProgram@Base 470
+ nvvmGetCompiledResult@Base 470
+ nvvmGetCompiledResultSize@Base 470
+ nvvmGetErrorString@Base 470
+ nvvmGetProgramLog@Base 470
+ nvvmGetProgramLogSize@Base 470
+ nvvmIRVersion@Base 470
+ nvvmLazyAddModuleToProgram@Base 470
+ nvvmVerifyProgram@Base 470
