@@ -14,6 +14,8 @@ pkg-history.txt
 
 NVIDIA_Changelog
 
+nvngx.dll
+
 nvidia-modprobe
 nvidia-modprobe.1
 
@@ -33,7 +35,7 @@ nvidia-xconfig.1
 
 nvidia-powerd
 
-libnvidia-egl-wayland.so.1.1.5
+libnvidia-egl-wayland.so.1.1.7
 10_nvidia_wayland.json
 
 libEGL.so.1.1.0
