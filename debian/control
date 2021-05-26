@@ -23,7 +23,7 @@ Build-Depends:
 Rules-Requires-Root: no
 Standards-Version: 4.5.0
 Homepage: https://www.nvidia.com
-XS-Autobuild: yes
+Xs-Autobuild: yes
 
 Package: nvidia-driver
 Section: non-free/x11
@@ -71,7 +71,7 @@ Pre-Depends:
  dpkg (>= 1.17.21),
  ${nvidia:legacy-check},
 Depends:
- glx-alternative-nvidia (>= 1.1),
+ glx-alternative-nvidia (>= 1.0),
  ${misc:Depends}
 Provides:
  ${nvidia}-alternative--kmod-alias,
@@ -598,7 +598,6 @@ Depends:
  lib${nvidia}-glvkspirv (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
- lib${nvidia}-cbl (= ${binary:Version}) [amd64],
  lib${nvidia}-rtcore (= ${binary:Version}) [amd64],
 Suggests:
  vulkan-utils,
@@ -655,26 +654,6 @@ Description: NVIDIA binary Vulkan Spir-V compiler library${nvidia:VariantDesc}
  .
  This package contains the private Spir-V compiler libraries used by the
  NVIDIA implementation of Vulkan.
-
-Package: libnvidia-cbl
-Architecture: amd64
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-cbl-${nvidia:Version},
-Conflicts:
- libnvidia-cbl-${nvidia:Version},
-Description: NVIDIA binary Vulkan ray tracing (cbl) library${nvidia:VariantDesc}
- Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
- .
- This library is part of the Vulkan real-time ray tracing extensions
- (VK_NV_raytracing) implementation by NVIDIA.
- .
- This package contains the private cbl library used by the NVIDIA
- implementation of Vulkan.
 
 Package: libnvidia-rtcore
 Architecture: amd64
@@ -759,7 +738,8 @@ Pre-Depends:
 Depends:
  nvidia-support,
  ${nvidia}-alternative (= ${binary:Version}),
- lib${nvidia}-fatbinaryloader (= ${binary:Version}),
+ lib${nvidia}-ptxjitcompiler1 (= ${binary:Version}),
+ lib${nvidia}-nvvm4 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
 Recommends:
  ${nvidia:kmod:binary},
@@ -842,24 +822,19 @@ Description: NVIDIA runtime compiler library${nvidia:VariantDesc}
  .
  This package contains the runtime compiler library.
 
-Package: libnvidia-fatbinaryloader
+Package: libnvidia-nvvm4
 Architecture: i386 amd64
 Multi-Arch: same
 Pre-Depends:
  ${misc:Pre-Depends}
 Depends:
- lib${nvidia}-ptxjitcompiler1 (= ${binary:Version}),
  ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-fatbinaryloader-${nvidia:Version},
-Conflicts:
- libnvidia-fatbinaryloader-${nvidia:Version},
-Description: NVIDIA FAT binary loader${nvidia:VariantDesc}
+Description: NVIDIA NVVM${nvidia:VariantDesc}
  The Compute Unified Device Architecture (CUDA) enables NVIDIA
  graphics processing units (GPUs) to be used for massively parallel
  general purpose computation.
  .
- This package contains the FAT multiarchitecture binary loader.
+ This package contains the runtime NVVM library.
 
 Package: libnvidia-ptxjitcompiler1
 Architecture: i386 amd64

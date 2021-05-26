@@ -753,7 +753,6 @@ Depends:
  lib${nvidia}-glvkspirv (= ${binary:Version}),
  ${misc:Depends}
 Recommends:
- lib${nvidia}-cbl (= ${binary:Version}) [amd64],
  lib${nvidia}-rtcore (= ${binary:Version}) [amd64],
 Suggests:
  vulkan-utils,
@@ -810,26 +809,6 @@ Description: NVIDIA binary Vulkan Spir-V compiler library${nvidia:VariantDesc}
  .
  This package contains the private Spir-V compiler libraries used by the
  NVIDIA implementation of Vulkan.
-
-Package: lib${nvidia}-cbl
-Architecture: amd64
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-cbl-${nvidia:Version},
-Conflicts:
- libnvidia-cbl-${nvidia:Version},
-Description: NVIDIA binary Vulkan ray tracing (cbl) library${nvidia:VariantDesc}
- Vulkan is a multivendor open standard by the Khronos Group for 3D graphics.
- .
- This library is part of the Vulkan real-time ray tracing extensions
- (VK_NV_raytracing) implementation by NVIDIA.
- .
- This package contains the private cbl library used by the NVIDIA
- implementation of Vulkan.
 
 Package: lib${nvidia}-rtcore
 Architecture: amd64
