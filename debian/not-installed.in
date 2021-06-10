@@ -15,6 +15,7 @@ pkg-history.txt
 NVIDIA_Changelog
 
 nvngx.dll
+_nvngx.dll
 
 nvidia-modprobe
 nvidia-modprobe.1
