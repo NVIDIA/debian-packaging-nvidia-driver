@@ -1399,7 +1399,7 @@ libGLX_nvidia.so.0 #PACKAGE# #MINVER#
  glMulticastGetQueryObjectui64vNV@Base 435
  glMulticastGetQueryObjectuivNV@Base 435
  glMulticastWaitSyncNV@Base 435
- glNVENCInterOpFunctionNVX@Base 361.28
+#MISSING: 495# glNVENCInterOpFunctionNVX@Base 361.28
  glNamedBufferAttachMemoryNV@Base 415
  glNamedBufferData@Base 361.28
  glNamedBufferDataEXT@Base 361.28
