@@ -1038,22 +1038,6 @@ Description: NVENC Video Encoding runtime library${nvidia:VariantDesc}
  .
  This package contains the nvidia-encode runtime library.
 
-Package: lib${nvidia}-ifr1
-Architecture: i386 amd64
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${libcuda1} (= ${binary:Version}),
- ${shlibs:Depends}, ${misc:Depends}
-Description: NVIDIA OpenGL-based Inband Frame Readback runtime library${nvidia:VariantDescShort}
- The NVIDIA OpenGL-based Inband Frame Readback (NvIFROpenGL) library provides
- a high performance, low latency interface to capture and optionally encode an
- OpenGL framebuffer. NvIFROpenGL is a private API that is only available to
- approved partners for use in remote graphics scenarios.
- .
- This package contains the NvIFROpenGL runtime library.
-
 Package: lib${nvidia}-fbc1
 Architecture: i386 amd64
 Multi-Arch: same
