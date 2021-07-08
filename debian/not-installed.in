@@ -36,6 +36,9 @@ nvidia-xconfig.1
 
 nvidia-powerd
 
+nvidia-topologyd
+nvidia-topologyd.conf.template
+
 libnvidia-egl-wayland.so.1.1.7
 10_nvidia_wayland.json
 
