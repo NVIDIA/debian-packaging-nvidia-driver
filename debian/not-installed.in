@@ -41,6 +41,10 @@ nvidia-topologyd.conf.template
 
 libnvidia-egl-wayland.so.1.1.7
 10_nvidia_wayland.json
+libnvidia-vulkan-producer.so.#VERSION#
+
+libnvidia-egl-gbm.so.1.1.0
+15_nvidia_gbm.json
 
 libEGL.so.1.1.0
 libGL.so.1.7.0
