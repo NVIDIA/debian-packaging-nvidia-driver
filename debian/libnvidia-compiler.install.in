@@ -1,2 +1,1 @@
 libnvidia-compiler.so.#VERSION#			#LIBDIR#/
-libnvidia-compiler-next.so.#VERSION#	#LIBDIR#/
