@@ -36,7 +36,7 @@ nvidia-xconfig.1
 
 nvidia-powerd
 
-libnvidia-egl-wayland.so.1.1.7
+libnvidia-egl-wayland.so.*
 10_nvidia_wayland.json
 libnvidia-vulkan-producer.so.#VERSION#
 
