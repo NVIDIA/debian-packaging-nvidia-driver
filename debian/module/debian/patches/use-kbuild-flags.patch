@@ -16,7 +16,7 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
 --- a/nvidia/nvidia.Kbuild
 +++ b/nvidia/nvidia.Kbuild
 @@ -87,7 +87,7 @@ NVIDIA_INTERFACE := nvidia/nv-interface.
- always += $(NVIDIA_INTERFACE)
+ always-y += $(NVIDIA_INTERFACE)
  
  $(obj)/$(NVIDIA_INTERFACE): $(addprefix $(obj)/,$(NVIDIA_OBJECTS))
 -	$(LD) -r -o $@ $^
@@ -38,7 +38,7 @@ Description: use KBUILD_CFLAGS and (KBUILD_)LDFLAGS
 --- a/nvidia-modeset/nvidia-modeset.Kbuild
 +++ b/nvidia-modeset/nvidia-modeset.Kbuild
 @@ -72,7 +72,7 @@ NVIDIA_MODESET_INTERFACE := nvidia-modes
- always += $(NVIDIA_MODESET_INTERFACE)
+ always-y += $(NVIDIA_MODESET_INTERFACE)
  
  $(obj)/$(NVIDIA_MODESET_INTERFACE): $(addprefix $(obj)/,$(NVIDIA_MODESET_OBJECTS))
 -	$(LD) -r -o $@ $^

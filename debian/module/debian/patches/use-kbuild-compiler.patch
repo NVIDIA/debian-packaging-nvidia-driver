@@ -11,7 +11,7 @@ Description: let Kbuild set the compiler version
  
    .PHONY: modules module clean clean_conftest modules_install
    modules clean modules_install:
--	@$(MAKE) "CC=$(CC)" $(KBUILD_PARAMS) $@
+-	@$(MAKE) "LD=$(LD)" "CC=$(CC)" "OBJDUMP=$(OBJDUMP)" $(KBUILD_PARAMS) $@
 -	@if [ "$@" = "modules" ]; then \
 +	$(MAKE) $(KBUILD_PARAMS) $@
 +	@set -x; if [ "$@" = "modules" ]; then \
