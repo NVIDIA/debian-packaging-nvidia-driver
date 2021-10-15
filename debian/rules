@@ -23,6 +23,13 @@ NO_DRIVER_ARCH_LIST	?=
 NO_UVM_ARCH_LIST	?=
 NO_VULKAN_ARCH_LIST	?=
 
+ifeq ($(DEB_HOST_ARCH),i386)
+i386_excluded := \#
+else
+i386_only := \#
+i386_excluded :=
+endif
+
 NVIDIA_RELEASE		 = $(DEB_VERSION_UPSTREAM)
 version			 = $(NVIDIA_RELEASE)
 version_major		 = $(firstword $(subst ., ,$(version)))
@@ -382,6 +389,7 @@ override_dh_strip_nondeterminism:
 	-e 's{#UNLOAD_MODULES#}{$(strip $(unload_modules))}g;' \
 	-e 's{#ARCH_LIST#}{$(DRIVER_ARCH_LIST)}g;' \
 	-e 's{#HAS_UVM#}{$(if $(has_uvm),,#)}g;' \
+	-e 's{#I386_EXCLUDED#}{$(i386_excluded)}g;' \
 	-e 's{#!ppc64el#}{$(if $(filter ppc64el,$(DEB_HOST_ARCH)),#)}g;' \
 	< $< > $@
 
