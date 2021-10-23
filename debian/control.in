@@ -25,7 +25,7 @@ XS-Autobuild: yes
 
 Package: ${nvidia}-driver
 Section: non-free/x11
-Architecture: amd64 ${arch:ppc64el} i386 armhf
+Architecture: amd64 ${arch:ppc64el}
 Pre-Depends:
  nvidia-installer-cleanup [${nvidia:arch:has-driver}],
  ${nvidia:legacy-check},
@@ -188,7 +188,7 @@ Description: NVIDIA binary kernel module source${nvidia:VariantDesc}
 
 Package: xserver-xorg-video-${nvidia}
 Section: non-free/x11
-Architecture: amd64 ${arch:ppc64el} i386 armhf
+Architecture: amd64 ${arch:ppc64el}
 Pre-Depends:
  nvidia-installer-cleanup [${nvidia:arch:has-driver}],
  ${nvidia:legacy-check},
@@ -832,7 +832,7 @@ Description: NVIDIA binary Vulkan ray tracing (rtcore) library${nvidia:VariantDe
 
 Package: ${nvidia}-smi
 Section: non-free/utils
-Architecture: amd64 ${arch:ppc64el} i386 armhf
+Architecture: amd64 ${arch:ppc64el}
 Depends:
  nvidia-legacy-390xx-smi [${nvidia:arch:has-no-driver}],
  ${nvidia}-alternative (= ${binary:Version}) [${nvidia:arch:has-driver}],
