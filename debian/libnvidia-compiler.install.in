@@ -1,2 +1,2 @@
 libnvidia-compiler.so.#VERSION#			#LIBDIR#/
-libnvidia-compiler-next.so.#VERSION#	#LIBDIR#/
+#I386_EXCLUDED#libnvidia-compiler-next.so.#VERSION#	#LIBDIR#/
