@@ -66,6 +66,7 @@ if [ "$1" = "triggered" ]; then
 		$(add_multiarch_slave /usr/lib "" libnvidia-opticalflow.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libnvidia-ptxjitcompiler.so.1 /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libnvidia-nvvm.so.4 /usr/lib #PRIVATE#/)
+		$(add_multiarch_slave /usr/lib "" libnvidia-nvvm.so /usr/lib #PRIVATE#/)
 		$(add_multiarch_slave /usr/lib "" libnvoptix.so.1 /usr/lib #PRIVATE#/)
 		$(add_slave /usr/bin/nvidia-smi nvidia-smi /usr/lib/#PRIVATE#/nvidia-smi)
 		$(add_slave /usr/bin/nvidia-ngx-updater nvidia-ngx-updater /usr/lib/#PRIVATE#/nvidia-ngx-updater)
