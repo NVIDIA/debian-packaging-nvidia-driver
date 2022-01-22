@@ -1,4 +1,4 @@
 systemd/system-sleep/nvidia
 systemd/system/nvidia-*.service
 systemd/nvidia-sleep.sh
-nvidia-dbus.conf
+#I386_EXCLUDED#nvidia-dbus.conf
