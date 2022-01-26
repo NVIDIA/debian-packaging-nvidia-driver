@@ -1,1 +1,1 @@
-#I386_EXCLUDED#libnvidia-nvvm.so.#VERSION#     #LIBDIR#/#PRIVATE#
+libnvidia-nvvm.so.#VERSION#     #LIBDIR#/#PRIVATE#
