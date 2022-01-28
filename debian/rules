@@ -22,6 +22,7 @@ BLOB_ARCH_LIST		?= $(strip $(DEB_HOST_ARCH) $(ARCH_DEPS_$(DEB_HOST_ARCH)))
 NO_DRIVER_ARCH_LIST	?=
 NO_UVM_ARCH_LIST	?=
 NO_VULKAN_ARCH_LIST	?=
+KMOD_TYPE			?= closed
 
 ifeq ($(DEB_HOST_ARCH),i386)
 i386_excluded := \#
@@ -260,7 +261,19 @@ build-kernel-source-tree: install-into-tmp
 	# Build the nvidia-kernel-source tree.
 	$(RM) -r $(module_source)
 	mkdir -p $(module_source)
+
+	# NVIDIA kernel open variant
+ifeq ($(KMOD_TYPE), open)
+	mv debian/tmp/kernel-open/* $(module_source)/
+	if [ -d "debian/tmp/kernel/" ]; then \
+		rm -rf debian/tmp/kernel/; fi
+	# NVIDIA kernel legacy variant
+else
 	mv debian/tmp/kernel/* $(module_source)/
+	if [ -d "debian/tmp/kernel-open/" ]; then \
+		rm -rf debian/tmp/kernel-open/; fi
+endif
+
 	# This copy of the changelog is going to be installed into the module
 	# binary packages.
 	cp -al $(upstream_changelog) $(module_source)/
