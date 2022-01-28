@@ -1,0 +1,2 @@
+libnvidia-wayland-client.so.#VERSION# #PACKAGE# #MINVER#
+ rtcGetExportTable@Base 515

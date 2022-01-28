@@ -287,6 +287,7 @@ Recommends:
  libgles-${nvidia-}1 (= ${binary:Version}),
  libgles-${nvidia-}2 (= ${binary:Version}),
  lib${nvidia}-cfg1 (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ lib${nvidia}-wayland-client (= ${binary:Version}) [amd64],
  ${nvidia}-vulkan-icd (= ${binary:Version}) [amd64 i386],
 Provides:
  nvidia-driver-libs-any,
@@ -829,6 +830,19 @@ Description: NVIDIA binary Vulkan ray tracing (rtcore) library${nvidia:VariantDe
  .
  This package contains the private rtcore library used by the NVIDIA
  implementation of Vulkan.
+
+Package: lib${nvidia}-wayland-client
+Architecture: amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Provides:
+ libnvidia-wayland-client-${nvidia:Version},
+Conflicts:
+ libnvidia-wayland-client-${nvidia:Version},
+Description: NVIDIA client for wayland library${nvidia:VariantDesc}
 
 Package: ${nvidia}-smi
 Section: non-free/utils
