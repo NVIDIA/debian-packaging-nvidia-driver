@@ -1,7 +1,6 @@
 nvidia-bug-report.sh					usr/lib/#PRIVATE#/
 nvidia-debugdump					usr/lib/#PRIVATE#/
 nvidia-ngx-updater					usr/lib/#PRIVATE#/
-#I386_EXCLUDED#nvidia-powerd				usr/lib/#PRIVATE#/
 nvidia-application-profiles-#VERSION#-rc		usr/share/nvidia/
 nvidia-application-profiles-#VERSION#-key-documentation	usr/share/nvidia/
 

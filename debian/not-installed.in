@@ -17,6 +17,8 @@ NVIDIA_Changelog
 nvngx.dll
 _nvngx.dll
 
+libnvidia-ngx.so.*
+
 nvidia-modprobe
 nvidia-modprobe.1
 
@@ -35,6 +37,7 @@ nvidia-xconfig
 nvidia-xconfig.1
 
 nvidia-powerd
+nvidia-dbus.conf
 
 libnvidia-egl-wayland.so.*
 10_nvidia_wayland.json

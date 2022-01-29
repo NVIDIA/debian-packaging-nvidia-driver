@@ -1,0 +1,2 @@
+#I386_EXCLUDED#debian/tmp/nvidia-powerd				usr/lib/#PRIVATE#/
+#I386_EXCLUDED#debian/tmp/nvidia-dbus.conf			etc/#PRIVATE#/
