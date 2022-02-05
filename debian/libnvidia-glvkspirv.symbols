@@ -1,4 +1,4 @@
-libnvidia-glvkspirv.so.515.04 libnvidia-glvkspirv #MINVER#
+libnvidia-glvkspirv.so.#VERSION# #PACKAGE# #MINVER#
  __nvvm_p9Q27wN5qg@Base 396
  _nv000nvvm@Base 396
  _nv001nvvm@Base 396

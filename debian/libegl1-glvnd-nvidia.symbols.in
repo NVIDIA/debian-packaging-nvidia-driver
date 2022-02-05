@@ -1,0 +1,178 @@
+libEGL.so.1 libegl1 (>= 0.2.999) | libegl1-mesa
+#MISSING: 384# (arch=i386)AllocExecPages@Base 375
+#MISSING: 384# (arch=i386)AtomicCompareAndSwap@Base 375
+#MISSING: 384# (arch=i386)AtomicDecrementClampAtZero@Base 375
+#MISSING: 384# (arch=i386)AtomicIncrement@Base 375
+#MISSING: 384# (arch=i386)AtomicSwap@Base 375
+#MISSING: 384# (arch=i386)CheckFork@Base 375.20
+#MISSING: 384# (arch=i386)FindNextStringToken@Base 375
+#MISSING: 384# (arch=i386)FreeExecPages@Base 375
+#MISSING: 384# (arch=i386)GLVND_THREAD_NULL@Base 375
+#MISSING: 384# (arch=i386)InitDeviceListInternal@Base 375
+#MISSING: 384# (arch=i386)IntersectionExtensionStrings@Base 375.20
+#MISSING: 384# (arch=i386)IsTokenInString@Base 375
+#MISSING: 355# NvEglRegClientApi@Base 331
+#MISSING: 384# (arch=i386)SplitString@Base 375
+#MISSING: 384# (arch=i386)UnionExtensionStrings@Base 375.20
+#MISSING: 384# (arch=i386)__EGL_DISPATCH_FUNCS@Base 375
+#MISSING: 384# (arch=i386)__EGL_DISPATCH_FUNC_COUNT@Base 375
+#MISSING: 384# (arch=i386)__EGL_DISPATCH_FUNC_INDICES@Base 375
+#MISSING: 384# (arch=i386)__EGL_DISPATCH_FUNC_NAMES@Base 375
+#MISSING: 384# (arch=i386)__eglAddDisplay@Base 375
+#MISSING: 384# (arch=i386)__eglCreateAPIState@Base 375
+#MISSING: 384# (arch=i386)__eglCurrentInit@Base 375
+#MISSING: 384# (arch=i386)__eglCurrentTeardown@Base 375
+#MISSING: 384# (arch=i386)__eglDebugReport@Base 375
+#MISSING: 384# (arch=i386)__eglDestroyAPIState@Base 375
+#MISSING: 384# (arch=i386)__eglDestroyCurrentThreadAPIState@Base 375
+#MISSING: 384# (arch=i386)__eglDeviceCount@Base 375
+#MISSING: 384# (arch=i386)__eglDeviceHash@Base 375
+#MISSING: 384# (arch=i386)__eglDeviceList@Base 375
+#MISSING: 384# (arch=i386)__eglDispatchFetchByCurrent@Base 375
+#MISSING: 384# (arch=i386)__eglDispatchFetchByDevice@Base 375
+#MISSING: 384# (arch=i386)__eglDispatchFetchByDisplay@Base 375
+#MISSING: 384# (arch=i386)__eglDispatchFindDispatchFunction@Base 375
+#MISSING: 384# (arch=i386)__eglEntrypointCommon@Base 375
+#MISSING: 384# (arch=i386)__eglExportsTable@Base 375
+#MISSING: 384# (arch=i386)__eglFetchDispatchEntry@Base 375
+#MISSING: 384# (arch=i386)__eglFreeDisplay@Base 375
+#MISSING: 384# (arch=i386)__eglGetCurrentContext@Base 375
+#MISSING: 384# (arch=i386)__eglGetCurrentDisplay@Base 375
+#MISSING: 384# (arch=i386)__eglGetCurrentSurface@Base 375
+#MISSING: 384# (arch=i386)__eglGetCurrentThreadAPIState@Base 375
+#MISSING: 384# (arch=i386)__eglGetCurrentVendor@Base 375
+#MISSING: 384# (arch=i386)__eglGetEGLDispatchAddress@Base 375
+#MISSING: 384# (arch=i386)__eglGetThreadLabel@Base 375
+#MISSING: 384# (arch=i386)__eglGetVendorFromDevice@Base 375
+#MISSING: 384# (arch=i386)__eglGetVendorFromDisplay@Base 375
+#MISSING: 384# (arch=i386)__eglInitDeviceList@Base 375
+#MISSING: 384# (arch=i386)__eglInitDispatchStubs@Base 375
+#MISSING: 384# (arch=i386)__eglInitVendors@Base 375
+#MISSING: 384# (arch=i386)__eglLoadVendors@Base 375
+#MISSING: 384# (arch=i386)__eglLookupDisplay@Base 375
+#MISSING: 375# __eglLookupVendorByName@Base 355
+#MISSING: 384# (arch=i386)__eglMappingInit@Base 375
+#MISSING: 384# (arch=i386)__eglMappingTeardown@Base 375
+#MISSING: 361.42# __eglPthreadFuncs@Base 355
+#MISSING: 384# (arch=i386)__eglQueryAPI@Base 375
+#MISSING: 384# (arch=i386)__eglSetDispatchIndex@Base 375
+#MISSING: 384# (arch=i386)__eglSetError@Base 375
+#MISSING: 384# (arch=i386)__eglSetLastVendor@Base 375
+#MISSING: 375# __eglTeardownVendor@Base 355
+#MISSING: 384# (arch=i386)__eglTeardownVendors@Base 375
+#MISSING: 384# (arch=i386)__eglThreadInitialize@Base 375
+#MISSING: 384# (arch=i386)__glvndPthreadFuncs@Base 375
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchAllocIndex@Base 375
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchCleanup@Base 375
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchFindIndex@Base 375
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchGetCount@Base 375
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchGetDispatch@Base 375
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchGetName@Base 375
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchInit@Base 375
+#MISSING: 384# (arch=i386)__glvndWinsysVendorDispatchAddFunc@Base 375
+#MISSING: 384# (arch=i386)__glvndWinsysVendorDispatchCreate@Base 375
+#MISSING: 384# (arch=i386)__glvndWinsysVendorDispatchDestroy@Base 375
+#MISSING: 384# (arch=i386)__glvndWinsysVendorDispatchLookupFunc@Base 375
+#MISSING: 384# (arch=i386)__glvnd_dbg_printf@Base 375
+#MISSING: 384# (arch=i386)cJSON_AddItemReferenceToArray@Base 375
+#MISSING: 384# (arch=i386)cJSON_AddItemReferenceToObject@Base 375
+#MISSING: 384# (arch=i386)cJSON_AddItemToArray@Base 375
+#MISSING: 384# (arch=i386)cJSON_AddItemToObject@Base 375
+#MISSING: 384# (arch=i386)cJSON_AddItemToObjectCS@Base 375
+#MISSING: 384# (arch=i386)cJSON_CreateArray@Base 375
+#MISSING: 384# (arch=i386)cJSON_CreateBool@Base 375
+#MISSING: 384# (arch=i386)cJSON_CreateDoubleArray@Base 375
+#MISSING: 384# (arch=i386)cJSON_CreateFalse@Base 375
+#MISSING: 384# (arch=i386)cJSON_CreateFloatArray@Base 375
+#MISSING: 384# (arch=i386)cJSON_CreateIntArray@Base 375
+#MISSING: 384# (arch=i386)cJSON_CreateNull@Base 375
+#MISSING: 384# (arch=i386)cJSON_CreateNumber@Base 375
+#MISSING: 384# (arch=i386)cJSON_CreateObject@Base 375
+#MISSING: 384# (arch=i386)cJSON_CreateString@Base 375
+#MISSING: 384# (arch=i386)cJSON_CreateStringArray@Base 375
+#MISSING: 384# (arch=i386)cJSON_CreateTrue@Base 375
+#MISSING: 384# (arch=i386)cJSON_Delete@Base 375
+#MISSING: 384# (arch=i386)cJSON_DeleteItemFromArray@Base 375
+#MISSING: 384# (arch=i386)cJSON_DeleteItemFromObject@Base 375
+#MISSING: 384# (arch=i386)cJSON_DetachItemFromArray@Base 375
+#MISSING: 384# (arch=i386)cJSON_DetachItemFromObject@Base 375
+#MISSING: 384# (arch=i386)cJSON_Duplicate@Base 375
+#MISSING: 384# (arch=i386)cJSON_GetArrayItem@Base 375
+#MISSING: 384# (arch=i386)cJSON_GetArraySize@Base 375
+#MISSING: 384# (arch=i386)cJSON_GetErrorPtr@Base 375
+#MISSING: 384# (arch=i386)cJSON_GetObjectItem@Base 375
+#MISSING: 384# (arch=i386)cJSON_InitHooks@Base 375
+#MISSING: 384# (arch=i386)cJSON_InsertItemInArray@Base 375
+#MISSING: 384# (arch=i386)cJSON_Minify@Base 375
+#MISSING: 384# (arch=i386)cJSON_Parse@Base 375
+#MISSING: 384# (arch=i386)cJSON_ParseWithOpts@Base 375
+#MISSING: 384# (arch=i386)cJSON_Print@Base 375
+#MISSING: 384# (arch=i386)cJSON_PrintBuffered@Base 375
+#MISSING: 384# (arch=i386)cJSON_PrintUnformatted@Base 375
+#MISSING: 384# (arch=i386)cJSON_ReplaceItemInArray@Base 375
+#MISSING: 384# (arch=i386)cJSON_ReplaceItemInObject@Base 375
+#MISSING: 384# (arch=i386)clientExtensionStringMutex@Base 375
+ eglBindAPI@Base 331
+ eglBindTexImage@Base 331
+ eglChooseConfig@Base 331
+ eglClientWaitSync@Base 375
+ eglCopyBuffers@Base 331
+ eglCreateContext@Base 331
+ eglCreateImage@Base 375
+ eglCreatePbufferFromClientBuffer@Base 331
+ eglCreatePbufferSurface@Base 331
+ eglCreatePixmapSurface@Base 331
+ eglCreatePlatformPixmapSurface@Base 375
+#MISSING: 384# eglCreatePlatformPixmapSurfaceEXT@Base 375
+ eglCreatePlatformWindowSurface@Base 375
+#MISSING: 384# eglCreatePlatformWindowSurfaceEXT@Base 375
+ eglCreateSync@Base 375
+ eglCreateWindowSurface@Base 331
+#MISSING: 384# (arch=i386)eglDebugMessageControlKHR@Base 375
+ eglDestroyContext@Base 331
+ eglDestroyImage@Base 375
+ eglDestroySurface@Base 331
+ eglDestroySync@Base 375
+ eglGetConfigAttrib@Base 331
+ eglGetConfigs@Base 331
+ eglGetCurrentContext@Base 331
+ eglGetCurrentDisplay@Base 331
+ eglGetCurrentSurface@Base 331
+ eglGetDisplay@Base 331
+ eglGetError@Base 331
+ eglGetPlatformDisplay@Base 375
+#MISSING: 384# (arch=i386)eglGetPlatformDisplayEXT@Base 375
+ eglGetProcAddress@Base 331
+ eglGetSyncAttrib@Base 375
+ eglInitialize@Base 331
+#MISSING: 384# (arch=i386)eglLabelObjectKHR@Base 375
+ eglMakeCurrent@Base 331
+ eglQueryAPI@Base 331
+ eglQueryContext@Base 331
+#MISSING: 384# (arch=i386)eglQueryDebugKHR@Base 375
+#MISSING: 384# (arch=i386)eglQueryDevicesEXT@Base 375
+ eglQueryString@Base 331
+ eglQuerySurface@Base 331
+ eglReleaseTexImage@Base 331
+ eglReleaseThread@Base 331
+ eglSurfaceAttrib@Base 331
+ eglSwapBuffers@Base 331
+ eglSwapInterval@Base 331
+ eglTerminate@Base 331
+ eglWaitClient@Base 331
+ eglWaitGL@Base 331
+ eglWaitNative@Base 331
+ eglWaitSync@Base 375
+#MISSING: 384# (arch=i386)glvndSetupPthreads@Base 375
+#MISSING: 384# (arch=i386)glvnd_asprintf@Base 375
+#MISSING: 384# (arch=i386)glvnd_byte_swap16@Base 375
+#MISSING: 384# (arch=i386)glvnd_vasprintf@Base 375
+#MISSING: 384# (arch=i386)mincore@Base 381.22
+#MISSING: 384# (arch=i386)mt_mutexattr_destroy@Base 375
+#MISSING: 384# (arch=i386)mt_mutexattr_init@Base 375
+#MISSING: 384# (arch=i386)mt_mutexattr_settype@Base 375
+#MISSING: 384# (arch=i386)st_mutexattr_destroy@Base 375
+#MISSING: 384# (arch=i386)st_mutexattr_init@Base 375
+#MISSING: 384# (arch=i386)st_mutexattr_settype@Base 375
+#MISSING: 384# (arch=i386)st_rwlock_destroy@Base 375
+#MISSING: 384# (arch=i386)st_rwlock_init@Base 375

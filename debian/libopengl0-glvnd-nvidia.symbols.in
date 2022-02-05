@@ -1,0 +1,1380 @@
+libOpenGL.so.0 libopengl0 | #PACKAGE# #MINVER#
+ AllocExecPages@Base 390.59
+ FindNextStringToken@Base 390.59
+ FreeExecPages@Base 390.59
+ IntersectionExtensionStrings@Base 390.59
+ IsTokenInString@Base 390.59
+ SplitString@Base 390.59
+ UnionExtensionStrings@Base 390.59
+ entry_generate_default_code@Base 390.59
+ entry_get_patch_addresses@Base 390.59
+ entry_get_public@Base 390.59
+ entry_init_public@Base 390.59
+ entry_patch_finish@Base 390.59
+ entry_patch_start@Base 390.59
+ entry_stub_size@Base 390.59
+ entry_type@Base 390.59
+ glAccum@Base 355
+#MISSING: 361# glActiveProgramEXT@Base 355
+ glActiveShaderProgram@Base 355
+#MISSING: 361# glActiveStencilFaceEXT@Base 355
+ glActiveTexture@Base 355
+#MISSING: 361# glAlphaFragmentOp1ATI@Base 355
+#MISSING: 361# glAlphaFragmentOp2ATI@Base 355
+#MISSING: 361# glAlphaFragmentOp3ATI@Base 355
+ glAlphaFunc@Base 355
+#MISSING: 361# glAlphaFuncx@Base 355
+#MISSING: 361# glAreProgramsResidentNV@Base 355
+ glAreTexturesResident@Base 355
+ glArrayElement@Base 355
+#MISSING: 361# glAttachObjectARB@Base 355
+ glAttachShader@Base 355
+ glBegin@Base 355
+ glBeginConditionalRender@Base 355
+#MISSING: 361# glBeginFragmentShaderATI@Base 355
+ glBeginQuery@Base 355
+ glBeginQueryIndexed@Base 355
+ glBeginTransformFeedback@Base 355
+ glBindAttribLocation@Base 355
+ glBindBuffer@Base 355
+ glBindBufferBase@Base 355
+#MISSING: 361# glBindBufferOffsetEXT@Base 355
+ glBindBufferRange@Base 355
+ glBindBuffersBase@Base 361
+ glBindBuffersRange@Base 361
+ glBindFragDataLocation@Base 355
+ glBindFragDataLocationIndexed@Base 355
+#MISSING: 361# glBindFragmentShaderATI@Base 355
+ glBindFramebuffer@Base 355
+ glBindImageTexture@Base 361
+ glBindImageTextures@Base 361
+#MISSING: 361# glBindProgramARB@Base 355
+ glBindProgramPipeline@Base 355
+ glBindRenderbuffer@Base 355
+ glBindSampler@Base 355
+ glBindSamplers@Base 361
+ glBindTexture@Base 355
+ glBindTextureUnit@Base 361
+ glBindTextures@Base 361
+ glBindTransformFeedback@Base 355
+ glBindVertexArray@Base 355
+#MISSING: 361# glBindVertexArrayAPPLE@Base 355
+ glBindVertexBuffer@Base 361
+ glBindVertexBuffers@Base 361
+ glBitmap@Base 355
+ glBlendColor@Base 355
+ glBlendEquation@Base 355
+ glBlendEquationSeparate@Base 355
+ glBlendEquationSeparatei@Base 361
+#MISSING: 361# glBlendEquationSeparateiARB@Base 355
+ glBlendEquationi@Base 361
+#MISSING: 361# glBlendEquationiARB@Base 355
+ glBlendFunc@Base 355
+ glBlendFuncSeparate@Base 355
+ glBlendFuncSeparatei@Base 361
+#MISSING: 361# glBlendFuncSeparateiARB@Base 355
+ glBlendFunci@Base 361
+#MISSING: 361# glBlendFunciARB@Base 355
+ glBlitFramebuffer@Base 355
+ glBlitNamedFramebuffer@Base 361
+ glBufferData@Base 355
+#MISSING: 361# glBufferParameteriAPPLE@Base 355
+ glBufferStorage@Base 361
+ glBufferSubData@Base 355
+ glCallList@Base 355
+ glCallLists@Base 355
+ glCheckFramebufferStatus@Base 355
+ glCheckNamedFramebufferStatus@Base 361
+ glClampColor@Base 355
+ glClear@Base 355
+ glClearAccum@Base 355
+ glClearBufferData@Base 355
+ glClearBufferSubData@Base 355
+ glClearBufferfi@Base 355
+ glClearBufferfv@Base 355
+ glClearBufferiv@Base 355
+ glClearBufferuiv@Base 355
+ glClearColor@Base 355
+#MISSING: 361# glClearColorIiEXT@Base 355
+#MISSING: 361# glClearColorIuiEXT@Base 355
+#MISSING: 361# glClearColorx@Base 355
+ glClearDepth@Base 355
+ glClearDepthf@Base 355
+#MISSING: 361# glClearDepthx@Base 355
+ glClearIndex@Base 355
+ glClearNamedBufferData@Base 361
+ glClearNamedBufferSubData@Base 361
+ glClearNamedFramebufferfi@Base 361
+ glClearNamedFramebufferfv@Base 361
+ glClearNamedFramebufferiv@Base 361
+ glClearNamedFramebufferuiv@Base 361
+ glClearStencil@Base 355
+ glClearTexImage@Base 361
+ glClearTexSubImage@Base 361
+ glClientActiveTexture@Base 355
+ glClientWaitSync@Base 355
+ glClipControl@Base 361
+ glClipPlane@Base 355
+#MISSING: 361# glClipPlanef@Base 355
+#MISSING: 361# glClipPlanex@Base 355
+ glColor3b@Base 355
+ glColor3bv@Base 355
+ glColor3d@Base 355
+ glColor3dv@Base 355
+ glColor3f@Base 355
+ glColor3fv@Base 355
+ glColor3i@Base 355
+ glColor3iv@Base 355
+ glColor3s@Base 355
+ glColor3sv@Base 355
+ glColor3ub@Base 355
+ glColor3ubv@Base 355
+ glColor3ui@Base 355
+ glColor3uiv@Base 355
+ glColor3us@Base 355
+ glColor3usv@Base 355
+ glColor4b@Base 355
+ glColor4bv@Base 355
+ glColor4d@Base 355
+ glColor4dv@Base 355
+ glColor4f@Base 355
+ glColor4fv@Base 355
+ glColor4i@Base 355
+ glColor4iv@Base 355
+ glColor4s@Base 355
+ glColor4sv@Base 355
+ glColor4ub@Base 355
+ glColor4ubv@Base 355
+ glColor4ui@Base 355
+ glColor4uiv@Base 355
+ glColor4us@Base 355
+ glColor4usv@Base 355
+#MISSING: 361# glColor4x@Base 355
+#MISSING: 361# glColorFragmentOp1ATI@Base 355
+#MISSING: 361# glColorFragmentOp2ATI@Base 355
+#MISSING: 361# glColorFragmentOp3ATI@Base 355
+ glColorMask@Base 355
+ glColorMaski@Base 355
+ glColorMaterial@Base 355
+ glColorP3ui@Base 355
+ glColorP3uiv@Base 355
+ glColorP4ui@Base 355
+ glColorP4uiv@Base 355
+ glColorPointer@Base 355
+#MISSING: 361# glColorPointerEXT@Base 355
+#MISSING: 361# glColorSubTable@Base 355
+#MISSING: 361# glColorTable@Base 355
+#MISSING: 361# glColorTableParameterfv@Base 355
+#MISSING: 361# glColorTableParameteriv@Base 355
+ glCompileShader@Base 355
+ glCompressedTexImage1D@Base 355
+ glCompressedTexImage2D@Base 355
+ glCompressedTexImage3D@Base 355
+ glCompressedTexSubImage1D@Base 355
+ glCompressedTexSubImage2D@Base 355
+ glCompressedTexSubImage3D@Base 355
+ glCompressedTextureSubImage1D@Base 361
+ glCompressedTextureSubImage2D@Base 361
+ glCompressedTextureSubImage3D@Base 361
+#MISSING: 361# glConvolutionFilter1D@Base 355
+#MISSING: 361# glConvolutionFilter2D@Base 355
+#MISSING: 361# glConvolutionParameterf@Base 355
+#MISSING: 361# glConvolutionParameterfv@Base 355
+#MISSING: 361# glConvolutionParameteri@Base 355
+#MISSING: 361# glConvolutionParameteriv@Base 355
+ glCopyBufferSubData@Base 355
+#MISSING: 361# glCopyColorSubTable@Base 355
+#MISSING: 361# glCopyColorTable@Base 355
+#MISSING: 361# glCopyConvolutionFilter1D@Base 355
+#MISSING: 361# glCopyConvolutionFilter2D@Base 355
+ glCopyImageSubData@Base 355
+ glCopyNamedBufferSubData@Base 361
+ glCopyPixels@Base 355
+ glCopyTexImage1D@Base 355
+ glCopyTexImage2D@Base 355
+ glCopyTexSubImage1D@Base 355
+ glCopyTexSubImage2D@Base 355
+ glCopyTexSubImage3D@Base 355
+ glCopyTextureSubImage1D@Base 361
+ glCopyTextureSubImage2D@Base 361
+ glCopyTextureSubImage3D@Base 361
+ glCreateBuffers@Base 361
+ glCreateFramebuffers@Base 361
+ glCreateProgram@Base 355
+#MISSING: 361# glCreateProgramObjectARB@Base 355
+ glCreateProgramPipelines@Base 361
+ glCreateQueries@Base 361
+ glCreateRenderbuffers@Base 361
+ glCreateSamplers@Base 361
+ glCreateShader@Base 355
+#MISSING: 361# glCreateShaderObjectARB@Base 355
+#MISSING: 361# glCreateShaderProgramEXT@Base 355
+ glCreateShaderProgramv@Base 355
+ glCreateTextures@Base 361
+ glCreateTransformFeedbacks@Base 361
+ glCreateVertexArrays@Base 361
+ glCullFace@Base 355
+ glDebugMessageCallback@Base 355
+#MISSING: 361# glDebugMessageCallbackARB@Base 355
+ glDebugMessageControl@Base 355
+#MISSING: 361# glDebugMessageControlARB@Base 355
+ glDebugMessageInsert@Base 355
+#MISSING: 361# glDebugMessageInsertARB@Base 355
+ glDeleteBuffers@Base 355
+#MISSING: 361# glDeleteFragmentShaderATI@Base 355
+ glDeleteFramebuffers@Base 355
+ glDeleteLists@Base 355
+#MISSING: 361# glDeleteObjectARB@Base 355
+ glDeleteProgram@Base 355
+ glDeleteProgramPipelines@Base 355
+#MISSING: 361# glDeleteProgramsARB@Base 355
+ glDeleteQueries@Base 355
+ glDeleteRenderbuffers@Base 355
+ glDeleteSamplers@Base 355
+ glDeleteShader@Base 355
+ glDeleteSync@Base 355
+ glDeleteTextures@Base 355
+ glDeleteTransformFeedbacks@Base 355
+ glDeleteVertexArrays@Base 355
+#MISSING: 361# glDepthBoundsEXT@Base 355
+ glDepthFunc@Base 355
+ glDepthMask@Base 355
+ glDepthRange@Base 355
+ glDepthRangeArrayv@Base 361
+ glDepthRangeIndexed@Base 361
+ glDepthRangef@Base 355
+#MISSING: 361# glDepthRangex@Base 355
+#MISSING: 361# glDetachObjectARB@Base 355
+ glDetachShader@Base 355
+ glDisable@Base 355
+ glDisableClientState@Base 355
+ glDisableVertexArrayAttrib@Base 361
+ glDisableVertexAttribArray@Base 355
+ glDisablei@Base 355
+#MISSING: 361# glDiscardFramebufferEXT@Base 355
+ glDispatchCompute@Base 355
+ glDispatchComputeIndirect@Base 355
+ glDrawArrays@Base 355
+ glDrawArraysIndirect@Base 355
+ glDrawArraysInstanced@Base 361
+#MISSING: 361# glDrawArraysInstancedARB@Base 355
+ glDrawArraysInstancedBaseInstance@Base 355
+ glDrawBuffer@Base 355
+ glDrawBuffers@Base 355
+ glDrawElements@Base 355
+ glDrawElementsBaseVertex@Base 355
+ glDrawElementsIndirect@Base 355
+ glDrawElementsInstanced@Base 361
+#MISSING: 361# glDrawElementsInstancedARB@Base 355
+ glDrawElementsInstancedBaseInstance@Base 355
+ glDrawElementsInstancedBaseVertex@Base 355
+ glDrawElementsInstancedBaseVertexBaseInstance@Base 355
+ glDrawPixels@Base 355
+ glDrawRangeElements@Base 355
+ glDrawRangeElementsBaseVertex@Base 355
+#MISSING: 361# glDrawTexfOES@Base 355
+#MISSING: 361# glDrawTexfvOES@Base 355
+#MISSING: 361# glDrawTexiOES@Base 355
+#MISSING: 361# glDrawTexivOES@Base 355
+#MISSING: 361# glDrawTexsOES@Base 355
+#MISSING: 361# glDrawTexsvOES@Base 355
+#MISSING: 361# glDrawTexxOES@Base 355
+#MISSING: 361# glDrawTexxvOES@Base 355
+ glDrawTransformFeedback@Base 355
+ glDrawTransformFeedbackInstanced@Base 355
+ glDrawTransformFeedbackStream@Base 355
+ glDrawTransformFeedbackStreamInstanced@Base 355
+#MISSING: 361# glEGLImageTargetRenderbufferStorageOES@Base 355
+#MISSING: 361# glEGLImageTargetTexture2DOES@Base 355
+ glEdgeFlag@Base 355
+ glEdgeFlagPointer@Base 355
+#MISSING: 361# glEdgeFlagPointerEXT@Base 355
+ glEdgeFlagv@Base 355
+ glEnable@Base 355
+ glEnableClientState@Base 355
+ glEnableVertexArrayAttrib@Base 361
+ glEnableVertexAttribArray@Base 355
+ glEnablei@Base 355
+ glEnd@Base 355
+ glEndConditionalRender@Base 355
+#MISSING: 361# glEndFragmentShaderATI@Base 355
+ glEndList@Base 355
+ glEndQuery@Base 355
+ glEndQueryIndexed@Base 355
+ glEndTransformFeedback@Base 355
+ glEvalCoord1d@Base 355
+ glEvalCoord1dv@Base 355
+ glEvalCoord1f@Base 355
+ glEvalCoord1fv@Base 355
+ glEvalCoord2d@Base 355
+ glEvalCoord2dv@Base 355
+ glEvalCoord2f@Base 355
+ glEvalCoord2fv@Base 355
+ glEvalMesh1@Base 355
+ glEvalMesh2@Base 355
+ glEvalPoint1@Base 355
+ glEvalPoint2@Base 355
+#MISSING: 361# glExecuteProgramNV@Base 355
+ glFeedbackBuffer@Base 355
+ glFenceSync@Base 355
+ glFinish@Base 355
+ glFlush@Base 355
+ glFlushMappedBufferRange@Base 355
+#MISSING: 361# glFlushMappedBufferRangeAPPLE@Base 355
+ glFlushMappedNamedBufferRange@Base 361
+ glFogCoordPointer@Base 355
+ glFogCoordd@Base 355
+ glFogCoorddv@Base 355
+ glFogCoordf@Base 361
+#MISSING: 361# glFogCoordfEXT@Base 355
+ glFogCoordfv@Base 361
+#MISSING: 361# glFogCoordfvEXT@Base 355
+ glFogf@Base 355
+ glFogfv@Base 355
+ glFogi@Base 355
+ glFogiv@Base 355
+#MISSING: 361# glFogx@Base 355
+#MISSING: 361# glFogxv@Base 355
+ glFramebufferParameteri@Base 355
+ glFramebufferRenderbuffer@Base 355
+ glFramebufferTexture1D@Base 355
+ glFramebufferTexture2D@Base 355
+ glFramebufferTexture3D@Base 355
+ glFramebufferTexture@Base 355
+#MISSING: 361# glFramebufferTextureFaceARB@Base 355
+ glFramebufferTextureLayer@Base 355
+ glFrontFace@Base 355
+ glFrustum@Base 355
+#MISSING: 361# glFrustumf@Base 355
+#MISSING: 361# glFrustumx@Base 355
+ glGenBuffers@Base 355
+#MISSING: 361# glGenFragmentShadersATI@Base 355
+ glGenFramebuffers@Base 355
+ glGenLists@Base 355
+ glGenProgramPipelines@Base 355
+#MISSING: 361# glGenProgramsARB@Base 355
+ glGenQueries@Base 355
+ glGenRenderbuffers@Base 355
+ glGenSamplers@Base 355
+ glGenTextures@Base 355
+ glGenTransformFeedbacks@Base 355
+ glGenVertexArrays@Base 355
+#MISSING: 361# glGenVertexArraysAPPLE@Base 355
+ glGenerateMipmap@Base 355
+ glGenerateTextureMipmap@Base 361
+ glGetActiveAtomicCounterBufferiv@Base 361
+ glGetActiveAttrib@Base 355
+ glGetActiveSubroutineName@Base 355
+ glGetActiveSubroutineUniformName@Base 355
+ glGetActiveSubroutineUniformiv@Base 355
+ glGetActiveUniform@Base 355
+ glGetActiveUniformBlockName@Base 355
+ glGetActiveUniformBlockiv@Base 355
+ glGetActiveUniformName@Base 355
+ glGetActiveUniformsiv@Base 355
+#MISSING: 361# glGetAttachedObjectsARB@Base 355
+ glGetAttachedShaders@Base 355
+ glGetAttribLocation@Base 355
+ glGetBooleani_v@Base 355
+ glGetBooleanv@Base 355
+ glGetBufferParameteri64v@Base 355
+ glGetBufferParameteriv@Base 355
+ glGetBufferPointerv@Base 355
+ glGetBufferSubData@Base 355
+ glGetClipPlane@Base 355
+#MISSING: 361# glGetClipPlanef@Base 355
+#MISSING: 361# glGetClipPlanex@Base 355
+#MISSING: 361# glGetColorTable@Base 355
+#MISSING: 361# glGetColorTableParameterfv@Base 355
+#MISSING: 361# glGetColorTableParameteriv@Base 355
+ glGetCompressedTexImage@Base 355
+ glGetCompressedTextureImage@Base 361
+ glGetCompressedTextureSubImage@Base 361
+#MISSING: 361# glGetConvolutionFilter@Base 355
+#MISSING: 361# glGetConvolutionParameterfv@Base 355
+#MISSING: 361# glGetConvolutionParameteriv@Base 355
+ glGetDebugMessageLog@Base 355
+#MISSING: 361# glGetDebugMessageLogARB@Base 355
+ glGetDoublei_v@Base 361
+ glGetDoublev@Base 355
+ glGetError@Base 355
+#MISSING: 361# glGetFixedv@Base 355
+ glGetFloati_v@Base 361
+ glGetFloatv@Base 355
+ glGetFragDataIndex@Base 355
+ glGetFragDataLocation@Base 355
+ glGetFramebufferAttachmentParameteriv@Base 355
+ glGetFramebufferParameteriv@Base 355
+ glGetGraphicsResetStatus@Base 361
+#MISSING: 361# glGetGraphicsResetStatusARB@Base 355
+#MISSING: 361# glGetHandleARB@Base 355
+#MISSING: 361# glGetHistogram@Base 355
+#MISSING: 361# glGetHistogramParameterfv@Base 355
+#MISSING: 361# glGetHistogramParameteriv@Base 355
+#MISSING: 361# glGetInfoLogARB@Base 355
+ glGetInteger64i_v@Base 355
+ glGetInteger64v@Base 355
+ glGetIntegeri_v@Base 355
+ glGetIntegerv@Base 355
+ glGetInternalformati64v@Base 361
+ glGetInternalformativ@Base 355
+ glGetLightfv@Base 355
+ glGetLightiv@Base 355
+#MISSING: 361# glGetLightxv@Base 355
+ glGetMapdv@Base 355
+ glGetMapfv@Base 355
+ glGetMapiv@Base 355
+ glGetMaterialfv@Base 355
+ glGetMaterialiv@Base 355
+#MISSING: 361# glGetMaterialxv@Base 355
+#MISSING: 361# glGetMinmax@Base 355
+#MISSING: 361# glGetMinmaxParameterfv@Base 355
+#MISSING: 361# glGetMinmaxParameteriv@Base 355
+ glGetMultisamplefv@Base 355
+ glGetNamedBufferParameteri64v@Base 361
+ glGetNamedBufferParameteriv@Base 361
+ glGetNamedBufferPointerv@Base 361
+ glGetNamedBufferSubData@Base 361
+ glGetNamedFramebufferAttachmentParameteriv@Base 361
+ glGetNamedFramebufferParameteriv@Base 361
+ glGetNamedRenderbufferParameteriv@Base 361
+ glGetObjectLabel@Base 355
+#MISSING: 361# glGetObjectParameterfvARB@Base 355
+#MISSING: 361# glGetObjectParameterivAPPLE@Base 355
+#MISSING: 361# glGetObjectParameterivARB@Base 355
+ glGetObjectPtrLabel@Base 355
+ glGetPixelMapfv@Base 355
+ glGetPixelMapuiv@Base 355
+ glGetPixelMapusv@Base 355
+ glGetPointerv@Base 355
+ glGetPolygonStipple@Base 355
+ glGetProgramBinary@Base 355
+#MISSING: 361# glGetProgramEnvParameterdvARB@Base 355
+#MISSING: 361# glGetProgramEnvParameterfvARB@Base 355
+ glGetProgramInfoLog@Base 355
+ glGetProgramInterfaceiv@Base 355
+#MISSING: 361# glGetProgramLocalParameterdvARB@Base 355
+#MISSING: 361# glGetProgramLocalParameterfvARB@Base 355
+#MISSING: 361# glGetProgramNamedParameterdvNV@Base 355
+#MISSING: 361# glGetProgramNamedParameterfvNV@Base 355
+#MISSING: 361# glGetProgramParameterdvNV@Base 355
+#MISSING: 361# glGetProgramParameterfvNV@Base 355
+ glGetProgramPipelineInfoLog@Base 355
+ glGetProgramPipelineiv@Base 355
+ glGetProgramResourceIndex@Base 355
+ glGetProgramResourceLocation@Base 355
+ glGetProgramResourceLocationIndex@Base 355
+ glGetProgramResourceName@Base 355
+ glGetProgramResourceiv@Base 355
+ glGetProgramStageiv@Base 355
+#MISSING: 361# glGetProgramStringARB@Base 355
+#MISSING: 361# glGetProgramStringNV@Base 355
+ glGetProgramiv@Base 355
+#MISSING: 361# glGetProgramivARB@Base 355
+#MISSING: 361# glGetProgramivNV@Base 355
+ glGetQueryBufferObjecti64v@Base 361
+ glGetQueryBufferObjectiv@Base 361
+ glGetQueryBufferObjectui64v@Base 361
+ glGetQueryBufferObjectuiv@Base 361
+ glGetQueryIndexediv@Base 355
+ glGetQueryObjecti64v@Base 355
+ glGetQueryObjectiv@Base 355
+ glGetQueryObjectui64v@Base 355
+ glGetQueryObjectuiv@Base 355
+ glGetQueryiv@Base 355
+ glGetRenderbufferParameteriv@Base 355
+ glGetSamplerParameterIiv@Base 355
+ glGetSamplerParameterIuiv@Base 355
+ glGetSamplerParameterfv@Base 355
+ glGetSamplerParameteriv@Base 355
+#MISSING: 361# glGetSeparableFilter@Base 355
+ glGetShaderInfoLog@Base 355
+ glGetShaderPrecisionFormat@Base 355
+ glGetShaderSource@Base 355
+ glGetShaderiv@Base 355
+ glGetString@Base 355
+ glGetStringi@Base 355
+ glGetSubroutineIndex@Base 355
+ glGetSubroutineUniformLocation@Base 355
+ glGetSynciv@Base 355
+#MISSING: 361# glGetTexBumpParameterfvATI@Base 355
+#MISSING: 361# glGetTexBumpParameterivATI@Base 355
+ glGetTexEnvfv@Base 355
+ glGetTexEnviv@Base 355
+#MISSING: 361# glGetTexEnvxv@Base 355
+ glGetTexGendv@Base 355
+ glGetTexGenfv@Base 355
+ glGetTexGeniv@Base 355
+#MISSING: 361# glGetTexGenxvOES@Base 355
+ glGetTexImage@Base 355
+ glGetTexLevelParameterfv@Base 355
+ glGetTexLevelParameteriv@Base 355
+ glGetTexParameterIiv@Base 355
+ glGetTexParameterIuiv@Base 355
+ glGetTexParameterfv@Base 355
+ glGetTexParameteriv@Base 355
+#MISSING: 361# glGetTexParameterxv@Base 355
+ glGetTextureImage@Base 361
+ glGetTextureLevelParameterfv@Base 361
+ glGetTextureLevelParameteriv@Base 361
+ glGetTextureParameterIiv@Base 361
+ glGetTextureParameterIuiv@Base 361
+ glGetTextureParameterfv@Base 361
+ glGetTextureParameteriv@Base 361
+ glGetTextureSubImage@Base 361
+#MISSING: 361# glGetTrackMatrixivNV@Base 355
+ glGetTransformFeedbackVarying@Base 355
+ glGetTransformFeedbacki64_v@Base 361
+ glGetTransformFeedbacki_v@Base 361
+ glGetTransformFeedbackiv@Base 361
+ glGetUniformBlockIndex@Base 355
+ glGetUniformIndices@Base 355
+ glGetUniformLocation@Base 355
+ glGetUniformSubroutineuiv@Base 355
+ glGetUniformdv@Base 355
+ glGetUniformfv@Base 355
+ glGetUniformiv@Base 355
+ glGetUniformuiv@Base 355
+ glGetVertexArrayIndexed64iv@Base 361
+ glGetVertexArrayIndexediv@Base 361
+ glGetVertexArrayiv@Base 361
+ glGetVertexAttribIiv@Base 355
+ glGetVertexAttribIuiv@Base 355
+ glGetVertexAttribLdv@Base 361
+ glGetVertexAttribPointerv@Base 355
+ glGetVertexAttribdv@Base 355
+#MISSING: 361# glGetVertexAttribdvNV@Base 355
+ glGetVertexAttribfv@Base 355
+#MISSING: 361# glGetVertexAttribfvNV@Base 355
+ glGetVertexAttribiv@Base 355
+#MISSING: 361# glGetVertexAttribivNV@Base 355
+ glGetnColorTable@Base 361
+#MISSING: 361# glGetnColorTableARB@Base 355
+ glGetnCompressedTexImage@Base 361
+#MISSING: 361# glGetnCompressedTexImageARB@Base 355
+ glGetnConvolutionFilter@Base 361
+#MISSING: 361# glGetnConvolutionFilterARB@Base 355
+ glGetnHistogram@Base 361
+#MISSING: 361# glGetnHistogramARB@Base 355
+ glGetnMapdv@Base 361
+#MISSING: 361# glGetnMapdvARB@Base 355
+ glGetnMapfv@Base 361
+#MISSING: 361# glGetnMapfvARB@Base 355
+ glGetnMapiv@Base 361
+#MISSING: 361# glGetnMapivARB@Base 355
+ glGetnMinmax@Base 361
+#MISSING: 361# glGetnMinmaxARB@Base 355
+ glGetnPixelMapfv@Base 361
+#MISSING: 361# glGetnPixelMapfvARB@Base 355
+ glGetnPixelMapuiv@Base 361
+#MISSING: 361# glGetnPixelMapuivARB@Base 355
+ glGetnPixelMapusv@Base 361
+#MISSING: 361# glGetnPixelMapusvARB@Base 355
+ glGetnPolygonStipple@Base 361
+#MISSING: 361# glGetnPolygonStippleARB@Base 355
+ glGetnSeparableFilter@Base 361
+#MISSING: 361# glGetnSeparableFilterARB@Base 355
+ glGetnTexImage@Base 361
+#MISSING: 361# glGetnTexImageARB@Base 355
+ glGetnUniformdv@Base 361
+#MISSING: 361# glGetnUniformdvARB@Base 355
+ glGetnUniformfv@Base 361
+#MISSING: 361# glGetnUniformfvARB@Base 355
+ glGetnUniformiv@Base 361
+#MISSING: 361# glGetnUniformivARB@Base 355
+ glGetnUniformuiv@Base 361
+#MISSING: 361# glGetnUniformuivARB@Base 355
+ glHint@Base 355
+#MISSING: 361# glHistogram@Base 355
+ glIndexMask@Base 355
+ glIndexPointer@Base 355
+#MISSING: 361# glIndexPointerEXT@Base 355
+ glIndexd@Base 355
+ glIndexdv@Base 355
+ glIndexf@Base 355
+ glIndexfv@Base 355
+ glIndexi@Base 355
+ glIndexiv@Base 355
+ glIndexs@Base 355
+ glIndexsv@Base 355
+ glIndexub@Base 355
+ glIndexubv@Base 355
+ glInitNames@Base 355
+ glInterleavedArrays@Base 355
+ glInvalidateBufferData@Base 355
+ glInvalidateBufferSubData@Base 355
+ glInvalidateFramebuffer@Base 355
+ glInvalidateNamedFramebufferData@Base 361
+ glInvalidateNamedFramebufferSubData@Base 361
+ glInvalidateSubFramebuffer@Base 355
+ glInvalidateTexImage@Base 355
+ glInvalidateTexSubImage@Base 355
+ glIsBuffer@Base 355
+ glIsEnabled@Base 355
+ glIsEnabledi@Base 355
+ glIsFramebuffer@Base 355
+ glIsList@Base 355
+ glIsProgram@Base 355
+#MISSING: 361# glIsProgramARB@Base 355
+ glIsProgramPipeline@Base 355
+ glIsQuery@Base 355
+ glIsRenderbuffer@Base 355
+ glIsSampler@Base 355
+ glIsShader@Base 355
+ glIsSync@Base 355
+ glIsTexture@Base 355
+ glIsTransformFeedback@Base 355
+ glIsVertexArray@Base 355
+ glLightModelf@Base 355
+ glLightModelfv@Base 355
+ glLightModeli@Base 355
+ glLightModeliv@Base 355
+#MISSING: 361# glLightModelx@Base 355
+#MISSING: 361# glLightModelxv@Base 355
+ glLightf@Base 355
+ glLightfv@Base 355
+ glLighti@Base 355
+ glLightiv@Base 355
+#MISSING: 361# glLightx@Base 355
+#MISSING: 361# glLightxv@Base 355
+ glLineStipple@Base 355
+ glLineWidth@Base 355
+#MISSING: 361# glLineWidthx@Base 355
+ glLinkProgram@Base 355
+ glListBase@Base 355
+ glLoadIdentity@Base 355
+ glLoadMatrixd@Base 355
+ glLoadMatrixf@Base 355
+#MISSING: 361# glLoadMatrixx@Base 355
+ glLoadName@Base 355
+#MISSING: 361# glLoadProgramNV@Base 355
+ glLoadTransposeMatrixd@Base 355
+ glLoadTransposeMatrixf@Base 355
+#MISSING: 361# glLockArraysEXT@Base 355
+ glLogicOp@Base 355
+ glMap1d@Base 355
+ glMap1f@Base 355
+ glMap2d@Base 355
+ glMap2f@Base 355
+ glMapBuffer@Base 355
+ glMapBufferRange@Base 355
+ glMapGrid1d@Base 355
+ glMapGrid1f@Base 355
+ glMapGrid2d@Base 355
+ glMapGrid2f@Base 355
+ glMapNamedBuffer@Base 361
+ glMapNamedBufferRange@Base 361
+ glMaterialf@Base 355
+ glMaterialfv@Base 355
+ glMateriali@Base 355
+ glMaterialiv@Base 355
+#MISSING: 361# glMaterialx@Base 355
+#MISSING: 361# glMaterialxv@Base 355
+ glMatrixMode@Base 355
+ glMemoryBarrier@Base 361
+ glMemoryBarrierByRegion@Base 361
+ glMinSampleShading@Base 361
+#MISSING: 361# glMinmax@Base 355
+ glMultMatrixd@Base 355
+ glMultMatrixf@Base 355
+#MISSING: 361# glMultMatrixx@Base 355
+ glMultTransposeMatrixd@Base 355
+ glMultTransposeMatrixf@Base 355
+ glMultiDrawArrays@Base 355
+ glMultiDrawArraysIndirect@Base 355
+ glMultiDrawElements@Base 361
+ glMultiDrawElementsBaseVertex@Base 355
+#MISSING: 361# glMultiDrawElementsEXT@Base 355
+ glMultiDrawElementsIndirect@Base 355
+#MISSING: 361# glMultiModeDrawArraysIBM@Base 355
+#MISSING: 361# glMultiModeDrawElementsIBM@Base 355
+ glMultiTexCoord1d@Base 355
+ glMultiTexCoord1dv@Base 355
+ glMultiTexCoord1f@Base 361
+#MISSING: 361# glMultiTexCoord1fARB@Base 355
+ glMultiTexCoord1fv@Base 361
+#MISSING: 361# glMultiTexCoord1fvARB@Base 355
+ glMultiTexCoord1i@Base 355
+ glMultiTexCoord1iv@Base 355
+ glMultiTexCoord1s@Base 355
+ glMultiTexCoord1sv@Base 355
+ glMultiTexCoord2d@Base 355
+ glMultiTexCoord2dv@Base 355
+ glMultiTexCoord2f@Base 361
+#MISSING: 361# glMultiTexCoord2fARB@Base 355
+ glMultiTexCoord2fv@Base 361
+#MISSING: 361# glMultiTexCoord2fvARB@Base 355
+ glMultiTexCoord2i@Base 355
+ glMultiTexCoord2iv@Base 355
+ glMultiTexCoord2s@Base 355
+ glMultiTexCoord2sv@Base 355
+ glMultiTexCoord3d@Base 355
+ glMultiTexCoord3dv@Base 355
+ glMultiTexCoord3f@Base 361
+#MISSING: 361# glMultiTexCoord3fARB@Base 355
+ glMultiTexCoord3fv@Base 361
+#MISSING: 361# glMultiTexCoord3fvARB@Base 355
+ glMultiTexCoord3i@Base 355
+ glMultiTexCoord3iv@Base 355
+ glMultiTexCoord3s@Base 355
+ glMultiTexCoord3sv@Base 355
+ glMultiTexCoord4d@Base 355
+ glMultiTexCoord4dv@Base 355
+ glMultiTexCoord4f@Base 361
+#MISSING: 361# glMultiTexCoord4fARB@Base 355
+ glMultiTexCoord4fv@Base 361
+#MISSING: 361# glMultiTexCoord4fvARB@Base 355
+ glMultiTexCoord4i@Base 355
+ glMultiTexCoord4iv@Base 355
+ glMultiTexCoord4s@Base 355
+ glMultiTexCoord4sv@Base 355
+#MISSING: 361# glMultiTexCoord4x@Base 355
+ glMultiTexCoordP1ui@Base 355
+ glMultiTexCoordP1uiv@Base 355
+ glMultiTexCoordP2ui@Base 355
+ glMultiTexCoordP2uiv@Base 355
+ glMultiTexCoordP3ui@Base 355
+ glMultiTexCoordP3uiv@Base 355
+ glMultiTexCoordP4ui@Base 355
+ glMultiTexCoordP4uiv@Base 355
+ glNamedBufferData@Base 361
+ glNamedBufferStorage@Base 361
+ glNamedBufferSubData@Base 361
+ glNamedFramebufferDrawBuffer@Base 361
+ glNamedFramebufferDrawBuffers@Base 361
+ glNamedFramebufferParameteri@Base 361
+ glNamedFramebufferReadBuffer@Base 361
+ glNamedFramebufferRenderbuffer@Base 361
+ glNamedFramebufferTexture@Base 361
+ glNamedFramebufferTextureLayer@Base 361
+ glNamedRenderbufferStorage@Base 361
+ glNamedRenderbufferStorageMultisample@Base 361
+ glNewList@Base 355
+ glNormal3b@Base 355
+ glNormal3bv@Base 355
+ glNormal3d@Base 355
+ glNormal3dv@Base 355
+ glNormal3f@Base 355
+ glNormal3fv@Base 355
+ glNormal3i@Base 355
+ glNormal3iv@Base 355
+ glNormal3s@Base 355
+ glNormal3sv@Base 355
+#MISSING: 361# glNormal3x@Base 355
+ glNormalP3ui@Base 355
+ glNormalP3uiv@Base 355
+ glNormalPointer@Base 355
+#MISSING: 361# glNormalPointerEXT@Base 355
+ glObjectLabel@Base 355
+ glObjectPtrLabel@Base 355
+#MISSING: 361# glObjectPurgeableAPPLE@Base 355
+#MISSING: 361# glObjectUnpurgeableAPPLE@Base 355
+ glOrtho@Base 355
+#MISSING: 361# glOrthof@Base 355
+#MISSING: 361# glOrthox@Base 355
+#MISSING: 361# glPassTexCoordATI@Base 355
+ glPassThrough@Base 355
+ glPatchParameterfv@Base 355
+ glPatchParameteri@Base 355
+ glPauseTransformFeedback@Base 355
+ glPixelMapfv@Base 355
+ glPixelMapuiv@Base 355
+ glPixelMapusv@Base 355
+ glPixelStoref@Base 355
+ glPixelStorei@Base 355
+ glPixelTransferf@Base 355
+ glPixelTransferi@Base 355
+ glPixelZoom@Base 355
+ glPointParameterf@Base 355
+ glPointParameterfv@Base 355
+ glPointParameteri@Base 355
+ glPointParameteriv@Base 355
+#MISSING: 361# glPointParameterx@Base 355
+#MISSING: 361# glPointParameterxv@Base 355
+ glPointSize@Base 355
+#MISSING: 361# glPointSizePointerOES@Base 355
+#MISSING: 361# glPointSizex@Base 355
+ glPolygonMode@Base 355
+ glPolygonOffset@Base 355
+#MISSING: 361# glPolygonOffsetEXT@Base 355
+#MISSING: 361# glPolygonOffsetx@Base 355
+ glPolygonStipple@Base 355
+ glPopAttrib@Base 355
+ glPopClientAttrib@Base 355
+ glPopDebugGroup@Base 355
+ glPopMatrix@Base 355
+ glPopName@Base 355
+ glPrimitiveRestartIndex@Base 355
+#MISSING: 361# glPrimitiveRestartNV@Base 355
+ glPrioritizeTextures@Base 355
+ glProgramBinary@Base 355
+#MISSING: 361# glProgramEnvParameter4dARB@Base 355
+#MISSING: 361# glProgramEnvParameter4dvARB@Base 355
+#MISSING: 361# glProgramEnvParameter4fARB@Base 355
+#MISSING: 361# glProgramEnvParameter4fvARB@Base 355
+#MISSING: 361# glProgramEnvParameters4fvEXT@Base 355
+#MISSING: 361# glProgramLocalParameter4dARB@Base 355
+#MISSING: 361# glProgramLocalParameter4dvARB@Base 355
+#MISSING: 361# glProgramLocalParameter4fARB@Base 355
+#MISSING: 361# glProgramLocalParameter4fvARB@Base 355
+#MISSING: 361# glProgramLocalParameters4fvEXT@Base 355
+#MISSING: 361# glProgramNamedParameter4dNV@Base 355
+#MISSING: 361# glProgramNamedParameter4dvNV@Base 355
+#MISSING: 361# glProgramNamedParameter4fNV@Base 355
+#MISSING: 361# glProgramNamedParameter4fvNV@Base 355
+ glProgramParameteri@Base 355
+#MISSING: 361# glProgramParameters4dvNV@Base 355
+#MISSING: 361# glProgramParameters4fvNV@Base 355
+#MISSING: 361# glProgramStringARB@Base 355
+ glProgramUniform1d@Base 355
+ glProgramUniform1dv@Base 355
+ glProgramUniform1f@Base 361
+ glProgramUniform1fv@Base 361
+ glProgramUniform1i@Base 361
+ glProgramUniform1iv@Base 361
+ glProgramUniform1ui@Base 355
+ glProgramUniform1uiv@Base 355
+ glProgramUniform2d@Base 355
+ glProgramUniform2dv@Base 355
+ glProgramUniform2f@Base 361
+ glProgramUniform2fv@Base 361
+ glProgramUniform2i@Base 361
+ glProgramUniform2iv@Base 361
+ glProgramUniform2ui@Base 355
+ glProgramUniform2uiv@Base 355
+ glProgramUniform3d@Base 355
+ glProgramUniform3dv@Base 355
+ glProgramUniform3f@Base 361
+ glProgramUniform3fv@Base 361
+ glProgramUniform3i@Base 361
+ glProgramUniform3iv@Base 361
+ glProgramUniform3ui@Base 355
+ glProgramUniform3uiv@Base 355
+ glProgramUniform4d@Base 355
+ glProgramUniform4dv@Base 355
+ glProgramUniform4f@Base 361
+ glProgramUniform4fv@Base 361
+ glProgramUniform4i@Base 361
+ glProgramUniform4iv@Base 361
+ glProgramUniform4ui@Base 355
+ glProgramUniform4uiv@Base 355
+ glProgramUniformMatrix2dv@Base 355
+ glProgramUniformMatrix2fv@Base 361
+ glProgramUniformMatrix2x3dv@Base 355
+ glProgramUniformMatrix2x3fv@Base 361
+ glProgramUniformMatrix2x4dv@Base 355
+ glProgramUniformMatrix2x4fv@Base 361
+ glProgramUniformMatrix3dv@Base 355
+ glProgramUniformMatrix3fv@Base 361
+ glProgramUniformMatrix3x2dv@Base 355
+ glProgramUniformMatrix3x2fv@Base 361
+ glProgramUniformMatrix3x4dv@Base 355
+ glProgramUniformMatrix3x4fv@Base 361
+ glProgramUniformMatrix4dv@Base 355
+ glProgramUniformMatrix4fv@Base 361
+ glProgramUniformMatrix4x2dv@Base 355
+ glProgramUniformMatrix4x2fv@Base 361
+ glProgramUniformMatrix4x3dv@Base 355
+ glProgramUniformMatrix4x3fv@Base 361
+ glProvokingVertex@Base 355
+ glPushAttrib@Base 355
+ glPushClientAttrib@Base 355
+ glPushDebugGroup@Base 355
+ glPushMatrix@Base 355
+ glPushName@Base 355
+ glQueryCounter@Base 355
+#MISSING: 361# glQueryMatrixxOES@Base 355
+ glRasterPos2d@Base 355
+ glRasterPos2dv@Base 355
+ glRasterPos2f@Base 355
+ glRasterPos2fv@Base 355
+ glRasterPos2i@Base 355
+ glRasterPos2iv@Base 355
+ glRasterPos2s@Base 355
+ glRasterPos2sv@Base 355
+ glRasterPos3d@Base 355
+ glRasterPos3dv@Base 355
+ glRasterPos3f@Base 355
+ glRasterPos3fv@Base 355
+ glRasterPos3i@Base 355
+ glRasterPos3iv@Base 355
+ glRasterPos3s@Base 355
+ glRasterPos3sv@Base 355
+ glRasterPos4d@Base 355
+ glRasterPos4dv@Base 355
+ glRasterPos4f@Base 355
+ glRasterPos4fv@Base 355
+ glRasterPos4i@Base 355
+ glRasterPos4iv@Base 355
+ glRasterPos4s@Base 355
+ glRasterPos4sv@Base 355
+ glReadBuffer@Base 355
+ glReadPixels@Base 355
+ glReadnPixels@Base 361
+#MISSING: 361# glReadnPixelsARB@Base 355
+ glRectd@Base 355
+ glRectdv@Base 355
+ glRectf@Base 355
+ glRectfv@Base 355
+ glRecti@Base 355
+ glRectiv@Base 355
+ glRects@Base 355
+ glRectsv@Base 355
+ glReleaseShaderCompiler@Base 355
+ glRenderMode@Base 355
+ glRenderbufferStorage@Base 355
+ glRenderbufferStorageMultisample@Base 355
+#MISSING: 361# glRequestResidentProgramsNV@Base 355
+#MISSING: 361# glResetHistogram@Base 355
+#MISSING: 361# glResetMinmax@Base 355
+#MISSING: 361# glResizeBuffersMESA@Base 355
+ glResumeTransformFeedback@Base 355
+ glRotated@Base 355
+ glRotatef@Base 355
+#MISSING: 361# glRotatex@Base 355
+ glSampleCoverage@Base 355
+#MISSING: 361# glSampleCoveragex@Base 355
+#MISSING: 361# glSampleMapATI@Base 355
+#MISSING: 361# glSampleMaskSGIS@Base 355
+ glSampleMaski@Base 355
+#MISSING: 361# glSamplePatternSGIS@Base 355
+ glSamplerParameterIiv@Base 355
+ glSamplerParameterIuiv@Base 355
+ glSamplerParameterf@Base 355
+ glSamplerParameterfv@Base 355
+ glSamplerParameteri@Base 355
+ glSamplerParameteriv@Base 355
+ glScaled@Base 355
+ glScalef@Base 355
+#MISSING: 361# glScalex@Base 355
+ glScissor@Base 355
+ glScissorArrayv@Base 361
+ glScissorIndexed@Base 361
+ glScissorIndexedv@Base 361
+ glSecondaryColor3b@Base 355
+ glSecondaryColor3bv@Base 355
+ glSecondaryColor3d@Base 355
+ glSecondaryColor3dv@Base 355
+ glSecondaryColor3f@Base 361
+#MISSING: 361# glSecondaryColor3fEXT@Base 355
+ glSecondaryColor3fv@Base 361
+#MISSING: 361# glSecondaryColor3fvEXT@Base 355
+ glSecondaryColor3i@Base 355
+ glSecondaryColor3iv@Base 355
+ glSecondaryColor3s@Base 355
+ glSecondaryColor3sv@Base 355
+ glSecondaryColor3ub@Base 355
+ glSecondaryColor3ubv@Base 355
+ glSecondaryColor3ui@Base 355
+ glSecondaryColor3uiv@Base 355
+ glSecondaryColor3us@Base 355
+ glSecondaryColor3usv@Base 355
+ glSecondaryColorP3ui@Base 355
+ glSecondaryColorP3uiv@Base 355
+ glSecondaryColorPointer@Base 355
+ glSelectBuffer@Base 355
+#MISSING: 361# glSeparableFilter2D@Base 355
+#MISSING: 361# glSetFragmentShaderConstantATI@Base 355
+ glShadeModel@Base 355
+ glShaderBinary@Base 355
+ glShaderSource@Base 355
+ glShaderStorageBlockBinding@Base 355
+ glStencilFunc@Base 355
+ glStencilFuncSeparate@Base 355
+#MISSING: 361# glStencilFuncSeparateATI@Base 355
+ glStencilMask@Base 355
+ glStencilMaskSeparate@Base 355
+ glStencilOp@Base 355
+ glStencilOpSeparate@Base 355
+ glTexBuffer@Base 355
+ glTexBufferRange@Base 355
+#MISSING: 361# glTexBumpParameterfvATI@Base 355
+#MISSING: 361# glTexBumpParameterivATI@Base 355
+ glTexCoord1d@Base 355
+ glTexCoord1dv@Base 355
+ glTexCoord1f@Base 355
+ glTexCoord1fv@Base 355
+ glTexCoord1i@Base 355
+ glTexCoord1iv@Base 355
+ glTexCoord1s@Base 355
+ glTexCoord1sv@Base 355
+ glTexCoord2d@Base 355
+ glTexCoord2dv@Base 355
+ glTexCoord2f@Base 355
+ glTexCoord2fv@Base 355
+ glTexCoord2i@Base 355
+ glTexCoord2iv@Base 355
+ glTexCoord2s@Base 355
+ glTexCoord2sv@Base 355
+ glTexCoord3d@Base 355
+ glTexCoord3dv@Base 355
+ glTexCoord3f@Base 355
+ glTexCoord3fv@Base 355
+ glTexCoord3i@Base 355
+ glTexCoord3iv@Base 355
+ glTexCoord3s@Base 355
+ glTexCoord3sv@Base 355
+ glTexCoord4d@Base 355
+ glTexCoord4dv@Base 355
+ glTexCoord4f@Base 355
+ glTexCoord4fv@Base 355
+ glTexCoord4i@Base 355
+ glTexCoord4iv@Base 355
+ glTexCoord4s@Base 355
+ glTexCoord4sv@Base 355
+ glTexCoordP1ui@Base 355
+ glTexCoordP1uiv@Base 355
+ glTexCoordP2ui@Base 355
+ glTexCoordP2uiv@Base 355
+ glTexCoordP3ui@Base 355
+ glTexCoordP3uiv@Base 355
+ glTexCoordP4ui@Base 355
+ glTexCoordP4uiv@Base 355
+ glTexCoordPointer@Base 355
+#MISSING: 361# glTexCoordPointerEXT@Base 355
+ glTexEnvf@Base 355
+ glTexEnvfv@Base 355
+ glTexEnvi@Base 355
+ glTexEnviv@Base 355
+#MISSING: 361# glTexEnvx@Base 355
+#MISSING: 361# glTexEnvxv@Base 355
+ glTexGend@Base 355
+ glTexGendv@Base 355
+ glTexGenf@Base 355
+ glTexGenfv@Base 355
+ glTexGeni@Base 355
+ glTexGeniv@Base 355
+#MISSING: 361# glTexGenxOES@Base 355
+#MISSING: 361# glTexGenxvOES@Base 355
+ glTexImage1D@Base 355
+ glTexImage2D@Base 355
+ glTexImage2DMultisample@Base 355
+ glTexImage3D@Base 355
+ glTexImage3DMultisample@Base 355
+ glTexParameterIiv@Base 355
+ glTexParameterIuiv@Base 355
+ glTexParameterf@Base 355
+ glTexParameterfv@Base 355
+ glTexParameteri@Base 355
+ glTexParameteriv@Base 355
+#MISSING: 361# glTexParameterx@Base 355
+#MISSING: 361# glTexParameterxv@Base 355
+ glTexStorage1D@Base 355
+ glTexStorage2D@Base 355
+ glTexStorage2DMultisample@Base 355
+ glTexStorage3D@Base 355
+ glTexStorage3DMultisample@Base 355
+ glTexSubImage1D@Base 355
+ glTexSubImage2D@Base 355
+ glTexSubImage3D@Base 355
+ glTextureBarrier@Base 361
+#MISSING: 361# glTextureBarrierNV@Base 355
+ glTextureBuffer@Base 361
+ glTextureBufferRange@Base 361
+ glTextureParameterIiv@Base 361
+ glTextureParameterIuiv@Base 361
+ glTextureParameterf@Base 361
+ glTextureParameterfv@Base 361
+ glTextureParameteri@Base 361
+ glTextureParameteriv@Base 361
+ glTextureStorage1D@Base 361
+#MISSING: 361# glTextureStorage1DEXT@Base 355
+ glTextureStorage2D@Base 361
+#MISSING: 361# glTextureStorage2DEXT@Base 355
+ glTextureStorage2DMultisample@Base 361
+ glTextureStorage3D@Base 361
+#MISSING: 361# glTextureStorage3DEXT@Base 355
+ glTextureStorage3DMultisample@Base 361
+ glTextureSubImage1D@Base 361
+ glTextureSubImage2D@Base 361
+ glTextureSubImage3D@Base 361
+ glTextureView@Base 355
+#MISSING: 361# glTrackMatrixNV@Base 355
+ glTransformFeedbackBufferBase@Base 361
+ glTransformFeedbackBufferRange@Base 361
+ glTransformFeedbackVaryings@Base 355
+ glTranslated@Base 355
+ glTranslatef@Base 355
+#MISSING: 361# glTranslatex@Base 355
+ glUniform1d@Base 355
+ glUniform1dv@Base 355
+ glUniform1f@Base 355
+ glUniform1fv@Base 355
+ glUniform1i@Base 355
+ glUniform1iv@Base 355
+ glUniform1ui@Base 355
+ glUniform1uiv@Base 355
+ glUniform2d@Base 355
+ glUniform2dv@Base 355
+ glUniform2f@Base 355
+ glUniform2fv@Base 355
+ glUniform2i@Base 355
+ glUniform2iv@Base 355
+ glUniform2ui@Base 355
+ glUniform2uiv@Base 355
+ glUniform3d@Base 355
+ glUniform3dv@Base 355
+ glUniform3f@Base 355
+ glUniform3fv@Base 355
+ glUniform3i@Base 355
+ glUniform3iv@Base 355
+ glUniform3ui@Base 355
+ glUniform3uiv@Base 355
+ glUniform4d@Base 355
+ glUniform4dv@Base 355
+ glUniform4f@Base 355
+ glUniform4fv@Base 355
+ glUniform4i@Base 355
+ glUniform4iv@Base 355
+ glUniform4ui@Base 355
+ glUniform4uiv@Base 355
+ glUniformBlockBinding@Base 355
+ glUniformMatrix2dv@Base 355
+ glUniformMatrix2fv@Base 355
+ glUniformMatrix2x3dv@Base 355
+ glUniformMatrix2x3fv@Base 355
+ glUniformMatrix2x4dv@Base 355
+ glUniformMatrix2x4fv@Base 355
+ glUniformMatrix3dv@Base 355
+ glUniformMatrix3fv@Base 355
+ glUniformMatrix3x2dv@Base 355
+ glUniformMatrix3x2fv@Base 355
+ glUniformMatrix3x4dv@Base 355
+ glUniformMatrix3x4fv@Base 355
+ glUniformMatrix4dv@Base 355
+ glUniformMatrix4fv@Base 355
+ glUniformMatrix4x2dv@Base 355
+ glUniformMatrix4x2fv@Base 355
+ glUniformMatrix4x3dv@Base 355
+ glUniformMatrix4x3fv@Base 355
+ glUniformSubroutinesuiv@Base 355
+#MISSING: 361# glUnlockArraysEXT@Base 355
+ glUnmapBuffer@Base 355
+ glUnmapNamedBuffer@Base 361
+ glUseProgram@Base 355
+ glUseProgramStages@Base 355
+#MISSING: 361# glUseShaderProgramEXT@Base 355
+ glValidateProgram@Base 355
+ glValidateProgramPipeline@Base 355
+ glVertex2d@Base 355
+ glVertex2dv@Base 355
+ glVertex2f@Base 355
+ glVertex2fv@Base 355
+ glVertex2i@Base 355
+ glVertex2iv@Base 355
+ glVertex2s@Base 355
+ glVertex2sv@Base 355
+ glVertex3d@Base 355
+ glVertex3dv@Base 355
+ glVertex3f@Base 355
+ glVertex3fv@Base 355
+ glVertex3i@Base 355
+ glVertex3iv@Base 355
+ glVertex3s@Base 355
+ glVertex3sv@Base 355
+ glVertex4d@Base 355
+ glVertex4dv@Base 355
+ glVertex4f@Base 355
+ glVertex4fv@Base 355
+ glVertex4i@Base 355
+ glVertex4iv@Base 355
+ glVertex4s@Base 355
+ glVertex4sv@Base 355
+ glVertexArrayAttribBinding@Base 361
+ glVertexArrayAttribFormat@Base 361
+ glVertexArrayAttribIFormat@Base 361
+ glVertexArrayAttribLFormat@Base 361
+ glVertexArrayBindingDivisor@Base 361
+ glVertexArrayElementBuffer@Base 361
+ glVertexArrayVertexBuffer@Base 361
+ glVertexArrayVertexBuffers@Base 361
+ glVertexAttrib1d@Base 355
+#MISSING: 361# glVertexAttrib1dNV@Base 355
+ glVertexAttrib1dv@Base 355
+#MISSING: 361# glVertexAttrib1dvNV@Base 355
+ glVertexAttrib1f@Base 361
+#MISSING: 361# glVertexAttrib1fARB@Base 355
+#MISSING: 361# glVertexAttrib1fNV@Base 355
+ glVertexAttrib1fv@Base 361
+#MISSING: 361# glVertexAttrib1fvARB@Base 355
+#MISSING: 361# glVertexAttrib1fvNV@Base 355
+ glVertexAttrib1s@Base 355
+#MISSING: 361# glVertexAttrib1sNV@Base 355
+ glVertexAttrib1sv@Base 355
+#MISSING: 361# glVertexAttrib1svNV@Base 355
+ glVertexAttrib2d@Base 355
+#MISSING: 361# glVertexAttrib2dNV@Base 355
+ glVertexAttrib2dv@Base 355
+#MISSING: 361# glVertexAttrib2dvNV@Base 355
+ glVertexAttrib2f@Base 361
+#MISSING: 361# glVertexAttrib2fARB@Base 355
+#MISSING: 361# glVertexAttrib2fNV@Base 355
+ glVertexAttrib2fv@Base 361
+#MISSING: 361# glVertexAttrib2fvARB@Base 355
+#MISSING: 361# glVertexAttrib2fvNV@Base 355
+ glVertexAttrib2s@Base 355
+#MISSING: 361# glVertexAttrib2sNV@Base 355
+ glVertexAttrib2sv@Base 355
+#MISSING: 361# glVertexAttrib2svNV@Base 355
+ glVertexAttrib3d@Base 355
+#MISSING: 361# glVertexAttrib3dNV@Base 355
+ glVertexAttrib3dv@Base 355
+#MISSING: 361# glVertexAttrib3dvNV@Base 355
+ glVertexAttrib3f@Base 361
+#MISSING: 361# glVertexAttrib3fARB@Base 355
+#MISSING: 361# glVertexAttrib3fNV@Base 355
+ glVertexAttrib3fv@Base 361
+#MISSING: 361# glVertexAttrib3fvARB@Base 355
+#MISSING: 361# glVertexAttrib3fvNV@Base 355
+ glVertexAttrib3s@Base 355
+#MISSING: 361# glVertexAttrib3sNV@Base 355
+ glVertexAttrib3sv@Base 355
+#MISSING: 361# glVertexAttrib3svNV@Base 355
+ glVertexAttrib4Nbv@Base 355
+ glVertexAttrib4Niv@Base 355
+ glVertexAttrib4Nsv@Base 355
+ glVertexAttrib4Nub@Base 355
+ glVertexAttrib4Nubv@Base 355
+ glVertexAttrib4Nuiv@Base 355
+ glVertexAttrib4Nusv@Base 355
+ glVertexAttrib4bv@Base 355
+ glVertexAttrib4d@Base 355
+#MISSING: 361# glVertexAttrib4dNV@Base 355
+ glVertexAttrib4dv@Base 355
+#MISSING: 361# glVertexAttrib4dvNV@Base 355
+ glVertexAttrib4f@Base 361
+#MISSING: 361# glVertexAttrib4fARB@Base 355
+#MISSING: 361# glVertexAttrib4fNV@Base 355
+ glVertexAttrib4fv@Base 361
+#MISSING: 361# glVertexAttrib4fvARB@Base 355
+#MISSING: 361# glVertexAttrib4fvNV@Base 355
+ glVertexAttrib4iv@Base 355
+ glVertexAttrib4s@Base 355
+#MISSING: 361# glVertexAttrib4sNV@Base 355
+ glVertexAttrib4sv@Base 355
+#MISSING: 361# glVertexAttrib4svNV@Base 355
+#MISSING: 361# glVertexAttrib4ubNV@Base 355
+ glVertexAttrib4ubv@Base 355
+#MISSING: 361# glVertexAttrib4ubvNV@Base 355
+ glVertexAttrib4uiv@Base 355
+ glVertexAttrib4usv@Base 355
+ glVertexAttribBinding@Base 361
+ glVertexAttribDivisor@Base 355
+ glVertexAttribFormat@Base 361
+ glVertexAttribI1i@Base 361
+#MISSING: 361# glVertexAttribI1iEXT@Base 355
+ glVertexAttribI1iv@Base 355
+ glVertexAttribI1ui@Base 361
+#MISSING: 361# glVertexAttribI1uiEXT@Base 355
+ glVertexAttribI1uiv@Base 355
+ glVertexAttribI2i@Base 361
+#MISSING: 361# glVertexAttribI2iEXT@Base 355
+ glVertexAttribI2iv@Base 361
+#MISSING: 361# glVertexAttribI2ivEXT@Base 355
+ glVertexAttribI2ui@Base 361
+#MISSING: 361# glVertexAttribI2uiEXT@Base 355
+ glVertexAttribI2uiv@Base 361
+#MISSING: 361# glVertexAttribI2uivEXT@Base 355
+ glVertexAttribI3i@Base 361
+#MISSING: 361# glVertexAttribI3iEXT@Base 355
+ glVertexAttribI3iv@Base 361
+#MISSING: 361# glVertexAttribI3ivEXT@Base 355
+ glVertexAttribI3ui@Base 361
+#MISSING: 361# glVertexAttribI3uiEXT@Base 355
+ glVertexAttribI3uiv@Base 361
+#MISSING: 361# glVertexAttribI3uivEXT@Base 355
+ glVertexAttribI4bv@Base 355
+ glVertexAttribI4i@Base 361
+#MISSING: 361# glVertexAttribI4iEXT@Base 355
+ glVertexAttribI4iv@Base 361
+#MISSING: 361# glVertexAttribI4ivEXT@Base 355
+ glVertexAttribI4sv@Base 355
+ glVertexAttribI4ubv@Base 355
+ glVertexAttribI4ui@Base 361
+#MISSING: 361# glVertexAttribI4uiEXT@Base 355
+ glVertexAttribI4uiv@Base 361
+#MISSING: 361# glVertexAttribI4uivEXT@Base 355
+ glVertexAttribI4usv@Base 355
+ glVertexAttribIFormat@Base 361
+ glVertexAttribIPointer@Base 355
+ glVertexAttribL1d@Base 361
+ glVertexAttribL1dv@Base 361
+ glVertexAttribL2d@Base 361
+ glVertexAttribL2dv@Base 361
+ glVertexAttribL3d@Base 361
+ glVertexAttribL3dv@Base 361
+ glVertexAttribL4d@Base 361
+ glVertexAttribL4dv@Base 361
+ glVertexAttribLFormat@Base 361
+ glVertexAttribLPointer@Base 361
+ glVertexAttribP1ui@Base 355
+ glVertexAttribP1uiv@Base 355
+ glVertexAttribP2ui@Base 355
+ glVertexAttribP2uiv@Base 355
+ glVertexAttribP3ui@Base 355
+ glVertexAttribP3uiv@Base 355
+ glVertexAttribP4ui@Base 355
+ glVertexAttribP4uiv@Base 355
+ glVertexAttribPointer@Base 355
+#MISSING: 361# glVertexAttribPointerNV@Base 355
+#MISSING: 361# glVertexAttribs1dvNV@Base 355
+#MISSING: 361# glVertexAttribs1fvNV@Base 355
+#MISSING: 361# glVertexAttribs1svNV@Base 355
+#MISSING: 361# glVertexAttribs2dvNV@Base 355
+#MISSING: 361# glVertexAttribs2fvNV@Base 355
+#MISSING: 361# glVertexAttribs2svNV@Base 355
+#MISSING: 361# glVertexAttribs3dvNV@Base 355
+#MISSING: 361# glVertexAttribs3fvNV@Base 355
+#MISSING: 361# glVertexAttribs3svNV@Base 355
+#MISSING: 361# glVertexAttribs4dvNV@Base 355
+#MISSING: 361# glVertexAttribs4fvNV@Base 355
+#MISSING: 361# glVertexAttribs4svNV@Base 355
+#MISSING: 361# glVertexAttribs4ubvNV@Base 355
+ glVertexBindingDivisor@Base 361
+ glVertexP2ui@Base 355
+ glVertexP2uiv@Base 355
+ glVertexP3ui@Base 355
+ glVertexP3uiv@Base 355
+ glVertexP4ui@Base 355
+ glVertexP4uiv@Base 355
+ glVertexPointer@Base 355
+#MISSING: 361# glVertexPointerEXT@Base 355
+ glViewport@Base 355
+ glViewportArrayv@Base 361
+ glViewportIndexedf@Base 361
+ glViewportIndexedfv@Base 361
+ glWaitSync@Base 355
+ glWindowPos2d@Base 355
+ glWindowPos2dv@Base 355
+ glWindowPos2f@Base 355
+ glWindowPos2fv@Base 355
+ glWindowPos2i@Base 355
+ glWindowPos2iv@Base 355
+ glWindowPos2s@Base 355
+ glWindowPos2sv@Base 355
+ glWindowPos3d@Base 355
+ glWindowPos3dv@Base 355
+ glWindowPos3f@Base 355
+ glWindowPos3fv@Base 355
+ glWindowPos3i@Base 355
+ glWindowPos3iv@Base 355
+ glWindowPos3s@Base 355
+ glWindowPos3sv@Base 355
+#MISSING: 361# glWindowPos4dMESA@Base 355
+#MISSING: 361# glWindowPos4dvMESA@Base 355
+#MISSING: 361# glWindowPos4fMESA@Base 355
+#MISSING: 361# glWindowPos4fvMESA@Base 355
+#MISSING: 361# glWindowPos4iMESA@Base 355
+#MISSING: 361# glWindowPos4ivMESA@Base 355
+#MISSING: 361# glWindowPos4sMESA@Base 355
+#MISSING: 361# glWindowPos4svMESA@Base 355
+ glvnd_asprintf@Base 390.59
+ glvnd_byte_swap16@Base 390.59
+ glvnd_vasprintf@Base 390.59
+#MISSING: 361# public_entry_end@Base 355
+#MISSING: 361# public_entry_start@Base 355
+ stub_find_public@Base 390.59
+ stub_get_addr@Base 390.59
+#MISSING: 361# stub_get_name@Base 355
+ stub_get_patch_callbacks@Base 390.59
+ stub_get_slot@Base 390.59

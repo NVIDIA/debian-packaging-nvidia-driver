@@ -117,6 +117,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glBufferDataARB@Base 346
  _glBufferDataSysmem@Base 346
  _glBufferPageCommitmentARB@Base 346
+ _glBufferPageCommitmentMemNV@Base 515
  _glBufferStorage@Base 346
  _glBufferStorageEXT@Base 349
  _glBufferStorageMemEXT@Base 384.69
@@ -329,6 +330,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glCreateQueries@Base 346
  _glCreateRenderbuffers@Base 346
  _glCreateSamplers@Base 346
+ _glCreateSemaphoresNV@Base 515
  _glCreateShader@Base 346
  _glCreateShaderObjectARB@Base 346
  _glCreateShaderProgramEXT@Base 346
@@ -893,6 +895,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetSamplerParameterIuivOES@Base 349
  _glGetSamplerParameterfv@Base 346
  _glGetSamplerParameteriv@Base 346
+ _glGetSemaphoreParameterivNV@Base 515
  _glGetSemaphoreParameterui64vEXT@Base 384.69
  _glGetSeparableFilter@Base 346
  _glGetShaderInfoLog@Base 346
@@ -933,6 +936,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetTexParameterfv@Base 346
  _glGetTexParameteriv@Base 346
  _glGetTexParameterxv@Base 346
+ _glGetTextureDirtyTileMapNV@Base 515
  _glGetTextureHandleARB@Base 346
  _glGetTextureHandleNV@Base 346
  _glGetTextureImage@Base 346
@@ -1407,7 +1411,9 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glNamedBufferAttachMemoryNV@Base 415
  _glNamedBufferData@Base 346
  _glNamedBufferDataEXT@Base 346
+ _glNamedBufferPageCommitmentARB@Base 515
  _glNamedBufferPageCommitmentEXT@Base 346
+ _glNamedBufferPageCommitmentMemNV@Base 515
  _glNamedBufferStorage@Base 346
  _glNamedBufferStorageEXT@Base 346
  _glNamedBufferStorageMemEXT@Base 384.69
@@ -1890,6 +1896,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glSecondaryColorPointer@Base 346
  _glSecondaryColorPointerEXT@Base 346
  _glSelectBuffer@Base 346
+ _glSemaphoreParameterivNV@Base 515
  _glSemaphoreParameterui64vEXT@Base 384.69
  _glSeparableFilter2D@Base 346
  _glSetFenceNV@Base 346
@@ -2013,6 +2020,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glTexImage3DNV@Base 346
  _glTexPageCommitmentARB@Base 346
  _glTexPageCommitmentEXT@Base 349
+ _glTexPageCommitmentMemNV@Base 515
  _glTexParameterIiv@Base 346
  _glTexParameterIivEXT@Base 346
  _glTexParameterIivOES@Base 349
@@ -2061,6 +2069,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glTextureImage3DMultisampleCoverageNV@Base 346
  _glTextureImage3DMultisampleNV@Base 346
  _glTexturePageCommitmentEXT@Base 346
+ _glTexturePageCommitmentMemNV@Base 515
  _glTextureParameterIiv@Base 346
  _glTextureParameterIivEXT@Base 346
  _glTextureParameterIuiv@Base 346

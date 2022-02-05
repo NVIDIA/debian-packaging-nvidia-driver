@@ -2,5 +2,32 @@ libnvidia-glcore.so.#VERSION# #PACKAGE# #MINVER#
  (regex)"^_nv\d*glcore@Base$" 0
  vk_optimusGetDeviceProcAddr@Base 435
  vk_optimusGetInstanceProcAddr@Base 435
+libnvidia-ngx.so.1 #PACKAGE# #MINVER#
+ NVSDK_NGX_CUDA_AllocateParameters@Base 515
+ NVSDK_NGX_CUDA_CreateFeature@Base 515
+ NVSDK_NGX_CUDA_DestroyParameters@Base 515
+ NVSDK_NGX_CUDA_EvaluateFeature@Base 515
+ NVSDK_NGX_CUDA_GetCapabilityParameters@Base 515
+ NVSDK_NGX_CUDA_GetParameters@Base 515
+ NVSDK_NGX_CUDA_GetScratchBufferSize@Base 515
+ NVSDK_NGX_CUDA_Init@Base 515
+ NVSDK_NGX_CUDA_Init_Ext@Base 515
+ NVSDK_NGX_CUDA_ReleaseFeature@Base 515
+ NVSDK_NGX_CUDA_Shutdown@Base 515
+ NVSDK_NGX_VULKAN_AllocateParameters@Base 515
+ NVSDK_NGX_VULKAN_CreateFeature1@Base 515
+ NVSDK_NGX_VULKAN_CreateFeature@Base 515
+ NVSDK_NGX_VULKAN_DestroyParameters@Base 515
+ NVSDK_NGX_VULKAN_EvaluateFeature@Base 515
+ NVSDK_NGX_VULKAN_GetCapabilityParameters@Base 515
+ NVSDK_NGX_VULKAN_GetParameters@Base 515
+ NVSDK_NGX_VULKAN_GetScratchBufferSize@Base 515
+ NVSDK_NGX_VULKAN_Init@Base 515
+ NVSDK_NGX_VULKAN_Init_Ext@Base 515
+ NVSDK_NGX_VULKAN_Init_ProjectID@Base 515
+ NVSDK_NGX_VULKAN_ReleaseFeature@Base 515
+ NVSDK_NGX_VULKAN_RequiredExtensions@Base 515
+ NVSDK_NGX_VULKAN_Shutdown1@Base 515
+ NVSDK_NGX_VULKAN_Shutdown@Base 515
 libnvidia-tls.so.#VERSION# #PACKAGE# #MINVER#
  (regex)"^_nv\d*tls@Base$" 0

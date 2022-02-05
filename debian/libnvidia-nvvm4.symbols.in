@@ -1,7 +1,17 @@
 libnvidia-nvvm.so.4 #PACKAGE# #MINVER#
+ NvCliCompileBitcode@Base 515
+ NvCliCompileLogFree@Base 515
+ NvCliCompileProgram@Base 515
+ NvCliCompileSource@Base 515
+ NvCliCompiledProgramFree@Base 515
+ NvCliFreeBuffer@Base 515
+ NvCliGetBufferData@Base 515
+ NvCliLinkBitcode@Base 515
+ NvCliQueryBinaryType@Base 515
  __nvvmHandle@Base 470
  nvvmAddModuleToProgram@Base 470
  nvvmCompileProgram@Base 470
+ nvvmCompilerProperty@Base 515
  nvvmCreateProgram@Base 470
  nvvmDestroyProgram@Base 470
  nvvmGetCompiledResult@Base 470
@@ -12,3 +22,4 @@ libnvidia-nvvm.so.4 #PACKAGE# #MINVER#
  nvvmIRVersion@Base 470
  nvvmLazyAddModuleToProgram@Base 470
  nvvmVerifyProgram@Base 470
+ nvvmVersion@Base 515

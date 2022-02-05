@@ -1,0 +1,17 @@
+libnvidia-fbc.so.1 libnvidia-fbc1 #MINVER#
+* Build-Depends-Package: libnvidia-fbc1
+ NvFBCBindContext@Base 340
+ NvFBCCreateCaptureSession@Base 331.38
+ NvFBCCreateHandle@Base 331.38
+ NvFBCCreateInstance@Base 331.38
+ NvFBCDestroyCaptureSession@Base 331.38
+ NvFBCDestroyHandle@Base 331.38
+ NvFBCGetLastErrorStr@Base 331.38
+ NvFBCGetStatus@Base 331.38
+ NvFBCReleaseContext@Base 340
+ NvFBCToCudaGrabFrame@Base 331.38
+ NvFBCToCudaSetUp@Base 331.38
+ NvFBCToGLGrabFrame@Base 375
+ NvFBCToGLSetUp@Base 375
+ NvFBCToSysGrabFrame@Base 331.38
+ NvFBCToSysSetUp@Base 331.38

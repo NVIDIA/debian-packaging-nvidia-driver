@@ -1,4 +1,4 @@
-libnvidia-compiler.so.515.04 libnvidia-compiler #MINVER#
+libnvidia-compiler.so.#VERSION# #PACKAGE# #MINVER#
  NvCliCompileBitcode@Base 346
  NvCliCompileLogFree@Base 256
  NvCliCompileProgram@Base 256
@@ -8,18 +8,18 @@ libnvidia-compiler.so.515.04 libnvidia-compiler #MINVER#
  NvCliGetBufferData@Base 346
  NvCliLinkBitcode@Base 346
  NvCliQueryBinaryType@Base 349
- __nvvmHandle@Base 515.04-1
- nvvmAddModuleToProgram@Base 515.04-1
- nvvmCompileProgram@Base 515.04-1
+ __nvvmHandle@Base 515
+ nvvmAddModuleToProgram@Base 515
+ nvvmCompileProgram@Base 515
  nvvmCompilerProperty@Base 280
- nvvmCreateProgram@Base 515.04-1
- nvvmDestroyProgram@Base 515.04-1
- nvvmGetCompiledResult@Base 515.04-1
- nvvmGetCompiledResultSize@Base 515.04-1
- nvvmGetErrorString@Base 515.04-1
- nvvmGetProgramLog@Base 515.04-1
- nvvmGetProgramLogSize@Base 515.04-1
- nvvmIRVersion@Base 515.04-1
- nvvmLazyAddModuleToProgram@Base 515.04-1
- nvvmVerifyProgram@Base 515.04-1
- nvvmVersion@Base 515.04-1
+ nvvmCreateProgram@Base 515
+ nvvmDestroyProgram@Base 515
+ nvvmGetCompiledResult@Base 515
+ nvvmGetCompiledResultSize@Base 515
+ nvvmGetErrorString@Base 515
+ nvvmGetProgramLog@Base 515
+ nvvmGetProgramLogSize@Base 515
+ nvvmIRVersion@Base 515
+ nvvmLazyAddModuleToProgram@Base 515
+ nvvmVerifyProgram@Base 515
+ nvvmVersion@Base 515

@@ -1,0 +1,146 @@
+libGLX.so.0 libglx0 | #PACKAGE# #MINVER#
+#MISSING: 384# (arch=i386)AllocExecPages@Base 361
+#MISSING: 384# (arch=i386)AtomicCompareAndSwap@Base 361
+#MISSING: 384# (arch=i386)AtomicDecrementClampAtZero@Base 361
+#MISSING: 384# (arch=i386)AtomicIncrement@Base 361
+#MISSING: 384# (arch=i386)AtomicSwap@Base 361
+#MISSING: 361.42# CurrentContextHashCleanup@Base 361
+#MISSING: 361.45# DisplayClosed@Base 361
+#MISSING: 375.20# FindNextExtensionName@Base 361
+#MISSING: 384# (arch=i386)FindNextStringToken@Base 375
+#MISSING: 384# (arch=i386)FreeExecPages@Base 361
+#MISSING: 384# (arch=i386)GLVND_THREAD_NULL@Base 361
+#MISSING: 384# (arch=i386)IntersectionExtensionStrings@Base 375.20
+#MISSING: 375.20# IsExtensionInString@Base 361
+#MISSING: 384# (arch=i386)IsTokenInString@Base 375
+#MISSING: 384# (arch=i386)LOCAL_GLX_DISPATCH_FUNCTIONS@Base 361.45.18
+#MISSING: 375.20# ParseClientVersionString@Base 361
+#MISSING: 384# (arch=i386)SplitString@Base 375
+#MISSING: 361.42# TeardownVendor@Base 361
+#MISSING: 384# (arch=i386)UnionExtensionStrings@Base 375.20
+#MISSING: 361.45# XGLVQueryExtension@Base 361
+#MISSING: 361.45# XGLVQueryScreenVendorMapping@Base 361
+#MISSING: 361.45# XGLVQueryVersion@Base 361
+#MISSING: 361.45# XGLVQueryXIDScreenMapping@Base 361
+#MISSING: 361.45# XGLVRegisterCloseDisplayCallback@Base 361
+#MISSING: 361.45# XGLVUnregisterCloseDisplayCallbacks@Base 361
+ __GLXGL_CORE_FUNCTIONS@Base 384.111
+#MISSING: 361.28# __glXAddScreenContextMapping@Base 361
+#MISSING: 361.28# __glXAddScreenDrawableMapping@Base 361
+#MISSING: 361.28# __glXAddScreenFBConfigMapping@Base 361
+#MISSING: 361.45# __glXAddScreenVisualMapping@Base 361
+#MISSING: 384# (arch=i386)__glXAddVendorContextMapping@Base 361.28
+#MISSING: 384# (arch=i386)__glXAddVendorDrawableMapping@Base 361.28
+#MISSING: 384# (arch=i386)__glXAddVendorFBConfigMapping@Base 361.28
+#MISSING: 367.27# __glXDispatchNoop@Base 361
+#MISSING: 367.27# __glXDispatchNoopPtr@Base 361
+#MISSING: 384# (arch=i386)__glXDisplayClosed@Base 361.45
+#MISSING: 361.42# __glXFetchDispatchEntry@Base 361
+#MISSING: 361.45# __glXFreeDisplay@Base 361
+ __glXGLLoadGLXFunction@Base 361
+#MISSING: 367.27# __glXGenerateGLXEntrypoint@Base 361
+#MISSING: 384# (arch=i386)__glXGetCurrentDynDispatch@Base 361
+#MISSING: 384# (arch=i386)__glXGetDrawableScreen@Base 361.45
+#MISSING: 361.28# __glXGetDrawableStaticDispatch@Base 361
+#MISSING: 384# (arch=i386)__glXGetDynDispatch@Base 361
+#MISSING: 367.27# __glXGetGLDispatch@Base 361
+#MISSING: 384# (arch=i386)__glXGetGLXDispatchAddress@Base 361
+#MISSING: 367.27# __glXGetStaticDispatch@Base 361
+#MISSING: 384# (arch=i386)__glXLookupDisplay@Base 361
+#MISSING: 384# (arch=i386)__glXLookupVendorByName@Base 361
+#MISSING: 384# (arch=i386)__glXLookupVendorByScreen@Base 361
+#MISSING: 384# (arch=i386)__glXMappingInit@Base 361.45.18
+#MISSING: 384# (arch=i386)__glXMappingTeardown@Base 361
+#MISSING: 361.42# __glXNotifyContextDestroyed@Base 361
+#MISSING: 361.42# __glXPthreadFuncs@Base 361
+#MISSING: 384# (arch=i386)__glXQueryServerString@Base 361.45
+#MISSING: 361.28# __glXRemoveScreenContextMapping@Base 361
+#MISSING: 361.28# __glXRemoveScreenDrawableMapping@Base 361
+#MISSING: 361.28# __glXRemoveScreenFBConfigMapping@Base 361
+#MISSING: 361.45# __glXRemoveScreenVisualMapping@Base 361
+#MISSING: 384# (arch=i386)__glXRemoveVendorContextMapping@Base 361.28
+#MISSING: 384# (arch=i386)__glXRemoveVendorDrawableMapping@Base 361.28
+#MISSING: 384# (arch=i386)__glXRemoveVendorFBConfigMapping@Base 361.28
+#MISSING: 361.28# __glXScreenFromContext@Base 361
+#MISSING: 361.28# __glXScreenFromDrawable@Base 361
+#MISSING: 361.28# __glXScreenFromFBConfig@Base 361
+#MISSING: 384# (arch=i386)__glXThreadInitialize@Base 361
+#MISSING: 384# (arch=i386)__glXVendorFromContext@Base 361
+#MISSING: 384# (arch=i386)__glXVendorFromDrawable@Base 361
+#MISSING: 384# (arch=i386)__glXVendorFromFBConfig@Base 361
+#MISSING: 361.45# __glXVendorFromVisual@Base 361
+#MISSING: 384# (arch=i386)__glvndPthreadFuncs@Base 361.42
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchAllocIndex@Base 361.45.18
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchCleanup@Base 361.45.18
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchFindIndex@Base 361.45.18
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchGetCount@Base 361.45.18
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchGetDispatch@Base 361.45.18
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchGetName@Base 361.45.18
+#MISSING: 384# (arch=i386)__glvndWinsysDispatchInit@Base 361.45.18
+#MISSING: 384# (arch=i386)__glvndWinsysVendorDispatchAddFunc@Base 361.45.18
+#MISSING: 384# (arch=i386)__glvndWinsysVendorDispatchCreate@Base 361.45.18
+#MISSING: 384# (arch=i386)__glvndWinsysVendorDispatchDestroy@Base 361.45.18
+#MISSING: 384# (arch=i386)__glvndWinsysVendorDispatchLookupFunc@Base 361.45.18
+#MISSING: 384# (arch=i386)__glvnd_dbg_printf@Base 361
+#MISSING: 367.27# cacheInitializeOnce@Base 361
+ glXChooseFBConfig@Base 361
+ glXChooseVisual@Base 361
+ glXCopyContext@Base 361
+ glXCreateContext@Base 361
+ glXCreateGLXPixmap@Base 361
+ glXCreateNewContext@Base 361
+ glXCreatePbuffer@Base 361
+ glXCreatePixmap@Base 361
+ glXCreateWindow@Base 361
+ glXDestroyContext@Base 361
+ glXDestroyGLXPixmap@Base 361
+ glXDestroyPbuffer@Base 361
+ glXDestroyPixmap@Base 361
+ glXDestroyWindow@Base 361
+ glXGetClientString@Base 361
+ glXGetConfig@Base 361
+ glXGetCurrentContext@Base 361
+ glXGetCurrentDisplay@Base 361
+ glXGetCurrentDrawable@Base 361
+ glXGetCurrentReadDrawable@Base 361
+ glXGetFBConfigAttrib@Base 361
+ glXGetFBConfigs@Base 361
+ glXGetProcAddress@Base 361
+ glXGetProcAddressARB@Base 361
+ glXGetSelectedEvent@Base 361
+ glXGetVisualFromFBConfig@Base 361
+ glXIsDirect@Base 361
+ glXMakeContextCurrent@Base 361
+ glXMakeCurrent@Base 361
+ glXQueryContext@Base 361
+ glXQueryDrawable@Base 361
+ glXQueryExtension@Base 361
+ glXQueryExtensionsString@Base 361
+ glXQueryServerString@Base 361
+ glXQueryVersion@Base 361
+ glXSelectEvent@Base 361
+ glXSwapBuffers@Base 361
+ glXUseXFont@Base 361
+ glXWaitGL@Base 361
+ glXWaitX@Base 361
+#MISSING: 384# (arch=i386)glvndAppErrorCheckGetEnabled@Base 361.45
+#MISSING: 384# (arch=i386)glvndAppErrorCheckInit@Base 361.45
+#MISSING: 384# (arch=i386)glvndAppErrorCheckReportError@Base 361.45
+#MISSING: 384# (arch=i386)glvndFreeEntrypoints@Base 361
+#MISSING: 384# (arch=i386)glvndGenerateEntrypoint@Base 361
+#MISSING: 384# (arch=i386)glvndSetupPthreads@Base 361
+#MISSING: 384# (arch=i386)glvndUpdateEntrypoints@Base 361
+#MISSING: 384# (arch=i386)glvnd_asprintf@Base 361
+#MISSING: 384# (arch=i386)glvnd_byte_swap16@Base 361
+#MISSING: 384# (arch=i386)glvnd_vasprintf@Base 375
+#MISSING: 384# (arch=i386)mt_mutexattr_destroy@Base 361
+#MISSING: 384# (arch=i386)mt_mutexattr_init@Base 361
+#MISSING: 384# (arch=i386)mt_mutexattr_settype@Base 361
+#MISSING: 361.45# public_entry_end@Base 361
+#MISSING: 361.45# public_entry_start@Base 361
+#MISSING: 384# (arch=i386)st_mutexattr_destroy@Base 361
+#MISSING: 384# (arch=i386)st_mutexattr_init@Base 361
+#MISSING: 384# (arch=i386)st_mutexattr_settype@Base 361
+#MISSING: 384# (arch=i386)st_rwlock_destroy@Base 361
+#MISSING: 384# (arch=i386)st_rwlock_init@Base 361
+#MISSING: 361.45# xglv_ext_name@Base 361
