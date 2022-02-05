@@ -30,8 +30,8 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glBeginQueryIndexed@Base 346
  _glBeginTransformFeedback@Base 346
  _glBeginTransformFeedbackNV@Base 346
-#MISSING: 440# _glBeginVideoCaptureNV@Base 346
-#MISSING: 440# _glBindANCCaptureStreamBufferNVX@Base 346
+#MISSING: 440# (arch=i386)_glBeginVideoCaptureNV@Base 346
+#MISSING: 440# (arch=i386)_glBindANCCaptureStreamBufferNVX@Base 346
  _glBindAttribLocation@Base 346
  _glBindAttribLocationARB@Base 346
  _glBindBuffer@Base 346
@@ -75,8 +75,8 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glBindVertexArrayOES@Base 346
  _glBindVertexBuffer@Base 346
  _glBindVertexBuffers@Base 346
-#MISSING: 440# _glBindVideoCaptureStreamBufferNV@Base 346
-#MISSING: 440# _glBindVideoCaptureStreamTextureNV@Base 346
+#MISSING: 440# (arch=i386)_glBindVideoCaptureStreamBufferNV@Base 346
+#MISSING: 440# (arch=i386)_glBindVideoCaptureStreamTextureNV@Base 346
  _glBitmap@Base 346
  _glBlendBarrier@Base 358
  _glBlendBarrierKHR@Base 346
@@ -466,7 +466,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glDrawElementsInstancedBaseVertexOES@Base 349
  _glDrawElementsInstancedEXT@Base 346
  _glDrawElementsInstancedNV@Base 346
-#MISSING: 367# _glDrawMeshNV@Base 346
+#MISSING: 367# (arch=i386)_glDrawMeshNV@Base 346
  _glDrawMeshTasksIndirectNV@Base 410
  _glDrawMeshTasksNV@Base 410
  _glDrawPixels@Base 346
@@ -527,7 +527,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glEndQueryIndexed@Base 346
  _glEndTransformFeedback@Base 346
  _glEndTransformFeedbackNV@Base 346
-#MISSING: 440# _glEndVideoCaptureNV@Base 346
+#MISSING: 440# (arch=i386)_glEndVideoCaptureNV@Base 346
  _glEvalCoord1d@Base 346
  _glEvalCoord1dv@Base 346
  _glEvalCoord1f@Base 346
@@ -1011,16 +1011,16 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glGetVertexAttribiv@Base 346
  _glGetVertexAttribivARB@Base 346
  _glGetVertexAttribivNV@Base 346
-#MISSING: 440# _glGetVideoCaptureANCStreamivNVX@Base 346
-#MISSING: 440# _glGetVideoCaptureStreamdvNV@Base 346
-#MISSING: 440# _glGetVideoCaptureStreamfvNV@Base 346
-#MISSING: 440# _glGetVideoCaptureStreamivNV@Base 346
-#MISSING: 440# _glGetVideoCaptureivNV@Base 346
-#MISSING: 440# _glGetVideoi64vNV@Base 346
-#MISSING: 440# _glGetVideoivNV@Base 346
-#MISSING: 440# _glGetVideoui64vNV@Base 346
-#MISSING: 440# _glGetVideouivNV@Base 346
-#MISSING: 410# _glGetVkCoreProcAddrNVX@Base 381
+#MISSING: 440# (arch=i386)_glGetVideoCaptureANCStreamivNVX@Base 346
+#MISSING: 440# (arch=i386)_glGetVideoCaptureStreamdvNV@Base 346
+#MISSING: 440# (arch=i386)_glGetVideoCaptureStreamfvNV@Base 346
+#MISSING: 440# (arch=i386)_glGetVideoCaptureStreamivNV@Base 346
+#MISSING: 440# (arch=i386)_glGetVideoCaptureivNV@Base 346
+#MISSING: 440# (arch=i386)_glGetVideoi64vNV@Base 346
+#MISSING: 440# (arch=i386)_glGetVideoivNV@Base 346
+#MISSING: 440# (arch=i386)_glGetVideoui64vNV@Base 346
+#MISSING: 440# (arch=i386)_glGetVideouivNV@Base 346
+#MISSING: 410# (arch=i386)_glGetVkCoreProcAddrNVX@Base 381
  _glGetVkProcAddrNV@Base 364
  _glGetnColorTable@Base 346
  _glGetnColorTableARB@Base 346
@@ -1555,8 +1555,8 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glPopDebugGroupOES@Base 346
  _glPopMatrix@Base 346
  _glPopName@Base 346
-#MISSING: 440# _glPresentFrameDualFillNV@Base 346
-#MISSING: 440# _glPresentFrameKeyedNV@Base 346
+#MISSING: 440# (arch=i386)_glPresentFrameDualFillNV@Base 346
+#MISSING: 440# (arch=i386)_glPresentFrameKeyedNV@Base 346
  _glPrimitiveBoundingBox@Base 358
  _glPrimitiveBoundingBoxARB@Base 358
  _glPrimitiveBoundingBoxEXT@Base 346
@@ -1763,7 +1763,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glQueryCounterEXT@Base 346
  _glQueryCounterNV@Base 346
  _glQueryResourceNV@Base 387
-#MISSING: 387# _glQueryResourceNVX@Base 355
+#MISSING: 387# (arch=i386)_glQueryResourceNVX@Base 355
  _glQueryResourceTagNV@Base 387
  _glRasterPos2d@Base 346
  _glRasterPos2dv@Base 346
@@ -2253,7 +2253,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glUseProgramStages@Base 346
  _glUseProgramStagesEXT@Base 346
  _glUseShaderProgramEXT@Base 346
-#MISSING: 440# _glValidBackBufferHintAutodesk@Base 346
+#MISSING: 440# (arch=i386)_glValidBackBufferHintAutodesk@Base 346
  _glValidateProgram@Base 346
  _glValidateProgramARB@Base 346
  _glValidateProgramPipeline@Base 346
@@ -2548,10 +2548,10 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glVertexP4uiv@Base 346
  _glVertexPointer@Base 346
  _glVertexPointerEXT@Base 346
-#MISSING: 440# _glVideoCaptureNV@Base 346
-#MISSING: 440# _glVideoCaptureStreamParameterdvNV@Base 346
-#MISSING: 440# _glVideoCaptureStreamParameterfvNV@Base 346
-#MISSING: 440# _glVideoCaptureStreamParameterivNV@Base 346
+#MISSING: 440# (arch=i386)_glVideoCaptureNV@Base 346
+#MISSING: 440# (arch=i386)_glVideoCaptureStreamParameterdvNV@Base 346
+#MISSING: 440# (arch=i386)_glVideoCaptureStreamParameterfvNV@Base 346
+#MISSING: 440# (arch=i386)_glVideoCaptureStreamParameterivNV@Base 346
  _glViewport@Base 346
  _glViewportArrayv@Base 346
  _glViewportArrayvNV@Base 346
@@ -2571,7 +2571,7 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glWaitVkSemaphoreNV@Base 364
  _glWeightPathsNV@Base 346
  _glWeightPointerOES@Base 349
-#MISSING: 440# _glWindowBackBufferHintAutodesk@Base 346
+#MISSING: 440# (arch=i386)_glWindowBackBufferHintAutodesk@Base 346
  _glWindowPos2d@Base 346
  _glWindowPos2dARB@Base 346
  _glWindowPos2dv@Base 346
@@ -2606,4 +2606,10 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glWindowPos3svARB@Base 346
  _glWindowRectanglesEXT@Base 375.26
 libnvidia-glsi.so.#VERSION# #PACKAGE# #MINVER#
- (regex)"^_nv\d*glsi@Base$" 0
+ _nv000glsi@Base 0
+ _nv001glsi@Base 0
+ _nv002glsi@Base 0
+ _nv003glsi@Base 0
+ _nv004glsi@Base 0
+ _nv005glsi@Base 0
+ _nv006glsi@Base 0

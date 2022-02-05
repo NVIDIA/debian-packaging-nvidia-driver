@@ -75,16 +75,16 @@ libcuda.so.1 libcuda1 #MINVER# | libcuda.so.1 #MINVER#
  cuDeviceTotalMem@Base 169
  cuDeviceTotalMem_v2@Base 260
  cuDriverGetVersion@Base 185
- cuEGLApiInit@Base 515
- cuEGLStreamConsumerAcquireFrame@Base 515
- cuEGLStreamConsumerConnect@Base 515
- cuEGLStreamConsumerConnectWithFlags@Base 515
- cuEGLStreamConsumerDisconnect@Base 515
- cuEGLStreamConsumerReleaseFrame@Base 515
- cuEGLStreamProducerConnect@Base 515
- cuEGLStreamProducerDisconnect@Base 515
- cuEGLStreamProducerPresentFrame@Base 515
- cuEGLStreamProducerReturnFrame@Base 515
+ (arch=amd64)cuEGLApiInit@Base 515
+ (arch=amd64)cuEGLStreamConsumerAcquireFrame@Base 515
+ (arch=amd64)cuEGLStreamConsumerConnect@Base 515
+ (arch=amd64)cuEGLStreamConsumerConnectWithFlags@Base 515
+ (arch=amd64)cuEGLStreamConsumerDisconnect@Base 515
+ (arch=amd64)cuEGLStreamConsumerReleaseFrame@Base 515
+ (arch=amd64)cuEGLStreamProducerConnect@Base 515
+ (arch=amd64)cuEGLStreamProducerDisconnect@Base 515
+ (arch=amd64)cuEGLStreamProducerPresentFrame@Base 515
+ (arch=amd64)cuEGLStreamProducerReturnFrame@Base 515
  cuEventCreate@Base 169
  cuEventDestroy@Base 169
  cuEventDestroy_v2@Base 270
@@ -199,12 +199,12 @@ libcuda.so.1 libcuda1 #MINVER# | libcuda.so.1 #MINVER#
  cuGraphRetainUserObject@Base 515
  cuGraphUpload@Base 515
  cuGraphUpload_ptsz@Base 515
- cuGraphicsEGLRegisterImage@Base 515
+ (arch=amd64)cuGraphicsEGLRegisterImage@Base 515
  cuGraphicsGLRegisterBuffer@Base 195
  cuGraphicsGLRegisterImage@Base 195
  cuGraphicsMapResources@Base 195
  cuGraphicsMapResources_ptsz@Base 346
- cuGraphicsResourceGetMappedEglFrame@Base 515
+ (arch=amd64)cuGraphicsResourceGetMappedEglFrame@Base 515
  cuGraphicsResourceGetMappedMipmappedArray@Base 304
  cuGraphicsResourceGetMappedPointer@Base 195
  cuGraphicsResourceGetMappedPointer_v2@Base 260
