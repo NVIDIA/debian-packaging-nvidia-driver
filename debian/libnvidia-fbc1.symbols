@@ -1,5 +1,5 @@
-libnvidia-fbc.so.1 #PACKAGE# #MINVER#
-* Build-Depends-Package: #PACKAGE#
+libnvidia-fbc.so.1 libnvidia-fbc1 #MINVER#
+* Build-Depends-Package: libnvidia-fbc1
  NvFBCBindContext@Base 340
  NvFBCCreateCaptureSession@Base 331.38
  NvFBCCreateHandle@Base 331.38
@@ -13,8 +13,5 @@ libnvidia-fbc.so.1 #PACKAGE# #MINVER#
  NvFBCToCudaSetUp@Base 331.38
  NvFBCToGLGrabFrame@Base 375
  NvFBCToGLSetUp@Base 375
-#MISSING: 352# NvFBCToH264GetHeader@Base 331.38
-#MISSING: 352# NvFBCToH264GrabFrame@Base 331.38
-#MISSING: 352# NvFBCToH264SetUp@Base 331.38
  NvFBCToSysGrabFrame@Base 331.38
  NvFBCToSysSetUp@Base 331.38

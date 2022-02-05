@@ -1,5 +1,5 @@
-libnvidia-opencl.so.1 #PACKAGE# #MINVER#
+libnvidia-opencl.so.1 nvidia-opencl-icd #MINVER#
  clGetExportTable@Base 304.30
  clGetExtensionFunctionAddress@Base 304.30
  clGetPlatformInfo@Base 304.30
-#MISSING: 378# cuGetExportTable@Base 361
+ cuGetExportTable@Base 515.04-1

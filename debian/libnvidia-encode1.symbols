@@ -1,4 +1,4 @@
-libnvidia-encode.so.1 #PACKAGE# #MINVER#
-* Build-Depends-Package: #PACKAGE#
+libnvidia-encode.so.1 libnvidia-encode1 #MINVER#
+* Build-Depends-Package: libnvidia-encode1
  NvEncodeAPICreateInstance@Base 310
  NvEncodeAPIGetMaxSupportedVersion@Base 367

@@ -1,36 +1,135 @@
-# We use alternative dependency templates:
-# * In each template "ocl-icd-libopencl1" (maybe versioned) is used as the
-#   first alternative so that, by default, the free ICD Loader will be
-#   installed on a Debian system
-#   We use it on all parts as dependencies can be reordered (see #739409)
-# * The first template (default template) is in fact always added (see #737731)
-#   by dpkg-shlibdeps
-#   This always generates an alternate dependency on the virtual package
-#   "libopencl1"
-# * The next template is for symbols specific to this implementation
-#   There should be none, as their usage would prevent using alternate
-#   implementations of libOpenCL.so.1
-#   This is the only exception as there will be neither an "ocl-icd-libopencl1"
-#   nor any other alternative to "#PACKAGE# #MINVER#"
-# * the following ones are for symbols from OpenCL 1.0, 1.1, 1.2, 2.0, ...
-#   They all generate a dependency on the versioned virtual package
-#   "libopencl-VERSION-1" (the last -1 is the soversion of current libopencl)
-#   Note: as OpenCL 1.0 does not really support ICD and as OpenCL 1.1 is
-#     supported by all current implementation, OpenCL 1.0 is treated as
-#     OpenCL 1.1 with respect to dependencies
-#   Note bis: #MINVER# is used with the real package, however, as
-#     ocl-icd-libopencl1 and #PACKAGE# provides the virtual packages, this
-#     version enforcement is purely cosmetic
-libOpenCL.so.1 ocl-icd-libopencl1 | #PACKAGE# #MINVER# | libopencl1
-# symbols specific to this implementation - would forbid using alternate implementations
-| #PACKAGE# #MINVER#
-# symbols conforming to the OpenCL standards - can use alternate implementations
-| ocl-icd-libopencl1 (>= 1.0)	| #PACKAGE# #MINVER# | libopencl-1.1-1
-| ocl-icd-libopencl1 (>= 1.0)	| #PACKAGE# #MINVER# | libopencl-1.2-1
-| ocl-icd-libopencl1 (>= 2.2.0)	| #PACKAGE# #MINVER# | libopencl-2.0-1
-# As NVIDIA uses versioned symbols, we use this information instead of
-# listing all symbols.
- (symver|optional)OPENCL_1.0 0 2
- (symver|optional)OPENCL_1.1 260 2
- (symver|optional)OPENCL_1.2 349 3
- (symver|optional)OPENCL_2.0 378 4
+libOpenCL.so.1 ocl-icd-libopencl1 | nvidia-libopencl1 #MINVER# | libopencl1
+| nvidia-libopencl1 #MINVER#
+| ocl-icd-libopencl1 (>= 1.0)	| nvidia-libopencl1 #MINVER# | libopencl-1.1-1
+| ocl-icd-libopencl1 (>= 1.0)	| nvidia-libopencl1 #MINVER# | libopencl-1.2-1
+| ocl-icd-libopencl1 (>= 2.2.0)	| nvidia-libopencl1 #MINVER# | libopencl-2.0-1
+ OPENCL_1.0@OPENCL_1.0 0 2
+ OPENCL_1.1@OPENCL_1.1 260 2
+ OPENCL_1.2@OPENCL_1.2 349 3
+ OPENCL_2.0@OPENCL_2.0 378 4
+ OPENCL_2.1@OPENCL_2.1 515.04-1
+ OPENCL_2.2@OPENCL_2.2 515.04-1
+ OPENCL_3.0@OPENCL_3.0 515.04-1
+ clBuildProgram@OPENCL_1.0 0 2
+ clCloneKernel@OPENCL_2.1 515.04-1
+ clCompileProgram@OPENCL_1.2 349 3
+ clCreateBuffer@OPENCL_1.0 0 2
+ clCreateBufferWithProperties@OPENCL_3.0 515.04-1
+ clCreateCommandQueue@OPENCL_1.0 0 2
+ clCreateCommandQueueWithProperties@OPENCL_2.0 378 4
+ clCreateContext@OPENCL_1.0 0 2
+ clCreateContextFromType@OPENCL_1.0 0 2
+ clCreateFromGLBuffer@OPENCL_1.0 0 2
+ clCreateFromGLRenderbuffer@OPENCL_1.0 0 2
+ clCreateFromGLTexture2D@OPENCL_1.0 0 2
+ clCreateFromGLTexture3D@OPENCL_1.0 0 2
+ clCreateFromGLTexture@OPENCL_1.2 349 3
+ clCreateImage2D@OPENCL_1.0 0 2
+ clCreateImage3D@OPENCL_1.0 0 2
+ clCreateImage@OPENCL_1.2 349 3
+ clCreateImageWithProperties@OPENCL_3.0 515.04-1
+ clCreateKernel@OPENCL_1.0 0 2
+ clCreateKernelsInProgram@OPENCL_1.0 0 2
+ clCreatePipe@OPENCL_2.0 378 4
+ clCreateProgramWithBinary@OPENCL_1.0 0 2
+ clCreateProgramWithBuiltInKernels@OPENCL_1.2 349 3
+ clCreateProgramWithIL@OPENCL_2.1 515.04-1
+ clCreateProgramWithSource@OPENCL_1.0 0 2
+ clCreateSampler@OPENCL_1.0 0 2
+ clCreateSamplerWithProperties@OPENCL_2.0 378 4
+ clCreateSubBuffer@OPENCL_1.1 260 2
+ clCreateSubDevices@OPENCL_1.2 349 3
+ clCreateUserEvent@OPENCL_1.1 260 2
+ clEnqueueAcquireGLObjects@OPENCL_1.0 0 2
+ clEnqueueBarrier@OPENCL_1.0 0 2
+ clEnqueueBarrierWithWaitList@OPENCL_1.2 349 3
+ clEnqueueCopyBuffer@OPENCL_1.0 0 2
+ clEnqueueCopyBufferRect@OPENCL_1.1 260 2
+ clEnqueueCopyBufferToImage@OPENCL_1.0 0 2
+ clEnqueueCopyImage@OPENCL_1.0 0 2
+ clEnqueueCopyImageToBuffer@OPENCL_1.0 0 2
+ clEnqueueFillBuffer@OPENCL_1.2 349 3
+ clEnqueueFillImage@OPENCL_1.2 349 3
+ clEnqueueMapBuffer@OPENCL_1.0 0 2
+ clEnqueueMapImage@OPENCL_1.0 0 2
+ clEnqueueMarker@OPENCL_1.0 0 2
+ clEnqueueMarkerWithWaitList@OPENCL_1.2 349 3
+ clEnqueueMigrateMemObjects@OPENCL_1.2 349 3
+ clEnqueueNDRangeKernel@OPENCL_1.0 0 2
+ clEnqueueNativeKernel@OPENCL_1.0 0 2
+ clEnqueueReadBuffer@OPENCL_1.0 0 2
+ clEnqueueReadBufferRect@OPENCL_1.1 260 2
+ clEnqueueReadImage@OPENCL_1.0 0 2
+ clEnqueueReleaseGLObjects@OPENCL_1.0 0 2
+ clEnqueueSVMFree@OPENCL_2.0 378 4
+ clEnqueueSVMMap@OPENCL_2.0 378 4
+ clEnqueueSVMMemFill@OPENCL_2.0 378 4
+ clEnqueueSVMMemcpy@OPENCL_2.0 378 4
+ clEnqueueSVMMigrateMem@OPENCL_2.1 515.04-1
+ clEnqueueSVMUnmap@OPENCL_2.0 378 4
+ clEnqueueTask@OPENCL_1.0 0 2
+ clEnqueueUnmapMemObject@OPENCL_1.0 0 2
+ clEnqueueWaitForEvents@OPENCL_1.0 0 2
+ clEnqueueWriteBuffer@OPENCL_1.0 0 2
+ clEnqueueWriteBufferRect@OPENCL_1.1 260 2
+ clEnqueueWriteImage@OPENCL_1.0 0 2
+ clFinish@OPENCL_1.0 0 2
+ clFlush@OPENCL_1.0 0 2
+ clGetCommandQueueInfo@OPENCL_1.0 0 2
+ clGetContextInfo@OPENCL_1.0 0 2
+ clGetDeviceAndHostTimer@OPENCL_2.1 515.04-1
+ clGetDeviceIDs@OPENCL_1.0 0 2
+ clGetDeviceInfo@OPENCL_1.0 0 2
+ clGetEventInfo@OPENCL_1.0 0 2
+ clGetEventProfilingInfo@OPENCL_1.0 0 2
+ clGetExtensionFunctionAddress@OPENCL_1.0 0 2
+ clGetExtensionFunctionAddressForPlatform@OPENCL_1.2 349 3
+ clGetGLObjectInfo@OPENCL_1.0 0 2
+ clGetGLTextureInfo@OPENCL_1.0 0 2
+ clGetHostTimer@OPENCL_2.1 515.04-1
+ clGetImageInfo@OPENCL_1.0 0 2
+ clGetKernelArgInfo@OPENCL_1.2 349 3
+ clGetKernelInfo@OPENCL_1.0 0 2
+ clGetKernelSubGroupInfo@OPENCL_2.1 515.04-1
+ clGetKernelWorkGroupInfo@OPENCL_1.0 0 2
+ clGetMemObjectInfo@OPENCL_1.0 0 2
+ clGetPipeInfo@OPENCL_2.0 378 4
+ clGetPlatformIDs@OPENCL_1.0 0 2
+ clGetPlatformInfo@OPENCL_1.0 0 2
+ clGetProgramBuildInfo@OPENCL_1.0 0 2
+ clGetProgramInfo@OPENCL_1.0 0 2
+ clGetSamplerInfo@OPENCL_1.0 0 2
+ clGetSupportedImageFormats@OPENCL_1.0 0 2
+ clLinkProgram@OPENCL_1.2 349 3
+ clReleaseCommandQueue@OPENCL_1.0 0 2
+ clReleaseContext@OPENCL_1.0 0 2
+ clReleaseDevice@OPENCL_1.2 349 3
+ clReleaseEvent@OPENCL_1.0 0 2
+ clReleaseKernel@OPENCL_1.0 0 2
+ clReleaseMemObject@OPENCL_1.0 0 2
+ clReleaseProgram@OPENCL_1.0 0 2
+ clReleaseSampler@OPENCL_1.0 0 2
+ clRetainCommandQueue@OPENCL_1.0 0 2
+ clRetainContext@OPENCL_1.0 0 2
+ clRetainDevice@OPENCL_1.2 349 3
+ clRetainEvent@OPENCL_1.0 0 2
+ clRetainKernel@OPENCL_1.0 0 2
+ clRetainMemObject@OPENCL_1.0 0 2
+ clRetainProgram@OPENCL_1.0 0 2
+ clRetainSampler@OPENCL_1.0 0 2
+ clSVMAlloc@OPENCL_2.0 378 4
+ clSVMFree@OPENCL_2.0 378 4
+ clSetCommandQueueProperty@OPENCL_1.0 0 2
+ clSetContextDestructorCallback@OPENCL_3.0 515.04-1
+ clSetDefaultDeviceCommandQueue@OPENCL_2.1 515.04-1
+ clSetEventCallback@OPENCL_1.1 260 2
+ clSetKernelArg@OPENCL_1.0 0 2
+ clSetKernelArgSVMPointer@OPENCL_2.0 378 4
+ clSetKernelExecInfo@OPENCL_2.0 378 4
+ clSetMemObjectDestructorCallback@OPENCL_1.1 260 2
+ clSetProgramReleaseCallback@OPENCL_2.2 515.04-1
+ clSetProgramSpecializationConstant@OPENCL_2.2 515.04-1
+ clSetUserEventStatus@OPENCL_1.1 260 2
+ clUnloadCompiler@OPENCL_1.0 0 2
+ clUnloadPlatformCompiler@OPENCL_1.2 349 3
+ clWaitForEvents@OPENCL_1.0 0 2
