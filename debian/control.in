@@ -36,7 +36,7 @@ Depends:
  xserver-xorg-video-${nvidia} (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-vdpau-driver (= ${binary:Version}) [${nvidia:arch:has-driver}],
  ${nvidia}-alternative (= ${binary:Version}) [${nvidia:arch:has-driver}],
- ${nvidia:kmod:binary} | ${nvidia}-kernel-dkms-open (= ${binary:Version}) [${nvidia:arch:has-driver}],
+ ${nvidia:kmod:binary} | ${nvidia}-kernel-open-dkms (= ${binary:Version}) [${nvidia:arch:has-driver}],
  nvidia-support [${nvidia:arch:has-driver}],
  ${misc:Depends}
 Recommends:
