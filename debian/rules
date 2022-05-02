@@ -82,11 +82,12 @@ CONTROL_PREFIXES	+= nvidia-vdpau-driver
 CONTROL_PREFIXES	+= libcuda1
 CONTROL_PREFIXES	+= libnvcuvid1
 CONTROL_PREFIXES	+= libnvoptix1
+CONTROL_PREFIXES	+= libcudadebugger1
 CONTROL_PREFIXES	+= nvidia-smi
 CONTROL_PREFIXES	+= nvidia-opencl-icd
 RENAME_libcuda1		 = $(libcuda1)
 RENAME_libnvcuvid1	 = lib$(nvidia_if_variant)nvcuvid1
-RENAME_libnvoptix1	 = lib$(nvidia_if_variant)nvoptix1
+RENAME_libcudadebugger1	 = lib$(nvidia_if_variant)cudadebugger1
 renamed_prefix		 = $(or $(RENAME_$1),$(subst nvidia,$(if $(filter %nvidia0 %nvidia1 %nvidia2,$1),$(nvidia-),$(nvidia)),$1))
 CONTROL_PREFIXES_RENAMED = $(foreach p,$(CONTROL_PREFIXES),$(call renamed_prefix,$p))
 

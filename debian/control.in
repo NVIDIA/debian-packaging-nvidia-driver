@@ -976,6 +976,21 @@ Description: NVIDIA CUDA 32-bit runtime library${nvidia:VariantDesc}
  library when installing ${libcuda1} on amd64 with foreign
  architecture i386 enabled.
 
+Package: lib${nvidia-if-variant}cudadebugger1
+Architecture: amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${libcuda1} (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA CUDA Debugger
+ The Compute Unified Device Architecture (CUDA) enables NVIDIA
+ graphics processing units (GPUs) to be used for massively parallel
+ general purpose computation.
+ .
+ This package contains the NVIDIA Debugger library.
+
 Package: lib${nvidia}-compiler
 Architecture: i386 amd64
 Multi-Arch: same
