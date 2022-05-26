@@ -1116,6 +1116,21 @@ Description: NVIDIA Optical Flow runtime library${nvidia:VariantDesc}
  .
  This package contains the Optical Flow runtime library.
 
+Package: lib${nvidia}-pkcs11
+Architecture: amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${libcuda1} (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA pkcs runtime library${nvidia:VariantDesc}
+ The NVIDIA binary driver provides optimized hardware acceleration of
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
+ .
+ This package contains the private nvidia-pkcs runtime library.
+
 Package: lib${nvidia}-allocator1
 Architecture: i386 amd64 ${arch:ppc64el}
 Multi-Arch: same
