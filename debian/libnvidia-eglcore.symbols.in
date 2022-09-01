@@ -2031,7 +2031,6 @@ libnvidia-eglcore.so.#VERSION# #PACKAGE# #MINVER#
  _glTexParameterfv@Base 346
  _glTexParameteri@Base 346
  _glTexParameteriv@Base 346
- _glTexParametervNVX@Base 396
  _glTexParameterx@Base 346
  _glTexParameterxv@Base 346
  _glTexRenderbufferNV@Base 346

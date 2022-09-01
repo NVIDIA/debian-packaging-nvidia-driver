@@ -2008,7 +2008,6 @@ libGLX_nvidia.so.0 libglx-nvidia0 #MINVER#
  glTexParameterfv@Base 361.28
  glTexParameteri@Base 361.28
  glTexParameteriv@Base 361.28
- glTexParametervNVX@Base 396
  glTexParameterx@Base 361.28
  glTexParameterxv@Base 361.28
  glTexRenderbufferNV@Base 361.28
