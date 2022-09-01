@@ -1146,6 +1146,20 @@ Description: NVIDIA allocator runtime library${nvidia:VariantDesc}
  .
  This package contains the private nvidia-allocator runtime library.
 
+Package: lib${nvidia}-api1
+Architecture: amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA API runtime library${nvidia:VariantDesc}
+ The NVIDIA binary driver provides optimized hardware acceleration of
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
+ .
+ This package contains the private nvidia-api runtime library.
+
 Package: nvidia-opencl-common
 Architecture: i386 amd64 ppc64el
 Multi-Arch: foreign

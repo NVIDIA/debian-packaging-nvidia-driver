@@ -1,0 +1,2 @@
+libnvidia-api.so.1 libnvidia-api1 #MINVER#
+ nvapi_QueryInterface@Base 525.16
