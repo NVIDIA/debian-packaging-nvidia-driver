@@ -36,7 +36,6 @@ libcudadebugger.so.1 libcudadebugger1 #MINVER#
  _ZTIN5boost6system6detail22generic_error_categoryE@Base 520
  _ZTIN5boost6system6detail22interop_error_categoryE@Base 520
  _ZTIN5boost9exceptionE@Base 520
- _ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE@Base 520
  _ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE@Base 520
  _ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE@Base 520
  _ZTSN5boost16exception_detail10clone_baseE@Base 520
@@ -47,7 +46,6 @@ libcudadebugger.so.1 libcudadebugger1 #MINVER#
  _ZTSN5boost6system6detail22generic_error_categoryE@Base 520
  _ZTSN5boost6system6detail22interop_error_categoryE@Base 520
  _ZTSN5boost9exceptionE@Base 520
- _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE@Base 520
  _ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE@Base 520
  _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE@Base 520
  _ZTSSt19_Sp_make_shared_tag@Base 520
