@@ -5,7 +5,7 @@ Index: kernel/Kbuild
 ===================================================================
 --- kernel.orig/Kbuild
 +++ kernel/Kbuild
-@@ -121,6 +121,16 @@ NV_CONFTEST_HEADERS += $(obj)/conftest/h
+@@ -157,6 +157,16 @@ NV_CONFTEST_HEADERS += $(obj)/conftest/h
  NV_CONFTEST_HEADERS += $(NV_CONFTEST_COMPILE_TEST_HEADERS)
  
  
@@ -22,7 +22,7 @@ Index: kernel/Kbuild
  #
  # Generate a header file for a single conftest compile test. Each compile test
  # header depends on conftest.sh, as well as the generated conftest/headers.h
-@@ -145,6 +155,8 @@ define NV_GENERATE_COMPILE_TEST_HEADER
+@@ -181,6 +191,8 @@ define NV_GENERATE_COMPILE_TEST_HEADER
  	@mkdir -p $(obj)/conftest
  	@# concatenate /dev/null to prevent cat from hanging when $$^ is empty
  	@cat $$^ /dev/null > $$@
@@ -31,7 +31,7 @@ Index: kernel/Kbuild
  endef
  
  #
-@@ -164,7 +176,7 @@ $(eval $(call NV_GENERATE_COMPILE_TEST_H
+@@ -200,7 +212,7 @@ $(eval $(call NV_GENERATE_COMPILE_TEST_H
  $(eval $(call NV_GENERATE_COMPILE_TEST_HEADER,symbols,$(NV_CONFTEST_SYMBOL_COMPILE_TESTS)))
  $(eval $(call NV_GENERATE_COMPILE_TEST_HEADER,types,$(NV_CONFTEST_TYPE_COMPILE_TESTS)))
  
@@ -40,12 +40,12 @@ Index: kernel/Kbuild
  	@mkdir -p $(obj)/conftest
  	@$(NV_CONFTEST_CMD) patch_check > $@
  
-@@ -259,7 +271,7 @@ NV_HEADER_PRESENCE_PART = $(addprefix $(
+@@ -295,7 +307,7 @@ NV_HEADER_PRESENCE_PART = $(addprefix $(
  
  # Define a rule to check the header $(1).
  define NV_HEADER_PRESENCE_CHECK
-- $$(call NV_HEADER_PRESENCE_PART,$(1)): $$(NV_CONFTEST_SCRIPT)
-+ $$(call NV_HEADER_PRESENCE_PART,$(1)): $$(NV_CONFTEST_SCRIPT) conftest-verbose
+- $$(call NV_HEADER_PRESENCE_PART,$(1)): $$(NV_CONFTEST_SCRIPT) $(obj)/conftest/uts_release
++ $$(call NV_HEADER_PRESENCE_PART,$(1)): $$(NV_CONFTEST_SCRIPT) $(obj)/conftest/uts_release conftest-verbose
  	@mkdir -p $$(dir $$@)
  	@$$(NV_CONFTEST_CMD) test_kernel_header '$$(NV_CONFTEST_CFLAGS)' '$(1)' > $$@
  endef
