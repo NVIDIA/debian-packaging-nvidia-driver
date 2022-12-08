@@ -1,1 +1,1 @@
-libnvidia-pkcs11.so.#VERSION#		#LIBDIR#
+libnvidia-pkcs11*.so.#VERSION#		#LIBDIR#
