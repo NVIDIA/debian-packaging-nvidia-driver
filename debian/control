@@ -804,24 +804,6 @@ Description: NVIDIA CUDA 32-bit runtime library${nvidia:VariantDesc}
  library when installing ${libcuda1} on amd64 with foreign
  architecture i386 enabled.
 
-Package: libnvidia-compiler
-Architecture: i386 amd64
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-compiler-${nvidia:Version},
-Conflicts:
- libnvidia-compiler-${nvidia:Version},
-Description: NVIDIA runtime compiler library${nvidia:VariantDesc}
- The Compute Unified Device Architecture (CUDA) enables NVIDIA
- graphics processing units (GPUs) to be used for massively parallel
- general purpose computation.
- .
- This package contains the runtime compiler library.
-
 Package: libnvidia-nvvm4
 Architecture: i386 amd64
 Multi-Arch: same
