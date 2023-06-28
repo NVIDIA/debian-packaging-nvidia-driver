@@ -991,24 +991,6 @@ Description: NVIDIA CUDA Debugger
  .
  This package contains the NVIDIA Debugger library.
 
-Package: lib${nvidia}-compiler
-Architecture: i386 amd64
-Multi-Arch: same
-Pre-Depends:
- ${misc:Pre-Depends}
-Depends:
- ${shlibs:Depends}, ${misc:Depends}
-Provides:
- libnvidia-compiler-${nvidia:Version},
-Conflicts:
- libnvidia-compiler-${nvidia:Version},
-Description: NVIDIA runtime compiler library${nvidia:VariantDesc}
- The Compute Unified Device Architecture (CUDA) enables NVIDIA
- graphics processing units (GPUs) to be used for massively parallel
- general purpose computation.
- .
- This package contains the runtime compiler library.
-
 Package: lib${nvidia}-nvvm4
 Architecture: i386 amd64 ${arch:ppc64el}
 Multi-Arch: same
@@ -1116,6 +1098,21 @@ Description: NVIDIA Optical Flow runtime library${nvidia:VariantDesc}
  .
  This package contains the Optical Flow runtime library.
 
+Package: lib${nvidia}-pkcs11
+Architecture: amd64
+Multi-Arch: same
+Pre-Depends:
+ ${misc:Pre-Depends}
+Depends:
+ ${libcuda1} (= ${binary:Version}),
+ ${shlibs:Depends}, ${misc:Depends}
+Description: NVIDIA pkcs runtime library${nvidia:VariantDesc}
+ The NVIDIA binary driver provides optimized hardware acceleration of
+ OpenGL/GLX/EGL/GLES applications via a direct-rendering X Server
+ for graphics cards using NVIDIA chip sets.
+ .
+ This package contains the private nvidia-pkcs runtime library.
+
 Package: lib${nvidia}-allocator1
 Architecture: i386 amd64 ${arch:ppc64el}
 Multi-Arch: same
@@ -1173,7 +1170,6 @@ Depends:
  ocl-icd-libopencl1 | nvidia-libopencl1 | libopencl1,
  ${nvidia}-alternative (= ${binary:Version}),
  ${libcuda1} (= ${binary:Version}),
- lib${nvidia}-compiler (= ${binary:Version}) [!ppc64el],
  ${shlibs:Depends}, ${misc:Depends}
 Enhances:
  libopencl1,

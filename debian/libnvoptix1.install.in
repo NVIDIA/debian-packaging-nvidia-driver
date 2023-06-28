@@ -1,1 +1,2 @@
 libnvoptix.so.#VERSION#	#LIBDIR#/#PRIVATE#/
+nvoptix.bin usr/share/nvidia/
